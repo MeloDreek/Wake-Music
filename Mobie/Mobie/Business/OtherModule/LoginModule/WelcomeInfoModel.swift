@@ -35,7 +35,7 @@ struct WelcomeInfoModel {
         let model1 = WelcomeInfoModel(isTapeStyle: true, title: "", descStr: "", iconName: "", backColor: .clear)
         
         let fileStr = AudioExtension.audioSuffixs.map { $0.uppercased() }.joined(separator: ", ")
-        let model2 = WelcomeInfoModel(title: "All Formats Supported".localStr(), descStr: fileStr + "...", iconName: "welcome_music", backColor: UIColor.rgb(210, 202, 240))
+        let model2 = WelcomeInfoModel(title: "Supports All Formats".localStr(), descStr: fileStr + "...", iconName: "welcome_music", backColor: UIColor.rgb(210, 202, 240))
         
         let importArray: [ImportFileType] = ImportFileType.welcomeArray()
         let connectStr = importArray.map { $0.titleStr() }.joined(separator: " & ")

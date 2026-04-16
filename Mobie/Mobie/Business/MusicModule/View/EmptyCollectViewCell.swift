@@ -215,7 +215,7 @@ class EmptyCollectViewCell: UICollectionViewCell {
     }()
     
     lazy var formatButton: UIButton = {
-        let text = "All Formats Supported".localStr()
+        let text = "Supports All Formats".localStr()
         
         let view = UIButton()
         view.layer.borderColor = appMainColor.cgColor

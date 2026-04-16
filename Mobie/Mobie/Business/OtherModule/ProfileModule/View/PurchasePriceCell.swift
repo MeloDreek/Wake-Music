@@ -108,7 +108,7 @@ class PurchasePriceCell: UITableViewCell {
             if let freeTrialDays = weeklyModel.freeTrialDays, freeTrialDays > 0 {
                 self.timeLabel.text = String(format: "Free Trial for %@ Days".localStr(), "\(freeTrialDays)")
             }else{
-                self.timeLabel.text = "短期试用"
+                self.timeLabel.text = "Short-term Trial".localStr()
             }
         }
         

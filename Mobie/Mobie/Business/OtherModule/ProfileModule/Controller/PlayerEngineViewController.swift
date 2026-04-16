@@ -104,7 +104,7 @@ extension PlayerEngineViewController: UITableViewDataSource, UITableViewDelegate
         if indexPath.section == dataArray.count {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ExportTableViewCell", for: indexPath)
             var cellConfig = UIListContentConfiguration.cell()
-            cellConfig.text = "All Formats Supported".localStr()
+            cellConfig.text = "Supports All Formats".localStr()
             #if !targetEnvironment(macCatalyst)
             cellConfig.textProperties.font = UIFontBold(17.ckValue())
             #endif

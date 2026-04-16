@@ -160,7 +160,7 @@ class PurchaseViewController: SuperViewController {
             let isVIP = UserInfoManager.shared.isVIP()
             
             if vModel.productIdentifier == PurchaseStoreID.weekly.rawValue {
-                tipsLabel.text = String(format: "%@ days".localStr(), "7")
+                tipsLabel.text = "Auto-renews. Cancel anytime.".localStr()
                 buyoutButton.setTitle("Time-limited purchase".localStr(), for: .normal)
             }else if vModel.productIdentifier == PurchaseStoreID.lifetime198.rawValue {
                 tipsLabel.text = "One time purchase, valid forever".localStr()

@@ -70,11 +70,11 @@ class ImportViewController: SuperViewController {
         tempArray.append(model3)
         
         let footArray: [ImportFileType] = [.fromYandexDrive, .fromBoxDrive, .fromePCloud]
-        var footStr = "Coming Soon".localStr() + "\r\n" + footArray.map { $0.titleStr() }.joined(separator: " & ") + "..."
-        if UserInfoManager.shared.isVIP() {
-            footStr = ""
-        }
-        let model4 = ImportGroupModel(group: .driveGroup, headTitle: "Cloud Drive".localStr(), itemArray: ImportFileType.cloudDriveArray(), footTitle: footStr)
+//        var footStr = "Coming Soon".localStr() + "\r\n" + footArray.map { $0.titleStr() }.joined(separator: " & ") + "..."
+//        if UserInfoManager.shared.isVIP() {
+//            footStr = ""
+//        }
+        let model4 = ImportGroupModel(group: .driveGroup, headTitle: "Cloud Drive".localStr(), itemArray: ImportFileType.cloudDriveArray(), footTitle: nil)
         tempArray.append(model4)
                 
         return tempArray
