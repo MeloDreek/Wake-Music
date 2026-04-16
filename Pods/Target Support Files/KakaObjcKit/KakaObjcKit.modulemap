@@ -1,0 +1,6 @@
+framework module KakaObjcKit {
+  umbrella header "KakaObjcKit-umbrella.h"
+
+  export *
+  module * { export * }
+}

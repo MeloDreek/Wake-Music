@@ -1,0 +1,293 @@
+PODS:
+  - AppAuth (2.0.0):
+    - AppAuth/Core (= 2.0.0)
+    - AppAuth/ExternalUserAgent (= 2.0.0)
+  - AppAuth/Core (2.0.0)
+  - AppAuth/ExternalUserAgent (2.0.0):
+    - AppAuth/Core
+  - AppCheckCore (11.2.0):
+    - GoogleUtilities/Environment (~> 8.0)
+    - GoogleUtilities/UserDefaults (~> 8.0)
+    - PromisesObjC (~> 2.4)
+  - AppGroupKit (1.0.0):
+    - KakaFoundation
+    - KakaObjcKit
+    - KakaTaglibKit
+    - KakaUIKit
+  - Firebase (11.12.0):
+    - Firebase/Core (= 11.12.0)
+  - Firebase/AnalyticsWithoutAdIdSupport (11.12.0):
+    - Firebase/CoreOnly
+    - FirebaseAnalytics/WithoutAdIdSupport (~> 11.12.0)
+  - Firebase/Core (11.12.0):
+    - Firebase/CoreOnly
+    - FirebaseAnalytics (~> 11.12.0)
+  - Firebase/CoreOnly (11.12.0):
+    - FirebaseCore (~> 11.12.0)
+  - FirebaseAnalytics (11.12.0):
+    - FirebaseAnalytics/AdIdSupport (= 11.12.0)
+    - FirebaseCore (~> 11.12.0)
+    - FirebaseInstallations (~> 11.0)
+    - GoogleUtilities/AppDelegateSwizzler (~> 8.0)
+    - GoogleUtilities/MethodSwizzler (~> 8.0)
+    - GoogleUtilities/Network (~> 8.0)
+    - "GoogleUtilities/NSData+zlib (~> 8.0)"
+    - nanopb (~> 3.30910.0)
+  - FirebaseAnalytics/AdIdSupport (11.12.0):
+    - FirebaseCore (~> 11.12.0)
+    - FirebaseInstallations (~> 11.0)
+    - GoogleAppMeasurement (= 11.12.0)
+    - GoogleUtilities/AppDelegateSwizzler (~> 8.0)
+    - GoogleUtilities/MethodSwizzler (~> 8.0)
+    - GoogleUtilities/Network (~> 8.0)
+    - "GoogleUtilities/NSData+zlib (~> 8.0)"
+    - nanopb (~> 3.30910.0)
+  - FirebaseAnalytics/WithoutAdIdSupport (11.12.0):
+    - FirebaseCore (~> 11.12.0)
+    - FirebaseInstallations (~> 11.0)
+    - GoogleAppMeasurement/WithoutAdIdSupport (= 11.12.0)
+    - GoogleUtilities/AppDelegateSwizzler (~> 8.0)
+    - GoogleUtilities/MethodSwizzler (~> 8.0)
+    - GoogleUtilities/Network (~> 8.0)
+    - "GoogleUtilities/NSData+zlib (~> 8.0)"
+    - nanopb (~> 3.30910.0)
+  - FirebaseCore (11.12.0):
+    - FirebaseCoreInternal (~> 11.12.0)
+    - GoogleUtilities/Environment (~> 8.0)
+    - GoogleUtilities/Logger (~> 8.0)
+  - FirebaseCoreExtension (11.12.0):
+    - FirebaseCore (~> 11.12.0)
+  - FirebaseCoreInternal (11.12.0):
+    - "GoogleUtilities/NSData+zlib (~> 8.0)"
+  - FirebaseCrashlytics (11.12.0):
+    - FirebaseCore (~> 11.12.0)
+    - FirebaseInstallations (~> 11.0)
+    - FirebaseRemoteConfigInterop (~> 11.0)
+    - FirebaseSessions (~> 11.0)
+    - GoogleDataTransport (~> 10.0)
+    - GoogleUtilities/Environment (~> 8.0)
+    - nanopb (~> 3.30910.0)
+    - PromisesObjC (~> 2.4)
+  - FirebaseInstallations (11.12.0):
+    - FirebaseCore (~> 11.12.0)
+    - GoogleUtilities/Environment (~> 8.0)
+    - GoogleUtilities/UserDefaults (~> 8.0)
+    - PromisesObjC (~> 2.4)
+  - FirebaseRemoteConfigInterop (11.13.0)
+  - FirebaseSessions (11.12.0):
+    - FirebaseCore (~> 11.12.0)
+    - FirebaseCoreExtension (~> 11.12.0)
+    - FirebaseInstallations (~> 11.0)
+    - GoogleDataTransport (~> 10.0)
+    - GoogleUtilities/Environment (~> 8.0)
+    - GoogleUtilities/UserDefaults (~> 8.0)
+    - nanopb (~> 3.30910.0)
+    - PromisesSwift (~> 2.1)
+  - FLAnimatedImage (1.0.17)
+  - GCDWebServer/Core (3.5.4)
+  - GCDWebServer/WebUploader (3.5.4):
+    - GCDWebServer/Core
+  - GoogleAppMeasurement (11.12.0):
+    - GoogleAppMeasurement/AdIdSupport (= 11.12.0)
+    - GoogleUtilities/AppDelegateSwizzler (~> 8.0)
+    - GoogleUtilities/MethodSwizzler (~> 8.0)
+    - GoogleUtilities/Network (~> 8.0)
+    - "GoogleUtilities/NSData+zlib (~> 8.0)"
+    - nanopb (~> 3.30910.0)
+  - GoogleAppMeasurement/AdIdSupport (11.12.0):
+    - GoogleAppMeasurement/WithoutAdIdSupport (= 11.12.0)
+    - GoogleUtilities/AppDelegateSwizzler (~> 8.0)
+    - GoogleUtilities/MethodSwizzler (~> 8.0)
+    - GoogleUtilities/Network (~> 8.0)
+    - "GoogleUtilities/NSData+zlib (~> 8.0)"
+    - nanopb (~> 3.30910.0)
+  - GoogleAppMeasurement/WithoutAdIdSupport (11.12.0):
+    - GoogleUtilities/AppDelegateSwizzler (~> 8.0)
+    - GoogleUtilities/MethodSwizzler (~> 8.0)
+    - GoogleUtilities/Network (~> 8.0)
+    - "GoogleUtilities/NSData+zlib (~> 8.0)"
+    - nanopb (~> 3.30910.0)
+  - GoogleDataTransport (10.1.0):
+    - nanopb (~> 3.30910.0)
+    - PromisesObjC (~> 2.4)
+  - GoogleSignIn (9.0.0):
+    - AppAuth (~> 2.0)
+    - AppCheckCore (~> 11.0)
+    - GTMAppAuth (~> 5.0)
+    - GTMSessionFetcher/Core (~> 3.3)
+  - GoogleUtilities/AppDelegateSwizzler (8.1.0):
+    - GoogleUtilities/Environment
+    - GoogleUtilities/Logger
+    - GoogleUtilities/Network
+    - GoogleUtilities/Privacy
+  - GoogleUtilities/Environment (8.1.0):
+    - GoogleUtilities/Privacy
+  - GoogleUtilities/Logger (8.1.0):
+    - GoogleUtilities/Environment
+    - GoogleUtilities/Privacy
+  - GoogleUtilities/MethodSwizzler (8.1.0):
+    - GoogleUtilities/Logger
+    - GoogleUtilities/Privacy
+  - GoogleUtilities/Network (8.1.0):
+    - GoogleUtilities/Logger
+    - "GoogleUtilities/NSData+zlib"
+    - GoogleUtilities/Privacy
+    - GoogleUtilities/Reachability
+  - "GoogleUtilities/NSData+zlib (8.1.0)":
+    - GoogleUtilities/Privacy
+  - GoogleUtilities/Privacy (8.1.0)
+  - GoogleUtilities/Reachability (8.1.0):
+    - GoogleUtilities/Logger
+    - GoogleUtilities/Privacy
+  - GoogleUtilities/UserDefaults (8.1.0):
+    - GoogleUtilities/Logger
+    - GoogleUtilities/Privacy
+  - GTMAppAuth (5.0.0):
+    - AppAuth/Core (~> 2.0)
+    - GTMSessionFetcher/Core (< 4.0, >= 3.3)
+  - GTMSessionFetcher/Core (3.5.0)
+  - JXSegmentedView (1.4.1)
+  - KakaFoundation (1.0.0):
+    - SmartCodable
+  - KakaObjcKit (1.0.0)
+  - KakaPhotoBrowser (1.0.0):
+    - SDWebImage (~> 5.19.1)
+    - SDWebImageFLPlugin (~> 0.6.0)
+  - KakaTaglibKit (2.0.2)
+  - KakaUIKit (1.0.0):
+    - KakaFoundation
+    - NVActivityIndicatorView
+    - SnapKit (~> 5.7.1)
+  - nanopb (3.30910.0):
+    - nanopb/decode (= 3.30910.0)
+    - nanopb/encode (= 3.30910.0)
+  - nanopb/decode (3.30910.0)
+  - nanopb/encode (3.30910.0)
+  - NVActivityIndicatorView (5.2.0):
+    - NVActivityIndicatorView/Base (= 5.2.0)
+  - NVActivityIndicatorView/Base (5.2.0)
+  - ProgressHUD (14.1.1)
+  - PromisesObjC (2.4.0)
+  - PromisesSwift (2.4.0):
+    - PromisesObjC (= 2.4.0)
+  - SDWebImage (5.19.7):
+    - SDWebImage/Core (= 5.19.7)
+  - SDWebImage/Core (5.19.7)
+  - SDWebImageFLPlugin (0.6.0):
+    - FLAnimatedImage (>= 1.0.11)
+    - SDWebImage/Core (~> 5.10)
+  - SmartCodable (5.1.2):
+    - SmartCodable/Core (= 5.1.2)
+  - SmartCodable/Core (5.1.2)
+  - SnapKit (5.7.1)
+  - SwiftyDropbox (10.2.0)
+  - WakeMusicPlayer (1.0.0)
+
+DEPENDENCIES:
+  - AppGroupKit (from `./LocalSDK/AppGroupKit`)
+  - Firebase
+  - Firebase/AnalyticsWithoutAdIdSupport
+  - FirebaseCrashlytics
+  - GCDWebServer/WebUploader (~> 3.5.4)
+  - GoogleSignIn (~> 9.0.0)
+  - JXSegmentedView (~> 1.4.1)
+  - KakaFoundation (from `./LocalSDK/KakaFoundation`)
+  - KakaObjcKit (from `./LocalSDK/KakaObjcKit`)
+  - KakaPhotoBrowser (from `./LocalSDK/KakaPhotoBrowser`)
+  - KakaTaglibKit (from `./LocalSDK/KakaTaglibKit`)
+  - KakaUIKit (from `./LocalSDK/KakaUIKit`)
+  - ProgressHUD (~> 14.1.1)
+  - SwiftyDropbox (~> 10.2.0)
+  - WakeMusicPlayer (from `./LocalSDK/WakeMusicPlayer`)
+
+SPEC REPOS:
+  https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git:
+    - AppAuth
+    - AppCheckCore
+    - Firebase
+    - FirebaseAnalytics
+    - FirebaseCore
+    - FirebaseCoreExtension
+    - FirebaseCoreInternal
+    - FirebaseCrashlytics
+    - FirebaseInstallations
+    - FirebaseRemoteConfigInterop
+    - FirebaseSessions
+    - FLAnimatedImage
+    - GCDWebServer
+    - GoogleAppMeasurement
+    - GoogleDataTransport
+    - GoogleSignIn
+    - GoogleUtilities
+    - GTMAppAuth
+    - GTMSessionFetcher
+    - JXSegmentedView
+    - nanopb
+    - NVActivityIndicatorView
+    - ProgressHUD
+    - PromisesObjC
+    - PromisesSwift
+    - SDWebImage
+    - SDWebImageFLPlugin
+    - SmartCodable
+    - SnapKit
+    - SwiftyDropbox
+
+EXTERNAL SOURCES:
+  AppGroupKit:
+    :path: "./LocalSDK/AppGroupKit"
+  KakaFoundation:
+    :path: "./LocalSDK/KakaFoundation"
+  KakaObjcKit:
+    :path: "./LocalSDK/KakaObjcKit"
+  KakaPhotoBrowser:
+    :path: "./LocalSDK/KakaPhotoBrowser"
+  KakaTaglibKit:
+    :path: "./LocalSDK/KakaTaglibKit"
+  KakaUIKit:
+    :path: "./LocalSDK/KakaUIKit"
+  WakeMusicPlayer:
+    :path: "./LocalSDK/WakeMusicPlayer"
+
+SPEC CHECKSUMS:
+  AppAuth: 1c1a8afa7e12f2ec3a294d9882dfa5ab7d3cb063
+  AppCheckCore: cc8fd0a3a230ddd401f326489c99990b013f0c4f
+  AppGroupKit: 3b3d2dec739ef581c065f1324d565894eb64d7d0
+  Firebase: 735108d2d0b67827cd929bfe8254983907c4479f
+  FirebaseAnalytics: 2979c21ead00c520feff30db97ebadd669442f2a
+  FirebaseCore: 9d7a0caf39ec7317fbe13b3c7864c8c2acc60da8
+  FirebaseCoreExtension: 5e42645fd3f7c2c59ea5ed7641dd58f02bc565d1
+  FirebaseCoreInternal: 480d23e21f699cc7bcbc3d8eaa301f15d1e3ffaf
+  FirebaseCrashlytics: 90ea664e2b9dcf1aa5087ec6f684e9a0035d2378
+  FirebaseInstallations: 41189d8b11007152d9e46ec844019f38a0a4282a
+  FirebaseRemoteConfigInterop: 7915cec47731a806cda541f90898ad0fab8f9f86
+  FirebaseSessions: 2c0ea8956085570415601d64cc7ebe83c8dd5c93
+  FLAnimatedImage: bbf914596368867157cc71b38a8ec834b3eeb32b
+  GCDWebServer: 2c156a56c8226e2d5c0c3f208a3621ccffbe3ce4
+  GoogleAppMeasurement: 6ee0ee888bb1db802c49049001adb4013d7fe41b
+  GoogleDataTransport: aae35b7ea0c09004c3797d53c8c41f66f219d6a7
+  GoogleSignIn: c7f09cfbc85a1abf69187be091997c317cc33b77
+  GoogleUtilities: 00c88b9a86066ef77f0da2fab05f65d7768ed8e1
+  GTMAppAuth: 217a876b249c3c585a54fd6f73e6b58c4f5c4238
+  GTMSessionFetcher: 5aea5ba6bd522a239e236100971f10cb71b96ab6
+  JXSegmentedView: cd73555ce2134d1656db2cb383ba9c2f36fb5078
+  KakaFoundation: f760f25261fdd131d9adf3c818f6689bdb28ba79
+  KakaObjcKit: 6c034e9016ec6001aeb050154e6b9e7ad1f6b75b
+  KakaPhotoBrowser: 802a1b6a5d1b898450474dcc8d16d48255a5a765
+  KakaTaglibKit: 27007d2892630af7fdf60e0c4d958d38826335ae
+  KakaUIKit: 3dc82c8742d53aba7aa95d189b1ff5639ca6d03a
+  nanopb: fad817b59e0457d11a5dfbde799381cd727c1275
+  NVActivityIndicatorView: fe52a6a68664c2df8991d7d9e3d86d8d19453c53
+  ProgressHUD: abb9136ae23c85204236828562cb9a8ec98efb44
+  PromisesObjC: f5707f49cb48b9636751c5b2e7d227e43fba9f47
+  PromisesSwift: 9d77319bbe72ebf6d872900551f7eeba9bce2851
+  SDWebImage: 8a6b7b160b4d710e2a22b6900e25301075c34cb3
+  SDWebImageFLPlugin: 72efd2cfbf565bc438421abb426f4bcf7b670754
+  SmartCodable: 545dd052990fe7e80085463b79a1a5e462ee29ff
+  SnapKit: d612e99e678a2d3b95bf60b0705ed0a35c03484a
+  SwiftyDropbox: e18dd068602b5e51252d0a61aad32b41946d0bf1
+  WakeMusicPlayer: 6d7ff038405541492944454e1a56cff5de9e5ce7
+
+PODFILE CHECKSUM: 6d0d5415ec9adfa3902da8b859311c1ffacfa1a8
+
+COCOAPODS: 1.16.2

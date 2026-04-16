@@ -1,0 +1,31 @@
+{
+  "name": "KakaPhotoBrowser",
+  "version": "1.0.0",
+  "summary": "A beautiful photo browser with interactive dismissal animation.",
+  "homepage": "https://github.com/KakaPhotoBrowser",
+  "license": "MIT",
+  "authors": {
+    "Melo": "MeloDreek@gmail.com"
+  },
+  "social_media_url": "https://kaka.com/",
+  "platforms": {
+    "ios": "11.0"
+  },
+  "source": {
+    "git": "https://www.passlockapp.com/KakaPhotoBrowser.git",
+    "tag": "1.0.0"
+  },
+  "source_files": [
+    "KakaPhotoBrowser",
+    "KakaPhotoBrowser/**/*.{h,m}"
+  ],
+  "frameworks": "UIKit",
+  "dependencies": {
+    "SDWebImage": [
+      "~> 5.19.1"
+    ],
+    "SDWebImageFLPlugin": [
+      "~> 0.6.0"
+    ]
+  }
+}

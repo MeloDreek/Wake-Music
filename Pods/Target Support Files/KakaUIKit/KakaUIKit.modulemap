@@ -1,0 +1,6 @@
+framework module KakaUIKit {
+  umbrella header "KakaUIKit-umbrella.h"
+
+  export *
+  module * { export * }
+}

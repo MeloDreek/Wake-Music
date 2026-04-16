@@ -1,0 +1,6 @@
+framework module KakaPhotoBrowser {
+  umbrella header "KakaPhotoBrowser-umbrella.h"
+
+  export *
+  module * { export * }
+}

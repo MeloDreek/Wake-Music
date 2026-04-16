@@ -1,0 +1,26 @@
+{
+  "name": "KakaFoundation",
+  "version": "1.0.0",
+  "summary": "KakaFoundation.",
+  "homepage": "https://www.passlockapp.com/",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": "MeloDreek@gmail.com",
+  "source": {
+    "git": "https://www.passlockapp.com/KakaFoundation.git",
+    "tag": "1.0.0"
+  },
+  "platforms": {
+    "ios": "14.0",
+    "osx": "10.15"
+  },
+  "requires_arc": true,
+  "static_framework": false,
+  "source_files": "Classes/**/*.swift",
+  "frameworks": "AVFoundation",
+  "dependencies": {
+    "SmartCodable": []
+  }
+}

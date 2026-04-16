@@ -1,0 +1,317 @@
+//
+//  KakaMusicPlayer+Play.swift
+//  Wake Music
+//
+//  Created by Melo on 9/4/24.
+//
+
+import KakaFoundation
+import AppGroupKit
+import AVFAudio
+import Toast
+import MediaPlayer
+import KSPlayer
+import KakaTaglibKit
+
+extension KakaMusicPlayer {
+    
+    @MainActor
+    public func startPlayMusic(musics: [MusicItemModel], itemIndex: Int) {
+        
+        if musics.count <= itemIndex { return }
+        
+        if self.isPlaying {
+            self.playerView.resetPlayer()
+        }
+        MusicConfigManager.shared.lastPlayTime = 0
+        
+        self.musicArray = musics
+        self.tempMusicArray = musics
+        
+        let model = musics[itemIndex]
+        self.playingMusic = model
+        
+        self.play()
+    }
+
+}
+
+extension KakaMusicPlayer {
+    
+    
+    // 播放
+    @MainActor func play() {
+        
+        guard var model = self.playingMusic else { return }
+        
+        let isPremiumType = AudioExtensionType.premiumExtensions().contains(model.mediaPlayURL.pathExtension.lowercased())
+        if !UserInfoManager.shared.isVIP() && isPremiumType && (model.fileSourceType != .demoFile) {
+            self.currentViewController()?.showOneAlert(title: "Reminder".localStr(), message: "The system's built-in AVPlayer can't decode this format. Please switch the Player Engine.".localStr(), confirm: "OK".localStr()) {
+                let navVC = KakaNavigationController(rootViewController: PlayerEngineViewController())
+                navVC.modalPresentationStyle = kaka_IsiPad() ? .fullScreen : .automatic
+                self.currentViewController()?.present(navVC, animated: true)
+            }
+            return
+        }
+        
+        if let playerLayer = self.playerView.playerLayer, playerLayer.player.playbackState == .paused, self.playingMusic?.mediaPlayURL == playerLayer.url {
+            // 继续播放
+            debugPrint("继续播放")
+        }else{
+            // 开始播放
+            self.currentTime = 0
+            self.playbackStatus = .buffering
+            self.totalTime = TimeInterval(model.durationSeconds)
+            
+            self.updateNowPlayingInfo(musicModel: model)
+            self.deleteAllM3uCache() // 删除所有m3u缓存文件
+                                    
+            if let cacheURL = SandboxFileManager.shared.getDownloadPlayURL(model) {
+                // 优先读取缓存路径
+                let meteData = TaglibMetadataParser.readMetadata(withFileURL: cacheURL, read: .all)
+                let newLyric = meteData?.lyricModel?.convertSwiftModel()
+                self.playingMusic?.lyricModel = newLyric
+                
+                model.mediaPlayURL = cacheURL
+                self.playingMusic?.mediaPlayURL = cacheURL
+                
+                debugPrint("开始播放缓存 = \(cacheURL)")
+                
+                self.playerView.set(url: cacheURL, options: self.audioOption(model))
+            }else{
+                if let _ = model.baiduFileModel {
+                    // 1️⃣获取百度的播放地址
+                    self.handleBaiduStreaming(model)
+                    return
+                }else if let _ = model.aliFileModel {
+                    // 2️⃣ 获取阿里云盘的播放地址
+                    self.handleAliyunpanStreaming(model)
+                    return
+                }else if let _ = model.drive115Model {
+                    // 3️⃣ 获取115的播放地址
+                    self.handle115DriveStreaming(model)
+                    return
+                }else if let _ = model.dropboxFile {
+                    // 4️⃣ 获取Dropbox的播放地址
+                    self.handleDropboxStreaming(model)
+                    return
+                }else if let _ = model.googleFile {
+                    // 5️⃣ 获取Google的播放地址
+                    self.handleGoogleStreaming(model)
+                    return
+                }else if let _ = model.onedriveFile {
+                    // 6️⃣ 获取OneDrive的播放地址
+                    self.handleOneDriveStreaming(model)
+                    return
+                }
+                else{
+                    debugPrint("开始播放新URL = \(model.mediaPlayURL)")
+                    self.playerView.set(url: model.mediaPlayURL, options: self.audioOption(model))
+                }
+            }
+            
+            let lastPlayTime = MusicConfigManager.shared.lastPlayTime
+
+            if lastPlayTime > 0 {
+                self.seek(time: lastPlayTime)
+            }
+            
+            self.setupLocalNotification(model)
+        }
+        
+        self.playbackRate = MusicConfigManager.shared.playRate
+        
+        self.playerView.play()
+        
+        self.setupRemoteTransportControls()
+        self.updateNowPlayingInfo(musicModel: model)
+        self.fetchLrcLyricContent()
+    }
+    
+    // 继续播放
+    @MainActor func continueToPlay(_ model: MusicItemModel) {
+        
+        self.setupLocalNotification(model)
+        
+        self.playbackRate = MusicConfigManager.shared.playRate
+//        self.playerView.set(url: model.mediaPlayURL, options: self.audioOption(model))
+        self.playerView.play()
+        
+        self.setupRemoteTransportControls()
+        self.updateNowPlayingInfo(musicModel: model)
+        self.fetchLrcLyricContent()
+    }
+
+    // 暂停
+    @MainActor func pause() {
+        self.playerView.pause()
+    }
+    
+    // 停止
+    @MainActor func stop() {
+        self.cacheCoverImage = nil
+        self.playerView.playerLayer?.stop()
+
+        self.currentTime = 0
+        self.totalTime = 0
+    }
+    
+    // 拖动播放进度
+    @MainActor func seek(time: TimeInterval) {
+        
+        self.lastUpdateTime = 0
+        self.playbackStatus = .buffering
+        self.currentTime = time
+        
+        self.lastUpdateTime = 0
+        self.playerView.slider(value: time, event: .touchUpInside)
+        
+    }
+    
+    
+    // 单曲循环
+    @MainActor func replaySingleItem() {
+        guard let musicModel = self.playingMusic else { return }
+        
+        if self.isPlaying {
+            self.playerView.resetPlayer()
+        }
+        MusicConfigManager.shared.lastPlayTime = 0
+        
+        self.playingMusic = musicModel
+        self.play()
+    }
+    
+    /// 播放上一首
+    @MainActor func playLastItem() {
+
+        var index = 0
+        
+        index = self.musicArray.firstIndex(where: { $0 == self.playingMusic }) ?? 0
+        
+        index = index - 1
+        if (index >= self.musicArray.count) || (index < 0) {
+            index = 0
+        }
+        
+        self.playAtIndex(index)
+        
+    }
+    
+    // 播放下一首
+    @MainActor func playNextItem() {
+        
+        
+        if let nextPlayMusic = self.nextPlayMusic {
+            if self.isPlaying {
+                self.playerView.resetPlayer()
+            }
+            
+            MusicConfigManager.shared.lastPlayTime = 0
+            
+            self.playingMusic = nextPlayMusic
+            self.play()
+        }else{
+            var index = 0
+            
+            if self.musicArray.count <= 1 {
+                self.replaySingleItem()
+                return
+            }
+            
+            let orderType = MusicConfigManager.shared.orderType
+            let isRealRandom = MusicConfigManager.shared.randomType == .trueRandom
+            
+            if isRealRandom && orderType == .random {
+                // 真随机
+                index = Int.random(in: 0..<self.musicArray.count)
+            }else{
+                // 按顺序
+                index = self.musicArray.firstIndex(where: { $0 == self.playingMusic }) ?? 0
+                index = index + 1
+            }
+                
+            
+            if (index >= self.musicArray.count) || (index < 0) {
+                index = 0
+            }
+            
+            self.playAtIndex(index)
+        }
+    }
+    
+    // 播放某首歌
+    @MainActor func playAtIndex(_ index: Int) {
+                
+        var model: MusicItemModel?
+        if index >= 0 && (index < musicArray.count) {
+            model = self.musicArray[index]
+        }else{
+            model = self.musicArray.first
+        }
+        
+        self.playingMusic = model
+        
+        if self.isPlaying {
+            self.playerView.resetPlayer()
+        }
+        
+        MusicConfigManager.shared.lastPlayTime = 0
+        
+        guard let _ = model else { return }
+        
+        self.play()
+    }
+    
+    
+}
+
+extension KakaMusicPlayer {
+    
+    // 设置定时器
+    @MainActor func setupSleepTimer() {
+        guard let sleepTime = MusicConfigManager.shared.sleepTime else {
+            self.sleepTimer.stopTimer()
+            MusicConfigManager.shared.sleepTime = nil
+            self.sleepTime = 0
+            return
+        }
+        
+        var time: TimeInterval = sleepTime
+        self.sleepTimer.startTimer(seconds: 1, repeats: true, callSoon: true) { [weak self] vTimer in
+            time -= 1
+            
+            if time <= 0 {
+                self?.pause()
+                MusicConfigManager.shared.sleepTime = nil
+                self?.sleepTimer.stopTimer()
+                self?.sleepTime = 0
+            }else{
+                self?.sleepTime = time
+            }
+            
+        }
+    }
+    
+    /// Mac设置本地通知提醒
+    func setupLocalNotification(_ model: MusicItemModel) {
+        guard kaka_IsMacOS() else { return }
+        
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
+            if !granted { return }
+            
+            let content = UNMutableNotificationContent()
+            content.title = model.showTitleName()
+            content.body = model.showArtistName()
+            content.sound = nil
+
+            // 设置触发器：立即触发（1 秒后）
+            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1, repeats: false)
+
+            let request = UNNotificationRequest(identifier: "wake_music_push", content: content, trigger: trigger)
+
+            UNUserNotificationCenter.current().add(request)
+        }
+    }
+    
+}

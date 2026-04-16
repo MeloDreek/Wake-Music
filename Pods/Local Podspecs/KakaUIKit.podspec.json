@@ -1,0 +1,34 @@
+{
+  "name": "KakaUIKit",
+  "version": "1.0.0",
+  "summary": "KakaUIKit.",
+  "homepage": "https://www.passlockapp.com/",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": "MeloDreek@gmail.com",
+  "source": {
+    "git": "https://www.passlockapp.com//KakaUIKit.git",
+    "tag": "1.0.0"
+  },
+  "platforms": {
+    "ios": "14.0"
+  },
+  "requires_arc": true,
+  "static_framework": true,
+  "source_files": "Classes/**/*.swift",
+  "frameworks": [
+    "CoreGraphics",
+    "AudioToolbox",
+    "QuartzCore"
+  ],
+  "resources": "Classes/Reasource/*.{png,svg,csv,bundle}",
+  "dependencies": {
+    "SnapKit": [
+      "~> 5.7.1"
+    ],
+    "KakaFoundation": [],
+    "NVActivityIndicatorView": []
+  }
+}

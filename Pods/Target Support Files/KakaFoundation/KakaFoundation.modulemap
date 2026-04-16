@@ -1,0 +1,6 @@
+framework module KakaFoundation {
+  umbrella header "KakaFoundation-umbrella.h"
+
+  export *
+  module * { export * }
+}

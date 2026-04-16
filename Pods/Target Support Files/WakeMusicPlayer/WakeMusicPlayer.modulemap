@@ -1,0 +1,6 @@
+framework module WakeMusicPlayer {
+  umbrella header "WakeMusicPlayer-umbrella.h"
+
+  export *
+  module * { export * }
+}

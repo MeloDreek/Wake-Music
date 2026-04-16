@@ -1,0 +1,6 @@
+framework module AppGroupKit {
+  umbrella header "AppGroupKit-umbrella.h"
+
+  export *
+  module * { export * }
+}
