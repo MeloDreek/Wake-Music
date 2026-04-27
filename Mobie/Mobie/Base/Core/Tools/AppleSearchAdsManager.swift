@@ -12,7 +12,7 @@ import AdServices
 import SmartCodable
 
 /// Apple返回的广告归因数据
-struct ADServerInfoModel: SmartCodable {
+struct ADServerInfoModel: SmartCodableX {
 
     /// 来自ASA的安装 = true
     var attribution: Bool = false
@@ -50,7 +50,7 @@ struct ADServerInfoModel: SmartCodable {
 }
 
 /// 量江湖返回的广告归因详细信息，包括具体的关键词
-struct AdAttributionResult: SmartCodable {
+struct AdAttributionResult: SmartCodableX {
 
     /// 是否归因成功
     var attribution: Bool = false
@@ -94,7 +94,7 @@ struct AdAttributionResult: SmartCodable {
 }
 
 /// 上报归因事件的参数模型
-struct PostbackParameter: SmartCodable {
+struct PostbackParameter: SmartCodableX {
     
     /// 软件ID
     var app_id: String = Application.wakeMusic.appstoreID()

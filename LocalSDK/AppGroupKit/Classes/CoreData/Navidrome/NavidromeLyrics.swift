@@ -7,7 +7,7 @@
 
 import SmartCodable
 
-public struct NavidromeLyrics: SmartCodable {
+public struct NavidromeLyrics: SmartCodableX {
     
     public init(artist: String, title: String, value: String? = nil) {
         self.artist = artist

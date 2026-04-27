@@ -12,7 +12,7 @@ import SmartCodable
 
 
 /// 只参与本地的数据存储---远程头像单独获取
-public class UserInfoManager: SmartCodable, ObservableObject {
+public class UserInfoManager: SmartCodableX, ObservableObject {
     
     static public var shared = UserInfoManager.read() ?? UserInfoManager()
     

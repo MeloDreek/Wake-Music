@@ -9,7 +9,7 @@ import SmartCodable
 import AppGroupKit
 
 // MARK:  1️⃣文件列表接口
-struct Response115FilesModel: SmartCodable {
+struct Response115FilesModel: SmartCodableX {
     
     /// 状态
     var state: Bool = false
@@ -55,7 +55,7 @@ struct Response115FilesModel: SmartCodable {
 
 // MARK:  2️⃣刷新token的接口
 /// 刷新115网盘Token的返回数据
-struct Response115RefreshModel: SmartCodable {
+struct Response115RefreshModel: SmartCodableX {
     /// 状态
     var state: Bool = false
     
@@ -87,7 +87,7 @@ struct Response115RefreshModel: SmartCodable {
 
 // MARK:  3️⃣下载接口
 /// 获取115文件下载地址
-struct Response115DownloadModel: SmartCodable {
+struct Response115DownloadModel: SmartCodableX {
     
     /// 状态
     var state: Bool = false
@@ -130,7 +130,7 @@ struct Response115DownloadModel: SmartCodable {
     
 }
 
-struct Download115FileInfo: SmartCodable {
+struct Download115FileInfo: SmartCodableX {
     var fileName: String = ""
     var fileSize: Int = 0
     var pickCode: String = ""
@@ -138,6 +138,6 @@ struct Download115FileInfo: SmartCodable {
     var url: File115URLInfo?
 }
 
-struct File115URLInfo: SmartCodable {
+struct File115URLInfo: SmartCodableX {
     var url: String = ""
 }

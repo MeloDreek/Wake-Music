@@ -7,7 +7,7 @@
 
 import SmartCodable
 
-struct GoogleErrorResponse: SmartCodable {
+struct GoogleErrorResponse: SmartCodableX {
     var error: GoogleDriveErrorDetail?
     
     // 需要重新登录
@@ -45,14 +45,14 @@ struct GoogleErrorResponse: SmartCodable {
     }
 }
 
-struct GoogleDriveErrorDetail: SmartCodable {
+struct GoogleDriveErrorDetail: SmartCodableX {
     var code: Int?
     var message: String = ""
     var errors: [GoogleDriveErrorItem]?
     var status: String = ""
 }
 
-struct GoogleDriveErrorItem: SmartCodable {
+struct GoogleDriveErrorItem: SmartCodableX {
     var message: String = ""
     var domain: String = ""
     var reason: String = ""
@@ -62,7 +62,7 @@ struct GoogleDriveErrorItem: SmartCodable {
 
 
 
-struct GoogleTokenResponse: SmartCodable {
+struct GoogleTokenResponse: SmartCodableX {
     var access_token: String = ""
     var expires_in: TimeInterval = 0
     var token_type: String = ""

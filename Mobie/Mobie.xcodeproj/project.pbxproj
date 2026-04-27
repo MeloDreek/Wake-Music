@@ -552,6 +552,8 @@
 		22AB5CE82D6EB31E006E10BC /* ConnectedSourceTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AB5CE72D6EB31E006E10BC /* ConnectedSourceTableCell.swift */; };
 		22ABC7862D227A98003568CF /* WebdavFileListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22ABC7852D227A98003568CF /* WebdavFileListController.swift */; };
 		22ABC7882D229E7F003568CF /* FileListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22ABC7872D229E7F003568CF /* FileListTableViewCell.swift */; };
+		22AE9BFF2F9FA9F200630B10 /* SearchArtistTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AE9BFE2F9FA9F200630B10 /* SearchArtistTableCell.swift */; };
+		22AE9C002F9FA9F200630B10 /* SearchArtistTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AE9BFE2F9FA9F200630B10 /* SearchArtistTableCell.swift */; };
 		22B1AD472DE0668500DEBED0 /* PlayerStyleDefaultTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B1AD462DE0668500DEBED0 /* PlayerStyleDefaultTableCell.swift */; };
 		22B1AD482DE0668500DEBED0 /* PlayerStyleDefaultTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B1AD462DE0668500DEBED0 /* PlayerStyleDefaultTableCell.swift */; };
 		22B1AD4A2DE0671000DEBED0 /* PlayerStyleTapeTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B1AD492DE0671000DEBED0 /* PlayerStyleTapeTableCell.swift */; };
@@ -618,8 +620,6 @@
 		22D16A632DDC5D38008A5F8B /* PlayBackgroundStype+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D16A612DDC5D38008A5F8B /* PlayBackgroundStype+Extension.swift */; };
 		22D16A652DDC8123008A5F8B /* PlayBackgroundListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D16A642DDC8123008A5F8B /* PlayBackgroundListController.swift */; };
 		22D16A662DDC8123008A5F8B /* PlayBackgroundListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D16A642DDC8123008A5F8B /* PlayBackgroundListController.swift */; };
-		22DCC35D2D9D6C22003094E2 /* ConnectRootDriveViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DCC35C2D9D6C22003094E2 /* ConnectRootDriveViewCell.swift */; };
-		22DCC35E2D9D6C22003094E2 /* ConnectRootDriveViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DCC35C2D9D6C22003094E2 /* ConnectRootDriveViewCell.swift */; };
 		22E1F0F82D0717F90025EAD9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 228A13642CA00F5600E2948E /* Main.storyboard */; };
 		22EA9D852DCCB34800D64EEA /* MacTabbarViewController+Play.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EA9D842DCCB34800D64EEA /* MacTabbarViewController+Play.swift */; };
 		22EA9D862DCCB34800D64EEA /* MacTabbarViewController+Play.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EA9D842DCCB34800D64EEA /* MacTabbarViewController+Play.swift */; };
@@ -936,6 +936,7 @@
 		22AB5CE72D6EB31E006E10BC /* ConnectedSourceTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectedSourceTableCell.swift; sourceTree = "<group>"; };
 		22ABC7852D227A98003568CF /* WebdavFileListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebdavFileListController.swift; sourceTree = "<group>"; };
 		22ABC7872D229E7F003568CF /* FileListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileListTableViewCell.swift; sourceTree = "<group>"; };
+		22AE9BFE2F9FA9F200630B10 /* SearchArtistTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchArtistTableCell.swift; sourceTree = "<group>"; };
 		22B1AD462DE0668500DEBED0 /* PlayerStyleDefaultTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerStyleDefaultTableCell.swift; sourceTree = "<group>"; };
 		22B1AD492DE0671000DEBED0 /* PlayerStyleTapeTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerStyleTapeTableCell.swift; sourceTree = "<group>"; };
 		22B1AD4C2DE0674200DEBED0 /* PlayerStyleVinylTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerStyleVinylTableCell.swift; sourceTree = "<group>"; };
@@ -973,7 +974,6 @@
 		22D16A5B2DDC1EB8008A5F8B /* PlayerUICellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerUICellModel.swift; sourceTree = "<group>"; };
 		22D16A612DDC5D38008A5F8B /* PlayBackgroundStype+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlayBackgroundStype+Extension.swift"; sourceTree = "<group>"; };
 		22D16A642DDC8123008A5F8B /* PlayBackgroundListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayBackgroundListController.swift; sourceTree = "<group>"; };
-		22DCC35C2D9D6C22003094E2 /* ConnectRootDriveViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectRootDriveViewCell.swift; sourceTree = "<group>"; };
 		22EA9D842DCCB34800D64EEA /* MacTabbarViewController+Play.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MacTabbarViewController+Play.swift"; sourceTree = "<group>"; };
 		22EA9D872DCCBBFE00D64EEA /* AIType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIType.swift; sourceTree = "<group>"; };
 		22EA9D8D2DCDF7D200D64EEA /* MusicCellType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicCellType.swift; sourceTree = "<group>"; };
@@ -1246,8 +1246,8 @@
 				22436B1B2D744B750004E09D /* ConnectArtistTableCell.swift */,
 				22474E572D75E6C90062D510 /* ConnectSectionHeadView.swift */,
 				227E2EB22D97DB2700BE9858 /* EmptyDataTableCell.swift */,
-				22DCC35C2D9D6C22003094E2 /* ConnectRootDriveViewCell.swift */,
 				226AF34B2E21103F007C44DF /* ConnectNavidromeArtistCell.swift */,
+				22AE9BFE2F9FA9F200630B10 /* SearchArtistTableCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2115,7 +2115,6 @@
 				22ED75472EF57AB900E92BB3 /* AppleSearchAdsManager.swift in Sources */,
 				225F58252D85B2AB0055BDFF /* MusicPlayerViewController+Delegate.swift in Sources */,
 				225F58262D85B2AB0055BDFF /* MusicViewModel+Change.swift in Sources */,
-				22DCC35E2D9D6C22003094E2 /* ConnectRootDriveViewCell.swift in Sources */,
 				224C9BCB2DD0A0ED000CCA6C /* LrcLyricLibModel.swift in Sources */,
 				225F58272D85B2AB0055BDFF /* PurchageOpsViewcell.swift in Sources */,
 				225F58282D85B2AB0055BDFF /* FullScreenNavController.swift in Sources */,
@@ -2245,6 +2244,7 @@
 				225F58782D85B2AB0055BDFF /* PlayerControlToolBarView.swift in Sources */,
 				225F58792D85B2AB0055BDFF /* PlayAnimationController.swift in Sources */,
 				225F587A2D85B2AB0055BDFF /* KakaMusicPlayer+Tools.swift in Sources */,
+				22AE9BFF2F9FA9F200630B10 /* SearchArtistTableCell.swift in Sources */,
 				22EA9D892DCCBBFE00D64EEA /* AIType.swift in Sources */,
 				2258ACFD2DE5FB0300F5754B /* LyricSetViewController.swift in Sources */,
 				22677F6F2E151F4200E20147 /* ImportViewController+Drive.swift in Sources */,
@@ -2398,7 +2398,6 @@
 				22ED75482EF57AB900E92BB3 /* AppleSearchAdsManager.swift in Sources */,
 				228A14502CA0633400E2948E /* MusicPlayerViewController+Delegate.swift in Sources */,
 				227310222D1E33EB00EB7842 /* MusicViewModel+Change.swift in Sources */,
-				22DCC35D2D9D6C22003094E2 /* ConnectRootDriveViewCell.swift in Sources */,
 				224C9BCA2DD0A0ED000CCA6C /* LrcLyricLibModel.swift in Sources */,
 				228A14732CA0633400E2948E /* PurchageOpsViewcell.swift in Sources */,
 				225100722CCA4E8B005AFD62 /* FullScreenNavController.swift in Sources */,
@@ -2528,6 +2527,7 @@
 				228A147C2CA0633400E2948E /* PlayerControlToolBarView.swift in Sources */,
 				226FF2F22CCA8B8E00514BE4 /* PlayAnimationController.swift in Sources */,
 				228A14A22CA0633400E2948E /* KakaMusicPlayer+Tools.swift in Sources */,
+				22AE9C002F9FA9F200630B10 /* SearchArtistTableCell.swift in Sources */,
 				22EA9D882DCCBBFE00D64EEA /* AIType.swift in Sources */,
 				2258ACFC2DE5FB0300F5754B /* LyricSetViewController.swift in Sources */,
 				22677F6E2E151F4200E20147 /* ImportViewController+Drive.swift in Sources */,
@@ -2618,7 +2618,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Mobie/System/Mobie.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 45;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = MC2Y285X8X;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -2650,7 +2650,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.4.0;
+				MARKETING_VERSION = 3.4.1;
 				OTHER_SWIFT_FLAGS = "$(inherited) -D COCOAPODS -D Target_Mobie_Pro";
 				PRODUCT_BUNDLE_IDENTIFIER = com.OfflineMusic.www.pro;
 				PRODUCT_NAME = "Wake Music";
@@ -2673,7 +2673,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Mobie/System/Mobie.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 45;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = MC2Y285X8X;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -2705,7 +2705,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.4.0;
+				MARKETING_VERSION = 3.4.1;
 				OTHER_SWIFT_FLAGS = "$(inherited) -D COCOAPODS -D Target_Mobie_Pro";
 				PRODUCT_BUNDLE_IDENTIFIER = com.OfflineMusic.www.pro;
 				PRODUCT_NAME = "Wake Music";
@@ -2842,11 +2842,11 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 529D8BF88D087076D287687A /* Pods-Mobie.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon_Nor;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Mobie/System/Mobie.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 45;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = MC2Y285X8X;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -2878,7 +2878,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.4.0;
+				MARKETING_VERSION = 3.4.1;
 				OTHER_SWIFT_FLAGS = "$(inherited) -D COCOAPODS";
 				PRODUCT_BUNDLE_IDENTIFIER = com.OfflineMusic.www;
 				PRODUCT_NAME = "Wake Music";
@@ -2897,11 +2897,11 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 886CE6607B0E1400F6276768 /* Pods-Mobie.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon_Nor;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Mobie/System/Mobie.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 45;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = MC2Y285X8X;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -2933,7 +2933,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.4.0;
+				MARKETING_VERSION = 3.4.1;
 				OTHER_SWIFT_FLAGS = "$(inherited) -D COCOAPODS";
 				PRODUCT_BUNDLE_IDENTIFIER = com.OfflineMusic.www;
 				PRODUCT_NAME = "Wake Music";

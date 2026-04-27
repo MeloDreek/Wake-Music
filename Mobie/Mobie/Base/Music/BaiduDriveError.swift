@@ -12,7 +12,7 @@ import SmartCodable
 百度网盘的错误对象
 https://pan.baidu.com/union/doc/okumlx17r
  */
-struct BaiduDriveError: SmartCodable {
+struct BaiduDriveError: SmartCodableX {
     var error_code: Int = -1
     var request_id: String = ""
     var errno: Int = -1

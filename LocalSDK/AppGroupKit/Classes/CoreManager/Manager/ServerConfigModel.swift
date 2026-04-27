@@ -8,7 +8,7 @@
 import SmartCodable
 
 /// 连接的服务器登录信息
-public struct ServerConfigModel: SmartCodable, Equatable, Hashable {
+public struct ServerConfigModel: SmartCodableX, Equatable, Hashable {
     
     public init() { }
     

@@ -7,7 +7,7 @@
 
 import SmartCodable
 
-public struct LRCLyricTokenModel: SmartCodable {
+public struct LRCLyricTokenModel: SmartCodableX {
     
     public init(prefix: String, target: String, lastTime: TimeInterval) {
         self.prefix = prefix

@@ -21,6 +21,8 @@
   "source_files": "Classes/**/*.swift",
   "frameworks": "AVFoundation",
   "dependencies": {
-    "SmartCodable": []
+    "SmartCodable": [
+      "~> 6.0.6"
+    ]
   }
 }

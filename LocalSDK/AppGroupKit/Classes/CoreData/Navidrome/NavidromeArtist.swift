@@ -8,7 +8,7 @@
 import SmartCodable
 
 /// Nav艺术家
-public struct NavidromeArtist: SmartCodable, Hashable {
+public struct NavidromeArtist: SmartCodableX, Hashable {
     
     public init(id: String, name: String, fullText: String? = nil, smallImageUrl: String? = nil, mediumImageUrl: String? = nil, largeImageUrl: String? = nil, artistImageUrl: String? = nil, externalUrl: String, biography: String, songCount: Int, albumCount: Int, starred: Bool, genres: String? = nil, similarArtist: [NavidromeArtist]? = nil) {
         self.id = id
@@ -114,7 +114,7 @@ public struct NavidromeArtist: SmartCodable, Hashable {
 
 
 /// 索引歌手列表接口
-public struct NavidromeIndexesArtist: SmartCodable {
+public struct NavidromeIndexesArtist: SmartCodableX {
     public init(index: [NavidromeNameArtists]) {
         self.index = index
     }
@@ -124,7 +124,7 @@ public struct NavidromeIndexesArtist: SmartCodable {
     public var index: [NavidromeNameArtists] = []
 }
 
-public struct NavidromeNameArtists: SmartCodable {
+public struct NavidromeNameArtists: SmartCodableX {
     
     public init(name: String, artist: [NavidromeArtist]) {
         self.name = name

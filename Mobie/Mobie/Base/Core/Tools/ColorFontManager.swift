@@ -69,7 +69,7 @@ public var appMainColor: UIColor {
     }
 }
 
-public class ColorFontManager: SmartCodable {
+public class ColorFontManager: SmartCodableX {
     
     required public init() {}
     

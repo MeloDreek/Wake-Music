@@ -9,7 +9,7 @@ import SmartCodable
 
 
 /// 谷歌网盘的登录信息
-public struct GoogleDriveUserModel: SmartCodable, Sendable, Hashable, Equatable {
+public struct GoogleDriveUserModel: SmartCodableX, Sendable, Hashable, Equatable {
     
     public init(userID: String? = nil, nickName: String? = nil, avatarPic: String? = nil, email: String? = nil, requestTime: TimeInterval, accessToken: String, refreshToken: String, expiresTime: TimeInterval) {
         self.userID = userID

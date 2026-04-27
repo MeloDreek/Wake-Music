@@ -8,7 +8,7 @@
 import SmartCodable
 
 /// 115网盘的文件结构
-public struct Drive115FileModel: SmartCodable, Hashable, Equatable {
+public struct Drive115FileModel: SmartCodableX, Hashable, Equatable {
     
     public init() {
         
@@ -237,7 +237,7 @@ extension Drive115FileModel {
 }
 
 /// 父目录树
-public struct Drive115PathsModel: SmartCodable {
+public struct Drive115PathsModel: SmartCodableX {
     
     public init() {
         

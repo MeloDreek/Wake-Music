@@ -8,7 +8,7 @@
 import SmartCodable
 
 /// 歌词完整模型
-public struct LyricInfoModel: SmartCodable, Equatable, Hashable {
+public struct LyricInfoModel: SmartCodableX, Equatable, Hashable {
     
     public init() {
         
@@ -173,7 +173,7 @@ public struct LyricInfoModel: SmartCodable, Equatable, Hashable {
     }
 }
 
-public struct LyricModel: SmartCodable, Equatable, Hashable {
+public struct LyricModel: SmartCodableX, Equatable, Hashable {
     
     public init() {
         

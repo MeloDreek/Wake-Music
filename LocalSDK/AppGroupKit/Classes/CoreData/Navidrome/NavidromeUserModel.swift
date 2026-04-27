@@ -8,7 +8,7 @@
 import SmartCodable
 
 // Navidrome用户模型
-public struct NavidromeUserModel: SmartCodable, Equatable, Hashable {
+public struct NavidromeUserModel: SmartCodableX, Equatable, Hashable {
     
     public init() {
         

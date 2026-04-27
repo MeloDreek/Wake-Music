@@ -7,7 +7,7 @@
 
 import SmartCodable
 
-public struct NavidromeSetModel: SmartCodable {
+public struct NavidromeSetModel: SmartCodableX {
     
     public init(starred: NaviArAlSongModel? = nil, randomSongs: [NavidromeSong]? = nil, playlists: [NavidromePlaylist]? = nil) {
         self.starred = starred
@@ -33,7 +33,7 @@ public struct NavidromeSetModel: SmartCodable {
     
 }
 
-public struct NaviArAlSongModel: SmartCodable {
+public struct NaviArAlSongModel: SmartCodableX {
     
     public init(artist: [NavidromeArtist]? = nil, album: [NavidromeAlbum]? = nil, song: [NavidromeSong]? = nil) {
         self.artist = artist

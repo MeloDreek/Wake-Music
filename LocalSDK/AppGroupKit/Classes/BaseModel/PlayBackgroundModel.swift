@@ -42,7 +42,7 @@ public enum PlayBackgroundStyle: Int, SmartCaseDefaultable {
 }
 
 /// 播放器背景模型
-public struct PlayBackgroundModel: SmartCodable {
+public struct PlayBackgroundModel: SmartCodableX {
     
     public init() {
         

@@ -9,7 +9,7 @@ import KakaFoundation
 import AppGroupKit
 import SmartCodable
 
-public struct DiscountIAPManager: SmartCodable {
+public struct DiscountIAPManager: SmartCodableX {
     public init() {}
     
     static public var shared = DiscountIAPManager.read() ?? DiscountIAPManager()

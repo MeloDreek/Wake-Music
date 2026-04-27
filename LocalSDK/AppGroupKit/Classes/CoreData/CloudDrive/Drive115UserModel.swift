@@ -8,7 +8,7 @@
 import SmartCodable
 
 /// 115网盘用户信息
-public struct Drive115UserModel: SmartCodable, Hashable, Equatable {
+public struct Drive115UserModel: SmartCodableX, Hashable, Equatable {
     
     public init(access_token: String, refresh_token: String, expires_in: Int, user_id: String, user_name: String, user_face_s: String, user_face_m: String, user_face_l: String, rt_space_info: Drive115SpaceInfo, vip_info: Drive115VipInfo) {
         self.access_token = access_token
@@ -85,7 +85,7 @@ public struct Drive115UserModel: SmartCodable, Hashable, Equatable {
 }
 
 
-public struct Drive115SpaceInfo: SmartCodable {
+public struct Drive115SpaceInfo: SmartCodableX {
     
     public init(all_total: Drive115Space, all_remain: Drive115Space, all_use: Drive115Space) {
         self.all_total = all_total
@@ -108,7 +108,7 @@ public struct Drive115SpaceInfo: SmartCodable {
     
 }
 
-public struct Drive115Space: SmartCodable {
+public struct Drive115Space: SmartCodableX {
     
     public init(size: Int, size_format: String) {
         self.size = size
@@ -127,7 +127,7 @@ public struct Drive115Space: SmartCodable {
     
 }
 
-public struct Drive115VipInfo: SmartCodable {
+public struct Drive115VipInfo: SmartCodableX {
     
     public init(level_name: String, expire: TimeInterval) {
         self.level_name = level_name

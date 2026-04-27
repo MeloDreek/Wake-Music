@@ -8,7 +8,7 @@
 import SmartCodable
 
 /// 百度网盘的用户信息
-public struct BaiduDriveUserModel: SmartCodable, Equatable, Hashable {
+public struct BaiduDriveUserModel: SmartCodableX, Equatable, Hashable {
     
     public init(uk: Int, access_token: String, expires_in: Int, requestTime: TimeInterval, scope: String, baidu_name: String, netdisk_name: String? = nil, avatar_url: String, vip_type: Int, errmsg: String? = nil, path: String? = nil) {
         self.uk = uk

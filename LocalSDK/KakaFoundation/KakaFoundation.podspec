@@ -22,6 +22,6 @@ Pod::Spec.new do |s|
   s.source_files    = "Classes/**/*.swift"
   s.frameworks      = "AVFoundation"
   
-  s.dependency 'SmartCodable'#, '~> 5.1.12'
-  
+  s.dependency 'SmartCodable', '~> 6.0.6'
+
 end

@@ -8,7 +8,7 @@
 import SmartCodable
 
 /// App Store上的应用信息
-public struct AppStoreInfoModel: SmartCodable {
+public struct AppStoreInfoModel: SmartCodableX {
     
     public init() {
         

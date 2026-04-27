@@ -7,7 +7,7 @@
 
 import SmartCodable
 
-public struct OneDriveUserModel: SmartCodable, Equatable, Hashable {
+public struct OneDriveUserModel: SmartCodableX, Equatable, Hashable {
     
     public init() { }
     
@@ -78,7 +78,7 @@ public struct OneDriveUserModel: SmartCodable, Equatable, Hashable {
     
 }
 
-public struct OnedriveAccount: SmartCodable {
+public struct OnedriveAccount: SmartCodableX {
     
     public init() { }
     

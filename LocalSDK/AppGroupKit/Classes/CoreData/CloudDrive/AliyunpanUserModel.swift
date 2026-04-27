@@ -8,7 +8,7 @@
 import SmartCodable
 
 /// 阿里云盘的用户信息
-public struct AliyunpanUserModel: SmartCodable, Hashable, Equatable {
+public struct AliyunpanUserModel: SmartCodableX, Hashable, Equatable {
     
     public init() { }
     
@@ -55,7 +55,7 @@ public struct AliyunpanUserModel: SmartCodable, Hashable, Equatable {
 
 
 /// 阿里云的用户信息
-public struct AliyunpanUser: SmartCodable {
+public struct AliyunpanUser: SmartCodableX {
     
     public init() { }
     

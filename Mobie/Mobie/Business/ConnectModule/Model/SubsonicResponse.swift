@@ -8,7 +8,7 @@
 import SmartCodable
 import AppGroupKit
 
-struct SubsonicResponse: SmartCodable {
+struct SubsonicResponse: SmartCodableX {
     
     /// ok或failed
     var status: String = ""
@@ -59,7 +59,7 @@ struct SubsonicResponse: SmartCodable {
     
 }
 
-struct SubsonicError: SmartCodable {
+struct SubsonicError: SmartCodableX {
     
     /// 错误码
     var code: Int = 0

@@ -8,7 +8,7 @@
 import SmartCodable
 
 /// 聚合的音乐标签数据
-struct MusicReleaseModel: SmartCodable, Equatable, Hashable {
+struct MusicReleaseModel: SmartCodableX, Equatable, Hashable {
     
     /// MBID
     var id: String = ""

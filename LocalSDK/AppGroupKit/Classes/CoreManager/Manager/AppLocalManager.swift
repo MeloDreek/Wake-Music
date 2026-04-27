@@ -38,7 +38,7 @@ public enum PlayAnimationType: Int, SmartCaseDefaultable {
     }
 }
 
-public class AppLocalManager: SmartCodable, ObservableObject {
+public class AppLocalManager: SmartCodableX, ObservableObject {
     
     required public init() {
         let _ = self.refreshCachePaths()

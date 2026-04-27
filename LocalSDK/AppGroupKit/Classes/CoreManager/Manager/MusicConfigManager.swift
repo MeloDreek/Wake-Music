@@ -11,7 +11,7 @@ import AVFAudio
 
 
 
-public class MusicConfigManager: ObservableObject, SmartCodable {
+public class MusicConfigManager: ObservableObject, SmartCodableX {
     
     required public init() {}
     

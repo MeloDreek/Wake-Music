@@ -8,7 +8,7 @@
 import SmartCodable
 
 /// 百度网盘的文件模型
-public struct BaiduDriveFileModel: SmartCodable, Equatable, Hashable {
+public struct BaiduDriveFileModel: SmartCodableX, Equatable, Hashable {
     
     public init() { }
     

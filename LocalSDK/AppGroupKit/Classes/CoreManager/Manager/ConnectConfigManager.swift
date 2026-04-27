@@ -9,7 +9,7 @@ import SmartCodable
 
 
 /// 连接服务器的配置
-public class ConnectConfigManager: SmartCodable, ObservableObject {
+public class ConnectConfigManager: SmartCodableX, ObservableObject {
     
     required public init() {
         

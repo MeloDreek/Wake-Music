@@ -7,7 +7,7 @@
 
 import SmartCodable
 
-struct ITunesSongModel: SmartCodable, Equatable, Hashable {
+struct ITunesSongModel: SmartCodableX, Equatable, Hashable {
     
     /// 类型：song、book、movie
     var kind: String = ""

@@ -8,7 +8,7 @@
 import SmartCodable
 
 /// 阿里云盘的文件  ==>  @AliyunpanFile
-public struct AliyunpanFileModel: SmartCodable, Equatable, Hashable, Sendable {
+public struct AliyunpanFileModel: SmartCodableX, Equatable, Hashable, Sendable {
     
     public init() { }
     

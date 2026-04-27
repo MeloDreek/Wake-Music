@@ -9,7 +9,7 @@ import SmartCodable
 
 
 /// 谷歌文件列表
-public struct GoogleDriveFileModel: SmartCodable, Equatable, Hashable {
+public struct GoogleDriveFileModel: SmartCodableX, Equatable, Hashable {
     
     public init() {}
     

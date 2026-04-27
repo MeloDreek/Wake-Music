@@ -9,7 +9,7 @@ import KakaFoundation
 import SmartCodable
 
 /// 下载管理器
-public class DownloadManager: ObservableObject, SmartCodable {
+public class DownloadManager: ObservableObject, SmartCodableX {
     required public init() {
         
     }

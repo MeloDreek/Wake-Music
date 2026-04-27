@@ -13,7 +13,7 @@ public enum DropboxFileType: Int, SmartCaseDefaultable {
     case other = 2
 }
 
-public struct DropboxDriveFileModel: SmartCodable, Equatable, Hashable {
+public struct DropboxDriveFileModel: SmartCodableX, Equatable, Hashable {
     
     public init() { }
     
@@ -143,7 +143,7 @@ extension DropboxDriveFileModel {
 }
 
 
-public struct DropboxFilePage: SmartCodable {
+public struct DropboxFilePage: SmartCodableX {
     
     public init() { }
     
@@ -184,7 +184,7 @@ public struct DropboxFilePage: SmartCodable {
     
 }
 
-public struct DropboxErrorModel: SmartCodable {
+public struct DropboxErrorModel: SmartCodableX {
     
     public init() { }
     

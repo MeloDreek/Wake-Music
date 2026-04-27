@@ -17,7 +17,7 @@ import NVActivityIndicatorView
 import Photos
 
 
-struct Response115_LoginModel: SmartCodable {
+struct Response115_LoginModel: SmartCodableX {
     
     /// 轮询接口：0.二维码无效，结束轮询；1.继续轮询；
     var state: Int?
@@ -30,7 +30,7 @@ struct Response115_LoginModel: SmartCodable {
     var data: Response115_LoginData?
 }
 
-struct Response115_LoginData: SmartCodable {
+struct Response115_LoginData: SmartCodableX {
     
     /// 设备码
     var uid: String = ""

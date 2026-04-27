@@ -23,7 +23,7 @@ public enum NetworkProtocol: String, SmartCaseDefaultable {
 }
 
 /// Webdav登录信息
-public struct WebdavUserModel: SmartCodable, Equatable, Hashable {
+public struct WebdavUserModel: SmartCodableX, Equatable, Hashable {
     
     public init(customName: String, hostUrl: String, path: String? = nil, port: String? = nil, netProtocol: NetworkProtocol, username: String? = nil, password: String? = nil) {
         self.customName = customName

@@ -9,7 +9,7 @@ import SmartCodable
 import AppGroupKit
 
 /// 远程WebDav文件模型
-public struct WebdavFileModel: SmartCodable, Equatable, Hashable {
+public struct WebdavFileModel: SmartCodableX, Equatable, Hashable {
     
     public init() {
         

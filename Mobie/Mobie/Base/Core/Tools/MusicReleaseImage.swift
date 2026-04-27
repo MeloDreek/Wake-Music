@@ -7,7 +7,7 @@
 
 import SmartCodable
 
-struct MusicReleaseImage: SmartCodable, Equatable, Hashable {
+struct MusicReleaseImage: SmartCodableX, Equatable, Hashable {
     
     /// ID1
     var id: String = ""
@@ -34,7 +34,7 @@ struct MusicReleaseImage: SmartCodable, Equatable, Hashable {
     
 }
 
-struct MusicReleaseThumbnail: SmartCodable, Equatable, Hashable {
+struct MusicReleaseThumbnail: SmartCodableX, Equatable, Hashable {
     
     /// 小图
     var large: String = ""

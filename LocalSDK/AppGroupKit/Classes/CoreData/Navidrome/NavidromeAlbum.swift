@@ -8,7 +8,7 @@
 import SmartCodable
 
 /// Nav专辑
-public struct NavidromeAlbum: SmartCodable {
+public struct NavidromeAlbum: SmartCodableX {
     
     public init(id: String, name: String, albumArtist: String, artist: String, albumCover: String, info: String, songs: [NavidromeSong], genre: String, minYear: Int) {
         self.id = id

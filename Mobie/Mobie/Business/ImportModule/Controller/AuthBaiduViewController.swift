@@ -13,7 +13,7 @@ import Alamofire
 import SmartCodable
 import NVActivityIndicatorView
 
-struct BaiduResponseModel: SmartCodable {
+struct BaiduResponseModel: SmartCodableX {
     var request_id: String = ""
     var guid: Int = 0
     var errno: Int = 0

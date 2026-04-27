@@ -8,7 +8,7 @@
 import SmartCodable
 
 /// Dropbox的登录信息
-public struct DropboxDriveUserModel: SmartCodable, Hashable, Equatable {
+public struct DropboxDriveUserModel: SmartCodableX, Hashable, Equatable {
     
     public init() { }
     
@@ -76,7 +76,7 @@ extension DropboxDriveUserModel {
     
 }
 
-public struct DropboxAccount: SmartCodable {
+public struct DropboxAccount: SmartCodableX {
     
     public init() { }
     

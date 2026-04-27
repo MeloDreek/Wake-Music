@@ -130,7 +130,7 @@ public enum MiniLyricAnimation: Int, SmartCaseDefaultable {
 }
 
 /// 歌词字体配置
-public struct LyricConfigModel: SmartCodable {
+public struct LyricConfigModel: SmartCodableX {
     
     public init(norFontSize: Float, selFontSize: Float, norFontColor: String, selFontColor: String, alignment: LyricTextAlignment, lineSpace: Float) {
         self.norFontSize = norFontSize

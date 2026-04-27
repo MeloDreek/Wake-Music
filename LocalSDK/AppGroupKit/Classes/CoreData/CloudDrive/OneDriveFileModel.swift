@@ -8,7 +8,7 @@
 import SmartCodable
 
 /// OneDrive网盘文件模型
-public struct OneDriveFileModel: SmartCodable, Hashable, Equatable {
+public struct OneDriveFileModel: SmartCodableX, Hashable, Equatable {
     
     public init() { }
     
@@ -134,7 +134,7 @@ extension OneDriveFileModel {
 
 // MARK: - 子结构体定义
 
-public struct OneDriveFilePage: SmartCodable {
+public struct OneDriveFilePage: SmartCodableX {
     
     public init() { }
     
@@ -167,7 +167,7 @@ public struct OneDriveFilePage: SmartCodable {
     }
 }
 
-public struct OneDriveUserInfo: SmartCodable {
+public struct OneDriveUserInfo: SmartCodableX {
     
     public init() { }
     
@@ -175,7 +175,7 @@ public struct OneDriveUserInfo: SmartCodable {
     public var user: OneDriveUserDetail?
 }
 
-public struct OneDriveAppInfo: SmartCodable {
+public struct OneDriveAppInfo: SmartCodableX {
     
     public init() { }
     
@@ -183,7 +183,7 @@ public struct OneDriveAppInfo: SmartCodable {
     public var displayName: String = ""
 }
 
-public struct OneDriveUserDetail: SmartCodable {
+public struct OneDriveUserDetail: SmartCodableX {
     
     public init() { }
     
@@ -192,7 +192,7 @@ public struct OneDriveUserDetail: SmartCodable {
     public var email: String?
 }
 
-public struct OneDriveParentReference: SmartCodable {
+public struct OneDriveParentReference: SmartCodableX {
     
     public init() { }
     
@@ -204,7 +204,7 @@ public struct OneDriveParentReference: SmartCodable {
     public var siteId: String?
 }
 
-public struct OneDriveFileSystemInfo: SmartCodable {
+public struct OneDriveFileSystemInfo: SmartCodableX {
     
     public init() { }
     
@@ -212,7 +212,7 @@ public struct OneDriveFileSystemInfo: SmartCodable {
     public var lastModifiedDateTime: String?
 }
 
-public struct OneDriveFileInfo: SmartCodable {
+public struct OneDriveFileInfo: SmartCodableX {
     
     public init() { }
     
@@ -220,14 +220,14 @@ public struct OneDriveFileInfo: SmartCodable {
     public var hashes: OneDriveFileHashes?
 }
 
-public struct OneDriveFileHashes: SmartCodable {
+public struct OneDriveFileHashes: SmartCodableX {
     
     public init() { }
     
     public var quickXorHash: String?
 }
 
-public struct OneDriveFolderInfo: SmartCodable {
+public struct OneDriveFolderInfo: SmartCodableX {
     
     public init() { }
     
@@ -235,7 +235,7 @@ public struct OneDriveFolderInfo: SmartCodable {
     public var view: OneDriveFolderView?
 }
 
-public struct OneDriveFolderView: SmartCodable {
+public struct OneDriveFolderView: SmartCodableX {
     
     public init() { }
     
@@ -244,14 +244,14 @@ public struct OneDriveFolderView: SmartCodable {
     public var viewType: String?
 }
 
-public struct OneDriveSpecialFolder: SmartCodable {
+public struct OneDriveSpecialFolder: SmartCodableX {
     
     public init() { }
     
     public var name: String?
 }
 
-public struct OneDriveRemoteItem: SmartCodable {
+public struct OneDriveRemoteItem: SmartCodableX {
     
     public init() { }
     
@@ -263,7 +263,7 @@ public struct OneDriveRemoteItem: SmartCodable {
     public var sharepointIds: OneDriveSharepointIds?
 }
 
-public struct OneDriveSharepointIds: SmartCodable {
+public struct OneDriveSharepointIds: SmartCodableX {
     
     public init() { }
     
@@ -276,7 +276,7 @@ public struct OneDriveSharepointIds: SmartCodable {
 
 
 // MARK: 错误模型
-//public struct OneDriveErrorResponse: SmartCodable {
+//public struct OneDriveErrorResponse: SmartCodableX {
 //    
 //    public init() { }
 //    
@@ -287,7 +287,7 @@ public struct OneDriveSharepointIds: SmartCodable {
 //    }
 //}
 
-public struct OneDriveErrorDetail: SmartCodable {
+public struct OneDriveErrorDetail: SmartCodableX {
     
     public init() { }
     
@@ -296,7 +296,7 @@ public struct OneDriveErrorDetail: SmartCodable {
     public var innerError: OneDriveInnerError?
 }
 
-public struct OneDriveInnerError: SmartCodable {
+public struct OneDriveInnerError: SmartCodableX {
     
     public init() { }
     

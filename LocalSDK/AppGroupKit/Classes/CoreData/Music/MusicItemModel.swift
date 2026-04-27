@@ -12,7 +12,7 @@ import CloudKit
 import MediaPlayer
 
 /// 音乐模型
-public struct MusicItemModel: SmartCodable, Equatable, Hashable, Sendable {
+public struct MusicItemModel: SmartCodableX, Equatable, Hashable, Sendable {
     
     public init() {}
     

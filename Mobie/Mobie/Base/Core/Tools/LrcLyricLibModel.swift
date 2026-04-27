@@ -9,7 +9,7 @@ import SmartCodable
 import AppGroupKit
 import KakaTaglibKit
 
-struct LrcLyricLibModel: SmartCodable {
+struct LrcLyricLibModel: SmartCodableX {
     
     /// ID
     var id: Int = 0

@@ -146,9 +146,47 @@ PODS:
     - AppAuth/Core (~> 2.0)
     - GTMSessionFetcher/Core (< 4.0, >= 3.3)
   - GTMSessionFetcher/Core (3.5.0)
+  - IQKeyboardCore (1.0.8)
+  - IQKeyboardManagerSwift (8.0.1):
+    - IQKeyboardManagerSwift/Appearance (= 8.0.1)
+    - IQKeyboardManagerSwift/Core (= 8.0.1)
+    - IQKeyboardManagerSwift/IQKeyboardReturnManager (= 8.0.1)
+    - IQKeyboardManagerSwift/IQKeyboardToolbarManager (= 8.0.1)
+    - IQKeyboardManagerSwift/IQTextView (= 8.0.1)
+    - IQKeyboardManagerSwift/Resign (= 8.0.1)
+  - IQKeyboardManagerSwift/Appearance (8.0.1):
+    - IQKeyboardManagerSwift/Core
+  - IQKeyboardManagerSwift/Core (8.0.1):
+    - IQKeyboardNotification
+    - IQTextInputViewNotification
+  - IQKeyboardManagerSwift/IQKeyboardReturnManager (8.0.1):
+    - IQKeyboardReturnManager
+  - IQKeyboardManagerSwift/IQKeyboardToolbarManager (8.0.1):
+    - IQKeyboardManagerSwift/Core
+    - IQKeyboardToolbarManager
+  - IQKeyboardManagerSwift/IQTextView (8.0.1):
+    - IQTextView
+  - IQKeyboardManagerSwift/Resign (8.0.1):
+    - IQKeyboardManagerSwift/Core
+  - IQKeyboardNotification (1.0.6)
+  - IQKeyboardReturnManager (1.0.6):
+    - IQKeyboardCore
+  - IQKeyboardToolbar (1.1.3):
+    - IQKeyboardToolbar/Core (= 1.1.3)
+  - IQKeyboardToolbar/Core (1.1.3):
+    - IQKeyboardCore
+    - IQKeyboardToolbar/Placeholderable
+  - IQKeyboardToolbar/Placeholderable (1.1.3)
+  - IQKeyboardToolbarManager (1.1.5):
+    - IQKeyboardToolbar
+    - IQTextInputViewNotification
+  - IQTextInputViewNotification (1.0.9):
+    - IQKeyboardCore
+  - IQTextView (1.0.5):
+    - IQKeyboardToolbar/Placeholderable
   - JXSegmentedView (1.4.1)
   - KakaFoundation (1.0.0):
-    - SmartCodable
+    - SmartCodable (~> 6.0.6)
   - KakaObjcKit (1.0.0)
   - KakaPhotoBrowser (1.0.0):
     - SDWebImage (~> 5.19.1)
@@ -176,11 +214,11 @@ PODS:
   - SDWebImageFLPlugin (0.6.0):
     - FLAnimatedImage (>= 1.0.11)
     - SDWebImage/Core (~> 5.10)
-  - SmartCodable (5.1.2):
-    - SmartCodable/Core (= 5.1.2)
-  - SmartCodable/Core (5.1.2)
+  - SmartCodable (6.0.6):
+    - SmartCodable/Core (= 6.0.6)
+  - SmartCodable/Core (6.0.6)
   - SnapKit (5.7.1)
-  - SwiftyDropbox (10.2.0)
+  - SwiftyDropbox (10.2.4)
   - WakeMusicPlayer (1.0.0)
 
 DEPENDENCIES:
@@ -190,6 +228,7 @@ DEPENDENCIES:
   - FirebaseCrashlytics
   - GCDWebServer/WebUploader (~> 3.5.4)
   - GoogleSignIn (~> 9.0.0)
+  - IQKeyboardManagerSwift (~> 8.0.1)
   - JXSegmentedView (~> 1.4.1)
   - KakaFoundation (from `./LocalSDK/KakaFoundation`)
   - KakaObjcKit (from `./LocalSDK/KakaObjcKit`)
@@ -197,7 +236,7 @@ DEPENDENCIES:
   - KakaTaglibKit (from `./LocalSDK/KakaTaglibKit`)
   - KakaUIKit (from `./LocalSDK/KakaUIKit`)
   - ProgressHUD (~> 14.1.1)
-  - SwiftyDropbox (~> 10.2.0)
+  - SwiftyDropbox (~> 10.2.4)
   - WakeMusicPlayer (from `./LocalSDK/WakeMusicPlayer`)
 
 SPEC REPOS:
@@ -221,6 +260,14 @@ SPEC REPOS:
     - GoogleUtilities
     - GTMAppAuth
     - GTMSessionFetcher
+    - IQKeyboardCore
+    - IQKeyboardManagerSwift
+    - IQKeyboardNotification
+    - IQKeyboardReturnManager
+    - IQKeyboardToolbar
+    - IQKeyboardToolbarManager
+    - IQTextInputViewNotification
+    - IQTextView
     - JXSegmentedView
     - nanopb
     - NVActivityIndicatorView
@@ -270,8 +317,16 @@ SPEC CHECKSUMS:
   GoogleUtilities: 00c88b9a86066ef77f0da2fab05f65d7768ed8e1
   GTMAppAuth: 217a876b249c3c585a54fd6f73e6b58c4f5c4238
   GTMSessionFetcher: 5aea5ba6bd522a239e236100971f10cb71b96ab6
+  IQKeyboardCore: 8652977ec919cf5351aa2977fedd1a6546476fbc
+  IQKeyboardManagerSwift: 835fc9c6e4732398113406d84900ad2e8f141218
+  IQKeyboardNotification: eb4910401f5a0e68f97e71c62f8a0c5b7e9d535c
+  IQKeyboardReturnManager: fcbf51fc68d7536fc1fbcca5231c4e82576b12ac
+  IQKeyboardToolbar: 9fe900f8e7def414be4025af0ca098df764d4fe3
+  IQKeyboardToolbarManager: d449479b5843d4a3fb902d03bf62d6ca031ac20e
+  IQTextInputViewNotification: 3b9fb27a16e7ee8958cc9092cfb07a1a9e1fd559
+  IQTextView: ae13b4922f22e6f027f62c557d9f4f236b19d5c7
   JXSegmentedView: cd73555ce2134d1656db2cb383ba9c2f36fb5078
-  KakaFoundation: f760f25261fdd131d9adf3c818f6689bdb28ba79
+  KakaFoundation: 95dba58a9a3d901da770e67fdedd4aefc376d7b1
   KakaObjcKit: 6c034e9016ec6001aeb050154e6b9e7ad1f6b75b
   KakaPhotoBrowser: 802a1b6a5d1b898450474dcc8d16d48255a5a765
   KakaTaglibKit: 27007d2892630af7fdf60e0c4d958d38826335ae
@@ -283,11 +338,11 @@ SPEC CHECKSUMS:
   PromisesSwift: 9d77319bbe72ebf6d872900551f7eeba9bce2851
   SDWebImage: 8a6b7b160b4d710e2a22b6900e25301075c34cb3
   SDWebImageFLPlugin: 72efd2cfbf565bc438421abb426f4bcf7b670754
-  SmartCodable: 545dd052990fe7e80085463b79a1a5e462ee29ff
+  SmartCodable: b423095dd1041f8b0bacbdcc251814e5d5f583f8
   SnapKit: d612e99e678a2d3b95bf60b0705ed0a35c03484a
-  SwiftyDropbox: e18dd068602b5e51252d0a61aad32b41946d0bf1
+  SwiftyDropbox: 3dbb9cb3dc28220e6b7b492d97b9160730e5ca81
   WakeMusicPlayer: 6d7ff038405541492944454e1a56cff5de9e5ce7
 
-PODFILE CHECKSUM: 6d0d5415ec9adfa3902da8b859311c1ffacfa1a8
+PODFILE CHECKSUM: 084f630920931f0a32bf89464d9454c4d81f2a01
 
 COCOAPODS: 1.16.2

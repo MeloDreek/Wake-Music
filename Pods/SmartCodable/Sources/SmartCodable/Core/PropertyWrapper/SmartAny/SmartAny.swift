@@ -11,7 +11,7 @@
  * Usage Example:
  *
  * ```
- * struct UserProfile: SmartCodable {
+ * struct UserProfile: SmartCodableX {
  *     @SmartAny var name: Any?          // Can be String, Int, etc.
  *     @SmartAny var age: Any?           // Number or other types
  *     @SmartAny var metadata: [String: Any] = [:]  // Flexible dictionary
@@ -55,6 +55,14 @@ extension SmartAny: Codable {
             )
         }
                 
+        /// 是否考虑使用null值？ 案例：属性类型是Any时，是否将null解析到Any类型中。
+        if decoder.json == .null && SmartCodableOptions.ignoreNull {
+            throw DecodingError.typeMismatch(Self.self, DecodingError.Context(
+                codingPath: decoder.codingPath, debugDescription: "Expected \(Self.self) value，but an exception occurred！")
+            )
+        }
+        
+        
         if let decoded = try? decoder.unwrap(as: SmartAnyImpl.self), let peel = decoded.peel as? T {
             self = .init(wrappedValue: peel)
         } else {
@@ -84,7 +92,7 @@ extension SmartAny: Codable {
         } else if let arr = wrappedValue as? [Any] {
             let value = arr.cover
             try container.encode(value)
-        } else if let model = wrappedValue as? SmartCodable {
+        } else if let model = wrappedValue as? SmartCodableX {
             try container.encode(model)
         } else {
             let value = SmartAnyImpl(from: wrappedValue)
