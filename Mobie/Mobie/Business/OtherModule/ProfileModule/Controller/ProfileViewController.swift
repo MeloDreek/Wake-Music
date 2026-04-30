@@ -129,15 +129,16 @@ class ProfileViewController: SuperViewController {
     private var dataArray: [SettingGroupCellModel] {
         get {
             var tempArray = [SettingGroupCellModel]()
+            let isChinese = PhoneSetManager.formatLanguage() == .chinese_simplified
             
-            let itemArray1: [SettingCellItemType] = UserInfoManager.shared.isVIP() ? [.loginAccount, .contactus] : [.loginAccount, .promoCode, .freePlan]
+            let itemArray1: [SettingCellItemType] = (UserInfoManager.shared.isVIP() || !isChinese) ? [.loginAccount] : [.loginAccount, .promoCode, .freePlan]
             let model1 = SettingGroupCellModel(group: .accountGroup, headTitle: "Account".localStr(), itemArray: itemArray1, footTitle: nil)
             
             let itemArray2: [SettingCellItemType] = kaka_IsMacOS() ? [.selectPlayer, .playConfig, .cacheConfig, .appTintColor] : [.selectPlayer, .playConfig, .cacheConfig, .applogo, .appTintColor, .appearance]
             
             let model3 = SettingGroupCellModel(group: .safetyGroup, headTitle: "Settings".localStr().lowercased(), itemArray: itemArray2, footTitle: nil)
                         
-            let itemArray4: [SettingCellItemType] = UserInfoManager.shared.isVIP() ? [.types, .steveJobs, .abountUS] : [.types, .contactus, .abountUS]
+            let itemArray4: [SettingCellItemType] = [.steveJobs, .types, .contactus, .abountUS]
             let model4 = SettingGroupCellModel(group: .othersGroup, headTitle: "Others".localStr().lowercased(), itemArray: itemArray4, footTitle: nil)
             
             tempArray.append(model1)

@@ -50396,13 +50396,13 @@
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "بلدي"
+            "value" : "الملف الشخصي"
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Profile"
+            "value" : "Profil"
           }
         },
         "en-AU" : {
@@ -50456,7 +50456,7 @@
         "hi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "मेरा"
+            "value" : "प्रोफ़ाइल"
           }
         },
         "id" : {
@@ -50474,31 +50474,31 @@
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "プロフィール"
+            "value" : "マイページ"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "내 거"
+            "value" : "마이페이지"
           }
         },
         "ms" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Saya"
+            "value" : "Profil"
           }
         },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "É meu"
+            "value" : "Perfil"
           }
         },
         "pt-PT" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "É meu"
+            "value" : "Perfil"
           }
         },
         "ru" : {
@@ -50510,19 +50510,19 @@
         "th" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "ของฉัน"
+            "value" : "โปรไฟล์"
           }
         },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Bu benim"
+            "value" : "Profil"
           }
         },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Hồ Sơ"
+            "value" : "Cá nhân"
           }
         },
         "zh-Hans" : {
