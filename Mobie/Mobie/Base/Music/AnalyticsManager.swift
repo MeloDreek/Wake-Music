@@ -5,7 +5,9 @@
 //  Created by Melo on 7/29/24.
 //
 
+#if canImport(FirebaseAnalytics)
 import FirebaseAnalytics
+#endif
 import AppGroupKit
 import KakaFoundation
 
@@ -39,7 +41,9 @@ class AnalyticsManager: NSObject {
             basicDic.merge(parameters) { (_, new) in new }
         }
         
+#if canImport(FirebaseAnalytics)
         Analytics.logEvent(name, parameters: basicDic)
+#endif
     }
     
     

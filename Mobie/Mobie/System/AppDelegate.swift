@@ -8,8 +8,14 @@
 import KakaFoundation
 import KakaUIKit
 import RevenueCat
+#if canImport(FirebaseCore)
 import FirebaseCore
 import FirebaseCrashlytics
+#endif
+#if canImport(IQKeyboardManagerSwift) && canImport(IQKeyboardToolbarManager)
+import IQKeyboardManagerSwift
+import IQKeyboardToolbarManager
+#endif
 import KakaObjcKit
 import AppGroupKit
 import Toast
@@ -19,10 +25,6 @@ import SwiftyDropbox
 import AliyunpanSDK
 //import YandexLoginSDK
 //import PCloudSDKSwift
-#if canImport(IQKeyboardManagerSwift) && canImport(IQKeyboardToolbarManager)
-import IQKeyboardManagerSwift
-import IQKeyboardToolbarManager
-#endif
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -109,6 +111,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //            debugPrint("❌初始化Yandex失败：\(error.localizedDescription)")
 //        }
                 
+#if canImport(FirebaseCore)
         let appVersion = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as? String
         let country = PhoneSetManager.regionCode()
         let language = PhoneSetManager.langugeCode()
@@ -123,6 +126,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             debugPrint("当前工程版本号为：\(version)")
             FirebaseApp.configure()
         }
+#endif
+        
         
     }
     

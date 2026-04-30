@@ -25,10 +25,10 @@ target 'Mobie' do
   pod 'WakeMusicPlayer',            :path => './LocalSDK/WakeMusicPlayer'
   
   
-  pod 'Firebase', '~> 12.12.1'
-  pod 'Firebase/AnalyticsWithoutAdIdSupport'
-  pod 'FirebaseFirestore'
-  pod 'FirebaseCrashlytics'
+#  pod 'Firebase'#, '~> 12.2.0'
+#  pod 'Firebase/AnalyticsWithoutAdIdSupport'#, '~> 12.2.0'
+#  pod 'FirebaseCrashlytics'#, '~> 12.2.0'
+
   
   pod 'GoogleSignIn', '~> 9.0.0'
   pod 'SwiftyDropbox', '~> 10.2.4'
@@ -39,7 +39,7 @@ target 'Mobie' do
   pod 'JXSegmentedView', '~> 1.4.1'
   pod 'ProgressHUD', '~> 14.1.1'
   
-  pod 'IQKeyboardManagerSwift', '~> 8.0.1'
+#  pod 'IQKeyboardManagerSwift', '~> 8.0.1'
 #  pod 'MSAL', '~> 2.4.1'
   
 end
@@ -62,10 +62,10 @@ target 'Mobie_Pro' do
   pod 'WakeMusicPlayer',            :path => './LocalSDK/WakeMusicPlayer'
   
   
-  pod 'Firebase', '~> 12.12.1'
-  pod 'Firebase/AnalyticsWithoutAdIdSupport'
-  pod 'FirebaseFirestore'
-  pod 'FirebaseCrashlytics'
+#  pod 'Firebase'#, '~> 12.2.0'
+#  pod 'Firebase/AnalyticsWithoutAdIdSupport'#, '~> 12.2.0'
+#  pod 'FirebaseCrashlytics'#, '~> 12.2.0'
+  
   
   pod 'GoogleSignIn', '~> 9.0.0'
   pod 'SwiftyDropbox', '~> 10.2.4'
@@ -76,7 +76,7 @@ target 'Mobie_Pro' do
   pod 'JXSegmentedView', '~> 1.4.1'
   pod 'ProgressHUD', '~> 14.1.1'
   
-  pod 'IQKeyboardManagerSwift', '~> 8.0.1'
+#  pod 'IQKeyboardManagerSwift', '~> 8.0.1'
 #  pod 'MSAL', '~> 2.4.1'
 
   
