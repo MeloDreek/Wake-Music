@@ -86,6 +86,10 @@ class ProfileViewController: SuperViewController {
     
     @objc func updateNavigationItem() {
         self.navigationItem.rightBarButtonItem = (kaka_IsMacOS() || UserInfoManager.shared.isVIP() || !DiscountIAPManager.shared.isShowDiscount()) ? nil : self.premiumBarItem
+        
+        if UserInfoManager.shared.isVIP() && UserInfoManager.shared.payGoodsId == PurchaseStoreID.weekly.rawValue {
+            self.navigationItem.rightBarButtonItem = self.premiumBarItem
+        }
         self.tableView.reloadData()
     }
     

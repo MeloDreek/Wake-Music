@@ -10,9 +10,7 @@ import SmartCodable
 // Navidrome用户模型
 public struct NavidromeUserModel: SmartCodableX, Equatable, Hashable {
     
-    public init() {
-        
-    }
+    public init() { }
     
     public init(id: String, customName: String, hostUrl: String, name: String = "", isAdmin: Bool, subsonicSalt: String, subsonicToken: String, lastFMApiKey: String, token: String, isLargeServer: Bool, username: String, password: String) {
         self.id = id
