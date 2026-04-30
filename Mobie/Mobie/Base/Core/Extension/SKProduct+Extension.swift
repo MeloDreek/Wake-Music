@@ -66,7 +66,7 @@ extension EntitlementInfo {
             return .normal
         }
         
-        let isSubscription = (goodsID == .weekly || goodsID == .yearly)
+        let isSubscription = (/*goodsID == .weekly || */goodsID == .yearly)
         
         if isSubscription {
             // 判断订阅状态

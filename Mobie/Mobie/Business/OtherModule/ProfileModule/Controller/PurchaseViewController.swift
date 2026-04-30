@@ -84,7 +84,7 @@ class PurchaseViewController: SuperViewController {
         self.darkAppearanceClick()
                         
         self.handlePriceGoods(self.priceArray)
-        AppStoreKitManager.shared.refresRemoteProductsPrice(productIds: [.weekly, .lifetime198, .lifetime298]) { [weak self] models in
+        AppStoreKitManager.shared.refresRemoteProductsPrice() { [weak self] models in
             self?.handlePriceGoods(models)
             
             guard let yearModel = models.filter({ $0.productIdentifier == PurchaseStoreID.lifetime198.rawValue }).first, yearModel.price == 0 else { return }
@@ -159,7 +159,7 @@ class PurchaseViewController: SuperViewController {
             guard let vModel = self.selectModel else { return }
             let isVIP = UserInfoManager.shared.isVIP()
             
-            if vModel.productIdentifier == PurchaseStoreID.weekly.rawValue {
+            if vModel.productIdentifier == PurchaseStoreID.yearly.rawValue {
                 tipsLabel.text = "Auto-renews. Cancel anytime.".localStr()
                 buyoutButton.setTitle("Time-limited purchase".localStr(), for: .normal)
             }else if vModel.productIdentifier == PurchaseStoreID.lifetime198.rawValue {

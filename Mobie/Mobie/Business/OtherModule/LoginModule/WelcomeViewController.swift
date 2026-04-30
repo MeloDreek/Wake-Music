@@ -201,7 +201,7 @@ class WelcomeViewController: SuperViewController {
         self.purchaseManager.refresRemoteProductsPrice { products in
             let discountModel = products.filter { $0.productIdentifier == PurchaseStoreID.lifetime198.rawValue }.first
             let lifetimeModel = products.filter { $0.productIdentifier == PurchaseStoreID.lifetime298.rawValue }.first
-            let weeklyModel = products.filter { $0.productIdentifier == PurchaseStoreID.weekly.rawValue }.first
+            let yearModel = products.filter { $0.productIdentifier == PurchaseStoreID.yearly.rawValue }.first
             
             let lifetimeArray = [discountModel, lifetimeModel].compactMap { $0 }.sorted { product1, product2 in
                 return product1.price < product2.price
@@ -209,17 +209,9 @@ class WelcomeViewController: SuperViewController {
             
             // 终身限免期
             let isLifetimeOffer = (discountModel?.price == 0) && (lifetimeModel?.price == 0)
-            // 周会员免费试用 x 天
-            let isTrialWeekly = (weeklyModel?.freeTrialDays ?? 0) > 0
             
-            // 限免期和中国用户永远推荐买断制
-            if /*PhoneSetManager.formatLanguage() == .chinese_simplified ||*/ isLifetimeOffer {
-                self.productArray = lifetimeArray
-                self.selectModel = lifetimeArray.first
-            }else{
-                self.productArray = isTrialWeekly ? [weeklyModel!] : lifetimeArray
-                self.selectModel = isTrialWeekly ? weeklyModel : lifetimeArray.first
-            }
+            self.productArray = lifetimeArray
+            self.selectModel = lifetimeArray.first
             
             self.collectionView.reloadData()
         }

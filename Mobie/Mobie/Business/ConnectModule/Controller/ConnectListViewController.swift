@@ -137,7 +137,7 @@ class ConnectListViewController: SuperViewController {
     // 连接更多
     func importBarItem() -> UIBarButtonItem {
         let item = UIBarButtonItem(image: Reasource.systemNamed("plus"), style: .plain, target: self, action: #selector(importMusicClick))
-        item.accessibilityLabel = "Import Musics".localStr()
+        item.accessibilityLabel = "Import Music".localStr()
         return item
     }
     

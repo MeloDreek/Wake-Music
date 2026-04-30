@@ -1396,6 +1396,161 @@
         }
       }
     },
+    "7.1 Surround Sound" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "صوت محيطي 7.1"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "7.1 Surround-Sound"
+          }
+        },
+        "en-AU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "7.1 Surround Sound"
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "7.1 Surround Sound"
+          }
+        },
+        "en-IN" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "7.1 Surround Sound"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sonido envolvente 7.1"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sonido envolvente 7.1"
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sonido envolvente 7.1"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Son surround 7.1"
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Son surround 7.1"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "7.1 सराउंड साउंड"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Suara Surround 7.1"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Audio surround 7.1"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "7.1サラウンドサウンド"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "7.1 서라운드 사운드"
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "7.1 Bunyi Sekeliling"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Som Surround 7.1"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Som Surround 7.1"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "7.1 Объемный звук"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ระบบเสียงรอบทิศทาง 7.1"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "7.1 Çevresel Ses"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Âm thanh vòm 7.1"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "7.1环绕音"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "7.1環繞音"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "7.1環繞音"
+          }
+        }
+      }
+    },
     "115 Drive" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -5116,6 +5271,161 @@
         }
       }
     },
+    "All Your Music, Anywhere." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "كل موسيقاك، في أي مكان."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Deine ganze Musik, überall."
+          }
+        },
+        "en-AU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "All Your Music, Anywhere."
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "All Your Music, Anywhere."
+          }
+        },
+        "en-IN" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "All Your Music, Anywhere."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Toda tu música, en cualquier lugar."
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Toda tu música, donde sea."
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Toda tu música, donde sea."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Toute votre musique, partout."
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Toute votre musique, où que vous soyez."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "आपका सारा संगीत, हर जगह।"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Semua musik Anda, di mana saja."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tutta la tua musica, ovunque."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "あなたの音楽を、どこにでも"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "모든 음악을, 언제 어디서나."
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Semua muzik anda, di mana sahaja."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Toda a sua música, em qualquer lugar."
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Toda a sua música, em qualquer lugar."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Вся ваша музыка — всегда с вами."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ทุกเพลงของคุณ ในทุกที่ที่คุณไป"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tüm müziğiniz, her yerde."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mọi bản nhạc, ở bất cứ đâu."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "随时随地，享受音乐"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "隨時隨地，享受音樂"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "隨時隨地，想聽就聽"
+          }
+        }
+      }
+    },
     "All-Format Player" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -8057,161 +8367,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "百度雲盤"
-          }
-        }
-      }
-    },
-    "Based on the Apple Music player engine, it fully leverages the advantages of Apple’s software and hardware. At the same time, it addresses the compatibility issues of Apple Music, now supporting all music formats!" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "استنادًا إلى محرك مشغل Apple Music، فهو يستفيد بشكل كامل من مزايا برامج Apple وأجهزتها. وفي الوقت نفسه، يعالج مشاكل التوافق مع Apple Music، ويدعم الآن جميع تنسيقات الموسيقى!"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Basierend auf dem Apple Music Player-Kern nutzt es die Vorteile der Apple-Software und -Hardware in vollem Umfang. Gleichzeitig behebt es die Kompatibilitätsprobleme von Apple Music und unterstützt nun alle Musikformate!"
-          }
-        },
-        "en-AU" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Based on the Apple Music player engine, it fully leverages the advantages of Apple’s software and hardware. At the same time, it addresses the compatibility issues of Apple Music, now supporting all music formats!"
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Based on the Apple Music player engine, it fully leverages the advantages of Apple’s software and hardware. At the same time, it addresses the compatibility issues of Apple Music, now supporting all music formats!"
-          }
-        },
-        "en-IN" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Based on the Apple Music player engine, it fully leverages the advantages of Apple’s software and hardware. At the same time, it addresses the compatibility issues of Apple Music, now supporting all music formats!"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Basado en el motor del reproductor de Apple Music, aprovecha al máximo las ventajas del software y hardware de Apple. También corrige los problemas de compatibilidad de Apple Music, ¡y ahora soporta todos los formatos de música!"
-          }
-        },
-        "es-419" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Basado en el motor del reproductor de Apple Music, aprovecha al máximo las ventajas del software y hardware de Apple. También corrige los problemas de compatibilidad de Apple Music, ¡y ahora soporta todos los formatos de música!"
-          }
-        },
-        "es-US" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Basado en el motor del reproductor de Apple Music, aprovecha al máximo las ventajas del software y hardware de Apple. También corrige los problemas de compatibilidad de Apple Music, ¡y ahora soporta todos los formatos de música!"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Basé sur le moteur de lecteur Apple Music, il tire pleinement parti des avantages du logiciel et du matériel Apple. Il corrige également les problèmes de compatibilité d'Apple Music, et prend désormais en charge tous les formats musicaux !"
-          }
-        },
-        "fr-CA" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Basé sur le moteur de lecteur Apple Music, il tire pleinement parti des avantages du logiciel et du matériel Apple. Il corrige également les problèmes de compatibilité d'Apple Music, et prend désormais en charge tous les formats musicaux !"
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Apple Music प्लेयर इंजन पर आधारित, यह Apple के सॉफ़्टवेयर और हार्डवेयर के लाभों का पूरा लाभ उठाता है। साथ ही, यह Apple Music की संगतता समस्याओं को संबोधित करता है, अब सभी संगीत प्रारूपों का समर्थन करता है!"
-          }
-        },
-        "id" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Berbasis pada mesin pemutar Apple Music, aplikasi ini sepenuhnya memanfaatkan keunggulan perangkat lunak dan perangkat keras Apple. Pada saat yang sama, aplikasi ini mengatasi masalah kompatibilitas Apple Music, kini mendukung semua format musik!"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Basato sul motore del lettore Apple Music, sfrutta appieno i vantaggi del software e dell'hardware di Apple. Allo stesso tempo, risolve i problemi di compatibilità di Apple Music, supportando ora tutti i formati musicali!"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Apple Musicのプレーヤーエンジンをベースにしており、Appleのソフトウェアとハードウェアの利点を最大限に活かしています。同時にApple Musicの互換性問題を解決し、現在はすべての音楽フォーマットに対応しています！"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Apple Music 플레이어 엔진을 기반으로 Apple의 소프트웨어와 하드웨어의 장점을 최대한 활용합니다. 동시에 Apple Music의 호환성 문제를 해결하여 이제 모든 음악 형식을 지원합니다!"
-          }
-        },
-        "ms" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Berdasarkan enjin pemain Apple Music, ia memanfaatkan sepenuhnya kelebihan perisian dan perkakasan Apple. Pada masa yang sama, ia menangani isu keserasian Apple Music, kini menyokong semua format muzik!"
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Baseado no motor de reprodutor do Apple Music, aproveita ao máximo as vantagens do software e hardware da Apple. Também resolve os problemas de compatibilidade do Apple Music, agora suportando todos os formatos de música!"
-          }
-        },
-        "pt-PT" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Baseado no motor de reprodutor do Apple Music, aproveita ao máximo as vantagens do software e hardware da Apple. Também resolve os problemas de compatibilidade do Apple Music, agora suportando todos os formatos de música!"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Основанный на движке плеера Apple Music, он в полной мере использует преимущества программного и аппаратного обеспечения Apple. Также решаются проблемы совместимости Apple Music, и теперь поддерживаются все музыкальные форматы!"
-          }
-        },
-        "th" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "เครื่องเล่นเพลง Apple Music ใช้ประโยชน์จากข้อดีของซอฟต์แวร์และฮาร์ดแวร์ของ Apple ได้อย่างเต็มที่ ขณะเดียวกันก็แก้ไขปัญหาความเข้ากันได้ของ Apple Music โดยรองรับไฟล์เพลงทุกรูปแบบแล้ว!"
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Apple Music çalar motoruna dayanan bu uygulama, Apple’ın yazılım ve donanım avantajlarını tam olarak kullanır. Aynı zamanda Apple Music’in uyumluluk sorunlarını giderir ve artık tüm müzik formatlarını destekler!"
-          }
-        },
-        "vi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Dựa trên động cơ trình phát của Apple Music, tận dụng tối đa các ưu điểm của phần mềm và phần cứng Apple. Đồng thời, khắc phục các vấn đề tương thích của Apple Music và hiện hỗ trợ tất cả các định dạng nhạc!"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "基于Apple Music的播放器内核，充分发挥苹果软硬件的优势。同时弥补了Apple Music兼容性差的缺点，现已支持所有音乐格式！"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "基於Apple Music的播放器內核，充分發揮Apple軟硬體的優勢。同時彌補了Apple Music兼容性差的缺點，現在已經支持所有音樂格式！"
-          }
-        },
-        "zh-HK" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "基於Apple Music嘅播放器內核，充分發揮Apple嘅軟硬件優勢。同時彌補咗Apple Music兼容性差嘅缺點，現時已支援所有音樂格式！"
           }
         }
       }
@@ -16892,161 +17047,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "演示音頻係只讀嘅，無法編輯"
-          }
-        }
-      }
-    },
-    "Demo: 7.1 Surround Sound" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "7.1 صوت محيطي"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "7.1 Surround Sound für Demo"
-          }
-        },
-        "en-AU" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Demo: 7.1 Surround Sound"
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Demo: 7.1 Surround Sound"
-          }
-        },
-        "en-IN" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Demo: 7.1 Surround Sound"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sonido envolvente 7.1 para demostración"
-          }
-        },
-        "es-419" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sonido envolvente 7.1 para demostración"
-          }
-        },
-        "es-US" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sonido envolvente 7.1 para demostración"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Son surround 7.1 pour la démo"
-          }
-        },
-        "fr-CA" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Son ambiophonique 7.1 pour la démo"
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "डेमो: 7.1 सराउंड साउंड"
-          }
-        },
-        "id" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Demo Suara Sekitar 7.1"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Suono surround 7.1 per la demo"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "デモ用7.1サラウンド・サウンド"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "7.1 데모용 서라운드 사운드"
-          }
-        },
-        "ms" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Demo Bunyi Sekeliling 7.1"
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Som Surround 7.1 para demonstração"
-          }
-        },
-        "pt-PT" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Som Surround 7.1 para demonstração"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "7.1-канальный объемный звук"
-          }
-        },
-        "th" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "เดโม: เสียงรอบทิศทาง 7.1"
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Demo için 7.1 Surround Ses"
-          }
-        },
-        "vi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Âm thanh vòm 7.1 cho bản demo"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "演示的7.1环绕声"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "示範的7.1環繞聲"
-          }
-        },
-        "zh-HK" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "演示嘅7.1環繞聲"
           }
         }
       }
@@ -29155,7 +29155,7 @@
         }
       }
     },
-    "Import Musics" : {
+    "Import Music" : {
       "extractionState" : "manual",
       "localizations" : {
         "ar" : {
@@ -29173,13 +29173,13 @@
         "en-AU" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Import Musics"
+            "value" : "Import Music"
           }
         },
         "en-GB" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Import Musics"
+            "value" : "Import Music"
           }
         },
         "en-IN" : {
@@ -63100,6 +63100,161 @@
         }
       }
     },
+    "Tap to customize your cassettes and backgrounds" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "اضغط لتخصيص الكاسيت والخلفيات الخاصة بك"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tippen, um Kassetten und Hintergründe anzupassen"
+          }
+        },
+        "en-AU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tap to customize your cassettes and backgrounds"
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tap to customize your cassettes and backgrounds"
+          }
+        },
+        "en-IN" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tap to customize your cassettes and backgrounds"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pulsa para personalizar tus casetes y fondos"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Toca para personalizar tus casetes y fondos"
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Toca para personalizar tus casetes y fondos"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Appuyez pour personnaliser vos cassettes et fonds"
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Appuyez pour personnaliser vos cassettes et fonds"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "अपने कैसेट और बैकग्राउंड को कस्टमाइज़ करने के लिए टैप करें"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ketuk untuk menyesuaikan kaset dan latar belakang Anda"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tocca per personalizzare le tue cassette e gli sfondi"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "タップしてカセットと背景をカスタマイズ"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "탭하여 카세트와 배경을 맞춤 설정하세요"
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ketik untuk menyesuaikan kaset dan latar belakang anda"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Toque para personalizar suas fitas e fundos"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Toque para personalizar as suas cassetes e fundos"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Нажмите, чтобы настроить кассеты и фоны"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "แตะเพื่อปรับแต่งเทปและพื้นหลังของคุณ"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kasetlerinizi ve arka planlarınızı özelleştirmek için dokunun"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Chạm để tùy chỉnh băng và nền của bạn"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "点击自定义你的磁带和播放背景"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "點擊自定義你的磁帶和播放背景"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "點擊自定義你嘅磁帶同播放背景"
+          }
+        }
+      }
+    },
     "Terms of Service" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -65576,6 +65731,161 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "標題同藝術家名稱決定咗封面同歌詞嘅搜尋結果。由於 AI 搜尋嘅唔穩定性，呢個功能只係作為輔助。如果你認為數據有錯，請修改標題同藝術家姓名，或者手動貼上歌詞文字"
+          }
+        }
+      }
+    },
+    "The ultimate player for your local library. Experience flawless support for embedded covers and lyrics. Running out of space? Seamlessly connect your cloud storage." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "المشغل المثالي لمكتبتك المحلية. دعم مثالي للأغلفة والكلمات المدمجة. هل تعاني من نقص في المساحة؟ قم بتوصيل سحابتك التخزينية بسلاسة."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Der ultimative Player für deine lokale Bibliothek. Makellose Unterstützung für eingebettete Cover und Songtexte. Speicher voll? Verbinde dich nahtlos mit deinem Cloud-Speicher."
+          }
+        },
+        "en-AU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The ultimate player for your local library. Experience flawless support for embedded covers and lyrics. Running out of space? Seamlessly connect your cloud storage."
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The ultimate player for your local library. Experience flawless support for embedded covers and lyrics. Running out of space? Seamlessly connect your cloud storage."
+          }
+        },
+        "en-IN" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The ultimate player for your local library. Enjoy flawless support for embedded covers and lyrics. Running out of phone storage? Seamlessly connect your cloud drives."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "El reproductor definitivo para tu biblioteca local. Soporte impecable para portadas y letras integradas. ¿Te quedas sin espacio? Conecta tu almacenamiento en la nube sin interrupciones."
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "El reproductor definitivo para tu biblioteca local. Soporte impecable para carátulas y letras integradas. ¿Te estás quedando sin espacio? Conecta tu almacenamiento en la nube fácilmente."
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "El reproductor definitivo para tu biblioteca local. Soporte impecable para carátulas y letras integradas. ¿Te estás quedando sin espacio? Conecta tu almacenamiento en la nube fácilmente."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Le lecteur ultime pour votre bibliothèque locale. Prise en charge parfaite des pochettes et paroles intégrées. Manque d'espace ? Connectez vos stockages cloud en toute fluidité."
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Le lecteur ultime pour votre bibliothèque locale. Prise en charge parfaite des pochettes et paroles intégrées. Manque d'espace ? Connectez votre stockage infonuagique sans interruption."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "आपकी स्थानीय लाइब्रेरी के लिए बेहतरीन प्लेयर। एम्बेडेड कवर और लिरिक्स का शानदार सपोर्ट। स्पेस कम पड़ रहा है? अपने क्लाउड स्टोरेज से आसानी से जुड़ें।"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pemutar musik andalan untuk pustaka lokal Anda. Dukungan sempurna untuk sampul dan lirik yang tertanam. Kehabisan ruang? Hubungkan penyimpanan cloud Anda dengan lancar."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Il player definitivo per la tua libreria locale. Supporto impeccabile per copertine e testi incorporati. Spazio esaurito? Collega il tuo cloud storage in modo semplice."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ローカルライブラリのための究極のプレイヤー。埋め込みのカバーアートや歌詞を完璧に表示。容量不足？クラウドストレージにシームレスに接続"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "로컬 라이브러리를 위한 궁극의 플레이어. 내장된 커버 아트와 가사를 완벽하게 지원합니다. 저장 공간이 부족한가요? 클라우드 저장소를 원활하게 연결하세요."
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pemain utama untuk perpustakaan tempatan anda. Sokongan sempurna untuk kulit album dan lirik terbenam. Ruang storan penuh? Sambungkan storan awan anda dengan lancar."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O player definitivo para sua biblioteca local. Suporte impecável para capas e letras incorporadas. Ficando sem espaço? Conecte seu armazenamento em nuvem sem complicações."
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O leitor definitivo para a sua biblioteca local. Suporte impecável para capas e letras incorporadas. A ficar sem espaço? Ligue-se ao seu armazenamento na nuvem de forma simples."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ультимативный плеер для вашей локальной библиотеки. Безупречная поддержка встроенных обложек и текстов песен. Не хватает места? Бесшовное подключение к облачным хранилищам."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "สุดยอดเครื่องเล่นเพลงสำหรับคลังเพลงในเครื่องของคุณ รองรับหน้าปกและเนื้อเพลงที่ฝังในไฟล์ได้อย่างสมบูรณ์แบบ พื้นที่เต็มใช่ไหม? เชื่อมต่อกับคลาวด์ของคุณได้อย่างไร้รอยต่อ"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Yerel kitaplığınız için en iyi oynatıcı. Gömülü kapak resmi ve şarkı sözleri için kusursuz destek. Alanınız mı bitiyor? Bulut depolama alanınıza sorunsuz bir şekilde bağlanın."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Trình phát nhạc đỉnh cao cho thư viện nội bộ của bạn. Hỗ trợ hoàn hảo cho ảnh bìa và lời bài hát đính kèm. Hết dung lượng? Kết nối lưu trữ đám mây một cách liền mạch."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "本地音乐库的终极播放器。完美支持文件内嵌封面与歌词。空间告急？无缝连接您的云端网盘"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "本地音樂庫的終極播放器。完美支援內建封面與歌詞。空間不足？無縫連接您的雲端網盤"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "本地音樂庫嘅終極播放器。完美支援內置封面同歌詞。空間唔夠？無縫連接你嘅雲端網盤"
           }
         }
       }
@@ -71311,6 +71621,161 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "當播放遠程音樂時會預先下載下一首歌曲。完成後，無需緩衝時間，無需 Wi-Fi 或蜂窩網絡，即可立即播放"
+          }
+        }
+      }
+    },
+    "Why Wake Music?" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "لماذا تختار Wake Music؟"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Warum Wake Music?"
+          }
+        },
+        "en-AU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Why Wake Music?"
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Why Wake Music?"
+          }
+        },
+        "en-IN" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Why choose Wake Music?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Por qué Wake Music?"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Por qué elegir Wake Music?"
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Por qué elegir Wake Music?"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pourquoi Wake Music ?"
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pourquoi Wake Music ?"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "वेक म्यूजिक (Wake Music) ही क्यों?"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mengapa Wake Music?"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Perché Wake Music?"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "なぜ ウェイク音楽 なのか？"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "왜 웨이크음악인가요?"
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mengapa Wake Music?"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Por que o Wake Music?"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Porquê o Wake Music?"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Почему Уэйк Музыка?"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ทำไมต้อง Wake Music?"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Neden Wake Music?"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tại sao nên chọn Wake Music?"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "为什么选择维克音乐？"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "為什麼選擇 Wake Music？"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "點解要揀維克音樂？"
           }
         }
       }

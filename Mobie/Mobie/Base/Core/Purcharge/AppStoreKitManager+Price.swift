@@ -13,7 +13,7 @@ import AppGroupKit
 extension AppStoreKitManager {
     
     /// 获取远程本地价格信息
-    public func refresRemoteProductsPrice(productIds: [PurchaseStoreID] = [.weekly, .lifetime198, .lifetime298], completion: (([StoreProduct])->Void)? = nil) {
+    public func refresRemoteProductsPrice(productIds: [PurchaseStoreID] = [.yearly, .lifetime198, .lifetime298], completion: (([StoreProduct])->Void)? = nil) {
         
 #if !Target_Mobie_Pro
         

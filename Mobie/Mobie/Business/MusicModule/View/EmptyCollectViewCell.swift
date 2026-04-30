@@ -150,7 +150,7 @@ class EmptyCollectViewCell: UICollectionViewCell {
     func showConnectEmpty() {
         self.importButton.isHidden = false
         self.formatButton.isHidden = false
-        self.importButton.setTitle("Import Musics".localStr(), for: .normal)
+        self.importButton.setTitle("Import Music".localStr(), for: .normal)
         
         self.titleLabel.text = "Connect Your Music".localStr()
         self.messaleLabel.text = "Even if you collect a million songs, it won't take up any disk space on your device. No need for any APIs, and you can perfectly display embedded album art and lyrics in remote files".localStr()
@@ -198,7 +198,7 @@ class EmptyCollectViewCell: UICollectionViewCell {
         let view = UILabel()
         view.numberOfLines = 0
         view.textAlignment = .center
-        view.text = "Offline Music Player".localStr()
+        view.text = "All Your Music, Anywhere.".localStr()
         view.textColor = UIColor.label
         view.font = UIFontBold(20.ckValue())
         return view
@@ -208,14 +208,14 @@ class EmptyCollectViewCell: UICollectionViewCell {
         let view = UILabel()
         view.numberOfLines = 0
         view.textAlignment = .center
-        view.text = "Based on the Apple Music player engine, it fully leverages the advantages of Apple’s software and hardware. At the same time, it addresses the compatibility issues of Apple Music, now supporting all music formats!".localStr()
+        view.text = "The ultimate player for your local library. Experience flawless support for embedded covers and lyrics. Running out of space? Seamlessly connect your cloud storage.".localStr()
         view.textColor = UIColor.secondaryLabel
         view.font = UIFontLight(16.ckValue())
         return view
     }()
     
     lazy var formatButton: UIButton = {
-        let text = "Supports All Formats".localStr()
+        let text = "Why Wake Music?".localStr()
         
         let view = UIButton()
         view.layer.borderColor = appMainColor.cgColor
@@ -232,7 +232,7 @@ class EmptyCollectViewCell: UICollectionViewCell {
     
     lazy var importButton: UIButton = {
         let view = UIButton(type: .custom)
-        view.setTitle("Import Musics".localStr(), for: .normal)
+        view.setTitle("Import Music".localStr(), for: .normal)
         view.titleLabel?.font = UIFontBold(15.ckValue())
         view.backgroundColor = appMainColor
         view.setTitleColor(UIColor(named: "DeAccentColor"), for: .normal)

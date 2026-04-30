@@ -370,7 +370,11 @@ extension KakaMusicPlayer {
                 }
             } catch {
                 await MainActor.run {
+                    #if Target_Mobie_Pro
+                    completion(.failure(KakaError.custom("授权异常，建议使用永不过期的Webdav连接您的阿里云盘（阿里云盘App内查看您的Webdav账号密码）")))
+                    #else
                     completion(.failure(KakaError.custom(error.localizedDescription)))
+                    #endif
                 }
             }
         }

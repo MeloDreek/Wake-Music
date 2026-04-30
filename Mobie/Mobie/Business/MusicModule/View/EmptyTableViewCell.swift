@@ -137,7 +137,7 @@ class EmptyTableViewCell: UITableViewCell {
     
     var delegate: EmptyContentCellDelegate?
     
-    let normalMsg = "Based on the Apple Music player engine, it fully leverages the advantages of Apple’s software and hardware. At the same time, it addresses the compatibility issues of Apple Music, now supporting all music formats!".localStr()
+    let normalMsg = "The ultimate player for your local library. Experience flawless support for embedded covers and lyrics. Running out of space? Seamlessly connect your cloud storage.".localStr()
     
     // 监听 tintColor 的变化
     @objc func appModeStyleChanged(_ noti: Notification) {
@@ -184,7 +184,7 @@ class EmptyTableViewCell: UITableViewCell {
         let view = UILabel()
         view.numberOfLines = 0
         view.textAlignment = .center
-        view.text = "Offline Music Player".localStr()
+        view.text = "All Your Music, Anywhere.".localStr()
         view.textColor = UIColor.label
         view.font = UIFontBold(20.ckValue())
         return view
@@ -202,7 +202,7 @@ class EmptyTableViewCell: UITableViewCell {
     
     lazy var importButton: UIButton = {
         let view = UIButton(type: .custom)
-        view.setTitle("Import Musics".localStr(), for: .normal)
+        view.setTitle("Import Music".localStr(), for: .normal)
         view.titleLabel?.font = UIFontBold(15.ckValue())
         view.backgroundColor = appMainColor
         view.setTitleColor(UIColor(named: "DeAccentColor"), for: .normal)
@@ -217,7 +217,7 @@ class EmptyTableViewCell: UITableViewCell {
     }
     
     lazy var formatButton: UIButton = {
-        let text = "Supports All Formats".localStr()
+        let text = "Why Wake Music?".localStr()
         
         let view = UIButton()
         view.layer.borderColor = appMainColor.cgColor

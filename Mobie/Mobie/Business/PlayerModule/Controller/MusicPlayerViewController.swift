@@ -88,7 +88,8 @@ class MusicPlayerViewController: SuperViewController {
         self.hiddenNavgationUI()
         self.resetPlayerConfig()
         
-        self.perform(#selector(showAirPlayTips), with: nil, afterDelay: 1)
+        self.perform(#selector(showTapePlayerUI), with: nil, afterDelay: 1)
+        self.perform(#selector(showAirPlayTips), with: nil, afterDelay: 3)
     }
     
     func resetPlayerConfig() {
@@ -108,7 +109,27 @@ class MusicPlayerViewController: SuperViewController {
         self.collectionView.reloadData()
     }
     
+    // 引导新用户点击切换磁带卡片
+    @objc func showTapePlayerUI() {
+//        guard !AppLocalManager.shared.isShowTapePlayer else { return }
+        
+        guard let basicCell = self.collectionView.cellForItem(at: IndexPath(row: 0, section: 0)) as? PlayerBasicCollectCell else { return }
+        
+        basicCell.miniLyricView.aniLyricLabel.isHidden = true
+        let coverFrame = basicCell.coverImgView.convert(basicCell.coverImgView.bounds, to: self.view)
+        
+        let guideView = PlayerGuideView(frame: self.view.bounds, targetFrame: coverFrame)
+        guideView.onClickTap = { [weak self] () in
+            AppLocalManager.shared.isShowTapePlayer = true
+            basicCell.miniLyricView.aniLyricLabel.isHidden = false
+            self?.presentPlayerStyle()
+        }
+        self.view.addSubview(guideView)
+    }
+    
     @objc func showAirPlayTips() {
+        
+        guard let playingMusic = KakaMusicPlayer.shared.playingMusic, playingMusic.fileSourceType != .demoFile else { return }
         
         if self.playDefaultControl.isHidden || self.playDefaultControl.airplayButton.isHidden {
             return

@@ -92,7 +92,7 @@ extension PurchaseViewController {
         if !DiscountIAPManager.shared.isShowDiscount() {
             DiscountIAPManager.reset()
             
-            AppStoreKitManager.shared.refresRemoteProductsPrice(productIds: [.weekly, .lifetime198, .lifetime298]) { [weak self] models in
+            AppStoreKitManager.shared.refresRemoteProductsPrice(productIds: [.yearly, .lifetime198, .lifetime298]) { [weak self] models in
                 self?.handlePriceGoods(models)
             }
             

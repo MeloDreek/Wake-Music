@@ -135,6 +135,14 @@ public class AppLocalManager: SmartCodableX, ObservableObject {
         }
     }
     
+    /// 是否引导过卡式磁带
+    @SmartPublished
+    public var isShowTapePlayer: Bool = false {
+        didSet {
+            save()
+        }
+    }
+    
     /// 提示自定义壁纸
     @SmartPublished
     public var isShowCustomBg: Bool = false {

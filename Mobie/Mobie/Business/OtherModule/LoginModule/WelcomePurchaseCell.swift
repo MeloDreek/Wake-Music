@@ -92,9 +92,9 @@ class WelcomePurchaseCell: UICollectionViewCell {
     var products: [StoreProduct] = [] {
         didSet {
             
-            let weeklyModel = products.filter { $0.productIdentifier == PurchaseStoreID.weekly.rawValue }.first
+            let yearModel = products.filter { $0.productIdentifier == PurchaseStoreID.yearly.rawValue }.first
             
-            guard let weeklyModel = weeklyModel else {
+            guard let yearModel = yearModel else {
                 
                 let discountModel = products.filter { $0.productIdentifier == PurchaseStoreID.lifetime198.rawValue }.first
                 let lifetimeModel = products.filter { $0.productIdentifier == PurchaseStoreID.lifetime298.rawValue }.first
@@ -127,9 +127,11 @@ class WelcomePurchaseCell: UICollectionViewCell {
             
             self.priceLabel.attributedText = NSAttributedString(string: "Unlock All Premium Features".localStr(), attributes: [.font: UIFontBold(15.ckValue()), .foregroundColor: textColor])
             
-            let freeTrailDays = weeklyModel.freeTrialDays ?? 0
-            let priceStr = String(format: "Free trial for %@ days, then %@/week. Cancel anytime.".localStr(), "\(freeTrailDays)", weeklyModel.localizedPriceString)
-            self.descLabel.text = priceStr
+//            let freeTrailDays = weeklyModel.freeTrialDays ?? 0
+//            let priceStr = String(format: "Free trial for %@ days, then %@/week. Cancel anytime.".localStr(), "\(freeTrailDays)", weeklyModel.localizedPriceString)
+//            self.descLabel.text = priceStr
+            
+            self.descLabel.text = "Get lifetime access at the lowest price — unlock all feature on iOS and macOS!".localStr()
             
         }
     }

@@ -324,7 +324,7 @@ extension MusicItemModel {
     public func showTitleName() -> String {
         if self.isLocalFile() {
             if self.fileSourceType == .demoFile {
-                return "Demo: 7.1 Surround Sound".localStr()
+                return "7.1 Surround Sound".localStr()
             }else{
                 let fileName = self.mediaPlayURL.lastPathComponent.ocString.deletingPathExtension
                 return self.title ?? fileName

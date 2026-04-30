@@ -380,7 +380,7 @@ view.refreshControl = self.kaka_header
     // 导入方式
     func importBarItem() -> UIBarButtonItem {
         let item = UIBarButtonItem(image: Reasource.systemNamed("plus"), style: .plain, target: self, action: #selector(importMusicClick))
-        item.accessibilityLabel = "Import Musics".localStr()
+        item.accessibilityLabel = "Import Music".localStr()
         return item
     }
     

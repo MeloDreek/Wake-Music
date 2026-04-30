@@ -14,8 +14,8 @@
             filePath = "LocalSDK/AppGroupKit/Classes/CoreManager/Manager/AppLocalManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "307"
-            endingLineNumber = "307"
+            startingLineNumber = "315"
+            endingLineNumber = "315"
             landmarkName = "activateAllBookmarks()"
             landmarkType = "7">
          </BreakpointContent>

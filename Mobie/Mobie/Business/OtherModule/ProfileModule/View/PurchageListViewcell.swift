@@ -169,7 +169,7 @@ class PurchageListViewcell: UITableViewCell {
 
 extension PurchaseStoreID {
     public func iconImage() -> UIImage {
-        let isYear = (self == .weekly || self == .yearly) ? true : false
+        let isYear = (self == .yearly) ? true : false
         return Reasource.named(isYear ? "vip_365" : "vip_30")
     }
     

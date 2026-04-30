@@ -547,6 +547,8 @@
 		2299B8FE2D8A95C100D9F886 /* NavidromeSongListController+Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2299B8FC2D8A95C000D9F886 /* NavidromeSongListController+Search.swift */; };
 		229C98AC2CA7DE7300925F0A /* MusicsFootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229C98AB2CA7DE7300925F0A /* MusicsFootView.swift */; };
 		229DEA442D716124003967DB /* SubsonicResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229DEA432D716124003967DB /* SubsonicResponse.swift */; };
+		22AAE39E2FA34EEA0021773B /* PlayerGuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AAE39D2FA34EEA0021773B /* PlayerGuideView.swift */; };
+		22AAE39F2FA34EEA0021773B /* PlayerGuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AAE39D2FA34EEA0021773B /* PlayerGuideView.swift */; };
 		22AB3BC72CE5EED00063F284 /* MusicInfoTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AB3BC62CE5EED00063F284 /* MusicInfoTagView.swift */; };
 		22AB3BCD2CE6406B0063F284 /* PlayerLyricsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AB3BCC2CE6406B0063F284 /* PlayerLyricsCell.swift */; };
 		22AB5CE82D6EB31E006E10BC /* ConnectedSourceTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AB5CE72D6EB31E006E10BC /* ConnectedSourceTableCell.swift */; };
@@ -931,6 +933,7 @@
 		2299B8FC2D8A95C000D9F886 /* NavidromeSongListController+Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NavidromeSongListController+Search.swift"; sourceTree = "<group>"; };
 		229C98AB2CA7DE7300925F0A /* MusicsFootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicsFootView.swift; sourceTree = "<group>"; };
 		229DEA432D716124003967DB /* SubsonicResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubsonicResponse.swift; sourceTree = "<group>"; };
+		22AAE39D2FA34EEA0021773B /* PlayerGuideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerGuideView.swift; sourceTree = "<group>"; };
 		22AB3BC62CE5EED00063F284 /* MusicInfoTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicInfoTagView.swift; sourceTree = "<group>"; };
 		22AB3BCC2CE6406B0063F284 /* PlayerLyricsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerLyricsCell.swift; sourceTree = "<group>"; };
 		22AB5CE72D6EB31E006E10BC /* ConnectedSourceTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectedSourceTableCell.swift; sourceTree = "<group>"; };
@@ -1461,6 +1464,7 @@
 				2266A1502DE7531400F5AEB7 /* LyricFontColorTableCell.swift */,
 				2266A1532DE7537200F5AEB7 /* LyricFontAlignTableCell.swift */,
 				2266A1562DE753A100F5AEB7 /* LyricFontSpaceTableCell.swift */,
+				22AAE39D2FA34EEA0021773B /* PlayerGuideView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2137,6 +2141,7 @@
 				225F58342D85B2AB0055BDFF /* MusicsViewController+Data.swift in Sources */,
 				2266A1542DE7537200F5AEB7 /* LyricFontAlignTableCell.swift in Sources */,
 				22FB960A2DED5007007EA2FD /* PlayControlTapeView.swift in Sources */,
+				22AAE39E2FA34EEA0021773B /* PlayerGuideView.swift in Sources */,
 				22FB960C2DED507B007EA2FD /* PlayControlVinylView.swift in Sources */,
 				2258AD002DE5FD0D00F5754B /* LyricSetCellModel.swift in Sources */,
 				22C707782DCB9C5500A1B79A /* MacTabbarViewController+Noti.swift in Sources */,
@@ -2420,6 +2425,7 @@
 				228A14332CA0633400E2948E /* MusicsViewController+Data.swift in Sources */,
 				2266A1552DE7537200F5AEB7 /* LyricFontAlignTableCell.swift in Sources */,
 				22FB96092DED5007007EA2FD /* PlayControlTapeView.swift in Sources */,
+				22AAE39F2FA34EEA0021773B /* PlayerGuideView.swift in Sources */,
 				22FB960D2DED507B007EA2FD /* PlayControlVinylView.swift in Sources */,
 				2258ACFF2DE5FD0D00F5754B /* LyricSetCellModel.swift in Sources */,
 				22C707772DCB9C5500A1B79A /* MacTabbarViewController+Noti.swift in Sources */,

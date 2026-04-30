@@ -18,7 +18,7 @@ import SafariServices
 class ImportViewController: SuperViewController {
     override func preSetupSubViews() {
         super.preSetupSubViews()
-        self.title = "Import Musics".localStr()
+        self.title = "Import Music".localStr()
         
         contentView.addSubview(tableView)
     }

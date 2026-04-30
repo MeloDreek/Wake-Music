@@ -1,5 +1,5 @@
-#source 'https://gitee.com/mirrors/CocoaPods-Specs.git'
 #source 'https://github.com/CocoaPods/Specs.git'
+#source 'https://gitee.com/mirrors/CocoaPods-Specs.git'
 source 'https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git'
 
 
@@ -25,9 +25,10 @@ target 'Mobie' do
   pod 'WakeMusicPlayer',            :path => './LocalSDK/WakeMusicPlayer'
   
   
-  pod 'Firebase'#, '~> 12.2.0'
-  pod 'Firebase/AnalyticsWithoutAdIdSupport'#, '~> 12.2.0'
-  pod 'FirebaseCrashlytics'#, '~> 12.2.0'
+  pod 'Firebase', '~> 12.12.1'
+  pod 'Firebase/AnalyticsWithoutAdIdSupport'
+  pod 'FirebaseFirestore'
+  pod 'FirebaseCrashlytics'
   
   pod 'GoogleSignIn', '~> 9.0.0'
   pod 'SwiftyDropbox', '~> 10.2.4'
@@ -61,9 +62,10 @@ target 'Mobie_Pro' do
   pod 'WakeMusicPlayer',            :path => './LocalSDK/WakeMusicPlayer'
   
   
-  pod 'Firebase'#, '~> 12.2.0'
-  pod 'Firebase/AnalyticsWithoutAdIdSupport'#, '~> 12.2.0'
-  pod 'FirebaseCrashlytics'#, '~> 12.2.0'
+  pod 'Firebase', '~> 12.12.1'
+  pod 'Firebase/AnalyticsWithoutAdIdSupport'
+  pod 'FirebaseFirestore'
+  pod 'FirebaseCrashlytics'
   
   pod 'GoogleSignIn', '~> 9.0.0'
   pod 'SwiftyDropbox', '~> 10.2.4'
