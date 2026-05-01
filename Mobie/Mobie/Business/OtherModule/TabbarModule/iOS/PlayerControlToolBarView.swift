@@ -451,10 +451,10 @@ class PlayerControlToolBarView: UIToolbar {
             }
             
 #warning("模拟mock数据")
-#if DEBUG
-            nameLabel.text = "Wake Music".localStr()
-            coverImgView.image = MusicGenreType.pop.iconImage()
-#endif
+//#if DEBUG
+//            nameLabel.text = "Wake Music".localStr()
+//            coverImgView.image = MusicGenreType.pop.iconImage()
+//#endif
                         
             self.layoutIfNeeded()
             
