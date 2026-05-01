@@ -39,7 +39,7 @@ target 'Mobie' do
   pod 'JXSegmentedView', '~> 1.4.1'
   pod 'ProgressHUD', '~> 14.1.1'
   
-#  pod 'IQKeyboardManagerSwift', '~> 8.0.1'
+  pod 'IQKeyboardManagerSwift', '~> 8.0.1'
 #  pod 'MSAL', '~> 2.4.1'
   
 end
@@ -76,7 +76,7 @@ target 'Mobie_Pro' do
   pod 'JXSegmentedView', '~> 1.4.1'
   pod 'ProgressHUD', '~> 14.1.1'
   
-#  pod 'IQKeyboardManagerSwift', '~> 8.0.1'
+  pod 'IQKeyboardManagerSwift', '~> 8.0.1'
 #  pod 'MSAL', '~> 2.4.1'
 
   
