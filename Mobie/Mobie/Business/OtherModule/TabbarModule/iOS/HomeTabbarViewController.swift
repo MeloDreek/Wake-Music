@@ -43,6 +43,7 @@ class HomeTabbarViewController: UITabBarController {
         
         self.fileWatcher.startWatching()
         
+        /*
         self.view.addSubview(toolbarView)
         toolbarView.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview()
@@ -57,6 +58,27 @@ class HomeTabbarViewController: UITabBarController {
             }
             make.height.equalTo(toolbarView.bounds.height)
         }
+        */
+        
+        self.perform(#selector(setupPlayerMinibar), with: nil, afterDelay: 0.5)
+    }
+    
+    @objc func setupPlayerMinibar() {
+        self.view.addSubview(toolbarView)
+        toolbarView.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview()
+            
+            if kaka_IsiPhone() {
+                if #available(iOS 26.0, *) {
+                    make.bottom.equalTo(self.tabBar.snp.top).offset(-5.ckValue())
+                }else{
+                    make.bottom.equalTo(self.tabBar.snp.top)
+                }
+            }else{
+                make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-app_tabbarHeight)
+            }
+            make.height.equalTo(toolbarView.bounds.height)
+        }
         
         self.view.addSubview(floatingView)
         floatingView.snp.makeConstraints { make in
@@ -68,7 +90,6 @@ class HomeTabbarViewController: UITabBarController {
             }
             make.size.equalTo(floatingView.fullSize)
         }
-                
     }
     
     @objc func setupDiscountTimer() {
