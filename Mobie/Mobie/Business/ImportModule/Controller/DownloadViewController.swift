@@ -233,13 +233,16 @@ extension DownloadViewController: UITableViewDataSource, UITableViewDelegate, Em
         let model = dataArray[indexPath.row]
         cell.update(musicModel: model, cellType: .download)
 #warning("模拟mock数据")
-//        #if DEBUG
-//        cell.loadingBgView.isHidden = true
-//        let genreType = MusicGenreType.allCases.reversed()[indexPath.row]
-//        cell.coverImgView.image = genreType.iconImage()
-//        cell.nameLabel.text = model.title
-//        cell.descLabel.text = URL.formatFileSize(UInt64(model.navidromeSong?.size ?? 0))
-//        #endif
+        #if DEBUG
+        cell.loadingBgView.isHidden = true
+        
+        var allGenre = MusicGenreType.allCases
+        allGenre.removeLast()
+        let genreType = allGenre.reversed()[indexPath.row]
+        cell.coverImgView.image = genreType.iconImage()
+        cell.nameLabel.text = genreType.formatStr() + "." +  AudioFormatEnum.allCases.randomElement()!.rawValue.lowercased()
+        cell.descLabel.text = PhoneSetManager.formatLanguage() == .chinese_simplified ? ImportFileType.fromBaiduDrive.titleStr() : ImportFileType.fromGoogleDrive.titleStr()
+        #endif
         return cell
     }
     
@@ -247,12 +250,12 @@ extension DownloadViewController: UITableViewDataSource, UITableViewDelegate, Em
         tableView.deselectRow(at: indexPath, animated: true)
         
 #warning("模拟mock数据")
-//        #if DEBUG
-//        if let tabbarVC = self.tabBarController as? IOSTabbarViewController {
-//            tabbarVC.tabBar.isHidden = !tabbarVC.tabBar.isHidden
-//        }
-//        return
-//        #endif
+        #if DEBUG
+        if let tabbarVC = self.tabBarController as? HomeTabbarViewController {
+            tabbarVC.tabBar.isHidden = !tabbarVC.tabBar.isHidden
+        }
+        return
+        #endif
         
         guard self.dataArray.count > 0 else {
             return

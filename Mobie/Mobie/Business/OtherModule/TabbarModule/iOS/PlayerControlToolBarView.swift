@@ -449,6 +449,12 @@ class PlayerControlToolBarView: UIToolbar {
                     self.updateDuration(curTime: 0, endTime: TimeInterval(musicModel.durationSeconds))
                 }
             }
+            
+#warning("模拟mock数据")
+#if DEBUG
+            nameLabel.text = "Wake Music".localStr()
+            coverImgView.image = MusicGenreType.pop.iconImage()
+#endif
                         
             self.layoutIfNeeded()
             

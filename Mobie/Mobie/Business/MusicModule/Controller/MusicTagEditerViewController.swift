@@ -85,7 +85,7 @@ class MusicTagEditerViewController: SuperViewController {
 //        self.ffmpegGetMetadata(fileURL)
                 
 #warning("模拟mock数据")
-#if DEBUG
+//#if DEBUG
 //        let language = PhoneSetManager.formatLanguage()
 //        let isChinese = language == .chinese_simplified || language == .chinese_traditional || language == .japanese || language == .tailand || language == .malay || language == .yinni || language == .korean || language == .yuenan
 //
@@ -100,7 +100,7 @@ class MusicTagEditerViewController: SuperViewController {
 //        self.editModel?.genre = MusicGenreType.gospel.rawValue
 //        
 //        self.origialModel = self.editModel
-#endif
+//#endif
         
         self.tableView.reloadData()
     }

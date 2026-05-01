@@ -111,7 +111,7 @@ class MusicPlayerViewController: SuperViewController {
     
     // 引导新用户点击切换磁带卡片
     @objc func showTapePlayerUI() {
-//        guard !AppLocalManager.shared.isShowTapePlayer else { return }
+        guard !AppLocalManager.shared.isShowTapePlayer else { return }
         
         guard let basicCell = self.collectionView.cellForItem(at: IndexPath(row: 0, section: 0)) as? PlayerBasicCollectCell else { return }
         

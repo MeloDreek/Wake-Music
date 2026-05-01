@@ -59,13 +59,13 @@ extension MusicsViewController: UITableViewDataSource, UITableViewDelegate {
                 debugPrint("❌数组越界")
             }
 
-//#warning("模拟mock数据")
+#warning("模拟mock数据")
 //#if DEBUG
-//            let name = "singer_\(indexPath.row + 1)@3x.png"
-//            cell.nameLabel.text = "Music 00\(indexPath.row + 1).DTS"
+//            let musicGenre = MusicGenreType.allCases.randomElement()!
+//            
+//            cell.nameLabel.text = musicGenre.formatStr() + "." + AudioExtensionType.allCases.randomElement()!.rawValue
 //            cell.descLabel.text = "Wake Music".localStr()
-//            let coverURL = URL(fileURLWithPath: Reasource.fullFilePath(name))
-//            cell.coverImgView.kf.setImage(with: coverURL, placeholder: UIImage(named: "music_place"))
+//            cell.coverImgView.image = musicGenre.iconImage()
 //#endif
             return cell
         }

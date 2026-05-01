@@ -221,7 +221,7 @@ extension MusicItemModel {
     static func demoMusicModel() -> MusicItemModel {
         let fileURL = URL(fileURLWithPath: Reasource.fullFilePath("Wake Music.dts"))
         
-        let placeArtist = "Wake Music".localStr() + " Demo"
+        let placeArtist = "Wake Music".localStr()
         let lyricStr = "[00:00.000] \(placeArtist)\r[00:03.662] ⚡️⚡️⚡️\r[00:05.663] ☁️☁️☁️\r[00:07.664] 🌩️🌩️🌩️\r[00:09.665] 🌧️🌧️🌧️\r[00:11.666] ☂️☂️☂️\r[00:13.667] ☔️☔️☔️\r[00:15.668] 🌊🌊🌊\r[00:17.669] ❄️❄️❄️\r[00:19.660] ⛄️⛄️⛄️\r[00:21.661] ☃️☃️☃️\r[00:23.662] 💧💧💧\r[00:25.663] 🌈🌈🌈\r[00:27.664] 🌥️🌥️🌥️\r[00:29.665] ⛅️⛅️⛅️\r[00:31.666] 🌤️🌤️🌤️\r[00:32.666] ☀️☀️☀️\r[00:33.000] \(placeArtist)"
         
         let metaData = TaglibMetadataParser.readMetadata(withFileURL: fileURL, read: .all)
