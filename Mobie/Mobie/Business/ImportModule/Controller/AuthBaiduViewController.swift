@@ -201,7 +201,7 @@ class AuthBaiduViewController: SuperViewController, WKNavigationDelegate {
             "vip_version": "v2"
         ]
         
-        AF.request(url, method: .get, parameters: parameters).validate().responseString { response in
+        AF.request(url, method: .get, parameters: parameters).responseString { response in
             switch response.result {
             case .success(let responseString):
                 debugPrint("百度用户信息: \(responseString)")

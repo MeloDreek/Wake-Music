@@ -413,7 +413,7 @@ extension KakaMusicPlayer {
             
             AF.download(lyricFileURL, to: destination).validate(statusCode: 200..<500).downloadProgress { progressValue in
                 debugPrint("下载歌词进度 = \(progressValue.fractionCompleted)")
-              }.validate().responseURL { response in
+              }.responseURL { response in
                 switch response.result {
                 case .success(let fileURL):
                     if let lyricStr = fileURL.readLRCContentStr() {

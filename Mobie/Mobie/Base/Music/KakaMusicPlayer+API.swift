@@ -41,7 +41,7 @@ extension KakaMusicPlayer {
         
         debugPrint("参数parameters = \(parameters)")
         
-        AF.request(url, method: .get, parameters: parameters).validate().responseString { response in
+        AF.request(url, method: .get, parameters: parameters).responseString { response in
             switch response.result {
             case .success(let responseString):
                 

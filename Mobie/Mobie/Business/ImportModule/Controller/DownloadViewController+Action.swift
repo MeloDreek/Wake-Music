@@ -129,7 +129,7 @@ extension DownloadViewController {
                 downloadingCell = self.tableView.cellForRow(at: IndexPath(row: index, section: 0)) as? MusicTableViewCell
                 downloadingCell?.accessoryView = progressView
             }
-          }.validate().responseURL { response in
+          }.responseURL { response in
             switch response.result {
             case .success(let fileURL):
                 self.downloadSameFolderLRCFile(model: model, localFileURL: fileURL) {
@@ -185,7 +185,7 @@ extension DownloadViewController {
                 downloadingCell = self.tableView.cellForRow(at: IndexPath(row: index, section: 0)) as? MusicTableViewCell
                 downloadingCell?.accessoryView = progressView
             }
-          }.validate().responseURL { response in
+          }.responseURL { response in
             switch response.result {
             case .success(let fileURL):
                 if let lrcContent = fileURL.readLRCContentStr() {

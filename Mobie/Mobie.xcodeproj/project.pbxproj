@@ -220,7 +220,6 @@
 		225F581F2D85B2AB0055BDFF /* ImportViewController+Local.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B4F1A22D1032EB005EBB2F /* ImportViewController+Local.swift */; };
 		225F58202D85B2AB0055BDFF /* WelcomeBaseCollectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13912CA0633400E2948E /* WelcomeBaseCollectCell.swift */; };
 		225F58212D85B2AB0055BDFF /* PlayerRingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224AC8A92CE4349E00F4F2AF /* PlayerRingViewController.swift */; };
-		225F58222D85B2AB0055BDFF /* FileListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22ABC7872D229E7F003568CF /* FileListTableViewCell.swift */; };
 		225F58232D85B2AB0055BDFF /* MusicViewModel+Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2257DE852D0BC4FC00BBC0CE /* MusicViewModel+Genre.swift */; };
 		225F58242D85B2AB0055BDFF /* EmptyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13B52CA0633400E2948E /* EmptyTableViewCell.swift */; };
 		225F58252D85B2AB0055BDFF /* MusicPlayerViewController+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13BE2CA0633400E2948E /* MusicPlayerViewController+Delegate.swift */; };
@@ -274,7 +273,7 @@
 		225F58592D85B2AB0055BDFF /* KakaTabbarType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13F32CA0633400E2948E /* KakaTabbarType.swift */; };
 		225F585A2D85B2AB0055BDFF /* UIApplication+Top.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A14062CA0633400E2948E /* UIApplication+Top.swift */; };
 		225F585B2D85B2AB0055BDFF /* AboutAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13D82CA0633400E2948E /* AboutAppViewController.swift */; };
-		225F585C2D85B2AB0055BDFF /* ConnectedSourceTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AB5CE72D6EB31E006E10BC /* ConnectedSourceTableCell.swift */; };
+		225F585C2D85B2AB0055BDFF /* ConnectListTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AB5CE72D6EB31E006E10BC /* ConnectListTableCell.swift */; };
 		225F585E2D85B2AB0055BDFF /* SettingGroupCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13E02CA0633400E2948E /* SettingGroupCellModel.swift */; };
 		225F585F2D85B2AB0055BDFF /* WebDavFileObject+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22694D9C2D23ECB400DE036D /* WebDavFileObject+Extension.swift */; };
 		225F58602D85B2AB0055BDFF /* SuperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A14052CA0633400E2948E /* SuperViewController.swift */; };
@@ -551,9 +550,8 @@
 		22AAE39F2FA34EEA0021773B /* PlayerGuideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AAE39D2FA34EEA0021773B /* PlayerGuideView.swift */; };
 		22AB3BC72CE5EED00063F284 /* MusicInfoTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AB3BC62CE5EED00063F284 /* MusicInfoTagView.swift */; };
 		22AB3BCD2CE6406B0063F284 /* PlayerLyricsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AB3BCC2CE6406B0063F284 /* PlayerLyricsCell.swift */; };
-		22AB5CE82D6EB31E006E10BC /* ConnectedSourceTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AB5CE72D6EB31E006E10BC /* ConnectedSourceTableCell.swift */; };
+		22AB5CE82D6EB31E006E10BC /* ConnectListTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AB5CE72D6EB31E006E10BC /* ConnectListTableCell.swift */; };
 		22ABC7862D227A98003568CF /* WebdavFileListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22ABC7852D227A98003568CF /* WebdavFileListController.swift */; };
-		22ABC7882D229E7F003568CF /* FileListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22ABC7872D229E7F003568CF /* FileListTableViewCell.swift */; };
 		22AE9BFF2F9FA9F200630B10 /* SearchArtistTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AE9BFE2F9FA9F200630B10 /* SearchArtistTableCell.swift */; };
 		22AE9C002F9FA9F200630B10 /* SearchArtistTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AE9BFE2F9FA9F200630B10 /* SearchArtistTableCell.swift */; };
 		22B1AD472DE0668500DEBED0 /* PlayerStyleDefaultTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B1AD462DE0668500DEBED0 /* PlayerStyleDefaultTableCell.swift */; };
@@ -936,9 +934,8 @@
 		22AAE39D2FA34EEA0021773B /* PlayerGuideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerGuideView.swift; sourceTree = "<group>"; };
 		22AB3BC62CE5EED00063F284 /* MusicInfoTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicInfoTagView.swift; sourceTree = "<group>"; };
 		22AB3BCC2CE6406B0063F284 /* PlayerLyricsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerLyricsCell.swift; sourceTree = "<group>"; };
-		22AB5CE72D6EB31E006E10BC /* ConnectedSourceTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectedSourceTableCell.swift; sourceTree = "<group>"; };
+		22AB5CE72D6EB31E006E10BC /* ConnectListTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectListTableCell.swift; sourceTree = "<group>"; };
 		22ABC7852D227A98003568CF /* WebdavFileListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebdavFileListController.swift; sourceTree = "<group>"; };
-		22ABC7872D229E7F003568CF /* FileListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileListTableViewCell.swift; sourceTree = "<group>"; };
 		22AE9BFE2F9FA9F200630B10 /* SearchArtistTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchArtistTableCell.swift; sourceTree = "<group>"; };
 		22B1AD462DE0668500DEBED0 /* PlayerStyleDefaultTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerStyleDefaultTableCell.swift; sourceTree = "<group>"; };
 		22B1AD492DE0671000DEBED0 /* PlayerStyleTapeTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerStyleTapeTableCell.swift; sourceTree = "<group>"; };
@@ -1242,9 +1239,8 @@
 			isa = PBXGroup;
 			children = (
 				22B361D12D217448009DC9F5 /* LoginTableViewCell.swift */,
-				22ABC7872D229E7F003568CF /* FileListTableViewCell.swift */,
 				22CCFBFA2D6B012900A6710D /* ServerSectionView.swift */,
-				22AB5CE72D6EB31E006E10BC /* ConnectedSourceTableCell.swift */,
+				22AB5CE72D6EB31E006E10BC /* ConnectListTableCell.swift */,
 				22436B0D2D72ED520004E09D /* ConnectMyPlayListCell.swift */,
 				22436B1B2D744B750004E09D /* ConnectArtistTableCell.swift */,
 				22474E572D75E6C90062D510 /* ConnectSectionHeadView.swift */,
@@ -1814,19 +1810,19 @@
 			);
 			mainGroup = 228A13522CA00F5600E2948E;
 			packageReferences = (
-				A76381462EDEA4000040A84D /* XCLocalSwiftPackageReference "DominantColors" */,
-				A76381492EDEA40F0040A84D /* XCLocalSwiftPackageReference "FileProvider" */,
-				A763814C2EDEA4200040A84D /* XCLocalSwiftPackageReference "Kingfisher" */,
-				A763814F2EDEA4320040A84D /* XCLocalSwiftPackageReference "KSPlayer" */,
-				A76381542EDEA44B0040A84D /* XCLocalSwiftPackageReference "LTMorphingLabel" */,
-				A76381572EDEA4570040A84D /* XCLocalSwiftPackageReference "MarqueeLabel" */,
-				A763815A2EDEA4650040A84D /* XCLocalSwiftPackageReference "PanModal" */,
-				A76381662EDEA48C0040A84D /* XCLocalSwiftPackageReference "Reachability.swift" */,
-				A76381692EDEA4970040A84D /* XCLocalSwiftPackageReference "Toast-Swift" */,
-				A763816F2EDEAA710040A84D /* XCLocalSwiftPackageReference "ZLImageEditor" */,
-				A76381772EDEB6A80040A84D /* XCLocalSwiftPackageReference "purchases-ios-spm" */,
-				A76381FD2EDED27C0040A84D /* XCLocalSwiftPackageReference "Alamofire" */,
-				2242159B2F88DAAF00766F40 /* XCLocalSwiftPackageReference "aliyunpan-ios-sdk" */,
+				A76381462EDEA4000040A84D /* XCLocalSwiftPackageReference "../../../本地公开库/DominantColors" */,
+				A76381492EDEA40F0040A84D /* XCLocalSwiftPackageReference "../../../本地公开库/FileProvider" */,
+				A763814C2EDEA4200040A84D /* XCLocalSwiftPackageReference "../../../本地公开库/Kingfisher" */,
+				A763814F2EDEA4320040A84D /* XCLocalSwiftPackageReference "../../../本地公开库/KSPlayer" */,
+				A76381542EDEA44B0040A84D /* XCLocalSwiftPackageReference "../../../本地公开库/LTMorphingLabel" */,
+				A76381572EDEA4570040A84D /* XCLocalSwiftPackageReference "../../../本地公开库/MarqueeLabel" */,
+				A763815A2EDEA4650040A84D /* XCLocalSwiftPackageReference "../../../本地公开库/PanModal" */,
+				A76381662EDEA48C0040A84D /* XCLocalSwiftPackageReference "../../../本地公开库/Reachability.swift" */,
+				A76381692EDEA4970040A84D /* XCLocalSwiftPackageReference "../../../本地公开库/Toast-Swift" */,
+				A763816F2EDEAA710040A84D /* XCLocalSwiftPackageReference "../../../本地公开库/ZLImageEditor" */,
+				A76381772EDEB6A80040A84D /* XCLocalSwiftPackageReference "../../../本地公开库/purchases-ios-spm" */,
+				A76381FD2EDED27C0040A84D /* XCLocalSwiftPackageReference "../../../本地公开库/Alamofire" */,
+				2242159B2F88DAAF00766F40 /* XCLocalSwiftPackageReference "../../../本地公开库/aliyunpan-ios-sdk" */,
 			);
 			productRefGroup = 228A135C2CA00F5600E2948E /* Products */;
 			projectDirPath = "";
@@ -1902,9 +1898,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Mobie/Pods-Mobie-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Mobie/Pods-Mobie-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1919,9 +1919,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Mobie_Pro/Pods-Mobie_Pro-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Mobie_Pro/Pods-Mobie_Pro-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1980,9 +1984,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Mobie_Pro/Pods-Mobie_Pro-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Mobie_Pro/Pods-Mobie_Pro-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1997,9 +2005,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Mobie/Pods-Mobie-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Mobie/Pods-Mobie-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -2095,7 +2107,6 @@
 				225F581F2D85B2AB0055BDFF /* ImportViewController+Local.swift in Sources */,
 				225F58202D85B2AB0055BDFF /* WelcomeBaseCollectCell.swift in Sources */,
 				225F58212D85B2AB0055BDFF /* PlayerRingViewController.swift in Sources */,
-				225F58222D85B2AB0055BDFF /* FileListTableViewCell.swift in Sources */,
 				2258ACF42DE5743700F5754B /* PlayControlDefaultView.swift in Sources */,
 				225F58232D85B2AB0055BDFF /* MusicViewModel+Genre.swift in Sources */,
 				226AF34D2E21103F007C44DF /* ConnectNavidromeArtistCell.swift in Sources */,
@@ -2188,7 +2199,7 @@
 				225F58592D85B2AB0055BDFF /* KakaTabbarType.swift in Sources */,
 				225F585A2D85B2AB0055BDFF /* UIApplication+Top.swift in Sources */,
 				225F585B2D85B2AB0055BDFF /* AboutAppViewController.swift in Sources */,
-				225F585C2D85B2AB0055BDFF /* ConnectedSourceTableCell.swift in Sources */,
+				225F585C2D85B2AB0055BDFF /* ConnectListTableCell.swift in Sources */,
 				223FB4B22DFD3753003EDA2E /* WelcomeTapeBtnView.swift in Sources */,
 				225F585E2D85B2AB0055BDFF /* SettingGroupCellModel.swift in Sources */,
 				2217E0FE2EBC74E000C724F6 /* OneDriveFileListController.swift in Sources */,
@@ -2379,7 +2390,6 @@
 				22B4F1A32D1032EB005EBB2F /* ImportViewController+Local.swift in Sources */,
 				228A14282CA0633400E2948E /* WelcomeBaseCollectCell.swift in Sources */,
 				224AC8AA2CE4349E00F4F2AF /* PlayerRingViewController.swift in Sources */,
-				22ABC7882D229E7F003568CF /* FileListTableViewCell.swift in Sources */,
 				2258ACF32DE5743700F5754B /* PlayControlDefaultView.swift in Sources */,
 				2257DE862D0BC4FC00BBC0CE /* MusicViewModel+Genre.swift in Sources */,
 				226AF34C2E21103F007C44DF /* ConnectNavidromeArtistCell.swift in Sources */,
@@ -2472,7 +2482,7 @@
 				228A147D2CA0633400E2948E /* KakaTabbarType.swift in Sources */,
 				228A148C2CA0633400E2948E /* UIApplication+Top.swift in Sources */,
 				228A14662CA0633400E2948E /* AboutAppViewController.swift in Sources */,
-				22AB5CE82D6EB31E006E10BC /* ConnectedSourceTableCell.swift in Sources */,
+				22AB5CE82D6EB31E006E10BC /* ConnectListTableCell.swift in Sources */,
 				223FB4B12DFD3753003EDA2E /* WelcomeTapeBtnView.swift in Sources */,
 				228A146D2CA0633400E2948E /* SettingGroupCellModel.swift in Sources */,
 				2217E0FD2EBC74E000C724F6 /* OneDriveFileListController.swift in Sources */,
@@ -2970,63 +2980,63 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		2242159B2F88DAAF00766F40 /* XCLocalSwiftPackageReference "aliyunpan-ios-sdk" */ = {
+		2242159B2F88DAAF00766F40 /* XCLocalSwiftPackageReference "../../../本地公开库/aliyunpan-ios-sdk" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = "../../../本地公开库/aliyunpan-ios-sdk";
 		};
-		227FD0172E8471180076B773 /* XCLocalSwiftPackageReference "KSPlayer" */ = {
+		227FD0172E8471180076B773 /* XCLocalSwiftPackageReference "../../../本地公开库/KSPlayer" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = "../../../本地公开库/KSPlayer";
 		};
-		227FD0382E84723D0076B773 /* XCLocalSwiftPackageReference "Reachability.swift" */ = {
+		227FD0382E84723D0076B773 /* XCLocalSwiftPackageReference "../../../本地公开库/Reachability.swift" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = "../../../本地公开库/Reachability.swift";
 		};
-		A76381462EDEA4000040A84D /* XCLocalSwiftPackageReference "DominantColors" */ = {
+		A76381462EDEA4000040A84D /* XCLocalSwiftPackageReference "../../../本地公开库/DominantColors" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = "../../../本地公开库/DominantColors";
 		};
-		A76381492EDEA40F0040A84D /* XCLocalSwiftPackageReference "FileProvider" */ = {
+		A76381492EDEA40F0040A84D /* XCLocalSwiftPackageReference "../../../本地公开库/FileProvider" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = "../../../本地公开库/FileProvider";
 		};
-		A763814C2EDEA4200040A84D /* XCLocalSwiftPackageReference "Kingfisher" */ = {
+		A763814C2EDEA4200040A84D /* XCLocalSwiftPackageReference "../../../本地公开库/Kingfisher" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = "../../../本地公开库/Kingfisher";
 		};
-		A763814F2EDEA4320040A84D /* XCLocalSwiftPackageReference "KSPlayer" */ = {
+		A763814F2EDEA4320040A84D /* XCLocalSwiftPackageReference "../../../本地公开库/KSPlayer" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = "../../../本地公开库/KSPlayer";
 		};
-		A76381542EDEA44B0040A84D /* XCLocalSwiftPackageReference "LTMorphingLabel" */ = {
+		A76381542EDEA44B0040A84D /* XCLocalSwiftPackageReference "../../../本地公开库/LTMorphingLabel" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = "../../../本地公开库/LTMorphingLabel";
 		};
-		A76381572EDEA4570040A84D /* XCLocalSwiftPackageReference "MarqueeLabel" */ = {
+		A76381572EDEA4570040A84D /* XCLocalSwiftPackageReference "../../../本地公开库/MarqueeLabel" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = "../../../本地公开库/MarqueeLabel";
 		};
-		A763815A2EDEA4650040A84D /* XCLocalSwiftPackageReference "PanModal" */ = {
+		A763815A2EDEA4650040A84D /* XCLocalSwiftPackageReference "../../../本地公开库/PanModal" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = "../../../本地公开库/PanModal";
 		};
-		A76381662EDEA48C0040A84D /* XCLocalSwiftPackageReference "Reachability.swift" */ = {
+		A76381662EDEA48C0040A84D /* XCLocalSwiftPackageReference "../../../本地公开库/Reachability.swift" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = "../../../本地公开库/Reachability.swift";
 		};
-		A76381692EDEA4970040A84D /* XCLocalSwiftPackageReference "Toast-Swift" */ = {
+		A76381692EDEA4970040A84D /* XCLocalSwiftPackageReference "../../../本地公开库/Toast-Swift" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = "../../../本地公开库/Toast-Swift";
 		};
-		A763816F2EDEAA710040A84D /* XCLocalSwiftPackageReference "ZLImageEditor" */ = {
+		A763816F2EDEAA710040A84D /* XCLocalSwiftPackageReference "../../../本地公开库/ZLImageEditor" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = "../../../本地公开库/ZLImageEditor";
 		};
-		A76381772EDEB6A80040A84D /* XCLocalSwiftPackageReference "purchases-ios-spm" */ = {
+		A76381772EDEB6A80040A84D /* XCLocalSwiftPackageReference "../../../本地公开库/purchases-ios-spm" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = "../../../本地公开库/purchases-ios-spm";
 		};
-		A76381FD2EDED27C0040A84D /* XCLocalSwiftPackageReference "Alamofire" */ = {
+		A76381FD2EDED27C0040A84D /* XCLocalSwiftPackageReference "../../../本地公开库/Alamofire" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = "../../../本地公开库/Alamofire";
 		};
@@ -3180,17 +3190,17 @@
 		};
 		2242159E2F88DAE600766F40 /* AliyunpanSDK */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 2242159B2F88DAAF00766F40 /* XCLocalSwiftPackageReference "aliyunpan-ios-sdk" */;
+			package = 2242159B2F88DAAF00766F40 /* XCLocalSwiftPackageReference "../../../本地公开库/aliyunpan-ios-sdk" */;
 			productName = AliyunpanSDK;
 		};
 		22526E092E84F59C00C32DBF /* KSPlayer */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 227FD0172E8471180076B773 /* XCLocalSwiftPackageReference "KSPlayer" */;
+			package = 227FD0172E8471180076B773 /* XCLocalSwiftPackageReference "../../../本地公开库/KSPlayer" */;
 			productName = KSPlayer;
 		};
 		22526E0B2E84F5AD00C32DBF /* Reachability */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 227FD0382E84723D0076B773 /* XCLocalSwiftPackageReference "Reachability.swift" */;
+			package = 227FD0382E84723D0076B773 /* XCLocalSwiftPackageReference "../../../本地公开库/Reachability.swift" */;
 			productName = Reachability;
 		};
 		225F58D72D85B5A10055BDFF /* Kingfisher */ = {
@@ -3345,12 +3355,12 @@
 		};
 		A763817C2EDEB7770040A84D /* MPVPlayer */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = A763814F2EDEA4320040A84D /* XCLocalSwiftPackageReference "KSPlayer" */;
+			package = A763814F2EDEA4320040A84D /* XCLocalSwiftPackageReference "../../../本地公开库/KSPlayer" */;
 			productName = MPVPlayer;
 		};
 		A763817E2EDEB79C0040A84D /* RevenueCat */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = A76381772EDEB6A80040A84D /* XCLocalSwiftPackageReference "purchases-ios-spm" */;
+			package = A76381772EDEB6A80040A84D /* XCLocalSwiftPackageReference "../../../本地公开库/purchases-ios-spm" */;
 			productName = RevenueCat;
 		};
 		A76381FE2EDED27C0040A84D /* Alamofire */ = {
@@ -3359,7 +3369,7 @@
 		};
 		A76382002EDED2E60040A84D /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = A76381FD2EDED27C0040A84D /* XCLocalSwiftPackageReference "Alamofire" */;
+			package = A76381FD2EDED27C0040A84D /* XCLocalSwiftPackageReference "../../../本地公开库/Alamofire" */;
 			productName = Alamofire;
 		};
 /* End XCSwiftPackageProductDependency section */

@@ -99,7 +99,7 @@ class ConnectListViewController: SuperViewController {
         view.contentInsetAdjustmentBehavior = .automatic
         view.tableHeaderView = self.headView
         view.register(ImportTableViewCell.self, forCellReuseIdentifier: "ImportTableViewCell")
-        view.register(ConnectedSourceTableCell.self, forCellReuseIdentifier: "ConnectedSourceTableCell")
+        view.register(ConnectListTableCell.self, forCellReuseIdentifier: "ConnectListTableCell")
         return view
     }()
     
@@ -203,7 +203,7 @@ extension ConnectListViewController: UITableViewDataSource, UITableViewDelegate 
             cell.updateItemType(itemType: subType)
             return cell
         }else{
-            let cell = tableView.dequeueReusableCell(withIdentifier: "ConnectedSourceTableCell", for: indexPath) as! ConnectedSourceTableCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ConnectListTableCell", for: indexPath) as! ConnectListTableCell
             let server = connectArray[indexPath.section]
             cell.serverModel = server
             return cell

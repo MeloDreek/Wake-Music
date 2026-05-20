@@ -172,7 +172,7 @@ class Auth115LifeViewController: SuperViewController {
         self.refreshButton.isHidden = true
         self.loadingView.startAnimating()
         
-        AF.request(url, method: .post, parameters: parameters, headers: headers).validate().responseString { response in
+        AF.request(url, method: .post, parameters: parameters, headers: headers).responseString { response in
             self.loadingView.stopAnimating()
             self.messageLabel.isHidden = false
             self.saveButton.isHidden = kaka_IsMacOS()
@@ -281,7 +281,7 @@ class Auth115LifeViewController: SuperViewController {
         
         debugPrint("3️⃣open/deviceCodeToToken/参数 = \(parameters)")
         
-        AF.request(url, method: .post, parameters: parameters, headers: headers).validate().responseString { response in
+        AF.request(url, method: .post, parameters: parameters, headers: headers).responseString { response in
 
             switch response.result {
             case .success(let responseString):
@@ -328,7 +328,7 @@ class Auth115LifeViewController: SuperViewController {
         let url = "https://proapi.115.com/open/user/info"
         let headers: HTTPHeaders = ["Authorization": "Bearer \(access_token)"]
         
-        AF.request(url, method: .get, headers: headers).validate().responseData { response in
+        AF.request(url, method: .get, headers: headers).responseData { response in
             switch response.result {
             case .success(let data):
                 
@@ -607,7 +607,7 @@ extension Auth115LifeViewController {
 //        ]
 //        
 //        self.loadingView.startAnimating()
-//        AF.request(url, method: .get, parameters: parameters).validate().responseString { response in
+//        AF.request(url, method: .get, parameters: parameters).responseString { response in
 //            switch response.result {
 //            case .success(let htmlString):
 //                self.webView.loadHTMLString(htmlString, baseURL: URL(string: "https://open.115.com/"))
