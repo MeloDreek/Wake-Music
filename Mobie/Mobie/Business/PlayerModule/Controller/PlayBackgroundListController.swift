@@ -114,7 +114,7 @@ class PlayBackgroundListController: SuperViewController {
     }()
     
     lazy var addItem: UIBarButtonItem = {
-        let item = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .done, target: self, action: #selector(uploadCustomBackground))
+        let item = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(uploadCustomBackground))
         return item
     }()
     

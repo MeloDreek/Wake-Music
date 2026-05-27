@@ -236,12 +236,12 @@ view.refreshControl = self.kaka_header
     }()
     
     lazy var starredItem: UIBarButtonItem = {
-        let item = UIBarButtonItem(image: UIImage(systemName: "heart.fill"), style: .done, target: self, action: #selector(starredItemClick))
+        let item = UIBarButtonItem(image: UIImage(systemName: "heart.fill"), style: .plain, target: self, action: #selector(starredItemClick))
         return item
     }()
     
     lazy var unstarredItem: UIBarButtonItem = {
-        let item = UIBarButtonItem(image: UIImage(systemName: "heart"), style: .done, target: self, action: #selector(starredItemClick))
+        let item = UIBarButtonItem(image: UIImage(systemName: "heart"), style: .plain, target: self, action: #selector(starredItemClick))
         return item
     }()
 }

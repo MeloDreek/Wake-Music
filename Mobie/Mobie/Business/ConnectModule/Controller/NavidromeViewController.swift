@@ -120,12 +120,12 @@ class NavidromeViewController: SuperViewController {
 #if targetEnvironment(macCatalyst)
     
     lazy var refreshBarItem: UIBarButtonItem = {
-        let item = UIBarButtonItem(title: "Reload".localStr(), style: .done, target: self, action: #selector(refreshDataAction))
+        let item = UIBarButtonItem(title: "Reload".localStr(), style: .plain, target: self, action: #selector(refreshDataAction))
         return item
     }()
     
     lazy var loginBarItem: UIBarButtonItem = {
-        let item = UIBarButtonItem(title: "Edit Config".localStr(), style: .done, target: self, action: #selector(reloginItemClick))
+        let item = UIBarButtonItem(title: "Edit Config".localStr(), style: .plain, target: self, action: #selector(reloginItemClick))
         return item
     }()
 #endif

@@ -80,7 +80,7 @@ class MusicTagEditerViewController: SuperViewController {
                 
         self.fileSize = fileURL.fileSizeString
         self.coverImage = metaModel?.coverArt
-        self.editModel = metaModel?.mergeTagLibInfo(self.origialModel)
+        self.editModel = metaModel?.mergeTagLibInfo(self.origialModel) ?? self.origialModel
         
 //        self.ffmpegGetMetadata(fileURL)
                 

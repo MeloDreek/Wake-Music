@@ -144,12 +144,12 @@ class PurchaseViewController: SuperViewController {
     }
     
     lazy var lightBarItem: UIBarButtonItem = {
-        let view = UIBarButtonItem(image: UIImage(systemName: "sun.max"), style: .done, target: self, action: #selector(lightAppearanceClick))
+        let view = UIBarButtonItem(image: UIImage(systemName: "sun.max"), style: .plain, target: self, action: #selector(lightAppearanceClick))
         return view
     }()
     
     lazy var darkBarItem: UIBarButtonItem = {
-        let view = UIBarButtonItem(image: UIImage(systemName: "moon.stars"), style: .done, target: self, action: #selector(darkAppearanceClick))
+        let view = UIBarButtonItem(image: UIImage(systemName: "moon.stars"), style: .plain, target: self, action: #selector(darkAppearanceClick))
         return view
     }()
     

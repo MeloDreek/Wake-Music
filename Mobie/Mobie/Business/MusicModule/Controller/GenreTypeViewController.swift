@@ -38,7 +38,7 @@ class GenreTypeViewController: SuperViewController {
         if self.isPresent() {
             self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelBarItemClick))
         }
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "envelope"), style: .done, target: self, action: #selector(handleWithEmail))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "envelope"), style: .plain, target: self, action: #selector(handleWithEmail))
         
     }
     

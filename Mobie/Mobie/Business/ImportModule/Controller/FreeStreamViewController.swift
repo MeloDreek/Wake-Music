@@ -27,7 +27,7 @@
 ////        self.title = self.tabBarItem.title ?? KakaTabbarType.radio.formatStr()
 //                
 //        if kaka_IsiPhone() {
-//            self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "crown"), style: .done, target: self, action: #selector(vipCenterClick))
+//            self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "crown"), style: .plain, target: self, action: #selector(vipCenterClick))
 //        }
 //                        
 //        // 监听网络变化

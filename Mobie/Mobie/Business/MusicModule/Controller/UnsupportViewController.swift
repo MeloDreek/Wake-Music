@@ -54,7 +54,7 @@ class UnsupportViewController: SuperViewController {
     }()
     
     lazy var deleteItem: UIBarButtonItem = {
-        let item = UIBarButtonItem(image: UIImage(systemName: "trash"), style: .done, target: self, action: #selector(deleteBarItemAction))
+        let item = UIBarButtonItem(image: UIImage(systemName: "trash"), style: .plain, target: self, action: #selector(deleteBarItemAction))
         return item
     }()
     

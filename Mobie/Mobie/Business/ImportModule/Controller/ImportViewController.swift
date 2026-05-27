@@ -98,7 +98,7 @@ class ImportViewController: SuperViewController {
     }()
     
     lazy var premiumItem: UIBarButtonItem = {
-        let item = UIBarButtonItem(image: UIImage(systemName: "crown"), style: .done, target: self, action: #selector(vipCenterClick))
+        let item = UIBarButtonItem(image: UIImage(systemName: "crown"), style: .plain, target: self, action: #selector(vipCenterClick))
         return item
     }()
     

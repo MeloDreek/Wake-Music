@@ -185,12 +185,12 @@ view.refreshControl = self.kaka_header
     }()
     
     lazy var downloadBarItem: UIBarButtonItem = {
-        let selectItem = UIBarButtonItem(title: "Download All".localStr(), style: .done, target: self, action: #selector(startDownloadClick))
+        let selectItem = UIBarButtonItem(title: "Download All".localStr(), style: .plain, target: self, action: #selector(startDownloadClick))
         return selectItem
     }()
     
     lazy var stopDownloadItem: UIBarButtonItem = {
-        let selectItem = UIBarButtonItem(image: UIImage(systemName: "stop.circle.fill"), style: .done, target: self, action: #selector(stopDownloadAction))
+        let selectItem = UIBarButtonItem(image: UIImage(systemName: "stop.circle.fill"), style: .plain, target: self, action: #selector(stopDownloadAction))
         return selectItem
     }()
     

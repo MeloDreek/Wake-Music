@@ -46,7 +46,7 @@ class PlayerStyleViewController: SuperViewController {
             self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(cancelButtonClick))
         }
         
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "wand.and.rays"), style: .done, target: self, action: #selector(playBackgroundAction))
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "wand.and.rays"), style: .plain, target: self, action: #selector(playBackgroundAction))
     }
     
     

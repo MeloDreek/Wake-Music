@@ -59,7 +59,7 @@ class GCDWebServerController: SuperViewController {
             self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelBarClick))
         }
         
-        let techItem = UIBarButtonItem(image: Reasource.systemNamed("questionmark.video").sfHorizontallyImage(), style: .done, target: self, action: #selector(supportVideoClick))
+        let techItem = UIBarButtonItem(image: Reasource.systemNamed("questionmark.video").sfHorizontallyImage(), style: .plain, target: self, action: #selector(supportVideoClick))
         if #available(iOS 26.0, *) {
             techItem.hidesSharedBackground = true
         }

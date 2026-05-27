@@ -129,7 +129,7 @@ class AppleMusicListController: SuperViewController {
     }
     
     lazy var questionItem: UIBarButtonItem = {
-        let item = UIBarButtonItem(image: UIImage(systemName: "questionmark.circle"), style: .done, target: self, action: #selector(showAppleMusicTips))
+        let item = UIBarButtonItem(image: UIImage(systemName: "questionmark.circle"), style: .plain, target: self, action: #selector(showAppleMusicTips))
         return item
     }()
     

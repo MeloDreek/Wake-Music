@@ -49,7 +49,7 @@ class AuthWebdavViewController: SuperViewController {
             self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelButtonClick))
         }
         
-        let connectItem = UIBarButtonItem(image: UIImage(systemName: "questionmark.circle"), style: .done, target: self, action: #selector(questionBtnClick))
+        let connectItem = UIBarButtonItem(image: UIImage(systemName: "questionmark.circle"), style: .plain, target: self, action: #selector(questionBtnClick))
         self.navigationItem.rightBarButtonItem = connectItem
     }
     

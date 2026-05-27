@@ -129,7 +129,7 @@ class ScanUSBViewController: SuperViewController {
     }()
     
     lazy var videoBarItem: UIBarButtonItem = {
-        let item = UIBarButtonItem(image: Reasource.systemNamed("questionmark.video").sfHorizontallyImage(), style: .done, target: self, action: #selector(supportVideoClick))
+        let item = UIBarButtonItem(image: Reasource.systemNamed("questionmark.video").sfHorizontallyImage(), style: .plain, target: self, action: #selector(supportVideoClick))
         if #available(iOS 26.0, *) {
             item.hidesSharedBackground = true
         }

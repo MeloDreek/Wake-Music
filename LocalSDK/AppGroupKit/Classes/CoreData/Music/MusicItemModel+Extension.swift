@@ -327,7 +327,8 @@ extension MusicItemModel {
                 return "7.1 Surround Sound".localStr()
             }else{
                 let fileName = self.mediaPlayURL.lastPathComponent.ocString.deletingPathExtension
-                return self.title ?? fileName
+                guard let title = self.title, !title.isEmpty else { return fileName }
+                return title
             }
         }else{
             if let webFileModel = self.webFileModel {
