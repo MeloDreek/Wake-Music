@@ -34,7 +34,7 @@ public enum ApplicationType: Int {
             return "Download for iOS".localStr()
         case .WakeMusic:
             return "Download for iOS".localStr()
-        default: return "Scanning QR code".localStr()
+        default: return "Scan QR Code".localStr()
         }
     }
     

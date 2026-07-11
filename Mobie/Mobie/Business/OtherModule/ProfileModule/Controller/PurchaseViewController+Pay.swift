@@ -36,7 +36,7 @@ extension PurchaseViewController {
             return
         }
                         
-        ProgressHUD.animate("Please wait".localStr())
+        ProgressHUD.animate("Processing...".localStr())
         AppStoreKitManager.shared.startPurcharge(product: vModel ) { [weak self] (enInfo) in
             guard let wSelf = self else { return }
             

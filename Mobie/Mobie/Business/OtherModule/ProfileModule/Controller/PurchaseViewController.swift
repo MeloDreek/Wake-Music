@@ -160,7 +160,7 @@ class PurchaseViewController: SuperViewController {
             let isVIP = UserInfoManager.shared.isVIP()
             
             if vModel.productIdentifier == PurchaseStoreID.yearly.rawValue {
-                tipsLabel.text = "Auto-renews. Cancel anytime.".localStr()
+                tipsLabel.text = "Auto-renewable. Cancel anytime.".localStr()
                 buyoutButton.setTitle("Time-limited purchase".localStr(), for: .normal)
             }else if vModel.productIdentifier == PurchaseStoreID.lifetime198.rawValue {
                 tipsLabel.text = "One time purchase, valid forever".localStr()
@@ -385,7 +385,7 @@ extension PurchaseViewController: UITableViewDataSource, UITableViewDelegate, Pu
     
     // 恢复购买
     func purchaseFootViewClickRestore(view: PurchaseFootView) {
-        ProgressHUD.animate("Please wait".localStr())
+        ProgressHUD.animate("Processing...".localStr())
         AppStoreKitManager.shared.restorePurcharge { [weak self] () in
             self?.verfityPurchageRecord()
         } fail: { errorMsg in

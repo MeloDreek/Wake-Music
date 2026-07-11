@@ -34,7 +34,7 @@ class GenreTypeViewController: SuperViewController {
     override func preSetupHandleBuness() {
         super.preSetupHandleBuness()
         
-        self.title = "Music Genre".localStr()
+        self.title = "Music Genres".localStr()
         if self.isPresent() {
             self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelBarItemClick))
         }

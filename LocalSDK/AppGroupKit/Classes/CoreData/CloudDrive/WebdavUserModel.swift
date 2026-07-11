@@ -83,7 +83,7 @@ extension WebdavUserModel {
     
     /// 外显名称
     public func showTitle() -> String {
-        return self.customName ?? "My WebDav".localStr()
+        return self.customName ?? "My WebDAV".localStr()
     }
     /// 访问子文件夹的标题
     public func pageTitle() -> String {

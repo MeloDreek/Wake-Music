@@ -86,7 +86,7 @@ class PrimaryToolViewController: SuperViewController {
             return
         }
         
-        self.timer.startTimer(seconds: 0.01, repeats: true, callSoon: true) { [weak self] vTime in
+        self.timer.startTimer(seconds: 1.0, repeats: true, callSoon: true) { [weak self] vTime in
             guard let wSelf = self else { return }
             guard let lastDiscountTime = DiscountIAPManager.shared.lastDiscountTime else {
                 DiscountIAPManager.shared.lastDiscountTime = Date().timeIntervalSince1970

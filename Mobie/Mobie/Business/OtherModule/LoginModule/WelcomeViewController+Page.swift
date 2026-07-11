@@ -23,7 +23,7 @@ extension WelcomeViewController {
             return
         }
         
-        ProgressHUD.animate("Please wait".localStr())
+        ProgressHUD.animate("Processing...".localStr())
         self.purchaseManager.startPurcharge(product: vModel) { [weak self] (enInfo) in
             guard let wSelf = self else { return }
                         

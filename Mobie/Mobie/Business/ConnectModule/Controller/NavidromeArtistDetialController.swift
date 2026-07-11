@@ -378,7 +378,7 @@ extension NavidromeArtistDetialController: UITableViewDataSource, UITableViewDel
             var musicModel = MusicItemModel(navSong: navSong)
             musicModel.downloadFolderName = folderURL.lastPathComponent
             DownloadManager.shared.addMusicModel([musicModel])
-            self?.view.makeToast("Added to download queue".localStr())
+            self?.view.makeToast("Added to Downloads".localStr())
         }
 
         self.present(KakaNavigationController(rootViewController: playlist), animated: true)

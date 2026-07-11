@@ -59,7 +59,7 @@ extension PurchaseViewController {
     
     @objc func timeSpaceRepeat() {
         
-        self.timer.startTimer(seconds: 0.01, repeats: true, callSoon: true) { [weak self] vTime in
+        self.timer.startTimer(seconds: 1.0, repeats: true, callSoon: true) { [weak self] vTime in
             guard let wSelf = self else { return }
             guard let lastDiscountTime = DiscountIAPManager.shared.lastDiscountTime else {
                 return
@@ -110,7 +110,7 @@ extension PurchaseViewController {
         guard let offerModel = self.priceArray.filter({ $0.productIdentifier == PurchaseStoreID.lifetime198.rawValue }).first else {
             return
         }
-        let message = "Limited Time Offer".localStr() + "\r" +  "You got a chance to get a lifetime limited time offer".localStr()
+        let message = "Limited Time Offer".localStr() + "\r" +  "You get a lifetime premium discount!".localStr()
         
         let giftView = UIImageView(image: Reasource.named("gift_box"))
         giftView.contentMode = .scaleAspectFit

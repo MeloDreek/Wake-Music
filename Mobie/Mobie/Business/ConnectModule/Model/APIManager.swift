@@ -128,7 +128,7 @@ class APIManager {
         }
 #endif
         
-        self.frontSession.request(url, method: method, parameters: parameters, encoding: encoding, headers: .default).validate(statusCode: 200..<500).responseData { dataResult in
+        self.frontSession.request(url, method: method, parameters: parameters, encoding: encoding, headers: .default).responseData { dataResult in
             switch dataResult.result {
             case .success(let data):
                 let json = try? JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String : Any]

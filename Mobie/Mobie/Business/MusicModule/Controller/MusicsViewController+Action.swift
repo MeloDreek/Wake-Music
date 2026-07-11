@@ -369,7 +369,7 @@ extension MusicsViewController {
             let operationQueue = OperationQueue() // 创建一个操作队列
             operationQueue.maxConcurrentOperationCount = 1 // 设置为串行队列，只有一个任务可以同时执行
 
-            ProgressHUD.animate("Please wait".localStr())
+            ProgressHUD.animate("Processing...".localStr())
 
             nameText = nameText.replaceChar(oldChar: "/", newChar: " ")
 
@@ -435,7 +435,7 @@ extension MusicsViewController {
             var editArray = [MusicItemModel]()
 
             // 创建一个串行队列来同步访问 metadataParser
-            ProgressHUD.animate("Please wait".localStr())
+            ProgressHUD.animate("Processing...".localStr())
             let serialQueue = DispatchQueue(label: "com.album.metadataQueue")
 
             // 使用队列处理模型，确保 metadataParser 操作是串行的

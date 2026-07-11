@@ -76,9 +76,8 @@ class PurchasePriceCell: UITableViewCell {
             let hours = totalMilliseconds / (60 * 60 * 100)
             let minutes = (totalMilliseconds % (60 * 60 * 100)) / (60 * 100)
             let seconds = (totalMilliseconds % (60 * 100)) / 100
-            let milliseconds = totalMilliseconds % 100
             
-            self.timeLabel.text = String(format: "%02d:%02d:%02d.%02d", hours, minutes, seconds, milliseconds)
+            self.timeLabel.text = String(format: "%02d:%02d:%02d ⏰", hours, minutes, seconds)
                 
         }
     }

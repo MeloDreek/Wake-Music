@@ -229,7 +229,7 @@ extension MusicItemModel {
         var newModel = MusicItemModel(fileURL: fileURL, sourceType: .demoFile)
         newModel.fileSourceType = .demoFile
         newModel.coverArt = metaData?.coverArt ?? UIImage(named: "demo_art")
-        newModel.title = metaData?.title ?? "7.1 Surround Sound".localStr()
+        newModel.title = metaData?.title ?? "7.1 Surround".localStr()
         newModel.artist = metaData?.artist ?? "Wake Music".localStr()
         newModel.album = metaData?.album ?? "Wake Music".localStr()
         newModel.year = Int(metaData?.year ?? UInt(Date().year))

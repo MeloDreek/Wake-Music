@@ -162,7 +162,7 @@ extension MusicsViewController: MusicTableViewCellDelegate {
         let operationQueue = OperationQueue()
         operationQueue.maxConcurrentOperationCount = 1  // 串行执行操作
 
-        ProgressHUD.animate("Please wait".localStr())
+        ProgressHUD.animate("Processing...".localStr())
         var isFailed = false
         
         var updateOperations: [BlockOperation] = []

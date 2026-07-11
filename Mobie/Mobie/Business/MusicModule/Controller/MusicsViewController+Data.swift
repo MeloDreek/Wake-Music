@@ -256,6 +256,7 @@ extension MusicsViewController: UITableViewDataSource, UITableViewDelegate {
             // 音乐标签
             let musictagAction = UIContextualAction(style: .normal, title: nil) { [weak self] action, view, finish in
                 self?.editMusicTagsAction(model)
+                finish(true)
             }
             musictagAction.image = Reasource.systemNamed("tag", color: .white)
             musictagAction.backgroundColor = UIColor.systemBlue
@@ -264,6 +265,7 @@ extension MusicsViewController: UITableViewDataSource, UITableViewDelegate {
             let moveAction = UIContextualAction(style: .normal, title: nil) { [weak self] action, view, finish in
                 guard let cell = self?.tableView.cellForRow(at: indexPath) as? MusicTableViewCell else { return }
                 self?.moveToPlaylistAction(cell: cell, model: model)
+                finish(true)
             }
             moveAction.image = Reasource.systemNamed("music.note.list", color: .white)
             moveAction.backgroundColor = UIColor.systemGreen
@@ -271,6 +273,7 @@ extension MusicsViewController: UITableViewDataSource, UITableViewDelegate {
             // 收藏
             let likeAction = UIContextualAction(style: .normal, title: nil) { [weak self] action, view, finish in
                 self?.addOrDeleteFavirote(model)
+                finish(true)
             }
             likeAction.image = Reasource.systemNamed(model.isFlagFavorite() ? "heart.fill" : "heart", color: .white)
             likeAction.backgroundColor = UIColor.systemPink
@@ -279,6 +282,7 @@ extension MusicsViewController: UITableViewDataSource, UITableViewDelegate {
             let deleteAction = UIContextualAction(style: .normal, title: nil) { [weak self] action, view, finish in
                 self?.tableView.setEditing(false, animated: true)
                 self?.deleteMusicModel([model])
+                finish(true)
             }
             deleteAction.image = Reasource.systemNamed("trash", color: .white)
             deleteAction.backgroundColor = UIColor.systemPink

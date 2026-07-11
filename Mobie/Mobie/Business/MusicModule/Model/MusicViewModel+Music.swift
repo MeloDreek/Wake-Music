@@ -319,7 +319,9 @@ extension MusicViewModel {
                 let manager = OperationQueue()
                 manager.name = "com.parser.operationQueue"
                 manager.qualityOfService = .userInteractive
-                manager.maxConcurrentOperationCount = Int(ceil(Double(cpuCount) / 2.0))
+                
+                let cpuCoreCount = ProcessInfo.processInfo.activeProcessorCount
+                manager.maxConcurrentOperationCount = max(2, min(cpuCoreCount / 2, 6))
                 
                 objc_setAssociatedObject(self, &MusicKeys.kTaskKey, manager, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
                 return manager

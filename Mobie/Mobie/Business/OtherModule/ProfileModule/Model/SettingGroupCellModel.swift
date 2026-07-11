@@ -78,7 +78,7 @@ enum SettingCellItemType {
         case .applogo:
             return "App Logo"
         case .appTintColor:
-            return "AccentColor".localStr()
+            return "Accent Color".localStr()
         case .appearance:
             return "Appearance".localStr()
         

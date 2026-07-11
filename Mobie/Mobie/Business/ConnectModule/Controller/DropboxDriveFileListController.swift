@@ -306,7 +306,7 @@ view.refreshControl = self.kaka_header
             self?.startEditBarClick()
         })
         
-        let sortAction = UIAction(title: "Grouping".localStr(), image: kaka_IsMacOS() ? nil : (self.isGrouping ? UIImage(systemName: "checkmark") : nil), identifier: nil, discoverabilityTitle: nil, attributes: [], state: (kaka_IsMacOS() ? (self.isGrouping ? .on : .off) : .off), handler: { [weak self] _ in
+        let sortAction = UIAction(title: "Group".localStr(), image: kaka_IsMacOS() ? nil : (self.isGrouping ? UIImage(systemName: "checkmark") : nil), identifier: nil, discoverabilityTitle: nil, attributes: [], state: (kaka_IsMacOS() ? (self.isGrouping ? .on : .off) : .off), handler: { [weak self] _ in
             guard let wSelf = self else { return }
             wSelf.isGrouping = !wSelf.isGrouping
             wSelf.setRightBarbuttonItem()
@@ -582,7 +582,7 @@ extension DropboxDriveFileListController {
             }
             DownloadManager.shared.addMusicModel(tempArray)
             wSelf.stopEditBarClick()
-            wSelf.view.makeToast("Added to download queue".localStr())
+            wSelf.view.makeToast("Added to Downloads".localStr())
         }
 
         self.present(KakaNavigationController(rootViewController: playlist), animated: true)
@@ -885,7 +885,7 @@ extension DropboxDriveFileListController: MusicTableViewCellDelegate {
             var musicModel = MusicItemModel(dropboxFile: dropboxFile)
             musicModel.downloadFolderName = folderURL.lastPathComponent
             DownloadManager.shared.addMusicModel([musicModel])
-            self?.view.makeToast("Added to download queue".localStr())
+            self?.view.makeToast("Added to Downloads".localStr())
         }
 
         self.present(KakaNavigationController(rootViewController: playlist), animated: true)

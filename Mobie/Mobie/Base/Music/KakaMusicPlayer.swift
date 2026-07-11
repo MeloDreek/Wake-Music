@@ -351,11 +351,11 @@ public class KakaMusicPlayer: NSObject, ObservableObject {
         }
         
         var headers: HTTPHeaders = HTTPHeaders.default
-        if let googleFile = model.googleFile, let googleUser = googleFile.googleUser {
+        if let googleFile = model?.googleFile, let googleUser = googleFile.googleUser {
             headers.add(name: "Authorization", value: "Bearer " + googleUser.accessToken)
         }
         
-        AF.download(downloadURL, headers: headers, to: destination).validate(statusCode: 200..<500).downloadProgress { progressValue in
+        AF.download(downloadURL, headers: headers, to: destination).downloadProgress { progressValue in
             debugPrint("下载进度 = \(progressValue.fractionCompleted)")
           }.responseURL { response in
             switch response.result {

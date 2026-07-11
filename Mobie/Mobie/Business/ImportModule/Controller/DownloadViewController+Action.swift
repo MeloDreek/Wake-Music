@@ -118,7 +118,7 @@ extension DownloadViewController {
             headers.add(name: "Authorization", value: "Bearer " + (googleFile.googleUser?.accessToken ?? ""))
         }
         
-        AF.download(downloadURL, headers: headers, to: destination).validate(statusCode: 200..<500).downloadProgress { progressValue in
+        AF.download(downloadURL, headers: headers, to: destination).downloadProgress { progressValue in
             let progress = progressValue.fractionCompleted
             debugPrint("下载进度 = \(progress)")
             
@@ -175,7 +175,7 @@ extension DownloadViewController {
             return (targetFilePath, [.removePreviousFile, .createIntermediateDirectories])
         }
         
-        AF.download(folderURL, to: destination).validate(statusCode: 200..<500).downloadProgress { progressValue in
+        AF.download(folderURL, to: destination).downloadProgress { progressValue in
             let progress = progressValue.fractionCompleted
             debugPrint("歌词文件进度 = \(progress)")
             progressView.progress = progress

@@ -328,7 +328,7 @@ view.refreshControl = self.kaka_header
             actionArray.append(subMenu)
         }
                 
-        let sortMenu = UIMenu(title: "Grouping".localStr(), image: UIImage(systemName: "list.bullet"), children: actionArray)
+        let sortMenu = UIMenu(title: "Group".localStr(), image: UIImage(systemName: "list.bullet"), children: actionArray)
         
         return sortMenu
     }

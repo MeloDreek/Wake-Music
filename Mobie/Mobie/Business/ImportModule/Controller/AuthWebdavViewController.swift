@@ -98,7 +98,7 @@ class AuthWebdavViewController: SuperViewController {
         self.tryCount = 0
         
         self.webdavProvider = webdavProvider
-        ProgressHUD.animate("Please wait".localStr())
+        ProgressHUD.animate("Processing...".localStr())
         
         self.webdavProvider?.contentsOfDirectory(path: self.loginModel.path ?? "/") { [weak self] files, error in
             DispatchQueue.main.async {

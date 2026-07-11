@@ -82,7 +82,7 @@ extension ConnectListViewController {
     
     /// Webdav
     func importFromWebdav() {
-        let webdavUser = WebdavUserModel(customName: "My WebDav".localStr(), hostUrl: "", path: nil, port: nil, netProtocol: .http, username: nil, password: nil)
+        let webdavUser = WebdavUserModel(customName: "My WebDAV".localStr(), hostUrl: "", path: nil, port: nil, netProtocol: .http, username: nil, password: nil)
         let webVC = AuthWebdavViewController(webdavUser)
         self.navigationController?.pushViewController(webVC, animated: true)
     }
@@ -105,7 +105,7 @@ extension ConnectListViewController {
     // 阿里云盘
     func importFromAliyunDrive() {
         
-        ProgressHUD.animate("Please wait".localStr())
+        ProgressHUD.animate("Processing...".localStr())
         
         KakaMusicPlayer.shared.authorizedAliyunpan { result in
             ProgressHUD.dismiss()

@@ -50,7 +50,7 @@ class AppleMusicListController: SuperViewController {
         
         if !self.tableView.isDragging {
             if let emptyCell = self.tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? EmptyTableViewCell {
-                emptyCell.startRefreshData("Please wait".localStr())
+                emptyCell.startRefreshData("Processing...".localStr())
             }
         }
         

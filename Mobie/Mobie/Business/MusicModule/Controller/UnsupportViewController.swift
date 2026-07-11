@@ -124,6 +124,7 @@ extension UnsupportViewController: UITableViewDataSource, UITableViewDelegate {
         // 导出
         let exportAction = UIContextualAction(style: .normal, title: nil) { [weak self] action, view, finish in
             self?.shareMusicModel([subURL])
+            finish(true)
         }
         exportAction.image = Reasource.systemNamed("square.and.arrow.up", color: .white)
         exportAction.backgroundColor = UIColor.systemGreen
@@ -133,6 +134,7 @@ extension UnsupportViewController: UITableViewDataSource, UITableViewDelegate {
             self?.tableView.setEditing(false, animated: true)
             self?.showTwoAlert(title: "Reminder".localStr(), message: "Are you sure to delete it?".localStr(), confirm: "Delete".localStr(), style: kaka_IsiPhone() ? .actionSheet : .alert, complete: { [weak self] () in
                 self?.deleteFilesAction([subURL])
+                finish(true)
             })
         }
         deleteAction.image = Reasource.systemNamed("trash", color: .white)

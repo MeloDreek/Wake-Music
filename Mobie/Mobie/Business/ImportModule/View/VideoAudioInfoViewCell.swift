@@ -29,7 +29,7 @@ enum VideoAudioInfoType: Int {
         case .selectSuffix:
             return "Audio Quality".localStr()
         case .autoCropAudio:
-            return "Cut the last 3s".localStr()
+            return "Crop the last 3 seconds".localStr()
             
         case .pcmUI:
             return nil

@@ -273,6 +273,7 @@ extension ConnectListViewController: UITableViewDataSource, UITableViewDelegate 
             wSelf.showTwoAlert(title: "Reminder".localStr(), message: "Are you sure to delete it?".localStr(), confirm: "Delete".localStr(), cancle: "Cancel".localStr(), style: kaka_IsiPhone() ? .actionSheet : .alert) {
                 let model = wSelf.connectArray[indexPath.section]
                 self?.deleteConnectServer(serverModel: model)
+                finish(true)
             }
         }
         
@@ -282,6 +283,7 @@ extension ConnectListViewController: UITableViewDataSource, UITableViewDelegate 
         // 重新编辑
         let editAction = UIContextualAction(style: .normal, title: nil) { [weak self] action, view, finish in
             self?.configNavidromeClick(subServer.navUser)
+            finish(true)
         }
         
         editAction.image = Reasource.systemNamed("square.and.pencil", color: .white)

@@ -185,7 +185,7 @@ class GuideRatingViewCell: UITableViewCell {
     lazy var shareButton: UIButton = {
         
         let font = UIFontLight(15.ckValue())
-        let text = "Share with friends".localStr()
+        let text = "Share with Friends".localStr()
         
         let view = UIButton(type: .custom)
         view.setTitle(text, for: .normal)

@@ -558,7 +558,7 @@ extension PlayControlTapeView {
         guard let musicModel = KakaMusicPlayer.shared.playingMusic, SandboxFileManager.shared.getDownloadPlayURL(musicModel) == nil else { return }
         
         DownloadManager.shared.addMusicModel([musicModel])
-        self.makeToast("Added to download queue".localStr())
+        self.makeToast("Added to Downloads".localStr())
     }
     
     // 声道支持页面

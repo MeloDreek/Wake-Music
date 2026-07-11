@@ -140,7 +140,7 @@ extension LyricEditorViewController: UITableViewDataSource, UITableViewDelegate,
         }else if indexPath.section == 1 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ExportTableViewCell", for: indexPath)
             var cellConfig = UIListContentConfiguration.cell()
-            cellConfig.text = "Import LRC file".localStr()
+            cellConfig.text = "Import LRC".localStr()
             #if !targetEnvironment(macCatalyst)
             cellConfig.textProperties.font = UIFontBold(17.ckValue())
             #endif

@@ -30,7 +30,7 @@ extension DonateViewController {
             return
         }
         
-        ProgressHUD.animate("Please wait".localStr())
+        ProgressHUD.animate("Processing...".localStr())
         
         Purchases.shared.purchase(product: selectModel) { [weak self] (transaction, info, error, cancelled) in
             if cancelled {

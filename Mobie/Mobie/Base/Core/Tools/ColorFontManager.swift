@@ -10,7 +10,7 @@ import KakaUIKit
 import SmartCodable
 
 public enum ThemeColorType: String, CaseIterable, SmartCaseDefaultable {
-    case color0 = "AccentColor"
+    case color0 = "Accent Color"
     case color1 = "AccentColor1"
     case color2 = "AccentColor2"
     case color3 = "AccentColor3"

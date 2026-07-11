@@ -394,14 +394,14 @@ extension GCDWebServerController: UITableViewDataSource, UITableViewDelegate, UI
             
             let formatSize = URL.formatFileSize(totalSize)
             
-            let useStr = String(format: "%@ files imported".localStr(), "\(dataArray.count)") + "  " + formatSize
+            let useStr = String(format: "%@ Files Imported".localStr(), "\(dataArray.count)") + "  " + formatSize
             return dataArray.count == 0 ? "How to use?".localStr() : useStr
         }
     }
     
     func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
         if section == 0 {
-            return "Please make sure the current device is connected to the same Wi-Fi as your computer or Android phone, and keep the screen on during transmission.".localStr()
+            return "Please make sure the current device is connected to the same Wi-Fi as your computer or Android phone, and keep the screen on during transmission❗️".localStr()
         }else{
             return self.webServer.epilogue
         }

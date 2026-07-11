@@ -15,7 +15,7 @@ import SafariServices
 class FAQsViewController: SuperViewController {
     override func preSetupSubViews() {
         super.preSetupSubViews()
-        self.title = "FAQs".localStr()
+        self.title = "FAQ".localStr()
         
         contentView.addSubview(tableView)
     }

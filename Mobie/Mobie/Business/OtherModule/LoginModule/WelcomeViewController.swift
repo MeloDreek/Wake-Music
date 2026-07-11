@@ -105,7 +105,7 @@ class WelcomeViewController: SuperViewController {
     
     @objc func postTimerNoti() {
         
-        self.timer.startTimer(seconds: 0.01, repeats: true, callSoon: true) { [weak self] vTime in
+        self.timer.startTimer(seconds: 1.0, repeats: true, callSoon: true) { [weak self] vTime in
             guard let wSelf = self else { return }
             guard let lastDiscountTime = DiscountIAPManager.shared.lastDiscountTime else {
                 DiscountIAPManager.shared.lastDiscountTime = Date().timeIntervalSince1970
@@ -142,9 +142,8 @@ class WelcomeViewController: SuperViewController {
         let hours = totalMilliseconds / (60 * 60 * 100)
         let minutes = (totalMilliseconds % (60 * 60 * 100)) / (60 * 100)
         let seconds = (totalMilliseconds % (60 * 100)) / 100
-        let milliseconds = totalMilliseconds % 100
         
-        let timerString = String(format: "%02d:%02d:%02d.%02d", hours, minutes, seconds, milliseconds)
+        let timerString = String(format: "⏰ %02d:%02d:%02d", hours, minutes, seconds)
         payCell.timerLabel.text = timerString
     }
     
@@ -531,7 +530,7 @@ extension WelcomeViewController: WelcomePurchaseCellDelegate {
     
     // 恢复购买
     func welcomePurchaseDidRestore(cell: WelcomePurchaseCell) {
-        ProgressHUD.animate("Please wait".localStr())
+        ProgressHUD.animate("Processing...".localStr())
         self.purchaseManager.restorePurcharge { [weak self] () in
             self?.verfityPurchageRecord()
         } fail: { errorMsg in

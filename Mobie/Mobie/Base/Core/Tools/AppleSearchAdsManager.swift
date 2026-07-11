@@ -209,7 +209,7 @@ extension AppleSearchAdsManager {
         request.setValue("text/plain", forHTTPHeaderField: "Content-Type")
         request.httpBody = postData
 
-        AF.request(request).validate(statusCode: 200..<300).responseString { response in
+        AF.request(request).responseString { response in
             switch response.result {
             case .success(let responseString):
                 debugPrint("🍎ADServer广告归因 = \(responseString)")

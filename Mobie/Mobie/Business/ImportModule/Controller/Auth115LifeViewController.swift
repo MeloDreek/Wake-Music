@@ -219,7 +219,7 @@ class Auth115LifeViewController: SuperViewController {
         
         debugPrint("2️⃣get/status/参数 = \(parameters)")
         
-        AF.request(url, method: .get, parameters: parameters).validate(statusCode: 200..<500).responseString { response in
+        AF.request(url, method: .get, parameters: parameters).responseString { response in
             self.loadingView.stopAnimating()
 
             switch response.result {
@@ -441,7 +441,7 @@ class Auth115LifeViewController: SuperViewController {
         view.isHidden = kaka_IsMacOS()
         view.layer.masksToBounds = true
         view.layer.cornerRadius = 5.ckValue()
-        view.setTitle("Save the QR code".localStr(), for: .normal)
+        view.setTitle("Save QR Code".localStr(), for: .normal)
         view.setTitleColor(tintColor, for: .normal)
         view.backgroundColor = appMainColor
         view.titleLabel?.font = UIFontBold(16.ckValue())
@@ -471,7 +471,7 @@ extension Auth115LifeViewController {
                 }, completionHandler: { success, error in
                     DispatchQueue.main.async {
                         if success {
-                            self.showOneAlert(title: "Reminder".localStr(), message: "The photo has been saved to your album".localStr(), confirm: "Scanning QR code".localStr()) {
+                            self.showOneAlert(title: "Reminder".localStr(), message: "The photo has been saved to your album".localStr(), confirm: "Scan QR Code".localStr()) {
                                 
                                 guard let appURL = URL(string: "oof.disk://") else { return }
                                 if UIApplication.shared.canOpenURL(appURL) {

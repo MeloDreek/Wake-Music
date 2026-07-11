@@ -231,7 +231,7 @@ extension AuthNavidromeController: UITableViewDataSource, UITableViewDelegate, L
             return
         }
         
-        ProgressHUD.animate("Please wait".localStr())
+        ProgressHUD.animate("Processing...".localStr())
         
         let hostStr = self.loginModel.hostUrl.trimmingCharacters(in: CharacterSet(charactersIn: "/"))
         debugPrint("hostStr2 = \(hostStr)")

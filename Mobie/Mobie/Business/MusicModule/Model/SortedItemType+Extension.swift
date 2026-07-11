@@ -13,9 +13,9 @@ public extension SortedbyType {
     func formatStr() -> String {
         switch self {
         case .createDate:
-            return "Create Time".localStr()
+            return "Date Created".localStr()
         case .modifyDate:
-            return "Modify Time".localStr()
+            return "Date Modified".localStr()
         case .fileSize:
             return "File Size".localStr()
         case .fileName:
@@ -30,7 +30,7 @@ public extension GroupItemType {
     func formatStr() -> String {
         switch self {
         case .nonGroup:
-            return "No Grouping".localStr()
+            return "Ungroup".localStr()
         case .titleGroup:
             return "Title".localStr()
         case .artistGroup:

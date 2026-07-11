@@ -245,7 +245,7 @@ class EmptyTableViewCell: UITableViewCell {
     lazy var loadingLabel: UILabel = {
         let view = UILabel()
         view.isHidden = true
-        view.text = "Parsing music tags".localStr()
+        view.text = "Parsing music tags...".localStr()
         view.font = UIFontLight(13.ckValue())
         view.textColor = appMainColor
         view.textAlignment = .center
@@ -253,7 +253,7 @@ class EmptyTableViewCell: UITableViewCell {
         return view
     }()
     
-    func startRefreshData(_ loadingText: String = "Parsing music tags".localStr()) {
+    func startRefreshData(_ loadingText: String = "Parsing music tags...".localStr()) {
         self.formatButton.isHidden = true
         self.importButton.isHidden = true
         self.messaleLabel.isHidden = true

@@ -234,9 +234,9 @@
 			<key>UIApplicationShortcutItemIconType</key>
 			<string>UIApplicationShortcutIconTypeCloud</string>
 			<key>UIApplicationShortcutItemSubtitle</key>
-			<string>Ensure all items are synced to Cloud</string>
+			<string>Ensure all items are backed up</string>
 			<key>UIApplicationShortcutItemTitle</key>
-			<string>☁️Ensure cloud synced</string>
+			<string>☁️ Ensure Cloud Backup</string>
 			<key>UIApplicationShortcutItemType</key>
 			<string>Touch_1</string>
 		</dict>
@@ -246,7 +246,7 @@
 			<key>UIApplicationShortcutItemSubtitle</key>
 			<string>Uninstalling will delete all local items</string>
 			<key>UIApplicationShortcutItemTitle</key>
-			<string>❗️Uninstall with caution</string>
+			<string>❗️ Uninstall with Caution</string>
 			<key>UIApplicationShortcutItemType</key>
 			<string>Touch_0</string>
 		</dict>

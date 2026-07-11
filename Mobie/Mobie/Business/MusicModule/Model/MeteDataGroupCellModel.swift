@@ -64,7 +64,7 @@ enum MeteDataCellItemType: Int {
     func titleStr() -> String? {
         switch self {
         case .headerTag:
-            return "Music tags refer to the tag metadata embedded in the current music file. By modifying these metadata, the cover, title, artist, album, lyrics, etc. can be displayed perfectly even if you update the device.".localStr()
+            return "Music tag refers to the metadata embedded in a music file, including cover image, lyrics, title, artist, album, era, genre, track, sampling rate, bit rate, etc.".localStr()
             
         case .coverImage:
             return "Album Cover".localStr()
@@ -87,7 +87,7 @@ enum MeteDataCellItemType: Int {
         case .genre:
             return "Genre".localStr()
         case .track:
-            return "Track".localStr()
+            return "Track Number".localStr()
         case .comment:
             return "Comment".localStr()
         case .bitRate:

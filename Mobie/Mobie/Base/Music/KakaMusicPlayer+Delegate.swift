@@ -411,7 +411,7 @@ extension KakaMusicPlayer {
                 return (targetFileURL, [.removePreviousFile, .createIntermediateDirectories])
             }
             
-            AF.download(lyricFileURL, to: destination).validate(statusCode: 200..<500).downloadProgress { progressValue in
+            AF.download(lyricFileURL, to: destination).downloadProgress { progressValue in
                 debugPrint("下载歌词进度 = \(progressValue.fractionCompleted)")
               }.responseURL { response in
                 switch response.result {
@@ -450,23 +450,25 @@ extension KakaMusicPlayer {
     /// 处理文件无权限的问题
     private func handleFilePermission(_ errorMsg: String?) {
         
-        let alertController = UIAlertController(title: errorMsg ?? "Reminder".localStr(), message: "Apps on the App Store can only access the authorized【Music】 folder. Please move these files to the 【 Music】 folder. Otherwise, the app will need to clear the inaccessible cached paths and re-import the files each time it launches.".localStr(), preferredStyle: .alert)
-        let action1 = UIAlertAction(title: "Delete the cache in this folder".localStr(), style: .destructive) { [weak self] (sender) in
+        let alertController = UIAlertController(title: errorMsg ?? "Reminder".localStr(), message: "App Store apps can only access the authorized [Music] folder. Please move these files to the Music folder. Otherwise, you must clear the inaccessible cached paths and re-import files upon every launch.".localStr(), preferredStyle: .alert)
+        let action1 = UIAlertAction(title: "Clear Cache for This Folder".localStr(), style: .destructive) { [weak self] (sender) in
             guard let mediaPlayURL = self?.playingMusic?.mediaPlayURL else { return }
             AppLocalManager.shared.removeCachePath(path:mediaPlayURL.path) {
-                self?.currentViewController()?.showOneAlert(title: "Reminder".localStr(), message: "Cached paths have been cleared. To avoid repeated operations, please move your frequently used files to the system【Music】 or 【Wake Music】folder.".localStr()) {                    
+                self?.currentViewController()?.showOneAlert(message: "Cached paths cleared. To avoid repetitive actions, it is recommended to move your frequently used files to the system 【Music/Wake Music】 folder.".localStr()) {
                     self?.showInFinderCatalyst(SandboxFileManager.shared.basePublicFileURL())
+                    self?.currentViewController()?.navigationController?.popToRootViewController(animated: true)
                 }
             }
         }
-        let action2 = UIAlertAction(title: "Delete all cache".localStr(), style: .destructive) { [weak self] (sender) in
+        let action2 = UIAlertAction(title: "Clear All Cache".localStr(), style: .destructive) { [weak self] (sender) in
             AppLocalManager.shared.cachePathArray = []
 #if targetEnvironment(macCatalyst)
             AppLocalManager.shared.bookmarkDataArray = []
 #endif
             NotificationCenter.default.post(name: Notification.Name(kLocalMusicChangedKey), object: nil)
-            self?.currentViewController()?.showOneAlert(title: "Reminder".localStr(), message: "Cached paths have been cleared. To avoid repeated operations, please move your frequently used files to the system【Music】 or 【Wake Music】folder.".localStr()) {
+            self?.currentViewController()?.showOneAlert(message: "Cached paths cleared. To avoid repetitive actions, it is recommended to move your frequently used files to the system 【Music/Wake Music】 folder.".localStr()) {
                 self?.showInFinderCatalyst(SandboxFileManager.shared.basePublicFileURL())
+                self?.currentViewController()?.navigationController?.popToRootViewController(animated: true)
             }
         }
         let action3 = UIAlertAction(title: "Cancel".localStr(), style: .cancel)
@@ -481,5 +483,6 @@ extension KakaMusicPlayer {
         
         self.currentViewController()?.present(alertController, animated: true, completion: nil)
     }
+    
     
 }

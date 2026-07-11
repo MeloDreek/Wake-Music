@@ -601,7 +601,7 @@ class CoverGalleryHeadCell: UITableViewCell {
     lazy var descLabel: UILabel = {
         let view = UILabel()
         view.numberOfLines = 0
-        view.text = "After parsing local or remote music, you can reuse these images to quickly fill in missing album art in your music files".localStr()
+        view.text = "Album covers after parsing of local music files, you can reuse these images to quickly fill music files with missing covers.".localStr()
         view.textAlignment = .center
         view.font = kaka_IsMacOS() ? UIFontLight(15) : UIFontBold(15.ckValue())
         view.textColor = kaka_IsMacOS() ? .label : .secondaryLabel

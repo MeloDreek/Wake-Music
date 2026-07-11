@@ -247,7 +247,7 @@ class SearchTagViewController: SuperViewController {
         view.font = UIFontLight(16.ckValue())
         view.textAlignment = .center
         view.textColor = .secondaryLabel
-        view.text = "Please wait".localStr()
+        view.text = "Processing...".localStr()
         return view
     }()
     

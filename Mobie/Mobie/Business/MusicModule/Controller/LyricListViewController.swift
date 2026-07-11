@@ -20,7 +20,7 @@ enum MusicTopMode: Int {
         case .coverLibrary:
             return "Cover Library".localStr()
         case .lyricLibrary:
-            return "Lyrics Library".localStr()
+            return "Lyric Library".localStr()
         }
     }
     
@@ -423,6 +423,7 @@ extension LyricListViewController: UITableViewDataSource, UITableViewDelegate {
 #else
                 try? FileManager.default.removeItem(at: subURL)
 #endif
+                finish(true)
             }
             deleteAction.image = Reasource.systemNamed("trash", color: .white)
             deleteAction.backgroundColor = UIColor.systemPink

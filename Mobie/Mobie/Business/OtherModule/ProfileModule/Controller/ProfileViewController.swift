@@ -59,7 +59,7 @@ class ProfileViewController: SuperViewController {
     }
     
     private func checkFreecodeStatus() {
-        ProgressHUD.animate("Please wait".localStr())
+        ProgressHUD.animate("Processing...".localStr())
         AppStoreKitManager.shared.restorePurcharge { [weak self] () in
             self?.verfityPurchageRecord()
         } fail: { errorMsg in
@@ -436,6 +436,7 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate, UIP
         let action = UIContextualAction(style: .destructive, title: nil) { [weak self] action, view, finish in
             AppLocalManager.shared.isDeleteRanting = true
             self?.tableView.reloadData()
+            finish(true)
         }
         action.image = Reasource.systemNamed("trash", color: .white)
         action.backgroundColor = UIColor.systemRed

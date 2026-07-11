@@ -184,7 +184,7 @@ extension KakaMusicPlayer {
             "User-Agent": "pan.baidu.com"
         ]
         
-        AF.request(url, method: .get, parameters: parameters, headers: headers).validate(statusCode: 200..<500).responseString { response in
+        AF.request(url, method: .get, parameters: parameters, headers: headers).responseString { response in
             switch response.result {
             case .success(let responseString):
                 let reponseModel = BaiduResponseModel.deserialize(from: responseString)
@@ -227,7 +227,7 @@ extension KakaMusicPlayer {
             "Host": "pan.baidu.com"
         ]
 
-        AF.request(url, method: .get, parameters: parameters, headers: headers).validate(statusCode: 200..<500).responseString { response in
+        AF.request(url, method: .get, parameters: parameters, headers: headers).responseString { response in
             guard let statusCode = response.response?.statusCode else {
                 completion(.failure(KakaError.custom(response.value ?? "")))
                 return
@@ -595,7 +595,6 @@ extension KakaMusicPlayer {
             headers.add(name: "Authorization", value: "Bearer \(user.access_token)")
             
             AF.request(url, method: .get, parameters: parameters, headers: headers)
-                .validate(statusCode: 200..<500)
                 .responseString { [weak self] response in
                     
                     switch response.result {
@@ -686,7 +685,7 @@ extension KakaMusicPlayer {
         var headers: Alamofire.HTTPHeaders = HTTPHeaders.default
         headers.add(name: "Content-Type", value: "application/x-www-form-urlencoded")
         
-        AF.request(url, method: .post, parameters: parameters, headers: headers).validate(statusCode: 200..<500).responseData { response in
+        AF.request(url, method: .post, parameters: parameters, headers: headers).responseData { response in
             switch response.result {
             case .success(let data):
                 let responseString = String(data: data, encoding: .utf8) ?? ""
@@ -783,7 +782,7 @@ extension KakaMusicPlayer {
         
         debugPrint("下载header = \(headers)")
         
-        AF.request(url, method: .post, parameters: parameters, headers: headers).validate(statusCode: 200..<500).responseData { response in
+        AF.request(url, method: .post, parameters: parameters, headers: headers).responseData { response in
             switch response.result {
             case .success(let data):
                 
@@ -856,7 +855,7 @@ func fetch115OnlinePlayURL(file115: Drive115FileModel, completion: @escaping (Re
         "Authorization": "Bearer \(access_token)"
     ]
     
-    AF.request(url, method: .get, parameters: parameters, headers: headers).validate(statusCode: 200..<500).responseString { response in
+    AF.request(url, method: .get, parameters: parameters, headers: headers).responseString { response in
         switch response.result {
         case .success(let responseString):
             debugPrint("获取115生活在线播放地址 = \(responseString)")

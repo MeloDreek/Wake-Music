@@ -305,12 +305,14 @@ extension DownloadViewController: UITableViewDataSource, UITableViewDelegate, Em
             let action1 = UIAlertAction(title: "Delete".localStr(), style: .destructive) { (sender) in
                 let model = wSelf.dataArray[indexPath.row]
                 self?.deleteDownloadItem(model)
+                finish(true)
             }
             let action2 = UIAlertAction(title: "Delete All".localStr(), style: .destructive) { (sender) in
                 DownloadManager.shared.taskArray = []
                 self?.dataArray.removeAll()
                 self?.tableView.reloadData()
                 self?.stopDownloadAction()
+                finish(true)
             }
             let action3 = UIAlertAction(title: "Cancel".localStr(), style: .cancel)
             
@@ -324,10 +326,6 @@ extension DownloadViewController: UITableViewDataSource, UITableViewDelegate, Em
             
             wSelf.present(alertController, animated: true, completion: nil)
             
-//            wSelf.showTwoAlert(title: "Reminder".localStr(), message: "Are you sure to delete it?".localStr(), confirm: "Delete".localStr(), cancle: "Cancel".localStr(), style: kaka_IsiPhone() ? .actionSheet : .alert) {
-//                let model = wSelf.dataArray[indexPath.row]
-//                self?.deleteDownloadItem(model)
-//            }
         }
         deleteAction.image = Reasource.systemNamed("trash", color: .white)
         deleteAction.backgroundColor = UIColor.systemPink

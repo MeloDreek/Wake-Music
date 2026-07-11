@@ -98,7 +98,7 @@ class VideoImporterViewCell: UITableViewCell {
     var progress: Double = 0 {
         didSet {
             if progress >= 0.99  {
-                prograssLabel.text = "Please wait".localStr()
+                prograssLabel.text = "Processing...".localStr()
             }else{
                 let text = String(format: "%.2f", progress * 100) + "%"
                 prograssLabel.text = text

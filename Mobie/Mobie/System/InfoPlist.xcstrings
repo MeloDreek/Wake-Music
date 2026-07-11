@@ -1,18 +1,46 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "☁️ Ensure Cloud Backup" : {
+
+    },
     "☁️Ensure cloud synced" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "☁️ضمان مزامنة السحابة"
+            "value" : "☁️ تأكيد النسخ الاحتياطي السحابي"
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "☁️ Copia de seguretat al núvol"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "☁️ Zajistit cloudové zálohování"
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "☁️ Sikre cloud-backup"
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "☁️Cloud-Backup sicherstellen"
+            "value" : "☁️ Cloud-Backup sicherstellen"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "☁️ Εξασφάλιση αντιγράφου cloud"
           }
         },
         "en" : {
@@ -24,121 +52,193 @@
         "en-AU" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "☁️Ensure cloud synced"
+            "value" : "☁️ Ensure Cloud Backup"
           }
         },
         "en-GB" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "☁️Ensure cloud synced"
+            "value" : "☁️ Ensure Cloud Backup"
           }
         },
         "en-IN" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "☁️Ensure cloud synced"
+            "value" : "☁️ Ensure Cloud Backup"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "☁️Sincronización en la nube"
+            "value" : "☁️ Asegurar respaldo en nube"
           }
         },
         "es-419" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "☁️Sincronización en la nube"
+            "value" : "☁️ Asegurar respaldo en nube"
           }
         },
         "es-US" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "☁️Sincronización en la nube"
+            "value" : "☁️ Asegurar respaldo en nube"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "☁️ Varmista pilvivarmuuskopio"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "☁️Assurer la synchronisation du nuage"
+            "value" : "☁️ Assurer la sauvegarde cloud"
           }
         },
         "fr-CA" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "☁️Assurer la synchronisation du nuage"
+            "value" : "☁️ Assurer la sauvegarde cloud"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "☁️ ודא גיבוי בענן"
           }
         },
         "hi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "☁️क्लाउड सिंक सुनिश्चित करें"
+            "value" : "☁️ क्लाउड बैकअप सुनिश्चित करें"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "☁️ Osiguraj sigurnosnu kopiju"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "☁️ Cloud biztonsági mentés"
           }
         },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "☁️Pastikan cloud tersinkronisasi"
+            "value" : "☁️ Pastikan Cadangan Cloud"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "☁️Garantire il backup nel cloud"
+            "value" : "☁️ Assicura backup cloud"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "☁️クラウド同期"
+            "value" : "☁️ クラウドバックアップの確認"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "☁️클라우드 백업 보장"
+            "value" : "☁️ 클라우드 백업 확인"
           }
         },
         "ms" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "☁️Pastikan awan disegerakkan"
+            "value" : "☁️ Pastikan Sandaran Cloud"
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "☁️ Sikre cloud-backup"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "☁️ Zorg voor cloud-backup"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "☁️ Zapewnij kopię w chmurze"
           }
         },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "☁️Garantir o backup na nuvem"
+            "value" : "☁️ Garantir o backup na nuvem"
           }
         },
         "pt-PT" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "☁️Garantir o backup na nuvem"
+            "value" : "☁️ Garantir o backup na nuvem"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "☁️ Asigură backupul în cloud"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "☁️Обеспечьте резервное копирование в облаке"
+            "value" : "☁️ Включить облачный бэкап"
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "☁️ Zaistiť cloudové zálohovanie"
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "☁️ Zagotovi varnostno kopijo"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "☁️ Säkerställ molnbackup"
           }
         },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "☁️รับรองว่าซิงค์กับระบบคลาวด์"
+            "value" : "☁️ ตรวจสอบการสำรองข้อมูลคลาวด์"
           }
         },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "☁️Bulut Yedeklemesini Sağlayın"
+            "value" : "☁️ Bulut yedeklemesini sağla"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "☁️ Забезпечити хмарний бекап"
           }
         },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "☁️Đảm bảo sao lưu đám mây"
+            "value" : "☁️ Đảm bảo sao lưu đám mây"
           }
         },
         "zh-Hans" : {
@@ -150,29 +250,57 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "☁️確保雲端備份"
+            "value" : "☁️ 確保雲端備份"
           }
         },
         "zh-HK" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "☁️確保雲端備份"
+            "value" : "☁️ 確保雲端備份"
           }
         }
       }
     },
+    "❗️ Uninstall with Caution" : {
+
+    },
     "❗️Uninstall with caution" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "❗️إلغاء التثبيت بحذر"
+            "value" : "❗️ احذر عند إلغاء التثبيت"
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "❗️ Desinstal·la amb precaució"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "❗️ Odinstalujte s opatrností"
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "❗️ Afinstaller med forsigtighed"
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "❗️Deinstallation mit Vorsicht"
+            "value" : "❗️ Vorsicht beim Deinstallieren"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "❗️ Απεγκατάσταση με προσοχή"
           }
         },
         "en" : {
@@ -184,121 +312,193 @@
         "en-AU" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "❗️Uninstall with caution"
+            "value" : "❗️ Uninstall with Caution"
           }
         },
         "en-GB" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "❗️Uninstall with caution"
+            "value" : "❗️ Uninstall with Caution"
           }
         },
         "en-IN" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "❗️Uninstall with caution"
+            "value" : "❗️ Uninstall with Caution"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "❗️Desinstalar con precaución"
+            "value" : "❗️ Desinstalar con precaución"
           }
         },
         "es-419" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "❗️Desinstalar con precaución"
+            "value" : "❗️ Desinstalar con precaución"
           }
         },
         "es-US" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "❗️Desinstalar con precaución"
+            "value" : "❗️ Desinstalar con precaución"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "❗️ Poista sovellus varoen"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "❗️Désinstaller avec précaution"
+            "value" : "❗️ Désinstaller avec prudence"
           }
         },
         "fr-CA" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "❗️Désinstaller avec précaution"
+            "value" : "❗️ Désinstaller avec prudence"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "❗️ הסר בזהירות"
           }
         },
         "hi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "❗️सावधानी से अनइंस्टॉल करें"
+            "value" : "❗️ सावधानी से अनइंस्टॉल करें"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "❗️ Oprezno pri deinstalaciji"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "❗️ Óvatosan távolítsa el"
           }
         },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "❗️Copot pemasangan dengan hati-hati"
+            "value" : "❗️ Uninstal dengan Hati-Hati"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "❗️La disinstallazione richiede cautela"
+            "value" : "❗️ Disinstalla con cautela"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "❗️アンインストールは慎重に"
+            "value" : "❗️ 削除にご注意ください"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "❗️제거 시 주의가 필요합니다"
+            "value" : "❗️ 삭제 시 주의하십시오"
           }
         },
         "ms" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "❗️Nyahpasang dengan berhati-hati"
+            "value" : "❗️ Nyahpasang dengan Berhati-Hati"
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "❗️ Avinstaller med forsiktighet"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "❗️ Voorzichtig bij deinstalleren"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "❗️ Odinstaluj ostrożnie"
           }
         },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "❗️A desinstalação requer cautela"
+            "value" : "❗️ Desinstale com cautela"
           }
         },
         "pt-PT" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "❗️A desinstalação requer cautela"
+            "value" : "❗️ Desinstale com cautela"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "❗️ Dezinstalează cu atenție"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "❗️Деинсталляция требует осторожности"
+            "value" : "❗️ Удаляйте с осторожностью"
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "❗️ Odinštalujte s opatrnosťou"
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "❗️ Previdno pri odstranitvi"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "❗️ Avinstallera med försiktighet"
           }
         },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "❗️ถอนการติดตั้งด้วยความระมัดระวัง"
+            "value" : "❗️ ถอนการติดตั้งอย่างระมัดระวัง"
           }
         },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "❗️Kaldırırken dikkatli olun"
+            "value" : "❗️ Kaldırırken dikkat edin"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "❗️ Видаляйте з обережністю"
           }
         },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "❗️Gỡ cài đặt một cách thận trọng"
+            "value" : "❗️ Thận trọng khi gỡ cài đặt"
           }
         },
         "zh-Hans" : {
@@ -310,13 +510,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "❗️卸載需要謹慎"
+            "value" : "❗️ 卸載需謹慎"
           }
         },
         "zh-HK" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "❗️卸載需謹慎"
+            "value" : "❗️ 移除需謹慎"
           }
         }
       }
@@ -331,7 +531,31 @@
             "value" : "Wake Music"
           }
         },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wake Music"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wake Music"
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wake Music"
+          }
+        },
         "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wake Music"
+          }
+        },
+        "el" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Wake Music"
@@ -379,6 +603,12 @@
             "value" : "Wake Music"
           }
         },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wake Music"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -391,7 +621,25 @@
             "value" : "Wake Music"
           }
         },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wake Music"
+          }
+        },
         "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wake Music"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wake Music"
+          }
+        },
+        "hu" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Wake Music"
@@ -427,6 +675,24 @@
             "value" : "Wake Music"
           }
         },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wake Music"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wake Music"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wake Music"
+          }
+        },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
@@ -439,10 +705,34 @@
             "value" : "Wake Music"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wake Music"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Уэйк Музыка"
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wake Music"
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wake Music"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wake Music"
           }
         },
         "th" : {
@@ -452,6 +742,12 @@
           }
         },
         "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wake Music"
+          }
+        },
+        "uk" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Wake Music"
@@ -493,7 +789,31 @@
             "value" : "Wake Music"
           }
         },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wake Music"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wake Music"
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wake Music"
+          }
+        },
         "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wake Music"
+          }
+        },
+        "el" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Wake Music"
@@ -541,6 +861,12 @@
             "value" : "Wake Music"
           }
         },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wake Music"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -553,7 +879,25 @@
             "value" : "Wake Music"
           }
         },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wake Music"
+          }
+        },
         "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wake Music"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wake Music"
+          }
+        },
+        "hu" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Wake Music"
@@ -589,6 +933,24 @@
             "value" : "Wake Music"
           }
         },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wake Music"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wake Music"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wake Music"
+          }
+        },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
@@ -601,10 +963,34 @@
             "value" : "Wake Music"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wake Music"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Уэйк Музыка"
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wake Music"
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wake Music"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wake Music"
           }
         },
         "th" : {
@@ -614,6 +1000,12 @@
           }
         },
         "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wake Music"
+          }
+        },
+        "uk" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Wake Music"
@@ -645,18 +1037,46 @@
         }
       }
     },
+    "Ensure all items are backed up" : {
+
+    },
     "Ensure all items are synced to Cloud" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "تأكد من مزامنة جميع العناصر على السحابة"
+            "value" : "تأكد من نسخ جميع العناصر احتياطيًا"
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Assegura t que tots els elements estiguin coberts"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ujistěte se že jsou všechny položky zálohovány"
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sørg for at alle emner er sikkerhedskopieret"
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Sicherstellen, dass alle Projekte mit der Cloud synchronisiert werden"
+            "value" : "Stelle sicher dass alle Elemente gesichert sind"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Βεβαιωθείτε ότι όλα τα στοιχεία έχουν δημιουργηθεί αντίγραφα ασφαλείας"
           }
         },
         "en" : {
@@ -668,139 +1088,211 @@
         "en-AU" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ensure all items are synced to Cloud"
+            "value" : "Make sure all projects are backed up"
           }
         },
         "en-GB" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ensure all items are synced to Cloud"
+            "value" : "Ensure all items are backed up"
           }
         },
         "en-IN" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ensure all items are synced to Cloud"
+            "value" : "Ensure all files are securely backed up"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Asegúrate de que todos tus proyectos estén sincronizados con la nube"
+            "value" : "Asegúrate de que todos los elementos estén respaldados"
           }
         },
         "es-419" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Asegúrate de que todos tus proyectos estén sincronizados con la nube"
+            "value" : "Asegúrate de que todos os elementos estén respaldados"
           }
         },
         "es-US" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Asegúrate de que todos tus proyectos estén sincronizados con la nube"
+            "value" : "Asegúrate de que todos los elementos estén respaldados"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Varmista että kaikki kohteet on varmuuskopioitu"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "S'assurer que tous les éléments sont synchronisés avec le cloud"
+            "value" : "Assurez vous que tous les éléments sont sauvegardés"
           }
         },
         "fr-CA" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "S'assurer que tous les éléments sont synchronisés avec le cloud"
+            "value" : "Assurez vous que tous les éléments sont sauvegardés"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ודא שכל הפריטים מגובים"
           }
         },
         "hi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "सुनिश्चित करें कि सभी आइटम क्लाउड से सिंक हो गए हैं"
+            "value" : "सुनिश्चित करें कि सभी आइटम का बैकअप ले लिया गया है"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Provjerite jesu li sve stavke kopirane"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Győződjön meg róla hogy minden elemről van biztonsági másolat"
           }
         },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Pastikan semua item disinkronkan ke Cloud"
+            "value" : "Pastikan semua item telah dicadangkan"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Garantire la sincronizzazione di tutti i progetti con il cloud"
+            "value" : "Assicurati che tutti gli elementi siano salvati"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "すべての音楽がクラウドに同期されていることを確認する"
+            "value" : "すべての項目がバックアップされていることを確認してください"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "모든 프로젝트가 클라우드에 동기화되었는지 확인하세요."
+            "value" : "모든 항목이 백업되었는지 확인하십시오"
           }
         },
         "ms" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Pastikan semua item disegerakkan ke Cloud"
+            "value" : "Pastikan semua item telah disandarkan"
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sørg for at alle elementer er sikkerhetskopiert"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zorg ervoor dat alle items zijn back upt"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Upewnij się że wszystkie elementy mają kopię zapasową"
           }
         },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Garantir que todos os projetos sejam sincronizados com a nuvem"
+            "value" : "Certifique se de que todos os itens estão salvos"
           }
         },
         "pt-PT" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Garantir que todos os projetos sejam sincronizados com a nuvem"
+            "value" : "Certifique se de que todos os itens estão salvos"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Asigurați vă că toate elementele sunt salvate"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Обеспечьте синхронизацию всех проектов с облаком"
+            "value" : "Убедитесь что все элементы зарезервированы"
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Uistite se že sú všetky položky zálohávané"
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prepričajte se da so vsi predmeti varnostno kopirani"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Se till att alla objekt är säkerhetskopierade"
           }
         },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "ตรวจสอบให้แน่ใจว่ารายการทั้งหมดได้รับการซิงค์ไปยังคลาวด์"
+            "value" : "ตรวจสอบให้แน่ใจว่าได้สำรองข้อมูลรายการทั้งหมดแล้ว"
           }
         },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Tüm projelerin buluta senkronize olduğundan emin olun"
+            "value" : "Tüm öğelerin yedeklendiğinden emin olun"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Переконайтеся що всі елементи скопійовані"
           }
         },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Đảm bảo tất cả các mục được đồng bộ hóa với Cloud"
+            "value" : "Đảm bảo tất cả mục đã được sao lưu"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "确保所有项目同步到云端"
+            "value" : "确保所有项目已备份"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "確保所有專案同步到雲端"
+            "value" : "確保所有項目已備份"
           }
         },
         "zh-HK" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "確保所有項目同步到雲端"
+            "value" : "確保所有項目已備份"
           }
         }
       }
@@ -811,158 +1303,254 @@
       "localizations" : {
         "ar" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "يتطلب مسح الموسيقى غير المتصلة بالإنترنت في Apple Music وتمكين التشغيل أذوناتك"
+            "state" : "needs_review",
+            "value" : "يلزم الحصول على إذن لمسح موسيقى Apple Music المحلية وتمكين التشغيل"
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Es requereix permís per escanejar la música local d Apple Music i activar la reproducció"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "K prohledání místní hudby Apple Music a spuštění přehrávání je vyžadováno oprávnění"
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Der kræves tilladelse til at scanne lokal Apple Music og aktivere afspilning"
           }
         },
         "de" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "Das Scannen von Apple Music-Offlinemusik und das Aktivieren der Wiedergabe erfordert Ihre Berechtigungen"
+            "state" : "needs_review",
+            "value" : "Der Zugriff ist erforderlich um lokale Apple Music zu scannen und die Wiedergabe zu aktivieren"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Απαιτείται άδεια για τη σάρωση της τοπικής μουσικής Apple Music και την ενεργοποίηση της αναπαραγωγής"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "Scanning Apple Music local music and enabling playback requires your permissions"
+            "value" : "Access is required to scan your local Apple Music library and enable playback"
           }
         },
         "en-AU" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "Scanning Apple Music local music and enabling playback requires your permissions"
+            "state" : "needs_review",
+            "value" : "Permission is needed to scan local music and enable playback features"
           }
         },
         "en-GB" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "Scanning Apple Music local music and enabling playback requires your permissions"
+            "state" : "needs_review",
+            "value" : "Access is required to scan your local Apple Music library and enable playback"
           }
         },
         "en-IN" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "Scanning Apple Music local music and enabling playback requires your permissions"
+            "state" : "needs_review",
+            "value" : "We need permission to scan your local songs and play music smoothly"
           }
         },
         "es" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "Para escanear música sin conexión de Apple Music y habilitar la reproducción se requieren sus permisos"
+            "state" : "needs_review",
+            "value" : "Se requiere permiso para escanear la música local de Apple Music y activar la reproducción"
           }
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "Para escanear música sin conexión de Apple Music y habilitar la reproducción se requieren sus permisos"
+            "state" : "needs_review",
+            "value" : "Se requiere permiso para escanear la música local de Apple Music y activar la reproducción"
           }
         },
         "es-US" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "Para escanear música sin conexión de Apple Music y habilitar la reproducción se requieren sus permisos"
+            "state" : "needs_review",
+            "value" : "Se requiere permiso para escanear la música local de Apple Music y activar la reproducción"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Paikallisen Apple Musicin skannaaminen ja toiston aloittaminen edellyttää lupaa"
           }
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "L'analyse de la musique Apple Music hors ligne et l'activation de la lecture nécessitent vos autorisations"
+            "state" : "needs_review",
+            "value" : "L autorisation est requise pour analyser la musique locale d Apple Music et activer la lecture"
           }
         },
         "fr-CA" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "L'analyse de la musique Apple Music hors ligne et l'activation de la lecture nécessitent vos autorisations"
+            "state" : "needs_review",
+            "value" : "L autorisation est requise pour analyser la musique locale d Apple Music et activer la lecture"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "נדרשת הרשאה כדי לסרוק מוזיקה מקומית של Apple Music ולהפעיל את הניגון"
           }
         },
         "hi" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "Apple Music के स्थानीय संगीत को स्कैन करने और प्लेबैक सक्षम करने के लिए आपकी अनुमति की आवश्यकता होती है"
+            "state" : "needs_review",
+            "value" : "स्थानीय Apple Music को स्कैन करने और प्लेबैक सक्षम करने के लिए आपकी अनुमति की आवश्यकता है"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Potrebno je dopuštenje za skeniranje lokalne Apple Music glazbe i pokretanje reprodukcije"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Engedély szükséges a helyi Apple Music szkenneléséhez és a lejátszás elindításához"
           }
         },
         "id" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "Memindai musik lokal Apple Music dan mengaktifkan pemutaran memerlukan izin Anda"
+            "state" : "needs_review",
+            "value" : "Diperlukan izin untuk memindai musik Apple Music lokal dan mengaktifkan pemutaran"
           }
         },
         "it" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "Per scansionare la musica offline di Apple Music e abilitare la riproduzione sono necessarie le tue autorizzazioni"
+            "state" : "needs_review",
+            "value" : "È l autorizzazione necessaria per scansionare la musica locale di Apple Music e attivare la riproduzione"
           }
         },
         "ja" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "Apple Musicのオフライン音楽をスキャンして再生を有効にするには、許可が必要です"
+            "state" : "needs_review",
+            "value" : "ローカルのApple Musicをスキャンして再生を有効にするには許可が必要です"
           }
         },
         "ko" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "Apple Music 오프라인 음악을 스캔하고 재생을 활성화하려면 권한이 필요합니다."
+            "state" : "needs_review",
+            "value" : "로컬 Apple Music을 스캔하고 재생을 활성화하려면 권한이 필요합니다"
           }
         },
         "ms" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "Mengimbas muzik tempatan Apple Music dan mendayakan main balik memerlukan kebenaran anda"
+            "state" : "needs_review",
+            "value" : "Keizinan diperlukan untuk mengimbas muzik Apple Music tempatan dan membolehkan main balik"
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Det kreves tillatelse for å skanne lokal Apple Music og aktivere avspilling"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Toestemming is vereist om lokale Apple Music te scannen en afspelen in te schakelen"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Wymagana jest zgoda na skanowanie lokalnej muzyki Apple Music i włączenie odtwarzania"
           }
         },
         "pt-BR" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "A verificação de músicas offline do Apple Music e a ativação da reprodução exigem suas permissões"
+            "state" : "needs_review",
+            "value" : "É necessária permissão para escanear a música local do Apple Music e ativar a reprodução"
           }
         },
         "pt-PT" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "A verificação de música offline do Apple Music e a ativação da reprodução exigem as suas permissões"
+            "state" : "needs_review",
+            "value" : "É necessária permissão para ler a música local do Apple Music e ativar a reprodução"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Este necesară permisiunea pentru a scana muzica locală Apple Music și a activa redarea"
           }
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "Для сканирования офлайн-музыки Apple Music и включения воспроизведения требуются ваши разрешения."
+            "state" : "needs_review",
+            "value" : "Требуется разрешение для сканирования локальной музыки Apple Music и включения воспроизведения"
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Na skenovanie miestnej hudby Apple Music a zapnutie prehrávania je potrebné povolenie"
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Za optično branje lokalne glasbe Apple Music in omogočanje predvajanja je potrebno dovoljenje"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Tillstånd krävs for att skanna lokal Apple Music och aktivera uppspelning"
           }
         },
         "th" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "การสแกนเพลงในเครื่อง Apple Music และเปิดใช้งานการเล่นต้องได้รับอนุญาตจากคุณ"
+            "state" : "needs_review",
+            "value" : "จำเป็นต้องได้รับอนุญาตเพื่อสแกนเพลง Apple Music ในเครื่องและเปิดใช้งานการเล่น"
           }
         },
         "tr" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "Apple Music çevrimdışı müziğini taramak ve oynatmayı etkinleştirmek için izinleriniz gerekir"
+            "state" : "needs_review",
+            "value" : "Yerel Apple Music parçalarını taramak ve oynatmayı etkinleştirmek için izin gerekiyor"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Потрібен дозвіл для сканування локальної музики Apple Music та ввімкнення відтворення"
           }
         },
         "vi" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "Quét nhạc ngoại tuyến của Apple Music và bật phát lại yêu cầu quyền của bạn"
+            "state" : "needs_review",
+            "value" : "Cần có quyền để quét nhạc Apple Music cục bộ và bật phát lại"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "扫描 Apple Music 本地音乐并启用播放需要您的权限"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "掃描 Apple Music 離線音樂並啟用播放需要您的權限"
+            "state" : "needs_review",
+            "value" : "掃描 Apple Music 本地音樂並啟用播放需要您的權限"
           }
         },
         "zh-HK" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "掃描 Apple Music 本地音樂同啟用播放需要你嘅權限"
+            "state" : "needs_review",
+            "value" : "掃描 Apple Music 本地音樂並啟用播放需要您的權限"
           }
         }
       }
@@ -973,14 +1561,38 @@
       "localizations" : {
         "ar" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "يمكنك استخدام الكاميرا لالتقاط مقاطع فيديو موسيقية حية ثم تحويلها إلى موسيقى، بإذن منك."
+            "state" : "needs_review",
+            "value" : "مطلوب إذن الكاميرا عند استبدال غلاف الأغنية"
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Cal el permís de la càmera quan substituïu la portada de la cançó"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Při výměně přebalu písně je vyžadováno povolení k fotoaparátu"
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Din kameratilladelse er påkrævet, når du udskifter sangcoveret"
           }
         },
         "de" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sie können Ihre Kamera verwenden, um Live-Musikvideos aufzunehmen und sie dann mit Ihrer Erlaubnis in Musik umzuwandeln."
+            "state" : "needs_review",
+            "value" : "Beim Ersetzen des Liedcovers ist Ihre Kameraerlaubnis erforderlich"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Απαιτείται η άδεια της κάμεράς σας όταν αντικαθιστάτε το εξώφυλλο τραγουδιού"
           }
         },
         "en" : {
@@ -991,140 +1603,212 @@
         },
         "en-AU" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "You can use your camera to take live music videos and then convert them to music, with your permission."
+            "state" : "needs_review",
+            "value" : "Requires your camera privileges when replacing song covers"
           }
         },
         "en-GB" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "You can use your camera to take live music videos and then convert them to music, with your permission."
+            "state" : "needs_review",
+            "value" : "Requires your camera privileges when replacing song covers"
           }
         },
         "en-IN" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "You can use your camera to take live music videos and then convert them to music, with your permission."
+            "state" : "needs_review",
+            "value" : "Requires your camera privileges when replacing song covers"
           }
         },
         "es" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "Puedes utilizar tu cámara para grabar vídeos musicales en directo y luego convertirlos en música, con tu permiso."
+            "state" : "needs_review",
+            "value" : "Se requiere el permiso de su cámara al reemplazar la portada de la canción"
           }
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "Puedes utilizar tu cámara para grabar vídeos musicales en directo y luego convertirlos en música, con tu permiso."
+            "state" : "needs_review",
+            "value" : "Se requiere el permiso de su cámara al reemplazar la portada de la canción"
           }
         },
         "es-US" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "Puedes utilizar tu cámara para grabar vídeos musicales en directo y luego convertirlos en música, con tu permiso."
+            "state" : "needs_review",
+            "value" : "Se requiere el permiso de su cámara al reemplazar la portada de la canción"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Kappaleen kansion vaihtamiseen tarvitaan kameran lupa"
           }
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "Vous pouvez utiliser votre appareil photo pour prendre des vidéos musicales en direct et les convertir ensuite en musique, avec votre autorisation."
+            "state" : "needs_review",
+            "value" : "L'autorisation de votre caméra est requise lors du remplacement de la couverture de la chanson"
           }
         },
         "fr-CA" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "Vous pouvez utiliser votre appareil photo pour prendre des vidéos musicales en direct et les convertir ensuite en musique, avec votre autorisation."
+            "state" : "needs_review",
+            "value" : "L'autorisation de votre caméra est requise lors du remplacement de la couverture de la chanson"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "הרשאת המצלמה שלך נדרשת בעת החלפת עטיפת השיר"
           }
         },
         "hi" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "आप अपने कैमरे का उपयोग लाइव संगीत वीडियो लेने के लिए कर सकते हैं और फिर अपनी अनुमति से उन्हें संगीत में परिवर्तित कर सकते हैं।"
+            "state" : "needs_review",
+            "value" : "गाने का कवर बदलते समय आपके कैमरे की अनुमति आवश्यक है"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Prilikom zamjene omota pjesme potrebna je vaša dozvola za kameru"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "A dalborító cseréjéhez kameraengedély szükséges"
           }
         },
         "id" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "Anda dapat menggunakan kamera untuk mengambil video musik langsung dan kemudian mengubahnya menjadi musik, dengan izin Anda."
+            "state" : "needs_review",
+            "value" : "Izin kamera Anda diperlukan saat mengganti cover lagu"
           }
         },
         "it" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "È possibile utilizzare la fotocamera per riprendere video musicali dal vivo e poi convertirli in musica, con l'autorizzazione dell'utente."
+            "state" : "needs_review",
+            "value" : "È necessaria l'autorizzazione della fotocamera quando si sostituisce la copertina del brano"
           }
         },
         "ja" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "カメラを使って音楽ライブビデオを撮影し、許可を得て音楽に変換することができる。"
+            "state" : "needs_review",
+            "value" : "曲のカバーを置き換えるときはカメラの許可が必要です"
           }
         },
         "ko" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "È possibile utilizzare la fotocamera per riprendere video musicali dal vivo e poi convertirli in musica, con l'autorizzazione dell'utente."
+            "state" : "needs_review",
+            "value" : "노래 표지 교체 시 카메라 권한이 필요합니다"
           }
         },
         "ms" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "Anda boleh menggunakan kamera anda untuk mengambil video muzik secara langsung dan kemudian menukarnya kepada muzik, dengan kebenaran anda."
+            "state" : "needs_review",
+            "value" : "Kebenaran kamera anda diperlukan apabila menggantikan kulit lagu"
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Kameratillatelsen din kreves når du bytter ut sangcoveret"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Je cameratoestemming is vereist als je de cover van het nummer vervangt"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Do wymiany okładki utworu wymagane jest pozwolenie na korzystanie z aparatu"
           }
         },
         "pt-BR" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "Você pode usar sua câmera para capturar vídeos de música ao vivo e depois convertê-los em música com sua permissão."
+            "state" : "needs_review",
+            "value" : "A permissão da sua câmera é necessária ao substituir a capa da música"
           }
         },
         "pt-PT" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "Você pode usar sua câmera para capturar vídeos de música ao vivo e depois convertê-los em música com sua permissão."
+            "state" : "needs_review",
+            "value" : "A autorização da sua câmara é necessária ao substituir a capa da música"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Este necesară permisiunea camerei dvs. când înlocuiți coperta melodiei"
           }
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "С помощью камеры можно снимать живое музыкальное видео, а затем преобразовывать его в музыку с вашего разрешения."
+            "state" : "needs_review",
+            "value" : "При замене обложки песни требуется разрешение вашей камеры."
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Pri výmene obalu skladby sa vyžaduje povolenie fotoaparátu"
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Pri zamenjavi priredb pesmi so potrebne vaše pravice za kamero"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Din kameratillstånd krävs när du byter låtomslag"
           }
         },
         "th" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "คุณสามารถใช้กล้องของคุณถ่ายวิดีโอดนตรีสดและแปลงเป็นเพลงได้ โดยต้องได้รับอนุญาตจากคุณ"
+            "state" : "needs_review",
+            "value" : "ต้องได้รับอนุญาตจากกล้องเมื่อเปลี่ยนหน้าปกเพลง"
           }
         },
         "tr" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "Canlı müzik videosunu çekmek için kamerayı kullanabilir ve ardından izninizle müziğe dönüştürebilirsiniz."
+            "state" : "needs_review",
+            "value" : "Şarkı kapağını değiştirirken kamera izniniz gerekiyor"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Для заміни обкладинки пісні потрібен дозвіл на камеру"
           }
         },
         "vi" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "Bạn có thể sử dụng máy ảnh để quay video ca nhạc trực tiếp và sau đó chuyển đổi chúng thành nhạc, nếu được bạn cho phép."
+            "state" : "needs_review",
+            "value" : "Cần có sự cho phép của máy ảnh của bạn khi thay thế bìa bài hát"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "您可以使用相机拍摄现场音乐视频，然后在您的许可下将其转换成音乐。"
+            "state" : "needs_review",
+            "value" : "替换歌曲封面时需要您的摄像头权限"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "您可以使用相機拍攝現場音樂影片，然後在您的許可下將其轉換成音樂。"
+            "state" : "needs_review",
+            "value" : "替換歌曲封面時需要您的相機權限"
           }
         },
         "zh-HK" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "你可以用相機拍攝現場音樂視頻，然後喺你嘅許可下將佢轉換成音樂。"
+            "state" : "needs_review",
+            "value" : "替換歌曲封面時需要你嘅攝像頭權限"
           }
         }
       }
@@ -1136,13 +1820,37 @@
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "مطلوب إذنك لقراءة ملفات الموسيقى من تطبيق الملفات"
+            "value" : "مطلوب إذنك عند قراءة ملفات الموسيقى من تطبيق الملفات"
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cal el vostre permís per llegir fitxers de música des de l'aplicació Fitxers"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Při čtení hudebních souborů z aplikace Files je vyžadováno vaše povolení"
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Din tilladelse er påkrævet, når du læser musikfiler fra Files-appen"
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ihre Berechtigungen sind erforderlich, um Musikdateien aus der Datei-App zu lesen."
+            "value" : "Zum Lesen von Musikdateien aus der Dateien-App ist Ihre Erlaubnis erforderlich"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Απαιτείται η άδειά σας κατά την ανάγνωση αρχείων μουσικής από την εφαρμογή Files"
           }
         },
         "en" : {
@@ -1172,103 +1880,175 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Se requiere tu permiso para leer archivos de música desde la app Archivos"
+            "value" : "Se requiere su permiso al leer archivos de música desde la aplicación Archivos"
           }
         },
         "es-419" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Se requiere tu permiso para leer archivos de música desde la app Archivos"
+            "value" : "Se requiere su permiso al leer archivos de música desde la aplicación Archivos"
           }
         },
         "es-US" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Se requiere tu permiso para leer archivos de música desde la app Archivos"
+            "value" : "Se requiere su permiso al leer archivos de música desde la aplicación Archivos"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sinun lupasi vaaditaan, kun luet musiikkitiedostoja Files-sovelluksesta"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Votre autorisation est requise pour lire les fichiers musicaux à partir de l'application Fichiers."
+            "value" : "Votre autorisation est requise lors de la lecture de fichiers musicaux à partir de l'application Files"
           }
         },
         "fr-CA" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Votre autorisation est requise pour lire les fichiers musicaux à partir de l'application Fichiers."
+            "value" : "Votre autorisation est requise lors de la lecture de fichiers musicaux à partir de l'application Files"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ההרשאה שלך נדרשת בעת קריאת קובצי מוזיקה מאפליקציית Files"
           }
         },
         "hi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "फ़ाइलें ऐप से संगीत फ़ाइलें पढ़ने के लिए आपकी अनुमति आवश्यक है"
+            "value" : "फ़ाइलें ऐप से संगीत फ़ाइलें पढ़ते समय आपकी अनुमति आवश्यक है"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Za čitanje glazbenih datoteka iz aplikacije Files potrebno je vaše dopuštenje"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Az Ön engedélyére van szükség zenefájlok olvasásához a Files alkalmazásból"
           }
         },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Izin Anda diperlukan untuk membaca file musik dari aplikasi File"
+            "value" : "Izin Anda diperlukan saat membaca file musik dari Aplikasi File"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Per leggere i file musicali dall'applicazione File è necessaria l'autorizzazione dell'utente."
+            "value" : "È necessaria la tua autorizzazione quando si leggono file musicali dall'app File"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Filesアプリから音楽ファイルを読み込むには、あなたの許可が必要です。"
+            "value" : "ファイルアプリから音楽ファイルを読み込むときはあなたの許可が必要です"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Per leggere i file musicali dall'applicazione File è necessaria l'autorizzazione dell'utente."
+            "value" : "파일 앱에서 음악 파일을 읽으려면 권한이 필요합니다."
           }
         },
         "ms" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Kebenaran anda diperlukan untuk membaca fail muzik daripada apl Fail"
+            "value" : "Kebenaran anda diperlukan semasa membaca fail muzik daripada Apl Fail"
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Din tillatelse kreves når du leser musikkfiler fra Files-appen"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Uw toestemming is vereist bij het lezen van muziekbestanden vanuit de Bestanden-app"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Do odczytu plików muzycznych z aplikacji Pliki wymagana jest Twoja zgoda"
           }
         },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Suas permissões são necessárias para ler arquivos de música do File App."
+            "value" : "Sua permissão é necessária ao ler arquivos de música do aplicativo Arquivos"
           }
         },
         "pt-PT" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Suas permissões são necessárias para ler arquivos de música do File App."
+            "value" : "A sua permissão é necessária ao ler ficheiros de música da aplicação Arquivos"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Este necesară permisiunea dvs. când citiți fișiere muzicale din aplicația Files"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Для чтения музыкальных файлов из приложения «Файлы» требуется ваше разрешение"
+            "value" : "Требуется ваше разрешение при чтении музыкальных файлов из приложения «Файлы»."
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pri čítaní hudobných súborov z aplikácie Files sa vyžaduje vaše povolenie"
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Za branje glasbenih datotek iz aplikacije Datoteke je potrebno vaše dovoljenje."
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Din tillåtelse krävs när du läser musikfiler från appen Files"
           }
         },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "ต้องได้รับอนุญาตจากคุณจึงจะอ่านไฟล์เพลงจากแอปไฟล์ได้"
+            "value" : "ต้องได้รับอนุญาตจากคุณเมื่ออ่านไฟล์เพลงจากแอพ Files"
           }
         },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Müzik dosyalarını App'ten okurken izninize ihtiyaç var"
+            "value" : "Files Uygulamasından müzik dosyalarını okurken izniniz gerekiyor"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Для читання музичних файлів із додатка Files потрібен ваш дозвіл"
           }
         },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Bạn cần có quyền để đọc các tệp nhạc từ ứng dụng Tệp"
+            "value" : "Cần có sự cho phép của bạn khi đọc tệp nhạc từ Ứng dụng Tệp"
           }
         },
         "zh-Hans" : {
@@ -1297,14 +2077,38 @@
       "localizations" : {
         "ar" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "يمكنك استخدام الكاميرا لالتقاط مقاطع فيديو موسيقية حية ثم تحويلها إلى موسيقى، بإذن منك."
+            "state" : "needs_review",
+            "value" : "يتطلب هذا التطبيق الوصول إلى الميكروفون للاستماع إلى الموسيقى المحيطة بك والتعرف عليها. يتم معالجة الصوت محلياً ولن يتم تسجيله أو حفظه أبداً."
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Aquesta aplicació requereix accés al micròfon per escoltar i reconèixer la música ambient. L'àudio es processa localment i mai es gravarà ni es desarà."
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Tato aplikace vyžaduje přístup k mikrofonu pro poslech a rozpoznávání okolní hudby. Zvuk je zpracováván lokálně a nikdy nebude nahráván ani ukládán."
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Denne app kræver mikrofonadgang for at lytte og genkende omgivende musik. Lyd behandles lokalt og vil aldrig blive optaget eller gemt."
           }
         },
         "de" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sie können Ihre Kamera verwenden, um Live-Musikvideos aufzunehmen und sie dann mit Ihrer Erlaubnis in Musik umzuwandeln."
+            "state" : "needs_review",
+            "value" : "Diese App erfordert den Mikrofonzugriff, um Umgebungsmusik zu hören und zu erkennen. Audio wird lokal verarbeitet und wird niemals aufgenommen oder gespeichert."
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Αυτή η εφαρμογή απαιτεί πρόσβαση στο μικρόφωνο για την ακρόαση και αναγνώριση της μουσικής περιβάλλοντος. Ο ήχος υποβάλλεται σε τοπική επεξεργασία και δεν θα καταγραφεί ποτέ."
           }
         },
         "en" : {
@@ -1315,140 +2119,212 @@
         },
         "en-AU" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "You can use your camera to take live music videos and then convert them to music, with your permission."
+            "state" : "needs_review",
+            "value" : "This app requires microphone access to listen and recognise ambient music around you. Audio is processed locally and will never be recorded or saved."
           }
         },
         "en-GB" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "You can use your camera to take live music videos and then convert them to music, with your permission."
+            "state" : "needs_review",
+            "value" : "This app requires microphone access to listen and recognise ambient music around you. Audio is processed locally and will never be recorded or saved."
           }
         },
         "en-IN" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "You can use your camera to take live music videos and then convert them to music, with your permission."
+            "state" : "needs_review",
+            "value" : "This app requires microphone access to listen and recognise ambient music around you. Audio is processed locally and will never be recorded or saved."
           }
         },
         "es" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "Puedes utilizar tu cámara para grabar vídeos musicales en directo y luego convertirlos en música, con tu permiso."
+            "state" : "needs_review",
+            "value" : "Esta aplicación requiere acceso al micrófono para escuchar y reconocer la música ambiental a tu alrededor. El audio se procesa localmente y nunca se grabará ni guardará."
           }
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "Puedes utilizar tu cámara para grabar vídeos musicales en directo y luego convertirlos en música, con tu permiso."
+            "state" : "needs_review",
+            "value" : "Esta aplicación requiere acceso al micrófono para escuchar y reconocer la música ambiental a tu alrededor. El audio se procesa localmente y nunca se grabará ni guardará."
           }
         },
         "es-US" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "Puedes utilizar tu cámara para grabar vídeos musicales en directo y luego convertirlos en música, con tu permiso."
+            "state" : "needs_review",
+            "value" : "Esta aplicación requiere acceso al micrófono para escuchar y reconocer la música ambiental a su alrededor. El audio se procesa de forma local y nunca se grabará ni guardará."
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Tämä sovellus vaatii mikrofonin käyttöoikeuden ympäristön musiikin kuunteluun ja tunnistamiseen. Ääni käsitellään paikallisesti, eikä sitä koskaan nauhoiteta tai tallenneta."
           }
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "Vous pouvez utiliser votre appareil photo pour prendre des vidéos musicales en direct et les convertir ensuite en musique, avec votre autorisation."
+            "state" : "needs_review",
+            "value" : "Cette application nécessite l'accès au micro pour écouter et identifier la musique ambiante. L'audio est traité localement et ne sera jamais enregistré ni sauvegardé."
           }
         },
         "fr-CA" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "Vous pouvez utiliser votre appareil photo pour prendre des vidéos musicales en direct et les convertir ensuite en musique, avec votre autorisation."
+            "state" : "needs_review",
+            "value" : "Cette application nécessite l'accès au micro pour écouter et identifier la musique ambiante. L'audio est traité localement et ne sera jamais enregistré ni sauvegardé."
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "אפליקציה זו דורשת גישה למיקרופון כדי להאזין ולזהות מוזיקת סביבה. השמע מעובד באופן מקומי ולעולם לא יוקלט או יישמר."
           }
         },
         "hi" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "आप अपने कैमरे का उपयोग लाइव संगीत वीडियो लेने के लिए कर सकते हैं और फिर अपनी अनुमति से उन्हें संगीत में परिवर्तित कर सकते हैं।"
+            "state" : "needs_review",
+            "value" : "आपके आस-पास के संगीत को सुनने और पहचानने के लिए इस ऐप को माइक्रोफ़ोन एक्सेस की आवश्यकता है। ऑडियो स्थानीय रूप से संसाधित होता है और कभी रिकॉर्ड नहीं किया जाएगा।"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Ova aplikacija zahtijeva pristup mikrofonu za slušanje i prepoznavanje ambijentalne glazbe. Zvuk se obrađuje lokalno i nikada se neće snimati niti spremati."
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "A alkalmazásnak mikrofon-hozzáférésre van szüksége a környező zene hallgatásához és felismeréséhez. Az audió helyben feldolgozott, és soha nem lesz rögzítve."
           }
         },
         "id" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "Anda dapat menggunakan kamera untuk mengambil video musik langsung dan kemudian mengubahnya menjadi musik, dengan izin Anda."
+            "state" : "needs_review",
+            "value" : "Aplikasi ini memerlukan akses mikrofon untuk mendengarkan dan mengenali musik di sekitar Anda. Audio diproses secara lokal dan tidak akan pernah direkam atau disimpan."
           }
         },
         "it" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "È possibile utilizzare la fotocamera per riprendere video musicali dal vivo e poi convertirli in musica, con l'autorizzazione dell'utente."
+            "state" : "needs_review",
+            "value" : "Questa applicazione richiede l'accesso al microfono per ascoltare e riconoscere la musica d'ambiente. L'audio è elaborato localmente e nao sarà mai registrato."
           }
         },
         "ja" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "カメラを使って音楽ライブビデオを撮影し、許可を得て音楽に変換することができる。"
+            "state" : "needs_review",
+            "value" : "周囲の環境音楽を聴き取り識別するために、マイクへのアクセス権限が必要です。オーディオはローカルで処理され、録音や保存されることは一切ありません。"
           }
         },
         "ko" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "È possibile utilizzare la fotocamera per riprendere video musicali dal vivo e poi convertirli in musica, con l'autorizzazione dell'utente."
+            "state" : "needs_review",
+            "value" : "주변의 환경 음악을 듣고 식별하기 위해 마이크 접근 권한이 필요합니다. 오디오는 기기 로컬에서만 처리되며 절대 녹음되거나 저장되지 않습니다."
           }
         },
         "ms" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "Anda boleh menggunakan kamera anda untuk mengambil video muzik secara langsung dan kemudian menukarnya kepada muzik, dengan kebenaran anda."
+            "state" : "needs_review",
+            "value" : "Aplikasi ini memerlukan akses mikrofon untuk mendengar dan mengecam muzik sekeliling. Audio diproses secara tempatan dan tidak akan direkodkan atau disimpan."
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Denne appen krever mikrofontilgang for å lytte til og gjenkjenne omgivelsesmusikk. Lyd behandles lokalt og vil aldri bli tatt opp eller lagret."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Deze app vereist microfoonstoegang om omgevingsmuziek te luisteren en te herkennen. Audio wordt lokaal verwerkt en zal nooit worden opgenomen of opgeslagen."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Ta aplikacja wymaga dostępu do mikrofonu, aby słuchać i rozpoznawać muzykę w otoczeniu. Dźwięk jest przetwarzany lokalnie i nigdy nie będzie nagrywany ani zapisywany."
           }
         },
         "pt-BR" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "Você pode usar sua câmera para capturar vídeos de música ao vivo e depois convertê-los em música com sua permissão."
+            "state" : "needs_review",
+            "value" : "Este aplicativo requer acesso ao microfone para ouvir e reconhecer a música ambiente ao seu redor. O áudio é processado localmente e nunca será gravado ou salvo."
           }
         },
         "pt-PT" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "Você pode usar sua câmera para capturar vídeos de música ao vivo e depois convertê-los em música com sua permissão."
+            "state" : "needs_review",
+            "value" : "Esta aplicação requer acesso ao microfone para ouvir e reconhecer a música ambiente ao seu redor. O áudio é processado localmente e nunca será gravado ou guardado."
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Această aplicație necesită acces la microfon pentru a asculta și recunoaște muzica ambientală. Audio este procesat local și nu va fi niciodată înregistrat sau salvat."
           }
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "С помощью камеры можно снимать живое музыкальное видео, а затем преобразовывать его в музыку с вашего разрешения."
+            "state" : "needs_review",
+            "value" : "Этому приложению требуется доступ к микрофону для прослушивания и распознавания окружающей музыки. Аудио обрабатывается локально и никогда не будет записано."
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Táto aplikácia vyžaduje prístup k mikrofonu na počúvanie a rozpoznávanie okolitej hudby. Zvuk sa spracováva lokálne a nikdy sa nebude nahrávať ani ukladať."
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Ta aplikacija zahteva dostop do mikrofona za poslušanje in prepoznavanje glasbe v okolici. Zvok se obdeluje lokalno in se nikoli ne bo snemal ali shranjeval."
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Denna app kräver mikrofontillgang för att lyssna och känna igen omgivningsmusik. Ljudet bearbetas lokalt och kommer aldrig att spelas in eller sparas."
           }
         },
         "th" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "คุณสามารถใช้กล้องของคุณถ่ายวิดีโอดนตรีสดและแปลงเป็นเพลงได้ โดยต้องได้รับอนุญาตจากคุณ"
+            "state" : "needs_review",
+            "value" : "แอปนี้ต้องเข้าถึงไมโครโฟนเพื่อฟังและตรวจจับเพลงรอบตัวคุณ เสียงจะถูกประมวลผลภายในเครื่องและจะไม่ถูกบันทึกหรือเก็บข้อมูลไว้โดยเด็ดขาด"
           }
         },
         "tr" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "Canlı müzik videosunu çekmek için kamerayı kullanabilir ve ardından izninizle müziğe dönüştürebilirsiniz."
+            "state" : "needs_review",
+            "value" : "Bu uygulama çevrenizdeki ortam müziğini dinlemek ve tanımak için mikrofon erişimi gerektirir. Ses yerel olarak işlenir, asla kaydedilmez veya saklanmaz."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Цьому додатку потрібен доступ до мікрофона для прослуховування та розпізнавання навколишньої музики. Аудіо обробляється локально й ніколи не буде записано."
           }
         },
         "vi" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "Bạn có thể sử dụng máy ảnh để quay video ca nhạc trực tiếp và sau đó chuyển đổi chúng thành nhạc, nếu được bạn cho phép."
+            "state" : "needs_review",
+            "value" : "Ứng dụng này cần quyền truy cập micrô để lắng nghe và nhận dạng nhạc môi trường xung quanh bạn. Âm thanh được xử lý cục bộ, không bao giờ bị ghi âm hoặc lưu lại."
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "您可以使用相机拍摄现场音乐视频，然后在您的许可下将其转换成音乐。"
+            "state" : "needs_review",
+            "value" : "本应用需要麦克风权限以聆听并识别现场环境音乐。音频仅在本地进行声学特征分析，绝不会被录音或存储。"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "您可以使用相機拍攝現場音樂影片，然後在您的許可下將其轉換成音樂。"
+            "state" : "needs_review",
+            "value" : "本應用程式需要麥克風權限以聆聽並識別現場環境音樂。音訊僅在本地進行聲學特徵分析，絕不會被錄音或儲存。"
           }
         },
         "zh-HK" : {
           "stringUnit" : {
-            "state" : "translated",
-            "value" : "你可以用相機拍攝現場音樂視頻，然後喺你嘅許可下將佢轉換成音樂。"
+            "state" : "needs_review",
+            "value" : "本應用程式需要麥克風權限以聆聽並識別現場環境音樂。音訊僅在本地進行聲學特徵分析，絕不會被錄音或儲存。"
           }
         }
       }
@@ -1460,13 +2336,37 @@
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "الوصول إلى ألبومك مطلوب لحفظ أغلفة الأغاني"
+            "value" : "الوصول إلى الألبوم مطلوب لحفظ أغلفة الأغاني"
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cal accedir al vostre àlbum per desar les versions de les cançons"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "K ukládání přebalů skladeb je vyžadován přístup k albu"
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Din albumadgang er påkrævet for at gemme sangcovers"
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ihr Albumzugang ist erforderlich, um das Songcover zu speichern."
+            "value" : "Zum Speichern von Songcovern ist Ihr Albumzugriff erforderlich"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Απαιτείται πρόσβαση στο άλμπουμ σας για την αποθήκευση των διασκευών τραγουδιών"
           }
         },
         "en" : {
@@ -1496,37 +2396,61 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "El acceso al álbum es necesario para guardar las portadas de las canciones"
+            "value" : "Se requiere acceso a su álbum para guardar portadas de canciones."
           }
         },
         "es-419" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "El acceso al álbum es necesario para guardar las portadas de las canciones"
+            "value" : "Se requiere acceso a su álbum para guardar portadas de canciones."
           }
         },
         "es-US" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "El acceso al álbum es necesario para guardar las portadas de las canciones"
+            "value" : "Se requiere acceso a su álbum para guardar portadas de canciones."
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Albumisi käyttöoikeus vaaditaan kappaleiden kansien tallentamiseen"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "L'accès à votre album est nécessaire pour enregistrer les pochettes de chansons"
+            "value" : "L'accès à votre album est requis pour enregistrer les reprises de chansons"
           }
         },
         "fr-CA" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "L'accès à votre album est nécessaire pour enregistrer les pochettes de chansons"
+            "value" : "L'accès à votre album est requis pour enregistrer les reprises de chansons"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "הגישה שלך לאלבום נדרשת כדי לשמור עטיפות של שירים"
           }
         },
         "hi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "गीत कवर को सहेजने के लिए आपके एल्बम तक पहुंच आवश्यक है"
+            "value" : "गाने के कवर को सहेजने के लिए आपके एल्बम की पहुंच आवश्यक है"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Za spremanje obrada pjesama potreban vam je pristup albumu"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A dalborítók mentéséhez album-hozzáférés szükséges"
           }
         },
         "id" : {
@@ -1538,19 +2462,19 @@
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "L'accesso all'album è necessario per salvare le copertine dei brani"
+            "value" : "Per salvare le copertine dei brani è necessario l'accesso all'album"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "曲のカバーを保存するには、アルバムへのアクセスが必要です。"
+            "value" : "曲のカバーを保存するにはアルバムへのアクセスが必要です"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "L'accesso all'album è necessario per salvare le copertine dei brani"
+            "value" : "노래 표지를 저장하려면 앨범 액세스 권한이 필요합니다."
           }
         },
         "ms" : {
@@ -1559,40 +2483,88 @@
             "value" : "Akses album anda diperlukan untuk menyimpan kulit lagu"
           }
         },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Albumtilgangen din kreves for å lagre sangcovere"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Je hebt toegang tot je album nodig om covers van nummers op te slaan"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aby zapisać covery utworów, musisz mieć dostęp do albumu"
+          }
+        },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Seu acesso ao álbum é necessário para salvar capas de músicas"
+            "value" : "O acesso ao seu álbum é necessário para salvar covers de músicas"
           }
         },
         "pt-PT" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Seu acesso ao álbum é necessário para salvar capas de músicas"
+            "value" : "O acesso ao seu álbum é necessário para guardar covers de músicas"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Accesul la album este necesar pentru a salva copertele melodiilor"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Для сохранения обложек песен требуется доступ к вашему альбому"
+            "value" : "Для сохранения каверов песен необходим доступ к альбому."
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Na uloženie obalov skladieb je potrebný váš prístup k albumu"
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Za shranjevanje priredb pesmi potrebujete dostop do albuma"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Din albumåtkomst krävs för att spara låtomslag"
           }
         },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "จำเป็นต้องเข้าถึงอัลบั้มของคุณเพื่อบันทึกปกเพลง"
+            "value" : "จำเป็นต้องเข้าถึงอัลบั้มของคุณเพื่อบันทึกเพลงคัฟเวอร์"
           }
         },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Şarkı kapağını kaydetmek için albüm erişim iznine ihtiyacınız var"
+            "value" : "Şarkı kapaklarını kaydetmek için albüm erişiminiz gerekiyor"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Щоб зберігати обкладинки пісень, потрібен доступ до альбому"
           }
         },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Bạn cần có quyền truy cập vào album để lưu các bài hát cover"
+            "value" : "Cần có quyền truy cập album của bạn để lưu bìa bài hát"
           }
         },
         "zh-Hans" : {
@@ -1622,157 +2594,253 @@
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "سيوصيك معرّف المستخدم هذا بإعلانات مخصصة لك"
+            "value" : "سيُستخدم هذا المعرّف للتحقق من مصدر إعلانك، ومزامنة حالة اشتراكك بدقة، وتحسين تجربة الشراء والدعم الفني لك."
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aquest identificador s utilitzarà per verificar l origen de l anunci, sincronitzar l estat de la subscripció i optimitzar l experiència de compra i suport."
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tento identifikátor bude použit k ověření zdroje reklamy, přesné synchronizaci stavu předplatného a optimalizaci nákupů a zákaznické podpory."
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dette id bruges til at verificere din annoncekilde, synkronisere din abonnementsstatus nøjagtigt og optimere din købs- og supportoplevelse."
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "This user identifier will recommend you personalized ads"
+            "value" : "Diese Kennung wird verwendet, um Ihre Werbequelle zu verifizieren, Ihren Abostatus synchronisieren und Ihr Kauf- und Support-Erlebnis zu optimieren."
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Αυτό το αναγνωριστικό θα χρησιμοποιηθεί για την επαλήθευση της πηγής διαφήμισης, τον συγχρονισμό της συνδρομής και τη βελτιστοποίηση της υποστήριξης."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "This user identifier will recommend you personalized ads"
+            "value" : "This identifier will be used to verify your ad source, accurately sync your subscription status, and optimize your purchase and customer support experience."
           }
         },
         "en-AU" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "This user identifier will recommend you personalized ads"
+            "value" : "This identifier will be used to verify your ad source, accurately sync your subscription status, and optimize your purchase and customer support experience."
           }
         },
         "en-GB" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "This user identifier will recommend you personalized ads"
+            "value" : "This identifier will be used to verify your ad source, accurately sync your subscription status, and optimize your purchase and customer support experience."
           }
         },
         "en-IN" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "This user identifier will recommend you personalized ads"
+            "value" : "This identifier will be used to verify your ad source, accurately sync your subscription status, and optimize your purchase and customer support experience."
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "This user identifier will recommend you personalized ads"
+            "value" : "Este identificador se usará para verificar la fuente del anuncio, sincronizar el estado de suscripción y optimizar tu experiencia de compra y soporte."
           }
         },
         "es-419" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "This user identifier will recommend you personalized ads"
+            "value" : "Este identificador se usará para verificar la fuente del anuncio, sincronizar el estado de suscripción y optimizar tu experiencia de compra y soporte."
           }
         },
         "es-US" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "This user identifier will recommend you personalized ads"
+            "value" : "Este identificador se usará para verificar la fuente del anuncio, sincronizar el estado de suscripción y optimizar tu experiencia de compra y soporte."
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tunnustetta käytetään mainoslähteen vahvistamiseen, tilaustilan tarkkaan synkronointiin sekä osto- ja tukikokemuksesi optimointiin."
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "This user identifier will recommend you personalized ads"
+            "value" : "Cet identifiant servira à vérifier la source de l annonce, synchroniser votre statut d abonnement et optimiser votre expérience d achat et de support."
           }
         },
         "fr-CA" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "This user identifier will recommend you personalized ads"
+            "value" : "Cet identifiant servira à vérifier la source de l annonce, synchroniser votre statut d abonnement et optimiser votre expérience d achat et de support."
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "מזהה זה ישמש לאימות מקור המודעה שלך, סנכרון מדויק של סטטוס המנוי שלך ואופטימיזציה של חווית הרכישה והתמיכה הטכנית."
           }
         },
         "hi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "यह उपयोगकर्ता पहचानकर्ता आपको वैयक्तिकृत विज्ञापनों की अनुशंसा करेगा"
+            "value" : "इस पहचानकर्ता का उपयोग आपके विज्ञापन स्रोत को सत्यापित करने, सदस्यता स्थिति को सिंक करने और आपके खरीदारी अनुभव को बेहतर बनाने के लिए किया जाएगा।"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ovaj identifikator koristit će se za provjeru izvora oglasa, točnu sinkronizaciju statusa pretplate i optimizaciju vašeg iskustva kupnje i podrške."
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ez az azonosító a hirdetési forrás ellenőrzésére, az előfizetési állapot szinkronizálására, valamint a vásárlási és támogatási élmény javítására szolgál."
           }
         },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Pengidentifikasi pengguna ini akan merekomendasikan iklan yang dipersonalisasi kepada Anda"
+            "value" : "Pengidentifikasi ini digunakan untuk verifikasi sumber iklan, sinkronisasi status langganan, dan optimasi pengalaman pembelian serta dukungan."
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Questo identificatore di utente vi consiglierà annunci personalizzati"
+            "value" : "Questo identificativo verrà utilizzato per verificare la fonte dell annuncio, sincronizzare l abbonamento e ottimizzare l acquisto e il supporto."
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "This user identifier will recommend you personalized ads"
+            "value" : "この識別子は、広告元の検証、サブスクリプション状態の正確な同期、および購入やサポート体験の最適化に使用されます。"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Questo identificatore di utente vi consiglierà annunci personalizzati"
+            "value" : "이 식별자는 광고 출처 확인, 구독 상태의 정확한 동기화, 구매 및 고객 지원 경험 최적화를 위해 사용됩니다."
           }
         },
         "ms" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Pengecam pengguna ini akan mengesyorkan anda iklan yang diperibadikan"
+            "value" : "Pengenal pasti ini akan digunakan untuk mengesahkan sumber iklan, menyinkronkan status langganan dan mengoptimumkan pengalaman sokongan anda."
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Denne identifikatoren brukes til å verifisere annonsekilden, synkronisere abonnementsstatusen nøyaktig og optimalisere kjøps- og støtteopplevelsen."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ID wordt gebruikt om advertentiebron te verifiëren, abonnementstatus nauwkeurig te synchroniseren en uw aankoop- en ondersteuningservaring te optimaliseren."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Identyfikator służy do weryfikacji źródła reklam, dokładnej synchronizacji stanu subskrypcji oraz optymalizacji zakupów i wsparcia technicznego."
           }
         },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "This user identifier will recommend you personalized ads"
+            "value" : "Este identificador será usado para verificar a origem do anúncio, sincronizar o status da assinatura e otimizar sua experiência de compra e suporte."
           }
         },
         "pt-PT" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "This user identifier will recommend you personalized ads"
+            "value" : "Este identificador será usado para verificar a origem do anúncio, sincronizar o status da assinatura e otimizar a sua experiência de compra e suporte."
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Acest identificator va fi utilizat pentru a verifica sursa reclamei, a sincroniza abonamentul și a optimiza experiența de cumpărare și suport."
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "This user identifier will recommend you personalized ads"
+            "value" : "Этот идентификатор используется для проверки источника рекламы, точной синхронизации статуса подписки и оптимизации покупок и поддержки."
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tento identifikátor sa použije na overenie zdroja reklamy, presnú synchronizáciu stavu predplatného a optimalizáciu nákupov a podpory."
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ta identifikator se bo uporabljal za preverjanje vira oglasa, natančno sinhronizacijo stanja naročnine in optimizacijo izkušnje nakupa in podpore."
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Denna identifierare används för att verifiera din annonskälla, synkronisera din prenumerationsstatus och optimera din köp- och supportupplevelse."
           }
         },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "ตัวระบุผู้ใช้นี้จะแนะนำโฆษณาที่ปรับแต่งให้กับคุณ"
+            "value" : "ตัวระบุนี้จะใช้เพื่อตรวจสอบแหล่งที่มาของโฆษณา ซิงค์สถานะการสมัครรับข้อมูลอย่างแม่นยำ และเพิ่มประสิทธิภาพประสบการณ์การซื้อและการสนับสนุน"
           }
         },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "This user identifier will recommend you personalized ads"
+            "value" : "Bu tanımlayıcı, reklam kaynağını doğrulamak, abonelik durumunu senkronize etmek, satın alma ve destek deneyiminizi optimize etmek için kullanılır."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Цей ідентифікатор буде використано для перевірки джерела реклами, точної синхронізації статусу підписки та оптимізації покупок і підтримки."
           }
         },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "This user identifier will recommend you personalized ads"
+            "value" : "Mã định danh này sẽ được dùng để xác minh nguồn quảng cáo, đồng bộ hóa chính xác trạng thái đăng ký và tối ưu hóa trải nghiệm hỗ trợ của bạn."
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "This user identifier will recommend you personalized ads"
+            "value" : "该标识符将用于验证您的广告来源，以便我们准确同步您的订阅状态，并优化您的购买与售后服务体验。"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "This user identifier will recommend you personalized ads"
+            "value" : "此識別碼將用於驗證您的廣告來源，以便我們精確同步您的訂閱狀態，並優化您的購買與售後服務體驗。"
           }
         },
         "zh-HK" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "This user identifier will recommend you personalized ads"
+            "value" : "此識別碼將用於驗證您的廣告來源，以便我們精確同步您的訂閱狀態，並優化您的購買與售後服務體驗。"
           }
         }
       }
@@ -1782,13 +2850,37 @@
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "سيؤدي إلغاء التثبيت إلى حذف جميع العناصر المحلية"
+            "value" : "إلغاء التثبيت سيحذف جميع العناصر المحلية"
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Desinstal·lar eliminarà tots els elements locals"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Odinstalování smaže všechny místní položky"
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Afinstallation sletter alle lokale emner"
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Bei der Deinstallation werden alle lokalen Elemente gelöscht."
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Η απεγκατάσταση θα διαγράψει όλα τα τοπικά στοιχεία"
           }
         },
         "en" : {
@@ -1833,10 +2925,16 @@
             "value" : "La desinstalación eliminará todos los elementos locales"
           }
         },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Désinstaller supprimera tous les éléments locaux"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "La désinstallation supprimera tous les éléments locaux"
+            "value" : "Désinstaller supprimera tous les éléments locaux"
           }
         },
         "fr-CA" : {
@@ -1845,10 +2943,28 @@
             "value" : "La désinstallation supprimera tous les éléments locaux"
           }
         },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "הסרה תמחק את כל הפריטים המקומיים"
+          }
+        },
         "hi" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "अनइंस्टॉल करने से सभी स्थानीय आइटम हट जाएंगे"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Budući da deinstalacija briše sve lokalne stavke"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Az eltávolítás törli az összes helyi elemet"
           }
         },
         "id" : {
@@ -1881,6 +2997,24 @@
             "value" : "Menyahpasang akan memadamkan semua item setempat"
           }
         },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Avinstallering sletter alle lokale elementer"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Deinstalleren verwijdert alle lokale items"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Odinstalowanie usunie wszystkie lokalne elementy"
+          }
+        },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1893,10 +3027,34 @@
             "value" : "A desinstalação excluirá todas as músicas locais"
           }
         },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dezinstalarea va șterge toate elementele locale"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "При деинсталляции будут удалены все локальные элементы"
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Odinštalovanie vymaže všetky miestne položky"
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Odstranitev bo izbrisala vse lokalne predmete"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Avinstallation raderar alla lokala objekt"
           }
         },
         "th" : {
@@ -1909,6 +3067,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "kaldırma tüm yerel projeleri silecektir"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Виដалення зітре всі локальні елементи"
           }
         },
         "vi" : {

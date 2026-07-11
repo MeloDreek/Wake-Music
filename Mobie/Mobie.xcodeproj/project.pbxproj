@@ -13,6 +13,12 @@
 		220DDAE32EAA6E9A00F50BB3 /* ConnectListViewController+Connect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220DDAE12EAA6E9A00F50BB3 /* ConnectListViewController+Connect.swift */; };
 		220DDAE52EAA78BE00F50BB3 /* GoogleDriveFileListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220DDAE42EAA78BE00F50BB3 /* GoogleDriveFileListController.swift */; };
 		220DDAE62EAA78BE00F50BB3 /* GoogleDriveFileListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220DDAE42EAA78BE00F50BB3 /* GoogleDriveFileListController.swift */; };
+		220F66253002838600915384 /* ReceiptParser in Frameworks */ = {isa = PBXBuildFile; productRef = 220F66243002838600915384 /* ReceiptParser */; };
+		220F66273002838600915384 /* RevenueCat in Frameworks */ = {isa = PBXBuildFile; productRef = 220F66263002838600915384 /* RevenueCat */; };
+		220F66293002838600915384 /* RevenueCatUI in Frameworks */ = {isa = PBXBuildFile; productRef = 220F66283002838600915384 /* RevenueCatUI */; };
+		220F662D300283AF00915384 /* ReceiptParser in Frameworks */ = {isa = PBXBuildFile; productRef = 220F662C300283AF00915384 /* ReceiptParser */; };
+		220F662F300283AF00915384 /* RevenueCat in Frameworks */ = {isa = PBXBuildFile; productRef = 220F662E300283AF00915384 /* RevenueCat */; };
+		220F6633300283AF00915384 /* RevenueCatUI in Frameworks */ = {isa = PBXBuildFile; productRef = 220F6632300283AF00915384 /* RevenueCatUI */; };
 		22109C562DF09DC900A39370 /* MiniLyricAnimation+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22109C552DF09DC900A39370 /* MiniLyricAnimation+Extension.swift */; };
 		22109C572DF09DC900A39370 /* MiniLyricAnimation+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22109C552DF09DC900A39370 /* MiniLyricAnimation+Extension.swift */; };
 		221540CF2D02D01B00B47BE0 /* PremiumTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221540CE2D02D01B00B47BE0 /* PremiumTimerView.swift */; };
@@ -652,7 +658,6 @@
 		A76381712EDEAA710040A84D /* ZLImageEditor in Frameworks */ = {isa = PBXBuildFile; productRef = A76381702EDEAA710040A84D /* ZLImageEditor */; };
 		A76381792EDEB6A80040A84D /* RevenueCat in Frameworks */ = {isa = PBXBuildFile; productRef = A76381782EDEB6A80040A84D /* RevenueCat */; };
 		A763817D2EDEB7770040A84D /* MPVPlayer in Frameworks */ = {isa = PBXBuildFile; productRef = A763817C2EDEB7770040A84D /* MPVPlayer */; };
-		A763817F2EDEB79C0040A84D /* RevenueCat in Frameworks */ = {isa = PBXBuildFile; productRef = A763817E2EDEB79C0040A84D /* RevenueCat */; };
 		A76381FF2EDED27C0040A84D /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = A76381FE2EDED27C0040A84D /* Alamofire */; };
 		A76382012EDED2E60040A84D /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = A76382002EDED2E60040A84D /* Alamofire */; };
 /* End PBXBuildFile section */
@@ -996,14 +1001,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				22526E0A2E84F59C00C32DBF /* KSPlayer in Frameworks */,
+				220F6633300283AF00915384 /* RevenueCatUI in Frameworks */,
 				22822C7D2DF42BA100183445 /* PanModal in Frameworks */,
-				A763817F2EDEB79C0040A84D /* RevenueCat in Frameworks */,
 				223FDA662E0414E800079731 /* MorphingLabel in Frameworks */,
 				227427F32DE6E3E7000DB946 /* DominantColors in Frameworks */,
 				225F58E02D85B5C70055BDFF /* Toast in Frameworks */,
 				225F58E22D85B5EA0055BDFF /* MarqueeLabel in Frameworks */,
+				220F662D300283AF00915384 /* ReceiptParser in Frameworks */,
 				225F58DE2D85B5BB0055BDFF /* FilesProvider in Frameworks */,
 				225F58B72D85B2AB0055BDFF /* StoreKit.framework in Frameworks */,
+				220F662F300283AF00915384 /* RevenueCat in Frameworks */,
 				A76382012EDED2E60040A84D /* Alamofire in Frameworks */,
 				225F58D82D85B5A10055BDFF /* Kingfisher in Frameworks */,
 				22526E0C2E84F5AD00C32DBF /* Reachability in Frameworks */,
@@ -1022,6 +1029,7 @@
 				227FD03A2E84723D0076B773 /* Reachability in Frameworks */,
 				A763815C2EDEA4650040A84D /* PanModal in Frameworks */,
 				223FDA622E04148200079731 /* MorphingLabel in Frameworks */,
+				220F66273002838600915384 /* RevenueCat in Frameworks */,
 				223A49992D7FE399003B3886 /* ZLImageEditor in Frameworks */,
 				2242159A2F88DA4F00766F40 /* AliyunpanSDK in Frameworks */,
 				A76381562EDEA44B0040A84D /* MorphingLabel in Frameworks */,
@@ -1040,7 +1048,9 @@
 				A76381532EDEA4320040A84D /* MPVPlayer in Frameworks */,
 				223A499C2D7FE402003B3886 /* FilesProvider in Frameworks */,
 				227FD02A2E8471D00076B773 /* MorphingLabel in Frameworks */,
+				220F66293002838600915384 /* RevenueCatUI in Frameworks */,
 				A76381482EDEA4000040A84D /* DominantColors in Frameworks */,
+				220F66253002838600915384 /* ReceiptParser in Frameworks */,
 				A763816B2EDEA4970040A84D /* Toast in Frameworks */,
 				227FD0452E8473540076B773 /* Kingfisher in Frameworks */,
 				223A49852D7FD811003B3886 /* Kingfisher in Frameworks */,
@@ -1807,6 +1817,22 @@
 				id,
 				th,
 				hi,
+				ca,
+				hr,
+				da,
+				cs,
+				nl,
+				he,
+				el,
+				pl,
+				sv,
+				sk,
+				sl,
+				ro,
+				nb,
+				fi,
+				hu,
+				uk,
 			);
 			mainGroup = 228A13522CA00F5600E2948E;
 			packageReferences = (
@@ -1820,9 +1846,9 @@
 				A76381662EDEA48C0040A84D /* XCLocalSwiftPackageReference "../../../本地公开库/Reachability.swift" */,
 				A76381692EDEA4970040A84D /* XCLocalSwiftPackageReference "../../../本地公开库/Toast-Swift" */,
 				A763816F2EDEAA710040A84D /* XCLocalSwiftPackageReference "../../../本地公开库/ZLImageEditor" */,
-				A76381772EDEB6A80040A84D /* XCLocalSwiftPackageReference "../../../本地公开库/purchases-ios-spm" */,
 				A76381FD2EDED27C0040A84D /* XCLocalSwiftPackageReference "../../../本地公开库/Alamofire" */,
 				2242159B2F88DAAF00766F40 /* XCLocalSwiftPackageReference "../../../本地公开库/aliyunpan-ios-sdk" */,
+				220F66233002838600915384 /* XCLocalSwiftPackageReference "../../../本地公开库/purchases-ios" */,
 			);
 			productRefGroup = 228A135C2CA00F5600E2948E /* Products */;
 			projectDirPath = "";
@@ -2635,12 +2661,12 @@
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.music";
 				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
-				INFOPLIST_KEY_NSAppleMusicUsageDescription = "Scanning Apple Music local music and enabling playback requires your permissions";
+				INFOPLIST_KEY_NSAppleMusicUsageDescription = "Access is required to scan your local Apple Music library and enable playback";
 				INFOPLIST_KEY_NSCameraUsageDescription = "You can use your camera to take live music videos and then convert them to music, with your permission.";
 				INFOPLIST_KEY_NSFileProviderPresenceUsageDescription = "Your permission is required to read music files from the Files app";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "You can use your camera to take live music videos and then convert them to music, with your permission.";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Your album access is required to save song covers";
-				INFOPLIST_KEY_NSUserTrackingUsageDescription = "This user identifier will recommend you personalized ads";
+				INFOPLIST_KEY_NSUserTrackingUsageDescription = "This identifier will be used to verify your ad source, accurately sync your subscription status, and optimize your purchase and customer support experience.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -2690,12 +2716,12 @@
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.music";
 				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
-				INFOPLIST_KEY_NSAppleMusicUsageDescription = "Scanning Apple Music local music and enabling playback requires your permissions";
+				INFOPLIST_KEY_NSAppleMusicUsageDescription = "Access is required to scan your local Apple Music library and enable playback";
 				INFOPLIST_KEY_NSCameraUsageDescription = "You can use your camera to take live music videos and then convert them to music, with your permission.";
 				INFOPLIST_KEY_NSFileProviderPresenceUsageDescription = "Your permission is required to read music files from the Files app";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "You can use your camera to take live music videos and then convert them to music, with your permission.";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Your album access is required to save song covers";
-				INFOPLIST_KEY_NSUserTrackingUsageDescription = "This user identifier will recommend you personalized ads";
+				INFOPLIST_KEY_NSUserTrackingUsageDescription = "This identifier will be used to verify your ad source, accurately sync your subscription status, and optimize your purchase and customer support experience.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -2863,12 +2889,12 @@
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.music";
 				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
-				INFOPLIST_KEY_NSAppleMusicUsageDescription = "Scanning Apple Music local music and enabling playback requires your permissions";
+				INFOPLIST_KEY_NSAppleMusicUsageDescription = "Access is required to scan your local Apple Music library and enable playback";
 				INFOPLIST_KEY_NSCameraUsageDescription = "You can use your camera to take live music videos and then convert them to music, with your permission.";
 				INFOPLIST_KEY_NSFileProviderPresenceUsageDescription = "Your permission is required to read music files from the Files app";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "You can use your camera to take live music videos and then convert them to music, with your permission.";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Your album access is required to save song covers";
-				INFOPLIST_KEY_NSUserTrackingUsageDescription = "This user identifier will recommend you personalized ads";
+				INFOPLIST_KEY_NSUserTrackingUsageDescription = "This identifier will be used to verify your ad source, accurately sync your subscription status, and optimize your purchase and customer support experience.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -2918,12 +2944,12 @@
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.music";
 				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
-				INFOPLIST_KEY_NSAppleMusicUsageDescription = "Scanning Apple Music local music and enabling playback requires your permissions";
+				INFOPLIST_KEY_NSAppleMusicUsageDescription = "Access is required to scan your local Apple Music library and enable playback";
 				INFOPLIST_KEY_NSCameraUsageDescription = "You can use your camera to take live music videos and then convert them to music, with your permission.";
 				INFOPLIST_KEY_NSFileProviderPresenceUsageDescription = "Your permission is required to read music files from the Files app";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "You can use your camera to take live music videos and then convert them to music, with your permission.";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Your album access is required to save song covers";
-				INFOPLIST_KEY_NSUserTrackingUsageDescription = "This user identifier will recommend you personalized ads";
+				INFOPLIST_KEY_NSUserTrackingUsageDescription = "This identifier will be used to verify your ad source, accurately sync your subscription status, and optimize your purchase and customer support experience.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -2980,6 +3006,10 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
+		220F66233002838600915384 /* XCLocalSwiftPackageReference "../../../本地公开库/purchases-ios" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = "../../../本地公开库/purchases-ios";
+		};
 		2242159B2F88DAAF00766F40 /* XCLocalSwiftPackageReference "../../../本地公开库/aliyunpan-ios-sdk" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = "../../../本地公开库/aliyunpan-ios-sdk";
@@ -3031,10 +3061,6 @@
 		A763816F2EDEAA710040A84D /* XCLocalSwiftPackageReference "../../../本地公开库/ZLImageEditor" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = "../../../本地公开库/ZLImageEditor";
-		};
-		A76381772EDEB6A80040A84D /* XCLocalSwiftPackageReference "../../../本地公开库/purchases-ios-spm" */ = {
-			isa = XCLocalSwiftPackageReference;
-			relativePath = "../../../本地公开库/purchases-ios-spm";
 		};
 		A76381FD2EDED27C0040A84D /* XCLocalSwiftPackageReference "../../../本地公开库/Alamofire" */ = {
 			isa = XCLocalSwiftPackageReference;
@@ -3134,6 +3160,33 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		220F66243002838600915384 /* ReceiptParser */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = ReceiptParser;
+		};
+		220F66263002838600915384 /* RevenueCat */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = RevenueCat;
+		};
+		220F66283002838600915384 /* RevenueCatUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = RevenueCatUI;
+		};
+		220F662C300283AF00915384 /* ReceiptParser */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 220F66233002838600915384 /* XCLocalSwiftPackageReference "../../../本地公开库/purchases-ios" */;
+			productName = ReceiptParser;
+		};
+		220F662E300283AF00915384 /* RevenueCat */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 220F66233002838600915384 /* XCLocalSwiftPackageReference "../../../本地公开库/purchases-ios" */;
+			productName = RevenueCat;
+		};
+		220F6632300283AF00915384 /* RevenueCatUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 220F66233002838600915384 /* XCLocalSwiftPackageReference "../../../本地公开库/purchases-ios" */;
+			productName = RevenueCatUI;
+		};
 		223A49842D7FD811003B3886 /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 223A49832D7FD811003B3886 /* XCRemoteSwiftPackageReference "Kingfisher" */;
@@ -3357,11 +3410,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = A763814F2EDEA4320040A84D /* XCLocalSwiftPackageReference "../../../本地公开库/KSPlayer" */;
 			productName = MPVPlayer;
-		};
-		A763817E2EDEB79C0040A84D /* RevenueCat */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A76381772EDEB6A80040A84D /* XCLocalSwiftPackageReference "../../../本地公开库/purchases-ios-spm" */;
-			productName = RevenueCat;
 		};
 		A76381FE2EDED27C0040A84D /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;

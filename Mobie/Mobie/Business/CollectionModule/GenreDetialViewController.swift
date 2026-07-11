@@ -35,7 +35,7 @@ class GenreDetialViewController: SuperViewController {
     override func preSetupHandleBuness() {
         super.preSetupHandleBuness()
         
-        self.title = "Music Genre".localStr()
+        self.title = "Music Genres".localStr()
         self.navigationItem.largeTitleDisplayMode = .never
         self.navigationItem.rightBarButtonItem = self.moreBarItem
                 

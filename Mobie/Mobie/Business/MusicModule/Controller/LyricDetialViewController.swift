@@ -146,7 +146,7 @@ extension LyricDetialViewController: UITableViewDataSource, UITableViewDelegate 
             guard let lyricModel = self.editModel.lyricModel, let lyricArray = lyricModel.lyrics, lyricArray.count > 0 else {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "LycisEmptyViewCell", for: indexPath)
                 var cellConfig = UIListContentConfiguration.cell()
-                cellConfig.text = indexPath.row == 0 ? "There are no lyrics embedded in this file, please add them.".localStr() : "Set to pure music".localStr()
+                cellConfig.text = indexPath.row == 0 ? "There are no lyrics embedded in this file, please add them.".localStr() : "Set as Instrumental".localStr()
                 cellConfig.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 20, leading: 15, bottom: 20, trailing: 15)
                 cell.accessoryType = .none
                 cell.accessoryView = self.addIconView()
@@ -173,7 +173,7 @@ extension LyricDetialViewController: UITableViewDataSource, UITableViewDelegate 
                 self.pastedLyricContent()
             }else{
                 // 设置为纯音乐
-                let lyricStr = "[00:00.000]" + "Pure Music. Please Enjoy.".localStr()
+                let lyricStr = "[00:00.000]" + "Instrumental · Enjoy the music".localStr()
                 self.setLyricContent(lyricStr)
                 self.navigationController?.popViewController(animated: true)
             }
@@ -240,7 +240,7 @@ extension LyricDetialViewController {
         let action1 = UIAlertAction(title: "Search with AI".localStr(), style: .default) { [weak self] (sender) in
             self?.searchWithAI()
         }
-        let action2 = UIAlertAction(title: "Lyrics Library".localStr(), style: .default) { [weak self] (sender) in
+        let action2 = UIAlertAction(title: "Lyric Library".localStr(), style: .default) { [weak self] (sender) in
             self?.selectLocalLyrics()
         }
         let action3 = UIAlertAction(title: "Paste Lyrics Text".localStr(), style: .default) { [weak self] (sender) in

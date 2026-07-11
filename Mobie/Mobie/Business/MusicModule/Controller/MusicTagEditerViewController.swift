@@ -813,7 +813,7 @@ extension MusicTagEditerViewController: UIDocumentPickerDelegate {
         guard let oldModel = self.origialModel else { return }
         guard let editModel = self.editModel else { return }
 
-        let editAlertVC = UIAlertController(title: "Track".localStr(), message: nil, preferredStyle: .alert)
+        let editAlertVC = UIAlertController(title: "Track Number".localStr(), message: nil, preferredStyle: .alert)
         editAlertVC.addTextField { textView in
             let track = (editModel.track ?? 0 > 0) ? editModel.track : oldModel.track
             if let trackStr = track, trackStr > 0 {

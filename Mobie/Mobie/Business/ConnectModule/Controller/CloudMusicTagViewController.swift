@@ -362,7 +362,7 @@ class CloudMusicTagViewController: SuperViewController {
     lazy var loadingLabel: UILabel = {
         let view = UILabel()
         view.isHidden = false
-        view.text = "Parsing music tags".localStr()
+        view.text = "Parsing music tags...".localStr()
         view.font = UIFontLight(13.ckValue())
         view.textColor = appMainColor
         view.textAlignment = .center
