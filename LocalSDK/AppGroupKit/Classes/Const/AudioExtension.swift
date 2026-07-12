@@ -20,7 +20,7 @@ public enum AudioLevelType: Int {
         case .lossless:
             return [.dts, .flac, .m4a, .wav, .ape, .asf, .aifc, .aiff, .alac, .aif, .au, .caf, .tta, .wma, .wave, .wv, .wvc]
         case .normal:
-            return [.mp1, .mp2, .mp3, .aac, .ogg, .opus, .mod, .xm, .mqa, .gp3, .s3m, .m4r, .ogv, .amr]
+            return [.mp3, .aac, .ogg, .opus, .mod, .xm, .mqa, .gp3, .s3m, .m4r, .ogv, .amr]
         }
     }
     
@@ -38,8 +38,6 @@ public enum AudioExtensionType: String, CaseIterable {
     case dff = "dff" // DSD Interchange File Format
     
     // 有损格式
-    case mp1 = "mp1"
-    case mp2 = "mp2"
     case mp3 = "mp3"
     case aac = "aac"
     case ogg = "ogg"

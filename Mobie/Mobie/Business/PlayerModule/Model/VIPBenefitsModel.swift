@@ -8,7 +8,7 @@
 import AppGroupKit
 
 
-enum VIPBenefitsModel {
+enum VIPBenefitsModel: CaseIterable {
     case allFormats
     case allPlayerStyle
     case allCloudDrive

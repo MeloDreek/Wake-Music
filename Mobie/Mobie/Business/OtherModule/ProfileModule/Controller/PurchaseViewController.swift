@@ -157,20 +157,30 @@ class PurchaseViewController: SuperViewController {
     var selectModel: StoreProduct? {
         didSet {
             guard let vModel = self.selectModel else { return }
-            let isVIP = UserInfoManager.shared.isVIP()
             
-            if vModel.productIdentifier == PurchaseStoreID.yearly.rawValue {
+            let priceTitle = String(format: "Payment %@".localStr(), vModel.localizedPriceString)
+            let lifetimeTitle = "Get Lifetime Access".localStr()
+            let autoSubTitle = String(format: "Free Trial for %@ Days".localStr(), "\(vModel.freeTrialDays ?? 0)")
+            
+            if vModel.productIdentifier == PurchaseStoreID.weekly.rawValue {
                 tipsLabel.text = "Auto-renewable. Cancel anytime.".localStr()
-                buyoutButton.setTitle("Time-limited purchase".localStr(), for: .normal)
-            }else if vModel.productIdentifier == PurchaseStoreID.lifetime198.rawValue {
-                tipsLabel.text = "One time purchase, valid forever".localStr()
-                let isOffer = vModel.price == 0
-                let offerTitle = String(format: "Payment %@".localStr(), vModel.localizedPriceString)
+                buyoutButton.setTitle(autoSubTitle, for: .normal)
                 
-                buyoutButton.setTitle(isVIP ? "You have purchased".localStr() : isOffer ? offerTitle : "Time-limited purchase".localStr(), for: .normal)
-            } else if vModel.productIdentifier == PurchaseStoreID.lifetime298.rawValue {
+            }else if vModel.productIdentifier == PurchaseStoreID.yearly.rawValue {
+                tipsLabel.text = "Auto-renewable. Cancel anytime.".localStr()
+                buyoutButton.setTitle(autoSubTitle, for: .normal)
+                
+            }else if vModel.productIdentifier == PurchaseStoreID.lifetime198.rawValue {
+                let isOffer = vModel.price == 0
+
                 tipsLabel.text = "One time purchase, valid forever".localStr()
-                buyoutButton.setTitle(isVIP ? "You have purchased".localStr() : "Continue".localStr(), for: .normal)
+                buyoutButton.setTitle(isOffer ? priceTitle : lifetimeTitle, for: .normal)
+                
+            } else if vModel.productIdentifier == PurchaseStoreID.lifetime298.rawValue {
+                let isOffer = vModel.price == 0
+
+                tipsLabel.text = "One time purchase, valid forever".localStr()
+                buyoutButton.setTitle(isOffer ? priceTitle : lifetimeTitle, for: .normal)
             }
         }
     }
@@ -253,7 +263,7 @@ class PurchaseViewController: SuperViewController {
     }()
     
     lazy var benefitArray: [VIPBenefitsModel] = {
-        return [.allFormats, .allPlayerStyle, .allAppleOS, .allCloudDrive, .searchCoverAI, .musicTagEditor, .downloadCache, .advancedSetting, .editVideoToMP3, .themeColor, .appLogo, .newMore]
+        return VIPBenefitsModel.allCases
     }()
     
     lazy var priceArray: [StoreProduct] = {
@@ -353,8 +363,22 @@ extension PurchaseViewController: UITableViewDataSource, UITableViewDelegate, Pu
         
         if indexPath.section == 1 {
             self.selectModel = self.priceArray[indexPath.row]
-            self.tableView.reloadData()
+            
+            guard let cellArray = self.tableView.visibleCells.filter({ $0 is PurchasePriceCell }) as? [PurchasePriceCell] else {
+                return
+            }
+            
+            for index in 0..<cellArray.count {
+                let subCell = cellArray[index]
+                let model = self.priceArray[index]
+                subCell.update(model: model, isSelect: model.productIdentifier == self.selectModel?.productIdentifier)
+            }
+            
+            if let headCell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? PurchaseHeadCell {
+                headCell.isDiscount = self.selectModel?.productIdentifier == PurchaseStoreID.lifetime198.rawValue
+            }
         }
+        
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {

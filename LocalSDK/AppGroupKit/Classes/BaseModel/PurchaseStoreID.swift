@@ -29,4 +29,45 @@ public enum PurchargeStatus: String, SmartCaseDefaultable {
     case refunded = "refunded"        // 已退款
 }
 
+extension Product {
+    /// 获取该订阅产品折算到每月的本地化费用字符串 (例如: "¥15.00", "$4.99")
+    /// 如果不是订阅产品，则返回原本的本地化总价
+    public var localMonthlyPriceStr: String {
+        // 1. 检查是否为订阅产品，并直接获取其 subscriptionPeriod
+        guard let subscription = self.subscription else {
+            // 如果不是订阅产品（例如一次性消耗品），退回到默认的本地化总价
+            return self.displayPrice
+        }
+        
+        let period = subscription.subscriptionPeriod
+        
+        // 2. 计算该周期总共包含多少个月
+        let totalMonths: Int
+        switch period.unit {
+        case .day:
+            // 按 30 天折算一个月
+            totalMonths = period.value / 30
+        case .week:
+            // 按 4 周折算一个月
+            totalMonths = period.value / 4
+        case .month:
+            totalMonths = period.value
+        case .year:
+            totalMonths = period.value * 12
+        @unknown default:
+            totalMonths = 0
+        }
+        
+        // 防御性编程：如果算出来月数为 0，直接返回原展示价格
+        guard totalMonths > 0 else {
+            return self.displayPrice
+        }
+        
+        // 3. 计算月均价格 (总价 / 总月数)
+        let monthlyPrice = self.price / Decimal(totalMonths)
+        
+        // 4. 使用产品自带的 priceFormatStyle 进行本地化货币格式化
+        return monthlyPrice.formatted(self.priceFormatStyle)
+    }
+}
 

@@ -79,6 +79,11 @@ class WelcomeViewController: SuperViewController {
         KakaMusicPlayer.shared.playingMusic = MusicItemModel.demoMusicModel()
         self.setupPlayerStyle(false)
         
+        if !self.dataArray[0].isTapeStyle {
+            self.startPlayAnimation()
+            self.bottomView.overrideUserInterfaceStyle = .dark
+        }
+        
         // 监听网络变化
         NotificationCenter.default.addObserver(self, selector: #selector(reachabilityChanged(note:)), name: .reachabilitySwiftChanged, object: reachability)
                 
@@ -144,7 +149,7 @@ class WelcomeViewController: SuperViewController {
         let seconds = (totalMilliseconds % (60 * 100)) / 100
         
         let timerString = String(format: "⏰ %02d:%02d:%02d", hours, minutes, seconds)
-        payCell.timerLabel.text = timerString
+        payCell.headView.timerLabel.text = timerString
     }
     
     // 网络状态变化了
@@ -198,19 +203,28 @@ class WelcomeViewController: SuperViewController {
         
         // 提取内购价格
         self.purchaseManager.refresRemoteProductsPrice { products in
-            let discountModel = products.filter { $0.productIdentifier == PurchaseStoreID.lifetime198.rawValue }.first
-            let lifetimeModel = products.filter { $0.productIdentifier == PurchaseStoreID.lifetime298.rawValue }.first
+            
+            guard products.count > 0 else { return }
+            
+            let lifetime1Model = products.filter { $0.productIdentifier == PurchaseStoreID.lifetime198.rawValue }.first
+            let lifetime2Model = products.filter { $0.productIdentifier == PurchaseStoreID.lifetime298.rawValue }.first
+            
+            let weekModel = products.filter { $0.productIdentifier == PurchaseStoreID.weekly.rawValue }.first
             let yearModel = products.filter { $0.productIdentifier == PurchaseStoreID.yearly.rawValue }.first
             
-            let lifetimeArray = [discountModel, lifetimeModel].compactMap { $0 }.sorted { product1, product2 in
+            let autorenewArray = [weekModel, yearModel].compactMap { $0 }.sorted { product1, product2 in
+                return product1.price < product2.price
+            }
+            
+            let lifetimeArray = [lifetime1Model, lifetime2Model].compactMap { $0 }.sorted { product1, product2 in
                 return product1.price < product2.price
             }
             
             // 终身限免期
-            let isLifetimeOffer = (discountModel?.price == 0) && (lifetimeModel?.price == 0)
+            let isLifetimeOffer = (lifetime1Model?.price == 0) || (lifetime2Model?.price == 0)
             
-            self.productArray = lifetimeArray
-            self.selectModel = lifetimeArray.first
+            self.productArray = isLifetimeOffer ? lifetimeArray : [autorenewArray[0]]
+            self.selectModel = isLifetimeOffer ? lifetimeArray.first : autorenewArray.first
             
             self.collectionView.reloadData()
         }
@@ -344,7 +358,7 @@ class WelcomeViewController: SuperViewController {
         view.delegate = self
         view.isPagingEnabled = true
         view.bounces = false
-        view.isScrollEnabled = false
+        view.isScrollEnabled = !self.dataArray[0].isTapeStyle
         view.showsHorizontalScrollIndicator = false
         view.showsVerticalScrollIndicator = false
         view.alwaysBounceVertical = true

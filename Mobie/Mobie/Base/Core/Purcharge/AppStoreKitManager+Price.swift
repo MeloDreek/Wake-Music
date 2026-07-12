@@ -13,7 +13,7 @@ import AppGroupKit
 extension AppStoreKitManager {
     
     /// 获取远程本地价格信息
-    public func refresRemoteProductsPrice(productIds: [PurchaseStoreID] = [.yearly, .lifetime198, .lifetime298], completion: (([StoreProduct])->Void)? = nil) {
+    public func refresRemoteProductsPrice(productIds: [PurchaseStoreID] = PurchaseStoreID.allCases, completion: (([StoreProduct])->Void)? = nil) {
         
 #if !Target_Mobie_Pro
         
@@ -27,7 +27,7 @@ extension AppStoreKitManager {
         Purchases.shared.getProducts(productIds) { products in
             
             let goodsArray = products.sorted { model1, model2 in
-                return model1.priceDecimalNumber.doubleValue < model2.priceDecimalNumber.doubleValue
+                return model1.price > model2.price
             }
             
             AppStoreKitManager.shared.saleArray = goodsArray

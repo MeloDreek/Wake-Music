@@ -14,6 +14,35 @@ import AppGroupKit
 // 自定义的Key
 public let PremiumEntitlID = "premium"
 
+extension StoreProduct {
+    func secondStr() -> String? {
+        
+        guard let storeID = PurchaseStoreID(rawValue: self.productIdentifier) else { return nil }
+        
+        switch storeID {
+        case .weekly:
+            return "For short-term use".localStr()
+        case .yearly:
+            if let sk2Product = self.sk2Product {
+                return String(format: "%@/mo".localStr(), sk2Product.localMonthlyPriceStr)
+            }else{
+                return "For short-term use".localStr()
+            }
+        case .lifetime198, .lifetime298:
+            return "Valid Forever".localStr()
+        }
+    }
+    
+    func secondTextColor() -> UIColor? {
+        if self.productType == .autoRenewableSubscription {
+            return UIColor.secondaryLabel
+        }else{
+            return UIColor.systemRed
+        }
+    }
+    
+}
+
 /// 内购管理者
 public class AppStoreKitManager {
     
