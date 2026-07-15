@@ -296,7 +296,7 @@ view.refreshControl = self.kaka_header
     
     // 分组
     func groupTypeMenu() -> UIMenu {
-        let groupArray: [GroupItemType] = [.nonGroup, .titleGroup, .artistGroup]
+        let groupArray: [GroupItemType] = GroupItemType.allCases
         var actionArray: [UIAction] = [UIAction]()
         
         for subGroup in groupArray {
@@ -373,7 +373,7 @@ view.refreshControl = self.kaka_header
         
         let acendMenu = UIMenu(title: "", options: .displayInline, children: [ascendingAction, deAscendingAction])
 
-        let mainMenu = UIMenu(title: "Sort by".localStr(), image: UIImage(systemName: "arrow.up.arrow.down"), children: [sortMenu, acendMenu])
+        let mainMenu = UIMenu(title: "Sort By".localStr(), image: UIImage(systemName: "arrow.up.arrow.down"), children: [sortMenu, acendMenu])
         return mainMenu
     }
     

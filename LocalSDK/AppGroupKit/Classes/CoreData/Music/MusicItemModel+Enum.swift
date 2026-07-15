@@ -8,10 +8,11 @@
 import SmartCodable
 
 /// 分组类型
-public enum GroupItemType: Int, SmartCaseDefaultable {
+public enum GroupItemType: Int, CaseIterable, SmartCaseDefaultable {
     case nonGroup = 0         // 不分组
-    case titleGroup = 1      // 歌名分组
-    case artistGroup = 2     // 艺术家分组
+    case musictagGroup = 1    // 音乐标签
+    case titleGroup = 2       // 歌名分组
+    case artistGroup = 3      // 艺术家分组
 }
 
 /// 排序方式

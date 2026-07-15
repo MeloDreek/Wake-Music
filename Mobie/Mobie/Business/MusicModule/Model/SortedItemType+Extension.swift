@@ -31,6 +31,8 @@ public extension GroupItemType {
         switch self {
         case .nonGroup:
             return "Ungroup".localStr()
+        case .musictagGroup:
+            return "Music Tag".localStr()
         case .titleGroup:
             return "Title".localStr()
         case .artistGroup:

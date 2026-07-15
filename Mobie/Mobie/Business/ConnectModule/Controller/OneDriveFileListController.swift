@@ -376,7 +376,7 @@ view.refreshControl = self.kaka_header
         
         let acendMenu = UIMenu(title: "", options: .displayInline, children: [ascendingAction, deAscendingAction])
 
-        let mainMenu = UIMenu(title: "Sort by".localStr(), image: UIImage(systemName: "arrow.up.arrow.down"), children: [sortMenu, acendMenu])
+        let mainMenu = UIMenu(title: "Sort By".localStr(), image: UIImage(systemName: "arrow.up.arrow.down"), children: [sortMenu, acendMenu])
         return mainMenu
     }
     

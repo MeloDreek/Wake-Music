@@ -422,6 +422,8 @@ extension MusicItemModel {
         switch groupType {
         case .nonGroup:
             title = "#"
+        case .musictagGroup:
+            title = "#"
         case .titleGroup:
             title = self.showTitleName()
         case .artistGroup:
