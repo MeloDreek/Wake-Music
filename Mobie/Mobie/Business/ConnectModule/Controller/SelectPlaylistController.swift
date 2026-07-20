@@ -173,7 +173,7 @@ extension SelectPlaylistController: UITableViewDataSource, UITableViewDelegate {
                 let subURL = localArray[indexPath.row]
                 cell.coverImgView.image = UIImage(named: "folder_icon")
                 cell.nameLabel.text = subURL.lastPathComponent
-                cell.descLabel.text = String(format: "%@ songs".localStr(), "\(subURL.readLocalSubFiles().count)")
+                cell.descLabel.text = String(format: "%d songs".localStr(), subURL.readLocalSubFiles().count)
                 cell.loadingBgView.isHidden = true
                 cell.accessoryType = .disclosureIndicator
                 cell.accessoryView = nil
@@ -192,7 +192,7 @@ extension SelectPlaylistController: UITableViewDataSource, UITableViewDelegate {
                 let subModel = remoteArray[indexPath.row]
                 cell.coverImgView.kf.setImage(with: subModel.coverImgURL(), placeholder: UIImage(named: "music_place"))
                 cell.nameLabel.text = subModel.name
-                cell.descLabel.text = String(format: "%@ songs".localStr(), "\(subModel.songCount)")
+                cell.descLabel.text = String(format: "%d songs".localStr(), subModel.songCount)
                 cell.loadingBgView.isHidden = true
                 cell.accessoryType = .disclosureIndicator
                 cell.accessoryView = nil

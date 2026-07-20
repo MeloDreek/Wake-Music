@@ -182,7 +182,7 @@ extension ArtistDetialViewController: UITableViewDataSource, UITableViewDelegate
         if section == 0 {
             return nil
         }else{
-            let secondStr = String(format: "%@ songs".localStr(), "\(self.dataArray.count)")
+            let secondStr = String(format: "%d songs".localStr(), self.dataArray.count)
             return secondStr
         }
     }

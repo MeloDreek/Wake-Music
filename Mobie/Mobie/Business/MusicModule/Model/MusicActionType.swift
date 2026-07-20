@@ -56,7 +56,7 @@ enum MusicActionType {
             return "Remove from Playlist".localStr()
             
         case .coverArt:
-            return "Album Cover".localStr()
+            return "Artwork".localStr()
         case .title:
             return "Title".localStr()
         case .artist, .artistDetial:

@@ -212,7 +212,7 @@ class ConnectPlayListViewCell: UICollectionViewCell {
             guard let model = self.model else { return }
 
             nameLabel.text = model.name
-            countLabel.text = String(format: "%@ songs".localStr(), "\(model.songCount)")
+            countLabel.text = String(format: "%d songs".localStr(), model.songCount)
             coverImgView.kf.setImage(with: model.coverImgURL(), placeholder: UIImage(named: "music_place"))
         }
     }

@@ -25,7 +25,7 @@ class PurchasePriceCell: UITableViewCell {
     private func preSetupSubViews() {
         self.selectionStyle = .default
         contentView.addSubview(selectImgView)
-        contentView.addSubview(titleLabel)
+        contentView.addSubview(nameLabel)
         contentView.addSubview(recommentView)
         contentView.addSubview(timeLabel)
         contentView.addSubview(priceLabel)
@@ -39,15 +39,15 @@ class PurchasePriceCell: UITableViewCell {
             make.size.equalTo(21.ckValue())
         }
         
-        titleLabel.snp.makeConstraints { make in
+        nameLabel.snp.makeConstraints { make in
             make.leading.equalTo(selectImgView.snp.trailing).offset(16.ckValue())
             make.bottom.equalTo(selectImgView.snp.centerY)
             make.size.greaterThanOrEqualTo(0)
         }
         
         timeLabel.snp.makeConstraints { make in
-            make.leading.equalTo(titleLabel)
-            make.top.equalTo(titleLabel.snp.bottom).offset(3.ckValue())
+            make.leading.equalTo(nameLabel)
+            make.top.equalTo(nameLabel.snp.bottom).offset(3.ckValue())
             make.size.greaterThanOrEqualTo(0)
         }
         
@@ -89,7 +89,6 @@ class PurchasePriceCell: UITableViewCell {
 
         let discountModel = products.filter { $0.productIdentifier == PurchaseStoreID.lifetime198.rawValue }.first
         let lifetimeModel = products.filter { $0.productIdentifier == PurchaseStoreID.lifetime298.rawValue }.first
-//        let yearModel = products.filter { $0.productIdentifier == PurchaseStoreID.yearly.rawValue }.first
         
         let lifetimeArray = [discountModel, lifetimeModel].compactMap { $0 }.sorted { product1, product2 in
             return product1.price < product2.price
@@ -99,57 +98,35 @@ class PurchasePriceCell: UITableViewCell {
         recommentView.isHidden = model.productIdentifier != lifetimeArray.first?.productIdentifier
         price298Label.isHidden = recommentView.isHidden
         
-        titleLabel.text = model.localizedTitle
+        nameLabel.text = model.localizedTitle
         priceLabel.text = model.localizedPriceString
         price298Label.attributedText = self.priceAttbuteStr(lifetimeArray)
         recommentView.text = String(format: "Save %d%%".localStr(), lifetimeArray.calculateDiscountPercentage())
-        
+
         let isAutoRenew = model.productType == .autoRenewableSubscription
-        self.timeLabel.textColor = isAutoRenew ? .secondaryLabel : .systemRed
-        self.timeLabel.isHidden = isAutoRenew
+        timeLabel.text = model.secondStr()
+        timeLabel.textColor = model.secondTextColor()
         
-        if model.productIdentifier == lifetimeArray.first?.productIdentifier {
-            // 终身优惠
-            titleLabel.snp.remakeConstraints { make in
-                make.leading.equalTo(selectImgView.snp.trailing).offset(16.ckValue())
-                make.bottom.equalTo(selectImgView.snp.centerY)
+        if isAutoRenew {
+            priceLabel.snp.remakeConstraints { make in
+                make.trailing.equalToSuperview().inset(15.ckValue())
+                make.centerY.equalToSuperview()
                 make.size.greaterThanOrEqualTo(0)
             }
             
-            timeLabel.snp.remakeConstraints { make in
-                make.leading.equalTo(titleLabel)
-                make.top.equalTo(titleLabel.snp.bottom).offset(3.ckValue())
+            price298Label.snp.removeConstraints()
+        }else{
+            priceLabel.snp.remakeConstraints { make in
+                make.trailing.equalToSuperview().inset(15.ckValue())
+                make.centerY.equalTo(nameLabel)
                 make.size.greaterThanOrEqualTo(0)
             }
             
             price298Label.snp.remakeConstraints { make in
                 make.trailing.equalToSuperview().inset(15.ckValue())
-                make.centerY.equalToSuperview().offset(5.ckValue())
+                make.centerY.equalTo(timeLabel)
                 make.size.greaterThanOrEqualTo(0)
             }
-            
-            priceLabel.snp.remakeConstraints { make in
-                make.trailing.equalToSuperview().inset(15.ckValue())
-                make.bottom.equalTo(price298Label.snp.top)
-                make.size.greaterThanOrEqualTo(0)
-            }
-                        
-        }else{
-            // 自动订阅
-            titleLabel.snp.remakeConstraints { make in
-                make.centerY.equalToSuperview()
-                make.leading.equalTo(selectImgView.snp.trailing).offset(16.ckValue())
-                make.size.greaterThanOrEqualTo(0)
-            }
-            
-            priceLabel.snp.remakeConstraints { make in
-                make.trailing.equalToSuperview().inset(15.ckValue())
-                make.centerY.equalToSuperview()
-                make.size.greaterThanOrEqualTo(0)
-            }
-            
-            timeLabel.snp.removeConstraints()
-            price298Label.snp.removeConstraints()
         }
         
     }
@@ -171,7 +148,7 @@ class PurchasePriceCell: UITableViewCell {
         return view
     }()
     
-    lazy var titleLabel: UILabel = {
+    lazy var nameLabel: UILabel = {
         let view = UILabel()
         view.textColor = UIColor.label
         view.font = UIFontBold(16.ckValue())
@@ -199,7 +176,7 @@ class PurchasePriceCell: UITableViewCell {
         view.text = "02:59:59.99"
         view.textColor = UIColor.systemRed
         view.font = UIFontLight(12.ckValue())
-        view.textAlignment = titleLabel.textAlignment
+        view.textAlignment = nameLabel.textAlignment
         return view
     }()
     

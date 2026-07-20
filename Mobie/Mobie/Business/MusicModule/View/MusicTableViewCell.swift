@@ -364,7 +364,7 @@ extension MusicTableViewCell {
     // 本地音乐
     private func secondLocalStr(_ musicModel: MusicItemModel) -> String {
         if musicModel.isFolder() {
-            return String(format: "%@ subfiles".localStr(), "\(musicModel.mediaPlayURL.totalFileCount())")
+            return String(format: "%d subfiles".localStr(), musicModel.mediaPlayURL.totalFileCount())
         }else{
             let artistStr = musicModel.showArtistName()
             if cellType == .download && !kaka_IsMacOS() {
@@ -421,7 +421,7 @@ extension MusicTableViewCell {
         let dateStr = fileModel.createDate().dateTimeString(ofStyle: .medium)
         if fileModel.isDirectory() {
             if let count = fileModel.count, count > 0 {
-                return dateStr + "  " + String(format: "%@ subfiles".localStr(), "\(count)")
+                return dateStr + "  " + String(format: "%d subfiles".localStr(), count)
             }else{
                 return dateStr
             }
@@ -453,7 +453,7 @@ extension MusicTableViewCell {
     // OneDrive网盘
     private func secondOnedriveStr(_ fileModel: OneDriveFileModel) -> String {
         let dateStr = fileModel.createdDate()?.dateTimeString(ofStyle: .medium)
-        let subFileStr = String(format: "%@ subfiles".localStr(), "\(fileModel.folder?.childCount ?? 0)")
+        let subFileStr = String(format: "%d subfiles".localStr(), fileModel.folder?.childCount ?? 0)
 
         if fileModel.isDirectory() {
             return subFileStr

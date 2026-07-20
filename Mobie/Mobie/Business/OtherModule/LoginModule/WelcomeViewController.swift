@@ -564,7 +564,6 @@ extension WelcomeViewController: UICollectionViewDataSource, UICollectionViewDel
         
         self.view.backgroundColor = dataArray[page].backColor
         pageControl.currentPage = page
-        
     }
     
 }

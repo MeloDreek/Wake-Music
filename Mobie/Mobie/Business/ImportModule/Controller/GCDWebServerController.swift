@@ -394,7 +394,7 @@ extension GCDWebServerController: UITableViewDataSource, UITableViewDelegate, UI
             
             let formatSize = URL.formatFileSize(totalSize)
             
-            let useStr = String(format: "%@ Files Imported".localStr(), "\(dataArray.count)") + "  " + formatSize
+            let useStr = String(format: "%d Files Imported".localStr(), dataArray.count) + "  " + formatSize
             return dataArray.count == 0 ? "How to use?".localStr() : useStr
         }
     }

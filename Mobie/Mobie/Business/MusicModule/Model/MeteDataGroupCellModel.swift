@@ -67,7 +67,7 @@ enum MeteDataCellItemType: Int {
             return "Music tag refers to the metadata embedded in a music file, including cover image, lyrics, title, artist, album, era, genre, track, sampling rate, bit rate, etc.".localStr()
             
         case .coverImage:
-            return "Album Cover".localStr()
+            return "Artwork".localStr()
         case .title:
             return "Title".localStr()
         case .artist:

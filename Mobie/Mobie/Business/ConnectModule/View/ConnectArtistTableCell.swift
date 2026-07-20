@@ -64,7 +64,7 @@ class ConnectArtistTableCell: UITableViewCell {
             guard let navArtist = self.navArtist else { return }
             
             nameLabel.text = navArtist.name
-            let secondStr = String(format: "%@ songs".localStr(), "\(navArtist.songCount ?? 0)")
+            let secondStr = String(format: "%d songs".localStr(), navArtist.songCount ?? 0)
             descLabel.text = secondStr
             likeButton.isSelected = navArtist.starred
             

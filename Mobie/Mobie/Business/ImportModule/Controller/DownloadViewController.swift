@@ -288,7 +288,7 @@ extension DownloadViewController: UITableViewDataSource, UITableViewDelegate, Em
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         let totalSize = self.dataArray.map { $0.fileSize() }.reduce(0, +)
-        let countStr = String(format: "%@ songs".localStr(), "\(self.dataArray.count)")
+        let countStr = String(format: "%d songs".localStr(), self.dataArray.count)
         
         let headStr = countStr + " " + URL.formatFileSize(totalSize)
         
