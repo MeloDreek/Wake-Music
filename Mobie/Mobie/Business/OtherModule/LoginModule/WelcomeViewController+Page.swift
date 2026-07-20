@@ -60,7 +60,7 @@ extension WelcomeViewController {
     }
     
     // 跳转
-    func finishAllPage() {
+    @objc func finishAllPage() {
         
         self.view.isUserInteractionEnabled = false
         AppLocalManager.shared.isFirstLaunch = false

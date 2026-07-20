@@ -448,8 +448,6 @@
 		228624362CBFC2DD00472448 /* ScanUSBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228624352CBFC2DD00472448 /* ScanUSBViewController.swift */; };
 		228888A62DD3853D00358231 /* DownloadPoolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228888A52DD3853D00358231 /* DownloadPoolView.swift */; };
 		228888A72DD3853D00358231 /* DownloadPoolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228888A52DD3853D00358231 /* DownloadPoolView.swift */; };
-		22892A6C2E9E2A8C001914F3 /* WelcomePurchaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22892A6B2E9E2A8C001914F3 /* WelcomePurchaseCell.swift */; };
-		22892A6D2E9E2A8C001914F3 /* WelcomePurchaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22892A6B2E9E2A8C001914F3 /* WelcomePurchaseCell.swift */; };
 		228A135F2CA00F5600E2948E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A135E2CA00F5600E2948E /* AppDelegate.swift */; };
 		228A13612CA00F5600E2948E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13602CA00F5600E2948E /* SceneDelegate.swift */; };
 		228A13752CA01FB400E2948E /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 228A13742CA01FB400E2948E /* StoreKit.framework */; };
@@ -626,6 +624,10 @@
 		22D16A632DDC5D38008A5F8B /* PlayBackgroundStype+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D16A612DDC5D38008A5F8B /* PlayBackgroundStype+Extension.swift */; };
 		22D16A652DDC8123008A5F8B /* PlayBackgroundListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D16A642DDC8123008A5F8B /* PlayBackgroundListController.swift */; };
 		22D16A662DDC8123008A5F8B /* PlayBackgroundListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D16A642DDC8123008A5F8B /* PlayBackgroundListController.swift */; };
+		22D61356300E018F0078864F /* StoreKitTest.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 22D61355300E018F0078864F /* StoreKitTest.storekit */; };
+		22D61357300E018F0078864F /* StoreKitTest.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 22D61355300E018F0078864F /* StoreKitTest.storekit */; };
+		22D61359300E05460078864F /* WelcomePaywallViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D61358300E05460078864F /* WelcomePaywallViewCell.swift */; };
+		22D6135A300E05460078864F /* WelcomePaywallViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D61358300E05460078864F /* WelcomePaywallViewCell.swift */; };
 		22E1F0F82D0717F90025EAD9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 228A13642CA00F5600E2948E /* Main.storyboard */; };
 		22EA9D852DCCB34800D64EEA /* MacTabbarViewController+Play.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EA9D842DCCB34800D64EEA /* MacTabbarViewController+Play.swift */; };
 		22EA9D862DCCB34800D64EEA /* MacTabbarViewController+Play.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22EA9D842DCCB34800D64EEA /* MacTabbarViewController+Play.swift */; };
@@ -830,7 +832,6 @@
 		22814C552DD1FF0300565CBC /* CoverGalleryCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverGalleryCellModel.swift; sourceTree = "<group>"; };
 		228624352CBFC2DD00472448 /* ScanUSBViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanUSBViewController.swift; sourceTree = "<group>"; };
 		228888A52DD3853D00358231 /* DownloadPoolView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadPoolView.swift; sourceTree = "<group>"; };
-		22892A6B2E9E2A8C001914F3 /* WelcomePurchaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomePurchaseCell.swift; sourceTree = "<group>"; };
 		228A135B2CA00F5600E2948E /* Wake Music.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Wake Music.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		228A135E2CA00F5600E2948E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		228A13602CA00F5600E2948E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -979,6 +980,8 @@
 		22D16A5B2DDC1EB8008A5F8B /* PlayerUICellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerUICellModel.swift; sourceTree = "<group>"; };
 		22D16A612DDC5D38008A5F8B /* PlayBackgroundStype+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlayBackgroundStype+Extension.swift"; sourceTree = "<group>"; };
 		22D16A642DDC8123008A5F8B /* PlayBackgroundListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayBackgroundListController.swift; sourceTree = "<group>"; };
+		22D61355300E018F0078864F /* StoreKitTest.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = StoreKitTest.storekit; sourceTree = "<group>"; };
+		22D61358300E05460078864F /* WelcomePaywallViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomePaywallViewCell.swift; sourceTree = "<group>"; };
 		22EA9D842DCCB34800D64EEA /* MacTabbarViewController+Play.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MacTabbarViewController+Play.swift"; sourceTree = "<group>"; };
 		22EA9D872DCCBBFE00D64EEA /* AIType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIType.swift; sourceTree = "<group>"; };
 		22EA9D8D2DCDF7D200D64EEA /* MusicCellType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicCellType.swift; sourceTree = "<group>"; };
@@ -1301,6 +1304,7 @@
 				228A13672CA00F5800E2948E /* Assets.xcassets */,
 				2259F6E82CA278450041CA38 /* InfoPlist.xcstrings */,
 				2259F6EA2CA2784E0041CA38 /* Localizable.xcstrings */,
+				22D61355300E018F0078864F /* StoreKitTest.storekit */,
 				228A13892CA0622700E2948E /* GoogleService-Info.plist */,
 				228A138A2CA0622800E2948E /* PrivacyInfo.xcprivacy */,
 				2257DE562D0AD04600BBC0CE /* LaunchScreen.storyboard */,
@@ -1318,7 +1322,7 @@
 				228A13902CA0633400E2948E /* WelcomeViewController+Page.swift */,
 				228A13912CA0633400E2948E /* WelcomeBaseCollectCell.swift */,
 				2290E6D72DFAC20700137CF9 /* WelcomeTapeCollectCell.swift */,
-				22892A6B2E9E2A8C001914F3 /* WelcomePurchaseCell.swift */,
+				22D61358300E05460078864F /* WelcomePaywallViewCell.swift */,
 				223FB4B02DFD3753003EDA2E /* WelcomeTapeBtnView.swift */,
 				228A13922CA0633400E2948E /* WelcomeInfoModel.swift */,
 			);
@@ -1870,6 +1874,7 @@
 				228220AC2D899DE900D1DD4F /* Assets.xcassets in Resources */,
 				225F58C42D85B2AB0055BDFF /* Main.storyboard in Resources */,
 				225F58C52D85B2AB0055BDFF /* LaunchScreen.storyboard in Resources */,
+				22D61357300E018F0078864F /* StoreKitTest.storekit in Resources */,
 				225F58C72D85B2AB0055BDFF /* InfoPlist.xcstrings in Resources */,
 				225F58C82D85B2AB0055BDFF /* Localizable.xcstrings in Resources */,
 				225F58C92D85B2AB0055BDFF /* GoogleService-Info.plist in Resources */,
@@ -1896,6 +1901,7 @@
 				228220AD2D89AD8100D1DD4F /* Assets.xcassets in Resources */,
 				22E1F0F82D0717F90025EAD9 /* Main.storyboard in Resources */,
 				2257DE572D0AD04600BBC0CE /* LaunchScreen.storyboard in Resources */,
+				22D61356300E018F0078864F /* StoreKitTest.storekit in Resources */,
 				2259F6E92CA278450041CA38 /* InfoPlist.xcstrings in Resources */,
 				2259F6EB2CA2784E0041CA38 /* Localizable.xcstrings in Resources */,
 				228A138B2CA0622800E2948E /* GoogleService-Info.plist in Resources */,
@@ -2162,6 +2168,7 @@
 				225F58342D85B2AB0055BDFF /* MusicsViewController+Data.swift in Sources */,
 				2266A1542DE7537200F5AEB7 /* LyricFontAlignTableCell.swift in Sources */,
 				22FB960A2DED5007007EA2FD /* PlayControlTapeView.swift in Sources */,
+				22D6135A300E05460078864F /* WelcomePaywallViewCell.swift in Sources */,
 				22AAE39E2FA34EEA0021773B /* PlayerGuideView.swift in Sources */,
 				22FB960C2DED507B007EA2FD /* PlayControlVinylView.swift in Sources */,
 				2258AD002DE5FD0D00F5754B /* LyricSetCellModel.swift in Sources */,
@@ -2203,7 +2210,6 @@
 				225F58482D85B2AB0055BDFF /* PurchaseViewController+Pay.swift in Sources */,
 				2258ACED2DE5649B00F5754B /* MusicPlayerViewController+Data.swift in Sources */,
 				225F58492D85B2AB0055BDFF /* MusicParseOperation.swift in Sources */,
-				22892A6C2E9E2A8C001914F3 /* WelcomePurchaseCell.swift in Sources */,
 				227FB9E22EAD007500F3181C /* GoogleErrorResponse.swift in Sources */,
 				225F584A2D85B2AB0055BDFF /* UIMenuAccessView.swift in Sources */,
 				225F584B2D85B2AB0055BDFF /* CollectionViewController.swift in Sources */,
@@ -2445,6 +2451,7 @@
 				228A14332CA0633400E2948E /* MusicsViewController+Data.swift in Sources */,
 				2266A1552DE7537200F5AEB7 /* LyricFontAlignTableCell.swift in Sources */,
 				22FB96092DED5007007EA2FD /* PlayControlTapeView.swift in Sources */,
+				22D61359300E05460078864F /* WelcomePaywallViewCell.swift in Sources */,
 				22AAE39F2FA34EEA0021773B /* PlayerGuideView.swift in Sources */,
 				22FB960D2DED507B007EA2FD /* PlayControlVinylView.swift in Sources */,
 				2258ACFF2DE5FD0D00F5754B /* LyricSetCellModel.swift in Sources */,
@@ -2486,7 +2493,6 @@
 				228A14562CA0633400E2948E /* PurchaseViewController+Pay.swift in Sources */,
 				2258ACEE2DE5649B00F5754B /* MusicPlayerViewController+Data.swift in Sources */,
 				22CFF81E2CAD1D7200CF825C /* MusicParseOperation.swift in Sources */,
-				22892A6D2E9E2A8C001914F3 /* WelcomePurchaseCell.swift in Sources */,
 				227FB9E32EAD007500F3181C /* GoogleErrorResponse.swift in Sources */,
 				228A14752CA0633400E2948E /* UIMenuAccessView.swift in Sources */,
 				2257DE522D0AB31A00BBC0CE /* CollectionViewController.swift in Sources */,

@@ -76,8 +76,10 @@ class PurchasePriceCell: UITableViewCell {
             let hours = totalMilliseconds / (60 * 60 * 100)
             let minutes = (totalMilliseconds % (60 * 60 * 100)) / (60 * 100)
             let seconds = (totalMilliseconds % (60 * 100)) / 100
-            
-            self.timeLabel.text = String(format: "%02d:%02d:%02d ⏰", hours, minutes, seconds)
+            let milliseconds = totalMilliseconds % 100
+
+            let timerString = String(format: "⏰ %02d:%02d:%02d.%02d", hours, minutes, seconds, milliseconds)
+            self.timeLabel.text = timerString
                 
         }
     }
@@ -100,6 +102,7 @@ class PurchasePriceCell: UITableViewCell {
         titleLabel.text = model.localizedTitle
         priceLabel.text = model.localizedPriceString
         price298Label.attributedText = self.priceAttbuteStr(lifetimeArray)
+        recommentView.text = String(format: "Save %d%%".localStr(), lifetimeArray.calculateDiscountPercentage())
         
         let isAutoRenew = model.productType == .autoRenewableSubscription
         self.timeLabel.textColor = isAutoRenew ? .secondaryLabel : .systemRed
@@ -154,7 +157,7 @@ class PurchasePriceCell: UITableViewCell {
     func priceAttbuteStr(_ lifetimeArray: [StoreProduct]) -> NSAttributedString {
         let price = lifetimeArray.last
         
-        let attbuteStr = NSAttributedString(string: (price?.localizedPriceString ?? "$29.99"), attributes: [.font: UIFontLight(10.ckValue()), .foregroundColor: UIColor.secondaryLabel, .strikethroughStyle: 1])
+        let attbuteStr = NSAttributedString(string: (price?.localizedPriceString ?? "$29.99"), attributes: [.font: UIFontLight(13.ckValue()), .foregroundColor: UIColor.secondaryLabel, .strikethroughStyle: 1])
         
         return attbuteStr
     }
@@ -201,12 +204,12 @@ class PurchasePriceCell: UITableViewCell {
     }()
     
     lazy var recommentView: UILabel = {
-        let text = "Limited Time Offer".localStr()
+        let text = String(format: "Save %d%%".localStr(), 45)
         let font = UIFontLight(10.ckValue())
         let corners: UIRectCorner = PhoneSetManager.isArabicLanguage() ? [UIRectCorner.topRight] : [UIRectCorner.topLeft]
         
         let height = font.lineHeight + 4.ckValue()
-        let view = UILabel(frame: CGRectMake(0, 0, text.width(font) + 40.ckValue(), height))
+        let view = UILabel(frame: CGRectMake(0, 0, text.width(font) + 15.ckValue(), height))
         view.text = text
         view.layer.masksToBounds = true
         view.corner(byRoundingCorners: corners, radii: 12.ckValue())

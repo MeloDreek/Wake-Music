@@ -16671,6 +16671,257 @@
         }
       }
     },
+    "Best Value: %d-Day Free Trial, then %@/year (Only %@/month)" : {
+      "extractionState" : "pasted",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "أفضل قيمة: تجربة مجانية لمدة %d أيام ثم %@/سنويًا (%@/شهريًا فقط)"
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "El més avantatjós: prova gratuïta de %d dies i després %@/any (només %@/mes)"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nejvýhodnější: %d dny bezplatná zkušební verze poté %@/rok (pouze %@/měsíc)"
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bedste værdi: %d dages gratis prøveperiode derefter %@/år (kun %@/måned)"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bestes Angebot: %d Tage kostenlos testen danach %@/Jahr (nur %@/Monat)"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Καλύτερη επιλογή: %d ημέρες δωρεάν δοκιμή μετά %@/έτος (μόνο %@/μήνα)"
+          }
+        },
+        "en-AU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Best Value: %d-Day Free Trial, then %@/year (Only %@/month)"
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Best Value: %d-Day Free Trial, then %@/year (Only %@/month)"
+          }
+        },
+        "en-IN" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Best Value: %d-Day Free Trial, then %@/year (Only %@/month)"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mejor precio: %d días de prueba gratuita y luego %@/año (solo %@/mes)"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mejor precio: %d días de prueba gratuita y luego %@/año (solo %@/mes)"
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mejor precio: %d días de prueba gratuita y luego %@/año (solo %@/mes)"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Paras hinta: %d päivän ilmainen kokeilu sitten %@/vuosi (vain %@/kuukausi)"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Meilleure offre : %d jours d essai gratuit puis %@/an (seulement %@/mois)"
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Meilleure offre : %d jours d essai gratuit puis %@/an (seulement %@/mois)"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "המשתלם ביותר: %d ימי ניסיון בחינם ואז %@/שנה (רק %@/חודש)"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "सबसे अच्छा मूल्य: %d दिनों का निःशुल्क परीक्षण फिर %@/वर्ष (केवल %@/ماه)"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Najbolja vrijednost: %d dana besplatno zatim %@/godišnje (samo %@/mjesečno)"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Legjobb érték: %d napos ingyenes próbaidőszak utána %@/év (csak %@/hónap)"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Paling Hemat: %d hari uji coba gratis lalu %@/tahun (hanya %@/bulan)"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Miglior rapporto qualità-prezzo: %d giorni di prova gratuita poi %@/anno (solo %@/mese)"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "最もお得： %d 日間の無料トライアル、その後 %@/年（わずか %@/月）"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "최고 가치: %d일 무료 체험 후 %@/년(월 %@)"
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nilai Terbaik: %d hari percubaan percuma kemudian %@/tahun (hanya %@/bulan)"
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Beste verdi: %d dagers gratis prøveperiode deretter %@/år (kun %@/måned)"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Beste waarde: %d dagen gratis proefversie daarna %@/jaar (slechts %@/maand)"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Najlepsza oferta: %d dni bezpłatnego okresu próbnego potem %@/rok (tylko %@/miesiąc)"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Melhores condições: %d dias de teste gratuito depois %@/ano (apenas %@/mês)"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Melhores condições: %d dias de teste gratuito depois %@/ano (apenas %@/mês)"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cea mai bună ofertă: %d zile probă gratuită apoi %@/an (doar %@/lună)"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Выгодное предложение: %d дня бесплатно затем %@/год (всего %@/месяц)"
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Najvýhodnejšie: %d dni bezplatná skúšobná verzia potom %@/rok (iba %@/mesiac)"
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Najboljša vrednost: %d dni brezplačnega preizkusa nato %@/leto (samo %@/mesec)"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bästa värde: %d dagars gratis provperiod därefter %@/år (endast %@/månad)"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "คุ้มค่าที่สุด: ทดลองใช้งานฟรี %d วัน จากนั้น %@/ปี (เพียง %@/เดือน)"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "En İyi Değer: %d günlük ücretsiz deneme ardından %@/yıl (ayda sadece %@)"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Найвигідніше: %d дні безкоштовно далі %@/рік (лише %@/місяць)"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tiết kiệm nhất: Thử nghiệm miễn phí %d ngày sau đó %@/năm (chỉ %@/tháng)"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "巨划算：免费试用 %d 天，之后 %@/年（只需 %@/月）"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "最划算：免費試用 %d 天，之後 %@/年（只需 %@/月）"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "最超值：免費試用 %d 天，之後 %@/年（只需 %@/月）"
+          }
+        }
+      }
+    },
     "Bitrate" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -43058,312 +43309,504 @@
         }
       }
     },
-    "Free Trial for %@ Days" : {
-      "extractionState" : "manual",
+    "Free Trial for %d Days" : {
+      "extractionState" : "pasted",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "تجربة مجانية لمدة %@ أيام"
+            "value" : "تجربة مجانية لمدة %d أيام"
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prova gratuïta de %d dies"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bezplatná zkušební verze na %d dní"
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gratis prøveperiode i %d dage"
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%@ Tage kostenlos testen"
+            "value" : "%d Tage kostenlos testen"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Δωρεάν δοkiμή για %d ημέρες"
           }
         },
         "en-AU" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Free Trial for %@ Days"
+            "value" : "Free Trial for %d Days"
           }
         },
         "en-GB" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Free Trial for %@ Days"
+            "value" : "Free Trial for %d Days"
           }
         },
         "en-IN" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Free Trial for %@ Days"
+            "value" : "Free Trial for %d Days"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Prueba gratuita de %@ días"
+            "value" : "Prueba gratuita de %d días"
           }
         },
         "es-419" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Prueba gratis por %@ días"
+            "value" : "Prueba gratuita de %d días"
           }
         },
         "es-US" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Prueba gratis por %@ días"
+            "value" : "Prueba gratuita de %d días"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ilmainen kokeilu %d päivää"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Essai gratuit de %@ jours"
+            "value" : "Essai gratuit de %d jours"
           }
         },
         "fr-CA" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Essai gratuit de %@ jours"
+            "value" : "Essai gratuit de %d jours"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ניסיון בחינם למשך %d ימים"
           }
         },
         "hi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%@ दिनों के लिए निःशुल्क परीक्षण"
+            "value" : "%d दिनों का निःशुल्क परीक्षण"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Besplatno probno razdoblje od %d dana"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ingyenes próbaidőszak %d napig"
           }
         },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Uji Coba Gratis %@ Hari"
+            "value" : "Uji Coba Gratis selama %d Hari"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Prova gratuita di %@ giorni"
+            "value" : "Prova gratuita per %d giorni"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%@日間の無料トライアル"
+            "value" : "%d 日間の無料トライアル"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%@일간 무료 체험"
+            "value" : "%d일 무료 체험"
           }
         },
         "ms" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Percubaan Percuma %@ Hari"
+            "value" : "Percubaan Percuma selama %d Hari"
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gratis prøveperiode i %d dager"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gratis proefversie voor %d dagen"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bezpłatny okres próbny przez %d dni"
           }
         },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Teste grátis por %@ dias"
+            "value" : "Teste grátis por %d dias"
           }
         },
         "pt-PT" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Período experimental de %@ dias"
+            "value" : "Teste gratuito por %d dias"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Probă gratuită timp de %d zile"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Бесплатный пробный период: %@ дн"
+            "value" : "Бесплатно на %d дня"
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bezplatná skúšobná verzia na %d dní"
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Brezplačen preizkus za %d dni"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gratis provperiod i %d dagar"
           }
         },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "ทดลองใช้ฟรี %@ วัน"
+            "value" : "ทดลองใช้งานฟรี %d วัน"
           }
         },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%@ Günlük Ücretsiz Deneme"
+            "value" : "%d Günlük Ücretsiz Deneme"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Безкоштовно на %d дні"
           }
         },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Dùng thử miễn phí %@ ngày"
+            "value" : "Dùng thử miễn phí %d ngày"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "免费试用 %@ 天"
+            "value" : "免费试用 %d 天"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "免費試用 %@ 天"
+            "value" : "免費試用 %d 天"
           }
         },
         "zh-HK" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "免費試用 %@ 天"
+            "value" : "免費試用 %d 天"
           }
         }
       }
     },
-    "Free trial for %@ days, then %@/week. Cancel anytime." : {
+    "Free trial for %d days, then %@/week. Cancel anytime." : {
       "extractionState" : "manual",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "تجربة مجانية لمدة %@ أيام، ثم %@/أسبوعياً. يمكنك الإلغاء في أي وقت."
+            "value" : "تجربة مجانية لمدة %d أيام ثم %@/أسبوعيًا، يمكنك الإلغاء في أي وقت"
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prova gratuïta de %d dies i després %@/setmana, cancel·la quan vulguis"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bezplatná zkušební verze na %d dní poté %@/týden, zrušte kdykoli"
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gratis prøveperiode i %d dage derefter %@/uge, afmeld til enhver tid"
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%@ Tage kostenlos testen, danach %@/Woche. Jederzeit kündbar."
+            "value" : "%d Tage kostenlos testen danach %@/Woche, jederzeit kündbar"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Δωρεάν δοκιμή για %d ημέρες μετά %@/εβδομάδα, ακύρωση ανά πάσα στιγμή"
           }
         },
         "en-AU" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Free trial for %@ days, then %@/week. Cancel anytime."
+            "value" : "Free trial for %d days, then %@/week. Cancel anytime."
           }
         },
         "en-GB" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Free trial for %@ days, then %@/week. Cancel at any time."
+            "value" : "Free trial for %d days, then %@/week. Cancel at any time."
           }
         },
         "en-IN" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Free trial for %@ days, then %@ per week. Cancel anytime."
+            "value" : "Free trial for %d days, then %@ per week. Cancel anytime."
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Prueba gratuita de %@ días, luego %@/semana. Cancela en cualquier momento."
+            "value" : "Prueba gratuita de %d días y luego %@/semana, cancela en cualquier momento"
           }
         },
         "es-419" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Prueba gratis por %@ días, después %@/semana. Cancela cuando quieras."
+            "value" : "Prueba gratuita de %d días y luego %@/semana, cancela en cualquier momento"
           }
         },
         "es-US" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Prueba gratis por %@ días, luego %@/semana. Cancela en cualquier momento."
+            "value" : "Prueba gratuita de %d días y luego %@/semana, cancela en cualquier momento"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ilmainen kokeilu %d päivää sitten %@/viikko, peruuta milloin tahansa"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Essai gratuit de %@ jours, puis %@/semaine. Annulable à tout moment."
+            "value" : "Essai gratuit de %d jours puis %@/semaine, annulez à tout moment"
           }
         },
         "fr-CA" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Essai gratuit de %@ jours, ensuite %@/semaine. Annulez en tout temps."
+            "value" : "Essai gratuit de %d jours puis %@/semaine, annulez à tout moment"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ניסיון בחינם למשך %d ימים ואז %@/שבוע, ניתן לביטול בכל עת"
           }
         },
         "hi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%@ दिनों के लिए निःशुल्क परीक्षण, फिर %@/सप्ताह। किसी भी समय रद्द करें।"
+            "value" : "%d दिनों का निःशुल्क परीक्षण फिर %@/सप्ताह, किसी भी समय रद्द करें"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Besplatno probno razdoblje od %d dana zatim %@/tjedno, otkažite bilo kada"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ingyenes próbaidőszak %d napig utána %@/hét, bármikor lemondható"
           }
         },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Uji coba gratis %@ hari, lalu %@/minggu. Batalkan kapan saja."
+            "value" : "Uji coba gratis %d hari lalu %@/minggu, batalkan kapan saja"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Prova gratuita di %@ giorni, poi %@/settimana. Annulla in qualsiasi momento."
+            "value" : "Prova gratuita per %d giorni poi %@/settimana, annulla in qualsiasi momento"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%@日間の無料トライアル、その後は毎週%@。いつでもキャンセル可能。"
+            "value" : "%d 日間の無料トライアル、その後 %@/週、いつでも解約可能"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%@일 무료 체험 후 매주 %@. 언제든 취소 가능."
+            "value" : "%d일 무료 체험 후 주당 %@, 언제든 취소 가능"
           }
         },
         "ms" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Percubaan percuma %@ hari, kemudian %@/minggu. Batalkan bila-bila masa."
+            "value" : "Percubaan percuma %d hari kemudian %@/minggu, batalkan pada bila-bila masa"
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gratis prøveperiode i %d dager deretter %@/uke, avbryt når som helst"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gratis proefversie voor %d dagen daarna %@/week, herroep op elk moment"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bezpłatny okres próbny przez %d dni potem %@/tydzień, anuluj w dowolnym momencie"
           }
         },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Teste grátis por %@ dias, depois %@/semana. Cancele a qualquer momento."
+            "value" : "Teste grátis por %d dias depois %@/semana, cancele a qualquer momento"
           }
         },
         "pt-PT" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Período experimental de %@ dias, seguido de %@/semana. Cancele quando quiser."
+            "value" : "Teste gratuito por %d dias depois %@/semana, cancele a qualquer momento"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Probă gratuită %d zile apoi %@/săptămână, anulează oricând"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%@ дн. бесплатно, далее %@/нед. Отмена в любое время."
+            "value" : "Бесплатно %d дня затем %@/неделя, отмена в любой момент"
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bezplatná skúšobná verzia na %d dní potom %@/týždeň, zrušte kedykoľvek"
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Brezplačen preizkus za %d dni nato %@/teden, prekličite kadarkoli"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gratis provperiod i %d dagar därefter %@/vecka, avbryt när som helst"
           }
         },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "ทดลองใช้ฟรี %@ วัน จากนั้น %@/สัปดาห์ ยกเลิกได้ทุกเมื่อ"
+            "value" : "ทดลองใช้งานฟรี %d วัน จากนั้น %@/สัปดาห์ ยกเลิกได้ตลอดเวลา"
           }
         },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%@ günlük ücretsiz deneme, ardından haftalık %@. İstediğiniz zaman iptal edin."
+            "value" : "%d günlük ücretsiz deneme ardından %@/hafta, istediğiniz zaman iptal edin"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Безкоштовно на %d дні далі %@/тиждень, скасуйте в будь-який час"
           }
         },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Dùng thử miễn phí %@ ngày, sau đó là %@/tuần. Hủy bất cứ lúc nào."
+            "value" : "Dùng thử miễn phí %d ngày sau đó %@/tuần, hủy bất kỳ lúc nào"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "免费试用 %@ 天，然后每周 %@，可随时取消。"
+            "value" : "免费试用 %d 天，之后 %@/周，可随时取消"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "免費試用 %@ 天，之後每週 %@，可隨時取消。"
+            "value" : "免費試用 %d 天，之後 %@/週，可隨時取消"
           }
         },
         "zh-HK" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "免費試用 %@ 天，隨後每週 %@，可隨時取消。"
+            "value" : "免費試用 %d 天，之後 %@/每星期，可隨時取消"
           }
         }
       }
@@ -45298,161 +45741,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "升級終身專業版"
-          }
-        }
-      }
-    },
-    "Get lifetime access at the lowest price — unlock all feature on iOS and macOS!" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "احصل على عضوية دائمة بأقل سعر متاح الآن، وافتح جميع الميزات على iOS وmacOS!"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Werden Sie jetzt zum günstigsten Preis dauerhaftes Mitglied und schalten Sie alle Funktionen auf iOS und macOS frei!"
-          }
-        },
-        "en-AU" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Become a lifetime member at the lowest price available now and unlock all features on iOS and macOS!"
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Become a lifetime member at the lowest available discount and unlock all features on iOS and macOS!"
-          }
-        },
-        "en-IN" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Become a lifetime member at the lowest available discounted price and unlock all features on iOS and macOS!"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Hazte miembro de por vida al precio con descuento más bajo disponible y desbloquea todas las funciones en iOS y macOS."
-          }
-        },
-        "es-419" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Hazte miembro de por vida al precio más bajo disponible y desbloquea todas las funciones en iOS y macOS."
-          }
-        },
-        "es-US" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Hazte miembro de por vida al precio más bajo disponible y desbloquea todas las funciones en iOS y macOS."
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Devenez membre à vie au prix réduit le plus bas du moment et débloquez toutes les fonctionnalités sur iOS et macOS !"
-          }
-        },
-        "fr-CA" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Devenez membre à vie au prix réduit le plus bas en ce moment et débloquez toutes les fonctionnalités sur iOS et macOS !"
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "सबसे कम उपलब्ध डिस्काउंट मूल्य पर लाइफटाइम सदस्य बनें और iOS तथा macOS की सभी सुविधाएँ अनलॉक करें!"
-          }
-        },
-        "id" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Jadilah anggota seumur hidup dengan harga diskon terendah saat ini dan buka semua fitur di iOS dan macOS!"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Diventa membro a vita al prezzo scontato più basso disponibile ora e sblocca tutte le funzioni su iOS e macOS!"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "今だけの最安値で永久メンバーになり、iOS と macOS の全機能を解放しましょう！"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "현재 제공되는 최저 할인 가격으로 평생 멤버가 되어 iOS와 macOS의 모든 기능을 잠금 해제하세요!"
-          }
-        },
-        "ms" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Jadi ahli seumur hidup pada harga diskaun terendah sekarang dan buka semua ciri di iOS dan macOS!"
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Torne-se um membro vitalício pelo menor preço promocional disponível agora e desbloqueie todos os recursos no iOS e macOS!"
-          }
-        },
-        "pt-PT" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Torne-se membro vitalício pelo preço com desconto mais baixo disponível agora e desbloqueie todas as funcionalidades no iOS e macOS!"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Станьте пожизненным участником по самой низкой текущей цене и откройте все функции на iOS и macOS!"
-          }
-        },
-        "th" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "เป็นสมาชิกตลอดชีพในราคาส่วนลดที่ต่ำที่สุดตอนนี้ และปลดล็อกทุกฟีเจอร์บน iOS และ macOS!"
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Şu anda mevcut en düşük indirimli fiyatla ömür boyu üye olun ve iOS ile macOS'teki tüm özelliklerin kilidini açın!"
-          }
-        },
-        "vi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Trở thành hội viên trọn đời với mức giá ưu đãi thấp nhất hiện tại và mở khóa mọi tính năng trên iOS và macOS!"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "以当前最低的折扣价成为永久会员，解锁iOS、macOS上的所有功能！"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "以目前最低的優惠價格成為永久會員，解鎖 iOS、macOS 上的所有功能！"
-          }
-        },
-        "zh-HK" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "以目前最低折扣價成為永久會員，解鎖 iOS、macOS 上的所有功能！"
           }
         }
       }
@@ -54377,6 +54665,257 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "限時折扣"
+          }
+        }
+      }
+    },
+    "Limited Time Offer: Get Lifetime Access for %@ before the timer expires! Save %d%% permanently." : {
+      "extractionState" : "pasted",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "عرض لفترة محدودة: احصل على الوصول مدى الحياة مقابل %@ قبل انتهاء المؤقت ووفر %d%% دائمًا"
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Oferta per temps limitat: aconsegueix accés de per vida per %@ abans que s acabi el temps i estalvia un %d%% per sempre"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Časově omezená nabídka: získejte doživotní přístup za %@ před vypršením odpočtu a ušetřete natrvalo %d%%"
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tidsbegrænset tilbud: få livstidsadgang for %@ inden timeren udløber og spar %d%% permanent"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Befristetes Angebot: Hol dir den lebenslangen Zugriff für %@ bevor der Timer abläuft und spare dauerhaft %d%%"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Προσφορά περιορισμένου χρόνου: αποκτήστε ισόβια πρόσβαση με %@ πριν τη λήξη του χρονομέτρου και εξοικονομήστε %d%% μόνιμα"
+          }
+        },
+        "en-AU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Limited Time Offer: Get Lifetime Access for %@ before the timer expires! Save %d%% permanently."
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Limited Time Offer: Get Lifetime Access for %@ before the timer expires! Save %d%% permanently."
+          }
+        },
+        "en-IN" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Limited Time Offer: Get Lifetime Access for %@ before the timer expires! Save %d%% permanently."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Oferta por tiempo limitado: consigue acceso de por vida por %@ antes de que expire el temporizador y ahorra un %d%% para siempre"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Oferta por tempo limitado: consigue acceso de por vida por %@ antes de que expire el temporizador y ahorra un %d%% para siempre"
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Oferta por tiempo limitado: consigue acceso de por vida por %@ antes de que expire el temporizador y ahorra un %d%% para siempre"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rajoitettu tarjous: hanki elinikäinen käyttöoikeus hintaan %@ ennen ajastimen päättymistä ja säästä pysyvästi %d%%"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Offre à durée limitée : obtenez l accès à vie pour %@ avant la fin du compte à rebours et économisez %d%% définitivement"
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Offre à durée limitée : obtenez l accès à vie pour %@ avant la fin du compte à rebours et économisez %d%% définitivement"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "הצעה לזמן מוגבל: קבל גישה לכל החיים עבור %@ לפני תום הטיימר וחסוך %d%% לצמיתות"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "सीमित समय का ऑफ़र: टाइमर समाप्त होने से पहले %@ में लाइफ़टाइम एक्सेस पाएं और स्थायी रूप से %d%% बचाएं"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ograničena ponuda: ostvarite doživotni pristup za %@ prije isteka vremena i trajno uštedite %d%%"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Korlátozott idejű ajánlat: szerezzen örökös hozzáférést %@ áron az időzítő lejárta előtt és spóroljon tartósan %d%%-ot"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Penawaran Terbatas: Dapatkan Akses Seumur Hidup seharga %@ sebelum waktu habis dan hemat %d%% permanen"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Offerta a tempo limitato: ottieni l accesso a vita a %@ prima della scadenza del timer e risparmia il %d%% per sempre"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "期間限定特典： タイマーが切れる前に %@ で永久アクセス権を獲得、今なら恒久的に %d%% オフ"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "한정 기간 혜택: 타이머가 만료되기 전에 %@로 평생 이용권을 구매하고 %d%% 영구 할인받으세요"
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tawaran Masa Terhad: Dapatkan Akses Seumur Hidup untuk %@ sebelum pemasa tamat dan jimat %d%% secara kekal"
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tidsbegrenset tilbud: få livstidsadgang for %@ før timeren utløber og spar %d%% permanent"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tijdelijke aanbieding: krijg levenslange toegang voor %@ voordat de timer afloopt s bespaar permanent %d%%"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Oferta ograniczona czasowo: uzyskaj dożywotni dostęp za %@ przed upływem czasu i zaoszczędź na stałe %d%%"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Oferta por tempo limitado: garanta acesso vitalício por %@ antes que o cronômetro expire e economize %d%% permanentemente"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Oferta por tempo limitado: garanta acesso vitalício por %@ antes que o cronômetro expire e economize %d%% permanentemente"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ofertă pe timp limitat: obține acces pe viață pentru %@ înainte de expirarea cronometrului și economisește %d%% permanent"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ограниченное предложение: получите пожизненный доступ за %@ до истечения таймера и сэкономьте %d%% навсегда"
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Časovo obmedzená ponuka: získajte doživotný prístup za %@ pred vypršaním odpočtu a ušetrite natrvalo %d%%"
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Časovno omejena ponuka: zagotovite si doživljenjski dostop za %@ pred iztekom časovnika in trajno prihranite %d%%"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tidsbegränsat erbjudande: få livstidsåtkomst för %@ innan timern går ut och spara %d%% permanent"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ข้อเสนอเวลาจำกัด: รับสิทธิ์เข้าใช้งานตลอดชีพในราคา %@ ก่อนตัวนับเวลาจะหมด และประหยัด %d%% ถาวร"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sınırlı Süreli Teklif: Sayaç dolmadan %@ karşılığında Ömür Boyu Erişim edinin ve kalıcı olarak %d%% tasarruf edin"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Обмежена пропозиція: отримайте довічний доступ за %@ до закінчення таймера та зекономте %d%% назавжди"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pridani giới hạn: Sở hữu quyền truy cập trọn đời với %@ trước khi hết giờ và tiết kiệm %d%% vĩnh viễn"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "限时特惠：在倒计时结束前以 %@ 获取终身会员，永久节省 %d%%"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "限時特惠：在倒數結束前以 %@ 獲取終身永久存取，永久節省 %d%%"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "限時優惠：在倒數結束前以 %@ 獲取終身永久存取，永久節省 %d%%"
           }
         }
       }
@@ -91039,6 +91578,257 @@
         }
       }
     },
+    "Save %d%%" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "وفر %d%%"
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Estalvia un %d%%"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ušetříte %d %%"
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Spar %d%%"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%d%% sparen"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Εξοικονομήστε %d%%"
+          }
+        },
+        "en-AU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Save %d%%"
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Save %d%%"
+          }
+        },
+        "en-IN" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Save %d%%"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ahorra un %d%%"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ahorra un %d%%"
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ahorra un %d%%"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Säästä %d%%"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Économisez %d %%"
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Économisez %d %%"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "חיסכון של %d%%"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%d%% बचाएं"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Uštedite %d%%"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%d%% megtakarítás"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hemat %d%%"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Risparmia il %d%%"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%d%% OFF"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%d%% 할인"
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jimat %d%%"
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Spar %d%%"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bespaar %d%%"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zaoszczędź %d%%"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Economize %d%%"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Poupe %d%%"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Economisește %d%%"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Экономия %d%%"
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ušetrite %d %%"
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prihranite %d%%"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Spara %d%%"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ประหยัด %d%%"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%d%% tasarruf edin"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Економія %d%%"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tiết kiệm %d%%"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "立省 %d%%"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "省下 %d%%"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "節省 %d%%"
+          }
+        }
+      }
+    },
     "Save QR Code" : {
       "extractionState" : "pasted",
       "localizations" : {
@@ -116089,6 +116879,257 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "視頻轉音樂"
+          }
+        }
+      }
+    },
+    "View All Benefits" : {
+      "extractionState" : "pasted",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "عرض جميع المزايا"
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Veure tous els avantatges"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zobrazit všechny výhody"
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vis alle fordele"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Alle Vorteile anzeigen"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Προβολή όλων των προνομίων"
+          }
+        },
+        "en-AU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "See All Privileges"
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "View All Benefits"
+          }
+        },
+        "en-IN" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Check All VIP Features"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ver todos los beneficios"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ver todos los beneficios"
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ver todos los beneficios"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Näytä kaikki edut"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Voir tous les avantages"
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Voir tous les avantages"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "הצג את כל ההטבות"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "सभी लाभ देखें"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "查看全部權益"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Összes előny megtekintése"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lihat Semua Keuntungan"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Visualizza tutti i vantaggi"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "すべての特典を表示"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "모든 혜택 보기"
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lihat Semua Manfaat"
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vis alle fordeler"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bekijk alle voordelen"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pokaż wszystkie korzyści"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ver todos os benefícios"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ver todos os benefícios"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vezi toate beneficiile"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Показать все преимущества"
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zobraziť všetky výhody"
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prikaži vse ugodnosti"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Visa alla fördelar"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ดูสิทธิประโยชน์ทั้งหมด"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tüm avantajları görüntüle"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Переглянути всі переваги"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Xem tất cả quyền lợi"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "查看全部权益"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "查看全部权益"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "查看全部權益"
           }
         }
       }

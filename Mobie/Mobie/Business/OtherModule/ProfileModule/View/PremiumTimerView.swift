@@ -75,8 +75,9 @@ class PremiumTimerView: UIButton {
         let hours = totalMilliseconds / (60 * 60 * 100)
         let minutes = (totalMilliseconds % (60 * 60 * 100)) / (60 * 100)
         let seconds = (totalMilliseconds % (60 * 100)) / 100
+        let milliseconds = totalMilliseconds % 100
         
-        self.timerLabel.text = String(format: "%02d:%02d:%02d ⏰", hours, minutes, seconds)
+        self.timerLabel.text = String(format: "%02d:%02d:%02d.%02d ⏰", hours, minutes, seconds, milliseconds)
     }
     
     // MARK:  懒加载

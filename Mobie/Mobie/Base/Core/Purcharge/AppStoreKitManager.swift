@@ -43,6 +43,31 @@ extension StoreProduct {
     
 }
 
+extension Array where Element == StoreProduct {
+    /// 计算两个终身商品之间的折扣百分比（例如：返回 30 表示省了 30%）
+    func calculateDiscountPercentage() -> Int {
+        // 1. 安全检查：确保数组里至少有两个商品
+        guard self.count >= 2 else { return 0 }
+        
+        // 2. 拿到两个商品的价格（Decimal 转 Double）
+        let price1 = NSDecimalNumber(decimal: self[0].price).doubleValue
+        let price2 = NSDecimalNumber(decimal: self[1].price).doubleValue
+        
+        // 3. 找出原价（高者）和特惠价（低者）
+        let originalPrice = Swift.max(price1, price2)
+        let discountPrice = Swift.min(price1, price2)
+        
+        // 防止原价为 0 导致除以零崩溃
+        guard originalPrice > 0 else { return 0 }
+        
+        // 4. 计算折扣百分比：(原价 - 特惠价) / 原价 * 100
+        let percentage = ((originalPrice - discountPrice) / originalPrice) * 100
+        
+        // 5. 四舍五入并转成整数返回
+        return Int(round(percentage))
+    }
+}
+
 /// 内购管理者
 public class AppStoreKitManager {
     

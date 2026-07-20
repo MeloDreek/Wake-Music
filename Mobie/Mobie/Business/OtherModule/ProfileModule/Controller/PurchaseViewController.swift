@@ -160,7 +160,13 @@ class PurchaseViewController: SuperViewController {
             
             let priceTitle = String(format: "Payment %@".localStr(), vModel.localizedPriceString)
             let lifetimeTitle = "Get Lifetime Access".localStr()
-            let autoSubTitle = String(format: "Free Trial for %@ Days".localStr(), "\(vModel.freeTrialDays ?? 0)")
+            
+            var autoSubTitle: String
+            if let freeTrialDays = vModel.freeTrialDays, freeTrialDays > 0 {
+                autoSubTitle = String(format: "Free Trial for %d Days".localStr(), freeTrialDays)
+            }else{
+                autoSubTitle = "Get Started".localStr()
+            }
             
             if vModel.productIdentifier == PurchaseStoreID.weekly.rawValue {
                 tipsLabel.text = "Auto-renewable. Cancel anytime.".localStr()
