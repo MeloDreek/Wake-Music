@@ -2,10 +2,6 @@
   "sourceLanguage" : "en",
   "strings" : {
     "☁️ Ensure Cloud Backup" : {
-
-    },
-    "☁️Ensure cloud synced" : {
-      "extractionState" : "stale",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -41,12 +37,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "☁️ Εξασφάλιση αντιγράφου cloud"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "☁️Ensure cloud synced"
           }
         },
         "en-AU" : {
@@ -262,10 +252,6 @@
       }
     },
     "❗️ Uninstall with Caution" : {
-
-    },
-    "❗️Uninstall with caution" : {
-      "extractionState" : "stale",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -301,12 +287,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "❗️ Απεγκατάσταση με προσοχή"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "❗️Uninstall with caution"
           }
         },
         "en-AU" : {
@@ -1038,10 +1018,6 @@
       }
     },
     "Ensure all items are backed up" : {
-
-    },
-    "Ensure all items are synced to Cloud" : {
-      "extractionState" : "stale",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -1079,16 +1055,10 @@
             "value" : "Βεβαιωθείτε ότι όλα τα στοιχεία έχουν δημιουργηθεί αντίγραφα ασφαλείας"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ensure all items are synced to Cloud"
-          }
-        },
         "en-AU" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Make sure all projects are backed up"
+            "value" : "Ensure all items are backed up"
           }
         },
         "en-GB" : {
@@ -1303,37 +1273,37 @@
       "localizations" : {
         "ar" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "يلزم الحصول على إذن لمسح موسيقى Apple Music المحلية وتمكين التشغيل"
           }
         },
         "ca" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Es requereix permís per escanejar la música local d Apple Music i activar la reproducció"
           }
         },
         "cs" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "K prohledání místní hudby Apple Music a spuštění přehrávání je vyžadováno oprávnění"
           }
         },
         "da" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Der kræves tilladelse til at scanne lokal Apple Music og aktivere afspilning"
           }
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Der Zugriff ist erforderlich um lokale Apple Music zu scannen und die Wiedergabe zu aktivieren"
           }
         },
         "el" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Απαιτείται άδεια για τη σάρωση της τοπικής μουσικής Apple Music και την ενεργοποίηση της αναπαραγωγής"
           }
         },
@@ -1345,211 +1315,211 @@
         },
         "en-AU" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Permission is needed to scan local music and enable playback features"
           }
         },
         "en-GB" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Access is required to scan your local Apple Music library and enable playback"
           }
         },
         "en-IN" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "We need permission to scan your local songs and play music smoothly"
           }
         },
         "es" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Se requiere permiso para escanear la música local de Apple Music y activar la reproducción"
           }
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Se requiere permiso para escanear la música local de Apple Music y activar la reproducción"
           }
         },
         "es-US" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Se requiere permiso para escanear la música local de Apple Music y activar la reproducción"
           }
         },
         "fi" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Paikallisen Apple Musicin skannaaminen ja toiston aloittaminen edellyttää lupaa"
           }
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "L autorisation est requise pour analyser la musique locale d Apple Music et activer la lecture"
           }
         },
         "fr-CA" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "L autorisation est requise pour analyser la musique locale d Apple Music et activer la lecture"
           }
         },
         "he" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "נדרשת הרשאה כדי לסרוק מוזיקה מקומית של Apple Music ולהפעיל את הניגון"
           }
         },
         "hi" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "स्थानीय Apple Music को स्कैन करने और प्लेबैक सक्षम करने के लिए आपकी अनुमति की आवश्यकता है"
           }
         },
         "hr" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Potrebno je dopuštenje za skeniranje lokalne Apple Music glazbe i pokretanje reprodukcije"
           }
         },
         "hu" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Engedély szükséges a helyi Apple Music szkenneléséhez és a lejátszás elindításához"
           }
         },
         "id" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Diperlukan izin untuk memindai musik Apple Music lokal dan mengaktifkan pemutaran"
           }
         },
         "it" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "È l autorizzazione necessaria per scansionare la musica locale di Apple Music e attivare la riproduzione"
           }
         },
         "ja" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "ローカルのApple Musicをスキャンして再生を有効にするには許可が必要です"
           }
         },
         "ko" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "로컬 Apple Music을 스캔하고 재생을 활성화하려면 권한이 필요합니다"
           }
         },
         "ms" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Keizinan diperlukan untuk mengimbas muzik Apple Music tempatan dan membolehkan main balik"
           }
         },
         "nb" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Det kreves tillatelse for å skanne lokal Apple Music og aktivere avspilling"
           }
         },
         "nl" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Toestemming is vereist om lokale Apple Music te scannen en afspelen in te schakelen"
           }
         },
         "pl" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Wymagana jest zgoda na skanowanie lokalnej muzyki Apple Music i włączenie odtwarzania"
           }
         },
         "pt-BR" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "É necessária permissão para escanear a música local do Apple Music e ativar a reprodução"
           }
         },
         "pt-PT" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "É necessária permissão para ler a música local do Apple Music e ativar a reprodução"
           }
         },
         "ro" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Este necesară permisiunea pentru a scana muzica locală Apple Music și a activa redarea"
           }
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Требуется разрешение для сканирования локальной музыки Apple Music и включения воспроизведения"
           }
         },
         "sk" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Na skenovanie miestnej hudby Apple Music a zapnutie prehrávania je potrebné povolenie"
           }
         },
         "sl" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Za optično branje lokalne glasbe Apple Music in omogočanje predvajanja je potrebno dovoljenje"
           }
         },
         "sv" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Tillstånd krävs for att skanna lokal Apple Music och aktivera uppspelning"
           }
         },
         "th" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "จำเป็นต้องได้รับอนุญาตเพื่อสแกนเพลง Apple Music ในเครื่องและเปิดใช้งานการเล่น"
           }
         },
         "tr" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Yerel Apple Music parçalarını taramak ve oynatmayı etkinleştirmek için izin gerekiyor"
           }
         },
         "uk" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Потрібен дозвіл для сканування локальної музики Apple Music та ввімкнення відтворення"
           }
         },
         "vi" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Cần có quyền để quét nhạc Apple Music cục bộ và bật phát lại"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "扫描 Apple Music 本地音乐并启用播放需要您的权限"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "掃描 Apple Music 本地音樂並啟用播放需要您的權限"
           }
         },
         "zh-HK" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "掃描 Apple Music 本地音樂並啟用播放需要您的權限"
           }
         }
@@ -1561,37 +1531,37 @@
       "localizations" : {
         "ar" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "مطلوب إذن الكاميرا عند استبدال غلاف الأغنية"
           }
         },
         "ca" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Cal el permís de la càmera quan substituïu la portada de la cançó"
           }
         },
         "cs" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Při výměně přebalu písně je vyžadováno povolení k fotoaparátu"
           }
         },
         "da" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Din kameratilladelse er påkrævet, når du udskifter sangcoveret"
           }
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Beim Ersetzen des Liedcovers ist Ihre Kameraerlaubnis erforderlich"
           }
         },
         "el" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Απαιτείται η άδεια της κάμεράς σας όταν αντικαθιστάτε το εξώφυλλο τραγουδιού"
           }
         },
@@ -1603,211 +1573,211 @@
         },
         "en-AU" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Requires your camera privileges when replacing song covers"
           }
         },
         "en-GB" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Requires your camera privileges when replacing song covers"
           }
         },
         "en-IN" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Requires your camera privileges when replacing song covers"
           }
         },
         "es" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Se requiere el permiso de su cámara al reemplazar la portada de la canción"
           }
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Se requiere el permiso de su cámara al reemplazar la portada de la canción"
           }
         },
         "es-US" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Se requiere el permiso de su cámara al reemplazar la portada de la canción"
           }
         },
         "fi" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Kappaleen kansion vaihtamiseen tarvitaan kameran lupa"
           }
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "L'autorisation de votre caméra est requise lors du remplacement de la couverture de la chanson"
           }
         },
         "fr-CA" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "L'autorisation de votre caméra est requise lors du remplacement de la couverture de la chanson"
           }
         },
         "he" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "הרשאת המצלמה שלך נדרשת בעת החלפת עטיפת השיר"
           }
         },
         "hi" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "गाने का कवर बदलते समय आपके कैमरे की अनुमति आवश्यक है"
           }
         },
         "hr" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Prilikom zamjene omota pjesme potrebna je vaša dozvola za kameru"
           }
         },
         "hu" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "A dalborító cseréjéhez kameraengedély szükséges"
           }
         },
         "id" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Izin kamera Anda diperlukan saat mengganti cover lagu"
           }
         },
         "it" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "È necessaria l'autorizzazione della fotocamera quando si sostituisce la copertina del brano"
           }
         },
         "ja" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "曲のカバーを置き換えるときはカメラの許可が必要です"
           }
         },
         "ko" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "노래 표지 교체 시 카메라 권한이 필요합니다"
           }
         },
         "ms" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Kebenaran kamera anda diperlukan apabila menggantikan kulit lagu"
           }
         },
         "nb" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Kameratillatelsen din kreves når du bytter ut sangcoveret"
           }
         },
         "nl" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Je cameratoestemming is vereist als je de cover van het nummer vervangt"
           }
         },
         "pl" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Do wymiany okładki utworu wymagane jest pozwolenie na korzystanie z aparatu"
           }
         },
         "pt-BR" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "A permissão da sua câmera é necessária ao substituir a capa da música"
           }
         },
         "pt-PT" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "A autorização da sua câmara é necessária ao substituir a capa da música"
           }
         },
         "ro" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Este necesară permisiunea camerei dvs. când înlocuiți coperta melodiei"
           }
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "При замене обложки песни требуется разрешение вашей камеры."
           }
         },
         "sk" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Pri výmene obalu skladby sa vyžaduje povolenie fotoaparátu"
           }
         },
         "sl" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Pri zamenjavi priredb pesmi so potrebne vaše pravice za kamero"
           }
         },
         "sv" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Din kameratillstånd krävs när du byter låtomslag"
           }
         },
         "th" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "ต้องได้รับอนุญาตจากกล้องเมื่อเปลี่ยนหน้าปกเพลง"
           }
         },
         "tr" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Şarkı kapağını değiştirirken kamera izniniz gerekiyor"
           }
         },
         "uk" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Для заміни обкладинки пісні потрібен дозвіл на камеру"
           }
         },
         "vi" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Cần có sự cho phép của máy ảnh của bạn khi thay thế bìa bài hát"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "替换歌曲封面时需要您的摄像头权限"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "替換歌曲封面時需要您的相機權限"
           }
         },
         "zh-HK" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "替換歌曲封面時需要你嘅攝像頭權限"
           }
         }
@@ -2077,37 +2047,37 @@
       "localizations" : {
         "ar" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "يتطلب هذا التطبيق الوصول إلى الميكروفون للاستماع إلى الموسيقى المحيطة بك والتعرف عليها. يتم معالجة الصوت محلياً ولن يتم تسجيله أو حفظه أبداً."
           }
         },
         "ca" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Aquesta aplicació requereix accés al micròfon per escoltar i reconèixer la música ambient. L'àudio es processa localment i mai es gravarà ni es desarà."
           }
         },
         "cs" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Tato aplikace vyžaduje přístup k mikrofonu pro poslech a rozpoznávání okolní hudby. Zvuk je zpracováván lokálně a nikdy nebude nahráván ani ukládán."
           }
         },
         "da" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Denne app kræver mikrofonadgang for at lytte og genkende omgivende musik. Lyd behandles lokalt og vil aldrig blive optaget eller gemt."
           }
         },
         "de" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Diese App erfordert den Mikrofonzugriff, um Umgebungsmusik zu hören und zu erkennen. Audio wird lokal verarbeitet und wird niemals aufgenommen oder gespeichert."
           }
         },
         "el" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Αυτή η εφαρμογή απαιτεί πρόσβαση στο μικρόφωνο για την ακρόαση και αναγνώριση της μουσικής περιβάλλοντος. Ο ήχος υποβάλλεται σε τοπική επεξεργασία και δεν θα καταγραφεί ποτέ."
           }
         },
@@ -2119,211 +2089,211 @@
         },
         "en-AU" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "This app requires microphone access to listen and recognise ambient music around you. Audio is processed locally and will never be recorded or saved."
           }
         },
         "en-GB" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "This app requires microphone access to listen and recognise ambient music around you. Audio is processed locally and will never be recorded or saved."
           }
         },
         "en-IN" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "This app requires microphone access to listen and recognise ambient music around you. Audio is processed locally and will never be recorded or saved."
           }
         },
         "es" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Esta aplicación requiere acceso al micrófono para escuchar y reconocer la música ambiental a tu alrededor. El audio se procesa localmente y nunca se grabará ni guardará."
           }
         },
         "es-419" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Esta aplicación requiere acceso al micrófono para escuchar y reconocer la música ambiental a tu alrededor. El audio se procesa localmente y nunca se grabará ni guardará."
           }
         },
         "es-US" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Esta aplicación requiere acceso al micrófono para escuchar y reconocer la música ambiental a su alrededor. El audio se procesa de forma local y nunca se grabará ni guardará."
           }
         },
         "fi" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Tämä sovellus vaatii mikrofonin käyttöoikeuden ympäristön musiikin kuunteluun ja tunnistamiseen. Ääni käsitellään paikallisesti, eikä sitä koskaan nauhoiteta tai tallenneta."
           }
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Cette application nécessite l'accès au micro pour écouter et identifier la musique ambiante. L'audio est traité localement et ne sera jamais enregistré ni sauvegardé."
           }
         },
         "fr-CA" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Cette application nécessite l'accès au micro pour écouter et identifier la musique ambiante. L'audio est traité localement et ne sera jamais enregistré ni sauvegardé."
           }
         },
         "he" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "אפליקציה זו דורשת גישה למיקרופון כדי להאזין ולזהות מוזיקת סביבה. השמע מעובד באופן מקומי ולעולם לא יוקלט או יישמר."
           }
         },
         "hi" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "आपके आस-पास के संगीत को सुनने और पहचानने के लिए इस ऐप को माइक्रोफ़ोन एक्सेस की आवश्यकता है। ऑडियो स्थानीय रूप से संसाधित होता है और कभी रिकॉर्ड नहीं किया जाएगा।"
           }
         },
         "hr" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Ova aplikacija zahtijeva pristup mikrofonu za slušanje i prepoznavanje ambijentalne glazbe. Zvuk se obrađuje lokalno i nikada se neće snimati niti spremati."
           }
         },
         "hu" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "A alkalmazásnak mikrofon-hozzáférésre van szüksége a környező zene hallgatásához és felismeréséhez. Az audió helyben feldolgozott, és soha nem lesz rögzítve."
           }
         },
         "id" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Aplikasi ini memerlukan akses mikrofon untuk mendengarkan dan mengenali musik di sekitar Anda. Audio diproses secara lokal dan tidak akan pernah direkam atau disimpan."
           }
         },
         "it" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Questa applicazione richiede l'accesso al microfono per ascoltare e riconoscere la musica d'ambiente. L'audio è elaborato localmente e nao sarà mai registrato."
           }
         },
         "ja" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "周囲の環境音楽を聴き取り識別するために、マイクへのアクセス権限が必要です。オーディオはローカルで処理され、録音や保存されることは一切ありません。"
           }
         },
         "ko" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "주변의 환경 음악을 듣고 식별하기 위해 마이크 접근 권한이 필요합니다. 오디오는 기기 로컬에서만 처리되며 절대 녹음되거나 저장되지 않습니다."
           }
         },
         "ms" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Aplikasi ini memerlukan akses mikrofon untuk mendengar dan mengecam muzik sekeliling. Audio diproses secara tempatan dan tidak akan direkodkan atau disimpan."
           }
         },
         "nb" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Denne appen krever mikrofontilgang for å lytte til og gjenkjenne omgivelsesmusikk. Lyd behandles lokalt og vil aldri bli tatt opp eller lagret."
           }
         },
         "nl" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Deze app vereist microfoonstoegang om omgevingsmuziek te luisteren en te herkennen. Audio wordt lokaal verwerkt en zal nooit worden opgenomen of opgeslagen."
           }
         },
         "pl" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Ta aplikacja wymaga dostępu do mikrofonu, aby słuchać i rozpoznawać muzykę w otoczeniu. Dźwięk jest przetwarzany lokalnie i nigdy nie będzie nagrywany ani zapisywany."
           }
         },
         "pt-BR" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Este aplicativo requer acesso ao microfone para ouvir e reconhecer a música ambiente ao seu redor. O áudio é processado localmente e nunca será gravado ou salvo."
           }
         },
         "pt-PT" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Esta aplicação requer acesso ao microfone para ouvir e reconhecer a música ambiente ao seu redor. O áudio é processado localmente e nunca será gravado ou guardado."
           }
         },
         "ro" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Această aplicație necesită acces la microfon pentru a asculta și recunoaște muzica ambientală. Audio este procesat local și nu va fi niciodată înregistrat sau salvat."
           }
         },
         "ru" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Этому приложению требуется доступ к микрофону для прослушивания и распознавания окружающей музыки. Аудио обрабатывается локально и никогда не будет записано."
           }
         },
         "sk" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Táto aplikácia vyžaduje prístup k mikrofonu na počúvanie a rozpoznávanie okolitej hudby. Zvuk sa spracováva lokálne a nikdy sa nebude nahrávať ani ukladať."
           }
         },
         "sl" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Ta aplikacija zahteva dostop do mikrofona za poslušanje in prepoznavanje glasbe v okolici. Zvok se obdeluje lokalno in se nikoli ne bo snemal ali shranjeval."
           }
         },
         "sv" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Denna app kräver mikrofontillgang för att lyssna och känna igen omgivningsmusik. Ljudet bearbetas lokalt och kommer aldrig att spelas in eller sparas."
           }
         },
         "th" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "แอปนี้ต้องเข้าถึงไมโครโฟนเพื่อฟังและตรวจจับเพลงรอบตัวคุณ เสียงจะถูกประมวลผลภายในเครื่องและจะไม่ถูกบันทึกหรือเก็บข้อมูลไว้โดยเด็ดขาด"
           }
         },
         "tr" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Bu uygulama çevrenizdeki ortam müziğini dinlemek ve tanımak için mikrofon erişimi gerektirir. Ses yerel olarak işlenir, asla kaydedilmez veya saklanmaz."
           }
         },
         "uk" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Цьому додатку потрібен доступ до мікрофона для прослуховування та розпізнавання навколишньої музики. Аудіо обробляється локально й ніколи не буде записано."
           }
         },
         "vi" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "Ứng dụng này cần quyền truy cập micrô để lắng nghe và nhận dạng nhạc môi trường xung quanh bạn. Âm thanh được xử lý cục bộ, không bao giờ bị ghi âm hoặc lưu lại."
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "本应用需要麦克风权限以聆听并识别现场环境音乐。音频仅在本地进行声学特征分析，绝不会被录音或存储。"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "本應用程式需要麥克風權限以聆聽並識別現場環境音樂。音訊僅在本地進行聲學特徵分析，絕不會被錄音或儲存。"
           }
         },
         "zh-HK" : {
           "stringUnit" : {
-            "state" : "needs_review",
+            "state" : "translated",
             "value" : "本應用程式需要麥克風權限以聆聽並識別現場環境音樂。音訊僅在本地進行聲學特徵分析，絕不會被錄音或儲存。"
           }
         }
