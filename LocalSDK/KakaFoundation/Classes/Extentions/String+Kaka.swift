@@ -27,6 +27,20 @@ extension String {
         
         return true
     }
+    
+    /// 强行大写第一个字母
+    public func uppercaseFirstChar() -> String {
+        // 如果字符串为空，直接返回
+        guard !self.isEmpty else { return self }
+        
+        // 获取第一个字符的字符串形式，并将其大写
+        let firstLetter = self.prefix(1).uppercased()
+        
+        // 拼接剩下的字符（保持原样）
+        let remainingCharacters = self.dropFirst()
+        
+        return firstLetter + remainingCharacters
+    }
       
     /// 是不是手机号码
     public func isPhoneNum() -> Bool {

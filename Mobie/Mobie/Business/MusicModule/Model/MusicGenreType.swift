@@ -14,12 +14,12 @@ import SmartCodable
 /// 音乐流派枚举
 public enum MusicGenreType: String, SmartCaseDefaultable {
     case pop = "Pop" // 流行
+    case hipHop = "Hip-Hop" // 嘻哈
     case rock = "Rock" // 摇滚
     case blues = "Blues" // 蓝调
     case jazz = "Jazz" // 爵士
     case country = "Country" // 乡村
     case classical = "Classical" // 古典
-    case hipHop = "Hip-Hop" // 嘻哈
     case electronic = "Electronic" // 电子
     case reggae = "Reggae" // 雷鬼
     case metal = "Metal" // 金属
@@ -31,21 +31,19 @@ public enum MusicGenreType: String, SmartCaseDefaultable {
     case kpop = "K-Pop" // 韩流
     case podcast = "Podcast" // 播客
     case audiobook = "Audiobook" // 电子书
-    case gameSoundtrack = "Game" // 游戏原声
-    case soundtracks = "Soundtracks" // 影视原声
-    case house = "Mouse" // House音乐
+    case gaming = "Gaming" // 游戏原声
+    case soundtrack = "Soundtrack" // 影视原声
+    case house = "House" // House音乐
     case indie = "Indie" // 独立音乐
     case disco = "Disco" // 迪斯科
     case ambient = "Ambient" // 氛围音乐
     case opera = "Opera" // 歌剧
-    case gospel = "Gospel" // 福音
+    case sacred = "Sacred" // 福音
     case other = "Others" // 其他未知
     
     static func allGenreArray() -> [MusicGenreType] {
-//        return [.pop, .rock, .blues, .country, .folk, .hipHop, .jazz, .rnb, .disco, .indie, .kpop, .electronic, .audiobook, .gameSoundtrack, .house, .podcast, .opera, .ambient, .punk, .reggae, .metal, .soundtracks, .classical, .latin, .soul, .gospel]
         return MusicGenreType.allCases
     }
-    
     
     static func initGenre(_ string: String) -> MusicGenreType? {
         if let genre = MusicGenreType(rawValue: string) {
@@ -54,21 +52,65 @@ public enum MusicGenreType: String, SmartCaseDefaultable {
                 
         // 如果大小写不一致，尝试忽略大小写并匹配
         let lowercaseString = string.lowercased()
-        var musicGenre: MusicGenreType?
-        
-        for subGenre in Self.allGenreArray() {
-            if lowercaseString.contains(subGenre.rawValue.lowercased()) {
-                musicGenre = subGenre
-            }
+        switch lowercaseString {
+        case "pop":
+            return .pop
+        case "rock":
+            return .rock
+        case "jazz":
+            return .jazz
+        case "classical":
+            return .classical
+        case "hip-hop":
+            return .hipHop
+        case "electronic":
+            return .electronic
+        case "blues":
+            return .blues
+        case "reggae":
+            return .reggae
+        case "country":
+            return .country
+        case "metal":
+            return .metal
+        case "r&b":
+            return .rnb
+        case "soul":
+            return .soul
+        case "punk":
+            return .punk
+        case "folk":
+            return .folk
+        case "latin":
+            return .latin
+        case "k-pop":
+            return .kpop
+        case "soundtrack":
+            return .soundtrack
+        case "house":
+            return .house
+        case "audiobook":
+            return .audiobook
+        case "gaming":
+            return .gaming
+        case "podcast":
+            return .podcast
+        case "indie":
+            return .indie
+        case "disco":
+            return .disco
+        case "ambient":
+            return .ambient
+        case "opera":
+            return .opera
+        case "sacred":
+            return .sacred
+        default:
+            return nil // 默认值
         }
-        
-        return musicGenre
-        
     }
     
     func iconImage() -> UIImage? {
-        let language = PhoneSetManager.formatLanguage()
-        let isFozu = language == .chinese_simplified || language == .chinese_traditional || language == .japanese || language == .tailand
         switch self {
         case .pop:
             return UIImage(named: "Genre_pop")
@@ -102,36 +144,37 @@ public enum MusicGenreType: String, SmartCaseDefaultable {
             return UIImage(named: "Genre_latin")
         case .kpop:
             return UIImage(named: "Genre_kpop")
-        case .soundtracks:
-            return UIImage(named: "Genre_soundtracks")
+        case .soundtrack:
+            return UIImage(named: "Genre_soundtrack")
+        case .house:
+            return UIImage(named: "Genre_house")
         case .podcast:
             return UIImage(named: "Genre_podcast")
         case .audiobook:
             return UIImage(named: "Genre_books")
-        case .gameSoundtrack:
+        case .gaming:
             return UIImage(named: "Genre_game")
         case .indie:
             return UIImage(named: "Genre_indie")
-        case .house:
-            return UIImage(named: "Genre_house")
         case .disco:
             return UIImage(named: "Genre_disco")
         case .ambient:
             return UIImage(named: "Genre_ambient")
         case .opera:
             return UIImage(named: "Genre_opera")
-        case .gospel:
-            return UIImage(named: isFozu ? "Genre_pusa" : "Genre_Jesus")
+        case .sacred:
+            return UIImage(named: "Genre_Sacred")
         case .other:
             return UIImage(named: "Genre_other")
+        
         }
     }
 
     func formatStr() -> String {
         if self == .other {
-            return "Others".localStr().uppercased()
+            return "Others".localStr().uppercaseFirstChar()
         }else{
-            return self.rawValue.lowercased().localStr().uppercased()
+            return self.rawValue.lowercased().localStr().uppercaseFirstChar()
         }
     }
 }
