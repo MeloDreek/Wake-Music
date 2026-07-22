@@ -326,6 +326,13 @@ class WelcomeViewController: SuperViewController {
             pageControl.isHidden = subModel.isPurchase
             privacyLabel.isHidden = subModel.isPurchase
             
+            let isFirst = currentIndex == 0
+            nextButton.backgroundColor = isFirst ? .white : .black
+            nextButton.setTitleColor(isFirst ? .black : .white, for: .normal)
+            
+            privacyLabel.overrideUserInterfaceStyle = isFirst ? .dark : .light
+            pageControl.overrideUserInterfaceStyle = isFirst ? .dark : .light
+                        
             
             if let selectModel = self.selectModel, subModel.isPurchase {
                 if selectModel.price == 0 {

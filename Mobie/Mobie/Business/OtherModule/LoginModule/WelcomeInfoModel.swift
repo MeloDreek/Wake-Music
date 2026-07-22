@@ -48,8 +48,8 @@ struct WelcomeInfoModel {
 #if Target_Mobie_Pro
         return [model1, model2, model3]
 #else
-//        return UserInfoManager.shared.isVIP() ? [model0, model1, model2, model3] : [model0, model1, model2, model3, model4]
-        return [model1, model2, model3, model4]
+        return UserInfoManager.shared.isVIP() ? [model0, model1, model2, model3] : [model0, model1, model2, model3, model4]
+//        return [model1, model2, model3, model4]
 #endif
     }
     

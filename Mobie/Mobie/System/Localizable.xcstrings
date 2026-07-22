@@ -4017,161 +4017,6 @@
         }
       }
     },
-    "A more powerful player engine that supports music formats that Apple Music cannot decode, such as DSD (DSF, DFF), DTS, APE, OGG, OPUS, WMA, S3M, TTA, MOD, WV etc." : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "محرك تشغيل أكثر قوة يدعم تنسيقات الموسيقى التي لا يستطيع Apple Music فك تشفيرها، مثل DSD (DSF، DFF)، وDTS، وAPE، وOGG، وOPUS، وWMA، وS3M، وTTA، وMOD، وWV، وما إلى ذلك."
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Eine leistungsfähigere Player-Engine, die Musikformate unterstützt, die Apple Music nicht dekodieren kann, wie DSD (DSF, DFF), DTS, APE, OGG, OPUS, WMA, S3M, TTA, MOD, WV usw."
-          }
-        },
-        "en-AU" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "A more powerful player engine that supports music formats that Apple Music cannot decode, such as DSD (DSF, DFF), DTS, APE, OGG, OPUS, WMA, S3M, TTA, MOD, WV etc."
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "A more powerful player engine that supports music formats that Apple Music cannot decode, such as DSD (DSF, DFF), DTS, APE, OGG, OPUS, WMA, S3M, TTA, MOD, WV etc."
-          }
-        },
-        "en-IN" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "A more powerful player engine that supports music formats that Apple Music cannot decode, such as DSD (DSF, DFF), DTS, APE, OGG, OPUS, WMA, S3M, TTA, MOD, WV etc."
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Un motor de reproducción más potente que admite formatos de música que Apple Music no puede decodificar, como DSD (DSF, DFF), DTS, APE, OGG, OPUS, WMA, S3M, TTA, MOD, WV, etc."
-          }
-        },
-        "es-419" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Un motor de reproducción más potente que admite formatos de música que Apple Music no puede decodificar, como DSD (DSF, DFF), DTS, APE, OGG, OPUS, WMA, S3M, TTA, MOD, WV, etc."
-          }
-        },
-        "es-US" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Un motor de reproducción más potente que admite formatos de música que Apple Music no puede decodificar, como DSD (DSF, DFF), DTS, APE, OGG, OPUS, WMA, S3M, TTA, MOD, WV, etc."
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Un moteur de lecteur plus puissant qui prend en charge les formats musicaux qu'Apple Music ne peut pas décoder, tels que DSD (DSF, DFF), DTS, APE, OGG, OPUS, WMA, S3M, TTA, MOD, WV, etc."
-          }
-        },
-        "fr-CA" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Un moteur de lecteur plus puissant qui prend en charge les formats musicaux qu'Apple Music ne peut pas décoder, tels que DSD (DSF, DFF), DTS, APE, OGG, OPUS, WMA, S3M, TTA, MOD, WV, etc."
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "एक अधिक शक्तिशाली प्लेयर इंजन जो ऐसे संगीत प्रारूपों का समर्थन करता है जिन्हें Apple Music डिकोड नहीं कर सकता, जैसे DSD (DSF, DFF), DTS, APE, OGG, OPUS, WMA, S3M, TTA, MOD, WV आदि।"
-          }
-        },
-        "id" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Mesin pemutar musik yang lebih canggih yang mendukung format musik yang tidak dapat didekode oleh Apple Music, seperti DSD (DSF, DFF), DTS, APE, OGG, OPUS, WMA, S3M, TTA, MOD, WV, dan lain-lain."
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Un motore di riproduzione più potente che supporta formati musicali che Apple Music non è in grado di decodificare, come DSD (DSF, DFF), DTS, APE, OGG, OPUS, WMA, S3M, TTA, MOD, WV, ecc."
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "DSD (DSF、DFF)、DTS、APE、OGG、OPUS、WMA、S3M、TTA、MOD、WV など、Apple Music がデコードできない音楽形式をサポートする、より強力なプレーヤー エンジンです。"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "DSD(DSF, DFF), DTS, APE, OGG, OPUS, WMA, S3M, TTA, MOD, WV 등 Apple Music에서 디코딩할 수 없는 음악 형식을 지원하는 더욱 강력한 플레이어 엔진입니다."
-          }
-        },
-        "ms" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Enjin pemain yang lebih berkuasa yang menyokong format muzik yang Apple Music tidak boleh menyahkod, seperti DSD (DSF, DFF), DTS, APE, OGG, OPUS, WMA, S3M, TTA, MOD, WV dll."
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Um mecanismo de reprodução mais poderoso que suporta formatos de música que o Apple Music não consegue decodificar, como DSD (DSF, DFF), DTS, APE, OGG, OPUS, WMA, S3M, TTA, MOD, WV, etc."
-          }
-        },
-        "pt-PT" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Um motor de reprodução mais poderoso que suporta formatos de música que o Apple Music não consegue descodificar, como DSD (DSF, DFF), DTS, APE, OGG, OPUS, WMA, S3M, TTA, MOD, WV, etc."
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Более мощный движок проигрывателя, поддерживающий музыкальные форматы, которые Apple Music не может декодировать, такие как DSD (DSF, DFF), DTS, APE, OGG, OPUS, WMA, S3M, TTA, MOD, WV и т. д."
-          }
-        },
-        "th" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "เครื่องมือเล่นเพลงที่ทรงพลังยิ่งขึ้นที่รองรับรูปแบบเพลงที่ Apple Music ไม่สามารถถอดรหัสได้ เช่น DSD (DSF, DFF), DTS, APE, OGG, OPUS, WMA, S3M, TTA, MOD, WV เป็นต้น"
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Apple Music'in çözemediği DSD (DSF, DFF), DTS, APE, OGG, OPUS, WMA, S3M, TTA, MOD, WV gibi müzik formatlarını destekleyen daha güçlü bir oynatıcı motoru."
-          }
-        },
-        "vi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Một công cụ phát nhạc mạnh mẽ hơn hỗ trợ các định dạng nhạc mà Apple Music không giải mã được, chẳng hạn như DSD (DSF, DFF), DTS, APE, OGG, OPUS, WMA, S3M, TTA, MOD, WV, v.v."
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "更强大的播放器引擎，支持Apple Music也无法解码的音乐格式。如：DSD(DSF、DFF)、DTS、APE、OGG、OPUS、WMA、S3M、TTA、MOD、WV等等"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "更強大的播放器引擎，支援Apple Music也無法解碼的音樂格式。如：DSD(DSF、DFF)、DTS、APE、OGG、OPUS、WMA、S3M、TTA、MOD、WV等等"
-          }
-        },
-        "zh-HK" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "更強大嘅播放器引擎，支援 Apple Music 亦解碼唔到嘅音樂格式。如： DSD （ DSF 、 DFF ）、 DTS 、 APE 、 OGG 、 OPUS 、 WMA 、 S3M 、 TTA 、 MOD 、 WV 等等"
-          }
-        }
-      }
-    },
     "About Premium" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -7767,6 +7612,257 @@
         }
       }
     },
+    "All future premium features! E.g., Apple Watch, native CarPlay, more cloud storage, and more" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "جميع الميزات المدفوعة القادمة! مثل Apple Watch وCarPlay الأصلي والمزيد من التخزين السحابي"
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Totes les futures funcions prèmium! Com Apple Watch, CarPlay natiu, més núvols i molt més"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Všechny budoucí prémiové funkce! Např. Apple Watch, nativní CarPlay, více cloudů atd."
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Alle fremtidige premium-funktioner! F.eks. Apple Watch, nativ CarPlay, mere skylagring"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Alle zukünftigen Premium-Funktionen! Z. B. Apple Watch, natives CarPlay, mehr Cloud-Speicher"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Όλες οι μέλλουσες λειτουργίες premium! Π.χ. Apple Watch, εγγενές CarPlay, περισσότερα clouds"
+          }
+        },
+        "en-AU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "All future premium features! E.g., Apple Watch, native CarPlay, more cloud storage, and more"
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "All future premium features! E.g., Apple Watch, native CarPlay, more cloud storage, and more"
+          }
+        },
+        "en-IN" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "All future premium features! E.g., Apple Watch, native CarPlay, more cloud storage, and more"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¡Todas las futuras funciones premium! P. ej., Apple Watch, CarPlay nativo, más almacenamiento en la nube"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¡Todas las futuras funciones premium! Ej. Apple Watch, CarPlay nativo, más nubes y más"
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¡Todas las futuras funciones premium! Ej. Apple Watch, CarPlay nativo, más nubes"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kaikki tulevat premium-ominaisuudet! Esim. Apple Watch, natiivi CarPlay, lisää pilvipalveluita"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Toutes les futures fonctionnalités premium ! Ex. Apple Watch, CarPlay natif, plus de cloud..."
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Toutes les futures fonctionnalités premium ! Ex. Apple Watch, CarPlay natif, plus de stockage nuage..."
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "כל תכונות פרימיום העתידיות! כגון Apple Watch, ‏CarPlay מקורי, עוד שירותי ענן"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "भविष्य के सभी प्रीमियम फीचर्स! जैसे Apple Watch, नेटिव CarPlay, अधिक क्लाउड स्टोरेज"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sve buduće premium značajke! Npr. Apple Watch, izvorni CarPlay, više pohrane u oblaku"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Minden jövőbeli prémium funkció! Pl. Apple Watch, natív CarPlay, több felhőtárhely"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Semua fitur premium mendatang! Spt. Apple Watch, CarPlay asli, lebih banyak penyimpanan awan"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tutte le future funzionalità premium! Es. Apple Watch, CarPlay nativo, più cloud storage"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "将来追加されるすべてのプレミアム機能！Apple Watch、ネイティブCarPlay、追加のクラウドなど"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "앞으로 추가될 모든 프리미엄 기능! Apple Watch, 네이티브 CarPlay, 더 많은 클라우드 등"
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Semua ciri premium masa depan! Cth. Apple Watch, CarPlay asli, lebih banyak storan awan"
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Alle fremtidige premium-funksjoner! F.eks. Apple Watch, nativ CarPlay, mer skylagring"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Alle toekomstige premiumfuncties! Zp. Apple Watch, native CarPlay, meer cloudopslag"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wszystkie przyszłe funkcje premium! Np. Apple Watch, natywne CarPlay, więcej chmur"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Todos os recursos premium futuros! Ex.: Apple Watch, CarPlay nativo, mais armazenamento em nuvem"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Todas as futuras funcionalidades premium! Ex.: Apple Watch, CarPlay nativo, mais nuvens"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Toate funcțiile premium viitoare! De ex. Apple Watch, CarPlay nativ, mai mult stocare în cloud"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Все будущие премиум-функции! Например, Apple Watch, нативный CarPlay, больше облаков"
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Všetky budúce prémiové funkcie! Napr. Apple Watch, natívne CarPlay, viac cloudov"
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vse prihodnje premium funkcije! Npr. Apple Watch, izvorni CarPlay, več shrambe v oblaku"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Alla framtida premiumfunktioner! T.ex. Apple Watch, nativ CarPlay, mer molnlagring"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ฟีเจอร์พรีเมียมทั้งหมดในอนาคต! เช่น Apple Watch, CarPlay แบบเนทีฟ, คลาวด์เพิ่มเติม ฯลฯ"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gelecekteki tüm premium özellikler! Örn. Apple Watch, yerel CarPlay, daha fazla bulut depolama"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Усі майбутні преміум-функції! Наприклад, Apple Watch, нативний CarPlay, більше хмарних сховищ"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tất cả tính năng cao cấp trong tương lai! Như Apple Watch, CarPlay nguyên bản, thêm lưu trữ đám mây"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "未来新增的所有高级功能！如 Apple Watch、原生 CarPlay、更多网盘等等"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "未來新增的所有高級功能！如 Apple Watch、原生 CarPlay、更多雲端硬碟等"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "未來新增的所有高級功能！如 Apple Watch、原生 CarPlay、更多雲端硬碟等"
+          }
+        }
+      }
+    },
     "All Music" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -8232,139 +8328,235 @@
         }
       }
     },
-    "All player styles including Vinyl, Cassette, custom backgrounds, etc." : {
+    "All player styles, including Vinyl, Cassette, Custom Backgrounds, and more" : {
       "extractionState" : "manual",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "جميع أنماط المشغل مثل الفينيل، الكاسيت، والخلفية المخصصة"
+            "value" : "جميع أنماط المشغل مثل الفينيل والشريط والخلفيات المخصصة والمزيد"
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tots els estils de reproductor: vinil, casset, fons personalitzats i molt més"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Všechny styly přehrávače: vinyl, kazeta, vlastního pozadí a další"
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Alle afspillerstilarter, herunder vinyl, kassette, brugerdefinerede baggrunde og mere"
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Alle Player-Stile wie Vinyl, Kassette und eigener Hintergrund"
+            "value" : "Alle Player-Styles: Vinyl, Kassetten, eigene Hintergründe und mehr"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Όλα τα στυλ αναπαραγωγής: βινύλιο, κασέτα, προσαρμοσμένα φόντα και άλλα"
           }
         },
         "en-AU" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "All player styles including Vinyl, Cassette, custom backgrounds, etc."
+            "value" : "All player styles, including Vinyl, Cassette, Custom Backgrounds, and more"
           }
         },
         "en-GB" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "All player styles including Vinyl, Cassette, custom backgrounds, etc."
+            "value" : "All player styles, including Vinyl, Cassette, Custom Backgrounds, and more"
           }
         },
         "en-IN" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "All player styles including Vinyl, Cassette, custom backgrounds, etc."
+            "value" : "All player styles, including Vinyl, Cassette, Custom Backgrounds, and more"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Todos los estilos de reproductor: vinilo, casete, fondo personalizado, etc."
+            "value" : "Todos los estilos de reproductor: vinilo, casete, fondos personalizados y más"
           }
         },
         "es-419" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Todos los estilos del reproductor: vinilo, casete y fondo personalizado"
+            "value" : "Todos los estilos de reproductor: vinilo, casete, fondos personalizados y más"
           }
         },
         "es-US" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Todos los estilos del reproductor: vinilo, casete y fondo personalizado"
+            "value" : "Todos los estilos de reproductor: vinilo, casete, fondos personalizados y más"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kaikki soittimen tyylit: vinyyli, kasetti, mukautetut taustat ja lisää"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Tous les styles de lecteur : vinyle, cassette, arrière-plan personnalisé, etc."
+            "value" : "Tous les styles de lecteur : vinyle, cassette, fonds personnalisés, etc."
           }
         },
         "fr-CA" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Tous les styles de lecteur : vinyle, cassette, arrière-plan personnalisé, etc"
+            "value" : "Tous les styles de lecteur : vinyle, cassette, arrière-plans personnalisés, etc."
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "כל סגנונות הנגן, כולל ויניל, קלטת, רקעים מותאמים אישית ועוד"
           }
         },
         "hi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "विनाइल, कैसेट, कस्टम पृष्ठभूमि आदि सहित सभी प्लेयर शैलियाँ।"
+            "value" : "सभी प्लेयर स्टाइल, जिनमें विनाइल, केसेट, कस्टम बैकग्राउंड और बहुत कुछ शामिल हैं"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Svi stilovi svirača, uključujući vinil, kasetu, prilagođene pozadine i više"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Minden lejátszóstílus: bakelit, kazetta, egyedi háttér és egyéb"
           }
         },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Semua gaya pemutar, termasuk Vinyl, Cassette, latar belakang kustom, dan sebagainya."
+            "value" : "Semua gaya pemutar: piringan hitam, kaset, latar belakang kustom, dan lainnya"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Tutti gli stili del lettore: vinile, cassetta, sfondo personalizzato e altro"
+            "value" : "Tutti gli stili del lettore: vinile, cassetta, sfondi personalizzati e altro"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "レコード、カセット、カスタム背景など、すべてのプレーヤースタイル"
+            "value" : "ビニール（LP）、カセット、カスタム背景など、すべてのプレーヤースタイル"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "비닐, 카세트, 사용자 배경 등 모든 플레이어 스타일"
+            "value" : "바이닐, 카세트, 커스텀 배경 등 모든 플레이어 스타일"
           }
         },
         "ms" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Semua gaya pemain termasuk Vinyl, Kaset, latar belakang tersuai, dsb."
+            "value" : "Semua gaya pemain: vinil, kaset, latar belakang tersuai dan banyak lagi"
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Alle spillerstiler: vinyl, kassett, tilpassede bakgrunner og mer"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Alle spelerstijlen, inclusief vinyl, cassette, aangepaste achtergronden en meer"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wszystkie style odtwarzacza: winyl, kaseta, własne tła i więcej"
           }
         },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Todos os estilos do player: vinil, fita cassete, fundo personalizado e mais"
+            "value" : "Todos os estilos de reprodutor: vinil, fita cassete, planos de fundo personalizados e mais"
           }
         },
         "pt-PT" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Todos os estilos do reprodutor: vinil, cassete, fundo personalizado, etc."
+            "value" : "Todos os estilos de reprodutor: vinil, cassete, fundos personalizados e mais"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Toate stilurile de player: vinil, casetă, fundaluri personalizate și altele"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Все стили плеера: винил, кассета, пользовательский фон и др."
+            "value" : "Все стили плеера: винил, кассета, кастомные фоны и многое другое"
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Všetky štýly prehrávača: vinyl, kazeta, vlastné pozadia a ďalšie"
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vsi slogi predvajalnika: vinil, kaseta, ozadja po meri in več"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Alla spelarstilar: vinyl, kassett, anpassade bakgrunder och mer"
           }
         },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "สไตล์เครื่องเล่นทุกประเภท รวมถึงไวนิล เทปคาสเซ็ต พื้นหลังแบบกำหนดเอง ฯลฯ"
+            "value" : "สไตล์เครื่องเล่นทั้งหมด เช่น ไวนิล, เทปคาสเซ็ต, พื้นหลังแบบกำหนดเอง และอื่นๆ"
           }
         },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Vinil, kaset ve özel arka plan dahil tüm oynatıcı stilleri"
+            "value" : "Plak, kaset, özel arka planlar ve tüm oynatıcı stilleri"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Усі стилі плеєра: вініл, касета, кастомні фони та багато іншого"
           }
         },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Tất cả kiểu trình phát: đĩa than, băng cassette, nền tùy chỉnh, v.v."
+            "value" : "Tất cả kiểu giao diện: đĩa than, băng cassette, hình nền tùy chỉnh và hơn thế nữa"
           }
         },
         "zh-Hans" : {
@@ -8376,13 +8568,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "所有播放器樣式，包括黑膠、卡帶與自訂背景等"
+            "value" : "黑膠、磁帶、自訂背景等所有播放器樣式"
           }
         },
         "zh-HK" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "所有播放器樣式，包括黑膠、卡式帶、自訂背景等"
+            "value" : "黑膠、磁帶、自訂背景等所有播放器樣式"
           }
         }
       }
@@ -14898,6 +15090,257 @@
         }
       }
     },
+    "Auto-identify music metadata via audio fingerprinting and embed into tags" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "التعرف التلقائي على البيانات الوصفية للموسيقى عبر البصمة الصوتية وتضمينها في العلامات"
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Identifica automàticament les metadades per petjada d'àudio i incrusta-les a les etiquetes"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Automaticky rozpoznat metadata pomocí zvukového otisku a vložit je do tagů"
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Genkend automatisk musikmetadata via lydfingeraftryk, og indlejre i tags"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Automatische Erkennung von Musik-Metadaten per Audio-Fingerprint und Einbettung in Tags"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Αυτόματη αναγνώριση μεταδεδομένων μέσω ηχητικού αποτυπώματος και ενσωμάτωση σε ετικέτες"
+          }
+        },
+        "en-AU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Auto-identify music metadata via audio fingerprinting and embed into tags"
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Auto-identify music metadata via audio fingerprinting and embed into tags"
+          }
+        },
+        "en-IN" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Auto-identify music metadata via audio fingerprinting and embed into tags"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Identifica automáticamente metadatos por huella de audio e incrústalos en las etiquetas"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Identifica automáticamente metadatos por huella de audio e incrústalos en las etiquetas"
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Identifica automáticamente metadatos por huella de audio e incrústalos en las etiquetas"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tunnista musiikin metadata automaattisesti äänisormenjäljen avulla ja upota tägeihin"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Identification automatique des métadonnées par empreinte vocale/audio et intégration dans les tags"
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Identification automatique des métadonnées par empreinte audio et intégration dans les balises"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "זיהוי אוטומטי של מטא-נתוני מוזיקה באמצעות טביעת אצבע קולית והטמעתם בתגיות"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ऑडियो फिंगरप्रिंटिंग के माध्यम से संगीत मेटाडेटा को स्वचालित रूप से पहचानें और टैग में एम्बेड करें"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Automatski prepoznaj metapodatke putem zvučnog otiska i ugradi ih u oznake"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zenei metaadatok automatikus felismerése hangujszlenyomat alapján, és beágyazása a tagekbe"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Identifikasi metadata musik secara otomatis via sidik jari audio & sematkan ke tag"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Riconosci automaticamente i metadata musicali tramite impronta audio e incorporali nei tag"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "オーディオフィンガープリントで楽曲のメタデータを自動識別し、タグに自動埋め込み"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "오디오 핑거프린팅으로 음악 메타데이터를 자동 인식하여 태그에 자동 내장"
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kenal pasti metadata muzik secara automatik melalui cap jari audio & benamkan ke tag"
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gjenkjenn musikk-metadata automatisk via lydfingeravtrykk, og bygg inn i tagger"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Automatisch muziekmetadata herkennen via audio-vingerafdruk en insluiten in tags"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Automatycznie rozpoznawaj metadane muzyczne za pomocą odcisku cyfrowego i osadzaj w tagach"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Identifique metadados de música automaticamente via impressão digital de áudio e insira nas tags"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Identificar metadados de música automaticamente via impressão digital de áudio e embutir nas etiquetas"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Identifică automat metadatele muzicale prin amprentă audio și încorporează-le în tag-uri"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Автораспознавание метаданных музыки по аудиоотпечатку и автоматическое встраивание в теги"
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Automaticky rozpoznať metadáta hudby pomocou zvukového odtlačku a vložiť ich do tagov"
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Samodejno prepoznajte glasbene metapodatke preko zvočnega odtisa in jih vgradite v oznake"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Identifiera musikmetadata automatiskt via ljudfingeravtryck och bädda in i taggar"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ระบุเมตาดาต้าเพลงโดยอัตโนมัติผ่านลายนิ้วมือเสียง และฝังลงในแท็กโดยอัตโนมัติ"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ses parmak izi ile müzik meta verilerini otomatik tanıyın ve etiketlere gömün"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Автовизначення метаданих музики за аудіовідбитком та автоматичне вбудовування в теги"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tự động nhận diện metadata nhạc qua dấu vân tay âm thanh và tự động nhúng vào thẻ"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "根据音频指纹自动识别音乐元数据，并自动内嵌到音乐标签"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "根據音訊指紋自動識別音樂中學資料，並自動內嵌至音樂標籤"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "根據音訊指紋自動識別音樂元數據，并自動內嵌至音樂標籤"
+          }
+        }
+      }
+    },
     "Auto-Match" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -15400,157 +15843,253 @@
         }
       }
     },
-    "Automatically parse the lyrics embedded in the file, support adding, editing, deleting, and following the playback" : {
+    "Auto-repair music tags in bulk via audio fingerprinting to complete missing metadata" : {
       "extractionState" : "manual",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "تحليل كلمات الأغاني المضمنة في الملف تلقائيًا، ودعم إضافة كلمات الأغاني المضمنة في الملف، وتحريرها، وحذفها، ومتابعة التشغيل"
+            "value" : "إصلاح العلامات تلقائيًا وبالمجموعات عبر البصمة الصوتية لضمان اكتمال البيانات الوصفية"
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Repara les etiquetes en massa per petjada d'àudio i completa les metadades que falten"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hromadná automatická oprava tagů pomocí zvukového otisku pro úplná metadata"
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Automatisk batch-reparation af tags via lydfingeraftryk for komplette metadata"
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Automatisches Analysieren der in die Datei eingebetteten Liedtexte und Unterstützung des Hinzufügens, Bearbeitens, Löschens und Verfolgens des Wiedergabefortschritts"
+            "value" : "Automatische Stapel-Reparatur von Tags per Audio-Fingerprint für vollständige Metadaten"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Αυτόματη μαζική διόρθωση ετικετών μέσω ηχητικού αποτυπώματος για πλήρη μεταδεδομένα"
           }
         },
         "en-AU" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Automatically parse the lyrics embedded in the file, support adding, editing, deleting, and following the playback"
+            "value" : "Auto-repair music tags in bulk via audio fingerprinting to complete missing metadata"
           }
         },
         "en-GB" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Automatically parse the lyrics embedded in the file, support adding, editing, deleting, and following the playback"
+            "value" : "Auto-repair music tags in bulk via audio fingerprinting to complete missing metadata"
           }
         },
         "en-IN" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Automatically parse the lyrics embedded in the file, support adding, editing, deleting, and following the playback"
+            "value" : "Auto-repair music tags in bulk via audio fingerprinting to complete missing metadata"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Analiza automáticamente las letras incrustadas en el archivo, permite añadir, editar, eliminar y seguir la reproducción."
+            "value" : "Reparación automática en lote de etiquetas por huella de audio para metadatos completos"
           }
         },
         "es-419" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Analiza automáticamente las letras incrustadas en el archivo, permite añadir, editar, eliminar y seguir la reproducción."
+            "value" : "Reparación automática en lote de etiquetas por huella de audio para metadatos completos"
           }
         },
         "es-US" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Analiza automáticamente las letras incrustadas en el archivo, permite añadir, editar, eliminar y seguir la reproducción."
+            "value" : "Reparación automática en lote de etiquetas por huella de audio para metadatos completos"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Korjaa tägit automaattisesti erissä äänisormenjäljen avulla täydellisen metadatan saamiseksi"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Analyser automatiquement les paroles intégrées dans les fichiers, prendre en charge l'ajout, la modification, la suppression et le suivi de la progression de la lecture."
+            "value" : "Réparation automatique par lots des tags via l'empreinte audio pour des métadonnées complètes"
           }
         },
         "fr-CA" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Analyser automatiquement les paroles intégrées dans les fichiers, prendre en charge l'ajout, la modification, la suppression et le suivi de la progression de la lecture."
+            "value" : "Réparation automatique par lots des balises via l'empreinte audio pour des métadonnées complètes"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "תיקון אוטומטי באצווה של תגיות באמצעות טביעת אצבע קולית למטא-נתונים מלאים"
           }
         },
         "hi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "फ़ाइल में एम्बेड किए गए गीतों को स्वचालित रूप से पार्स करें, जोड़ने, संपादित करने, हटाने और प्लेबैक का समर्थन करें"
+            "value" : "ऑडियो फिंगरप्रिंटिंग तकनीक से बल्क में संगीत टैग को ऑटो-रिपेयर करें और अधूरा मेटाडेटा पूरा करें"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Skupno automatski popravite oznake putem zvučnog otiska za potpune metapodatke"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tagek automatikus tömeges javítása hangujszlenyomat alapján a hiánytalan metaadatokért"
           }
         },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Secara otomatis mengurai lirik yang tertanam dalam file, mendukung penambahan, pengeditan, penghapusan, dan pemutaran."
+            "value" : "Perbaiki tag secara massal otomatis via sidik jari audio untuk melengkapi metadata"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Analizza automaticamente i testi incorporati nel file, supporta l'aggiunta, la modifica, l'eliminazione e la riproduzione successiva."
+            "value" : "Riparazione automatica in blocco dei tag tramite impronta audio per metadati completi"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "ファイルに埋め込まれた歌詞を自動的に解析し、追加、編集、削除、再生経過の追跡をサポート"
+            "value" : "オーディオフィンガープリント技術で楽曲タグを一括自動修復し、メタデータを完全補完"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "파일에 포함된 가사를 자동으로 구문 분석하고, 추가, 편집, 삭제 및 재생 진행 상황 추적을 지원합니다."
+            "value" : "오디오 핑거프린팅 기술로 음악 태그 일괄 자동 복구, 누락된 메타데이터 완벽 보완"
           }
         },
         "ms" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Menghuraikan lirik yang dibenamkan dalam fail secara automatik, menyokong menambah, mengedit, memadam dan mengikuti main balik"
+            "value" : "Pembaikan automatik tag secara pukal melalui cap jari audio untuk metadata lengkap"
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Automatisk batch-reparasjon av tagger via lydfingeravtrykk for komplette metadata"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "In batch automatisch tags herstellen via audio-vingerafdruk voor volledige metadata"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Automatyczne masowe naprawianie tagów za pomocą odcisku cyfrowego dla kompletnych metadanych"
           }
         },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Analise automaticamente as letras incorporadas no arquivo e suporte para adicionar, editar, excluir e acompanhar o progresso da reprodução"
+            "value" : "Reparo automático em lote de tags via impressão digital de áudio para metadados completos"
           }
         },
         "pt-PT" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Analise automaticamente as letras incorporadas no ficheiro e suporte a adicionar, editar, eliminar e seguir o progresso da reprodução"
+            "value" : "Reparação automática em lote de etiquetas via impressão digital de áudio para metadados completos"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reparare automată în lot a tag-urilor prin amprentă audio pentru metdate complete"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Автоматический разбор текстов песен, встроенных в файл, поддержка добавления, редактирования, удаления и последующего воспроизведения"
+            "value" : "Пакетное автовосстановление тегов по аудиоотпечатку для полной комплектации метаданных"
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hromadná automatická oprava tagov pomocou zvukového odtlačku pre úplné metadáta"
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Samodejno skupinsko popravljanje oznak preko zvočnega odtisa za popolne metapodatke"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Automatisk batch-reparation av taggar via ljudfingeravtryck för komplett metadata"
           }
         },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "วิเคราะห์เนื้อเพลงที่ฝังอยู่ในไฟล์โดยอัตโนมัติ รองรับการเพิ่ม แก้ไข ลบ และติดตามการเล่น"
+            "value" : "ซ่อมแซมแท็กเพลงอัตโนมัติแบบกลุ่มด้วยลายนิ้วมือเสียง เพื่อข้อมูลเมตาดาต้าที่สมบูรณ์"
           }
         },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Dosyaya gömülü şarkı sözlerini otomatik olarak ayrıştırın ve oynatma ilerlemesini eklemeyi, düzenlemeyi, silmeyi ve takip etmeyi destekleyin"
+            "value" : "Ses parmak izi ile müzik etiketlerini toplu otomatik onarın, eksik meta verileri tamamlayın"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Пакетне автовідновлення тегів за аудіовідбитком для забезпечення повних метаданих"
           }
         },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Tự động phân tích lời bài hát được nhúng trong tệp, hỗ trợ thêm, chỉnh sửa, xóa và theo dõi quá trình phát lại"
+            "value" : "Sửa thẻ tự động hàng loạt qua dấu vân tay âm thanh, đảm bảo đầy đủ metadata cho từng bài hát"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "自动解析文件内嵌的歌词，支持新增、编辑、删除、跟随播放进度"
+            "value" : "根据音频指纹识别技术，批量自动洗歌，确保每一个音频都有完整的音乐元数据"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "自動解析音檔內嵌的歌詞，支持新增、編輯、刪除、跟隨播放進度"
+            "value" : "根據音訊指紋辨識技術，批次自動修復音樂標籤，確保完整的中學資料"
           }
         },
         "zh-HK" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "自動解析文件內嵌嘅歌詞，支持新增、編輯、刪除、跟隨播放進度"
+            "value" : "根據音訊指紋識別技術，批量自動修復並補全 missing 元數據"
           }
         }
       }
@@ -21874,157 +22413,253 @@
         }
       }
     },
-    "Complete music tag editor that supports parsing and editing embedded music tags such as title, artist, album, cover, lyrics, etc." : {
+    "Complete Lyrics Experience" : {
       "extractionState" : "manual",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "محرر شامل لوسوم الملفات الصوتية، يدعم تحليل وتحرير الوسوم المدمجة مثل العنوان، الفنان، الألبوم، صورة الغلاف، الكلمات وغير ذلك."
+            "value" : "تجربة كلمات الأغاني الكاملة"
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Experiència de lletres completa"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kompletní zážitek z textů písní"
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Komplet sangtekstoplevelse"
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ein vollständiger Musik-Tag-Editor, der das Auslesen und Bearbeiten eingebetteter Tags wie Titel, Künstler, Album, Cover, Songtexte usw. unterstützt."
+            "value" : "Vollständiges Songtext-Erlebnis"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Πλήρης εμπειρία στίχων"
           }
         },
         "en-AU" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Complete music tag editor that supports parsing and editing embedded music tags such as title, artist, album, cover, lyrics, etc."
+            "value" : "Complete Lyrics Experience"
           }
         },
         "en-GB" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Complete music tag editor that supports parsing and editing embedded music tags such as title, artist, album, cover, lyrics, etc."
+            "value" : "Complete Lyrics Experience"
           }
         },
         "en-IN" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Complete music tag editor that supports parsing and editing embedded music tags such as title, artist, album, cover, lyrics, etc."
+            "value" : "Complete Lyrics Experience"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Editor completo de etiquetas de música, con soporte para analizar y editar metadatos incrustados como el título, el artista, el álbum, la carátula, las letras, entre otros."
+            "value" : "Experiencia completa de letras"
           }
         },
         "es-419" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Un editor de etiquetas musicales completo, compatible con la lectura y edición de etiquetas embebidas como título, artista, álbum, carátula, letras, entre otros."
+            "value" : "Experiencia completa de letras"
           }
         },
         "es-US" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Editor de etiquetas de música completo, permite leer y editar los metadatos integrados como título, artista, álbum, portada, letras y más."
+            "value" : "Experiencia completa de letras"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Täydellinen sanoituskokemus"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Éditeur complet de tags musicaux, prenant en charge l’analyse et la modification des métadonnées intégrées comme le titre, l’artiste, l’album, la pochette, les paroles, etc."
+            "value" : "Expérience complète des paroles"
           }
         },
         "fr-CA" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Éditeur complet de tags musicaux, prenant en charge l’analyse et la modification des métadonnées intégrées comme le titre, l’artiste, l’album, la pochette, les paroles, etc."
+            "value" : "Expérience complète des paroles"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "חוויית מילים מלאה للشירים"
           }
         },
         "hi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "पूर्ण संगीत टैग संपादक जो शीर्षक, कलाकार, एल्बम, कवर, गीत आदि जैसे एम्बेडेड संगीत टैग को पार्स करने और संपादित करने का समर्थन करता है।"
+            "value" : "पूर्ण लिरिक्स अनुभव"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Potpuno iskustvo stihova"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Teljes dalszöveg-élmény"
           }
         },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Editor tag musik lengkap yang mendukung pemrosesan dan pengeditan tag musik tertanam seperti judul, artis, album, sampul, lirik, dll. Penghapusan Lengkap"
+            "value" : "Pengalaman lirik lengkap"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Un editor completo di tag musicali, in grado di analizzare e modificare i metadati incorporati come titolo, artista, album, copertina, testi e altro ancora."
+            "value" : "Esperienza completa con i testi"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "タイトル、アーティスト、アルバム、ジャケット、歌詞などの埋め込みタグを解析・編集できる、完全な音楽タグエディタです"
+            "value" : "充実した歌詞体験"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "제목, 아티스트, 앨범, 커버, 가사 등 내장된 음악 태그를 분석하고 편집할 수 있는 완전한 태그 편집기입니다."
+            "value" : "완벽한 가사 경험"
           }
         },
         "ms" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Editor tag muzik lengkap yang menyokong penghuraian dan pengeditan teg muzik terbenam seperti tajuk, artis, album, kulit muka depan, lirik, dsb."
+            "value" : "Pengalaman lirik lengkap"
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Komplett sangtekstopplevelse"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Volledige songtekstervaring"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pełne doświadczenie tekstów piosenek"
           }
         },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Editor completo de tags musicais, com suporte para leitura e edição de tags embutidas como título, artista, álbum, capa, letras e muito mais."
+            "value" : "Experiência completa de letras"
           }
         },
         "pt-PT" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Editor completo de etiquetas de música, com suporte para analisar e editar etiquetas incorporadas como título, artista, álbum, capa, letras, entre outros."
+            "value" : "Experiência completa de letras"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Experiență completă a versurilor"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Полноценный редактор музыкальных тегов с поддержкой анализа и редактирования встроенных метаданных — таких как название, исполнитель, альбом, обложка, тексты песен и прочее."
+            "value" : "Полноценное отображение текстов песен"
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kompletný zážitok z textov piesní"
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Popolna izkušnja z besedili pesmi"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kompelt låttextupplevelse"
           }
         },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "โปรแกรมแก้ไขแท็กเพลงแบบสมบูรณ์ที่รองรับการวิเคราะห์และแก้ไขแท็กเพลงที่ฝังไว้ เช่น ชื่อเพลง ศิลปิน อัลบั้ม ปก เนื้อเพลง ฯลฯ"
+            "value" : "ประสบการณ์เนื้อเพลงที่สมบูรณ์แบบ"
           }
         },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Başlık, sanatçı, albüm, kapak resmi, şarkı sözleri gibi yerleşik müzik etiketlerini analiz edip düzenleyebilen eksiksiz bir etiket düzenleyici."
+            "value" : "Eksiksiz şarkı sözü deneyimi"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Повноцінний досвід перегляду текстів пісень"
           }
         },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Trình chỉnh sửa thẻ nhạc đầy đủ tính năng, hỗ trợ phân tích và chỉnh sửa các thẻ nhúng như tiêu đề, nghệ sĩ, album, ảnh bìa, lời bài hát, v.v."
+            "value" : "Trải nghiệm lời bài hát đầy đủ"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "完整的音乐标签编辑器，支持解析和编辑内嵌的音乐标签，如标题、艺术家、专辑、封面、歌词等等"
+            "value" : "完整的歌词体验"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "完整的音樂標籤編輯器，支援解析與編輯內嵌的音樂標籤，例如標題、藝術家、專輯、封面、歌詞等等"
+            "value" : "完整的歌詞體驗"
           }
         },
         "zh-HK" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "功能齊全嘅音樂標籤編輯器，支援讀取同編輯內嵌標籤，包括歌名、歌手、專輯、封面、歌詞等等"
+            "value" : "完整的歌詞體驗"
           }
         }
       }
@@ -23188,6 +23823,257 @@
         }
       }
     },
+    "Connect to your remote music limitlessly, saving local storage. E.g., WebDAV, Navidrome, and more" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "اتصل بموسيقاك عن بُعد بلا حدود دون استهلاك مساحة التخزين المحلية. مثل WebDAV وNavidrome والمزيد"
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Connecta't a la teva música remota sense límits i sense ocupar espai local. Com WebDAV, Navidrome, etc."
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Připojte se ke vzdálené hudbě bez omezení a bez využití místního úložiště. Např. WebDAV, Navidrome atd."
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Forbind ubegrænset til din fjernmusik uden at bruge lokal lagerplads. F.eks. WebDAV, Navidrome osv."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unbegrenzter Zugriff auf Ihre Remote-Musik, ohne lokalen Speicherplatz zu belegen. Z. B. WebDAV, Navidrome etc."
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Συνδεθείτε στην απομακρυσμένη μουσική σας χωρίς περιορισμούς, χωρίς να καταλαμβάνεται τοπικός χώρος. Π.χ. WebDAV, Navidrome κ.ά."
+          }
+        },
+        "en-AU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Connect to your remote music limitlessly, saving local storage. E.g., WebDAV, Navidrome, and more"
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Connect to your remote music limitlessly, saving local storage. E.g., WebDAV, Navidrome, and more"
+          }
+        },
+        "en-IN" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Connect to your remote music limitlessly, saving local storage. E.g., WebDAV, Navidrome, and more"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Conéctate a tu música remota sin límites y sin ocupar espacio local. P. ej., WebDAV, Navidrome, etc."
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Conéctate a tu música remota sin límites, sin usar espacio de almacenamiento local. Ej. WebDAV, Navidrome y más"
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Conéctate a tu música remota sin límites, sin usar espacio de almacenamiento local. Ej. WebDAV, Navidrome y más"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Yhdistä etämusiikkiisi ilman rajoituksia ja paikallisen tallennustilan käyttöä. Esim. WebDAV, Navidrome jne."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Connectez-vous à votre musique distante sans limite et sans occuper d'espace local. Ex. WebDAV, Navidrome..."
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Connectez-vous à votre musique distante sans limite et sans occuper d'espace local. Ex. WebDAV, Navidrome..."
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "התחבר למוזיקה מרחוק ללא הגבלה, מבלי לתפוס שטח אחסון מקומי. כגון WebDAV, Navidrome ועוד"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "बिना किसी सीमा के अपने रिमोट म्यूजिक से जुड़ें, बिना लोकल स्टोरेज इस्तेमाल किए। जैसे WebDAV, Navidrome आदि"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Povežite se s udaljenom glazbom bez ograničenja, bez zauzimanja lokalnog prostora. Npr. WebDAV, Navidrome itd."
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Csatlakozz korlátlanul a távoli zenéidhez anélkül, hogy helyi tárhelyet használnál. Pl. WebDAV, Navidrome stb."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Terhubung ke musik jarak jauh tanpa batas, tanpa memakan ruang penyimpanan lokal. Spt. WebDAV, Navidrome, dll."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Connettiti alla tua musica da remoto senza limiti e senza occupare spazio locale. Es. WebDAV, Navidrome e altro"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ローカル容量を消費せず、リモートの音源に制限なく接続。WebDAVやNavidromeなどに対応"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "로컬 저장 공간을 차지하지 않고 원격 음악에 제한 없이 연결하세요. WebDAV, Navidrome 등"
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sambung ke muzik jauh anda tanpa had, tanpa menggunakan ruang storan tempatan. Cth. WebDAV, Navidrome, dll."
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Koble til fjernmusikk uten begrensninger, uten å bruke lokal lagringsplass. F.eks. WebDAV, Navidrome osv."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Onbeperkt verbinden met je muziek op afstand, zonder lokale opslagruimte te gebruiken. Zp. WebDAV, Navidrome, etc."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Łącz się z muzyką zdalną bez ograniczeń, nie zajmując pamięci lokalnej. Np. WebDAV, Navidrome i więcej"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Conecte-se à sua música remota sem limites, sem ocupar espaço de armazenamento local. Ex.: WebDAV, Navidrome e mais"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ligue-se à sua música remota sem limites, sem ocupar espaço de armazenamento local. Ex.: WebDAV, Navidrome e mais"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Conectează-te la muzica de la distanță fără limite, fără a ocupa spațiu local. De ex. WebDAV, Navidrome etc."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Неограниченное подключение к удаленной музыке без использования локальной памяти. Например, WebDAV, Navidrome и др."
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pripojte sa k vzdialenej hudbe bez obmedzení a bez využitia miestneho úložiska. Napr. WebDAV, Navidrome atď."
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Povežite se z oddaljeno glasbo brez omejitev in brez porabe lokalnega prostora. Npr. WebDAV, Navidrome itd."
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Anslut till din fjärrmusik utan begränsningar, utan att ta upp lokalt lagringsutrymme. T.ex. WebDAV, Navidrome osv."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "เชื่อมต่อเพลงทางไกลของคุณได้อย่างไม่จำกัด โดยไม่กินพื้นที่จัดเก็บในเครื่อง เช่น WebDAV, Navidrome ฯลฯ"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Yerel depolama alanını kaplamadan uzak müziğinize sınırsızca bağlanın. Örn. WebDAV, Navidrome ve daha fazlası"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Безлімітне підключення до віддаленої музики без використання локальної пам'яті. Наприклад, WebDAV, Navidrome тощо"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kết nối không giới hạn với nhạc từ xa, không chiếm dung lượng lưu trữ cục bộ. Như WebDAV, Navidrome, v.v."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无限制地连接您的远程音乐，无须占用本地磁盘空间。如WebDAV（网盘）和Navidrome等等"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "無限制連接您的遠端音樂，無須佔用本地儲存空間。如 WebDAV、Navidrome 等"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "無限制連接您的遠端音樂，無須占用本地儲存空間。如 WebDAV、Navidrome 等"
+          }
+        }
+      }
+    },
     "Connect your Car and TV" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -23745,161 +24631,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "連接您嘅音樂"
-          }
-        }
-      }
-    },
-    "Connect your remote music without taking up local disc space. For example, WebDav(Cloud Drive) and Navidrome, etc." : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "قم بتوصيل الموسيقى عن بُعد دون أن تشغل مساحة قرص محلي. على سبيل المثال، WebDav (Cloud Drive) و Navidrome، إلخ."
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Verbinden Sie Ihre Musik aus der Ferne, ohne lokalen Speicherplatz zu belegen. Wie WebDav (Cloud Drive) und Navidrome, um nur einige zu nennen!"
-          }
-        },
-        "en-AU" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Connect your remote music without taking up local disc space. For example, WebDav(Cloud Drive) and Navidrome, etc."
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Connect your remote music without taking up local disc space. For example, WebDav(Cloud Drive) and Navidrome, etc."
-          }
-        },
-        "en-IN" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Connect your remote music without taking up local disc space. For example, WebDav(Cloud Drive) and Navidrome, etc."
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Conecta tu música remota sin ocupar espacio en el disco local. Por ejemplo, WebDav(Cloud Drive) y Navidrome, etc."
-          }
-        },
-        "es-419" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Conecta tu música remota sin ocupar espacio en el disco local. Por ejemplo, WebDav(Cloud Drive) y Navidrome, etc."
-          }
-        },
-        "es-US" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Conecta tu música remota sin ocupar espacio en el disco local. Por ejemplo, WebDav(Cloud Drive) y Navidrome, etc."
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Connectez votre musique à distance sans occuper d'espace disque local. Comme WebDav (Cloud Drive) et Navidrome, pour n'en citer que quelques-uns !"
-          }
-        },
-        "fr-CA" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Connectez votre musique à distance sans occuper d'espace disque local. Comme WebDav (Cloud Drive) et Navidrome, pour n'en citer que quelques-uns !"
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "स्थानीय डिस्क स्पेस लिए बिना अपने रिमोट संगीत को कनेक्ट करें। उदाहरण के लिए, WebDav (क्लाउड ड्राइव) और Navidrome, आदि।"
-          }
-        },
-        "id" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Hubungkan musik jarak jauh Anda tanpa menggunakan ruang penyimpanan lokal. Misalnya, WebDav (Cloud Drive) dan Navidrome, dll."
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Collegare la musica remota senza occupare spazio sul disco locale. Ad esempio, WebDav (Cloud Drive) e Navidrome, ecc."
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ローカルのディスクスペースを占有することなく、リモートミュージックに接続できます。 WebDav（クラウドドライブ）やNavidromeなど！"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "로컬 디스크 공간을 차지하지 않고 원격 음악을 연결하세요. WebDav(클라우드 드라이브), Navidrome 등이 대표적입니다!"
-          }
-        },
-        "ms" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sambungkan muzik jauh anda tanpa mengambil ruang cakera tempatan. Contohnya, WebDav(Cloud Drive) dan Navidrome, dsb."
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Conecte suas músicas remotas sem ocupar espaço no disco local. Por exemplo, WebDav (Cloud Drive) e Navidrome, etc."
-          }
-        },
-        "pt-PT" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Conecte suas músicas remotas sem ocupar espaço no disco local. Por exemplo, WebDav (Cloud Drive) e Navidrome, etc."
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Подключайте удаленную музыку, не занимая место на локальном диске. Например, WebDav (Cloud Drive), Navidrome и др."
-          }
-        },
-        "th" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "เชื่อมต่อเพลงจากระยะไกลโดยไม่ต้องใช้พื้นที่ดิสก์ภายในเครื่อง เช่น WebDav (Cloud Drive) และ Navidrome เป็นต้น"
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Uzak müziğinizi yerel disk alanı kaplamadan bağlayın. Örneğin, WebDav (Bulut Sürücü) ve Navidrome vb."
-          }
-        },
-        "vi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Kết nối nhạc từ xa của bạn mà không chiếm dung lượng đĩa cục bộ. Ví dụ: WebDav (Cloud Drive) và Navidrome, v.v."
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "连接您的远程音乐，无须占用本地磁盘空间。如WebDav（网盘）和Navidrome等等"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "連接你嘅遠程音樂，唔需要占用本地磁碟空間。如 WebDav （雲端硬碟）同 Navidrome 等等"
-          }
-        },
-        "zh-HK" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "連接你嘅遠程音樂，唔需要占用本地磁碟空間。如 WebDav （雲盤）同 Navidrome 等等"
           }
         }
       }
@@ -27628,161 +28359,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "自訂壁紙"
-          }
-        }
-      }
-    },
-    "Customize your favorite accent color" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "خصص لونك المفضل لديك"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Passen Sie die Themenfarben an, die Ihnen gefallen"
-          }
-        },
-        "en-AU" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Customize your favorite accent color"
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Customize your favorite accent color"
-          }
-        },
-        "en-IN" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Customize your favorite accent color"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Personaliza tu color de acento favorito"
-          }
-        },
-        "es-419" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Personaliza tu color de acento favorito"
-          }
-        },
-        "es-US" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Personaliza tu color de acento favorito"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Personnalisez votre couleur préférée"
-          }
-        },
-        "fr-CA" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Personnalisez votre couleur préférée"
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "अपना पसंदीदा एक्सेंट रंग अनुकूलित करें"
-          }
-        },
-        "id" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sesuaikan warna aksen favorit AndaSesuaikan wallpaper"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Personalizzate il vostro colore d'accento preferito"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "お好みのアクセントカラーをカスタマイズ"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "좋아하는 액센트 색상 사용자 지정"
-          }
-        },
-        "ms" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sesuaikan warna aksen kegemaran anda"
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Personalize as cores do tema que você gosta"
-          }
-        },
-        "pt-PT" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Personalize as cores do tema que você gosta"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Настройте цвета темы, которые вам нравятся"
-          }
-        },
-        "th" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ปรับแต่งสีเน้นที่คุณชื่นชอบ"
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Beğendiğiniz tema renklerini özelleştirin"
-          }
-        },
-        "vi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tùy chỉnh màu nhấn yêu thích của bạn"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "自定义您喜欢的主题颜色"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "自訂您喜愛的強調色"
-          }
-        },
-        "zh-HK" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "自定義您鍾意嘅主題顏色"
           }
         }
       }
@@ -44319,6 +44895,257 @@
         }
       }
     },
+    "Full-format playback engine, supporting audio formats unsupported by Apple Music. E.g., DSD (DSF, DFF), DTS, APE, OGG, OPUS, WMA, S3M, TTA, MOD, WV, etc." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "محرك تشغيل جميع الصيغ، يدعم تنسيقات الصوت التي لا يستطيع Apple Music فك ترميزها. مثل: DSD (DSF, DFF)، DTS، APE، OGG، OPUS، WMA، S3M، TTA، MOD، WV، إلخ"
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Motor de reproducció multiformat, compatible amb formats que Apple Music no pot descodificar. Com: DSD (DSF, DFF), DTS, APE, OGG, OPUS, WMA, S3M, TTA, MOD, WV, etc."
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Přehrávací engine pro všechny formáty, podporující zvuky, které Apple Music nedokáže dekódovat. Např.: DSD (DSF, DFF), DTS, APE, OGG, OPUS, WMA, S3M, TTA, MOD, WV atd."
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fuldformatsafspilningsmotor, der understøtter lydformater, som Apple Music ikke kan afkode. F.eks.: DSD (DSF, DFF), DTS, APE, OGG, OPUS, WMA, S3M, TTA, MOD, WV osv."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Universal-Wiedergabe-Engine, unterstützt Audioformate, die Apple Music nicht dekodieren kann. Z. B.: DSD (DSF, DFF), DTS, APE, OGG, OPUS, WMA, S3M, TTA, MOD, WV etc."
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Μηχανή αναπαραγωγής όλων των μορφών, υποστηρίζει μορφές ήχου που δεν μπορεί να αποκωδικοποιήσει το Apple Music. Π.χ.: DSD (DSF, DFF), DTS, APE, OGG, OPUS, WMA, S3M, TTA, MOD, WV κ.ά."
+          }
+        },
+        "en-AU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Full-format playback engine, supporting audio formats unsupported by Apple Music. E.g., DSD (DSF, DFF), DTS, APE, OGG, OPUS, WMA, S3M, TTA, MOD, WV, etc."
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Full-format playback engine, supporting audio formats unsupported by Apple Music. E.g., DSD (DSF, DFF), DTS, APE, OGG, OPUS, WMA, S3M, TTA, MOD, WV, etc."
+          }
+        },
+        "en-IN" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Full-format playback engine, supporting audio formats unsupported by Apple Music. E.g., DSD (DSF, DFF), DTS, APE, OGG, OPUS, WMA, S3M, TTA, MOD, WV, etc."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Motor de reproducción multiformato, compatible con formatos de audio que Apple Music no puede decodificar. P. ej.: DSD (DSF, DFF), DTS, APE, OGG, OPUS, WMA, S3M, TTA, MOD, WV, etc."
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Motor de reproducción multiformato, compatible con formatos de audio que Apple Music no puede decodificar. Ej.: DSD (DSF, DFF), DTS, APE, OGG, OPUS, WMA, S3M, TTA, MOD, WV y más"
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Motor de reproducción multiformato, compatible con formatos de audio que Apple Music no puede decodificar. Ej.: DSD (DSF, DFF), DTS, APE, OGG, OPUS, WMA, S3M, TTA, MOD, WV y más"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kaikkien muotojen toistomoottori, tukee äänimuotoja, joita Apple Music ei pysty purkamaan. Esim.: DSD (DSF, DFF), DTS, APE, OGG, OPUS, WMA, S3M, TTA, MOD, WV jne."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Moteur de lecture multiformat, compatible avec les formats audio non décodés par Apple Music. Ex. : DSD (DSF, DFF), DTS, APE, OGG, OPUS, WMA, S3M, TTA, MOD, WV..."
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Moteur de lecture multiformat, compatible avec les formats audio non décodés par Apple Music. Ex. : DSD (DSF, DFF), DTS, APE, OGG, OPUS, WMA, S3M, TTA, MOD, WV..."
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "מנוע השמעה לכל הפורמטים, תומך בפורמטי אודיו ש-Apple Music אינו יכול לפענח. כגון: DSD (DSF, DFF), DTS, APE, OGG, OPUS, WMA, S3M, TTA, MOD, WV ועוד"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ऑल-फॉर्मेट प्लेबैक इंजन, जो उन ऑडियो फॉर्मेट का भी समर्थन करता है जिन्हें Apple Music डिकोड नहीं कर सकता। जैसे: DSD (DSF, DFF), DTS, APE, OGG, OPUS, WMA, S3M, TTA, MOD, WV आदि"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pokretač za reprodukciju svih formata, podržava audio formate koje Apple Music ne može dekodirati. Npr.: DSD (DSF, DFF), DTS, APE, OGG, OPUS, WMA, S3M, TTA, MOD, WV itd."
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Teljes formátumú lejátszómotor, olyan hangformátumok támogatásával, amelyeket az Apple Music nem tud dekódolni. Pl.: DSD (DSF, DFF), DTS, APE, OGG, OPUS, WMA, S3M, TTA, MOD, WV stb."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mesin pemutar semua format, mendukung format audio yang tidak dapat didekode oleh Apple Music. Spt: DSD (DSF, DFF), DTS, APE, OGG, OPUS, WMA, S3M, TTA, MOD, WV, dll."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Motore di riproduzione multiformato, supporta i formati audio che Apple Music non riesce a decodificare. Es.: DSD (DSF, DFF), DTS, APE, OGG, OPUS, WMA, S3M, TTA, MOD, WV e altro"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "全フォーマット対応の再生エンジン。Apple Musicではデコードできない音源格式（DSD(DSF、DFF)、DTS、APE、OGG、OPUS、WMA、S3M、TTA、MOD、WVなど）にも対応"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "모든 포맷 지원 재생 엔진, Apple Music에서 디코딩할 수 없는 오디오 포맷 지원. 예: DSD(DSF, DFF), DTS, APE, OGG, OPUS, WMA, S3M, TTA, MOD, WV 등"
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enjin main balik semua format, menyokong format audio yang tidak boleh dinyahkod oleh Apple Music. Cth: DSD (DSF, DFF), DTS, APE, OGG, OPUS, WMA, S3M, TTA, MOD, WV, dll."
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Spillemotor for alle formater, støtter lydformater som Apple Music ikke kan dekode. F.eks.: DSD (DSF, DFF), DTS, APE, OGG, OPUS, WMA, S3M, TTA, MOD, WV osv."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Universele afspeel-engine, ondersteunt audioformaten die Apple Music niet kan decoderen. Zp.: DSD (DSF, DFF), DTS, APE, OGG, OPUS, WMA, S3M, TTA, MOD, WV, etc."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Silnik odtwarzania wszystkich formatów, obsługuje formaty audio, których Apple Music nie potrafi zdekodować. Np.: DSD (DSF, DFF), DTS, APE, OGG, OPUS, WMA, S3M, TTA, MOD, WV i więcej"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Motor de reprodução multiformato, compatível com formatos de áudio que o Apple Music não consegue decodificar. Ex.: DSD (DSF, DFF), DTS, APE, OGG, OPUS, WMA, S3M, TTA, MOD, WV e mais"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Motor de reprodução multiformato, compatível com formatos de áudio que o Apple Music não consegue descodificar. Ex.: DSD (DSF, DFF), DTS, APE, OGG, OPUS, WMA, S3M, TTA, MOD, WV e mais"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Motor de redare multiformat, ce suportă formate audio pe care Apple Music nu le poate decoda. De ex.: DSD (DSF, DFF), DTS, APE, OGG, OPUS, WMA, S3M, TTA, MOD, WV etc."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Полноформатный движок воспроизведения, поддерживающий аудиоформаты, недоступные для декодирования в Apple Music. Например: DSD (DSF, DFF), DTS, APE, OGG, OPUS, WMA, S3M, TTA, MOD, WV и др."
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prehrávací engine pre všetky formáty, podporujúci audio formáty, ktoré Apple Music nedokáže dekódovať. Napr.: DSD (DSF, DFF), DTS, APE, OGG, OPUS, WMA, S3M, TTA, MOD, WV atď."
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Predvajalni pogon za vse formate, ki podpira zvočne formate, ki jih Apple Music ne more dekodirati. Npr.: DSD (DSF, DFF), DTS, APE, OGG, OPUS, WMA, S3M, TTA, MOD, WV itd."
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Uppspelningsmotor för alla format, med stöd för ljudformat som Apple Music inte kan avkoda. T.ex.: DSD (DSF, DFF), DTS, APE, OGG, OPUS, WMA, S3M, TTA, MOD, WV osv."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "เอนจินเล่นเพลงทุกฟอร์แมต รองรับไฟล์เสียงที่ Apple Music ไม่สามารถถอดรหัสได้ เช่น DSD (DSF, DFF), DTS, APE, OGG, OPUS, WMA, S3M, TTA, MOD, WV ฯลฯ"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tüm formatları destekleyen oynatma motoru; Apple Music'in çözemediği ses formatlarını bile destekler. Örn.: DSD (DSF, DFF), DTS, APE, OGG, OPUS, WMA, S3M, TTA, MOD, WV ve daha fazlası"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Повноформатний рушій відтворення, що підтримує аудіоформати, які Apple Music не може декодувати. Наприклад: DSD (DSF, DFF), DTS, APE, OGG, OPUS, WMA, S3M, TTA, MOD, WV тощо"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Trình phát hỗ trợ mọi định dạng, phát được các định dạng âm thanh mà Apple Music không thể giải mã. Như: DSD (DSF, DFF), DTS, APE, OGG, OPUS, WMA, S3M, TTA, MOD, WV, v.v."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "全格式播放引擎，支持Apple Music也无法解码的音频格式。如：DSD(DSF、DFF)、DTS、APE、OGG、OPUS、WMA、S3M、TTA、MOD、WV等等"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "全格式播放引擎，支援 Apple Music 無法解碼的音訊格式。如：DSD (DSF、DFF)、DTS、APE、OGG、OPUS、WMA、S3M、TTA、MOD、WV 等"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "全格式播放引擎，支援 Apple Music 無法解碼的音訊格式。如：DSD (DSF、DFF)、DTS、APE、OGG、OPUS、WMA、S3M、TTA、MOD、WV 等"
+          }
+        }
+      }
+    },
     "funk" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -57203,257 +58030,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "無損質音頻"
-          }
-        }
-      }
-    },
-    "Lossless audio format with automatic cropping of the last 3 seconds." : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "تنسيق صوتي بدون فقدان البيانات ، اقتصاص آخر 3 ثوان تلقائيا"
-          }
-        },
-        "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Format d'àudio sense pèrdues, retalla automàticament els darrers 3 segons"
-          }
-        },
-        "cs" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Bezztrátový zvukový formát, automaticky ořízněte poslední 3 sekundy"
-          }
-        },
-        "da" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tabsfrit lydformat, beskær automatisk de sidste 3 sekunder"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Verlustfreies Audioformat, schneiden Sie die letzten 3 Sekunden automatisch zu"
-          }
-        },
-        "el" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Μορφή ήχου χωρίς απώλειες, αυτόματη περικοπή των τελευταίων 3 δευτερολέπτων"
-          }
-        },
-        "en-AU" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Lossless audio format with automatic cropping of the last 3 seconds."
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Lossless audio format with automatic cropping of the last 3 seconds."
-          }
-        },
-        "en-IN" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Lossless audio format with automatic cropping of the last 3 seconds."
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Formato de audio sin pérdidas, recorta automáticamente los últimos 3 segundos"
-          }
-        },
-        "es-419" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Formato de audio sin pérdidas, recorta automáticamente los últimos 3 segundos"
-          }
-        },
-        "es-US" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Formato de audio sin pérdidas, recorta automáticamente los últimos 3 segundos"
-          }
-        },
-        "fi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Häviötön äänimuoto, rajaa automaattisesti viimeiset 3 sekuntia"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Format audio sans perte, recadrez automatiquement les 3 dernières secondes"
-          }
-        },
-        "fr-CA" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Format audio sans perte, recadrez automatiquement les 3 dernières secondes"
-          }
-        },
-        "he" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "פורמט שמע ללא אובדן, חתוך אוטומטית את 3 השניות האחרונות"
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "दोषरहित ऑडियो प्रारूप, स्वचालित रूप से अंतिम 3 सेकंड को क्रॉप करें"
-          }
-        },
-        "hr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Format zvuka bez gubitaka, automatski izrežite posljednje 3 sekunde"
-          }
-        },
-        "hu" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Veszteségmentes hangformátum, automatikusan vágja le az utolsó 3 másodpercet"
-          }
-        },
-        "id" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Format audio lossless, secara otomatis memotong 3 detik terakhir"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Formato audio senza perdita di dati, ritaglia automaticamente gli ultimi 3 secondi"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ロスレスオーディオ形式、最後の3秒を自動的にトリミング"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "무손실 오디오 형식, 마지막 3초를 자동으로 자릅니다."
-          }
-        },
-        "ms" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Format audio lossless, secara automatik memangkas 3 saat terakhir"
-          }
-        },
-        "nb" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tapsfritt lydformat, beskjær automatisk de siste 3 sekundene"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Lossless audioformaat, snijd automatisch de laatste 3 seconden bij"
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Bezstratny format audio, automatyczne przycinanie ostatnich 3 sekund"
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Formato de áudio sem perdas, corta automaticamente os últimos 3 segundos"
-          }
-        },
-        "pt-PT" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Formato de áudio sem perdas, corte automaticamente os últimos 3 segundos"
-          }
-        },
-        "ro" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Format audio fără pierderi, decupează automat ultimele 3 secunde"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Аудиоформат без потерь, автоматическая обрезка последних 3 секунд"
-          }
-        },
-        "sk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Bezstratový zvukový formát, automatické orezanie posledných 3 sekúnd"
-          }
-        },
-        "sl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Zvočni format brez izgub z avtomatskim obrezovanjem zadnjih 3 sekund."
-          }
-        },
-        "sv" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Förlustfritt ljudformat, beskär automatiskt de senaste 3 sekunderna"
-          }
-        },
-        "th" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "รูปแบบเสียงแบบไม่สูญเสียข้อมูล ครอบตัด 3 วินาทีสุดท้ายโดยอัตโนมัติ"
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Kayıpsız ses formatı, son 3 saniyeyi otomatik olarak kırpın"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Аудіоформат без втрат, автоматичне обрізання останніх 3 секунд"
-          }
-        },
-        "vi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Định dạng âm thanh không mất dữ liệu, tự động cắt 3 giây cuối cùng"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "无损质的音频格式，自动裁剪最后3秒钟"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "無損質的音訊格式，自動裁切最後3秒鐘"
-          }
-        },
-        "zh-HK" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "無損質嘅音頻格式，自動裁剪最後3秒鐘"
           }
         }
       }
@@ -78297,161 +78873,6 @@
         }
       }
     },
-    "Please click the red button" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "الرجاء الضغط على الزر الأحمر"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Bitte klicken Sie auf die rote Schaltfläche"
-          }
-        },
-        "en-AU" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Please click the red button"
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Please click the red button"
-          }
-        },
-        "en-IN" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Please click the red button"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Haz clic en el botón rojo"
-          }
-        },
-        "es-419" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Presiona el botón rojo"
-          }
-        },
-        "es-US" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tap the red button"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Veuillez cliquer sur le bouton rouge"
-          }
-        },
-        "fr-CA" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Cliquez sur le bouton rouge"
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "कृपया लाल बटन पर क्लिक करें"
-          }
-        },
-        "id" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Silakan klik tombol merah."
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Clicca sul pulsante rosso"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "赤いボタンをクリックしてください"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "빨간 버튼을 클릭하세요"
-          }
-        },
-        "ms" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sila klik butang merah"
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Clique no botão vermelho"
-          }
-        },
-        "pt-PT" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Clique no botão vermelho"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Нажмите на красную кнопку"
-          }
-        },
-        "th" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "กรุณากดปุ่มสีแดง"
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Kırmızı düğmeye tıklayın"
-          }
-        },
-        "vi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Vui lòng nhấp vào nút màu đỏ"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "请点击红色按钮"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "請點擊紅色按鈕"
-          }
-        },
-        "zh-HK" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "請點擊紅色按鈕"
-          }
-        }
-      }
-    },
     "Please connect to Wi-Fi" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -80884,6 +81305,257 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "請喺選擇視頻前設定"
+          }
+        }
+      }
+    },
+    "Please tap the red button" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "يرجى النقر على الزر الأحمر"
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Per favor, prem el botó vermell"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prosím, klepněte na červené tlačítko"
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tryk venligst på den røde knap"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bitte tippen Sie auf den roten Button"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Παρακαλώ, πατήστε το κόκκινο κουμπί"
+          }
+        },
+        "en-AU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Please tap the red button"
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Please tap the red button"
+          }
+        },
+        "en-IN" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Please tap the red button"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Por favor, pulsa el botón rojo"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Por favor, toca el botón rojo"
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Por favor, toca el botón rojo"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Napauta punaista painiketta, kiitos"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Veuillez appuyer sur le bouton rouge"
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Veuillez appuyer sur le bouton rouge"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "אנא לחץ על הכפתור האדום"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "कृपया लाल बटन दबाएं"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Molim vas, dodirnite crveni gumb"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kérjük, koppintson a piros gombra"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Silakan ketuk tombol merah"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Per favore, tocca il pulsante rosso"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "赤いボタンをタップしてください"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "빨간색 버튼을 탭해 주세요"
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sila ketuk butang merah"
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vennligst trykk på den røde knappen"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tik alstublieft op de rode knop"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Proszę dotknąć czerwony przycisk"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Por favor, toque no botão vermelho"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Por favor, toque no botão vermelho"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Te rog, atinge butonul roșu"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Пожалуйста, нажмите на красную кнопку"
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prosím, klepnite na červené tlačidlo"
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prosim, tapnite na rdeč gumb"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tryck vänligen på den röda knappen"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "กรุณาแตะปุ่มสีแดง"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lütfen kırmızı butona dokunun"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Будь ласка, натисніть на червону кнопку"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vui lòng chạm vào nút màu đỏ"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "请点击红色按钮"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "請點擊紅色按鈕"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "請點擊紅色按鈕"
           }
         }
       }
@@ -84154,161 +84826,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "購買日期："
-          }
-        }
-      }
-    },
-    "Purchase now to unlock all Apple devices, including iPhone, iPad, Mac, as well as the upcoming Apple Watch, Apple TV, and CarPlay." : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "عند الشراء الآن، ستحصل على إمكانية الوصول إلى جميع أجهزة Apple: iPhone وiPad وMac، بالإضافة إلى Apple Watch وApple TV وCarPlay القادمة قريبًا."
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Jetzt kaufen und alle Apple-Geräte freischalten: iPhone, iPad, Mac sowie die bald verfügbaren Apple Watch, Apple TV und CarPlay."
-          }
-        },
-        "en-AU" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Purchase now to unlock all Apple devices, including iPhone, iPad, Mac, as well as the upcoming Apple Watch, Apple TV, and CarPlay."
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Purchase now to unlock all Apple devices, including iPhone, iPad, Mac, as well as the upcoming Apple Watch, Apple TV, and CarPlay."
-          }
-        },
-        "en-IN" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Purchase now to unlock all Apple devices, including iPhone, iPad, Mac, as well as the upcoming Apple Watch, Apple TV, and CarPlay."
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Compra ahora y desbloquea todos los dispositivos Apple: iPhone, iPad, Mac, y próximamente Apple Watch, Apple TV y CarPlay."
-          }
-        },
-        "es-419" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Adquiere ahora y desbloquea todos los dispositivos Apple: iPhone, iPad, Mac, y próximamente también Apple Watch, Apple TV y CarPlay."
-          }
-        },
-        "es-US" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Compra ahora y accede a todos los dispositivos Apple: iPhone, iPad, Mac, y muy pronto Apple Watch, Apple TV y CarPlay."
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Achetez maintenant pour débloquer tous les appareils Apple : iPhone, iPad, Mac, ainsi que les prochains Apple Watch, Apple TV et CarPlay."
-          }
-        },
-        "fr-CA" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Achetez maintenant pour débloquer tous les appareils Apple : iPhone, iPad, Mac, ainsi que les prochains Apple Watch, Apple TV et CarPlay."
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "iPhone, iPad, Mac, साथ ही आगामी Apple Watch, Apple TV और CarPlay सहित सभी Apple डिवाइसों को अनलॉक करने के लिए अभी खरीदें।"
-          }
-        },
-        "id" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Beli sekarang untuk mengakses semua perangkat Apple, termasuk iPhone, iPad, Mac, serta Apple Watch, Apple TV, dan CarPlay yang akan datang."
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Acquista ora per sbloccare tutti i dispositivi Apple: iPhone, iPad, Mac e, prossimamente, anche Apple Watch, Apple TV e CarPlay."
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "今すぐ購入すると、iPhone、iPad、Mac に加えて、近日対応予定の Apple Watch、Apple TV、CarPlay もすべて利用可能になります"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "지금 구매하시면 iPhone, iPad, Mac을 포함한 모든 Apple 기기에서 사용 가능하며, 곧 출시될 Apple Watch, Apple TV, CarPlay도 지원됩니다."
-          }
-        },
-        "ms" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Beli sekarang untuk membuka kunci semua peranti Apple, termasuk iPhone, iPad, Mac, serta Apple Watch, Apple TV dan CarPlay yang akan datang."
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Compre agora e desbloqueie todos os dispositivos Apple: iPhone, iPad, Mac e, em breve, Apple Watch, Apple TV e CarPlay."
-          }
-        },
-        "pt-PT" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Compre agora e desbloqueie todos os dispositivos Apple: iPhone, iPad, Mac e, em breve, também Apple Watch, Apple TV e CarPlay"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Купите сейчас и получите доступ ко всем устройствам Apple: iPhone, iPad, Mac, а также к будущим Apple Watch, Apple TV и CarPlay."
-          }
-        },
-        "th" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ซื้อตอนนี้เพื่อปลดล็อคอุปกรณ์ Apple ทั้งหมด รวมถึง iPhone, iPad, Mac รวมถึง Apple Watch, Apple TV และ CarPlay ที่จะวางจำหน่ายเร็วๆ นี้"
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Şimdi satın alarak iPhone, iPad, Mac dahil tüm Apple cihazlarının kilidini açın. Yakında Apple Watch, Apple TV ve CarPlay de desteklenecek!"
-          }
-        },
-        "vi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Mua ngay để mở khóa tất cả thiết bị Apple: iPhone, iPad, Mac, cùng với Apple Watch, Apple TV và CarPlay sẽ sớm ra mắt."
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "当前购买即可解锁所有苹果设备，iPhone、iPad、Mac，以及即将推出的Apple Watch、Apple TV和CarPlay"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "現在購買即可解鎖所有 Apple 裝置，包括 iPhone、iPad、Mac，以及即將推出的 Apple Watch、Apple TV 和 CarPlay"
-          }
-        },
-        "zh-HK" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "而家購買即可解鎖所有 Apple 裝置，包括 iPhone、iPad、Mac，仲有即將推出嘅 Apple Watch、Apple TV 同 CarPlay"
           }
         }
       }
@@ -93031,316 +93548,6 @@
         }
       }
     },
-    "Search album art with AI and embed it into local music files" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "استخدم الذكاء الاصطناعي للبحث عن الغلاف وتضمينه في ملف الموسيقى المحلي"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Mit KI nach Covern suchen und sie in lokale Musikdateien einbetten"
-          }
-        },
-        "en-AU" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Search album art with AI and embed it into local music files"
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Search album art with AI and embed it into local music files"
-          }
-        },
-        "en-IN" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Search album art with AI and embed it into local music files"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Usar IA para buscar la carátula e incrustarla en el archivo de música local"
-          }
-        },
-        "es-419" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Usar IA para buscar la portada y agregarla al archivo de música local"
-          }
-        },
-        "es-US" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Usar IA para buscar la portada y añadirla al archivo de música local"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Utiliser l’IA pour rechercher une pochette et l’intégrer au fichier musical local"
-          }
-        },
-        "fr-CA" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Utiliser l’IA pour rechercher une pochette et l’intégrer au fichier musical local"
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "AI के साथ एल्बम आर्ट खोजें और इसे स्थानीय संगीत फ़ाइलों में एम्बेड करें"
-          }
-        },
-        "id" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Cari sampul album menggunakan kecerdasan buatan (AI) dan sisipkan ke dalam file musik lokal."
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Cerca la copertina con l’IA e incorporala nel file musicale locale"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "AIでカバー画像を検索し、ローカル音楽ファイルに埋め込みます"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "AI로 앨범 커버를 검색하여 로컬 음악 파일에 삽입합니다"
-          }
-        },
-        "ms" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Cari seni album dengan AI dan benamkannya ke dalam fail muzik tempatan"
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Usar IA para buscar a capa e incorporá-la ao arquivo de música local"
-          }
-        },
-        "pt-PT" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Utilizar IA para procurar a capa e incorporá-la no ficheiro de música local"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Использовать ИИ для поиска обложки и встраивания её в локальный музыкальный файл"
-          }
-        },
-        "th" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ค้นหาปกอัลบั้มด้วย AI และฝังลงในไฟล์เพลงในเครื่อง"
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Yapay zekâ ile kapak görseli bulun ve yerel müzik dosyasına gömün"
-          }
-        },
-        "vi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Dùng AI tìm ảnh bìa và nhúng vào tệp nhạc cục bộ"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "使用AI搜索封面，并内嵌到本地音乐文件"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "使用 AI 搜尋封面，並嵌入至離線音樂檔案"
-          }
-        },
-        "zh-HK" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "使用 AI 搵封面，並內嵌入本地音樂檔案"
-          }
-        }
-      }
-    },
-    "Search Album Cover With AI" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "البحث عن غلاف الألبوم باستخدام AI"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Albumcover mit KI suchen"
-          }
-        },
-        "en-AU" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Search Album Cover With AI"
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Search Album Cover With AI"
-          }
-        },
-        "en-IN" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Search Album Cover With AI"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Buscar portadas de álbumes con IA"
-          }
-        },
-        "es-419" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Buscar portadas de álbumes con IA"
-          }
-        },
-        "es-US" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Buscar portadas de álbumes con IA"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Rechercher des pochettes d'albums avec l'IA"
-          }
-        },
-        "fr-CA" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Rechercher des pochettes d'albums avec l'IA"
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "AI के साथ एल्बम कवर खोजें"
-          }
-        },
-        "id" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Cari Sampul Album dengan AI"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Cerca copertina album con IA"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "AIでアルバムカバーを検索する"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "AI를 활용한 앨범 커버 검색"
-          }
-        },
-        "ms" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Cari Kulit Album Dengan AI"
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Pesquisar capa de álbum com IA"
-          }
-        },
-        "pt-PT" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Pesquisar capa de álbum com IA"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Поиск обложки альбома с помощью ИИ"
-          }
-        },
-        "th" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ค้นหาปกอัลบั้มด้วย AI"
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "AI ile Albüm Kapağı Arama"
-          }
-        },
-        "vi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tìm kiếm bìa album bằng AI"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "AI搜索封面"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "使用人工智慧搜尋專輯封面"
-          }
-        },
-        "zh-HK" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "AI搜索專輯封面"
-          }
-        }
-      }
-    },
     "Search failed! You can try to modify the title, artist or album name and try again!" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -93492,471 +93699,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "搜尋失敗！你可以試下修改歌名、歌手或者專輯名稱，然後再試一次！"
-          }
-        }
-      }
-    },
-    "Search Lyric With AI" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ابحث عن كلمات الأغنية مع AI"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Mit KI nach Liedtexten suchen"
-          }
-        },
-        "en-AU" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Search Lyric With AI"
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Search Lyric With AI"
-          }
-        },
-        "en-IN" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Search Lyric With AI"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Buscar letras con IA"
-          }
-        },
-        "es-419" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Buscar letras con IA"
-          }
-        },
-        "es-US" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Buscar letras con IA"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Rechercher des paroles avec l'IA"
-          }
-        },
-        "fr-CA" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Rechercher des paroles avec l'IA"
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "AI के साथ गीत खोजें"
-          }
-        },
-        "id" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Cari Lirik dengan AI"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Cerca testi delle canzoni con l'AI"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "AIで歌詞を検索"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "AI로 가사 검색"
-          }
-        },
-        "ms" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Cari Lirik Dengan AI"
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Pesquisar letras com IA"
-          }
-        },
-        "pt-PT" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Pesquisar letras com IA"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Поиск текста песни с помощью ИИ"
-          }
-        },
-        "th" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ค้นหาเนื้อเพลงด้วย AI"
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "AI ile Şarkı Sözü Arama"
-          }
-        },
-        "vi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tìm kiếm lời bài hát bằng AI"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "AI搜索歌词"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "使用AI搜尋歌詞"
-          }
-        },
-        "zh-HK" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "AI 搜尋歌詞"
-          }
-        }
-      }
-    },
-    "Search lyric with AI and embed it into local music files" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "استخدم الذكاء الاصطناعي للبحث عن كلمات الأغاني وتضمينها في ملف الموسيقى المحلي"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Mit KI Liedtexte suchen und in lokale Musikdateien einbetten"
-          }
-        },
-        "en-AU" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Search lyric with AI and embed it into local music files"
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Search lyric with AI and embed it into local music files"
-          }
-        },
-        "en-IN" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Search lyric with AI and embed it into local music files"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Usar IA para buscar la letra e incrustarla en el archivo de música local"
-          }
-        },
-        "es-419" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Usar IA para buscar la letra y agregarla al archivo de música local"
-          }
-        },
-        "es-US" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Usar IA para buscar la letra y añadirla al archivo de música local"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Utiliser l’IA pour rechercher les paroles et les intégrer au fichier musical local"
-          }
-        },
-        "fr-CA" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Utiliser l’IA pour rechercher les paroles et les intégrer au fichier musical local"
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "AI के साथ गीत खोजें और इसे स्थानीय संगीत फ़ाइलों में एम्बेड करें"
-          }
-        },
-        "id" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Cari lirik lagu menggunakan kecerdasan buatan (AI) dan sisipkan ke dalam file musik lokal."
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Cerca il testo con l’IA e incorporalo nel file musicale locale"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "AIで歌詞を検索し、ローカル音楽ファイルに埋め込みます"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "AI로 가사를 검색하여 로컬 음악 파일에 삽입합니다"
-          }
-        },
-        "ms" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Cari lirik dengan AI dan benamkannya ke dalam fail muzik tempatan"
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Usar IA para buscar a letra e incorporá-la ao arquivo de música local"
-          }
-        },
-        "pt-PT" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Utilizar IA para procurar a letra e incorporá-la no ficheiro de música local"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Использовать ИИ для поиска текста песни и встраивания его в локальный музыкальный файл"
-          }
-        },
-        "th" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ค้นหาเนื้อเพลงด้วย AI และฝังลงในไฟล์เพลงท้องถิ่น"
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Yapay zekâ ile şarkı sözlerini bulun ve yerel müzik dosyasına gömün"
-          }
-        },
-        "vi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Dùng AI tìm lời bài hát và nhúng vào tệp nhạc cục bộ"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "使用AI搜索歌词，并内嵌到本地音乐文件"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "使用 AI 搜尋歌詞，並嵌入至本地音樂檔案"
-          }
-        },
-        "zh-HK" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "使用 AI 搵歌詞，並內嵌入本地音樂檔案"
-          }
-        }
-      }
-    },
-    "Search with AI" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "البحث بالذكاء الاصطناعي"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Suche mit AI"
-          }
-        },
-        "en-AU" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Search with AI"
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Search with AI"
-          }
-        },
-        "en-IN" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Search with AI"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Búsqueda con IA"
-          }
-        },
-        "es-419" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Búsqueda con IA"
-          }
-        },
-        "es-US" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Búsqueda con IA"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Recherche avec l'IA"
-          }
-        },
-        "fr-CA" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Recherche avec l'IA"
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "AI के साथ खोजें"
-          }
-        },
-        "id" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Cari dengan AI"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ricerca con l'IA"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "AIによる検索"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "AI로 검색"
-          }
-        },
-        "ms" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Cari dengan AI"
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Pesquisa com IA"
-          }
-        },
-        "pt-PT" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Pesquisa com IA"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Поиск с помощью ИИ"
-          }
-        },
-        "th" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ค้นหาด้วย AI"
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Yapay Zeka ile Arama"
-          }
-        },
-        "vi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tìm kiếm bằng AI"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "使用AI搜索"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "使用AI搜尋"
-          }
-        },
-        "zh-HK" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "使用 AI 搜索"
           }
         }
       }
@@ -95212,161 +94954,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "選擇視頻"
-          }
-        }
-      }
-    },
-    "Select your favorite desktop icon" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "حدد أيقونة سطح المكتب المفضلة لديك"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Wählen Sie Ihr bevorzugtes Desktop-Symbol"
-          }
-        },
-        "en-AU" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Select your favorite desktop icon"
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Select your favorite desktop icon"
-          }
-        },
-        "en-IN" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Select your favorite desktop icon"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Selecciona tu ícono de escritorio favorito"
-          }
-        },
-        "es-419" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Selecciona tu ícono de escritorio favorito"
-          }
-        },
-        "es-US" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Selecciona tu ícono de escritorio favorito"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sélectionnez votre icône de bureau préférée"
-          }
-        },
-        "fr-CA" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sélectionnez votre icône de bureau préférée"
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "अपना पसंदीदा डेस्कटॉप आइकन चुनें"
-          }
-        },
-        "id" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Pilih ikon desktop favorit Anda"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Selezionare l'icona del desktop preferita"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "お気に入りのデスクトップアイコンを選択してください"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "즐겨찾는 바탕화면 아이콘 선택"
-          }
-        },
-        "ms" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Pilih ikon desktop kegemaran anda"
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Escolha o ícone da área de trabalho de sua preferência"
-          }
-        },
-        "pt-PT" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Escolha o ícone da sua área de trabalho preferida"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Выберите предпочитаемый значок на рабочем столе"
-          }
-        },
-        "th" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "เลือกไอคอนเดสก์ท็อปที่คุณชื่นชอบ"
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tercih ettiğiniz masaüstü simgesini seçin"
-          }
-        },
-        "vi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Chọn biểu tượng máy tính yêu thích của bạn"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "选择您喜欢的桌面图标"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "選擇您最喜歡的桌面圖標"
-          }
-        },
-        "zh-HK" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "選擇您鍾意嘅桌面圖標"
           }
         }
       }
@@ -113796,161 +113383,6 @@
         }
       }
     },
-    "Unlock all premium features at the lowest ever early bird price! Future price increases or adjustments to the subscription-only also do not affect your benefits." : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "افتح جميع الميزات المميزة بأقل سعر على الإطلاق! لا تؤثر الزيادات المستقبلية في الأسعار أو التعديلات على الاشتراك فقط على مزاياك."
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Schalten Sie alle Premium-Funktionen zum niedrigsten Frühbucherpreis aller Zeiten frei! Zukünftige Preiserhöhungen oder Anpassungen an ein reines Abonnementmodell werden Sie nicht betreffen!"
-          }
-        },
-        "en-AU" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Unlock all premium features at the lowest ever early bird price! Future price increases or adjustments to the subscription-only also do not affect your benefits."
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Unlock all premium features at the lowest ever early bird price! Future price increases or adjustments to the subscription-only also do not affect your benefits."
-          }
-        },
-        "en-IN" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Unlock all premium features at the lowest ever early bird price! Future price increases or adjustments to the subscription-only also do not affect your benefits."
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Desbloquee todas las funciones Premium al precio más bajo de la historia. Los futuros aumentos de precio o ajustes a un modelo de suscripción exclusiva tampoco te afectarán."
-          }
-        },
-        "es-419" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Desbloquee todas las funciones Premium al precio más bajo de la historia. Los futuros aumentos de precio o ajustes a un modelo de suscripción exclusiva tampoco te afectarán."
-          }
-        },
-        "es-US" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Desbloquee todas las funciones Premium al precio más bajo de la historia. Los futuros aumentos de precio o ajustes a un modelo de suscripción exclusiva tampoco te afectarán."
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Déverrouillez toutes les fonctionnalités premium au prix le plus bas jamais pratiqué pour les premiers inscrits ! Les futures augmentations de prix ou le passage à un modèle d'abonnement ne vous affecteront pas non plus !"
-          }
-        },
-        "fr-CA" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Déverrouillez toutes les fonctionnalités premium au prix le plus bas jamais pratiqué pour les premiers inscrits ! Les futures augmentations de prix ou le passage à un modèle d'abonnement ne vous affecteront pas non plus !"
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "सभी प्रीमियम सुविधाओं को अब तक की सबसे कम शुरुआती कीमत पर अनलॉक करें! भविष्य में मूल्य वृद्धि या केवल सदस्यता के लिए समायोजन भी आपके लाभों को प्रभावित नहीं करते हैं।"
-          }
-        },
-        "id" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Buka semua fitur premium dengan harga early bird terendah sepanjang masa! Kenaikan harga di masa depan atau penyesuaian pada langganan eksklusif juga tidak akan memengaruhi manfaat Anda."
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sbloccate tutte le funzioni premium al prezzo più basso di sempre! I futuri aumenti di prezzo o gli adeguamenti del solo abbonamento non influiscono sui vostri vantaggi."
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "過去最安の早期割引価格ですべてのプレミアム機能をご利用いただけます！ 今後の値上げやサブスクリプション・モデルへの変更も影響ありません！"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "역대 최저가 얼리버드 가격으로 모든 프리미엄 기능을 이용하세요! 향후 가격 인상이나 구독 전용 상품 가격 조정은 현재 혜택에 영향을 미치지 않습니다."
-          }
-        },
-        "ms" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Buka kunci semua ciri premium pada harga early bird yang paling rendah! Kenaikan harga masa hadapan atau pelarasan pada langganan sahaja juga tidak menjejaskan faedah anda."
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Desbloqueie todos os recursos premium pelo preço mais baixo de todos os tempos! Futuros aumentos de preço ou ajustes para um modelo somente de assinatura também não o afetarão!"
-          }
-        },
-        "pt-PT" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Desbloqueie todos os recursos premium pelo preço mais baixo de todos os tempos! Futuros aumentos de preço ou ajustes para um modelo somente de assinatura também não o afetarão!"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "разблокируйте все премиум функции по исторически низкой цене раннего доступа! Будущие повышения цен или переход на модель подписки не повлияют на ваши права!"
-          }
-        },
-        "th" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ปลดล็อกคุณสมบัติพรีเมียมทั้งหมดด้วยราคาพิเศษสุด! การเพิ่มราคาในอนาคตหรือการปรับราคาสำหรับการสมัครสมาชิกเท่านั้นจะไม่ส่งผลต่อสิทธิประโยชน์ของคุณ"
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Şimdiye kadarki en düşük erken rezervasyon fiyatıyla tüm premium özelliklerin kilidini açın! Gelecekteki fiyat artışları veya yalnızca abonelik modeline geçiş sizi de etkilemeyecek!"
-          }
-        },
-        "vi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Mở khóa tất cả các tính năng cao cấp với mức giá sớm nhất trong lịch sử! Việc tăng giá trong tương lai hoặc điều chỉnh chỉ thành chế độ đăng ký cũng không ảnh hưởng đến quyền lợi của bạn!"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "以历史最低的早鸟价解锁所有高级功能！未来涨价或调整为仅订阅模式也不影响您的权益!"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "以歷史最低的早鳥價解鎖所有高級功能！未來漲價或調整為僅訂閱模式也不影響您的權益!"
-          }
-        },
-        "zh-HK" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "以歷史最低嘅早鳥價解鎖所有高級功能！未來漲價或調整為僅訂閱模式亦唔影響你嘅權益！"
-          }
-        }
-      }
-    },
     "Unlock Premium" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -122547,6 +121979,257 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "您已購買"
+          }
+        }
+      }
+    },
+    "You've successfully connected a cloud service! Upgrade to Premium to unlock multi-cloud aggregation and connect unlimited cloud services (WebDAV, Navidrome, and drives) seamlessly." : {
+      "extractionState" : "pasted",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "لقد قمت بربط خدمة سحابية بنجاح! اشترك في النسخة المميزة لفتح ميزة دمج السحابات المتعددة وربط عدد غير محدود من الخدمات (WebDAV وNavidrome والشبكات التخزينية) بكل سلاسة."
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Heu connectat correctament un servei al núvol! Actualitzeu a Premium per sbloccar l'agregació multinúvol i connectar serveis il·limitats (WebDAV, Navidrome i unitats) sense problemes."
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Úspěšně jste připojili cloudovou službu! Přejděte na Premium, odemkněte agregaci více cloudů a připojte neomezené množství cloudových služeb (WebDAV, Navidrome a disky)."
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Du har oprettet forbindelse til en cloudtjeneste! Opgrader til Premium for at låse op for multicloud-samling og tilslutte ubegrænsede cloudtjenester (WebDAV, Navidrome og drev)."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Du hast erfolgreich einen Cloud-Dienst verbunden! Upgrade auf Premium, um die Multi-Cloud-Aggregation freizuschalten und unbegrenzt Cloud-Dienste (WebDAV, Navidrome und Netzwerkspeicher) zu verbinden."
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Συνδέσατε επιτυχώς μια υπηρεσία cloud! Αναβαθμίστε σε Premium για να ξεκλειδώσετε τη συγκέντρωση πολλαπλών cloud και να συνδέσετε απεριόριστες υπηρεσίες (WebDAV, Navidrome και δίσκους)."
+          }
+        },
+        "en-AU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You've successfully connected a cloud service! Upgrade to Premium to unlock multi-cloud aggregation and connect unlimited cloud services (WebDAV, Navidrome, and drives) seamlessly."
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You've successfully connected a cloud service! Upgrade to Premium to unlock multi-cloud aggregation and connect unlimited cloud services (WebDAV, Navidrome, and drives) seamlessly."
+          }
+        },
+        "en-IN" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You've successfully connected a cloud service! Upgrade to Premium to unlock multi-cloud aggregation and connect unlimited cloud services (WebDAV, Navidrome, and drives) seamlessly."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¡Has conectado correctamente un servicio en la nube! Pásate a Premium para desbloquear la agregación multinube y conectar servicios ilimitados (WebDAV, Navidrome y discos) sin restricciones."
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¡Has conectado correctamente un servicio en la nube! Pásate a Premium para desbloquear la agregación multinube y conectar servicios ilimitados (WebDAV, Navidrome y discos) sin restricciones."
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¡Has conectado correctamente un servicio en la nube! Pásate a Premium para desbloquear la agregación multinube y conectar servicios ilimitados (WebDAV, Navidrome y discos) sin restricciones."
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pilvipalvelu on yhdistetty onnistuneesti! Päivitä Premium-versioon avataksesi monipilvi-integraation ja yhdistääksesi rajoitettuja pilvipalveluita (WebDAV, Navidrome ja asemat)."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vous avez connecté un service cloud avec succès ! Passez à la version Premium pour débloquer l'agrégation multi-cloud et connecter un nombre illimité de services (WebDAV, Navidrome et disques)."
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vous avez connecté un service cloud avec succès ! Passez à la version Premium pour débloquer l'agrégation multi-cloud et connecter un nombre illimité de services (WebDAV, Navidrome et disques)."
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "חיברת שירות ענן בהצלחה! שדרג לפרימיום כדי לפתוח שילוב מרובה עננים ולחבר שירותי ענן ללא הגבלה (WebDAV, Navidrome וכוננים) בצורה חלקה."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "आपने सफलतापूर्वक एक क्लाउड सेवा कनेक्ट कर ली है! मल्टी-क्लाउड एग्रीगेशन को अनलॉक करने और असीमित क्लाउड सेवाओं (WebDAV, Navidrome और ड्राइव) को जोड़ने के लिए प्रीमियम में अपग्रेड करें।"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Uspješno ste povezali oblačnu uslugu! Nadogradite na Premium kako biste otključali agregaciju više oblaka i neograničeno povezali WebDAV, Navidrome i mrežne pogone."
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sikeresen csatlakoztatott egy felhőszolgáltatást! Váltson Premiumra a többfelhős aggregáció feloldásához, valamint korlátlan felhőszolgáltatás (WebDAV, Navidrome és meghajtók) összekapcsolásához."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Anda berhasil menghubungkan satu layanan cloud! Upgrade ke Premium untuk membuka agregasi multi-cloud dan menghubungkan layanan cloud (WebDAV, Navidrome, dan drive) tanpa batas."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hai collegato correttamente un servizio cloud! Passa a Premium per sbloccare l'aggregazione multi-cloud e connettere servizi cloud illimitati (WebDAV, Navidrome e drive) senza limiti."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "クラウドサービスの接続に成功しました！プレミアムにアップグレードすれば、「マルチクラウド統合」機能が解放され、WebDAV、Navidrome、各種ネット网盤を無制限に接続して、あなただけの究极のオーディオセンターを構築できます。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "클라우드 서비스 연결에 성공했습니다! 프리미엄으로 업그레이드하면 '멀티 클라우드 통합' 기능이 활성화되어 WebDAV, Navidrome 및 다양한 클라우드 스토리지를 제한 없이 연결하고 나만의 오디오 센터를 구축할 수 있습니다."
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Anda telah berjaya menyambungkan perkhidmatan awan! Naik taraf ke Premium untuk membuka agregasi berbilang awan dan menyambung perkhidmatan awan (WebDAV, Navidrome dan pemacu) tanpa had."
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Du har koblet til en skyprosess! Oppgrader til Premium for å låse opp multicloud-samling og koble til ubegrensede skytjenester (WebDAV, Navidrome og stasjoner) sømløst."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Je hebt succesvol een cloudservice verbonden! Upgrade naar Premium om multicloud-aggregatie te ontgrendelen and onbeperkt cloudservices (WebDAV, Navidrome en drives) te verbinden."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pomyślnie połączono z usługa chmurową! Przejdź na Premium, aby odblokować agregację wielu chmur i bez ograniczeń podłączać usługi (WebDAV, Navidrome i dyski sieciowe)."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Você conectou um serviço de nuvem com sucesso! Mude para o Premium para desbloquear a agregação multi-nuvem e conectar serviços em nuvem (WebDAV, Navidrome e discos) ilimitados."
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ligou com sucesso um serviço de nuvem! Mude para o Premium para desbloquear a agregação multi-nuvem e ligar serviços em nuvem (WebDAV, Navidrome e discos) ilimitados."
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Te-ai conectat cu succes la un serviciu cloud! Treci la Premium pentru a debloca agregarea multi-cloud și a conecta servicii cloud nelimitate (WebDAV, Navidrome și diskovi)."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Облачный сервис успешно подключен! Перейдите на Premium, чтобы разблокировать «Мультиоблачное объединение» и без ограничений подключать любые сервисы (WebDAV, Navidrome и сетевые диски)."
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Úspešne ste pripojili cloudovú službu! Prejdite na Premium, odomknite agregáciu viacerých cloudov a pripojte neobmedzené množstvo cloudových služieb (WebDAV, Navidrome a disky)."
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Uspešno ste povezali oblačno storitev! Nadgradite na Premium za odklepanje združevanja več oblakov in neomejeno povezovanje oblačnih storitev (WebDAV, Navidrome in pogonov)."
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Du har anslutit till en molntjänst! Uppgradera till Premium för att låsa upp multicloud-samling och ansluta obegränsade molntjänster (WebDAV, Navidrome och hårddiskar)."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "คุณได้เชื่อมต่อบริการคลาวด์สำเร็จแล้ว! อัปเกร드เป็น Premium เพื่อปลดล็อกการรวมหลายคลาวด์ และเชื่อมต่อบริการคลาวด์ (WebDAV, Navidrome และไดรฟ์) ได้อย่างไม่จำกัดและราบรื่น"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bir bulut servisine başarıyla bağlandınız! Çoklu bulut entegrasyonunu açmak ve sınırsız bulut servisini (WebDAV, Navidrome ve sürücüler) sorunsuz bağlamak için Premium'a yükseltin."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Хмарний сервіс успішно підключено! Перейдіть на Premium, щоб розблокирувати мультихмарне об'єднання та без обмежень підключати будь-які сервіси (WebDAV, Navidrome та диски)."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bạn đã kết nối thành công một dịch vụ đám mây! Nâng cấp lên Premium để mở khóa tính năng \"tích hợp đa đám mây\", kết nối không giới hạn WebDAV, Navidrome và các ổ đĩa mạng."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "您已成功连接一个云服务！升级到高级版，即可解锁“多云聚合”功能，无限制连接 WebDAV、Navidrome 及第三方网盘，打造您的专属全媒体音乐中心。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "您已成功連接一個雲端服務！升級到高級版，即可解鎖「多雲聚合」功能，無限制連接 WebDAV、Navidrome 及第三方雲端硬碟，打造您的專屬全媒體音樂中心。"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "您已成功連接一個雲端服務！升級到高級版，即可解鎖「多雲聚合」功能，無限制連接 WebDAV、Navidrome 及第三方網盤，打造您的專屬全媒體音樂中心。"
           }
         }
       }

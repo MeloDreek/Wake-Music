@@ -289,7 +289,7 @@ class WelcomeTapeBtnView: UIView {
 //#if !targetEnvironment(macCatalyst)
     lazy var tipsLabel: UILabel = {
         let view = UILabel()
-        view.text = "Please click the red button".localStr()
+        view.text = "Please tap the red button".localStr()
         view.numberOfLines = 0
         view.textAlignment = .center
         view.textColor = .white

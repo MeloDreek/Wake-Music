@@ -261,11 +261,6 @@ extension DownloadViewController: UITableViewDataSource, UITableViewDelegate, Em
             return
         }
         
-        guard UserInfoManager.shared.isVIP() else {
-            self.vipCenterClick()
-            return
-        }
-        
         self.isDownloadAll = false
         if self.isDownloading { return }
             
@@ -342,16 +337,19 @@ extension DownloadViewController: UITableViewDataSource, UITableViewDelegate, Em
     
     // EmptyContentCellDelegate
     func emptyContentViewDidClickImport(cell: UIView) {
-        if kaka_IsMacOS() {
-            NotificationCenter.default.post(name: Notification.Name(kJumpConnectPageKey), object: nil, userInfo: nil)
-        }else{
-            self.navigationController?.popViewController(animated: true)
-        }
+        self.importMusicClick()
     }
     
     func emptyContentViewDidClickFormats(cell: UIView) {
         let formatsVC = SupportTypeViewController()
         self.navigationController?.pushViewController(formatsVC, animated: true)
+    }
+    
+    func importMusicClick() {
+        let importVC = ImportViewController()
+        let navVC = KakaNavigationController(rootViewController: importVC)
+        navVC.modalPresentationStyle = kaka_IsMacOS() ? .formSheet : .fullScreen
+        self.present(navVC, animated: true)
     }
     
 }

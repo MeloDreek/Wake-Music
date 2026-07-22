@@ -30,11 +30,6 @@ extension NavidromeViewController: EmptyContentCellDelegate, ConnectSectionHeadV
     // 编辑配置/重新登录
     @objc func reloginItemClick() {
         
-        guard UserInfoManager.shared.isVIP() else {
-            self.vipCenterClick()
-            return
-        }
-        
         let webVC = AuthNavidromeController(self.navUser)
         webVC.onLoginBlock = { [weak self] (navUser) in
             self?.navUser = navUser

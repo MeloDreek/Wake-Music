@@ -114,10 +114,6 @@ class NavidromeSearchViewController: UISearchController, MusicTableViewCellDeleg
     }
     
     func webdavSearchDidDownload(cell: MusicTableViewCell, webFileModel: AppGroupKit.WebdavFileModel) {
-        guard UserInfoManager.shared.isVIP() else {
-            self.vipCenterClick()
-            return
-        }
         
         let playlist = SelectPlaylistController(isLocal: true, serverModel: nil)
         playlist.onLocalBlock = { [weak self] (folderURL) in

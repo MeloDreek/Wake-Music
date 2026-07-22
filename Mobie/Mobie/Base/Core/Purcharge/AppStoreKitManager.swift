@@ -21,12 +21,12 @@ extension StoreProduct {
         
         switch storeID {
         case .weekly:
-            return "For short-term use".localStr()
+            return "Short-term Trial".localStr()
         case .yearly:
             if let sk2Product = self.sk2Product {
                 return String(format: "%@/mo".localStr(), sk2Product.localMonthlyPriceStr)
             }else{
-                return "For short-term use".localStr()
+                return "Short-term Trial".localStr()
             }
         case .lifetime198, .lifetime298:
             return "Valid Forever".localStr()

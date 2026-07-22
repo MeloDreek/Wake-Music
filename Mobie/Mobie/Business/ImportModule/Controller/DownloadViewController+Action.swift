@@ -26,11 +26,6 @@ extension DownloadViewController {
             return
         }
         
-        guard UserInfoManager.shared.isVIP() else {
-            self.vipCenterClick()
-            return
-        }
-        
         if self.isDownloading {
             return
         }

@@ -587,11 +587,6 @@ extension Drive115FileListController {
     
     @objc func supportVideoClick(_ videoURL: URL) {
         
-        if !UserInfoManager.shared.isVIP() && !UserInfoManager.shared.isFreeTrail3Days_Remote() {
-            self.vipCenterClick()
-            return
-        }
-        
         self.changeDeviceOrientation()
         
         let player = AVPlayer(url: videoURL)
@@ -816,11 +811,7 @@ extension Drive115FileListController: MusicTableViewCellDelegate {
     
     // 点击播放
     func playWithMusic(_ subModel: MusicItemModel) {
-        
-        guard UserInfoManager.shared.isVIP() else {
-            self.vipCenterClick()
-            return
-        }
+
         
         let isPlaying = KakaMusicPlayer.shared.playingMusic == subModel
 
@@ -841,11 +832,6 @@ extension Drive115FileListController: MusicTableViewCellDelegate {
     
     // 下载
     func downloadWithMusic(cell: MusicTableViewCell, model: MusicItemModel) {
-                
-        guard UserInfoManager.shared.isVIP() else {
-            self.vipCenterClick()
-            return
-        }
         
         guard let drive115Model = model.drive115Model else { return }
         

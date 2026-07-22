@@ -627,11 +627,6 @@ extension OneDriveFileListController {
     
     @objc func supportVideoClick(_ videoURL: URL) {
         
-        if !UserInfoManager.shared.isVIP() && !UserInfoManager.shared.isFreeTrail3Days_Remote() {
-            self.vipCenterClick()
-            return
-        }
-        
         self.changeDeviceOrientation()
         
         let player = AVPlayer(url: videoURL)
@@ -844,11 +839,6 @@ extension OneDriveFileListController: MusicTableViewCellDelegate {
     // 点击播放
     func playWithMusic(_ subModel: MusicItemModel) {
         
-        guard UserInfoManager.shared.isVIP() else {
-            self.vipCenterClick()
-            return
-        }
-        
         let isPlaying = KakaMusicPlayer.shared.playingMusic == subModel
 
         if isPlaying {
@@ -869,21 +859,11 @@ extension OneDriveFileListController: MusicTableViewCellDelegate {
     // 下载
     func downloadWithMusic(cell: MusicTableViewCell, model: MusicItemModel) {
         
-        guard UserInfoManager.shared.isVIP() else {
-            self.vipCenterClick()
-            return
-        }
-        
         self.downloadWithMusic(model)
     }
     
     // 下载音乐
     func downloadWithMusic(_ model: MusicItemModel) {
-        
-        guard UserInfoManager.shared.isVIP() else {
-            self.vipCenterClick()
-            return
-        }
         
         guard let onedriveFile = model.onedriveFile else {
             return

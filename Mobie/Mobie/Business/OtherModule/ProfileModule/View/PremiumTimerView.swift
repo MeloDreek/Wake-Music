@@ -55,7 +55,7 @@ class PremiumTimerView: UIButton {
     
     
     static func maxWidth() -> CGFloat {
-        let text = "02:59:59.59"
+        let text = "23:59:59.59"
         let font = UIFontBold(14.ckValue())
         let textWidth = text.width(font) + 3.ckValue()
         
@@ -88,7 +88,7 @@ class PremiumTimerView: UIButton {
     }()
     
     lazy var timerLabel: UILabel = {
-        let text = "24:00:00 ⏰"
+        let text = "24:00:00.00 ⏰"
         let font = UIFontBold(14.ckValue())
         
         let view = UILabel(frame: CGRectMake(0, 0, text.width(font) + 3.ckValue(), font.lineHeight))

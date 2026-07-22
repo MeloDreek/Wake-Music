@@ -33,6 +33,10 @@ extension ImportViewController {
             self.importFromVideos()
         }
         
+        if itemType == .fromApple {
+            self.importFromiTunes()
+        }
+        
         if itemType == .fromUSB {
             self.importFromUSB()
         }
@@ -41,16 +45,20 @@ extension ImportViewController {
             self.importFromWiFi()
         }
         
+#warning("非会员只能连接一家远程服务")
+        if ConnectConfigManager.shared.connectedModels.count >= 1 && !UserInfoManager.shared.isVIP() {
+            self.showTwoAlert(message: "You've successfully connected a cloud service! Upgrade to Premium to unlock multi-cloud aggregation and connect unlimited cloud services (WebDAV, Navidrome, and drives) seamlessly.".localStr(), confirm: "Unlock Premium".localStr()) {
+                self.vipCenterClick()
+            }
+            return
+        }
+        
         if itemType == .fromWebDav {
             self.importFromWebdav()
         }
         
         if itemType == .fromNavidrome {
             self.importFromNavidrome()
-        }
-        
-        if itemType == .fromApple {
-            self.importFromiTunes()
         }
         
         if itemType == .fromBaiduDrive {
@@ -107,11 +115,6 @@ extension ImportViewController {
     /// 百度网盘
     func importFromBaiduDrive() {
         
-        guard UserInfoManager.shared.isVIP() else {
-            self.vipCenterClick()
-            return
-        }
-        
         let baiduVC = AuthBaiduViewController { [weak self] serverModel in
             let fileVC = BaiduDriveFileListController(loginModel: serverModel.baiduUser!)
             self?.navigationController?.pushViewController(fileVC, animated: true)
@@ -126,10 +129,6 @@ extension ImportViewController {
     
     // 阿里云盘
     func importFromAliyunDrive() {
-        guard UserInfoManager.shared.isVIP() else {
-            self.vipCenterClick()
-            return
-        }
         
         ProgressHUD.animate("Processing...".localStr())
         KakaMusicPlayer.shared.authorizedAliyunpan { result in
@@ -149,11 +148,6 @@ extension ImportViewController {
     /// 115网盘
     func importFrom115Drive() {
         
-        guard UserInfoManager.shared.isVIP() else {
-            self.vipCenterClick()
-            return
-        }
-        
         let drive115VC = Auth115LifeViewController { model in
             let fileVC = Drive115FileListController(loginModel: model)
             fileVC.title = ImportFileType.from115Drive.titleStr()
@@ -168,11 +162,6 @@ extension ImportViewController {
     
     /// 谷歌网盘
     func importFromGoogleDrive() {
-        
-        guard UserInfoManager.shared.isVIP() else {
-            self.vipCenterClick()
-            return
-        }
         
         if ConnectConfigManager.shared.connectedModels.filter({ $0.serverType == .fromGoogleDrive }).count > 0 {
             self.showOneAlert(title: ImportFileType.fromGoogleDrive.titleStr(), message: "You can’t sign in with multiple accounts. Please remove the previously connected account first".localStr())
@@ -204,11 +193,6 @@ extension ImportViewController {
     ///  DropBOX
     func importFromDropBoxDrive() {
         
-        guard UserInfoManager.shared.isVIP() else {
-            self.vipCenterClick()
-            return
-        }
-        
         if ConnectConfigManager.shared.connectedModels.filter({ $0.serverType == .fromDropboxDrive }).count > 0 {
             self.showOneAlert(title: ImportFileType.fromDropboxDrive.titleStr(), message: "You can’t sign in with multiple accounts. Please remove the previously connected account first".localStr())
             return
@@ -223,11 +207,6 @@ extension ImportViewController {
     
     ///  OneDrive
     func importFromOneDrive() {
-        
-        guard UserInfoManager.shared.isVIP() else {
-            self.vipCenterClick()
-            return
-        }
         
 #if canImport(MSAL)
         
@@ -267,10 +246,6 @@ extension ImportViewController {
     // Yandex.disk
     func importFromYandexDisk() {
         
-//        guard UserInfoManager.shared.isVIP() else {
-//            self.vipCenterClick()
-//            return
-//        }
 //        
 //        if ConnectConfigManager.shared.connectedModels.filter({ $0.serverType == .fromYandexDrive }).count > 0 {
 //            self.showOneAlert(title: ImportFileType.fromYandexDrive.titleStr(), message: "You can’t sign in with multiple accounts. Please remove the previously connected account first".localStr())

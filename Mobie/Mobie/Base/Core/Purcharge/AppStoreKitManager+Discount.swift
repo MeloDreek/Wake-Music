@@ -23,9 +23,9 @@ public struct DiscountIAPManager: SmartCodableX {
     
     // 默认倒计时3小时
 #if DEBUG
-    var maxDiscountTime: Double = 1 * 60 * 60
+    var maxDiscountTime: Double = 24 * 60 * 60
 #else
-    var maxDiscountTime: Double = 1 * 60 * 60
+    var maxDiscountTime: Double = 24 * 60 * 60
 #endif
     
     // 默认隔几天出现

@@ -835,11 +835,6 @@ extension DropboxDriveFileListController: MusicTableViewCellDelegate {
     // 点击播放
     func playWithMusic(_ subModel: MusicItemModel) {
         
-        guard UserInfoManager.shared.isVIP() else {
-            self.vipCenterClick()
-            return
-        }
-        
         let isPlaying = KakaMusicPlayer.shared.playingMusic == subModel
 
         if isPlaying {
@@ -860,21 +855,11 @@ extension DropboxDriveFileListController: MusicTableViewCellDelegate {
     // 下载
     func downloadWithMusic(cell: MusicTableViewCell, model: MusicItemModel) {
         
-        guard UserInfoManager.shared.isVIP() else {
-            self.vipCenterClick()
-            return
-        }
-        
         self.downloadWithMusic(model)
     }
     
     // 下载音乐
     func downloadWithMusic(_ model: MusicItemModel) {
-        
-        guard UserInfoManager.shared.isVIP() else {
-            self.vipCenterClick()
-            return
-        }
         
         guard let dropboxFile = model.dropboxFile, dropboxFile.is_downloadable else {
             return

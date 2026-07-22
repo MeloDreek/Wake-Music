@@ -222,11 +222,6 @@ extension ConnectListViewController: UITableViewDataSource, UITableViewDelegate 
 //        }
 //#endif
         
-        if !UserInfoManager.shared.isVIP() {
-            self.vipCenterClick()
-            return
-        }
-        
         if connectArray.count == 0 {
             // 首次连接
             let itemType = self.avalibleArray[indexPath.section]
@@ -257,11 +252,19 @@ extension ConnectListViewController: UITableViewDataSource, UITableViewDelegate 
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        if !UserInfoManager.shared.isVIP() {
+            return false
+        }
+        
         return connectArray.count == 0 ? false : true
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         if connectArray.count == 0 {
+            return nil
+        }
+        
+        if !UserInfoManager.shared.isVIP() {
             return nil
         }
         

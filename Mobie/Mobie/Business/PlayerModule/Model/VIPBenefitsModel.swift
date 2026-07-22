@@ -10,50 +10,34 @@ import AppGroupKit
 
 enum VIPBenefitsModel: CaseIterable {
     case allFormats
+    case audioFingerprint
+    case batchAutoEdit
     case allPlayerStyle
     case allCloudDrive
-    case allAppleOS
-    
-    case searchCoverAI
-    case searchLyricAI
-    case musicTagEditor
-    case downloadCache
     case lyricFeature
     case advancedSetting
-    case editVideoToMP3
-    case themeColor
-    case appLogo
+    case allAppleOS
     case newMore
+    
     
     func titleStr() -> String {
         switch self {
         case .allFormats:
             return "All Music Formats".localStr()
+        case .audioFingerprint:
+            return "Audio Fingerprint".localStr()
+        case .batchAutoEdit:
+            return "Batch Auto-Embed".localStr()
         case .allPlayerStyle:
             return "All Player Styles".localStr()
         case .allCloudDrive:
             return "All Cloud Drive".localStr()
-        case .allAppleOS:
-            return "All Apple Devices".localStr()
-            
-        case .searchCoverAI:
-            return MusicActionType.searchCoverAI.formatStr()
-        case .searchLyricAI:
-            return MusicActionType.searchLyricAI.formatStr()
-        case .musicTagEditor:
-            return "Music Tag Editor".localStr()
-        case .downloadCache:
-            return SettingCellItemType.cacheConfig.titleStr() ?? ""
         case .lyricFeature:
             return "Lyrics".localStr()
         case .advancedSetting:
             return "Advanced Settings".localStr()
-        case .editVideoToMP3:
-            return ImportFileType.fromVideos.titleStr()
-        case .themeColor:
-            return SettingCellItemType.appTintColor.titleStr() ?? ""
-        case .appLogo:
-            return SettingCellItemType.applogo.titleStr() ?? ""
+        case .allAppleOS:
+            return "All Apple Devices".localStr()
         case .newMore:
             return "More Advanced Features".localStr()
         }
@@ -62,34 +46,23 @@ enum VIPBenefitsModel: CaseIterable {
     func descStr() -> String {
         switch self {
         case .allFormats:
-            return "A more powerful player engine that supports music formats that Apple Music cannot decode, such as DSD (DSF, DFF), DTS, APE, OGG, OPUS, WMA, S3M, TTA, MOD, WV etc.".localStr()
+            return "Full-format playback engine, supporting audio formats unsupported by Apple Music. E.g., DSD (DSF, DFF), DTS, APE, OGG, OPUS, WMA, S3M, TTA, MOD, WV, etc.".localStr()
+        case .audioFingerprint:
+            return "Auto-identify music metadata via audio fingerprinting and embed into tags".localStr()
+        case .batchAutoEdit:
+            return "Auto-repair music tags in bulk via audio fingerprinting to complete missing metadata".localStr()
         case .allPlayerStyle:
-            return "All player styles including Vinyl, Cassette, custom backgrounds, etc.".localStr()
+            return "All player styles, including Vinyl, Cassette, Custom Backgrounds, and more".localStr()
         case .allCloudDrive:
-            return "Connect your remote music without taking up local disc space. For example, WebDav(Cloud Drive) and Navidrome, etc.".localStr()
-        case .allAppleOS:
-            return "Purchase now to unlock all Apple devices, including iPhone, iPad, Mac, as well as the upcoming Apple Watch, Apple TV, and CarPlay.".localStr()
-            
-        case .downloadCache:
-            return CacheGroupCellItem.header.titleStr()
-        case .searchCoverAI:
-            return "Search album art with AI and embed it into local music files".localStr()
-        case .searchLyricAI:
-            return "Search lyric with AI and embed it into local music files".localStr()
-        case .musicTagEditor:
-            return "Complete music tag editor that supports parsing and editing embedded music tags such as title, artist, album, cover, lyrics, etc.".localStr()
+            return "Connect to your remote music limitlessly, saving local storage. E.g., WebDAV, Navidrome, and more".localStr()
         case .lyricFeature:
-            return "Automatically parse the lyrics embedded in the file, support adding, editing, deleting, and following the playback".localStr()
+            return "Complete Lyrics Experience".localStr()
         case .advancedSetting:
             return "Some advanced settings such as animations, music player, etc.".localStr()
-        case .editVideoToMP3:
-            return "Lossless audio format with automatic cropping of the last 3 seconds.".localStr()
-        case .themeColor:
-            return "Customize your favorite accent color".localStr()
-        case .appLogo:
-            return "Select your favorite desktop icon".localStr()
+        case .allAppleOS:
+            return "One-time payment to unlock all features on native iPhone, iPad, Mac".localStr()
         case .newMore:
-            return "Unlock all premium features at the lowest ever early bird price! Future price increases or adjustments to the subscription-only also do not affect your benefits.".localStr()
+            return "All future premium features! E.g., Apple Watch, native CarPlay, more cloud storage, and more".localStr()
         }
     }
 
@@ -105,36 +78,14 @@ enum VIPBenefitsModel: CaseIterable {
         case .allAppleOS:
             return Reasource.systemNamed("applelogo", color: .label, config: imageConfig)
             
-        case .downloadCache:
-            return Reasource.systemNamed("square.and.arrow.down", color: .label, config: imageConfig)
-        case .searchCoverAI:
-            if #available(iOS 16.0, *) {
-                return Reasource.systemNamed("photo.stack", color: .label, config: imageConfig)
-            }else{
-                return Reasource.systemNamed("photo.on.rectangle", color: .label, config: imageConfig)
-            }
-        case .searchLyricAI:
-            return Reasource.systemNamed("text.quote", color: .label, config: imageConfig)
-        case .musicTagEditor:
-            return Reasource.systemNamed("tag", color: .label, config: imageConfig)
+        case .audioFingerprint:
+            return Reasource.systemNamed("touchid", color: .label, config: imageConfig)
+        case .batchAutoEdit:
+            return Reasource.systemNamed("pencil.and.outline", color: .label, config: imageConfig)
         case .lyricFeature:
             return Reasource.systemNamed("quote.opening", color: .label, config: imageConfig)
         case .advancedSetting:
             return Reasource.systemNamed("switch.2", color: .label, config: imageConfig)
-        case .editVideoToMP3:
-            if #available(iOS 17.0, *) {
-                return Reasource.systemNamed("video.badge.waveform", color: .label, config: imageConfig)
-            }else{
-                return Reasource.systemNamed("photo.on.rectangle", color: .label, config: imageConfig)
-            }
-        case .themeColor:
-            if #available(iOS 16.0, *) {
-                return Reasource.systemNamed("swatchpalette", color: .label, config: imageConfig)
-            }else{
-                return Reasource.systemNamed("paintpalette", color: .label, config: imageConfig)
-            }
-        case .appLogo:
-            return Reasource.systemNamed("square.on.square", color: .label, config: imageConfig)
         case .newMore:
             return Reasource.systemNamed("ellipsis.rectangle", color: .label, config: imageConfig)
         }

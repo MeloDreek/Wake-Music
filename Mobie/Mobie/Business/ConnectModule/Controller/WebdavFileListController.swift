@@ -780,11 +780,6 @@ extension WebdavFileListController {
         
         guard let videoURL = videoURL else { return }
         
-        if !UserInfoManager.shared.isVIP() && !UserInfoManager.shared.isFreeTrail3Days_Remote() {
-            self.vipCenterClick()
-            return
-        }
-        
         self.changeDeviceOrientation()
         
         let player = AVPlayer(url: videoURL)
@@ -839,11 +834,6 @@ extension WebdavFileListController: MusicTableViewCellDelegate {
     
     // 点击播放
     func playWithMusic(_ subModel: MusicItemModel) {
-        
-        guard UserInfoManager.shared.isVIP() else {
-            self.vipCenterClick()
-            return
-        }
         
         let isPlaying = KakaMusicPlayer.shared.playingMusic == subModel
 

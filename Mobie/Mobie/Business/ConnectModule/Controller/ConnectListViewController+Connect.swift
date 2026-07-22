@@ -23,11 +23,6 @@ extension ConnectListViewController {
     // 连接新服务器
     func connectNewServer(_ itemType: ImportFileType) {
         
-        guard UserInfoManager.shared.isVIP() else {
-            self.vipCenterClick()
-            return
-        }
-        
         if itemType == .fromWebDav {
             self.importFromWebdav()
         }

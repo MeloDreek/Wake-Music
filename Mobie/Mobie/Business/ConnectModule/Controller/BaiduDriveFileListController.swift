@@ -588,11 +588,6 @@ extension BaiduDriveFileListController {
     
     @objc func supportVideoClick(_ videoURL: URL) {
         
-        if !UserInfoManager.shared.isVIP() && !UserInfoManager.shared.isFreeTrail3Days_Remote() {
-            self.vipCenterClick()
-            return
-        }
-        
         self.changeDeviceOrientation()
         
         let player = AVPlayer(url: videoURL)
@@ -816,12 +811,7 @@ extension BaiduDriveFileListController: MusicTableViewCellDelegate {
     
     // 点击播放
     func playWithMusic(_ subModel: MusicItemModel) {
-        
-        guard UserInfoManager.shared.isVIP() else {
-            self.vipCenterClick()
-            return
-        }
-        
+       
         let isPlaying = KakaMusicPlayer.shared.playingMusic == subModel
 
         if isPlaying {
@@ -841,11 +831,6 @@ extension BaiduDriveFileListController: MusicTableViewCellDelegate {
     
     // 下载
     func downloadWithMusic(cell: MusicTableViewCell, model: MusicItemModel) {
-        
-        guard UserInfoManager.shared.isVIP() else {
-            self.vipCenterClick()
-            return
-        }
         
         guard let baiduFile = model.baiduFileModel, baiduFile.size > 0 else { return }
         
