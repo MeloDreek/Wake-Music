@@ -226,11 +226,6 @@ extension AuthNavidromeController: UITableViewDataSource, UITableViewDelegate, L
             return
         }
         
-        if !UserInfoManager.shared.isVIP() {
-            self.vipCenterClick()
-            return
-        }
-        
         ProgressHUD.animate("Processing...".localStr())
         
         let hostStr = self.loginModel.hostUrl.trimmingCharacters(in: CharacterSet(charactersIn: "/"))

@@ -17,8 +17,10 @@ import AppGroupKit
 
 
 // 联系邮箱
-let companyEmail = "MeloDreek@gmail.com"
-//let companyEmail = "melo@passlockapp.com"
+//let companyEmail = "MeloDreek@gmail.com"
+let companyEmail = "support@passlockapp.com"
+
+let emailAppURL = kaka_IsMacOS() ? "https://mail.google.com/" : "https://apps.apple.com/app/id1108187098"
 
 
 // 隐私政策

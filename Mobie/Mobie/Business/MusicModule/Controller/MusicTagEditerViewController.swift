@@ -974,31 +974,51 @@ extension MusicTagEditerViewController: UIDocumentPickerDelegate {
 }
 
 // MARK:  邮箱联系
-extension MusicTagEditerViewController: MFMailComposeViewControllerDelegate {
+extension MusicTagEditerViewController: MFMailComposeViewControllerDelegate, SFSafariViewControllerDelegate {
     @objc func handleWithEmail() {
         self.view.endEditing(true)
         
-        let message = companyEmail
-
+        let subject = "\(kaka_osType().iconStr()) \("Wake Music".localStr()) Feedback"
+        let messageBody = "\r\r\r\r\r-----------------------------" + "\r" + self.getDeviceInformation()
+        
+        let canOpenMailScheme = UIApplication.shared.canOpenURL(URL(string: "mailto:")!)
+        let mailtoURL = URL(string: "mailto:\(companyEmail)?subject=\(subject)&body=\(messageBody)")!
+        
         if !MFMailComposeViewController.canSendMail() {
-            UIPasteboard.general.string = message
-            self.showOneAlert(title: "Copied".localStr(), message: message, confirm: "Done".localStr(), complete: nil)
+            
+            if canOpenMailScheme {
+                // 2️⃣ 打开第三方邮件客户端
+                UIApplication.shared.open(mailtoURL)
+            }else{
+                // 3️⃣ 用户没有任何邮件客户端
+                let message = "No email app installed?".localStr()
+                let action1 = AlertActionConfig(title: companyEmail, style: .destructive, actionType: .first)
+                let action2 = AlertActionConfig(title: kaka_IsMacOS() ? "Gmail" : "App Store", style: .default, actionType: .second)
+                
+                self.showThreeAlert(message: message, btn1: action1, btn2: action2) { [weak self] type in
+                    if type == .first {
+                        UIPasteboard.general.string = companyEmail
+                        self?.view?.makeToast("Copied".localStr())
+                    }else{
+                        guard let vURL = URL(string: emailAppURL) else { return }
+                        UIApplication.shared.open(vURL)
+                    }
+                }
+            }
             return
         }
         
-        let emailVC = MFMailComposeViewController()
-        emailVC.mailComposeDelegate = self
-        emailVC.setToRecipients([message])
-        emailVC.setSubject("\(kaka_osType().iconStr()) \("Wake Music".localStr()) \(self.title ?? "")")
-        let messageBody = "\r\r\r\r\r-----------------------------" + "\r" + self.getDeviceInformation()
-                
-        emailVC.setMessageBody(messageBody, isHTML: false)
-        if let fileData = try? Data(contentsOf: self.origialModel.mediaPlayURL, options: .alwaysMapped) {
-            let fileName = self.origialModel.filePathName() + self.origialModel.addPathExtension()
-            let mimeType = "audio\(self.origialModel.mediaPlayURL.pathExtension)"
-            emailVC.addAttachmentData(fileData, mimeType: mimeType, fileName: fileName)
+        // 1️⃣ 优先使用Apple的邮件客户端
+        if canOpenMailScheme && kaka_IsMacOS() {
+            UIApplication.shared.open(mailtoURL)
+        }else{
+            let emailVC = MFMailComposeViewController()
+            emailVC.mailComposeDelegate = self
+            emailVC.setToRecipients([companyEmail])
+            emailVC.setSubject(subject)
+            emailVC.setMessageBody(messageBody, isHTML: false)
+            self.present(emailVC, animated: true, completion: nil)
         }
-        self.present(emailVC, animated: true, completion: nil)
     }
     
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
@@ -1009,13 +1029,21 @@ extension MusicTagEditerViewController: MFMailComposeViewControllerDelegate {
         
     }
     
+    func safariViewControllerDidFinish(_ controller: SFSafariViewController) {
+        controller.dismiss(animated: true)
+    }
+    
     func getDeviceInformation() -> String {
         let device = UIDevice.current
         let systemVersion = device.systemVersion
-        let model = device.model
+        let model = kaka_IsMacOS() ? "macOS" : device.model
         let appVersion = ((Bundle.main.infoDictionary!["CFBundleShortVersionString"] as? String) ?? "") + "_" + "\(UserInfoManager.shared.isVIP() ? "1" : "0")"
+        let fileName = self.origialModel.mediaPlayURL.lastPathComponent
+        let allInfo = self.fullFootStr
 
         return """
+        File Name: \(fileName)
+        All Metadata: \(allInfo)
         App Name: \("Wake Music".localStr())
         App Version: \(appVersion)
         Device Model: \(model)

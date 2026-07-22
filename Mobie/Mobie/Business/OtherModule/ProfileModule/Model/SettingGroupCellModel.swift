@@ -36,7 +36,6 @@ enum SettingCellItemType {
     case loginAccount
     case freePlan
     case promoCode
-    case steveJobs
     
     case guideVIP
     
@@ -47,7 +46,6 @@ enum SettingCellItemType {
     case appTintColor
     case appearance
     
-    case contactus
     case types
     case donate
     case guideiOS
@@ -63,8 +61,6 @@ enum SettingCellItemType {
             return "Get Premium For Free".localStr()
         case .promoCode:
             return "Promo Codes".localStr()
-        case .steveJobs:
-            return "Remembering Steve".localStr()
             
         case .guideVIP:
             return nil
@@ -82,10 +78,6 @@ enum SettingCellItemType {
         case .appearance:
             return "Appearance".localStr()
         
-        
-        
-        case .contactus:
-            return "Contact Us".localStr()
         case .types:
             return "All Music Formats".localStr()
         case .donate:
@@ -109,12 +101,6 @@ enum SettingCellItemType {
             return Reasource.systemNamed("gift", color: appMainColor)
         case .promoCode:
             return Reasource.systemNamed("bag", color: appMainColor)
-        case .steveJobs:
-            if #available(iOS 16.0, *) {
-                return Reasource.systemNamed("apple.logo", color: appMainColor)
-            }else{
-                return Reasource.systemNamed("suit.heart.fill", color: appMainColor)
-            }
             
         
         case .guideVIP:
@@ -138,9 +124,6 @@ enum SettingCellItemType {
         case .appearance:
             return Reasource.systemNamed("moon.circle.fill", color: appMainColor)
         
-            
-        case .contactus:
-            return Reasource.systemNamed("envelope", color: appMainColor)
         case .donate:
             return Reasource.systemNamed("heart", color: appMainColor)
         case .types:

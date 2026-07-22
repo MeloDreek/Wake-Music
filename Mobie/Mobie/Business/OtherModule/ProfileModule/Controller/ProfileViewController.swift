@@ -138,7 +138,7 @@ class ProfileViewController: SuperViewController {
             
             let model3 = SettingGroupCellModel(group: .safetyGroup, headTitle: "Settings".localStr().lowercased(), itemArray: itemArray2, footTitle: nil)
                         
-            let itemArray4: [SettingCellItemType] = [.steveJobs, .types, .contactus, .abountUS]
+            let itemArray4: [SettingCellItemType] = [.types, .abountUS]
             let model4 = SettingGroupCellModel(group: .othersGroup, headTitle: "Others".localStr().lowercased(), itemArray: itemArray4, footTitle: nil)
             
             tempArray.append(model1)
@@ -314,13 +314,6 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate, UIP
             self.navigationController?.pushViewController(aboutVC, animated: true)
         }
         
-        if item == .steveJobs {
-            guard let vURL = PhoneSetManager.steveJobsURL() else { return }
-            let safariVC = SFSafariViewController(url: vURL)
-            safariVC.preferredControlTintColor = appMainColor
-            self.present(safariVC, animated: true)
-        }
-        
         if item == .loginAccount {
             let userVC = UserInfoViewController()
             self.navigationController?.pushViewController(userVC, animated: true)
@@ -378,9 +371,6 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate, UIP
             self.navigationController?.pushViewController(donateVC, animated: true)
         }
         
-        if item == .contactus {
-            self.handleWithEmail()
-        }
         
         if item == .types {
             let typeVC = SupportTypeViewController()
@@ -475,56 +465,3 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate, UIP
     
 }
 
-// MARK:  邮箱联系
-extension ProfileViewController: MFMailComposeViewControllerDelegate, SFSafariViewControllerDelegate {
-    @objc func handleWithEmail() {
-        self.view.endEditing(true)
-        
-        if !MFMailComposeViewController.canSendMail() {
-            let redbookURL = URL(string: "xhsdiscover://user/\(SocialMediaType.redbook.socialMediaURL().mediaID ?? "")")!
-            if UIApplication.shared.canOpenURL(redbookURL) {
-                UIApplication.shared.open(redbookURL)
-            }else{
-                UIPasteboard.general.string = companyEmail
-                self.showOneAlert(title: "Copied".localStr(), message: companyEmail, confirm: "Done".localStr(), complete: nil)
-            }
-            return
-        }
-        
-        let emailVC = MFMailComposeViewController()
-        emailVC.mailComposeDelegate = self
-        emailVC.setToRecipients([companyEmail])
-        emailVC.setSubject("\(kaka_osType().iconStr()) \("Wake Music".localStr()) Feedback")
-        let messageBody = "\r\r\r\r\r-----------------------------" + "\r" + self.getDeviceInformation()
-                
-        emailVC.setMessageBody(messageBody, isHTML: false)
-        self.present(emailVC, animated: true, completion: nil)
-    }
-    
-    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
-        controller.dismiss(animated: true, completion: nil)
-        if result == .sent {
-            self.view.makeToast("Thank you for your feedback".localStr())
-        }
-        
-    }
-    
-    func safariViewControllerDidFinish(_ controller: SFSafariViewController) {
-        controller.dismiss(animated: true)
-    }
-    
-    func getDeviceInformation() -> String {
-        let device = UIDevice.current
-        let systemVersion = device.systemVersion
-        let model = device.model
-        let appVersion = ((Bundle.main.infoDictionary!["CFBundleShortVersionString"] as? String) ?? "") + "_" + "\(UserInfoManager.shared.isVIP() ? "1" : "0")"
-        
-        return """
-        App Name: \("Wake Music".localStr())
-        App Version: \(appVersion)
-        Device Model: \(model)
-        System Version: \(systemVersion)
-        Language: \(PhoneSetManager.languge_region())
-        """
-    }
-}

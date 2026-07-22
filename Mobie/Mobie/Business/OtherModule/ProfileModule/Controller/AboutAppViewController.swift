@@ -12,6 +12,7 @@ import AppGroupKit
 import SafariServices
 import AVFoundation
 import AVKit
+import MessageUI
 
 /// 关于APP信息
 class AboutAppViewController: SuperViewController {
@@ -45,15 +46,13 @@ class AboutAppViewController: SuperViewController {
     }
     
     var cacheSize: String = ""
-    
-    let nameStory = "In the summer of 2024, the first challenge I faced after deciding to develop this app was figuring out what to name it. One night, I heard the song 'Wake' by Hillsong Young & Free. It's an incredibly uplifting and energetic song. After reading the lyrics and learning about the band's story, the name for the app was born.".localStr()
-    
+        
     // MARK:  GET && SET 
     // App logo、隐私政策、服务条款，欢迎页、清理缓存
     lazy var dataArray: [[AboutAppCellType]] = {
-        let section1: [AboutAppCellType] = [.crossSystem, .appStore, .nameStory]
+        let section1: [AboutAppCellType] = [.crossSystem, .appStore]
         let section2: [AboutAppCellType] = [.privacy, .userMent]
-        var section3: [AboutAppCellType] = [.systemSet, .cleanCache]
+        var section3: [AboutAppCellType] = [.contactus, .systemSet, .cleanCache]
         if kaka_IsMacOS() {
             section3.removeFirst()
         }
@@ -117,12 +116,6 @@ extension AboutAppViewController: UITableViewDataSource, UITableViewDelegate {
             UIApplication.shared.open(storeURL, options: [:], completionHandler: nil)
         }
         
-        if item == .nameStory {
-            self.showOneAlert(title: "Reminder".localStr(), message: nameStory) {
-                self.clickAppNameStory()
-            }
-        }
-        
         if item == .systemSet {
             if let vURL = URL(string: UIApplication.openSettingsURLString) {
                 UIApplication.shared.open(vURL)
@@ -151,6 +144,10 @@ extension AboutAppViewController: UITableViewDataSource, UITableViewDelegate {
                 webVC.preferredControlTintColor = appMainColor
                 self.present(webVC, animated: true)
             }
+        }
+        
+        if item == .contactus {
+            self.handleWithEmail()
         }
         
         if item == .cleanCache {
@@ -230,21 +227,83 @@ extension AboutAppViewController: UITableViewDataSource, UITableViewDelegate {
         return footView
     }
     
-    func clickAppNameStory() {
-        let fileURL = URL(fileURLWithPath: Reasource.fullFilePath("wake_music.mp4"))
+    
+}
+
+
+// MARK:  邮箱联系
+extension AboutAppViewController: MFMailComposeViewControllerDelegate, SFSafariViewControllerDelegate {
+    
+    @objc func handleWithEmail() {
+        self.view.endEditing(true)
         
-        #if targetEnvironment(macCatalyst)
-        UIApplication.shared.open(fileURL)
-        #else
-        let player = AVPlayer(url: fileURL)
-        let playerViewController = KakaAVPlayerViewController()
-        playerViewController.overrideUserInterfaceStyle = .dark
-        playerViewController.player = player
-        playerViewController.entersFullScreenWhenPlaybackBegins = true
-        playerViewController.exitsFullScreenWhenPlaybackEnds = true
-        self.present(playerViewController, animated: true)
+        let subject = "\(kaka_osType().iconStr()) \("Wake Music".localStr()) Feedback"
+        let messageBody = "\r\r\r\r\r-----------------------------" + "\r" + self.getDeviceInformation()
         
-        #endif
+        let canOpenMailScheme = UIApplication.shared.canOpenURL(URL(string: "mailto:")!)
+        let mailtoURL = URL(string: "mailto:\(companyEmail)?subject=\(subject)&body=\(messageBody)")!
+        
+        if !MFMailComposeViewController.canSendMail() {
+            
+            if canOpenMailScheme {
+                // 2️⃣ 打开第三方邮件客户端
+                UIApplication.shared.open(mailtoURL)
+            }else{
+                // 3️⃣ 用户没有任何邮件客户端
+                let message = "No email app installed?".localStr()
+                let action1 = AlertActionConfig(title: companyEmail, style: .destructive, actionType: .first)
+                let action2 = AlertActionConfig(title: kaka_IsMacOS() ? "Gmail" : "App Store", style: .default, actionType: .second)
+                
+                self.showThreeAlert(message: message, btn1: action1, btn2: action2) { [weak self] type in
+                    if type == .first {
+                        UIPasteboard.general.string = companyEmail
+                        self?.view?.makeToast("Copied".localStr())
+                    }else{
+                        guard let vURL = URL(string: emailAppURL) else { return }
+                        UIApplication.shared.open(vURL)
+                    }
+                }
+            }
+            return
+        }
+        
+        // 1️⃣ 优先使用Apple的邮件客户端
+        if canOpenMailScheme && kaka_IsMacOS() {
+            UIApplication.shared.open(mailtoURL)
+        }else{
+            let emailVC = MFMailComposeViewController()
+            emailVC.mailComposeDelegate = self
+            emailVC.setToRecipients([companyEmail])
+            emailVC.setSubject(subject)
+            emailVC.setMessageBody(messageBody, isHTML: false)
+            self.present(emailVC, animated: true, completion: nil)
+        }
     }
     
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
+        if result == .sent {
+            self.view.makeToast("Thank you for your feedback".localStr())
+        }
+        
+    }
+    
+    func safariViewControllerDidFinish(_ controller: SFSafariViewController) {
+        controller.dismiss(animated: true)
+    }
+    
+    func getDeviceInformation() -> String {
+        let device = UIDevice.current
+        let systemVersion = device.systemVersion
+        let model = kaka_IsMacOS() ? "macOS" : device.model
+        let appVersion = ((Bundle.main.infoDictionary!["CFBundleShortVersionString"] as? String) ?? "") + "_" + "\(UserInfoManager.shared.isVIP() ? "1" : "0")"
+
+        return """
+        App Name: \("Wake Music".localStr())
+        App Version: \(appVersion)
+        Device Model: \(model)
+        System Version: \(systemVersion)
+        Language: \(PhoneSetManager.languge_region())
+        """
+    }
 }

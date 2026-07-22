@@ -11,11 +11,11 @@ enum AboutAppCellType {
     
     case crossSystem
     case appStore
-    case nameStory
-    
+
     case privacy
     case userMent
     
+    case contactus
     case systemSet
     case cleanCache
     
@@ -25,14 +25,14 @@ enum AboutAppCellType {
             return nil
         case .appStore:
             return "App Store"
-        case .nameStory:
-            return "The Name Story".localStr()
             
         case .privacy:
             return "Privacy Policy".localStr()
         case .userMent:
             return "Terms of Service".localStr()
             
+        case .contactus:
+            return "Contact Us".localStr()
         case .systemSet:
             return "System Settings".localStr()
         case .cleanCache:
@@ -47,12 +47,14 @@ enum AboutAppCellType {
             return nil
         case .appStore:
             return "iOS & Mac"
-        case .nameStory:
-            return "Wake Music"
+        
         case .privacy:
             return string
         case .userMent:
             return string
+            
+        case .contactus:
+            return ""
         case .systemSet:
             return string
         case .cleanCache:
