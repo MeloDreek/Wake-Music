@@ -29,7 +29,7 @@ extension PurchaseViewController {
         
         let nowDate = Date()
         
-        if DiscountIAPManager.shared.lastDiscountTime == nil || DiscountIAPManager.shared.isBeyoned3Days() {
+        if DiscountIAPManager.shared.lastDiscountTime == nil {
             // 设置首次进入支付页的时间
             DiscountIAPManager.shared.lastDiscountTime = nowDate.timeIntervalSince1970
             NotificationCenter.default.post(name: Notification.Name(kStartDiscountPriceKey), object: nil, userInfo: nil)

@@ -47,6 +47,7 @@ enum SettingCellItemType {
     case types
     case donate
     case guideiOS
+    case FAQ
     case abountUS
     
     case guideRanting
@@ -78,8 +79,10 @@ enum SettingCellItemType {
             return "Donate".localStr()
         case .guideiOS:
             return "Download for iOS".localStr()
+        case .FAQ:
+            return "FAQ".localStr()
         case .abountUS:
-            return "More".localStr()
+            return "About Us".localStr()
             
         case .guideRanting:
             return nil
@@ -123,6 +126,8 @@ enum SettingCellItemType {
             }else{
                 return Reasource.systemNamed("iphone", color: appMainColor)
             }
+        case .FAQ:
+            return Reasource.systemNamed("questionmark.circle", color: appMainColor)
         case .abountUS:
             return Reasource.systemNamed("ellipsis.circle", color: appMainColor)
             

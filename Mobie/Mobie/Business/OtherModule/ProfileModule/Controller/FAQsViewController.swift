@@ -79,8 +79,9 @@ class FAQsViewController: SuperViewController {
         view.delegate = self
         view.rowHeight = UITableView.automaticDimension
         view.contentInsetAdjustmentBehavior = .automatic
+        view.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: playingHeight + 20.ckValue(), right: 0)
         view.register(FAQsTableViewCell.self, forCellReuseIdentifier: "FAQsTableViewCell")
-        view.register(UITableViewCell.self, forCellReuseIdentifier: "FAQHeadTableViewCell")
+        view.register(SocialMediaTableCell.self, forCellReuseIdentifier: "SocialMediaTableCell")
         return view
     }()
         
@@ -97,7 +98,7 @@ extension FAQsViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "FAQHeadTableViewCell", for: indexPath)
+            let cell = tableView.dequeueReusableCell(withIdentifier: "SocialMediaTableCell", for: indexPath) as! SocialMediaTableCell
             return cell
         }else{
             let cell = tableView.dequeueReusableCell(withIdentifier: "FAQsTableViewCell", for: indexPath)
@@ -301,3 +302,64 @@ class FAQsTableViewCell: UITableViewCell {
     }()
 }
 
+class SocialMediaTableCell: UITableViewCell {
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        self.preSetupSubViews()
+        self.preSetupContains()
+        self.preSetupHandleBuness()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func preSetupSubViews() {
+        contentView.addSubview(socialImgView)
+        contentView.addSubview(mailLabel)
+    }
+    
+    private func preSetupContains() {
+        socialImgView.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.bottom.equalToSuperview()
+            make.top.equalToSuperview().offset(10.ckValue())
+            make.width.equalToSuperview()
+        }
+        
+        mailLabel.snp.remakeConstraints { make in
+            make.trailing.equalToSuperview()
+            make.bottom.equalToSuperview()
+            make.size.equalTo(mailLabel.size)
+        }
+    }
+    
+    private func preSetupHandleBuness() {
+        self.selectionStyle = .none
+        self.accessoryType = .none
+    }
+    
+    lazy var socialImgView: UIImageView = {
+        let view = UIImageView()
+        view.contentMode = .scaleAspectFit
+        view.image = Reasource.named("support_social")
+        return view
+    }()
+    
+    lazy var mailLabel: UILabel = {
+        let font = UIFontLight(11.ckValue())
+        let message = "Mail".localStr()
+        let nameSize = CGSize(width: message.width(font) + 30.ckValue(), height: font.lineHeight + 10.ckValue())
+        let corners: UIRectCorner = PhoneSetManager.isArabicLanguage() ? [.topRight] : [.topLeft]
+        
+        let view = UILabel(frame: CGRect(x: 0, y: 0, width: nameSize.width, height: nameSize.height))
+        view.corner(byRoundingCorners: corners, radii: 20.ckValue())
+        view.layer.masksToBounds = true
+        view.text = message
+        view.backgroundColor = appMainColor
+        view.font = font
+        view.textColor = .white
+        view.textAlignment = .center
+        return view
+    }()
+}

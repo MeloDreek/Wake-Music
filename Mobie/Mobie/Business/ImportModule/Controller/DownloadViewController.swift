@@ -194,22 +194,6 @@ view.refreshControl = self.kaka_header
         return selectItem
     }()
     
-//    lazy var premiumBarItem: UIBarButtonItem = {
-//        let timerView = PremiumTimerView(frame: CGRectMake(0, 0, PremiumTimerView.maxWidth(), 30.ckValue()))
-//        timerView.onStopCallback = { [weak self] () in
-//            self?.navigationItem.leftBarButtonItems = nil
-//        }
-//        timerView.addTarget(self, action: #selector(vipCenterClick), for: .touchUpInside)
-//        
-//        let item = UIBarButtonItem(customView: timerView)
-//        item.style = .done
-//        if #available(iOS 26.0, *) {
-//            item.hidesSharedBackground = true
-//        }
-//        item.width = PremiumTimerView.maxWidth()
-//        return item
-//    }()
-    
 }
 
 extension DownloadViewController: UITableViewDataSource, UITableViewDelegate, EmptyContentCellDelegate {

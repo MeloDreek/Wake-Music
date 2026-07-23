@@ -87,9 +87,10 @@ class ProfileViewController: SuperViewController {
     @objc func updateNavigationItem() {
         self.navigationItem.rightBarButtonItem = (kaka_IsMacOS() || UserInfoManager.shared.isVIP() || !DiscountIAPManager.shared.isShowDiscount()) ? nil : self.premiumBarItem
         
-        if UserInfoManager.shared.isVIP() && UserInfoManager.shared.payGoodsId == PurchaseStoreID.weekly.rawValue {
+        if !UserInfoManager.shared.isVIP() {
             self.navigationItem.rightBarButtonItem = self.premiumBarItem
         }
+        
         self.tableView.reloadData()
     }
     
@@ -137,8 +138,7 @@ class ProfileViewController: SuperViewController {
             
             let model3 = SettingGroupCellModel(group: .safetyGroup, headTitle: "Settings".localStr().lowercased(), itemArray: itemArray2, footTitle: nil)
                         
-            let itemArray4: [SettingCellItemType] = [.types, .abountUS]
-            let model4 = SettingGroupCellModel(group: .othersGroup, headTitle: "Others".localStr().lowercased(), itemArray: itemArray4, footTitle: nil)
+            let model4 = SettingGroupCellModel(group: .othersGroup, headTitle: "Others".localStr().lowercased(), itemArray: [.types, .FAQ, .abountUS], footTitle: nil)
             
             tempArray.append(model1)
             
@@ -357,6 +357,11 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate, UIP
         if item == .types {
             let typeVC = SupportTypeViewController()
             self.navigationController?.pushViewController(typeVC, animated: true)
+        }
+        
+        if item == .FAQ {
+            let faqVC = FAQsViewController()
+            self.navigationController?.pushViewController(faqVC, animated: true)
         }
         
         if item == .appearance && kaka_IsMacOS() {

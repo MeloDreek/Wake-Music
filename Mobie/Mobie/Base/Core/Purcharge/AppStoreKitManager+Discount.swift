@@ -9,6 +9,7 @@ import KakaFoundation
 import AppGroupKit
 import SmartCodable
 
+/// 终身限免折扣管理器
 public struct DiscountIAPManager: SmartCodableX {
     public init() {}
     
@@ -23,16 +24,16 @@ public struct DiscountIAPManager: SmartCodableX {
     
     // 默认倒计时3小时
 #if DEBUG
-    var maxDiscountTime: Double = 24 * 60 * 60
+    private(set) var maxDiscountTime: Double = 1 * 60 * 60
 #else
-    var maxDiscountTime: Double = 24 * 60 * 60
+    private(set) var maxDiscountTime: Double = 24 * 60 * 60
 #endif
     
     // 默认隔几天出现
 #if DEBUG
-    var defaultDays = 1
+    private(set) var defaultDays = 1
 #else
-    var defaultDays = 3
+    private(set) var defaultDays = 3
 #endif
     
     
@@ -61,19 +62,6 @@ public struct DiscountIAPManager: SmartCodableX {
             return true
         }
         
-    }
-    
-    /// 距离上次展示折扣优惠是否超过3天
-    public func isBeyoned3Days() -> Bool {
-        guard let lastDiscountTime = self.lastDiscountTime, lastDiscountTime > 0 else { return false }
-        
-        let nowDate = Date()
-        let firstDate = lastDiscountTime.rounded().formatDate()
-        
-        let calendar = Calendar(identifier: Calendar.current.identifier)
-        let dayCount = calendar.dateComponents([Calendar.Component.day], from: firstDate, to: nowDate).day ?? 0
-        
-        return dayCount >= defaultDays
     }
     
 }

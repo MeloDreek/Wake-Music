@@ -288,7 +288,6 @@
 		225F58632D85B2AB0055BDFF /* AlbumDetialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13942CA0633400E2948E /* AlbumDetialViewController.swift */; };
 		225F58642D85B2AB0055BDFF /* DonateViewController+Pay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2261E8862CB6FAB2009506C0 /* DonateViewController+Pay.swift */; };
 		225F58652D85B2AB0055BDFF /* PurchageListViewcell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13E62CA0633400E2948E /* PurchageListViewcell.swift */; };
-		225F58662D85B2AB0055BDFF /* SocialMediaHeadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227310232D1E5A1400EB7842 /* SocialMediaHeadView.swift */; };
 		225F58672D85B2AB0055BDFF /* PlayerTimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224AC8A72CE4333200F4F2AF /* PlayerTimerViewController.swift */; };
 		225F58682D85B2AB0055BDFF /* MusicsViewController+Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A139C2CA0633400E2948E /* MusicsViewController+Action.swift */; };
 		225F58692D85B2AB0055BDFF /* NavidromeViewController+Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2247DC152D1AB8F10082F76D /* NavidromeViewController+Data.swift */; };
@@ -402,7 +401,6 @@
 		226FEC5D2D374E5C007ADA70 /* MusicPlaylistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226FEC5C2D374E5B007ADA70 /* MusicPlaylistView.swift */; };
 		226FF2F22CCA8B8E00514BE4 /* PlayAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226FF2F12CCA8B8D00514BE4 /* PlayAnimationController.swift */; };
 		227310222D1E33EB00EB7842 /* MusicViewModel+Change.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227310212D1E33EB00EB7842 /* MusicViewModel+Change.swift */; };
-		227310242D1E5A1400EB7842 /* SocialMediaHeadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227310232D1E5A1400EB7842 /* SocialMediaHeadView.swift */; };
 		227310262D1EAD8200EB7842 /* ArtistCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227310252D1EAD8200EB7842 /* ArtistCollectionCell.swift */; };
 		227310282D1ED9CB00EB7842 /* GenreCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227310272D1ED9CB00EB7842 /* GenreCollectionCell.swift */; };
 		227427F12DE6E173000DB946 /* DominantColors in Frameworks */ = {isa = PBXBuildFile; productRef = 227427F02DE6E173000DB946 /* DominantColors */; };
@@ -814,7 +812,6 @@
 		226FEC5C2D374E5B007ADA70 /* MusicPlaylistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlaylistView.swift; sourceTree = "<group>"; };
 		226FF2F12CCA8B8D00514BE4 /* PlayAnimationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayAnimationController.swift; sourceTree = "<group>"; };
 		227310212D1E33EB00EB7842 /* MusicViewModel+Change.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MusicViewModel+Change.swift"; sourceTree = "<group>"; };
-		227310232D1E5A1400EB7842 /* SocialMediaHeadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialMediaHeadView.swift; sourceTree = "<group>"; };
 		227310252D1EAD8200EB7842 /* ArtistCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistCollectionCell.swift; sourceTree = "<group>"; };
 		227310272D1ED9CB00EB7842 /* GenreCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreCollectionCell.swift; sourceTree = "<group>"; };
 		2275AC6C2D265D8E00D125B2 /* ConnectListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectListViewController.swift; sourceTree = "<group>"; };
@@ -1541,7 +1538,6 @@
 				228A13E82CA0633400E2948E /* SelectAvatarViewCell.swift */,
 				228A13E92CA0633400E2948E /* UIMenuAccessView.swift */,
 				228A13EA2CA0633400E2948E /* UserInfoHeadView.swift */,
-				227310232D1E5A1400EB7842 /* SocialMediaHeadView.swift */,
 				221540CE2D02D01B00B47BE0 /* PremiumTimerView.swift */,
 			);
 			path = View;
@@ -2250,7 +2246,6 @@
 				22C707842DCBA00000A1B79A /* AppStoreInfoModel.swift in Sources */,
 				224DAE3D2EAE5961003CFAAC /* DriveUserModel+Extension.swift in Sources */,
 				225F58652D85B2AB0055BDFF /* PurchageListViewcell.swift in Sources */,
-				225F58662D85B2AB0055BDFF /* SocialMediaHeadView.swift in Sources */,
 				225F58672D85B2AB0055BDFF /* PlayerTimerViewController.swift in Sources */,
 				22109C562DF09DC900A39370 /* MiniLyricAnimation+Extension.swift in Sources */,
 				225F58682D85B2AB0055BDFF /* MusicsViewController+Action.swift in Sources */,
@@ -2533,7 +2528,6 @@
 				22C707852DCBA00000A1B79A /* AppStoreInfoModel.swift in Sources */,
 				224DAE3C2EAE5961003CFAAC /* DriveUserModel+Extension.swift in Sources */,
 				228A14722CA0633400E2948E /* PurchageListViewcell.swift in Sources */,
-				227310242D1E5A1400EB7842 /* SocialMediaHeadView.swift in Sources */,
 				224AC8A82CE4333200F4F2AF /* PlayerTimerViewController.swift in Sources */,
 				22109C572DF09DC900A39370 /* MiniLyricAnimation+Extension.swift in Sources */,
 				228A14322CA0633400E2948E /* MusicsViewController+Action.swift in Sources */,

@@ -249,7 +249,8 @@ view.refreshControl = self.kaka_header
     lazy var premiumBarItem: UIBarButtonItem = {
         let timerView = PremiumTimerView(frame: CGRectMake(0, 0, PremiumTimerView.maxWidth(), 30.ckValue()))
         timerView.onStopCallback = { [weak self] () in
-            self?.setupNavigationItem()
+//            self?.setupNavigationItem()
+            self?.navigationItem.leftBarButtonItems = nil
         }
         timerView.addTarget(self, action: #selector(vipCenterClick), for: .touchUpInside)
         
