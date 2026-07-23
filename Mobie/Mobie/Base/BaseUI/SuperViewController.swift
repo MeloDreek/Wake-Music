@@ -130,9 +130,11 @@ public class SuperViewController: UIViewController {
     
     // MARK:  GET && SET
     @objc func vipCenterClick() {
-        if !DiscountIAPManager.shared.isShowDiscount() {
-            DiscountIAPManager.reset()
-        }
+//        if !DiscountIAPManager.shared.isShowDiscount() {
+//            DiscountIAPManager.reset()
+//        }
+//        
+//        AppStoreKitManager.presentPurcharseVC(self)
         
         AppStoreKitManager.presentPurcharseVC(self)
     }

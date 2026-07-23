@@ -14,158 +14,85 @@ import RevenueCat
 
 extension PurchaseViewController {
     
-    // 计算是否需要展示终身折扣内购
+    // MARK: - Goods Logic
     func handlePriceGoods(_ models: [StoreProduct]) {
         
+        // 1. VIP 状态判断
         if UserInfoManager.shared.isVIP() {
-            self.priceArray = models.filter({ $0.productIdentifier != PurchaseStoreID.lifetime198.rawValue })
-            self.selectModel = models.filter({ $0.productIdentifier == PurchaseStoreID.lifetime298.rawValue }).first
+            self.priceArray = models.filter { $0.productIdentifier != PurchaseStoreID.lifetime198.rawValue }
+            self.selectModel = models.first { $0.productIdentifier == PurchaseStoreID.lifetime298.rawValue }
             self.tableView.reloadData()
             return
         }
-                
-        self.selectModel = self.priceArray.filter({ $0.productIdentifier == PurchaseStoreID.lifetime198.rawValue }).first
-        self.tableView.reloadData()
         
-        let nowDate = Date()
+        // 2. 获取最新的折扣状态
+        var discountManager = DiscountIAPManager.read()
         
-        if DiscountIAPManager.shared.lastDiscountTime == nil {
-            // 设置首次进入支付页的时间
-            DiscountIAPManager.shared.lastDiscountTime = nowDate.timeIntervalSince1970
-            NotificationCenter.default.post(name: Notification.Name(kStartDiscountPriceKey), object: nil, userInfo: nil)
-            
-            self.showDiscountBox()
+        // 首次进入 或 超过冷却期后进入：重新开启 24 小时倒计时
+        if discountManager.lastDiscountTime == nil || (discountManager.remainingDiscountTime() <= 0 && discountManager.isShowDiscount()) {
+            DiscountIAPManager.markDiscountStarted()
+            discountManager = DiscountIAPManager.read() // 刷新本地变量
+            NotificationCenter.default.post(name: Notification.Name(kStartDiscountPriceKey), object: nil)
         }
         
-        let isShowDiscount = DiscountIAPManager.shared.isShowDiscount()
+        let isShowDiscount = discountManager.isShowDiscount() && discountManager.remainingDiscountTime() > 0
 
-        if !isShowDiscount {
-            // 需要过滤的商品ID
-            self.priceArray = models.filter({ $0.productIdentifier != PurchaseStoreID.lifetime198.rawValue })
-            self.selectModel = self.priceArray.filter({ $0.productIdentifier == PurchaseStoreID.lifetime298.rawValue }).first
+        // 3. 根据状态过滤商品
+        if isShowDiscount {
+            // 展示 198 终身折扣价
+            self.priceArray = models.filter { $0.productIdentifier != PurchaseStoreID.lifetime298.rawValue }
+            self.selectModel = self.priceArray.first { $0.productIdentifier == PurchaseStoreID.lifetime198.rawValue }
             self.tableView.reloadData()
-            return
+            
+            // 开启倒计时（传入开始时间）
+            if let startTime = discountManager.lastDiscountTime {
+                self.timeSpaceRepeat(lastDiscountTime: startTime, maxDiscountTime: discountManager.maxDiscountTime)
+            }
+        } else {
+            // 展示 298 终身原价
+            self.priceArray = models.filter { $0.productIdentifier != PurchaseStoreID.lifetime198.rawValue }
+            self.selectModel = self.priceArray.first { $0.productIdentifier == PurchaseStoreID.lifetime298.rawValue }
+            self.tableView.reloadData()
+            
+            // 停止倒计时
+            self.timer.stopTimer()
         }
-                
-        // 需要过滤的商品ID
-        self.priceArray = models.filter({ $0.productIdentifier != PurchaseStoreID.lifetime298.rawValue })
-        self.selectModel = self.priceArray.filter({ $0.productIdentifier == PurchaseStoreID.lifetime198.rawValue }).first
-        self.tableView.reloadData()
-        
-        // 开始计算倒计时
-        self.timeSpaceRepeat()
-        
     }
     
-    @objc func timeSpaceRepeat() {
+    // MARK: - Countdown Timer
+    func timeSpaceRepeat(lastDiscountTime: TimeInterval, maxDiscountTime: TimeInterval) {
+        // 1. 先停掉旧定时器，防止重入叠加
+        self.timer.stopTimer()
         
-        self.timer.startTimer(seconds: 0.01, repeats: true, callSoon: true) { [weak self] vTime in
+        // 2. 建议频率 0.1 秒（显示毫秒足够流畅）或 1.0 秒
+        self.timer.startTimer(seconds: 0.1, repeats: true, callSoon: true) { [weak self] vTime in
             guard let wSelf = self else { return }
-            guard let lastDiscountTime = DiscountIAPManager.shared.lastDiscountTime else {
-                return
-            }
             
-            let index: Int? = wSelf.priceArray.firstIndex { $0.productIdentifier == PurchaseStoreID.lifetime198.rawValue }
-            guard let index = index else { return }
-            guard let discountCell = wSelf.tableView.cellForRow(at: IndexPath(row: index, section: 1)) as? PurchasePriceCell else { return }
+            // 3. 纯内存计算！绝不在 Timer 内部做 AES 解密和磁盘 I/O
+            let now = Date().timeIntervalSince1970
+            let passTime = now - lastDiscountTime
+            let leftTime = max(0, maxDiscountTime - passTime)
             
-            let nowDate = Date()
+//             debugPrint("leftTime = \(leftTime)")
             
-            var leftTime = nowDate.timeIntervalSince1970 - lastDiscountTime
-            leftTime = wSelf.maxDiscountTime - leftTime
-            
+            // 4. 倒计时到期处理
             if leftTime <= 0 {
-                // 折扣倒计时结束啦
                 vTime.stopTimer()
-                wSelf.tableView.reloadData()
+                // 注意：必须传入全量商品 self.allProducts，不能传过滤后的 priceArray！
+                wSelf.handlePriceGoods(wSelf.allProducts)
                 return
             }
-                        
-            discountCell.leftDiscountTime = leftTime
-        }
-        
-    }
-    
-    @objc func showPremiumOffer() {
-        if UserInfoManager.shared.isVIP() { return }
-        
-        if !DiscountIAPManager.shared.isShowDiscount() {
-            DiscountIAPManager.reset()
             
-            AppStoreKitManager.shared.refresRemoteProductsPrice(productIds: [.yearly, .lifetime198, .lifetime298]) { [weak self] models in
-                self?.handlePriceGoods(models)
+            // 5. 刷新界面 Cell
+            let index = wSelf.priceArray.firstIndex { $0.productIdentifier == PurchaseStoreID.lifetime198.rawValue }
+            if let index = index {
+                let indexPath = IndexPath(row: index, section: 1)
+                if let discountCell = wSelf.tableView.cellForRow(at: indexPath) as? PurchasePriceCell {
+                    discountCell.leftDiscountTime = leftTime
+                }
             }
-            
         }
-        
-        if self.view.viewWithTag(1688) != nil {
-            return
-        }
-        
-        self.showZeroPriceGiftBoxTips()
     }
-    
-    func showDiscountBox() {
-        
-        guard let offerModel = self.priceArray.filter({ $0.productIdentifier == PurchaseStoreID.lifetime198.rawValue }).first else {
-            return
-        }
-        let message = "Limited Time Offer".localStr() + "\r" +  "You get a lifetime premium discount!".localStr()
-        
-        let giftView = UIImageView(image: Reasource.named("gift_box"))
-        giftView.contentMode = .scaleAspectFit
-        giftView.size = CGSizeMake(120.ckValue(), 120.ckValue())
-                
-        let alertView = KakaAlertView.popupAlertView(title: "Congratulations!".localStr(), message: message, customView: giftView, confirmTitle: "OK".localStr(), action: { [weak self] style in
-            guard let wSelf = self else { return }
-            
-            wSelf.selectModel = offerModel
-            wSelf.tableView.reloadData()
-            wSelf.buyoutButton.kaka_playShakeAnim()
-            
-        }, inView: self.view)
-        alertView.tag = 1288
-        alertView.isShowCloseButton = false
-    }
-    
-    func showZeroPriceGiftBoxTips() {
-        guard let offerModel = self.priceArray.filter({ $0.productIdentifier == PurchaseStoreID.lifetime198.rawValue }).first else {
-            return
-        }
-        
-        let giftView = UIImageView(image: Reasource.named("gift_box"))
-        giftView.contentMode = .scaleAspectFit
-        giftView.size = CGSizeMake(120.ckValue(), 120.ckValue())
-                
-        let alertView = KakaAlertView.popupAlertView(title: "Limited Time Offer".localStr(), message: "Dear friends, this is the first time we are coming to your country. To celebrate this occasion, all downloaders can upgrade to Lifetime Premium for free!".localStr(), customView: giftView, confirmTitle: "OK".localStr(), action: { [weak self] style in
-            guard let wSelf = self else { return }
-            
-            wSelf.selectModel = offerModel
-            wSelf.tableView.reloadData()
-            
-            wSelf.buyoutButton.kaka_playShakeAnim()
-            
-        }, inView: appKeyWindow ?? self.view)
-        alertView.tag = 1688
-        alertView.isShowCloseButton = false
-    }
-    
-    func showScoreAndShare(_ completion: (()->Void)? = nil) {
-        
-        AnalyticsManager.shared.logEvent("First_Beta_Offer", parameters: nil)
-
-        let alertController = UIAlertController(title: "Congratulations!".localStr(), message: "You have been upgraded to Lifetime Premium for free. Don’t forget to tell your friends about this special event!".localStr(), preferredStyle: .alert)
-        let action1 = UIAlertAction(title: "Five Star Rating".localStr(), style: .default) { (sender) in
-            AppLocalManager.shared.isReceiveOffer = true
-            completion?()
-        }
-                
-        alertController.addAction(action1)
-        action1.setValue(UIColor.systemBlue, forKey: "_titleTextColor")
-
-        self.present(alertController, animated: true, completion: nil)
-    }
-    
 }
 
 #endif

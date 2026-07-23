@@ -42,7 +42,7 @@ extension VideoConverterViewController {
         }
         
         
-        self.timer.startTimer(seconds: 0.1, repeats: true, callSoon: true) { [weak self] vTimer in
+        self.timer.startTimer(seconds: 0.01, repeats: true, callSoon: true) { [weak self] vTimer in
             guard let sesstion = self?.audioSeccsion else { return }
             debugPrint("转换进度 = \(sesstion.progress)")
             self?.videoCell?.progress = Double(sesstion.progress)

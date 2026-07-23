@@ -113,7 +113,7 @@ class WelcomeViewController: SuperViewController {
         self.timer.startTimer(seconds: 0.01, repeats: true, callSoon: true) { [weak self] vTime in
             guard let wSelf = self else { return }
             guard let lastDiscountTime = DiscountIAPManager.shared.lastDiscountTime else {
-                DiscountIAPManager.shared.lastDiscountTime = Date().timeIntervalSince1970
+                DiscountIAPManager.markDiscountStarted()
                 return
             }
             
@@ -123,7 +123,7 @@ class WelcomeViewController: SuperViewController {
             leftTime = wSelf.maxDiscountTime - leftTime
             
             if leftTime < 0 {
-                DiscountIAPManager.shared.lastDiscountTime = Date().timeIntervalSince1970
+                DiscountIAPManager.markDiscountStarted()
             }
             
             self?.updateDiscountTime(leftTime)

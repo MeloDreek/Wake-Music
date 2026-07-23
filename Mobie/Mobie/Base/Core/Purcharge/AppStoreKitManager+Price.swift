@@ -27,7 +27,7 @@ extension AppStoreKitManager {
         Purchases.shared.getProducts(productIds) { products in
             
             let goodsArray = products.sorted { model1, model2 in
-                return model1.price > model2.price
+                return model1.price < model2.price
             }
             
             AppStoreKitManager.shared.saleArray = goodsArray

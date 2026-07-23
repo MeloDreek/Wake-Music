@@ -157,9 +157,9 @@ class NavidromeSearchViewController: UISearchController, MusicTableViewCellDeleg
     
     
     @objc func vipCenterClick() {
-        if !DiscountIAPManager.shared.isShowDiscount() {
-            DiscountIAPManager.reset()
-        }
+//        if !DiscountIAPManager.shared.isShowDiscount() {
+//            DiscountIAPManager.reset()
+//        }
         
         AppStoreKitManager.presentPurcharseVC(self)
     }

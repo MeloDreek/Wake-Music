@@ -19,15 +19,6 @@ class PurchaseViewController: SuperViewController {
         self.timer.stopTimer()
     }
     
-    init(_ isFirst: Bool = false) {
-        self.isFirst = isFirst
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    public required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
     override func preSetupSubViews() {
         super.preSetupSubViews()
                 
@@ -79,37 +70,32 @@ class PurchaseViewController: SuperViewController {
     
     override func preSetupHandleBuness() {
         super.preSetupHandleBuness()
-        self.perform(#selector(setupLeftNavgationItem), with: nil, afterDelay: isFirst ? 2.8 : 0)
+        self.perform(#selector(setupLeftNavgationItem), with: nil, afterDelay: 2.8)
         
         self.darkAppearanceClick()
                         
         self.handlePriceGoods(self.priceArray)
         AppStoreKitManager.shared.refresRemoteProductsPrice() { [weak self] models in
+            self?.allProducts = models
             self?.handlePriceGoods(models)
-            
-            guard let yearModel = models.filter({ $0.productIdentifier == PurchaseStoreID.lifetime198.rawValue }).first, yearModel.price == 0 else { return }
-            
-            self?.perform(#selector(self?.showPremiumOffer), with: nil, afterDelay: 1)
+//            self?.perform(#selector(self?.selectDefaultStoreID), with: nil, afterDelay: 2)
         }
         
-        // 监听网络变化
-        NotificationCenter.default.addObserver(self, selector: #selector(reachabilityChanged(note:)), name: .reachabilitySwiftChanged, object: reachability)
-        
-        try? self.reachability.startNotifier()
     }
     
-    // 网络状态变化了
-    @objc func reachabilityChanged(note: Notification) {
-        guard let reachability = note.object as? ReachabilitySwift else { return }
-        
-        debugPrint("当前网络授权状况 = \(reachability.connection.description)")
-        
-        self.netConnect = reachability.connection
-    }
+//    // 默认选择的产品
+//    @objc func selectDefaultStoreID() {
+//        guard let selectIndex = self.priceArray.firstIndex(where: {
+//            $0.productIdentifier == PurchaseStoreID.lifetime198.rawValue
+//        }) else { return }
+//        
+//        let indexPath = IndexPath(row: selectIndex, section: 1)
+//        self.tableView(self.tableView, didSelectRowAt: indexPath)
+//    }
     
     @objc func closeButtonClick() {
         self.onCancelBlock?()
-        self.dismissAnimation(!self.isFirst, completion: nil)
+        self.dismissAnimation(true, completion: nil)
     }
     
     func dismissAnimation(_ animation: Bool = true, completion: (()->Void)? = nil) {
@@ -117,7 +103,6 @@ class PurchaseViewController: SuperViewController {
     }
     
     @objc func setupLeftNavgationItem() {
-        
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(closeButtonClick))
 
     }
@@ -164,6 +149,7 @@ class PurchaseViewController: SuperViewController {
             var autoSubTitle: String
             if let freeTrialDays = vModel.freeTrialDays, freeTrialDays > 0 {
                 autoSubTitle = String(format: "Free Trial for %d Days".localStr(), freeTrialDays)
+                self.buyoutButton.kaka_playShakeAnim()
             }else{
                 autoSubTitle = "Get Started".localStr()
             }
@@ -205,17 +191,8 @@ class PurchaseViewController: SuperViewController {
     
     // 记录倒计时Cell
     var discountCell: PurchasePriceCell?
-    
-    // 是否为首次进来
-    var isFirst: Bool = false
-    
-    var netConnect: ReachabilitySwift.Connection = .unavailable
-    
-    // MARK:  懒加载 
-    
-    lazy var reachability: ReachabilitySwift = {
-        return try! ReachabilitySwift()
-    }()
+        
+    // MARK:  懒加载
     
     lazy var tableView: UITableView = {
         let view = UITableView(frame: .zero, style: .insetGrouped)
@@ -275,6 +252,8 @@ class PurchaseViewController: SuperViewController {
     lazy var priceArray: [StoreProduct] = {
         return AppStoreKitManager.shared.saleArray
     }()
+    
+    var allProducts: [StoreProduct] = []
     
     lazy var footView: PurchaseFootView = {
         let view = PurchaseFootView(frame: CGRectMake(0, 0, self.view.width, 50.ckValue()))

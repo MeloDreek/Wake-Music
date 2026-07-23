@@ -10,6 +10,7 @@ import KakaUIKit
 import AppGroupKit
 import RevenueCat
 
+
 class PurchasePriceCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -68,25 +69,25 @@ class PurchasePriceCell: UITableViewCell {
         
     }
     
-    // MARK:  GET && SET 
+    // MARK:  GET && SET
     var leftDiscountTime: Double = 0 {
         didSet {
-                        
+            
             let totalMilliseconds = Int(leftDiscountTime * 100)
             let hours = totalMilliseconds / (60 * 60 * 100)
             let minutes = (totalMilliseconds % (60 * 60 * 100)) / (60 * 100)
             let seconds = (totalMilliseconds % (60 * 100)) / 100
             let milliseconds = totalMilliseconds % 100
-
+            
             let timerString = String(format: "⏰ %02d:%02d:%02d.%02d", hours, minutes, seconds, milliseconds)
             self.timeLabel.text = timerString
-                
+            
         }
     }
     
     func update(model: StoreProduct, isSelect: Bool) {
         let products = AppStoreKitManager.shared.saleArray
-
+        
         let discountModel = products.filter { $0.productIdentifier == PurchaseStoreID.lifetime198.rawValue }.first
         let lifetimeModel = products.filter { $0.productIdentifier == PurchaseStoreID.lifetime298.rawValue }.first
         
@@ -102,7 +103,7 @@ class PurchasePriceCell: UITableViewCell {
         priceLabel.text = model.localizedPriceString
         price298Label.attributedText = self.priceAttbuteStr(lifetimeArray)
         recommentView.text = String(format: "Save %d%%".localStr(), lifetimeArray.calculateDiscountPercentage())
-
+        
         let isAutoRenew = model.productType == .autoRenewableSubscription
         timeLabel.text = model.secondStr()
         timeLabel.textColor = model.secondTextColor()
@@ -139,7 +140,7 @@ class PurchasePriceCell: UITableViewCell {
         return attbuteStr
     }
     
-    // MARK:  懒加载 
+    // MARK:  懒加载
     lazy var selectImgView: UIButton = {
         let view = UIButton()
         view.isUserInteractionEnabled = false
@@ -196,5 +197,7 @@ class PurchasePriceCell: UITableViewCell {
         view.textAlignment = .center
         return view
     }()
-
+    
+    
 }
+

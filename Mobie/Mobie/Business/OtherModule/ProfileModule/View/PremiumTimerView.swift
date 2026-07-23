@@ -88,7 +88,8 @@ class PremiumTimerView: UIButton {
     }()
     
     lazy var timerLabel: UILabel = {
-        let text = "24:00:00.00 ⏰"
+        let maxTime = DiscountIAPManager.shared.maxDiscountTime
+        let text = String(format: "%02d:00:00.00 ⏰", maxTime)
         let font = UIFontBold(14.ckValue())
         
         let view = UILabel(frame: CGRectMake(0, 0, text.width(font) + 3.ckValue(), font.lineHeight))
