@@ -97,8 +97,15 @@ class UserInfoViewController: SuperViewController {
         var tempArray = [UserInfoGroupCellModel]()
         
         var itemArray: [UserInfoCellItemType] = [.nickName, .endDate]
-#if DEBUG && !Target_Mobie_Pro
-        itemArray = [.nickName, .endDate, .premium]
+#if !Target_Mobie_Pro
+        if let storeID = AppStoreKitManager.shared.currentStoreID(), storeID.productType == .autoRenewableSubscription {
+            itemArray = [.nickName, .endDate, .premium]
+        }else{
+            if !UserInfoManager.shared.isVIP() {
+                itemArray = [.nickName, .endDate, .premium]
+            }
+        }
+        
 #endif
         let model1 = UserInfoGroupCellModel(group: .info, headTitle: nil, itemArray: itemArray, footTitle: nil)
         let model2 = UserInfoGroupCellModel(group: .purchage, headTitle: UserInfoCellItemType.purchageList.titleStr(), itemArray: [], footTitle: "Purchase records is associated with the Apple Account you are currently signed in to on your device".localStr())
@@ -233,7 +240,7 @@ extension UserInfoViewController: UITableViewDataSource, UITableViewDelegate, Us
             }
             
             if item == .premium {
-                AppStoreKitManager.presentPurcharseVC(self)
+                self.vipCenterClick()
             }
         }
         

@@ -184,6 +184,8 @@ public class KakaMusicPlayer: NSObject, ObservableObject {
         let isPlaylist = model.mediaPlayURL.pathExtension.contains("m3u")
         option.formatContextOptions["protocol_whitelist"] = isPlaylist ?  "file,http,https,tcp,tls,crypto,async,cache,data,httpproxy" : nil
         
+//        KSOptions.audioPlayerType = AudioEnginePlayer.self
+        
         if model.mediaPlayURL.scheme == "ipod-library" {
             KSOptions.firstPlayerType = KSAVPlayer.self
             KSOptions.secondPlayerType = KSMEPlayer.self

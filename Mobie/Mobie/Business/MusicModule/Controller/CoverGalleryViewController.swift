@@ -378,7 +378,7 @@ extension CoverGalleryViewController: UITableViewDataSource, UITableViewDelegate
             guard let imageCell = tableView.cellForRow(at: indexPath) as? CoverGalleryTableCell else { return }
             if self.editStyle != .preview {
                 if !UserInfoManager.shared.isVIP() {
-                    AppStoreKitManager.presentPurcharseVC(self)
+                    self.vipCenterClick()
                     return
                 }
                 

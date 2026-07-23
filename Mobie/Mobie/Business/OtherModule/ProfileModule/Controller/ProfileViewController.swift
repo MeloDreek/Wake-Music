@@ -129,9 +129,8 @@ class ProfileViewController: SuperViewController {
     private var dataArray: [SettingGroupCellModel] {
         get {
             var tempArray = [SettingGroupCellModel]()
-            let isChinese = PhoneSetManager.formatLanguage() == .chinese_simplified
             
-            let itemArray1: [SettingCellItemType] = (UserInfoManager.shared.isVIP() || !isChinese) ? [.loginAccount] : [.loginAccount, .promoCode, .freePlan]
+            let itemArray1: [SettingCellItemType] = UserInfoManager.shared.isVIP() ? [.loginAccount] : [.loginAccount]
             let model1 = SettingGroupCellModel(group: .accountGroup, headTitle: "Account".localStr(), itemArray: itemArray1, footTitle: nil)
             
             let itemArray2: [SettingCellItemType] = kaka_IsMacOS() ? [.selectPlayer, .playConfig, .cacheConfig, .appTintColor] : [.selectPlayer, .playConfig, .cacheConfig, .applogo, .appTintColor, .appearance]
@@ -143,7 +142,7 @@ class ProfileViewController: SuperViewController {
             
             tempArray.append(model1)
             
-            if !UserInfoManager.shared.isVIP() && kaka_IsMacOS() {
+            if !UserInfoManager.shared.isVIP() {
                 let model2 = SettingGroupCellModel(group: .guideVIPGroup, headTitle: nil, itemArray: [.guideVIP], footTitle: nil)
                 tempArray.append(model2)
             }
@@ -151,10 +150,10 @@ class ProfileViewController: SuperViewController {
             tempArray.append(model3)
             tempArray.append(model4)
             
-            if UserInfoManager.shared.isVIP() && !AppLocalManager.shared.isDeleteRanting {
-                let ranting = SettingGroupCellModel(group: .rantingGroup, headTitle: nil, itemArray: [.guideRanting], footTitle: nil)
-                tempArray.append(ranting)
-            }
+//            if UserInfoManager.shared.isVIP() && !AppLocalManager.shared.isDeleteRanting {
+//                let ranting = SettingGroupCellModel(group: .rantingGroup, headTitle: nil, itemArray: [.guideRanting], footTitle: nil)
+//                tempArray.append(ranting)
+//            }
             
             return tempArray
         }
@@ -343,27 +342,10 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate, UIP
             self.navigationController?.pushViewController(cacheVC, animated: true)
         }
         
-        if item == .freePlan {
-            if let vURL = URL(string: kPremiumUrl) {
-                let webVC = SFSafariViewController(url: vURL)
-                webVC.preferredControlTintColor = appMainColor
-                self.present(webVC, animated: true)
-            }
-        }
         
         if item == .selectPlayer {
             let playerVC = PlayerEngineViewController()
             self.navigationController?.pushViewController(playerVC, animated: true)
-        }
-        
-        if item == .promoCode {
-            let iOSUrl = "https://apps.apple.com/redeem"
-            
-            if let vURL = URL(string: iOSUrl) {
-                UIApplication.shared.open(vURL, options: [:]) { finish in
-                    self.isJumpRedeem = finish
-                }
-            }
         }
         
         if item == .donate {
@@ -385,7 +367,7 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate, UIP
         if item == .appTintColor {
             let themeVC = ThemeColorViewController()
             let navVC = KakaNavigationController(rootViewController: themeVC)
-            navVC.modalPresentationStyle = kaka_IsiPad() ? .fullScreen : .automatic
+            navVC.modalPresentationStyle = kaka_IsMacOS() ? .automatic : .fullScreen
             self.present(navVC, animated: true)
         }
     }

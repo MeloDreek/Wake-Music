@@ -173,7 +173,7 @@ class PurchasePriceCell: UITableViewCell {
     
     lazy var timeLabel: UILabel = {
         let view = UILabel()
-        view.text = "02:59:59.99"
+        view.text = "23:59:59.99"
         view.textColor = UIColor.systemRed
         view.font = UIFontLight(12.ckValue())
         view.textAlignment = nameLabel.textAlignment

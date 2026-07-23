@@ -116,11 +116,6 @@ extension ThemeColorViewController: UICollectionViewDataSource, UICollectionView
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
         
-        if !UserInfoManager.shared.isVIP() {
-            self.vipCenterClick()
-            return
-        }
-        
         let color = colorArray[indexPath.row]
         self.changeThemeColor(colorType: color)
     }

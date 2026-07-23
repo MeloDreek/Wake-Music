@@ -34,8 +34,6 @@ struct SettingGroupCellModel {
 
 enum SettingCellItemType {
     case loginAccount
-    case freePlan
-    case promoCode
     
     case guideVIP
     
@@ -57,11 +55,7 @@ enum SettingCellItemType {
         switch self {
         case .loginAccount:
             return nil
-        case .freePlan:
-            return "Get Premium For Free".localStr()
-        case .promoCode:
-            return "Promo Codes".localStr()
-            
+        
         case .guideVIP:
             return nil
             
@@ -97,11 +91,6 @@ enum SettingCellItemType {
         switch self {
         case .loginAccount:
             return nil
-        case .freePlan:
-            return Reasource.systemNamed("gift", color: appMainColor)
-        case .promoCode:
-            return Reasource.systemNamed("bag", color: appMainColor)
-            
         
         case .guideVIP:
             return nil

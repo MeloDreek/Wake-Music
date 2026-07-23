@@ -90,7 +90,15 @@ public class UserInfoManager: SmartCodableX, ObservableObject {
         }
     }
     
-    
+    /// 付款的内购产品
+    public func payedStoreModel() -> PurchaseStoreID? {
+        guard let payGoodsId = self.payGoodsId else {
+            return nil
+        }
+        
+        let storeID = PurchaseStoreID(rawValue: payGoodsId)
+        return storeID
+    }
     
 }
 

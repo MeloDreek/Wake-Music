@@ -139,7 +139,7 @@ class CollectionViewController: SuperViewController {
 //            DiscountIAPManager.reset()
 //        }
 //        
-//        AppStoreKitManager.presentPurcharseVC(self)
+//        self.vipCenterClick()
 //    }
     
     lazy var segmentedDataSource: JXSegmentedTitleDataSource = {

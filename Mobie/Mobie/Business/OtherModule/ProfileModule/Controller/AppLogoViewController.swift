@@ -99,11 +99,6 @@ extension AppLogoViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        if !UserInfoManager.shared.isVIP() {
-            self.vipCenterClick()
-            return
-        }
-        
         let selectName = logoArray[indexPath.row]
         
         UIApplication.shared.setAlternateIconName(indexPath.row == 0 ? nil : selectName) { [weak self] error in

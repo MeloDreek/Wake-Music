@@ -90,6 +90,16 @@ public class AppStoreKitManager {
         return UserDefaults(suiteName: Application.wakeMusic.sharedGroupName()) ?? UserDefaults.standard
     }()
   
+    /// 当前购买的ID
+    public func currentStoreID() -> StoreProduct? {
+        if let payID = UserInfoManager.shared.payedStoreModel() {
+            let storeID = self.saleArray.filter { $0.productIdentifier == payID.rawValue }.first
+            return storeID
+        }else{
+            return nil
+        }
+    }
+    
     // MARK:  内购步骤
   
     

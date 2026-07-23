@@ -98,7 +98,7 @@
 //            DiscountIAPManager.reset()
 //        }
 //        
-//        AppStoreKitManager.presentPurcharseVC(self)
+//        self.vipCenterClick()
 //    }
 //    
 //    // MARK:  GET && SET

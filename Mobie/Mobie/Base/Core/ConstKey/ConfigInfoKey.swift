@@ -29,8 +29,8 @@ var kPrivacyUrl = "https://passlockapp.com/wakemusic/privacy.html".localStr()
 // 服务协议
 var kUseItemUrl = "https://passlockapp.com/wakemusic/users.html".localStr()
 
-// 免费会员活动
-var kPremiumUrl = "https://wakemusicapp.notion.site/Wake-Music-Lifetime-Premium-For-Free-1f260994aed281cbaa39fb9c7cb153ce".localStr()
+//// 免费会员活动
+//var kPremiumUrl = "https://wakemusicapp.notion.site/Wake-Music-Lifetime-Premium-For-Free-1f260994aed281cbaa39fb9c7cb153ce".localStr()
 
 
 let avatarImage = Reasource.named(avatarDefaultName)
