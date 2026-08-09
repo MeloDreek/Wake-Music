@@ -182,18 +182,11 @@ extension GenreTypeViewController: MFMailComposeViewControllerDelegate, SFSafari
                 UIApplication.shared.open(mailtoURL)
             }else{
                 // 3️⃣ 用户没有任何邮件客户端
-                let message = "No email app installed?".localStr()
-                let action1 = AlertActionConfig(title: companyEmail, style: .destructive, actionType: .first)
-                let action2 = AlertActionConfig(title: kaka_IsMacOS() ? "Gmail" : "App Store", style: .default, actionType: .second)
-                
-                self.showThreeAlert(message: message, btn1: action1, btn2: action2) { [weak self] type in
-                    if type == .first {
-                        UIPasteboard.general.string = companyEmail
-                        self?.view?.makeToast("Copied".localStr())
-                    }else{
-                        guard let vURL = URL(string: emailAppURL) else { return }
-                        UIApplication.shared.open(vURL)
-                    }
+                if kaka_IsMacOS() {
+                    UIApplication.shared.open(FeedbackURL)
+                }else{
+                    let feedbackVC = SFSafariViewController(url: FeedbackURL)
+                    self.present(feedbackVC, animated: true)
                 }
             }
             return

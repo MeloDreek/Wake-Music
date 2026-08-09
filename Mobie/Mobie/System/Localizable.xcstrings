@@ -55074,253 +55074,253 @@
         }
       }
     },
-    "Limited Time Offer: Get Lifetime Access for %@ before the timer expires! Save %d%% permanently." : {
+    "Limited Time Offer: Get Lifetime Access for %@ before the timer expires! Save %@ permanently." : {
       "extractionState" : "pasted",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "عرض لفترة محدودة: احصل على الوصول مدى الحياة مقابل %@ قبل انتهاء المؤقت ووفر %d%% دائمًا"
+            "value" : "عرض لفترة محدودة: احصل على الوصول مدى الحياة مقابل %@ قبل انتهاء المؤقت ووفر %@ دائمًا"
           }
         },
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Oferta per temps limitat: aconsegueix accés de per vida per %@ abans que s acabi el temps i estalvia un %d%% per sempre"
+            "value" : "Oferta per temps limitat: aconsegueix accés de per vida per %@ abans que s acabi el temps i estalvia un %@ per sempre"
           }
         },
         "cs" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Časově omezená nabídka: získejte doživotní přístup za %@ před vypršením odpočtu a ušetřete natrvalo %d%%"
+            "value" : "Časově omezená nabídka: získejte doživotní přístup za %@ před vypršením odpočtu a ušetřete natrvalo %@"
           }
         },
         "da" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Tidsbegrænset tilbud: få livstidsadgang for %@ inden timeren udløber og spar %d%% permanent"
+            "value" : "Tidsbegrænset tilbud: få livstidsadgang for %@ inden timeren udløber og spar %@ permanent"
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Befristetes Angebot: Hol dir den lebenslangen Zugriff für %@ bevor der Timer abläuft und spare dauerhaft %d%%"
+            "value" : "Befristetes Angebot: Hol dir den lebenslangen Zugriff für %@ bevor der Timer abläuft und spare dauerhaft %@"
           }
         },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Προσφορά περιορισμένου χρόνου: αποκτήστε ισόβια πρόσβαση με %@ πριν τη λήξη του χρονομέτρου και εξοικονομήστε %d%% μόνιμα"
+            "value" : "Προσφορά περιορισμένου χρόνου: αποκτήστε ισόβια πρόσβαση με %@ πριν τη λήξη του χρονομέτρου και εξοικονομήστε %@ μόνιμα"
           }
         },
         "en-AU" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Limited Time Offer: Get Lifetime Access for %@ before the timer expires! Save %d%% permanently."
+            "value" : "Limited Time Offer: Get Lifetime Access for %@ before the timer expires! Save %@ permanently."
           }
         },
         "en-GB" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Limited Time Offer: Get Lifetime Access for %@ before the timer expires! Save %d%% permanently."
+            "value" : "Limited Time Offer: Get Lifetime Access for %@ before the timer expires! Save %@ permanently."
           }
         },
         "en-IN" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Limited Time Offer: Get Lifetime Access for %@ before the timer expires! Save %d%% permanently."
+            "value" : "Limited Time Offer: Get Lifetime Access for %@ before the timer expires! Save %@ permanently."
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Oferta por tiempo limitado: consigue acceso de por vida por %@ antes de que expire el temporizador y ahorra un %d%% para siempre"
+            "value" : "Oferta por tiempo limitado: consigue acceso de por vida por %@ antes de que expire el temporizador y ahorra un %@ para siempre"
           }
         },
         "es-419" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Oferta por tempo limitado: consigue acceso de por vida por %@ antes de que expire el temporizador y ahorra un %d%% para siempre"
+            "value" : "Oferta por tempo limitado: consigue acceso de por vida por %@ antes de que expire el temporizador y ahorra un %@ para siempre"
           }
         },
         "es-US" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Oferta por tiempo limitado: consigue acceso de por vida por %@ antes de que expire el temporizador y ahorra un %d%% para siempre"
+            "value" : "Oferta por tiempo limitado: consigue acceso de por vida por %@ antes de que expire el temporizador y ahorra un %@ para siempre"
           }
         },
         "fi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Rajoitettu tarjous: hanki elinikäinen käyttöoikeus hintaan %@ ennen ajastimen päättymistä ja säästä pysyvästi %d%%"
+            "value" : "Rajoitettu tarjous: hanki elinikäinen käyttöoikeus hintaan %@ ennen ajastimen päättymistä ja säästä pysyvästi %@"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Offre à durée limitée : obtenez l accès à vie pour %@ avant la fin du compte à rebours et économisez %d%% définitivement"
+            "value" : "Offre à durée limitée : obtenez l accès à vie pour %@ avant la fin du compte à rebours et économisez %@ définitivement"
           }
         },
         "fr-CA" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Offre à durée limitée : obtenez l accès à vie pour %@ avant la fin du compte à rebours et économisez %d%% définitivement"
+            "value" : "Offre à durée limitée : obtenez l accès à vie pour %@ avant la fin du compte à rebours et économisez %@ définitivement"
           }
         },
         "he" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "הצעה לזמן מוגבל: קבל גישה לכל החיים עבור %@ לפני תום הטיימר וחסוך %d%% לצמיתות"
+            "value" : "הצעה לזמן מוגבל: קבל גישה לכל החיים עבור %@ לפני תום הטיימר וחסוך %@ לצמיתות"
           }
         },
         "hi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "सीमित समय का ऑफ़र: टाइमर समाप्त होने से पहले %@ में लाइफ़टाइम एक्सेस पाएं और स्थायी रूप से %d%% बचाएं"
+            "value" : "सीमित समय का ऑफ़र: टाइमर समाप्त होने से पहले %@ में लाइफ़टाइम एक्सेस पाएं और स्थायी रूप से %@ बचाएं"
           }
         },
         "hr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ograničena ponuda: ostvarite doživotni pristup za %@ prije isteka vremena i trajno uštedite %d%%"
+            "value" : "Ograničena ponuda: ostvarite doživotni pristup za %@ prije isteka vremena i trajno uštedite %@"
           }
         },
         "hu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Korlátozott idejű ajánlat: szerezzen örökös hozzáférést %@ áron az időzítő lejárta előtt és spóroljon tartósan %d%%-ot"
+            "value" : "Korlátozott idejű ajánlat: szerezzen örökös hozzáférést %@ áron az időzítő lejárta előtt és spóroljon tartósan %@-ot"
           }
         },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Penawaran Terbatas: Dapatkan Akses Seumur Hidup seharga %@ sebelum waktu habis dan hemat %d%% permanen"
+            "value" : "Penawaran Terbatas: Dapatkan Akses Seumur Hidup seharga %@ sebelum waktu habis dan hemat %@ permanen"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Offerta a tempo limitato: ottieni l accesso a vita a %@ prima della scadenza del timer e risparmia il %d%% per sempre"
+            "value" : "Offerta a tempo limitato: ottieni l accesso a vita a %@ prima della scadenza del timer e risparmia il %@ per sempre"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "期間限定特典： タイマーが切れる前に %@ で永久アクセス権を獲得、今なら恒久的に %d%% オフ"
+            "value" : "期間限定特典： タイマーが切れる前に %@ で永久アクセス権を獲得、今なら恒久的に %@ オフ"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "한정 기간 혜택: 타이머가 만료되기 전에 %@로 평생 이용권을 구매하고 %d%% 영구 할인받으세요"
+            "value" : "한정 기간 혜택: 타이머가 만료되기 전에 %@로 평생 이용권을 구매하고 %@ 영구 할인받으세요"
           }
         },
         "ms" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Tawaran Masa Terhad: Dapatkan Akses Seumur Hidup untuk %@ sebelum pemasa tamat dan jimat %d%% secara kekal"
+            "value" : "Tawaran Masa Terhad: Dapatkan Akses Seumur Hidup untuk %@ sebelum pemasa tamat dan jimat %@ secara kekal"
           }
         },
         "nb" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Tidsbegrenset tilbud: få livstidsadgang for %@ før timeren utløber og spar %d%% permanent"
+            "value" : "Tidsbegrenset tilbud: få livstidsadgang for %@ før timeren utløber og spar %@ permanent"
           }
         },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Tijdelijke aanbieding: krijg levenslange toegang voor %@ voordat de timer afloopt s bespaar permanent %d%%"
+            "value" : "Tijdelijke aanbieding: krijg levenslange toegang voor %@ voordat de timer afloopt s bespaar permanent %@"
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Oferta ograniczona czasowo: uzyskaj dożywotni dostęp za %@ przed upływem czasu i zaoszczędź na stałe %d%%"
+            "value" : "Oferta ograniczona czasowo: uzyskaj dożywotni dostęp za %@ przed upływem czasu i zaoszczędź na stałe %@"
           }
         },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Oferta por tempo limitado: garanta acesso vitalício por %@ antes que o cronômetro expire e economize %d%% permanentemente"
+            "value" : "Oferta por tempo limitado: garanta acesso vitalício por %@ antes que o cronômetro expire e economize %@% permanentemente"
           }
         },
         "pt-PT" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Oferta por tempo limitado: garanta acesso vitalício por %@ antes que o cronômetro expire e economize %d%% permanentemente"
+            "value" : "Oferta por tempo limitado: garanta acesso vitalício por %@ antes que o cronômetro expire e economize %@ permanentemente"
           }
         },
         "ro" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ofertă pe timp limitat: obține acces pe viață pentru %@ înainte de expirarea cronometrului și economisește %d%% permanent"
+            "value" : "Ofertă pe timp limitat: obține acces pe viață pentru %@ înainte de expirarea cronometrului și economisește %@ permanent"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ограниченное предложение: получите пожизненный доступ за %@ до истечения таймера и сэкономьте %d%% навсегда"
+            "value" : "Ограниченное предложение: получите пожизненный доступ за %@ до истечения таймера и сэкономьте %@ навсегда"
           }
         },
         "sk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Časovo obmedzená ponuka: získajte doživotný prístup za %@ pred vypršaním odpočtu a ušetrite natrvalo %d%%"
+            "value" : "Časovo obmedzená ponuka: získajte doživotný prístup za %@ pred vypršaním odpočtu a ušetrite natrvalo %@"
           }
         },
         "sl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Časovno omejena ponuka: zagotovite si doživljenjski dostop za %@ pred iztekom časovnika in trajno prihranite %d%%"
+            "value" : "Časovno omejena ponuka: zagotovite si doživljenjski dostop za %@ pred iztekom časovnika in trajno prihranite %@"
           }
         },
         "sv" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Tidsbegränsat erbjudande: få livstidsåtkomst för %@ innan timern går ut och spara %d%% permanent"
+            "value" : "Tidsbegränsat erbjudande: få livstidsåtkomst för %@ innan timern går ut och spara %@ permanent"
           }
         },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "ข้อเสนอเวลาจำกัด: รับสิทธิ์เข้าใช้งานตลอดชีพในราคา %@ ก่อนตัวนับเวลาจะหมด และประหยัด %d%% ถาวร"
+            "value" : "ข้อเสนอเวลาจำกัด: รับสิทธิ์เข้าใช้งานตลอดชีพในราคา %@ ก่อนตัวนับเวลาจะหมด และประหยัด %@ ถาวร"
           }
         },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Sınırlı Süreli Teklif: Sayaç dolmadan %@ karşılığında Ömür Boyu Erişim edinin ve kalıcı olarak %d%% tasarruf edin"
+            "value" : "Sınırlı Süreli Teklif: Sayaç dolmadan %@ karşılığında Ömür Boyu Erişim edinin ve kalıcı olarak %@ tasarruf edin"
           }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Обмежена пропозиція: отримайте довічний доступ за %@ до закінчення таймера та зекономте %d%% назавжди"
+            "value" : "Обмежена пропозиція: отримайте довічний доступ за %@ до закінчення таймера та зекономте %@ назавжди"
           }
         },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Pridani giới hạn: Sở hữu quyền truy cập trọn đời với %@ trước khi hết giờ và tiết kiệm %d%% vĩnh viễn"
+            "value" : "Pridani giới hạn: Sở hữu quyền truy cập trọn đời với %@ trước khi hết giờ và tiết kiệm %@ vĩnh viễn"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "限时特惠：在倒计时结束前以 %@ 获取终身会员，永久节省 %d%%"
+            "value" : "限时特惠：在倒计时结束前以 %@ 获取终身会员，永久节省 %@"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "限時特惠：在倒數結束前以 %@ 獲取終身永久存取，永久節省 %d%%"
+            "value" : "限時特惠：在倒數結束前以 %@ 獲取終身永久存取，永久節省 %@"
           }
         },
         "zh-HK" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "限時優惠：在倒數結束前以 %@ 獲取終身永久存取，永久節省 %d%%"
+            "value" : "限時優惠：在倒數結束前以 %@ 獲取終身永久存取，永久節省 %@"
           }
         }
       }
@@ -68874,257 +68874,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "暫時冇數據"
-          }
-        }
-      }
-    },
-    "No email app installed?" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "هل لا يوجد تطبيق بريد مثبت؟"
-          }
-        },
-        "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "No teniu cap app de correu instal·lada?"
-          }
-        },
-        "cs" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Není nainstalována žádná e-mailová aplikace?"
-          }
-        },
-        "da" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Er der ikke installeret nogen e-mail-app?"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Keine E-Mail-App installiert?"
-          }
-        },
-        "el" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Δεν είναι εγκατεστημένη καμία εφαρμογή email;"
-          }
-        },
-        "en-AU" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "No email app installed?"
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "No email app installed?"
-          }
-        },
-        "en-IN" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "No email app installed?"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "¿No hay ninguna app de correo instalada?"
-          }
-        },
-        "es-419" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "¿No hay ninguna app de correo instalada?"
-          }
-        },
-        "es-US" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "¿No hay ninguna app de correo instalada?"
-          }
-        },
-        "fi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Eikö sähköpostisovellusta ole asennettuna?"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Aucune application de messagerie installée ?"
-          }
-        },
-        "fr-CA" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Aucune application de messagerie installée ?"
-          }
-        },
-        "he" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "האם לא מותקנת אף אפליקציית מייל?"
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "कोई ईमेल ऐप इंस्टॉल नहीं है?"
-          }
-        },
-        "hr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Nema instalirane aplikacije za e-poštu?"
-          }
-        },
-        "hu" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Nincs e-mail alkalmazás telepítve?"
-          }
-        },
-        "id" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tidak ada aplikasi email yang diinstal?"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Nessuna app di posta installata?"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "メールアプリがインストールされていませんか？"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "설치된 이메일 앱이 없습니까?"
-          }
-        },
-        "ms" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tiada aplikasi e-mel dipasang?"
-          }
-        },
-        "nb" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ingen e-postapp installert?"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Geen e-mail-app geïnstalleerd?"
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Brak zainstalowanej aplikacji e-mail?"
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Nenhum app de e-mail instalado?"
-          }
-        },
-        "pt-PT" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Nenhum app de e-mail instalado?"
-          }
-        },
-        "ro" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Nicio aplicație de e-mail instalată?"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Не установлено ни одно почтовое приложение?"
-          }
-        },
-        "sk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Nie je nainštalovaná žiadna e-mailová aplikácia?"
-          }
-        },
-        "sl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Nobena aplikacija za e-pošto ni nameščena?"
-          }
-        },
-        "sv" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ingen e-postapp installerad?"
-          }
-        },
-        "th" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ไม่ได้ติดตั้งแอปอีเมลไว้ใช่หรือไม่"
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Hiçbir e-posta uygulaması yüklü değil mi?"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Не встановлено жодної поштової програми?"
-          }
-        },
-        "vi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Chưa cài đặt ứng dụng email nào?"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "当前设备未安装任何【邮件】应用？"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "目前裝置未安裝任何「郵件」App？"
-          }
-        },
-        "zh-HK" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "目前裝置未安裝任何「郵件」App？"
           }
         }
       }
@@ -91208,253 +90957,253 @@
         }
       }
     },
-    "Save %d%%" : {
-      "extractionState" : "manual",
+    "Save %@" : {
+      "extractionState" : "pasted",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "وفر %d%%"
+            "value" : "وفر %@"
           }
         },
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Estalvia un %d%%"
+            "value" : "Estalvia un %@"
           }
         },
         "cs" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ušetříte %d %%"
+            "value" : "Ušetříte %@"
           }
         },
         "da" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Spar %d%%"
+            "value" : "Spar %@"
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%d%% sparen"
+            "value" : "%@ sparen"
           }
         },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Εξοικονομήστε %d%%"
+            "value" : "Εξοικονομήστε %@"
           }
         },
         "en-AU" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Save %d%%"
+            "value" : "Save %@"
           }
         },
         "en-GB" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Save %d%%"
+            "value" : "Save %@"
           }
         },
         "en-IN" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Save %d%%"
+            "value" : "Save %@"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ahorra un %d%%"
+            "value" : "Ahorra un %@"
           }
         },
         "es-419" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ahorra un %d%%"
+            "value" : "Ahorra un %@"
           }
         },
         "es-US" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ahorra un %d%%"
+            "value" : "Ahorra un %@"
           }
         },
         "fi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Säästä %d%%"
+            "value" : "Säästä %@"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Économisez %d %%"
+            "value" : "Économisez %@"
           }
         },
         "fr-CA" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Économisez %d %%"
+            "value" : "Économisez %@"
           }
         },
         "he" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "חיסכון של %d%%"
+            "value" : "חיסכון של %@"
           }
         },
         "hi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%d%% बचाएं"
+            "value" : "%@ बचाएं"
           }
         },
         "hr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Uštedite %d%%"
+            "value" : "Uštedite %@"
           }
         },
         "hu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%d%% megtakarítás"
+            "value" : "%@ megtakarítás"
           }
         },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Hemat %d%%"
+            "value" : "Hemat %@"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Risparmia il %d%%"
+            "value" : "Risparmia il %@"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%d%% OFF"
+            "value" : "%@ OFF"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%d%% 할인"
+            "value" : "%@ 할인"
           }
         },
         "ms" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Jimat %d%%"
+            "value" : "Jimat %@"
           }
         },
         "nb" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Spar %d%%"
+            "value" : "Spar %@"
           }
         },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Bespaar %d%%"
+            "value" : "Bespaar %@"
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Zaoszczędź %d%%"
+            "value" : "Zaoszczędź %@"
           }
         },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Economize %d%%"
+            "value" : "Economize %@"
           }
         },
         "pt-PT" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Poupe %d%%"
+            "value" : "Poupe %@"
           }
         },
         "ro" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Economisește %d%%"
+            "value" : "Economisește %@"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Экономия %d%%"
+            "value" : "Экономия %@"
           }
         },
         "sk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ušetrite %d %%"
+            "value" : "Ušetrite %@"
           }
         },
         "sl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Prihranite %d%%"
+            "value" : "Prihranite %@"
           }
         },
         "sv" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Spara %d%%"
+            "value" : "Spara %@"
           }
         },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "ประหยัด %d%%"
+            "value" : "ประหยัด %@"
           }
         },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%d%% tasarruf edin"
+            "value" : "%@ tasarruf edin"
           }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Економія %d%%"
+            "value" : "Економія %@"
           }
         },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Tiết kiệm %d%%"
+            "value" : "Tiết kiệm %@"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "立省 %d%%"
+            "value" : "立省 %@"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "省下 %d%%"
+            "value" : "省下 %@"
           }
         },
         "zh-HK" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "節省 %d%%"
+            "value" : "節省 %@"
           }
         }
       }
@@ -95534,67 +95283,103 @@
         }
       }
     },
-    "Short-term Trial" : {
-      "extractionState" : "manual",
+    "Short-Term Trial" : {
+      "extractionState" : "pasted",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "تجربة لفترة قصيرة"
+            "value" : "تجربة قصيرة المدى"
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prova a curt termini"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Krátkodobé vyzkoušení"
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kortvarig prøveperiode"
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Kurztest"
+            "value" : "Kurzfristiger Test"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Βραχυπρόθεσμη δοκιμή"
           }
         },
         "en-AU" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Short-term Trial"
+            "value" : "Short-Term Trial"
           }
         },
         "en-GB" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Short-term Trial"
+            "value" : "Short-Term Trial"
           }
         },
         "en-IN" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Short-term Trial"
+            "value" : "Short-Term Trial"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Prueba de corta duración"
+            "value" : "Prueba a corto plazo"
           }
         },
         "es-419" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Prueba de corto plazo"
+            "value" : "Prueba a corto plazo"
           }
         },
         "es-US" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Short-term Trial"
+            "value" : "Prueba a corto plazo"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lyhytaikainen kokeilu"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Essai de courte durée"
+            "value" : "Essai à court terme"
           }
         },
         "fr-CA" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Essai court terme"
+            "value" : "Essai à court terme"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ניסיון לטווח קצר"
           }
         },
         "hi" : {
@@ -95603,22 +95388,34 @@
             "value" : "अल्पकालिक परीक्षण"
           }
         },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kratkotrajno probno razdoblje"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rövid távú próba"
+          }
+        },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Uji Coba Singkat"
+            "value" : "Uji Coba Jangka Pendek"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Prova breve"
+            "value" : "Prova a breve termine"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "短期トライアル"
+            "value" : "短期的なお試し"
           }
         },
         "ko" : {
@@ -95633,34 +95430,82 @@
             "value" : "Percubaan Jangka Pendek"
           }
         },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kortvarig prøveperiode"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kortstondige proefperiode"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Krótkoterminowy okres próbny"
+          }
+        },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Teste de curto prazo"
+            "value" : "Teste a curto prazo"
           }
         },
         "pt-PT" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Período experimental curto"
+            "value" : "Teste a curto prazo"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Probă pe termen scurt"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Краткий период"
+            "value" : "Краткосрочное опробование"
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Krátkodobé vyskúšanie"
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kratkoročni preizkus"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kortvarig provperiod"
           }
         },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "ทดลองใช้ระยะสั้น"
+            "value" : "ทดลองใช้งานระยะสั้น"
           }
         },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Kısa Süreli Deneme"
+            "value" : "Kısa süreli deneme"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Короткострокове випробування"
           }
         },
         "vi" : {

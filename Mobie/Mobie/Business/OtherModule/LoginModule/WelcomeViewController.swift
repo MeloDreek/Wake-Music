@@ -113,6 +113,7 @@ class WelcomeViewController: SuperViewController {
         self.timer.startTimer(seconds: 0.01, repeats: true, callSoon: true) { [weak self] vTime in
             guard let wSelf = self else { return }
             guard let lastDiscountTime = DiscountIAPManager.shared.lastDiscountTime else {
+                vTime.stopTimer()
                 DiscountIAPManager.markDiscountStarted()
                 return
             }
@@ -123,6 +124,7 @@ class WelcomeViewController: SuperViewController {
             leftTime = wSelf.maxDiscountTime - leftTime
             
             if leftTime < 0 {
+                vTime.stopTimer()
                 DiscountIAPManager.markDiscountStarted()
             }
             
@@ -141,7 +143,9 @@ class WelcomeViewController: SuperViewController {
         if leftTime <= 0 {
             payHeadCell.timerLabel.text = ""
             payHeadCell.timerLabel.isHidden = true
-            self.finishAllPage()
+            if self.currentViewController() is WelcomeViewController {
+                self.finishAllPage()
+            }
             return
         }
         

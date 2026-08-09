@@ -155,8 +155,8 @@ class WelcomePaywallViewCell: UICollectionViewCell {
                     attributes: [.font: UIFontNumber(15.ckValue()), .foregroundColor: UIColor.rgb(102, 99, 116), .strikethroughStyle: NSUnderlineStyle.single.rawValue])
                 combined.append(lifetimeAttr)
                 
-                let offerStr = lifetimeArray.calculateDiscountPercentage()
-                let lifetimeStr = String(format: "Limited Time Offer: Get Lifetime Access for %@ before the timer expires! Save %d%% permanently.".localStr(), lifetimeArray.first?.localizedPriceString ?? "??", offerStr)
+                let offerStr = lifetimeArray.calculateDiscountPercentage().formatted(.percent.precision(.fractionLength(0...2)))
+                let lifetimeStr = String(format: "Limited Time Offer: Get Lifetime Access for %@ before the timer expires! Save %@ permanently.".localStr(), lifetimeArray.first?.localizedPriceString ?? "??", offerStr)
                 self.descLabel.attributedText = NSAttributedString(
                     string: lifetimeStr,
                     attributes: [.font: UIFontBold(17.ckValue()),.foregroundColor: UIColor.rgb(102, 99, 116)])

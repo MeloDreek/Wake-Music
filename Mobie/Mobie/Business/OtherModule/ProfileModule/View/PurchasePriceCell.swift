@@ -102,7 +102,9 @@ class PurchasePriceCell: UITableViewCell {
         nameLabel.text = model.localizedTitle
         priceLabel.text = model.localizedPriceString
         price298Label.attributedText = self.priceAttbuteStr(lifetimeArray)
-        recommentView.text = String(format: "Save %d%%".localStr(), lifetimeArray.calculateDiscountPercentage())
+        
+        let saveStr = lifetimeArray.calculateDiscountPercentage().formatted(.percent.precision(.fractionLength(0...2)))
+        recommentView.text = String(format: "Save %@".localStr(), saveStr)
         
         let isAutoRenew = model.productType == .autoRenewableSubscription
         timeLabel.text = model.secondStr()
@@ -182,7 +184,7 @@ class PurchasePriceCell: UITableViewCell {
     }()
     
     lazy var recommentView: UILabel = {
-        let text = String(format: "Save %d%%".localStr(), 45)
+        let text = String(format: "Save %@".localStr(), 45)
         let font = UIFontLight(10.ckValue())
         let corners: UIRectCorner = PhoneSetManager.isArabicLanguage() ? [UIRectCorner.topRight] : [UIRectCorner.topLeft]
         
