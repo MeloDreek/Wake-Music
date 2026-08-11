@@ -90,7 +90,7 @@ class PurchaseHeadCell: UITableViewCell {
         let view = UILabel()
         view.numberOfLines = 0
         view.textColor = .label
-        view.text = "One-time payment to unlock all features on native iPhone, iPad, Mac".localStr()
+        view.text = "Your ultimate music player. Play anytime, anywhere, and enjoy total listening freedom!".localStr()
         view.font = UIFontLight(14.ckValue())
         view.textAlignment = .center
         return view

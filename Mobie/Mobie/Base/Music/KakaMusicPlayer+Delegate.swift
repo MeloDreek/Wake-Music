@@ -79,9 +79,9 @@ extension KakaMusicPlayer: @preconcurrency PlayerControllerDelegate {
         if state == .playedToTheEnd {
             self.currentTime = 0
             if MusicConfigManager.shared.orderType == .single {
-                self.replaySingleItem()
+                self.perform(#selector(replaySingleItem), with: nil, afterDelay: 0.0)
             }else{
-                self.playNextItem()
+                self.perform(#selector(playNextItem), with: nil, afterDelay: 0.0)
             }
         }
         

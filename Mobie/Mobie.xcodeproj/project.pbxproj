@@ -1760,6 +1760,7 @@
 				AA7BF8115D5F067523FE6035 /* [CP] Embed Pods Frameworks */,
 				02B459524E4987A965CFA8B1 /* [CP] Copy Pods Resources */,
 				A76381762EDEADF90040A84D /* Embed Frameworks */,
+				22A801D8302B07FB000FB581 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -1938,6 +1939,26 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Mobie/Pods-Mobie-resources.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		22A801D8302B07FB000FB581 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}",
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}",
+				"${BUILT_PRODUCTS_DIR}/${INFOPLIST_PATH}",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# 1. 本地 SPM 共享库中 Crashlytics 的 run 脚本绝对路径\nRUN_SCRIPT=\"/Users/kaka/Documents/本地公开库/firebase-ios-sdk/Crashlytics/run\"\n\n# 2. 项目内 GoogleService-Info.plist 的绝对路径\nGSP_PATH=\"/Users/kaka/Documents/商业项目/维克音乐/Mobie/Mobie/System/GoogleService-Info.plist\"\n\nif [ -f \"$RUN_SCRIPT\" ]; then\n    echo \"✅ 找到本地 Firebase 脚本，开始自动上传 dSYM...\"\n    \"$RUN_SCRIPT\" -gsp \"$GSP_PATH\"\nelse\n    echo \"❌ 错误: 未能在本地公开库找到 run 脚本，请检查路径: $RUN_SCRIPT\"\nfi\n";
 		};
 		4E695A8868B26F28CF75D190 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;

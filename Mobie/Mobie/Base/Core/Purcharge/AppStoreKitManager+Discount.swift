@@ -9,63 +9,65 @@ import KakaFoundation
 import AppGroupKit
 import SmartCodable
 
-/// 终身限免折扣管理器
-public struct DiscountIAPManager: SmartCodableX {
-    public init() {}
+/// 终身限免折扣管理器（引用类型单例）
+public final class DiscountIAPManager: SmartCodableX {
     
-    public static let shared = DiscountIAPManager.read()
+    // 1. 私有化构造函数，防止外部直接 init
+    public required init() {}
+    
+    // 2. 全局唯一内存单例（指针指向唯一内存地址）
+    public static var shared: DiscountIAPManager = DiscountIAPManager.read()
     
     /// 上次触发/重置折扣倒计时的时间戳 (Unix 时间戳)
-    public var lastDiscountTime: TimeInterval? {
+    private(set) var lastDiscountTime: TimeInterval? {
         didSet {
             save()
         }
     }
     
-    // 倒计时时长（调试环境 1 小时，正式环境 24 小时）
+    // 倒计时时长（调试环境 5 小时，正式环境 3 小时）
 #if DEBUG
     private(set) var maxDiscountTime: Double = 0.1 * 60 * 60
 #else
-    private(set) var maxDiscountTime: Double = 24 * 60 * 60
+    private(set) var maxDiscountTime: Double = 3 * 60 * 60
 #endif
     
-    // 冷却天数（调试环境 1 天，正式环境 3 天）
+    // 冷却天数（调试环境 1 天，正式环境 2 天）
 #if DEBUG
     private(set) var defaultDays: Double = 1
 #else
-    private(set) var defaultDays: Double = 3
+    private(set) var defaultDays: Double = 2
 #endif
     
-    // MARK: - 核心判断逻辑
+    // MARK: - 核心业务逻辑
     
     /// 是否应该显示终身折扣价
-    /// - Returns: true -> 显示折扣价 (倒计时中 / 超过3天冷却期 / 首次进入)； false -> 显示原价 (处于3天冷却期内)
     public func isShowDiscount() -> Bool {
+        
+        if UserInfoManager.shared.isVIP() {
+            return false
+        }
+        
         guard let lastDiscountTime = self.lastDiscountTime, lastDiscountTime > 0 else {
-            // 首次进入，无历史记录，默认应该显示折扣
-            return true
+            return true  // 首次默认激活
         }
         
         let now = Date().timeIntervalSince1970
         let elapsedTime = now - lastDiscountTime
         
-        // 1. 处于 24 小时倒计时期间 -> 显示折扣
         if elapsedTime < maxDiscountTime {
             return true
         }
         
-        // 2. 倒计时已结束，计算自上次倒计时触发起，是否超过了指定的冷却天数 ( defaultDays * 86400 秒 )
         let coolingPeriodInSeconds = defaultDays * 24 * 60 * 60
         if elapsedTime >= coolingPeriodInSeconds {
-            // 超过冷却期，可以开启新的折扣循环
             return true
         }
         
-        // 3. 倒计时已过，但仍在冷却期内 -> 显示原价
         return false
     }
     
-    /// 获取当前倒计时剩余秒数 (如果不在倒计时内则返回 0)
+    /// 获取当前倒计时剩余秒数
     public func remainingDiscountTime() -> TimeInterval {
         guard let lastDiscountTime = self.lastDiscountTime, lastDiscountTime > 0 else {
             return 0
@@ -76,23 +78,23 @@ public struct DiscountIAPManager: SmartCodableX {
         return max(0, leftTime)
     }
     
-    /// 触发/刷新折扣倒计时 (在决定为用户再次开启折扣时调用，比如冷却期后用户看中了折扣)
+    /// 触发/刷新折扣倒计时
     public static func markDiscountStarted() {
-        var manager = DiscountIAPManager.read()
-        manager.lastDiscountTime = Date().timeIntervalSince1970
+        // 🌟 核心改变：直接修改全局唯一内存指针上的属性，既会更新内存，又会触发 oldValue/didSet 存盘
+        DiscountIAPManager.shared.lastDiscountTime = Date().timeIntervalSince1970
     }
 }
 
 // MARK: - 持久化扩展
 extension DiscountIAPManager {
     
-    public static func kaka_DiscountIAPkey() -> String {
+    private static func kaka_DiscountIAPkey() -> String {
         return "kaka_DiscountIAPkey"
     }
     
-    /// 读取本地配置
-    public static func read() -> DiscountIAPManager {
-        let key = DiscountIAPManager.kaka_DiscountIAPkey()
+    /// 从磁盘读取并解序列化（仅供类内部或单例初始化时使用）
+    private static func read() -> DiscountIAPManager {
+        let key = Self.kaka_DiscountIAPkey()
         let sharedUD = UserDefaults.standard
         guard let jsonStr = sharedUD.string(forKey: key), !jsonStr.isEmpty else {
             return DiscountIAPManager()
@@ -103,21 +105,24 @@ extension DiscountIAPManager {
         return model
     }
     
-    /// 保存当前配置
-    public func save() {
+    /// 保存当前配置（将引用类型转换为 JSON 并存盘）
+    private func save() {
         let jsonStr = self.toJSONString() ?? ""
         let encryptStr = AESCryptoManager.encryptAES(string: jsonStr, key: UserInfoManager.aesPassKey)
         
         let sharedUD = UserDefaults.standard
-        sharedUD.set(encryptStr, forKey: DiscountIAPManager.kaka_DiscountIAPkey())
+        sharedUD.set(encryptStr, forKey: Self.kaka_DiscountIAPkey())
         sharedUD.synchronize()
     }
     
     /// 重置数据
     public static func reset() {
-        let key = DiscountIAPManager.kaka_DiscountIAPkey()
+        let key = Self.kaka_DiscountIAPkey()
         let sharedUD = UserDefaults.standard
         sharedUD.removeObject(forKey: key)
         sharedUD.synchronize()
+        
+        // 🌟 同步清理当前内存单例中的属性
+        DiscountIAPManager.shared = DiscountIAPManager()
     }
 }

@@ -97,7 +97,7 @@ class GuidePremiumViewCell: UITableViewCell {
         let view = UILabel()
         view.numberOfLines = 0
         view.textColor = UIColor.deAccent
-        view.text = "One-time payment to unlock all features on native iPhone, iPad, Mac".localStr()
+        view.text = "Your ultimate music player. Play anytime, anywhere, and enjoy total listening freedom!".localStr()
         view.textAlignment = titleLabel.textAlignment
         view.font = kaka_IsMacOS() ? UIFontLight(12.ckValue()) : UIFontLight(13.ckValue())
         return view

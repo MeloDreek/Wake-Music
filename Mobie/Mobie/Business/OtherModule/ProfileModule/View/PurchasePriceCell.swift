@@ -184,7 +184,7 @@ class PurchasePriceCell: UITableViewCell {
     }()
     
     lazy var recommentView: UILabel = {
-        let text = String(format: "Save %@".localStr(), 45)
+        let text = String(format: "Save %@".localStr(), 46.5.formatted(.percent.precision(.fractionLength(0...2))))
         let font = UIFontLight(10.ckValue())
         let corners: UIRectCorner = PhoneSetManager.isArabicLanguage() ? [UIRectCorner.topRight] : [UIRectCorner.topLeft]
         
@@ -199,7 +199,6 @@ class PurchasePriceCell: UITableViewCell {
         view.textAlignment = .center
         return view
     }()
-    
     
 }
 

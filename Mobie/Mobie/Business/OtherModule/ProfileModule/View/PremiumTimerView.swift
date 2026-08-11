@@ -77,7 +77,9 @@ class PremiumTimerView: UIButton {
         let seconds = (totalMilliseconds % (60 * 100)) / 100
         let milliseconds = totalMilliseconds % 100
         
-        self.timerLabel.text = String(format: "%02d:%02d:%02d.%02d ⏰", hours, minutes, seconds, milliseconds)
+        let timeStr = String(format: "%02d:%02d:%02d.%02d ⏰", hours, minutes, seconds, milliseconds)
+        
+        self.timerLabel.text = timeStr
     }
     
     // MARK:  懒加载
@@ -88,12 +90,13 @@ class PremiumTimerView: UIButton {
     }()
     
     lazy var timerLabel: UILabel = {
-        let maxTime = DiscountIAPManager.shared.maxDiscountTime
-        let text = String(format: "%02d:00:00.00 ⏰", maxTime)
+        
+        let timeStr = "03:00:00.00 ⏰"
+        
         let font = UIFontBold(14.ckValue())
         
-        let view = UILabel(frame: CGRectMake(0, 0, text.width(font) + 3.ckValue(), font.lineHeight))
-        view.text = text
+        let view = UILabel(frame: CGRectMake(0, 0, timeStr.width(font) + 3.ckValue(), font.lineHeight))
+        view.text = timeStr
         view.textColor = UIColor.systemRed
         view.font = font
         view.textAlignment = PhoneSetManager.isArabicLanguage() ? .right : .left

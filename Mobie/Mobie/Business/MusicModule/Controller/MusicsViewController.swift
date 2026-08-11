@@ -289,7 +289,9 @@ view.refreshControl = self.kaka_header
         }
         let libraryMenu = UIMenu(title: "", options: .displayInline, children: [coverAction, lyricAction])
         
-        let allItemMune = UIMenu(title: "", children: [selectAction, self.groupTypeMenu(), self.sorTypeMenu(), libraryMenu, playlistMenu])
+        let childrenArr = self.viewModel.isBaseDoc ? [selectAction, self.groupTypeMenu(), self.sorTypeMenu(), libraryMenu, playlistMenu] : [selectAction, self.groupTypeMenu(), self.sorTypeMenu(), libraryMenu]
+        
+        let allItemMune = UIMenu(title: "", children: childrenArr)
         let mainItem = UIBarButtonItem(image: Reasource.systemNamed("ellipsis.circle"), menu: allItemMune)
         mainItem.accessibilityLabel = "More".localStr()
         return mainItem

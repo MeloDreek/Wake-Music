@@ -170,7 +170,7 @@ extension KakaMusicPlayer {
     
     
     // 单曲循环
-    @MainActor func replaySingleItem() {
+    @MainActor @objc func replaySingleItem() {
         guard let musicModel = self.playingMusic else { return }
         
         if self.isPlaying {
@@ -199,7 +199,7 @@ extension KakaMusicPlayer {
     }
     
     // 播放下一首
-    @MainActor func playNextItem() {
+    @MainActor @objc func playNextItem() {
         
         
         if let nextPlayMusic = self.nextPlayMusic {

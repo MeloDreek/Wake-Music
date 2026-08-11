@@ -25,17 +25,16 @@ extension PurchaseViewController {
             return
         }
         
-        // 2. 获取最新的折扣状态
-        var discountManager = DiscountIAPManager.read()
+        // 2. 直接获取单例指针，不用再多次 read()
+        let manager = DiscountIAPManager.shared
         
         // 首次进入 或 超过冷却期后进入：重新开启 24 小时倒计时
-        if discountManager.lastDiscountTime == nil || (discountManager.remainingDiscountTime() <= 0 && discountManager.isShowDiscount()) {
+        if manager.lastDiscountTime == nil || (manager.remainingDiscountTime() <= 0 && manager.isShowDiscount()) {
             DiscountIAPManager.markDiscountStarted()
-            discountManager = DiscountIAPManager.read() // 刷新本地变量
             NotificationCenter.default.post(name: Notification.Name(kStartDiscountPriceKey), object: nil)
         }
         
-        let isShowDiscount = discountManager.isShowDiscount() && discountManager.remainingDiscountTime() > 0
+        let isShowDiscount = manager.isShowDiscount() && manager.remainingDiscountTime() > 0
 
         // 3. 根据状态过滤商品
         if isShowDiscount {
@@ -44,9 +43,9 @@ extension PurchaseViewController {
             self.selectModel = self.priceArray.first { $0.productIdentifier == PurchaseStoreID.lifetime198.rawValue }
             self.tableView.reloadData()
             
-            // 开启倒计时（传入开始时间）
-            if let startTime = discountManager.lastDiscountTime {
-                self.timeSpaceRepeat(lastDiscountTime: startTime, maxDiscountTime: discountManager.maxDiscountTime)
+            // 开启倒计时（直接从单例拿最新的 startTime）
+            if let startTime = manager.lastDiscountTime {
+                self.timeSpaceRepeat(lastDiscountTime: startTime, maxDiscountTime: manager.maxDiscountTime)
             }
         } else {
             // 展示 298 终身原价
@@ -64,8 +63,7 @@ extension PurchaseViewController {
         // 1. 先停掉旧定时器，防止重入叠加
         self.timer.stopTimer()
         
-        // 2. 建议频率 0.1 秒（显示毫秒足够流畅）或 1.0 秒
-        self.timer.startTimer(seconds: 0.1, repeats: true, callSoon: true) { [weak self] vTime in
+        self.timer.startTimer(seconds: 0.01, repeats: true, callSoon: true) { [weak self] vTime in
             guard let wSelf = self else { return }
             
             // 3. 纯内存计算！绝不在 Timer 内部做 AES 解密和磁盘 I/O
@@ -73,7 +71,7 @@ extension PurchaseViewController {
             let passTime = now - lastDiscountTime
             let leftTime = max(0, maxDiscountTime - passTime)
             
-//             debugPrint("leftTime = \(leftTime)")
+//            debugPrint("leftTime = \(leftTime)")
             
             // 4. 倒计时到期处理
             if leftTime <= 0 {
@@ -91,6 +89,30 @@ extension PurchaseViewController {
                     discountCell.leftDiscountTime = leftTime
                 }
             }
+        }
+    }
+    
+    @objc func showLifetimeOfferGift() {
+        if self.timer.isTiming || DiscountIAPManager.shared.isShowDiscount() {
+            let title = "🎉" + "Congratulations!".localStr()
+            let message = "You’ve received a one-time lifetime offer!".localStr()
+            
+            let giftView = UIImageView(image: Reasource.named("gift_box"))
+            giftView.contentMode = .scaleAspectFit
+            giftView.size = CGSizeMake(120.ckValue(), 120.ckValue())
+                    
+            let alertView = KakaAlertView.popupAlertView(title: title, message: message, customView: giftView, confirmTitle: "OK".localStr(), action: { [weak self] style in
+                guard let wSelf = self else { return }
+                let index = wSelf.priceArray.firstIndex { $0.productIdentifier == PurchaseStoreID.lifetime198.rawValue }
+                if let index = index {
+                    let indexPath = IndexPath(row: index, section: 1)
+                    if let discountCell = wSelf.tableView.cellForRow(at: indexPath) as? PurchasePriceCell {
+                        discountCell.kaka_playShakeAnim(4)
+                    }
+                }
+            }, inView: appKeyWindow ?? self.view)
+            alertView.tag = 1286
+            alertView.isShowCloseButton = false
         }
     }
 }

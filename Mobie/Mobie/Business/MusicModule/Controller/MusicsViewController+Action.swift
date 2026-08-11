@@ -30,7 +30,14 @@ extension MusicsViewController {
                 self.navigationItem.rightBarButtonItems = [self.moreBarItem(), self.importBarItem()]
             }else{
                 let isBaseDoc = !self.viewModel.isBaseDoc
-                self.navigationItem.leftBarButtonItems = (isBaseDoc || UserInfoManager.shared.isVIP()) ? nil : [self.premiumBarItem]
+                let isVIP = UserInfoManager.shared.isVIP()
+                let isOffer = DiscountIAPManager.shared.isShowDiscount()
+                if isBaseDoc || isVIP {
+                    self.navigationItem.leftBarButtonItems = nil
+                }else{
+                    self.navigationItem.leftBarButtonItems = isOffer ? [self.premiumBarItem] : nil
+                }
+                
                 self.navigationItem.rightBarButtonItems = [self.moreBarItem(), self.importBarItem()]
             }
         }

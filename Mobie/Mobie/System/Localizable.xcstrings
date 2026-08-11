@@ -120683,6 +120683,257 @@
           }
         }
       }
+    },
+    "Your ultimate music player. Play anytime, anywhere, and enjoy total listening freedom!" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "مشغل الموسيقى المثالي لك. شغّل الموسيقى في أي وقت وأي مكان واستمتع بحرية الاستماع الكاملة!"
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "El teu reproductor de música definitiu. Escolta en qualsevol moment i lloc, amb total llibertat!"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Váš dokonalý hudební přehrávač. Hrajte kdykoli a kdekoli pro naprostou svobodu poslech!"
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Din ultimative musikafspiller. Afspil når som helst, hvor som helst, og nyd fuld lyttefrihed!"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ihr ultimativer Musik-Player. Spielen Sie Musik jederzeit und überall – für Ihre volle Hörfreiheit!"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Το απόλυτο πρόγραμμα αναπαραγωγής μουσικής. Ακούστε οποτεδήποτε, οποπουδήποτε με απόλυτη ελευθερία!"
+          }
+        },
+        "en-AU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your ultimate music player. Play anytime, anywhere, and enjoy total listening freedom!"
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your ultimate music player. Play anytime, anywhere, and enjoy total listening freedom!"
+          }
+        },
+        "en-IN" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your ultimate music player. Play anytime, anywhere, and enjoy total listening freedom!"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tu reproductor de música definitivo. Escucha en cualquier momento y lugar ¡y disfruta de libertad total!"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tu reproductor de música definitivo. Escucha en cualquier momento y lugar ¡y disfruta de libertad total!"
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tu reproductor de música definitivo. Escucha en cualquier momento y lugar ¡y disfruta de libertad total!"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ultimatiivinen musiikkisoittimesi. Toista milloin ja missä tahansa, ja nauti täydellisestä kuuntelun vapaudesta!"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Votre lecteur de musique ultime. Écoutez votre musique partout, à tout moment, en toute liberté !"
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Votre lecteur de musique ultime. Écoutez votre musique partout, à tout moment, en toute liberté !"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "נגן המוזיקה האולטימטיבי שלך. נגן בכל זמן ובכל מקום ותיהנה מחופש האזנה מוחלט!"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "आपका अल्टीमेट म्यूजिक प्लेयर। कभी भी, कहीं भी संगीत बजाएं और पूर्ण सुनने की आजादी का आनंद लें!"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vaš vrhunski glazbeni svirač. Slušajte bilo kada i bilo gdje te uživajte u potpunoj slobodi!"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A végső zenelejátszód. Hallgass zenét bárhol, bármikor, és élvezd a teljes hallgatási szabadságot!"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pemutar musik andalan Anda. Putar musik kapan saja, di mana saja, dan nikmati kebebasan mendengarkan!"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Il tuo lettore musicale definitivo. Ascolta la tua musica quando e dove vuoi, in totale libertà!"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "いつでもどこでも音楽を楽しめる、あなただけの究極のミュージックプレーヤー。もっと自由に音楽を！"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "언제 어디서나 즐기는 나만의 궁극의 음악 플레이어. 자유롭게 음악을 감상하세요!"
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pemain muzik utama anda. Mainkan muzik bila-bila masa, di mana jua, dan nikmati kebebasan mendengar!"
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Din ultimate musikkspiller. Spill når som helst, hvor som helst, og nyt full lyttefrihet!"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jouw ultieme muziekspeler. Speel altijd en overal en geniet van totale luistervrijheid!"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Twój flagowy odtwarzacz muzyki. Słuchaj kiedy chcesz i gdzie chcesz — ciesz się pełną wolnością słuchania!"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Seu player de música definitivo. Ouça a qualquer hora, em qualquer lugar, com total liberdade musical!"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O seu leitor de música definitivo. Ouça a qualquer hora, em qualquer lugar, com total liberdade musical!"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Playerul tău muzical definitiv. Ascultă oricând, oriunde și bucură-te de libertate deplină!"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ваш ультимативный плеер. Слушайте музыку всегда и везде, наслаждаясь полной свободой!"
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Váš dokonalý hudobný prehrávač. Počúvajte kedykoľvek a kdekoľvek pre úplnú slobodu počúvania!"
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vaš vrhunski predvajalnik glasbe. Predvajajte kadarkoli in kjerkoli ter uživajte v popolni svobodi poslušanja!"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Din ultimativa musikspelare. Spela när som helst, var som helst och njut av full lyssnarfrihet!"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "เครื่องเล่นเพลงขั้นสุดของคุณ เล่นเพลงได้ทุกที่ทุกเวลา ให้คุณเพลิดเพลินกับอิสรภาพในการฟัง!"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "En gelişmiş müzik çalarınız. Her zaman, her yerde müzik dinleyin ve özgürlüğün tadını çıkarın!"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ваш ультимативний плеер. С слухайте музику будь-коли та будь-де, насолоджуючись повною свободою!"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Trình phát nhạc tuyệt đỉnh của bạn. Phát nhạc mọi lúc, mọi nơi, tận hưởng tự do nghe nhạc!"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "您的终极音乐播放器，随时随地畅享音乐，助您听歌自由！"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "您的終極音樂播放器，隨時隨地播放音樂，助您聽歌自由！"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "您的終極音樂播放器，隨時隨地播放音樂，助您聽歌自由！"
+          }
+        }
+      }
     }
   },
   "version" : "1.2"

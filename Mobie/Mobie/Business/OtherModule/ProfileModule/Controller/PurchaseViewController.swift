@@ -70,7 +70,7 @@ class PurchaseViewController: SuperViewController {
     
     override func preSetupHandleBuness() {
         super.preSetupHandleBuness()
-        self.perform(#selector(setupLeftNavgationItem), with: nil, afterDelay: 2.8)
+        self.perform(#selector(setupLeftNavgationItem), with: nil, afterDelay: 0)
         
         self.darkAppearanceClick()
                         
@@ -78,7 +78,8 @@ class PurchaseViewController: SuperViewController {
         AppStoreKitManager.shared.refresRemoteProductsPrice() { [weak self] models in
             self?.allProducts = models
             self?.handlePriceGoods(models)
-//            self?.perform(#selector(self?.selectDefaultStoreID), with: nil, afterDelay: 2)
+
+            self?.perform(#selector(self?.showLifetimeOfferGift), with: nil, afterDelay: 1)
         }
         
     }
@@ -149,7 +150,6 @@ class PurchaseViewController: SuperViewController {
             var autoSubTitle: String
             if let freeTrialDays = vModel.freeTrialDays, freeTrialDays > 0 {
                 autoSubTitle = String(format: "Free Trial for %d Days".localStr(), freeTrialDays)
-                self.buyoutButton.kaka_playShakeAnim()
             }else{
                 autoSubTitle = "Get Started".localStr()
             }
