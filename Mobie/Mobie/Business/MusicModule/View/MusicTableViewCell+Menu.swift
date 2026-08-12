@@ -11,6 +11,20 @@ import AppGroupKit
 
 // 1️⃣本地音乐
 extension MusicTableViewCell {
+    
+    func autoTagButton() -> UIButton {
+        let view = UIButton(type: .custom)
+        view.size = CGSizeMake(50.ckValue(), 50.ckValue())
+        view.setImage(Reasource.systemNamed("touchid", color: .systemBlue), for: .normal)
+        view.addTarget(self, action: #selector(autoTagButtonClick), for: .touchUpInside)
+        return view
+    }
+    
+    @objc private func autoTagButtonClick() {
+        guard let model = self.musicModel else { return }
+        self.delegate?.musicTableCell(cell: self, model: model, action: .autoRecognize)
+    }
+    
     func localButton() -> UIButton {
         let view = UIButton(type: .custom)
         view.showsMenuAsPrimaryAction = true

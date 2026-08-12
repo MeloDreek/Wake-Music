@@ -8,10 +8,8 @@
 import KakaFoundation
 import KakaUIKit
 import RevenueCat
-#if canImport(FirebaseCore)
 import FirebaseCore
 import FirebaseCrashlytics
-#endif
 #if canImport(IQKeyboardManagerSwift) && canImport(IQKeyboardToolbarManager)
 import IQKeyboardManagerSwift
 import IQKeyboardToolbarManager
@@ -32,7 +30,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // 程序入口
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         self.readleLastCacheData()
-        self.setupCrashHandlers()
         self.setupAppConfig()
         
         
@@ -111,22 +108,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //            debugPrint("❌初始化Yandex失败：\(error.localizedDescription)")
 //        }
                 
-#if canImport(FirebaseCore)
-        let appVersion = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as? String
-        let country = PhoneSetManager.regionCode()
-        let language = PhoneSetManager.langugeCode()
-        let osType = kaka_osType().rawValue
-        let app_version = appVersion ?? ""
-        
-        let basicDic: [String: Any] = ["region": country, "language": language, "OS": osType, "app_version": app_version]
-        Crashlytics.crashlytics().setCustomKeysAndValues(basicDic)
-
         // 开发阶段不自动上传符号表
-        if let version = Bundle.main.infoDictionary?["CFBundleVersion"] as? String, version != "99" {
-            debugPrint("当前工程版本号为：\(version)")
-            FirebaseApp.configure()
-        }
-#endif
+        FirebaseApp.configure()
+        Crashlytics.crashlytics().setCrashlyticsCollectionEnabled(true)
+
+        // 安全设置 Custom Keys，防止 nil 导致字典初始化崩溃
+        Crashlytics.crashlytics().setCustomValue(PhoneSetManager.regionCode(), forKey: "region")
+        Crashlytics.crashlytics().setCustomValue(PhoneSetManager.langugeCode(), forKey: "language")
+        Crashlytics.crashlytics().setCustomValue(kaka_osType().rawValue, forKey: "OS")
+        Crashlytics.crashlytics().setCustomValue(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "", forKey: "app_version")
         
         
     }

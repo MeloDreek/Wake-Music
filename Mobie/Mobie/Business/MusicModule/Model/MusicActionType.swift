@@ -13,6 +13,7 @@ enum MusicActionType {
     case searchCoverAI
     case searchLyricAI
     case musictag
+    case autoRecognize
     
     case play
     case addFavirote
@@ -43,6 +44,8 @@ enum MusicActionType {
             return "Search Lyric With AI".localStr()
         case .musictag:
             return "Music Tag".localStr()
+        case .autoRecognize:
+            return "Auto Recognize".localStr()
             
         case .play:
             return "Play".localStr()
@@ -84,6 +87,8 @@ enum MusicActionType {
         case .searchLyricAI:
             return MusicTopMode.lyricLibrary.iconImage()
         case .musictag:
+            return Reasource.systemNamed("tag")
+        case .autoRecognize:
             return Reasource.systemNamed("tag")
             
         case .play:

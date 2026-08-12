@@ -50,34 +50,5 @@ extension AppDelegate {
         let cachePath = SandboxFileManager.shared.preDownloadURL()
         return cachePath.appendingPathComponent(".last_playback.json")
     }
-    
-    func setupCrashHandlers() {
-        // 捕获 Objective-C 异常
-        NSSetUncaughtExceptionHandler { exception in
-            let exceptionInfo = """
-            Crash Info:
-            Name: \(exception.name.rawValue)
-            Reason: \(exception.reason ?? "Unknown Reason")
-            UserInfo: \(exception.userInfo ?? [:])
-            CallStack: \(exception.callStackSymbols.joined(separator: "\n"))
-            """
-            
-            CrashHandler.saveCrashLog(exceptionInfo) // 使用静态函数
-        }
-        
-    }
 
-}
-
-struct CrashHandler {
-    static func saveCrashLog(_ log: String) {
-                
-        let logPath = SandboxFileManager.shared.basePublicFileURL().appendingPathComponent(".app_crash.log")
-        do {
-            try log.write(to: logPath, atomically: true, encoding: .utf8)
-            debugPrint("Crash log saved to: \(logPath)")
-        } catch {
-            debugPrint("Failed to save crash log: \(error.localizedDescription)")
-        }
-    }
 }

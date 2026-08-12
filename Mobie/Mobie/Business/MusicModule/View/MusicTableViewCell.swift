@@ -506,7 +506,9 @@ extension MusicTableViewCell {
                 break
                 
             case .local:
-                self.accessoryView = self.localButton()
+                let isFullTag = self.musicModel.isFullMusicTag()
+
+                self.accessoryView = isFullTag ? self.localButton() : self.autoTagButton()
                 self.accessoryType = .none
                 break
                 
