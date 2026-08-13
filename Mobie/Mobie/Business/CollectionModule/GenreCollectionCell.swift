@@ -72,8 +72,13 @@ class GenreCollectionCell: UICollectionViewCell {
     // MARK:  GET && SET
     
     func update(genre: MusicGenreType) {
-        self.genreLabel.text = genre.formatStr()
-        self.coverImgView.image = genre.iconImage() ?? UIImage(named: "music_place")
+        var formatStr = genre.formatStr()
+        if formatStr.uppercased() != genre.rawValue.uppercased() {
+            formatStr = formatStr + "· \(genre.rawValue)"
+        }
+        
+        self.genreLabel.text = formatStr
+        self.coverImgView.image = genre.iconImage() ?? Application.wakeTag.appLogo()
     }
     
     // MARK:  懒加载

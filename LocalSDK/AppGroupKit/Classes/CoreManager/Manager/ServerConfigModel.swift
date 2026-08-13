@@ -89,7 +89,7 @@ extension ServerConfigModel {
     /// 外显名称
     public func showTitle() -> String {
         if self.serverType == .fromWebDav {
-            return self.webdavUser?.customName ?? "WebDav".localStr()
+            return self.webdavUser?.customName ?? "WebDAV".localStr()
         }else if serverType == .fromNavidrome {
             if let customName = self.navUser?.customName, !customName.isEmpty {
                 return customName

@@ -285,7 +285,7 @@ view.refreshControl = self.kaka_header
             self?.previewLyricLibrary()
         }
         let coverAction = UIAction(title: MusicTopMode.coverLibrary.titleStr(), image: MusicTopMode.coverLibrary.iconImage(.label), identifier: nil, discoverabilityTitle: nil, attributes: [], state: .off) { [weak self] action in
-            self?.modifyCoverImageAction(editStyle: .preview)
+            self?.previewArtworkLibrary()
         }
         let libraryMenu = UIMenu(title: "", options: .displayInline, children: [coverAction, lyricAction])
         
@@ -415,9 +415,10 @@ view.refreshControl = self.kaka_header
         return item
     }()
     
+    // 导出、移动、删除
     func editMoreMenu() -> UIMenu {
         // 1️⃣组
-        let editTypes: [MusicActionType] = [.coverArt, .title, .artist, .album].reversed()
+        let editTypes: [MusicActionType] = [.move, .export]
         var editArray = [UIAction]()
 
         for subItem in editTypes {
@@ -427,16 +428,14 @@ view.refreshControl = self.kaka_header
                     wSelf.tableView.kaka_playShakeAnim()
                     return
                 }
-                
-                self?.handleEditMusic(subItem)
-                
+                                
             })
 
             editArray.append(subMenu)
         }
         let editMenu = UIMenu(title: "", options: .displayInline, children: editArray)
         
-        // 3️⃣组
+        // 2️⃣组
         let deleteMenu = UIAction(title: MusicActionType.deleteItem.formatStr(), image: MusicActionType.deleteItem.iconImage(), identifier: nil, discoverabilityTitle: nil, attributes: [.destructive], state: .off, handler: { [weak self] _ in
             guard let wSelf = self else { return }
             if wSelf.viewModel.selectArray.count == 0 {
@@ -447,7 +446,7 @@ view.refreshControl = self.kaka_header
             wSelf.deleteMusicModel(wSelf.viewModel.selectArray)
         })
         
-        let mainMenu = UIMenu(title: "Edit".localStr(), children: [deleteMenu, editMenu])
+        let mainMenu = UIMenu(title: "", children: [deleteMenu, editMenu])
         
         return mainMenu
     }

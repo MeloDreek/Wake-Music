@@ -26,7 +26,8 @@ enum MusicActionType {
     case title
     case artist
     case album
-        
+    
+    case move
     case export
     
     case showInFinder
@@ -61,6 +62,8 @@ enum MusicActionType {
         case .album, .albumDetial:
             return "Album".localStr()
             
+        case .move:
+            return "Move".localStr()
         case .export:
             return "Export".localStr()
             
@@ -101,6 +104,8 @@ enum MusicActionType {
         case .album, .albumDetial:
             return UIImage(systemName: "rectangle.stack")
             
+        case .move:
+            return UIImage(systemName: "move.3d")
         case .export:
             return UIImage(systemName: "square.and.arrow.up")
             

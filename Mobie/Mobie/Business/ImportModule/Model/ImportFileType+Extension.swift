@@ -144,7 +144,7 @@ extension ImportFileType {
             return "WiFi".localStr()
             
         case .fromWebDav:
-            return "WebDav"
+            return "WebDAV"
         case .fromNavidrome:
             return "Navidrome"
         case .fromSMB:

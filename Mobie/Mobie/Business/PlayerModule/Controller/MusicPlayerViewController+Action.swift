@@ -311,7 +311,7 @@ extension MusicPlayerViewController {
                 newModel.lyricModel = TaglibMetadataParser.parseSynchronizedLyrics(content).convertSwiftModel()
                 SandboxFileManager.shared.writeMusicLRCLyric(model: newModel, lyricStr: content) { vURL in
                     KakaMusicPlayer.shared.playingMusic = newModel
-                    self.showFiveStarReview()
+                    self.guideFiveStarRating()
                 } fail: { [weak self] error in
                     self?.view.makeToast(error.localizedDescription)
                 }
@@ -334,7 +334,7 @@ extension MusicPlayerViewController {
     }
     
     // 引导好评
-    @objc func showFiveStarReview() {
+    @objc func guideFiveStarRating() {
         if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
             SKStoreReviewController.requestReview(in: windowScene)
         }

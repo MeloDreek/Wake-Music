@@ -54,7 +54,7 @@ class AuthWebdavViewController: SuperViewController {
     }
     
     @objc func questionBtnClick() {
-        let searchStr = String(format: SearchEngineType.defaultEngine().searchUrl(), "WebDav")
+        let searchStr = String(format: SearchEngineType.defaultEngine().searchUrl(), "WebDAV")
         guard let vURL = URL(string: searchStr) else { return }
         
         if kaka_IsMacOS() {

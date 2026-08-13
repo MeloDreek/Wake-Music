@@ -19,6 +19,7 @@ extension MusicsViewController: DocumentFolderWatcherDelegate, MusicTopHeadViewD
     
     // 新增了文件
     func documentFolderWatcherDidAddFiles(watcher: DocumentFolderWatcher, addFiles: [URL]) {
+                
         self.viewModel.addNewMusics(newUrls: addFiles) { models in
             let time: TimeInterval = addFiles[0].hasDirectoryPath ? 1 : 1
             DispatchQueue.main.asyncAfter(wallDeadline: .now() + time) { [weak self] () in
@@ -60,6 +61,7 @@ extension MusicsViewController: DocumentFolderWatcherDelegate, MusicTopHeadViewD
     
     // 点击头部
     func musicTopHeadViewDidClickLocal(headView: UIView, clickType: MusicTopHeadClickType, folder: URL) {
+        self.stopEditBarClick()
         switch clickType {
         case .clickFolder:
             // 歌单事件：点击文件夹
@@ -97,6 +99,10 @@ extension MusicsViewController: MusicTableViewCellDelegate {
             self.editMusicTagsAction(model)
         }
         
+        if action == .audioFinger {
+            self.audioFingerprintRecognzer(model)
+        }
+        
         if action == .addPlaylist {
             self.moveToPlaylistAction(cell: cell, model: model)
         }
@@ -112,6 +118,19 @@ extension MusicsViewController: MusicTableViewCellDelegate {
         if action == .deleteItem {
             self.deleteMusicModel([model])
         }
+    }
+    
+    // 音频指纹识别
+    func audioFingerprintRecognzer(_ model: MusicItemModel) {
+        let recognizerVC = AudioMatchTagViewController(model)
+        recognizerVC.onEditCallback = { [weak self] (newModel) in
+            self?.perform(#selector(self?.refreshDataAction), with: nil, afterDelay: 1)
+        }
+        let navVC = KakaNavigationController(rootViewController: recognizerVC)
+#if DEBUG
+        navVC.modalPresentationStyle = .automatic
+#endif
+        self.present(navVC, animated: true)
     }
     
     // 编辑音乐标签
@@ -145,7 +164,7 @@ extension MusicsViewController: MusicTableViewCellDelegate {
                 try FileManager.default.moveItem(at: model.mediaPlayURL, to: targetURL)
                 wSelf.headView.updateLocal(folders: wSelf.viewModel.folderArray)
                 wSelf.refreshDataAction()
-                wSelf.showFiveStarReview()
+                wSelf.guideFiveStarRating()
             } catch {
                 wSelf.view.makeToast(error.localizedDescription)
             }
@@ -154,8 +173,11 @@ extension MusicsViewController: MusicTableViewCellDelegate {
         self.present(KakaNavigationController(rootViewController: playlist), animated: true)
     }
     
-    @objc func showFiveStarReview() {
-        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
+    @objc func guideFiveStarRating() {
+        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene else { return }
+        if #available(iOS 16.0, *) {
+            AppStore.requestReview(in: windowScene)
+        } else {
             SKStoreReviewController.requestReview(in: windowScene)
         }
     }

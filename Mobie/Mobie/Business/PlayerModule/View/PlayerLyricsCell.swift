@@ -253,7 +253,7 @@ class NoneLyriclistView: UIView {
             let emptyText = "Please make sure your file has embedded LRC lyrics".localStr()
             
             messaleLabel.text = emptyText
-            upgradeButton.setTitle("Search Lyric With AI".localStr(), for: .normal)
+            upgradeButton.setTitle("Auto Search LRC".localStr(), for: .normal)
             
             self.layoutIfNeeded()
             
