@@ -38,6 +38,9 @@ public struct LyricInfoModel: SmartCodableX, Equatable, Hashable {
     /// 每一行的歌词
     public var lyrics: [LyricModel]?
     
+    /// 选中
+    public var isSelected: Bool = false
+    
     /// 提高查找效率的方法
     public func hash(into hasher: inout Hasher) {
         hasher.combine(self.title)

@@ -1,10 +1,9 @@
 //
 //  MusicTagEditor.swift
-//  Mobie
+//  Waketag
 //
-//  Created by 张文 on 5/11/25.
+//  Created by Melo on 11/22/24.
 //
-
 import KakaFoundation
 import KakaUIKit
 import AVFoundation
@@ -12,18 +11,25 @@ import AppGroupKit
 import Alamofire
 
 
+
 class MusicTagEditor {
+    
     static let shared = MusicTagEditor()
     
-    let maxCount = 3
+    static let maxImageCount = 3
+
 }
 
+
+
+
 extension MusicTagEditor {
+    
     
     // 1️⃣使用iTunes查询
     func requestITunesAlbumImages(title: String, artist: String, completion: @escaping (Result<[MusicReleaseModel], KakaError>) -> Void) {
         let keyword = "\(artist) \(title)"
-        let urlStr = "https://itunes.apple.com/search?term=\(keyword)&entity=song&limit=\(maxCount)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+        let urlStr = "https://itunes.apple.com/search?term=\(keyword)&entity=song&limit=\(Self.maxImageCount)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
         debugPrint("iTunes接口 = \(urlStr)")
         
         APIManager.shared.GET(requestURL: urlStr, parameters: [:]) { data in
@@ -53,11 +59,6 @@ extension MusicTagEditor {
     
     // 2️⃣获取精准的专辑艺术图
     private func requestAccurateAlbumImages(title: String, artist: String, completion: @escaping (Result<[MusicReleaseModel], KakaError>) -> Void) {
-        
-        if PhoneSetManager.isChineseMainLand() && !PhoneSetManager.isVPNConnected() {
-            completion(.failure(KakaError.custom("No data available".localStr())))
-            return
-        }
         
         let query = "recording:\(title) AND artist:\(artist)"
         let urlStr = "https://musicbrainz.org/ws/2/recording/?query=\(query)&fmt=json&limit=3&inc=releases".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
@@ -98,10 +99,10 @@ extension MusicTagEditor {
                 guard !idSet.contains(model.id) else { continue }
                 idSet.insert(model.id)
                 allReleases.append(model)
-                if allReleases.count >= maxCount { break }
+                if allReleases.count >= Self.maxImageCount { break }
             }
 
-            if allReleases.count >= maxCount { break }
+            if allReleases.count >= Self.maxImageCount { break }
         }
 
         return allReleases
@@ -118,14 +119,14 @@ extension MusicTagEditor {
             let dict = try? JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String : Any]
             let releases = dict?["releases"] as? [[String: Any]]
             guard var models = [MusicReleaseModel].deserialize(from: releases), models.count > 0 else {
-                completion(.failure(KakaError.custom("No data available".localStr())))
+                completion(.failure(.emptyData))
                 return
             }
             
-            models = models.count >= self.maxCount ? Array(models.prefix(self.maxCount)) : models
+            models = models.count >= Self.maxImageCount ? Array(models.prefix(Self.maxImageCount)) : models
             self.requestCoverImage(releases: models, completion: completion)
         } fail: { error in
-            completion(.failure(KakaError.custom(error.localizedDescription)))
+            completion(.failure(KakaError.custom(error.errorDescription)))
         }
 
     }
@@ -166,104 +167,13 @@ extension MusicTagEditor {
                 let sortArray = Array(Set(resultArray)) // 去重
                 completion(.success(sortArray))
             }else{
-                completion(.failure(KakaError.custom("No data available".localStr())))
+                completion(.failure(.emptyData))
             }
         }
 
     }
     
     
-}
-
-extension MusicTagEditor {
-    // 精准匹配歌词
-    func requestAccurateLyric(title: String, artist: String, album: String?, duration: Int, completion: @escaping (Result<[LyricInfoModel], KakaError>) -> Void) {
-        
-        #if DEBUG
-        self.requestSomeLyrics(title: title, artist: artist, completion: completion)
-        #else
-        let urlStr = "https://lrclib.net/api/get"
-        let parameters: Parameters = ["track_name": title,
-                          "artist_name": artist,
-                          "album_name":album,
-                          "duration":duration]
-        APIManager.shared.GET(requestURL: urlStr, parameters: parameters) { data in
-            let dict = try? JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String : Any]
-            
-            debugPrint("dict1 = \(dict ?? [:])")
-
-            guard let statusCode = dict?["statusCode"] as? Int, statusCode > 0 else {
-                let model = LrcLyricLibModel.deserialize(from: dict)
-                guard let lyricModel = model?.convertLyricModel() else {
-                    self.requestSomeLyrics(title: title, artist: artist, completion: completion)
-                    return
-                }
-                
-                completion(.success([lyricModel]))
-                return
-            }
-            
-            self.requestSomeLyrics(title: title, artist: artist, completion: completion)
-
-        } fail: { error in
-            self.requestSomeLyrics(title: title, artist: artist, completion: completion)
-        }
-        #endif
-        
-    }
-    
-    // 搜索匹配标题或艺术家的歌词
-    func requestSomeLyrics(title: String?, artist: String?, completion: @escaping (Result<[LyricInfoModel], KakaError>) -> Void) {
-        let mustKey = title ?? artist ?? ""
-        var urlStr = "https://lrclib.net/api/search?q=\(mustKey)"
-        if let artist = artist, !["&", "@", ",", "，"].contains(artist) {
-            urlStr = urlStr + "&artist_name=\(artist)"
-        }
-        
-        urlStr = urlStr.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
-        
-        debugPrint("搜索歌词 = \(urlStr)")
-        
-        APIManager.shared.GET(requestURL: urlStr, parameters: [:]) { data in
-            let dictArray = try? JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [[String : Any]]
-            
-            debugPrint("dictArray2 = \(dictArray ?? [])")
-
-            guard let modelArray = [LrcLyricLibModel].deserialize(from: dictArray), modelArray.count > 0 else {
-                completion(.failure(KakaError.custom("No data available".localStr())))
-                return
-            }
-            
-            var lyricArray = modelArray.compactMap { $0.convertLyricModel() }
-            lyricArray = Array(Set(lyricArray)) // 去重
-            
-            let sortArray = lyricArray.sorted { model1, model2 in
-                // 先比较标题和艺术家
-                let isModel1Match = (model1.title == title) && (model1.artist == artist)
-                let isModel2Match = (model2.title == title) && (model2.artist == artist)
-
-                if isModel1Match && !isModel2Match {
-                    return true // model1 在前
-                } else if !isModel1Match && isModel2Match {
-                    return false // model2 在前
-                }
-                
-                // 如果标题一致，艺术家不一致，则根据艺术家排序
-                if model1.title == model2.title {
-                    return (model1.artist ?? "") < (model2.artist ?? "")
-                }
-                
-                return false // 如果都不匹配，则保持原顺序
-            }
-            completion(.success(sortArray))
-
-        } fail: { error in
-            completion(.failure(KakaError.custom(error.localizedDescription)))
-        }
-    }
-    
-    // 搜索歌词
-//    https://lrclib.net/api/search?q=%E5%91%A8%E6%9D%B0%E4%BC%A6&track_name=%E4%B8%83%E9%87%8C%E9%A6%99
 }
 
 // 上传歌词
@@ -320,7 +230,7 @@ extension MusicTagEditor {
                 
                 debugPrint("🎸歌词Token = \(dict ?? [:])")
                 guard let model = LRCLyricTokenModel.deserialize(from: dict) else {
-                    completion(.failure(KakaError.custom("No data available".localStr())))
+                    completion(.failure(.emptyData))
                     return
                 }
                 
@@ -329,7 +239,7 @@ extension MusicTagEditor {
 
             } fail: { error in
                 debugPrint("获取Token失败 = \(error.localizedDescription)")
-                completion(.failure(KakaError.custom(error.localizedDescription)))
+                completion(.failure(KakaError.custom(error.errorDescription)))
             }
             
             return
@@ -377,3 +287,11 @@ extension MusicTagEditor {
  1、根据艺术家名称获取MBID: https://musicbrainz.org/ws/2/release/?query=artist:周杰伦AND七里香&fmt=json
  2、根据MBID再获取专辑封面：https://coverartarchive.org/release/bf546753-256b-43cb-9310-e78d5b341075
  */
+
+
+/*
+ 0、根据名称获取录音中的MBID：https://musicbrainz.org/ws/2/recording/?query=七里香&fmt=json&limit=3&inc=releases
+ 1、根据艺术家名称获取MBID: https://musicbrainz.org/ws/2/release/?query=artist:周杰伦AND七里香&fmt=json
+ 2、根据MBID再获取专辑封面：https://coverartarchive.org/release/bf546753-256b-43cb-9310-e78d5b341075
+ */
+

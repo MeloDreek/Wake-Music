@@ -76,6 +76,20 @@ public class UserInfoManager: SmartCodableX, ObservableObject {
         }
     }
     
+    /// 是否处于免费试用期
+    @SmartPublished public var isFreeTrail: Bool = false {
+        didSet {
+            save()
+        }
+    }
+    
+    /// 自动编辑的文件数量
+    @SmartPublished public var autoEditFileCount: Int = 0 {
+        didSet {
+            save()
+        }
+    }
+    
     /// 订阅状态
     @SmartPublished public var payStatus: PurchargeStatus = .normal {
         didSet {

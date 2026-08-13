@@ -42,9 +42,7 @@ enum MeteDataCellItemType: Int {
     case artist = 3
     case album = 4
     case lyrics = 5
-    
-    case searchAI = 6
-    
+        
     case year    = 7
     case channel = 8
     case genre   = 9
@@ -58,43 +56,38 @@ enum MeteDataCellItemType: Int {
     case fileSize = 16
     case fileDuration = 17
     case filePath = 18
-    
-    case export = 19
-    
+        
     func titleStr() -> String? {
         switch self {
         case .headerTag:
             return "Music tag refers to the metadata embedded in a music file, including cover image, lyrics, title, artist, album, era, genre, track, sampling rate, bit rate, etc.".localStr()
             
         case .coverImage:
-            return "Artwork".localStr()
+            return MusicTagType.artWork.titleStr()
         case .title:
-            return "Title".localStr()
+            return MusicTagType.title.titleStr()
         case .artist:
-            return "Artist".localStr()
+            return MusicTagType.artist.titleStr()
         case .album:
-            return "Album".localStr()
+            return MusicTagType.album.titleStr()
         case .lyrics:
-            return "Lyrics".localStr()
-            
-        case .searchAI:
-            return "Search with AI".localStr()
+            return MusicTagType.lyrics.titleStr()
             
         case .year:
-            return "Year".localStr()
+            return MusicTagType.year.titleStr()
+        case .genre:
+            return MusicTagType.genre.titleStr()
+        case .track:
+            return MusicTagType.trackNumber.titleStr()
+        case .comment:
+            return MusicTagType.comment.titleStr()
+            
         case .channel:
             return "Channel".localStr()
-        case .genre:
-            return "Genre".localStr()
-        case .track:
-            return "Track Number".localStr()
-        case .comment:
-            return "Comment".localStr()
         case .bitRate:
             return "Bitrate".localStr()
         case .samples:
             return "Sample Rate".localStr()
-            
         case .fileName:
             return "Name".localStr()
         case .fileExtension:
@@ -104,10 +97,7 @@ enum MeteDataCellItemType: Int {
         case .fileDuration:
             return "Duration".localStr()
         case .filePath:
-            return "File Path".localStr()
-        
-        case .export:
-            return "Export".localStr()
+            return "Path".localStr()
         
         }
     }

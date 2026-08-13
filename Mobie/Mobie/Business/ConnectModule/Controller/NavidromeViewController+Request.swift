@@ -127,7 +127,7 @@ extension NavidromeViewController {
             complection?()
         } fail: { error in
             self.navsetModel.starred = nil
-            self.view.makeToast(error.localizedDescription)
+            self.view.makeToast(error.errorDescription)
             complection?()
         }
         

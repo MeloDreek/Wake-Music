@@ -15,6 +15,7 @@ public enum KakaError: LocalizedError, Equatable {
     case permissionDenied  // 没有权限
     case tokenExpiredAuthAgain   // 网盘token过期，需要重新授权
     case needRefreshToken         // 网盘token需要重新刷新
+    case emptyData             // 暂无数据
     
     /// 自定义的错误提示
     public var errorDescription: String {
@@ -33,6 +34,8 @@ public enum KakaError: LocalizedError, Equatable {
             return "Login failed or token has expired, please reauthorize".localStr()
         case .needRefreshToken:
             return "token expired，refreshing".localStr()
+        case .emptyData:
+            return "No data available".localStr()
         }
     }
             
@@ -45,6 +48,7 @@ public enum KakaError: LocalizedError, Equatable {
             (.youhaveCanceled, .youhaveCanceled),
               (.permissionDenied, .permissionDenied),
               (.tokenExpiredAuthAgain, .tokenExpiredAuthAgain),
+            (.emptyData, .emptyData),
               (.needRefreshToken, .needRefreshToken):
             return true
         default:

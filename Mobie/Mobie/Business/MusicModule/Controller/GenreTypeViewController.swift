@@ -8,13 +8,12 @@
 import KakaFoundation
 import KakaUIKit
 import MessageUI
-import SafariServices
 import AppGroupKit
+import KakaObjcKit
 
-/// 选择音乐流派
 class GenreTypeViewController: SuperViewController {
     
-    init(_ selectGenre: MusicGenreType? = nil) {
+    init(_ selectGenre: String? = nil) {
         self.selectGenre = selectGenre
         super.init(nibName: nil, bundle: nil)
     }
@@ -38,14 +37,10 @@ class GenreTypeViewController: SuperViewController {
         
         self.title = "Music Genres".localStr()
         if self.isPresent() {
-            self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelBarItemClick))
+            self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelButtonClick))
         }
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "envelope"), style: .plain, target: self, action: #selector(handleWithEmail))
         
-    }
-    
-    @objc func cancelBarItemClick() {
-        (self.navigationController ?? self).dismiss(animated: true)
+        self.collectionView.reloadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -66,9 +61,9 @@ class GenreTypeViewController: SuperViewController {
     }
     
     // MARK:  GET && SET
-    var onSelectCallback: ((MusicGenreType)->Void)?
+    var onSelectCallback: ((String)->Void)?
     
-    var selectGenre: MusicGenreType?
+    var selectGenre: String?
     
     var itemSpace: CGFloat {
         get {
@@ -92,6 +87,8 @@ class GenreTypeViewController: SuperViewController {
         view.contentInset = UIEdgeInsets(top: 20.ckValue(), left: itemSpace, bottom: kaka_safeAreaInsets().bottom + 30.ckValue(), right: itemSpace)
         view.semanticContentAttribute = PhoneSetManager.isArabicLanguage() ? .forceRightToLeft : .forceLeftToRight
         view.register(GenreCollectionCell.self, forCellWithReuseIdentifier: "GenreCollectionCell")
+        view.register(CustomGenreCollectionHeadView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "CustomGenreCollectionHeadView")
+        view.register(EmptyCollectionFootView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: "EmptyCollectionFootView")
         return view
     }()
     
@@ -104,7 +101,9 @@ class GenreTypeViewController: SuperViewController {
     }()
     
     lazy var dataArray: [MusicGenreType] = {
-        return MusicGenreType.allGenreArray()
+        var allArray = MusicGenreType.allGenreArray()
+        allArray.removeLast()
+        return allArray
     }()
     
     var isLandscape: Bool {
@@ -130,15 +129,15 @@ extension GenreTypeViewController: UICollectionViewDataSource, UICollectionViewD
         let musicGenre = self.dataArray[indexPath.row]
         cell.update(genre: musicGenre)
         cell.coverView.isHidden = false
-        cell.selectBtn.isSelected = musicGenre == self.selectGenre
+        cell.selectBtn.isSelected = musicGenre.rawValue == self.selectGenre
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         let subGenre = dataArray[indexPath.row]
-        self.onSelectCallback?(subGenre)
-        self.cancelBarItemClick()
+        self.onSelectCallback?(subGenre.rawValue)
+        self.cancelButtonClick()
     }
      
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
@@ -153,7 +152,7 @@ extension GenreTypeViewController: UICollectionViewDataSource, UICollectionViewD
         
         var columnCount: Int = 2
         if isLandscape || kaka_IsMacOS() {
-            columnCount += kaka_IsMacOS() ? 2 : 1
+            columnCount += kaka_IsMacOS() ? 1 : 1
         }
         
         let totalW = self.view.width - collectionView.contentInset.left * 2 - CGFloat(columnCount - 1) * self.flowLayout.minimumInteritemSpacing
@@ -161,74 +160,130 @@ extension GenreTypeViewController: UICollectionViewDataSource, UICollectionViewD
         return CGSize(width: singleW, height: singleW * 0.8 + 50.ckValue())
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return CGSize(width: collectionView.width - itemSpace * 2, height: 200.ckValue())
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
+        return .zero
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        if kind == UICollectionView.elementKindSectionHeader {
+            let headView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "CustomGenreCollectionHeadView", for: indexPath) as! CustomGenreCollectionHeadView
+            headView.onClickBlock = { [weak self] () in
+                self?.customMusicGenreAction()
+            }
+            return headView
+        }else{
+            let footView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "EmptyCollectionFootView", for: indexPath) as! EmptyCollectionFootView
+            return footView
+        }
+    }
+    
+    func customMusicGenreAction() {
+        let editAlertVC = UIAlertController(title: "Custom Genre".localStr(), message: nil, preferredStyle: .alert)
+        editAlertVC.addTextField { textView in
+            textView.keyboardType = .default
+            textView.clearButtonMode = .always
+            textView.text = self.selectGenre
+        }
+        
+        let action1 = UIAlertAction(title: "Cancel".localStr(), style: .cancel, handler: nil)
+        let action2 = UIAlertAction(title: "Embed".localStr(), style: .destructive, handler: { [weak self] action in
+            guard let nameField = editAlertVC.textFields?.first, let genreStr = nameField.text, !genreStr.isEmpty else {
+                return
+            }
+            
+            self?.onSelectCallback?(genreStr)
+            self?.cancelButtonClick()
+        })
+                
+        editAlertVC.addAction(action1)
+        editAlertVC.addAction(action2)
+        
+        self.present(editAlertVC, animated: true)
+    }
 }
 
+public class CustomGenreCollectionHeadView: UICollectionReusableView {
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        self.preSetupSubViews()
+        self.preSetupContains()
+        self.preSetupHandleBuness()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func preSetupSubViews() {
+        self.addSubview(backView)
+        self.addSubview(customIconView)
+        self.addSubview(customLabel)
+    }
+    
+    private func preSetupContains() {
+        backView.snp.makeConstraints { make in
+            make.leading.equalToSuperview()
+            make.centerX.equalToSuperview()
+            make.top.equalToSuperview().offset(10.ckValue())
+            make.bottom.equalToSuperview().offset(-23.ckValue())
+        }
+        
+        customIconView.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.centerY.equalTo(backView).offset(-15.ckValue())
+            make.width.equalTo(50.ckValue())
+            make.size.equalTo(40.ckValue())
+        }
+        
+        customLabel.snp.makeConstraints { make in
+            make.centerX.equalTo(backView)
+            make.top.equalTo(customIconView.snp.bottom).offset(5.ckValue())
+            make.size.greaterThanOrEqualTo(0)
+        }
+    }
+    
+    private func preSetupHandleBuness() {
+        self.backgroundColor = .clear
+        
+        let clickTap = UITapGestureRecognizer(target: self, action: #selector(clickTap(_:)))
+        self.addGestureRecognizer(clickTap)
+    }
+    
+    @objc func clickTap(_ sender: UITapGestureRecognizer) {
+        self.onClickBlock?()
+    }
+    
+    // MARK:  GET && SET
+    var onClickBlock: (()->Void)?
+    
+    // MARK:  懒加载
+    lazy var backView: UIView = {
+        let view = UIView()
+        view.backgroundColor = appMainColor
+        view.layer.masksToBounds = true
+        view.layer.cornerRadius = 15.ckValue()
+        return view
+    }()
+    
+    lazy var customIconView: UIImageView = {
+        let image = Reasource.systemNamed("rectangle.and.pencil.and.ellipsis", color: .white)
+        let view = UIImageView(image: image)
+        view.contentMode = .scaleAspectFit
+        return view
+    }()
+    
+    lazy var customLabel: UILabel = {
+        let view = UILabel()
+        view.text = "Custom Genre".localStr()
+        view.numberOfLines = 0
+        view.font = UIFontBold(15.ckValue())
+        view.textAlignment = .center
+        view.textColor = .white
+        return view
+    }()
 
-// MARK:  邮箱联系
-extension GenreTypeViewController: MFMailComposeViewControllerDelegate, SFSafariViewControllerDelegate {
-    @objc func handleWithEmail() {
-        self.view.endEditing(true)
-        
-        let subject = "\(kaka_osType().iconStr()) \("Wake Music".localStr()) Feedback"
-        let messageBody = "\r\r\r\r\r-----------------------------" + "\r" + self.getDeviceInformation()
-        
-        let canOpenMailScheme = UIApplication.shared.canOpenURL(URL(string: "mailto:")!)
-        let mailtoURL = URL(string: "mailto:\(companyEmail)?subject=\(subject)&body=\(messageBody)")!
-        
-        if !MFMailComposeViewController.canSendMail() {
-            
-            if canOpenMailScheme {
-                // 2️⃣ 打开第三方邮件客户端
-                UIApplication.shared.open(mailtoURL)
-            }else{
-                // 3️⃣ 用户没有任何邮件客户端
-                if kaka_IsMacOS() {
-                    UIApplication.shared.open(FeedbackURL)
-                }else{
-                    let feedbackVC = SFSafariViewController(url: FeedbackURL)
-                    self.present(feedbackVC, animated: true)
-                }
-            }
-            return
-        }
-        
-        // 1️⃣ 优先使用Apple的邮件客户端
-        if canOpenMailScheme && kaka_IsMacOS() {
-            UIApplication.shared.open(mailtoURL)
-        }else{
-            let emailVC = MFMailComposeViewController()
-            emailVC.mailComposeDelegate = self
-            emailVC.setToRecipients([companyEmail])
-            emailVC.setSubject(subject)
-            emailVC.setMessageBody(messageBody, isHTML: false)
-            self.present(emailVC, animated: true, completion: nil)
-        }
-    }
-    
-    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
-        controller.dismiss(animated: true, completion: nil)
-        if result == .sent {
-            self.view.makeToast("Thank you for your feedback".localStr())
-        }
-        
-    }
-    
-    func safariViewControllerDidFinish(_ controller: SFSafariViewController) {
-        controller.dismiss(animated: true)
-    }
-    
-    func getDeviceInformation() -> String {
-        let device = UIDevice.current
-        let systemVersion = device.systemVersion
-        let model = kaka_IsMacOS() ? "macOS" : device.model
-        let appVersion = ((Bundle.main.infoDictionary!["CFBundleShortVersionString"] as? String) ?? "") + "_" + "\(UserInfoManager.shared.isVIP() ? "1" : "0")"
-
-        return """
-        App Name: \("Wake Music".localStr())
-        App Version: \(appVersion)
-        Device Model: \(model)
-        System Version: \(systemVersion)
-        Language: \(PhoneSetManager.languge_region())
-        """
-    }
 }

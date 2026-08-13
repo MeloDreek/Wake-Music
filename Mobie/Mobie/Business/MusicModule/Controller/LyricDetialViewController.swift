@@ -13,6 +13,33 @@ import UniformTypeIdentifiers
 import StoreKit
 import SafariServices
 
+enum NoneLyricCellType: Int, CaseIterable {
+    case autoMatch = 0
+    case textManual = 1
+    case pureMusic = 2
+    
+    func titleStr() -> String {
+        switch self {
+        case .autoMatch:
+            return "Auto Search LRC".localStr()
+        case .textManual:
+            return "Manual Paste Lyrics".localStr()
+        case .pureMusic:
+            return "Set as Instrumental".localStr()
+        }
+    }
+    
+    func backgroundColor() -> UIColor {
+        switch self {
+        case .autoMatch:
+            return UIColor.systemRed
+        case .textManual:
+            return UIColor.systemBlue
+        case .pureMusic:
+            return UIColor.systemGreen
+        }
+    }
+}
 
 /// 歌词详情页
 class LyricDetialViewController: SuperViewController {
@@ -30,12 +57,6 @@ class LyricDetialViewController: SuperViewController {
     override func preSetupSubViews() {
         super.preSetupSubViews()
         
-#warning("模拟mock数据")
-//#if DEBUG
-//        self.overrideUserInterfaceStyle = .light
-//        self.navigationController?.overrideUserInterfaceStyle = .light
-//        self.tableView.overrideUserInterfaceStyle = .light
-//#endif
         contentView.addSubview(tableView)
     }
     
@@ -46,31 +67,29 @@ class LyricDetialViewController: SuperViewController {
     
     override func preSetupHandleBuness() {
         super.preSetupHandleBuness()
-        self.title = "Lyrics".localStr()
+        self.title = MusicTagType.lyrics.titleStr()
         self.updateActionItem()
     }
     
+    // 更新右侧按钮
     func updateActionItem() {
         
         if self.isPresent() {
-            self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelBarItemClick))
+            self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelButtonClick))
         }
         
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "ellipsis.circle"), style: .plain, target: self, action: #selector(editLyricAction))
+        if let lyricModel = self.editModel.lyricModel, let lyrics = lyricModel.lyrics, lyrics.count > 0 {
+            // 有歌词
+            self.navigationItem.rightBarButtonItem = self.haveLyricItem
+        }else{
+            // 没有歌词
+            self.navigationItem.rightBarButtonItem = nil
+        }
         
     }
     
-    @objc func cancelBarItemClick() {
-        (self.navigationController ?? self).dismiss(animated: true)
-    }
-    
+    /// 有歌词
     @objc func editLyricAction() {
-        
-        if self.editModel.fileSourceType == .demoFile {
-            self.view.makeToast("Demo audio is read-only and cannot be edited".localStr())
-            return
-        }
-        
         if let lyricModel = self.editModel.lyricModel, let lyrics = lyricModel.lyrics, lyrics.count > 0 {
             // 有歌词
             self.haveLyricsAction(lyricModel)
@@ -80,6 +99,39 @@ class LyricDetialViewController: SuperViewController {
         }
     }
     
+    // 没有歌词
+    @objc func noneLyricsAction() {
+        let editVC = LyricEditorViewController(musicModel: self.editModel)
+        editVC.title = self.editModel.filePathName()
+        editVC.editCallBack = { [weak self] (newLyric) in
+            guard let wSelf = self else { return }
+            let lyricStr = newLyric.toLyricString(false) ?? ""
+            wSelf.setLyricContent(lyricStr)
+        }
+        self.present(KakaNavigationController(rootViewController: editVC), animated: true)
+    }
+    
+    // 设置为纯音乐
+    func setPureMusicAction() {
+        // 设置为纯音乐
+        let lyricStr = "[00:00.000]" + "Instrumental · Enjoy the music".localStr()
+        self.setLyricContent(lyricStr)
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    // 搜索歌词页面
+    func searchLyricAction() {
+        if !UserInfoManager.shared.isVIP() {
+            self.vipCenterClick()
+            return
+        }
+        
+        let lyricVC = SelectLyricViewController(music: self.editModel, result: nil)
+        lyricVC.onSelectBlock = { [weak self] (lyricModel) in
+            self?.setLyricContent(lyricModel.toLyricString() ?? "")
+        }
+        self.present(KakaNavigationController(rootViewController: lyricVC), animated: true)
+    }
     
     // MARK:  GET && SET
     var editModel: MusicItemModel!
@@ -88,13 +140,17 @@ class LyricDetialViewController: SuperViewController {
     
     // MARK:  懒加载
     lazy var haveLyricItem: UIBarButtonItem = {
-        let view = UIBarButtonItem()
-        return view
+        let item = UIBarButtonItem(image: UIImage(systemName: "ellipsis.circle"), style: .plain, target: self, action: #selector(editLyricAction))
+        return item
     }()
     
     lazy var noneLyricItem: UIBarButtonItem = {
-        let view = UIBarButtonItem()
-        return view
+        let item = UIBarButtonItem(image: UIImage(systemName: "pencil.and.outline"), style: .plain, target: self, action: #selector(noneLyricsAction))
+        return item
+    }()
+    
+    lazy var cellTypeArray: [NoneLyricCellType] = {
+        return NoneLyricCellType.allCases
     }()
     
     lazy var tableView: UITableView = {
@@ -104,10 +160,16 @@ class LyricDetialViewController: SuperViewController {
         view.separatorStyle = .singleLine
         view.rowHeight = UITableView.automaticDimension
         view.contentInsetAdjustmentBehavior = .automatic
-        view.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: kaka_safeAreaInsets().bottom + playingHeight, right: 0)
-        view.register(LyricDetialHeadCell.self, forCellReuseIdentifier: "LyricDetialHeadCell")
+        view.tableHeaderView = self.headView
+        view.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: kaka_safeAreaInsets().bottom + 30.ckValue(), right: 0)
         view.register(UITableViewCell.self, forCellReuseIdentifier: "LycisEmptyViewCell")
         view.register(MeteDataLycisViewCell.self, forCellReuseIdentifier: "MeteDataLycisViewCell")
+        return view
+    }()
+    
+    lazy var headView: LyricDetialHeadView = {
+        let view = LyricDetialHeadView(frame: CGRectMake(0, 0, contentView.width, LyricDetialHeadView.height()))
+        view.model = self.editModel
         return view
     }()
     
@@ -122,63 +184,65 @@ class LyricDetialViewController: SuperViewController {
 
 extension LyricDetialViewController: UITableViewDataSource, UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        guard let lyricArray = self.editModel.lyricModel?.lyrics, lyricArray.count > 0 else {
+            return self.cellTypeArray.count
+        }
+        
+        return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0 {
+        guard let lyricArray = self.editModel.lyricModel?.lyrics, lyricArray.count > 0 else {
             return 1
-        }else{
-            guard let lyricArray = self.editModel.lyricModel?.lyrics, lyricArray.count > 0 else {
-                return 2
-            }
-            
-            return lyricArray.count
         }
+        
+        return lyricArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.section == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "LyricDetialHeadCell", for: indexPath) as! LyricDetialHeadCell
-            cell.model = self.editModel
-            return cell
-        }else{
-            guard let lyricModel = self.editModel.lyricModel, let lyricArray = lyricModel.lyrics, lyricArray.count > 0 else {
-                let cell = tableView.dequeueReusableCell(withIdentifier: "LycisEmptyViewCell", for: indexPath)
-                var cellConfig = UIListContentConfiguration.cell()
-                cellConfig.text = indexPath.row == 0 ? "There are no lyrics embedded in this file, please add them.".localStr() : "Set as Instrumental".localStr()
-                cellConfig.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 20, leading: 15, bottom: 20, trailing: 15)
-                cell.accessoryType = .none
-                cell.accessoryView = self.addIconView()
-                cell.contentConfiguration = cellConfig
-                return cell
-            }
-            
-            let cell = tableView.dequeueReusableCell(withIdentifier: "MeteDataLycisViewCell", for: indexPath) as! MeteDataLycisViewCell
-            cell.update(lyricModel: lyricArray[indexPath.row], isNoneTime: lyricModel.isNoneTime)
+        guard let lyricModel = self.editModel.lyricModel, let lyricArray = lyricModel.lyrics, lyricArray.count > 0 else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "LycisEmptyViewCell", for: indexPath)
+            let subType = NoneLyricCellType(rawValue: indexPath.section)
+            var cellConfig = UIListContentConfiguration.cell()
+            cellConfig.text = subType?.titleStr()
+            cellConfig.textProperties.numberOfLines = 0
+            cellConfig.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 10, leading: 15, bottom: 10, trailing: 15)
+            cellConfig.textProperties.color = UIColor.white
+            cellConfig.textProperties.alignment = .center
+            cell.backgroundColor = subType?.backgroundColor()
+            cell.accessoryType = .none
+            cell.contentConfiguration = cellConfig
             return cell
         }
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MeteDataLycisViewCell", for: indexPath) as! MeteDataLycisViewCell
+        cell.update(lyricModel: lyricArray[indexPath.row], isNoneTime: lyricModel.isNoneTime)
+        return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        if indexPath.section == 0 {
-            return
-        }
-        
         guard let lyricArray = self.editModel.lyricModel?.lyrics, lyricArray.count > 0 else {
-            // 没有歌词时
-            if indexPath.row == 0 {
-                self.pastedLyricContent()
-            }else{
-                // 设置为纯音乐
-                let lyricStr = "[00:00.000]" + "Instrumental · Enjoy the music".localStr()
-                self.setLyricContent(lyricStr)
-                self.navigationController?.popViewController(animated: true)
+            let subType = self.cellTypeArray[indexPath.section]
+            switch subType {
+            case .autoMatch:
+                self.searchLyricAction()
+                break
+            case .textManual:
+                self.noneLyricsAction()
+                break
+            case .pureMusic:
+                self.setPureMusicAction()
+                break
             }
             return
         }
+        
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return kaka_IsMacOS() ? 50 : UITableView.automaticDimension
     }
     
     
@@ -190,62 +254,31 @@ extension LyricDetialViewController {
     func haveLyricsAction(_ lyricModel: LyricInfoModel) {
         
         let title = self.editModel.filePathName()
-        let alertController = UIAlertController(title: title, message: "Lyrics".localStr(), preferredStyle: kaka_IsiPhone() ? .actionSheet : .alert)
+        let alertController = UIAlertController(title: title, message: MusicTagType.lyrics.titleStr(), preferredStyle: kaka_IsiPhone() ? .actionSheet : .alert)
         let action1 = UIAlertAction(title: "Edit".localStr(), style: .default) { [weak self] (sender) in
             guard let wSelf = self else { return }
-            if !UserInfoManager.shared.isVIP() {
-                self?.vipCenterClick()
-                return
-            }
             
-            let editVC = LyricEditorViewController(musicModel: self?.editModel)
+            let editVC = LyricEditorViewController(musicModel: wSelf.editModel)
             editVC.title = wSelf.editModel.filePathName()
             editVC.editCallBack = { [weak self] (newLyric) in
                 guard let wSelf = self else { return }
                 let lyricStr = newLyric.toLyricString(false) ?? ""
                 wSelf.setLyricContent(lyricStr)
             }
-            self?.navigationController?.pushViewController(editVC, animated: true)
+            self?.present(KakaNavigationController(rootViewController: editVC), animated: true)
         }
-        
-        let action2 = UIAlertAction(title: "Delete".localStr(), style: .destructive) { [weak self] (sender) in
+        let action2 = UIAlertAction(title: "Copy".localStr(), style: .default) { [weak self] (sender) in
+            UIPasteboard.general.string = lyricModel.toLyricString(true)
+            self?.view.makeToast("Copied".localStr())
+        }
+        let action3 = UIAlertAction(title: "Delete".localStr(), style: .destructive) { [weak self] (sender) in
             guard let wSelf = self else { return }
-            if !UserInfoManager.shared.isVIP() {
-                self?.vipCenterClick()
-                return
-            }
             
-            self?.showTwoAlert(title: "Reminder".localStr(), message: "Are you sure to delete it?".localStr(), complete: {
+            self?.showTwoAlert(message: "Are you sure to delete it?".localStr(), complete: {
                 wSelf.setLyricContent("")
             })
         }
         
-        let action3 = UIAlertAction(title: "Cancel".localStr(), style: .cancel)
-        
-        alertController.addAction(action1)
-        alertController.addAction(action2)
-        alertController.addAction(action3)
-        
-        action1.setValue(UIColor.systemBlue, forKey: "_titleTextColor")
-        action2.setValue(UIColor.systemRed, forKey: "_titleTextColor")
-        action3.setValue(UIColor.systemBlue, forKey: "_titleTextColor")
-        
-        self.present(alertController, animated: true, completion: nil)
-    }
-    
-    // 没有歌词
-    func noneLyricsAction() {
-        let title = self.editModel.filePathName()
-        let alertController = UIAlertController(title: title, message: "Lyrics".localStr(), preferredStyle: kaka_IsiPhone() ? .actionSheet : .alert)
-        let action1 = UIAlertAction(title: "Search with AI".localStr(), style: .default) { [weak self] (sender) in
-            self?.searchWithAI()
-        }
-        let action2 = UIAlertAction(title: "Lyric Library".localStr(), style: .default) { [weak self] (sender) in
-            self?.selectLocalLyrics()
-        }
-        let action3 = UIAlertAction(title: "Paste Lyrics Text".localStr(), style: .default) { [weak self] (sender) in
-            self?.pastedLyricContent()
-        }
         let action4 = UIAlertAction(title: "Cancel".localStr(), style: .cancel)
         
         alertController.addAction(action1)
@@ -253,69 +286,12 @@ extension LyricDetialViewController {
         alertController.addAction(action3)
         alertController.addAction(action4)
         
-        action1.setValue(UIColor.systemBlue, forKey: "_titleTextColor")
-        action2.setValue(UIColor.systemBlue, forKey: "_titleTextColor")
-        action3.setValue(UIColor.systemBlue, forKey: "_titleTextColor")
-        action4.setValue(UIColor.systemBlue, forKey: "_titleTextColor")
+//        action1.setValue(UIColor.systemBlue, forKey: "_titleTextColor")
+//        action2.setValue(UIColor.systemBlue, forKey: "_titleTextColor")
+//        action3.setValue(UIColor.systemRed, forKey: "_titleTextColor")
+//        action4.setValue(UIColor.systemBlue, forKey: "_titleTextColor")
         
         self.present(alertController, animated: true, completion: nil)
-    }
-    
-    // 选择本地歌词
-    func selectLocalLyrics() {
-        if !UserInfoManager.shared.isVIP() {
-            self.vipCenterClick()
-            return
-        }
-        
-        let lyricVC = LyricListViewController(isSelect: true)
-        lyricVC.onSelectCallback = { [weak self] (subURL) in
-            self?.readLyricTextFile(subURL)
-        }
-        let navVC = KakaNavigationController(rootViewController: lyricVC)
-        navVC.modalPresentationStyle = kaka_IsiPad() ? .fullScreen : .automatic
-        self.present(navVC, animated: true)
-    }
-    
-    // AI搜索歌词
-    func searchWithAI() {
-        guard UserInfoManager.shared.isVIP() else {
-            self.vipCenterClick()
-            return
-        }
-        
-        
-        guard let editModel = self.editModel, let title = editModel.title, !title.isEmpty else {
-            appKeyWindow?.makeToast("Please fill in the title and artist for this song. AI will recommend more accurate cover art or lyrics for you!".localStr())
-            return
-        }
-        
-        let searchVC = SearchTagViewController(model: editModel, isOnlyLyric: true)
-        searchVC.onDoneBlock = { [weak self] (coverModel, lyricModel) in
-            if let lyricModel = lyricModel, let lyricStr = lyricModel.toLyricString() {
-                self?.setLyricContent(lyricStr)
-            }
-        }
-        let navVC = KakaNavigationController(rootViewController: searchVC)
-        navVC.modalPresentationStyle = kaka_IsiPad() ? .fullScreen : .automatic
-        self.present(navVC, animated: true)
-    }
-    
-    // 粘贴歌词内容
-    func pastedLyricContent() {
-        if !UserInfoManager.shared.isVIP() {
-            self.vipCenterClick()
-            return
-        }
-        
-        let editVC = LyricEditorViewController(musicModel: self.editModel)
-        editVC.title = self.editModel.filePathName()
-        editVC.editCallBack = { [weak self] (newLyric) in
-            guard let wSelf = self else { return }
-            let lyricStr = newLyric.toLyricString(false) ?? ""
-            wSelf.setLyricContent(lyricStr)
-        }
-        self.navigationController?.pushViewController(editVC, animated: true)
     }
     
     func readLyricTextFile(_ firstURL: URL) {
@@ -336,31 +312,22 @@ extension LyricDetialViewController {
         let success = TaglibMetadataParser.setLyris(content, toFileURL: origialModel.mediaPlayURL)
         if success {
             origialModel.lyricModel = TaglibMetadataParser.parseSynchronizedLyrics(content)?.convertSwiftModel()
-            if KakaMusicPlayer.shared.playingMusic == origialModel {
-                KakaMusicPlayer.shared.playingMusic = origialModel
-            }
             self.editModel = origialModel
             self.tableView.reloadData()
             self.onEditCallback?(origialModel)
             
-            if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene, content.count > 3 {
-                appKeyWindow?.makeToast("Embedded Success".localStr())
-                SKStoreReviewController.requestReview(in: windowScene)
-            }
+            self.view.makeToast("Embedded Success".localStr())
         }
         
         debugPrint("写入歌词 = \(success)")
+        self.updateActionItem()
     }
-    
-    
-    
-
 }
 
-class LyricDetialHeadCell: UITableViewCell {
+class LyricDetialHeadView: UITableViewHeaderFooterView {
     
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
+    override init(reuseIdentifier: String?) {
+        super.init(reuseIdentifier: reuseIdentifier)
         
         self.preSetupSubViews()
         self.preSetupContains()
@@ -372,22 +339,22 @@ class LyricDetialHeadCell: UITableViewCell {
     }
     
     private func preSetupSubViews() {
-        self.addSubview(starImgView)
-        self.addSubview(nameLabel)
+        contentView.addSubview(starImgView)
+        contentView.addSubview(nameLabel)
     }
     
     private func preSetupContains() {
         
-        var height = 180.ckValue()
+        var height = 120.ckValue()
         switch kaka_osType() {
         case .iOS: height = 120
-        case .iPadOS: height = 200
+        case .iPadOS: height = 150
         case .macOS: height = 100
         }
         
         let value = starImgView.image!.size.width / starImgView.image!.size.height
         starImgView.snp.makeConstraints { make in
-            make.top.equalToSuperview()
+            make.top.equalToSuperview().offset(15.ckValue())
             make.centerX.equalToSuperview()
             make.height.equalTo(height)
             make.width.equalTo(starImgView.snp.height).multipliedBy(value)
@@ -398,7 +365,6 @@ class LyricDetialHeadCell: UITableViewCell {
             make.centerX.equalToSuperview()
             make.top.equalTo(starImgView.snp.bottom).offset(10.ckValue())
             make.height.greaterThanOrEqualTo(0)
-            make.bottom.equalToSuperview()
         }
     }
     
@@ -409,14 +375,23 @@ class LyricDetialHeadCell: UITableViewCell {
         }
     }
     
+    static func height() -> CGFloat {
+        var height = 120.ckValue()
+        switch kaka_osType() {
+        case .iOS: height = 120
+        case .iPadOS: height = 150
+        case .macOS: height = 100
+        }
+        
+        return height + 25.ckValue() + 100.ckValue()
+    }
+    
     private func preSetupHandleBuness() {
         self.backgroundColor = .clear
-        self.selectionStyle = .none
-        self.accessoryType = .none
     }
     
     lazy var starImgView: UIImageView = {
-        let view = UIImageView(image: UIImage(systemName: "quote.bubble.fill"))
+        let view = UIImageView(image: UIImage(systemName: "text.quote"))
         view.contentMode = .scaleAspectFit
         return view
     }()

@@ -10,10 +10,8 @@ import AppGroupKit
 
 enum MusicActionType {
     
-    case searchCoverAI
-    case searchLyricAI
     case musictag
-    case autoRecognize
+    case audioFinger
     
     case play
     case addFavirote
@@ -38,13 +36,9 @@ enum MusicActionType {
     func formatStr() -> String {
         switch self {
             
-        case .searchCoverAI:
-            return "Search Album Cover With AI".localStr()
-        case .searchLyricAI:
-            return "Search Lyric With AI".localStr()
         case .musictag:
             return "Music Tag".localStr()
-        case .autoRecognize:
+        case .audioFinger:
             return "Auto Recognize".localStr()
             
         case .play:
@@ -82,14 +76,10 @@ enum MusicActionType {
     func iconImage() -> UIImage? {
         switch self {
             
-        case .searchCoverAI:
-            return MusicTopMode.coverLibrary.iconImage()
-        case .searchLyricAI:
-            return MusicTopMode.lyricLibrary.iconImage()
         case .musictag:
             return Reasource.systemNamed("tag")
-        case .autoRecognize:
-            return Reasource.systemNamed("tag")
+        case .audioFinger:
+            return Reasource.systemNamed("touchid")
             
         case .play:
             return Reasource.systemNamed("play")

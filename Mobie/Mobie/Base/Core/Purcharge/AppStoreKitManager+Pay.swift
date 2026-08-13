@@ -36,7 +36,8 @@ extension AppStoreKitManager {
     public func handlePayBigModel(activePremium: EntitlementInfo) {
         
 #if !Target_Mobie_Pro
-        // 更新用户信息        
+        // 更新用户信息
+        UserInfoManager.shared.isFreeTrail = activePremium.periodType == .trial
         UserInfoManager.shared.payGoodsId = activePremium.productIdentifier
         UserInfoManager.shared.expireDate = activePremium.expirationDate?.timeIntervalSince1970
         UserInfoManager.shared.payStatus = activePremium.payStatus()

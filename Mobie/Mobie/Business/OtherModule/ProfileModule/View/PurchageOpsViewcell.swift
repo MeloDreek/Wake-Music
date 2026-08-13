@@ -127,7 +127,7 @@ class PurchageOpsViewcell: UITableViewCell {
     
     lazy var titleLabel: UILabel = {
         let view = UILabel()
-        view.text = "No data available".localStr()
+        view.text = KakaError.emptyData.errorDescription
         view.font = UIFontBold(17.ckValue())
         view.numberOfLines = 0
         view.textAlignment = .center
@@ -153,7 +153,7 @@ class PurchageOpsViewcell: UITableViewCell {
     lazy var tryedLabel: UILabel = {
         let view = UILabel()
         view.isHidden = true
-        view.text = "No data available".localStr()
+        view.text = KakaError.emptyData.errorDescription
         view.numberOfLines = 0
         view.font = UIFontBold(15.ckValue())
         view.textAlignment = .center

@@ -421,7 +421,7 @@ extension PlayCacheViewController: MusicTableViewCellDelegate {
         }
         
         if action == .musictag {
-            let tagVC = MusicTagEditerViewController(model)
+            let tagVC = MusicTagEditorController(model)
             tagVC.onEditCallback = { [weak self] (editModel) in
                 self?.perform(#selector(self?.refreshDataAction), with: nil, afterDelay: 1)
             }

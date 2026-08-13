@@ -356,7 +356,7 @@ extension KakaMusicPlayer {
             }
                         
         } fail: { error in
-            appKeyWindow?.makeToast(error.localizedDescription)
+            appKeyWindow?.makeToast(error.errorDescription)
         }
     }
     

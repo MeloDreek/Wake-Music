@@ -34,14 +34,14 @@ protocol PlayerSubViewDelegate: AnyObject {
     // 点击封面
     func playerBasicCellDidCoverImage(backView: UIImageView, coverImage: UIImage)
     
-    // AI搜索封面
-    func playerBasicCellDidAICover(basicView: UIView)
-
-    // AI搜索歌词
-    func playerBasicCellDidAILyric(basicView: UIView)
-    
     // 音乐标签编辑器
     func playerBasicCellDidMusicEditor(basicView: UIView)
+    
+    // 音频指纹识别
+    func playerBasicCellDidAudioFinger(basicView: UIView)
+    
+    // 选择歌词
+    func playerBasicCellDidSelectLyric(basicView: UIView)
     
     // 播放器内核
     func playerBasicCellDidPlayerEngine(basicView: UIView)

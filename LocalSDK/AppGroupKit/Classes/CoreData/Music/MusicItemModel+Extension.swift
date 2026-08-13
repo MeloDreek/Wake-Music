@@ -186,6 +186,13 @@ extension MusicItemModel {
         return self.mediaPlayURL.isLRCFile()
     }
     
+    /// 是否有歌词
+    public func isHaveLyric() -> Bool {
+        guard let lyrics = self.lyricModel?.lyrics, lyrics.count > 0 else { return false }
+        
+        return true
+    }
+    
     /// 是否已收藏
     public func isFlagFavorite() -> Bool {
         if self.isLocalFile() {

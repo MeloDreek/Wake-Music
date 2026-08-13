@@ -138,5 +138,12 @@ class LRCLyricTableViewCell: UITableViewCell {
         return view
     }()
     
+    lazy var nonSelectIconView: UIImageView = {
+        let view = UIImageView(image: Reasource.systemNamed("circle", color: .secondaryLabel))
+        view.contentMode = .scaleAspectFit
+        view.size = CGSizeMake(22.ckValue(), 22.ckValue())
+        return view
+    }()
+    
 }
 

@@ -318,14 +318,13 @@ class PlayerLyricCollectCell: UICollectionViewCell {
         view.backgroundColor = .clear
         view.isHidden = self.isShowLyric
         view.onClickCallBack = { [weak self] () in
-            guard let wSelf = self else { return }
-            guard let lyrics = self?.model?.lyricModel?.lyrics, lyrics.count > 0 else {
-                wSelf.delegate?.playerBasicCellDidAILyric(basicView: wSelf)
-                return
-            }
-            
-            if !UserInfoManager.shared.isVIP() {
-                wSelf.upgradePremiumTag()
+            guard let wSelf = self, let model = wSelf.model else { return }
+            if model.isHaveLyric() {
+                if !UserInfoManager.shared.isVIP() {
+                    wSelf.upgradePremiumTag()
+                }
+            }else{
+                wSelf.delegate?.playerBasicCellDidSelectLyric(basicView: wSelf)
             }
         }
         return view

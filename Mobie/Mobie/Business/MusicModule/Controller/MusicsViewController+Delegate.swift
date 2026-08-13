@@ -97,14 +97,6 @@ extension MusicsViewController: MusicTableViewCellDelegate {
             self.editMusicTagsAction(model)
         }
         
-        if action == .searchCoverAI {
-            self.searchAlbumCoverWithAI(model)
-        }
-        
-        if action == .searchLyricAI {
-            self.searchLyricWithAI(model)
-        }
-        
         if action == .addPlaylist {
             self.moveToPlaylistAction(cell: cell, model: model)
         }
@@ -127,137 +119,11 @@ extension MusicsViewController: MusicTableViewCellDelegate {
         
         self.tableView.setEditing(false, animated: true)
         
-        let tagVC = MusicTagEditerViewController(model)
+        let tagVC = MusicTagEditorController(model)
         tagVC.onEditCallback = { [weak self] (editModel) in
             self?.perform(#selector(self?.refreshDataAction), with: nil, afterDelay: 1)
         }
         self.navigationController?.pushViewController(tagVC, animated: true)
-    }
-    
-    // AI搜索封面
-    func searchAlbumCoverWithAI(_ model: MusicItemModel) {
-        guard UserInfoManager.shared.isVIP() else {
-            self.vipCenterClick()
-            return
-        }
-        
-        guard let title = model.title, !title.isEmpty else {
-            appKeyWindow?.makeToast("Please fill in the title and artist for this song. AI will recommend more accurate cover art or lyrics for you!".localStr())
-            return
-        }
-        
-        let coverVC = CoverGalleryViewController(editStyle: .recommend(model))
-        let navVC = KakaNavigationController(rootViewController: coverVC)
-        coverVC.onSelectCallback = { [weak self] (releaseModel) in
-            if let coverImage = releaseModel.tempImage {
-                self?.viewModel.selectArray = [model]
-                self?.editCoverImage(coverImage)
-            }
-        }
-        navVC.modalPresentationStyle = kaka_IsiPad() ? .fullScreen : .automatic
-        self.present(navVC, animated: true)
-    }
-    
-    func editCoverImage(_ image: UIImage) {
-        let operationQueue = OperationQueue()
-        operationQueue.maxConcurrentOperationCount = 1  // 串行执行操作
-
-        ProgressHUD.animate("Processing...".localStr())
-        var isFailed = false
-        
-        var updateOperations: [BlockOperation] = []
-
-        for editModel in self.viewModel.selectArray {
-            let operation = BlockOperation {
-                
-                let success = TaglibMetadataParser.setCoverArt(image, toFileURL: editModel.mediaPlayURL)
-                
-                if success {
-                    SandboxFileManager.shared.writeMusicthumbnailImage(model: editModel, image: image) { vURL in
-                        if editModel.filePathName() == KakaMusicPlayer.shared.playingMusic?.filePathName() {
-                            KakaMusicPlayer.shared.playingMusic = editModel
-                        }
-                    } fail: { error in
-                        DispatchQueue.main.async { [weak self] in
-                            self?.view.makeToast(error.localizedDescription)
-                        }
-                    }
-                }else{
-                    isFailed = true
-                }
-            }
-
-            // 将每个操作添加到操作队列
-            updateOperations.append(operation)
-        }
-
-        // 添加任务完成后的操作
-        let completionOperation = BlockOperation {
-            ImageCache.default.clearCache()
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-                self.stopEditBarClick()
-                ProgressHUD.dismiss()
-                
-                if isFailed {
-                    self.showFiveStarReview()
-                }
-            }
-        }
-        
-        // 设置依赖关系，确保所有操作完成后再执行completion操作
-        for operation in updateOperations {
-            completionOperation.addDependency(operation)
-        }
-
-        // 将所有操作添加到队列
-        operationQueue.addOperations(updateOperations, waitUntilFinished: false)
-        operationQueue.addOperation(completionOperation)
-    }
-        
-    // AI搜索歌词
-    func searchLyricWithAI(_ model: MusicItemModel) {
-        guard UserInfoManager.shared.isVIP() else {
-            self.vipCenterClick()
-            return
-        }
-        
-        guard let title = model.title, !title.isEmpty else {
-            appKeyWindow?.makeToast("Please fill in the title and artist for this song. AI will recommend more accurate cover art or lyrics for you!".localStr())
-            return
-        }
-        
-        let searchVC = SearchTagViewController(model: model, isOnlyLyric: true)
-        searchVC.onDoneBlock = { [weak self] (coverModel, lyricModel) in
-            if let lyricModel = lyricModel, let lyricStr = lyricModel.toLyricString() {
-                self?.setLyricContent(model: model, content: lyricStr)
-            }
-        }
-        let navVC = KakaNavigationController(rootViewController: searchVC)
-        navVC.modalPresentationStyle = kaka_IsiPad() ? .fullScreen : .automatic
-        self.present(navVC, animated: true)
-    }
-    
-    // 写入歌词
-    func setLyricContent(model: MusicItemModel, content: String) {
-                
-        let success = TaglibMetadataParser.setLyris(content, toFileURL: model.mediaPlayURL)
-        if success {
-            self.perform(#selector(refreshDataAction), with: nil, afterDelay: 1)
-            appKeyWindow?.makeToast("Embedded Success".localStr())
-            
-            if KakaMusicPlayer.shared.playingMusic == model {
-                var newModel = model
-                newModel.lyricModel = TaglibMetadataParser.parseSynchronizedLyrics(content).convertSwiftModel()
-                KakaMusicPlayer.shared.playingMusic = newModel
-            }
-            
-            self.showFiveStarReview()
-        }else{
-            self.showEmbeddedFailed()
-        }
-        
-        debugPrint("写入歌词 = \(success)")
     }
     
     // 收藏或不收藏

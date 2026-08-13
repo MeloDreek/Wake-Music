@@ -107,7 +107,7 @@ class AuthWebdavViewController: SuperViewController {
                 guard let error = error else {
                     
                     guard let files = files as? [WebDavFileObject] else {
-                        ProgressHUD.failed("No data available".localStr())
+                        ProgressHUD.failed(KakaError.emptyData.errorDescription)
                         return
                     }
                     

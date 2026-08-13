@@ -80,7 +80,8 @@ extension MacTabbarViewController: PlayingControlViewDelegate, UIPopoverPresenta
     func musicControlViewDidPlaylistButton(view: UIView, playlistButton: UIButton) {
         
         if KakaMusicPlayer.shared.musicArray.count <= 1 && KakaMusicPlayer.shared.playingMusic?.fileSourceType == .demoFile {
-            let tagVC = MusicTagEditerViewController(KakaMusicPlayer.shared.playingMusic)
+            guard let model = KakaMusicPlayer.shared.playingMusic else { return }
+            let tagVC = MusicTagEditorController(model)
             self.contentDict[self.selectItemType.rawValue]?.pushViewController(tagVC, animated: true)
             return
         }

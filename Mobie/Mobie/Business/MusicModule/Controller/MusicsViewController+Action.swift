@@ -283,7 +283,7 @@ extension MusicsViewController {
     
     // 预览歌词库
     func previewLyricLibrary() {
-        let lyricVC = LyricListViewController(isSelect: false)
+        let lyricVC = LibraryLyricsViewController(isSelect: false)
         let navVC = KakaNavigationController(rootViewController: lyricVC)
         navVC.modalPresentationStyle = kaka_IsiPad() ? .fullScreen : .automatic
         self.present(navVC, animated: true)
@@ -292,20 +292,20 @@ extension MusicsViewController {
     // 0️⃣ 修改封面图
     func modifyCoverImageAction(editStyle: CoverGalleryStyle) {
         
-        if !UserInfoManager.shared.isVIP() && editStyle != .preview {
-            self.vipCenterClick()
-            return
-        }
-        
-        let coverVC = CoverGalleryViewController(editStyle: editStyle)
-        let navVC = KakaNavigationController(rootViewController: coverVC)
-        coverVC.onSelectCallback = { [weak self] (releaseModel) in
-            if let coverImage = releaseModel.tempImage {
-                self?.editCoverImage(coverImage)
-            }
-        }
-        navVC.modalPresentationStyle = kaka_IsiPad() ? .fullScreen : .automatic
-        self.present(navVC, animated: true)
+//        if !UserInfoManager.shared.isVIP() && editStyle != .preview {
+//            self.vipCenterClick()
+//            return
+//        }
+//        
+//        let coverVC = LibraryCoverViewController(editStyle: editStyle)
+//        let navVC = KakaNavigationController(rootViewController: coverVC)
+//        coverVC.onSelectCallback = { [weak self] (releaseModel) in
+//            if let coverImage = releaseModel.tempImage {
+//                self?.editCoverImage(coverImage)
+//            }
+//        }
+//        navVC.modalPresentationStyle = kaka_IsiPad() ? .fullScreen : .automatic
+//        self.present(navVC, animated: true)
         
     }
 

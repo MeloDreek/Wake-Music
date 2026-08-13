@@ -21,7 +21,7 @@ public enum ApplicationType: Int {
     func applicationID() -> String {
         switch self {
         case .MusicTag:
-            return Application.musicTag.appstoreID()
+            return Application.wakeTag.appstoreID()
         case .WakeMusic:
             return Application.wakeMusic.appstoreID()
         default: return ""

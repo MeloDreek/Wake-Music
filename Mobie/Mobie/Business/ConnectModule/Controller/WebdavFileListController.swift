@@ -126,7 +126,7 @@ class WebdavFileListController: SuperViewController {
                             
                             wSelf.emptyView.isHidden = false
                             wSelf.tableView.reloadData()
-                            wSelf.emptyView.update(message: "No data available".localStr())
+                            wSelf.emptyView.update(message: KakaError.emptyData.errorDescription)
                             
                             return
                         }

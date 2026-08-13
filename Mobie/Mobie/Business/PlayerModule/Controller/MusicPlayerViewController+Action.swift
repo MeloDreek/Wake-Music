@@ -259,7 +259,7 @@ extension MusicPlayerViewController {
             return
         }
 
-        let tagVC = MusicTagEditerViewController(model)
+        let tagVC = MusicTagEditorController(model)
         tagVC.onEditCallback = { (editModel) in
             KakaMusicPlayer.shared.updateNowPlayingInfo(musicModel: editModel)
         }
@@ -298,98 +298,6 @@ extension MusicPlayerViewController {
         
         self.present(KakaNavigationController(rootViewController: playlist), animated: true)
         
-    }
-    
-    // AI搜索封面
-    func searchAlbumCoverWithAI() {
-        
-        guard let model = KakaMusicPlayer.shared.playingMusic else { return }
-        if model.fileSourceType == .demoFile {
-            self.view.kaka_playShakeAnim()
-            return
-        }
-        
-        guard UserInfoManager.shared.isVIP() else {
-            self.vipCenterClick()
-            return
-        }
-                
-//        guard let title = model.title, !title.isEmpty else {
-//            appKeyWindow?.makeToast("Please fill in the title and artist for this song. AI will recommend more accurate cover art or lyrics for you!".localStr())
-//            return
-//        }
-        
-        let coverVC = CoverGalleryViewController(editStyle: .recommend(model))
-        let navVC = KakaNavigationController(rootViewController: coverVC)
-        coverVC.onSelectCallback = { [weak self] (releaseModel) in
-            if let coverImage = releaseModel.tempImage {
-                self?.editCoverImage(coverImage)
-            }
-        }
-        navVC.modalPresentationStyle = kaka_IsiPad() ? .fullScreen : .automatic
-        self.present(navVC, animated: true)
-    }
-    
-    func editCoverImage(_ image: UIImage) {
-        guard let model = KakaMusicPlayer.shared.playingMusic else { return }
-        
-        if model.mediaPlayURL.isFileURL {
-            let success = TaglibMetadataParser.setCoverArt(image, toFileURL: model.mediaPlayURL)
-            
-            if success {
-                SandboxFileManager.shared.writeMusicthumbnailImage(model: model, image: image) { vURL in
-                    ImageCache.default.clearCache()
-                    KakaMusicPlayer.shared.playingMusic = model
-                    self.showFiveStarReview()
-                } fail: { error in
-                    DispatchQueue.main.async { [weak self] in
-                        self?.view.makeToast(error.localizedDescription)
-                    }
-                }
-            }else{
-                self.perform(#selector(showEmbeddedFailed), with: nil, afterDelay: 1.5)
-            }
-        }else{
-            SandboxFileManager.shared.writeMusicthumbnailImage(model: model, image: image) { [weak self] vURL in
-                ImageCache.default.clearCache()
-                KakaMusicPlayer.shared.playingMusic = model
-                self?.showFiveStarReview()
-            } fail: { [weak self] error in
-                self?.view.makeToast(error.localizedDescription)
-            }
-
-        }
-        
-    }
-        
-    // AI搜索歌词
-    func searchLyricWithAI() {
-        
-        guard let model = KakaMusicPlayer.shared.playingMusic else { return }
-        if model.fileSourceType == .demoFile {
-            self.view.kaka_playShakeAnim()
-            return
-        }
-        
-        guard UserInfoManager.shared.isVIP() else {
-            self.vipCenterClick()
-            return
-        }
-        
-        guard let title = model.title, !title.isEmpty else {
-            appKeyWindow?.makeToast("Please fill in the title and artist for this song. AI will recommend more accurate cover art or lyrics for you!".localStr())
-            return
-        }
-        
-        let searchVC = SearchTagViewController(model: model, isOnlyLyric: true)
-        searchVC.onDoneBlock = { [weak self] (coverModel, lyricModel) in
-            if let lyricModel = lyricModel, let lyricStr = lyricModel.toLyricString() {
-                self?.setLyricContent(model: model, content: lyricStr)
-            }
-        }
-        let navVC = KakaNavigationController(rootViewController: searchVC)
-        navVC.modalPresentationStyle = kaka_IsiPad() ? .fullScreen : .automatic
-        self.present(navVC, animated: true)
     }
     
     // 写入歌词

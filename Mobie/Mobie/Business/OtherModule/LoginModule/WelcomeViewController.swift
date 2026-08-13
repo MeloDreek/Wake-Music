@@ -614,7 +614,7 @@ extension WelcomeViewController: WelcomePaywallCellDelegate {
                 ProgressHUD.succeed()
                 self?.finishAllPage()
             }else{
-                ProgressHUD.failed("No data available".localStr())
+                ProgressHUD.failed(KakaError.emptyData.errorDescription)
             }
         }
     }

@@ -5,18 +5,15 @@
 //  Created by 张文 on 11/11/24.
 //
 
+
 import KakaFoundation
 import KakaUIKit
 import AppGroupKit
 import KakaTaglibKit
-import MusicKit
-import MessageUI
-import SafariServices
 
 
-/// 编辑歌词内容
+/// 手动编辑歌词内容
 class LyricEditorViewController: SuperViewController {
-    
     init(musicModel: MusicItemModel?) {
         super.init(nibName: nil, bundle: nil)
         self.musicModel = musicModel
@@ -40,16 +37,16 @@ class LyricEditorViewController: SuperViewController {
     override func preSetupHandleBuness() {
         super.preSetupHandleBuness()
         self.navigationItem.largeTitleDisplayMode = .automatic
+        
+        if self.isPresent() {
+            self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelButtonClick))
+        }
+        
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneButtonClick))
         
         self.textView.text = self.musicModel?.lyricModel?.toLyricString(true)
-
+        
         self.textViewDidEndEditing(self.textView)
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.textView.isHidden = !UserInfoManager.shared.isVIP()
     }
     
     @objc func doneButtonClick() {
@@ -68,17 +65,13 @@ class LyricEditorViewController: SuperViewController {
         }
         
         self.editCallBack?(lyricModel)
-        self.navigationController?.popViewController(animated: true)
+        self.cancelButtonClick()
     }
     
     // MARK:  GET && SET
     var musicModel: MusicItemModel?
     
     var editCallBack: ((LyricInfoModel)->Void)?
-    
-    lazy var aiArray: [AIType] = {
-        return AIType.allTypes()
-    }()
     
     // MARK:  懒加载
     
@@ -88,8 +81,7 @@ class LyricEditorViewController: SuperViewController {
         view.delegate = self
         view.rowHeight = UITableView.automaticDimension
         view.contentInsetAdjustmentBehavior = .automatic
-        view.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: kaka_safeAreaInsets().bottom + playingHeight, right: 0)
-        view.register(UITableViewCell.self, forCellReuseIdentifier: "BasicAiTypeViewCell")
+        view.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 30.ckValue(), right: 0)
         view.register(UITableViewCell.self, forCellReuseIdentifier: "ExportTableViewCell")
         view.register(UITableViewCell.self, forCellReuseIdentifier: "FeedbackQuestionCell")
         return view
@@ -112,7 +104,7 @@ class LyricEditorViewController: SuperViewController {
         view.numberOfLines = 0
         return view
     }()
-
+    
 }
 
 extension LyricEditorViewController: UITableViewDataSource, UITableViewDelegate, UITextViewDelegate {
@@ -121,37 +113,11 @@ extension LyricEditorViewController: UITableViewDataSource, UITableViewDelegate,
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return section == 0 ? aiArray.count : 1
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
-            let aiType = self.aiArray[indexPath.row]
-            let cell = tableView.dequeueReusableCell(withIdentifier: "BasicAiTypeViewCell", for: indexPath)
-            var cellConfig = UIListContentConfiguration.cell()
-            cellConfig.image = aiType.iconImage()
-            cellConfig.text = aiType.titleStr()
-            cellConfig.image = aiType.iconImage()
-            cellConfig.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 15, leading: 15, bottom: 15, trailing: 15)
-            cellConfig.imageProperties.maximumSize = CGSizeMake(30.ckValue(), 30.ckValue())
-            cell.contentConfiguration = cellConfig
-            cell.accessoryType = .disclosureIndicator
-            return cell
-        }else if indexPath.section == 1 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "ExportTableViewCell", for: indexPath)
-            var cellConfig = UIListContentConfiguration.cell()
-            cellConfig.text = "Import LRC".localStr()
-            #if !targetEnvironment(macCatalyst)
-            cellConfig.textProperties.font = UIFontBold(17.ckValue())
-            #endif
-            cellConfig.textProperties.color = UIColor.deAccent
-            cellConfig.textProperties.alignment = .center
-            cellConfig.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 15, leading: 15, bottom: 15, trailing: 5)
-            cell.backgroundColor = appMainColor
-            cell.accessoryType = .none
-            cell.contentConfiguration = cellConfig
-            return cell
-        }else{
             let cell = tableView.dequeueReusableCell(withIdentifier: "FeedbackQuestionCell", for: indexPath)
             cell.selectionStyle = .none
             cell.contentView.addSubview(textView)
@@ -169,6 +135,20 @@ extension LyricEditorViewController: UITableViewDataSource, UITableViewDelegate,
                 make.height.greaterThanOrEqualTo(0)
             }
             return cell
+        }else{
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ExportTableViewCell", for: indexPath)
+            var cellConfig = UIListContentConfiguration.cell()
+            cellConfig.text = indexPath.section == 1 ? NoneLyricCellType.textManual.titleStr() : "Import LRC".localStr()
+#if !targetEnvironment(macCatalyst)
+            cellConfig.textProperties.font = UIFontBold(17.ckValue())
+#endif
+            cellConfig.textProperties.color = UIColor.white
+            cellConfig.textProperties.alignment = .center
+            cellConfig.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 15, leading: 15, bottom: 15, trailing: 5)
+            cell.backgroundColor = indexPath.section == 1 ? UIColor.systemBlue : UIColor.systemRed
+            cell.accessoryType = .none
+            cell.contentConfiguration = cellConfig
+            return cell
         }
         
     }
@@ -177,17 +157,13 @@ extension LyricEditorViewController: UITableViewDataSource, UITableViewDelegate,
         tableView.deselectRow(at: indexPath, animated: true)
         self.view.endEditing(true)
         
-        if !UserInfoManager.shared.isVIP() {
-            self.vipCenterClick()
-            return
-        }
-        
-        if indexPath.section == 0 {
-            let aiType = self.aiArray[indexPath.row]
-            self.searchWithAIReminder(aiType)
-        }
-        
         if indexPath.section == 1 {
+            guard let text = UIPasteboard.general.string, !text.isEmpty else { return }
+            self.textView.text = text
+            self.placeLabel.isHidden = true
+        }
+        
+        if indexPath.section == 2 {
             self.selectLocalLyrics()
         }
     }
@@ -196,7 +172,7 @@ extension LyricEditorViewController: UITableViewDataSource, UITableViewDelegate,
     func selectLocalLyrics() {
         self.view.endEditing(true)
         
-        let lyricVC = LyricListViewController(isSelect: true)
+        let lyricVC = LibraryLyricsViewController(isSelect: true)
         lyricVC.onSelectCallback = { [weak self] (subURL) in
             self?.readLyricTextFile(subURL)
         }
@@ -217,41 +193,6 @@ extension LyricEditorViewController: UITableViewDataSource, UITableViewDelegate,
         self.tableView.reloadData()
     }
     
-    
-    
-
-    
-    // 点击AI前往搜索，复制文本
-    func searchWithAIReminder(_ aiType: AIType) {
-        guard let title = self.musicModel?.title, !title.isEmpty, let artist = self.musicModel?.artist, !artist.isEmpty else {
-            self.showTwoAlert(title: "Reminder".localStr(), message: "Please fill in the title and artist for this song. AI will recommend more accurate cover art or lyrics for you!".localStr()) {
-                self.popToSpecifiedViewController(ofType: MusicTagEditerViewController.self)
-            }
-            return
-        }
-        
-        let searchContent = String(format: "Song: [%@], Artist: [%@]. Please send me the album name, release date, genre, track number, and most importantly, the full LRC lyrics. This is strictly for personal local music organization and tag editing. Thank you!".localStr(), title, artist)
-        UIPasteboard.general.string = searchContent
-        self.showOneAlert(title: "Reminder".localStr(), message: searchContent, confirm: "Copy Text".localStr()) {
-            if kaka_IsMacOS() {
-                if let vURL2 = aiType.websiteURL().1 {
-                    UIApplication.shared.open(vURL2)
-                }
-                return
-            }
-            
-            guard let vURL1 = aiType.websiteURL().0 else { return }
-            
-            UIApplication.shared.open(vURL1, options: [:]) { finish in
-                if !finish {
-                    if let vURL2 = aiType.websiteURL().1 {
-                        UIApplication.shared.open(vURL2)
-                    }
-                }
-            }
-        }
-    }
-    
     /// 返回到指定的控制器页面
     public func popToSpecifiedViewController(ofType type: UIViewController.Type) {
         if let viewControllers = self.navigationController?.viewControllers {
@@ -266,24 +207,18 @@ extension LyricEditorViewController: UITableViewDataSource, UITableViewDelegate,
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.section == 0 || indexPath.section == 1 {
-            return UITableView.automaticDimension
+        if indexPath.section == 0 {
+            return (self.view.height - app_navHeight - kaka_safeAreaInsets().bottom) * 0.6
         }else{
-            return  (self.view.height - app_navHeight - kaka_safeAreaInsets().bottom) * 0.8
+            return kaka_IsMacOS() ? 50 : UITableView.automaticDimension
         }
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if section == 0 {
-            return "AI"
-        }else if section == 1 {
-            return nil
+            return NoneLyricCellType.textManual.titleStr()
         }else{
-            guard let lyrics = self.musicModel?.lyricModel?.lyrics, lyrics.count > 0 else {
-                return "Please copy and paste the lyrics text according to the LRC specification".localStr()
-            }
-            
-            return "Lyrics".localStr()
+            return nil
         }
     }
     
@@ -302,36 +237,38 @@ extension LyricEditorViewController: UITableViewDataSource, UITableViewDelegate,
 }
 
 
+
 extension LyricInfoModel {
+    
     public static func createDemoString() -> String {
         var fullLyric = ""
         
-        fullLyric.append("[ti:\("Title".localStr())]" + " " + "Optional".localStr())
+        let titleStr = MusicTagType.artist.titleStr() + " - " + MusicTagType.title.titleStr()
+ 
+        fullLyric.append("[00:00.00]" + " " + titleStr)
         fullLyric.append("\r")
         
-        fullLyric.append("[ar:\("Artist".localStr())]" + " " + "Optional".localStr())
+        fullLyric.append("[00:03.10]" + " " + "Lyrics line 1".localStr())
         fullLyric.append("\r")
         
-        fullLyric.append("[al:\("Album".localStr())]" + " " + "Optional".localStr())
+        fullLyric.append("[00:05.10]" + " " + "Lyrics line 2".localStr())
         fullLyric.append("\r")
         
-        fullLyric.append("[by:\("Lyrics Maker".localStr())]" + " " + "Optional".localStr())
-        fullLyric.append("\r")
-        
-        fullLyric.append("[00:03.10]" + " " + "Line 1".localStr())
-        fullLyric.append("\r")
-        
-        fullLyric.append("[00:05.10]" + " " + "Line 2".localStr())
-        fullLyric.append("\r")
-        
-        fullLyric.append("[00:07.10]" + " " + "Line 3".localStr())
+        fullLyric.append("[00:07.10]" + " " + "Lyrics line 3".localStr())
         fullLyric.append("\r")
         
         fullLyric.append("······")
         fullLyric.append("\r")
         
-        fullLyric.append("[00:05.32]" + " " + "The last line of lyrics".localStr())
+        fullLyric.append("······")
+        fullLyric.append("\r")
+        
+        fullLyric.append("······")
+        fullLyric.append("\r")
+        
+        fullLyric.append("[00:05.32]" + " " + "······")
                 
         return fullLyric
     }
+    
 }

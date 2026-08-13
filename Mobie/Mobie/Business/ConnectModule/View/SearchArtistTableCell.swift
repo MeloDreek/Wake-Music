@@ -79,7 +79,7 @@ class SearchArtistTableCell: UITableViewCell, UICollectionViewDataSource, UIColl
     lazy var emptyLabel: UILabel = {
         let view = UILabel()
         view.isHidden = true
-        view.text = "No data available".localStr()
+        view.text = KakaError.emptyData.errorDescription
         view.font = UIFontBold(16.ckValue())
         view.textColor = .secondaryLabel
         view.textAlignment = .center

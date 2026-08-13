@@ -86,16 +86,15 @@ extension HomeTabbarViewController: PlayingControlViewDelegate {
         
         if KakaMusicPlayer.shared.musicArray.count <= 1 && KakaMusicPlayer.shared.playingMusic?.fileSourceType == .demoFile {
             
-            guard let navVC = self.children[selectedIndex] as? KakaNavigationController else { return }
+            guard let navVC = self.children[selectedIndex] as? KakaNavigationController, let model = KakaMusicPlayer.shared.playingMusic else { return }
             
-            if navVC.topViewController is MusicTagEditerViewController {
+            if navVC.topViewController is MusicTagEditorController {
                 navVC.topViewController?.view.kaka_playShakeAnim()
                 return
             }
             
-            let tagVC = MusicTagEditerViewController(KakaMusicPlayer.shared.playingMusic)
+            let tagVC = MusicTagEditorController(model)
             navVC.pushViewController(tagVC, animated: true)
-            
             return
         }
         

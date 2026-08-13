@@ -209,7 +209,7 @@ extension AppleMusicListController: UITableViewDataSource, UITableViewDelegate {
             cell.backgroundColor = .clear
             cell.contentView.backgroundColor = .clear
             cell.selectionStyle = .none
-            cell.updateMessage("No data available".localStr() + "\r\n" + self.message)
+            cell.updateMessage(KakaError.emptyData.errorDescription + "\r\n" + self.message)
             return cell
         }else{
             let cell = tableView.dequeueReusableCell(withIdentifier: "MusicTableViewCell", for: indexPath) as! MusicTableViewCell

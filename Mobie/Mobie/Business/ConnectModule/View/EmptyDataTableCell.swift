@@ -39,7 +39,7 @@ class EmptyDataTableCell: UITableViewCell {
         
     }
     
-    func updateMessage(_ msg: String = "No data available".localStr()) {
+    func updateMessage(_ msg: String = KakaError.emptyData.errorDescription) {
         emptyLabel.text = msg
         self.contentView.layoutIfNeeded()
     }
@@ -47,7 +47,7 @@ class EmptyDataTableCell: UITableViewCell {
     lazy var emptyLabel: UILabel = {
         let view = UILabel()
         view.numberOfLines = 0
-        view.text = "No data available".localStr()
+        view.text = KakaError.emptyData.errorDescription
         view.font = UIFontBold(16.ckValue())
         view.textColor = .secondaryLabel
         view.textAlignment = .center

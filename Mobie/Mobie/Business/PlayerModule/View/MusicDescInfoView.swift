@@ -212,7 +212,7 @@ extension MusicDescInfoView {
             NotificationCenter.default.post(name: Notification.Name(kRemoteMusicChangedKey), object: nil)
             
         } fail: { [weak self] error in
-            self?.makeToast(error.localizedDescription)
+            self?.makeToast(error.errorDescription)
         }
     }
     

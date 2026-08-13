@@ -22,7 +22,7 @@ extension MusicTableViewCell {
     
     @objc private func autoTagButtonClick() {
         guard let model = self.musicModel else { return }
-        self.delegate?.musicTableCell(cell: self, model: model, action: .autoRecognize)
+        self.delegate?.musicTableCell(cell: self, model: model, action: .audioFinger)
     }
     
     func localButton() -> UIButton {
@@ -38,23 +38,19 @@ extension MusicTableViewCell {
         
         guard let model = self.musicModel else { return UIMenu() }
         
-        // AI搜索封面
-        let aiCoverAction = UIAction(title: MusicActionType.searchCoverAI.formatStr(), image: MusicActionType.searchCoverAI.iconImage()) { [weak self] _ in
+        // 音频指纹识别
+        let audioFingerAction = UIAction(title: MusicActionType.audioFinger.formatStr(), image: MusicActionType.audioFinger.iconImage()) { [weak self] _ in
             guard let wSelf = self, let model = wSelf.musicModel else { return }
-            wSelf.delegate?.musicTableCell(cell: wSelf, model: model, action: .searchCoverAI)
+            wSelf.delegate?.musicTableCell(cell: wSelf, model: model, action: .audioFinger)
         }
-        // AI搜索歌词
-        let aiLyricAction = UIAction(title: MusicActionType.searchLyricAI.formatStr(), image: MusicActionType.searchLyricAI.iconImage()) { [weak self] _ in
-            guard let wSelf = self, let model = wSelf.musicModel else { return }
-            wSelf.delegate?.musicTableCell(cell: wSelf, model: model, action: .searchLyricAI)
-        }
+        
         // 音乐标签编辑器
         let musictagAction = UIAction(title: "Music Tag Editor".localStr(), image: MusicActionType.musictag.iconImage()) { [weak self] _ in
             guard let wSelf = self, let model = wSelf.musicModel else { return }
             wSelf.delegate?.musicTableCell(cell: wSelf, model: model, action: .musictag)
         }
         
-        let musictagMenu = UIMenu(title: "", options: .displayInline, children: [aiCoverAction, aiLyricAction, musictagAction])
+        let musictagMenu = UIMenu(title: "", options: .displayInline, children: [audioFingerAction, musictagAction])
         
         // 喜欢
         let likeType = model.isFlagFavorite() ? MusicActionType.removeFavirote : MusicActionType.addFavirote

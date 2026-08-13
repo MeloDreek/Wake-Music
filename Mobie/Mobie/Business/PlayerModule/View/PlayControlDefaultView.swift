@@ -490,15 +490,12 @@ class PlayControlDefaultView: UIView {
     
     func moreMenu() -> UIMenu {
         
-        // 1️⃣ AI封面、AI歌词、音乐标签编辑器、喜欢、添加到歌单
-        let aiCoverAction = UIAction(title: MusicActionType.searchCoverAI.formatStr(), image: MusicActionType.searchCoverAI.iconImage()) { [weak self] _ in
+        // 1️⃣ 音频指纹识别、音乐标签编辑器、喜欢、添加到歌单
+        let audioFingerAction = UIAction(title: MusicActionType.audioFinger.formatStr(), image: MusicActionType.audioFinger.iconImage()) { [weak self] _ in
             guard let wSelf = self else { return }
-            wSelf.delegate?.playerBasicCellDidAICover(basicView: wSelf)
+            wSelf.delegate?.playerBasicCellDidAudioFinger(basicView: wSelf)
         }
-        let aiLyricAction = UIAction(title: MusicActionType.searchLyricAI.formatStr(), image: MusicActionType.searchLyricAI.iconImage()) { [weak self] _ in
-            guard let wSelf = self else { return }
-            wSelf.delegate?.playerBasicCellDidAILyric(basicView: wSelf)
-        }
+        
         let musictagAction = UIAction(title: "Music Tag Editor".localStr(), image: MusicActionType.musictag.iconImage()) { [weak self] _ in
             guard let wSelf = self else { return }
             wSelf.delegate?.playerBasicCellDidMusicEditor(basicView: wSelf)
@@ -515,7 +512,7 @@ class PlayControlDefaultView: UIView {
             wSelf.moreButton.menu = wSelf.moreMenu()
         }
         
-        let musictagMenu = UIMenu(title: "", options: .displayInline, children: [aiCoverAction, aiLyricAction, musictagAction, playlistAction, likeAction])
+        let musictagMenu = UIMenu(title: "", options: .displayInline, children: [audioFingerAction, musictagAction, playlistAction, likeAction])
         
         // 2️⃣ 播放器内核、播放器样式、播放器背景
         let engineAction = UIAction(title: "Playback Engine".localStr(), image: UIImage(systemName: "play.rectangle"), identifier: nil, discoverabilityTitle: nil, attributes: [], state: .off, handler: { [weak self] _ in

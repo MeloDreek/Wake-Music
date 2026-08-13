@@ -305,20 +305,18 @@ extension MusicsViewController: UITableViewDataSource, UITableViewDelegate {
         
         let model = dataArray[indexPath.row]
                         
-        // AI搜索封面
-        let aiCoverAction = UIAction(title: MusicActionType.searchCoverAI.formatStr(), image: MusicActionType.searchCoverAI.iconImage()) { [weak self] _ in
-            self?.searchAlbumCoverWithAI(model)
+        // 音频指纹识别
+        let audiofingerAction = UIAction(title: MusicActionType.audioFinger.formatStr(), image: MusicActionType.audioFinger.iconImage()) { [weak self] _ in
+            guard let wSelf = self else { return }
+            
         }
-        // AI搜索歌词
-        let aiLyricAction = UIAction(title: MusicActionType.searchLyricAI.formatStr(), image: MusicActionType.searchLyricAI.iconImage()) { [weak self] _ in
-            self?.searchLyricWithAI(model)
-        }
+        
         // 音乐标签编辑器
         let musictagAction = UIAction(title: "Music Tag Editor".localStr(), image: MusicActionType.musictag.iconImage()) { [weak self] _ in
             self?.editMusicTagsAction(model)
         }
         
-        let musictagMenu = UIMenu(title: "", options: .displayInline, children: [aiCoverAction, aiLyricAction, musictagAction])
+        let musictagMenu = UIMenu(title: "", options: .displayInline, children: [audiofingerAction, musictagAction])
         
         // 喜欢/不喜欢
         let likeType = model.isFlagFavorite() ? MusicActionType.removeFavirote : MusicActionType.addFavirote

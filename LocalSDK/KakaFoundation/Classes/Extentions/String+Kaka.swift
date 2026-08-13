@@ -136,6 +136,13 @@ extension String {
         }
     }
     
+    /// 备注文件名：替换 macOS / Windows 文件系统非法字符: / \ : * ? " < > |
+    public var standardFileName: String {
+        let invalidCharacters = CharacterSet(charactersIn: "/\\:*?\"<>|")
+        let name = self.components(separatedBy: invalidCharacters).joined(separator: "_")
+        return name
+    }
+    
     ///本地化语言
     public func localStr(_ comment: String? = nil) -> String {
         let result = NSLocalizedString(self, comment: comment ?? "")

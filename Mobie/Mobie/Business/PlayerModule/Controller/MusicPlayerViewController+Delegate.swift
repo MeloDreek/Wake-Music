@@ -95,12 +95,20 @@ extension MusicPlayerViewController {
             NotificationCenter.default.post(name: Notification.Name(kRemoteMusicChangedKey), object: nil)
             
         } fail: { [weak self] error in
-            self?.view?.makeToast(error.localizedDescription)
+            self?.view?.makeToast(error.errorDescription)
         }
     }
 }
 
 extension MusicPlayerViewController: PlayerSubViewDelegate {
+    
+    func playerBasicCellDidAudioFinger(basicView: UIView) {
+        self.view.makeToast("音频指纹")
+    }
+    
+    func playerBasicCellDidSelectLyric(basicView: UIView) {
+        self.view.makeToast("选择歌词")
+    }
     
     // 点击模拟歌词区域
     func controlViewDidBottomControl(controlView: UIView) {
@@ -171,15 +179,15 @@ extension MusicPlayerViewController: PlayerSubViewDelegate {
         self.setupSleepTimer()
     }
     
-    // AI搜索封面
-    func playerBasicCellDidAICover(basicView: UIView) {
-        self.searchAlbumCoverWithAI()
-    }
-    
-    // AI搜索歌词
-    func playerBasicCellDidAILyric(basicView: UIView) {
-        self.searchLyricWithAI()
-    }
+//    // AI搜索封面
+//    func playerBasicCellDidAICover(basicView: UIView) {
+//        self.searchAlbumCoverWithAI()
+//    }
+//    
+//    // AI搜索歌词
+//    func playerBasicCellDidAILyric(basicView: UIView) {
+//        self.searchLyricWithAI()
+//    }
     
     // 音乐标签编辑器
     func playerBasicCellDidMusicEditor(basicView: UIView) {

@@ -74,6 +74,12 @@ public enum AudioExtensionType: String, CaseIterable {
         let extensions: [AudioExtensionType] = [.dsd, .dsf, .dff, .ape, .dts, .ape, .opus]
         return extensions.map { $0.rawValue }
     }
+    
+    /// 是否可以无需第三方库、直接通过系统 AVFoundation/CoreAudio 解码并送入 ShazamKit 识别
+    public static var supportAutoEditArray: [AudioExtensionType] {
+        return [.mp3, .aac, .flac, .wav, .m4a, .alac, .m4r, .gp3, .amr,
+                .wave, .aif, .aiff, .aifc, .caf, .au]
+    }
 }
 
 public enum VideoExtensionType: String, CaseIterable {
