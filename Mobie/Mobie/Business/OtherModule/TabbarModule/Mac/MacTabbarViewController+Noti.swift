@@ -39,7 +39,7 @@ extension MacTabbarViewController {
                 return element1.sortAnotherModel(model2: element2, sortType: MusicConfigManager.shared.sortType)
             })
             
-            if !UserInfoManager.shared.isVIP() && !UserInfoManager.shared.isFreeTrail3Days_Remote() {
+            if !UserInfoManager.shared.isVIP() {
                 let demoMusic = MusicItemModel.demoMusicModel()
                 self.toolbarView.musicModel = demoMusic
                 sortedArray = [demoMusic]

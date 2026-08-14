@@ -14,7 +14,7 @@ extension MiniPlayerStyle {
         case .toolbarUI:
             return "Bottom Toolbar".localStr()
         case .floatUI:
-            return "Classic MP3 Style".localStr()
+            return "iPod Style".localStr()
         }
     }
     
@@ -46,9 +46,9 @@ extension PlayerEngineType {
     func titleStr() -> String {
         switch self {
         case .avPlayer:
-            return "System AVPlayer".localStr()
+            return "Apple Audio Engine".localStr()
         case .wakePlayer:
-            return "All-Format Player".localStr()
+            return "All-Format Audio Engine".localStr()
         case .autoPlayer:
             return "Auto".localStr()
         }
@@ -61,7 +61,7 @@ extension PlayerEngineType {
         case .wakePlayer:
             return "Decoding is handled entirely by the full-format playback engine. It supports all music formats, including DSD (DSF, DFF), DTS, APE, OGG, OPUS, WMA, S3M, TTA, MOD, WV, and more. It can also read embedded cover art and lyrics from remote files.".localStr()
         case .autoPlayer:
-            return "AVPlayer, the system’s built-in engine, is used by default. If AVPlayer fails to play the file, it will automatically switch to the full-format player. Note: Even if AVPlayer succeeds, it may not be able to extract embedded cover art or lyrics from remote files.".localStr()
+            return "Prefer Apple's built-in AVPlayer. If AVPlayer fails to play a file, playback will automatically switch to the All-Format Audio Engine. If AVPlayer successfully decodes the file, this mode may not be able to read embedded artwork and lyrics from remote files.".localStr()
         }
     }
     

@@ -60,7 +60,7 @@ class LyricSetViewController: SuperViewController {
     lazy var dataArray: [LyricSetCellModel] = {
         let model1 = LyricSetCellModel(group: .animationGroup, headTitle: "Mini Lyric Animation".localStr(), footTitle: nil)
         let model2 = LyricSetCellModel(group: .timeOffsetGroup, headTitle: "Lyrics".localStr(), footTitle: "Only limited to the playing song".localStr())
-        let model3 = LyricSetCellModel(group: .lowPowerGroup, headTitle: "Performance".localStr(), footTitle: "After closing, the UI will refresh 1,000 times per second, with lyrics progress accurate to the millisecond, but CPU usage and power consumption will be 10 times that of energy-saving mode.".localStr())
+        let model3 = LyricSetCellModel(group: .lowPowerGroup, headTitle: "Performance".localStr(), footTitle: "When enabled, the UI refreshes 1,000 times per second for millisecond-precise lyrics, but CPU usage and power consumption can be 10× higher than in Power Saving mode.".localStr())
         let model4 = LyricSetCellModel(group: .norFontGroup, headTitle: "Regular Font".localStr(), footTitle: nil)
         let model5 = LyricSetCellModel(group: .selFontGroup, headTitle: "Highlight Font".localStr(), footTitle: nil)
         let model6 = LyricSetCellModel(group: .norColorGroup, headTitle: "Regular Color".localStr(), footTitle: nil)

@@ -190,8 +190,13 @@ class HorizonLyricsViewCell: UICollectionViewCell {
     
     var isShowLyric: Bool {
         get {
-            let isDemo = KakaMusicPlayer.shared.playingMusic?.fileSourceType == .demoFile
-            return isDemo || UserInfoManager.shared.isVIP() || UserInfoManager.shared.isFreeTrail3Days_Local()
+            guard let model = KakaMusicPlayer.shared.playingMusic else { return false }
+            
+            if model.fileSourceType == .demoFile {
+                return true
+            }else{
+                return model.isHaveLyric()
+            }
         }
     }
     

@@ -142,8 +142,13 @@ class PlayerLyricCollectCell: UICollectionViewCell {
     
     var isShowLyric: Bool {
         get {
-            let isDemo = self.model?.fileSourceType == .demoFile
-            return UserInfoManager.shared.isVIP() || UserInfoManager.shared.isFreeTrail3Days_Local() || isDemo
+            guard let model = self.model else { return false }
+            
+            if model.fileSourceType == .demoFile {
+                return true
+            }else{
+                return model.isHaveLyric()
+            }
         }
     }
     

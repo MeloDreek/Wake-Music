@@ -47,7 +47,7 @@ enum CacheGroupCellItem: Int {
         case .cacheSize:
             return "Max Cache".localStr()
         case .cachePath:
-            return "Cache Path".localStr()
+            return "Cache Location".localStr()
         }
     }
     

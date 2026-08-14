@@ -124,11 +124,11 @@ extension LyricTextAlignment {
     public func titleStr() -> String {
         switch self {
         case .center:
-            return "Center align".localStr()
+            return "Center".localStr()
         case .left:
-            return "Left align".localStr()
+            return "Left".localStr()
         case .right:
-            return "Right align".localStr()
+            return "Right".localStr()
         }
     }
     

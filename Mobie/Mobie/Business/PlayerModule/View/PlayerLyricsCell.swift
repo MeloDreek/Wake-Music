@@ -237,8 +237,13 @@ class NoneLyriclistView: UIView {
     
     var isShowLyric: Bool {
         get {
-            let isDemo = self.musicModel?.fileSourceType == .demoFile
-            return UserInfoManager.shared.isVIP() || UserInfoManager.shared.isFreeTrail3Days_Local() || isDemo
+            guard let model = KakaMusicPlayer.shared.playingMusic else { return false }
+            
+            if model.fileSourceType == .demoFile {
+                return true
+            }else{
+                return model.isHaveLyric()
+            }
         }
     }
     
@@ -246,25 +251,14 @@ class NoneLyriclistView: UIView {
         
         self.musicModel = model
         
-        guard let lyrics = model.lyricModel?.lyrics, lyrics.count > 0 else {
-            
-            emptyImgView.image =  Reasource.systemNamed("exclamationmark.triangle.fill", color: .orange)
-            titleLabel.text = "The current song has no lyrics".localStr()
-            let emptyText = "Please make sure your file has embedded LRC lyrics".localStr()
-            
-            messaleLabel.text = emptyText
-            upgradeButton.setTitle("Auto Search LRC".localStr(), for: .normal)
-            
-            self.layoutIfNeeded()
-            
-            return
-        }
+        emptyImgView.image =  Reasource.systemNamed("exclamationmark.triangle.fill", color: .orange)
+        titleLabel.text = "No Embedded Lyrics in This Song".localStr()
+        let emptyText = "Please make sure your file contains embedded LRC lyrics.".localStr()
         
-        // 有歌词的情况
-        emptyImgView.image = Reasource.named("gift_box")
-        titleLabel.text = "Free trial has ended".localStr()
-        messaleLabel.text = "As an offline music player, parsing lyrics embedded in more than 20 music formats is a complex technical challenge. Your free 3-day trial of Lyrics has ended, please upgrade to the Premium.".localStr()
-        upgradeButton.setTitle("Upgrade to Premium".localStr(), for: .normal)
+        messaleLabel.text = emptyText
+        upgradeButton.setTitle("Auto Search LRC".localStr(), for: .normal)
+        
+        self.layoutIfNeeded()
         
         self.layoutIfNeeded()
     }

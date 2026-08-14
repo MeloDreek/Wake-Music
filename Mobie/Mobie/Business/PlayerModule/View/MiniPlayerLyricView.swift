@@ -124,8 +124,13 @@ class MiniPlayerLyricView: UIView {
     
     var isShowLyric: Bool {
         get {
-            let isDemo = KakaMusicPlayer.shared.playingMusic?.fileSourceType == .demoFile
-            return isDemo || UserInfoManager.shared.isVIP() || UserInfoManager.shared.isFreeTrail3Days_Local()
+            guard let model = KakaMusicPlayer.shared.playingMusic else { return false }
+            
+            if model.fileSourceType == .demoFile {
+                return true
+            }else{
+                return model.isHaveLyric()
+            }
         }
     }
     
@@ -225,7 +230,7 @@ extension MiniPlayerLyricView: UITableViewDataSource, UITableViewDelegate {
             emptyCell.contentView.backgroundColor = .clear
             var emptyText = (self.model?.showTitleName() ?? "")
             if KakaMusicPlayer.shared.isPlaying {
-                emptyText = emptyText + "\r\n" + "The current song has no lyrics".localStr()
+                emptyText = emptyText + "\r\n" + "No Embedded Lyrics in This Song".localStr()
             }
             
             let textFont = UIFontBold(15.ckValue())

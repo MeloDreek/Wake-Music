@@ -59,7 +59,7 @@ enum PlayConfigItemType {
         case .miniStyle:
             return "Mini Bar"
         case .enableSide:
-            return "Auto attaches to the edge of the screen".localStr()
+            return "Snap to Screen Edges".localStr()
             
             
         case .showExtension:

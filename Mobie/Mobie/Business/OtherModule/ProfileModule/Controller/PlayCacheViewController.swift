@@ -216,7 +216,7 @@ class PlayCacheViewController: SuperViewController, DocumentFolderWatcherDelegat
     
     lazy var moreBarItem: UIBarButtonItem = {
         
-        let moveAction = UIAction(title: "Move to local".localStr(), image: UIImage(systemName: "move.3d"), identifier: nil, discoverabilityTitle: nil, attributes: [], state: .off) { [weak self] action in
+        let moveAction = UIAction(title: "Move to Local".localStr(), image: UIImage(systemName: "move.3d"), identifier: nil, discoverabilityTitle: nil, attributes: [], state: .off) { [weak self] action in
             self?.moveToLocalAction()
         }
         let clearAction = UIAction(title: "Clear Cache".localStr(), image: UIImage(systemName: "trash"), identifier: nil, discoverabilityTitle: nil, attributes: [], state: .off) { [weak self] action in

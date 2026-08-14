@@ -23,21 +23,21 @@ enum VIPBenefitsModel: CaseIterable {
     func titleStr() -> String {
         switch self {
         case .allFormats:
-            return "All Music Formats".localStr()
+            return "All Audio Formats".localStr()
         case .audioFingerprint:
             return "Audio Fingerprint".localStr()
         case .batchAutoEdit:
             return "Batch Auto-Embed".localStr()
         case .allPlayerStyle:
-            return "All Player Styles".localStr()
+            return "All Player Themes".localStr()
         case .allCloudDrive:
-            return "All Cloud Drive".localStr()
+            return "All Cloud Services".localStr()
         case .lyricFeature:
             return "Lyrics".localStr()
         case .advancedSetting:
-            return "Advanced Settings".localStr()
+            return "Premium Customization".localStr()
         case .allAppleOS:
-            return "All Apple Devices".localStr()
+            return "Across All Your Apple Devices".localStr()
         case .newMore:
             return "More Advanced Features".localStr()
         }
@@ -58,7 +58,7 @@ enum VIPBenefitsModel: CaseIterable {
         case .lyricFeature:
             return "Complete Lyrics Experience".localStr()
         case .advancedSetting:
-            return "Some advanced settings such as animations, music player, etc.".localStr()
+            return "Some Premium Customization such as animations, music player, etc.".localStr()
         case .allAppleOS:
             return "One-time payment to unlock all features on native iPhone, iPad, Mac".localStr()
         case .newMore:

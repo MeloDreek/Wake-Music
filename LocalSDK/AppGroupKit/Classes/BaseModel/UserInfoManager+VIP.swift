@@ -25,48 +25,6 @@ extension UserInfoManager {
         
     }
     
-    /// 是否处于3天内的免费试用中
-    public func isFreeTrail3Days_Local() -> Bool {
-        guard let firstFileDate = self.firstFileDate else {
-            return true // 如果没有首次创建文件的时间，返回 false
-        }
-            
-        // 将 firstFileDate 转换为日期对象
-        let fileDate = Date(timeIntervalSince1970: firstFileDate.rounded())
-        
-        // 获取当前日期
-        let currentDate = Date()
-        
-        // 计算时间差
-        let calendar = Calendar.current
-        let components = calendar.dateComponents([.day], from: fileDate, to: currentDate)
-        
-        // 判断是否在3天内
-        return components.day ?? 0 < 3
-    }
-    
-    /// 远程功能：是否处于3天内的免费试用中
-    public func isFreeTrail3Days_Remote() -> Bool {
-        guard let firstRemoteDate = self.firstRemoteDate else {
-            return true // 如果没有首次创建文件的时间，返回 false
-        }
-            
-        // 将 firstRemoteDate 转换为日期对象
-        let fileDate = Date(timeIntervalSince1970: firstRemoteDate.rounded())
-        
-        // 获取当前日期
-        let currentDate = Date()
-        
-        // 计算时间差
-        let calendar = Calendar.current
-        let components = calendar.dateComponents([.day], from: fileDate, to: currentDate)
-        
-        // 判断是否在3天内
-        return components.day ?? 0 < 3
-        
-        return false
-    }
-    
     // 注册时的设备
     public func deviceOSType() -> String {
         guard let osType = self.registerOsType else { return "☎️" }

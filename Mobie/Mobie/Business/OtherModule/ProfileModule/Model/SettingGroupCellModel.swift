@@ -74,7 +74,7 @@ enum SettingCellItemType {
             return "Appearance".localStr()
         
         case .types:
-            return "All Music Formats".localStr()
+            return "All Audio Formats".localStr()
         case .donate:
             return "Donate".localStr()
         case .guideiOS:

@@ -68,7 +68,7 @@ class AudioChannelViewController: SuperViewController {
         return view
     }()
     
-    let footStr = "Audio formats with good multichannel support include DTS, as well as DSD, considered the ultimate audio format, with extensions usually being DSF and DFF.".localStr()
+    let footStr = "Audio formats with good multichannel support include DTS, as well as DSD, often regarded as the ultimate audio format. DSD files typically use the DSF or DFF extension.".localStr()
     
     var footHeight: CGFloat {
         get {

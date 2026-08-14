@@ -244,7 +244,7 @@ extension KakaMusicPlayer {
         guard let playingMusic = self.playingMusic else { return nil }
 
         if !UserInfoManager.shared.isVIP() {
-            if !UserInfoManager.shared.isFreeTrail3Days_Local() && playingMusic.fileSourceType != .demoFile {
+            if playingMusic.fileSourceType != .demoFile {
                 return nil
             }
         }

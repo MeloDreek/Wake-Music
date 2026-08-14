@@ -113,7 +113,7 @@ extension KakaMusicPlayer: @preconcurrency PlayerControllerDelegate {
         }
         
         // 非VIP只能在试用期间体验歌词和封面解析能力
-        if !UserInfoManager.shared.isVIP() && !UserInfoManager.shared.isFreeTrail3Days_Remote() {
+        if !UserInfoManager.shared.isVIP() {
             debugPrint("不是VIP，并且已经过了三天试用期")
             return
         }

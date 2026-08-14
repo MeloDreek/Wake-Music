@@ -69,7 +69,7 @@ class LyricOtherConfigTableCell: UITableViewCell {
     func setupLyricTimeOffset(_ timeOffset: Int) {
         guard var playingModel = KakaMusicPlayer.shared.playingMusic, var lyricModel = playingModel.lyricModel, let lyrics = lyricModel.lyrics, !lyrics.isEmpty else {
             self.kaka_playShakeAnim()
-            appKeyWindow?.makeToast("The current song has no lyrics".localStr())
+            appKeyWindow?.makeToast("No Embedded Lyrics in This Song".localStr())
             return
         }
         lyricModel.offset = timeOffset

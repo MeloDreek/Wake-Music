@@ -628,7 +628,7 @@ extension GoogleDriveFileListController {
     
     @objc func supportVideoClick(_ videoURL: URL) {
         
-        if !UserInfoManager.shared.isVIP() && !UserInfoManager.shared.isFreeTrail3Days_Remote() {
+        if !UserInfoManager.shared.isVIP() {
             self.vipCenterClick()
             return
         }

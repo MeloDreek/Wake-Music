@@ -111,12 +111,12 @@ extension MusicsViewController {
                     try kaka_IsMacOS() ? FileManager.default.trashItem(at: subURL, resultingItemURL: nil) : FileManager.default.removeItem(at: subURL)
                     debugPrint("移动至废纸篓 = \(subURL.path)")
                 } else {
-                    errorMsg = "Access is restricted".localStr()
+                    errorMsg = "Access Restricted".localStr()
                 }
                 
                 deleteGroup.leave()
             } catch {
-                errorMsg = "Access is restricted".localStr()
+                errorMsg = "Access Restricted".localStr()
                 deleteGroup.leave()
                 debugPrint("删除失败 = \(error.localizedDescription)")
             }

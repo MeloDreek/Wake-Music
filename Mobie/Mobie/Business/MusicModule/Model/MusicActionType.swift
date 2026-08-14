@@ -40,7 +40,7 @@ enum MusicActionType {
         case .musictag:
             return "Music Tag".localStr()
         case .audioFinger:
-            return "Auto Recognize".localStr()
+            return "Auto-Match".localStr()
             
         case .play:
             return "Play".localStr()

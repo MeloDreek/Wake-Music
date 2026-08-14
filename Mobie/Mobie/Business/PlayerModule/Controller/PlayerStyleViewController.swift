@@ -69,7 +69,7 @@ class PlayerStyleViewController: SuperViewController {
     lazy var dataArray: [PlayerUICellModel] = {
         let model1 = PlayerUICellModel(group: .defaultGroup, headTitle: "Default".localStr(), itemArray: [.defaultRect, .defaultCircle, .default8Side], footTitle: nil)
         
-        let model2 = PlayerUICellModel(group: .tapeGroup, headTitle: "Cassette".localStr(), itemArray: [], footTitle: nil)
+        let model2 = PlayerUICellModel(group: .tapeGroup, headTitle: "Cassette Tape".localStr(), itemArray: [], footTitle: nil)
         
         let model3 = PlayerUICellModel(group: .vinylGroup, headTitle: "Vinyl".localStr(), itemArray: [], footTitle: nil)
         

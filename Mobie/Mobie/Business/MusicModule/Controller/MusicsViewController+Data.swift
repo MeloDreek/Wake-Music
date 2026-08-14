@@ -307,8 +307,7 @@ extension MusicsViewController: UITableViewDataSource, UITableViewDelegate {
                         
         // 音频指纹识别
         let audiofingerAction = UIAction(title: MusicActionType.audioFinger.formatStr(), image: MusicActionType.audioFinger.iconImage()) { [weak self] _ in
-            guard let wSelf = self else { return }
-            
+            self?.audioFingerprintRecognzer(model)
         }
         
         // 音乐标签编辑器
