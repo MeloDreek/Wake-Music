@@ -403,7 +403,7 @@ class PlayControlVinylView: UIView {
             let subMenu = UIAction(title: "\(subItem)", image: nil, identifier: nil, discoverabilityTitle: nil, attributes: [], state: MusicConfigManager.shared.playRate == subItem ? .on : .off, handler: { [weak self] _ in
                 
                 if let baiduFile = KakaMusicPlayer.shared.playingMusic?.baiduFileModel, FileManager.default.fileExists(atPath: baiduFile.m3uCacheURL().path) {
-                    appKeyWindow?.makeToast("Due to partner requirements, this feature cannot be used.".localStr())
+                    appKeyWindow?.makeToast("This feature is unavailable due to partner restrictions.".localStr())
                     self?.moreButton.menu = self?.moreMenu()
                     return
                 }

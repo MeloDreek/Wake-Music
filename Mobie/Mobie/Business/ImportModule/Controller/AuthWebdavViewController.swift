@@ -87,7 +87,7 @@ class AuthWebdavViewController: SuperViewController {
             
             self.tryCount += 1
             if self.tryCount >= 3 {
-                self.view.makeToast("Failed to construct WevDav service".localStr())
+                self.view.makeToast("Failed to initialize the WebDAV service.".localStr())
             }else{
                 self.doneButtonClick()
             }

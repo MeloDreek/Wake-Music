@@ -21,7 +21,7 @@ enum LyricSetCellGroup {
     
     func titleStr() -> String? {
         switch self {
-        case .lowPowerGroup: return "Low Power Mode".localStr()
+        case .lowPowerGroup: return "Power Saving Mode".localStr()
         case .timeOffsetGroup: return "Time Offset".localStr()
         default: return nil
         }

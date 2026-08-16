@@ -137,7 +137,7 @@ class EmptyTableViewCell: UITableViewCell {
     
     var delegate: EmptyContentCellDelegate?
     
-    let normalMsg = "The ultimate player for your local library. Experience flawless support for embedded covers and lyrics. Running out of space? Seamlessly connect your cloud storage.".localStr()
+    let normalMsg = "The ultimate player for your local music library. Enjoy embedded artwork and lyrics, and seamlessly connect to your cloud storage when you need more space.".localStr()
     
     // 监听 tintColor 的变化
     @objc func appModeStyleChanged(_ noti: Notification) {

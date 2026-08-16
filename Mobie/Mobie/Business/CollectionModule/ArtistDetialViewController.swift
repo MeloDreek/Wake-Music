@@ -157,7 +157,7 @@ extension ArtistDetialViewController: UITableViewDataSource, UITableViewDelegate
             return true
         }
         
-        let alertController: UIAlertController = UIAlertController(title: "Reminder".localStr(), message: "File doesn't exist, do you delete it?".localStr(), preferredStyle: kaka_IsiPhone() ? .actionSheet : .alert)
+        let alertController: UIAlertController = UIAlertController(title: "Reminder".localStr(), message: "File not found. Would you like to delete it?".localStr(), preferredStyle: kaka_IsiPhone() ? .actionSheet : .alert)
         let action1 = UIAlertAction(title: "Delete".localStr(), style: .destructive) { (sender) in
             SandboxFileManager.shared.deleteMusicModels(models: [model]) { [weak self] models in
                 self?.refreshDataAction()

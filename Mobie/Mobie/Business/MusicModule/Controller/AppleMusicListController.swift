@@ -73,7 +73,7 @@ class AppleMusicListController: SuperViewController {
                 self.stopLoadingAction()
                 self.tableView.separatorStyle = .none
                 self.tableView.reloadData()
-                self.showOneAlert(title: "Reminder".localStr(), message: "You have denied us access to your local media library, please re-authorize it!".localStr(), confirm: "Settings".localStr()) {
+                self.showOneAlert(title: "Reminder".localStr(), message: "You’ve denied access to your media library. Please grant access again.".localStr(), confirm: "Settings".localStr()) {
                     guard let vURL = URL(string: UIApplication.openSettingsURLString) else {
                         return
                     }
@@ -137,7 +137,7 @@ class AppleMusicListController: SuperViewController {
     
     var cancellables = Set<AnyCancellable>()
     
-    let message = "It can only read offline music that you have uploaded to Apple Music and downloaded. The files are encrypted and can only be played using the system's built-in AVPlayer. Third-party applications cannot export the actual files.".localStr()
+    let message = "Only downloaded Apple Music songs can be read. These files are encrypted and can only be played using Apple's built-in AVPlayer. Third-party apps cannot export the original files.".localStr()
     
     // MARK:  懒加载
     lazy var dataArray: [MusicItemModel] = {

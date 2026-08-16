@@ -40,7 +40,7 @@ enum UserInfoCellItemType: Int {
         case .nickName:
             return "Nickname".localStr()
         case .endDate:
-            return "Expiry date".localStr()
+            return "Expiration Date".localStr()
         case .premium:
             return "Upgrade to Lifetime".localStr()
             

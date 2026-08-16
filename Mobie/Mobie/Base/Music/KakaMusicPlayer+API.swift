@@ -106,7 +106,7 @@ extension KakaMusicPlayer {
                 
                 if playError == .tokenExpiredAuthAgain {
                     // 重新授权
-                    self.currentViewController()?.showOneAlert(title: "Reminder".localStr(), message: "Login failed or token has expired, please reauthorize".localStr()) {
+                    self.currentViewController()?.showOneAlert(message: KakaError.tokenExpiredAuthAgain.errorDescription) {
                         
                         KakaCacheTools.clearWebViewCache(displayName: "baidu")
                         let baiduVC = AuthBaiduViewController { serverModel in

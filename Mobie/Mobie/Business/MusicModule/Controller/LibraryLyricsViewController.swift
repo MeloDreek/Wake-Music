@@ -170,7 +170,7 @@ class LibraryLyricsViewController: SuperViewController, UIDocumentPickerDelegate
         }
 
         if supportArray.isEmpty {
-            showOneAlert(title: "LRC format files only".localStr(), message: "Please check your file format".localStr())
+            showOneAlert(title: "LRC files only".localStr(), message: "Please check your file format".localStr())
             return
         }
 

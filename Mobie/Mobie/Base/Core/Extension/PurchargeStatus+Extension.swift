@@ -28,7 +28,7 @@ extension PurchargeStatus {
         case .lifetime:
             return "Lifetime".localStr()
         case .expired:
-            return "Expired, please renew".localStr()
+            return "Expired. Please renew.".localStr()
         case .refunded:
             return "Refunded, please renew".localStr()
         }

@@ -110,7 +110,7 @@ class WebdavFileListController: SuperViewController {
                 self.webdavProvider = self.loginModel.webdavProvider()
                 self.emptyView.isHidden = false
                 
-                self.emptyView.update(message: "Failed to construct WevDav service".localStr())
+                self.emptyView.update(message: "Failed to initialize the WebDAV service.".localStr())
                 return
             }
 

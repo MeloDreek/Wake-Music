@@ -400,7 +400,7 @@ extension CloudMusicTagViewController: UITableViewDataSource, UITableViewDelegat
         let groupModel = dataArray[indexPath.section]
         if groupModel.group == .headGroup { return }
         
-        self.showOneAlert(title: "Reminder".localStr(), message: "Embedded music tags can be edited only after downloading".localStr())
+        self.showOneAlert(title: "Reminder".localStr(), message: "Download the file before editing its embedded tags.".localStr())
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

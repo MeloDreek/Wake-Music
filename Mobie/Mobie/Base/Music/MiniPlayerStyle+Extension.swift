@@ -32,9 +32,9 @@ extension LyricSortStyle {
     func formatStr() -> String {
         switch self {
         case .dontShow:
-            return "Don't show".localStr()
+            return "Don’t Show".localStr()
         case .firstLine:
-            return "Line 1".localStr()
+            return "First Line".localStr()
         case .secondLine:
             return "Line 2".localStr()
         }
@@ -57,9 +57,9 @@ extension PlayerEngineType {
     func descStr() -> String {
         switch self {
         case .avPlayer:
-            return "Only the built-in AVPlayer is used for decoding. This is the same playback engine used by Apple Music, delivering top-tier sound quality. However, AVPlayer cannot decode most music formats, and even when it does, it cannot retrieve embedded cover art or lyrics from remote files.".localStr()
+            return "Use only Apple's built-in AVPlayer for playback. It is also the playback engine used by Apple Music and delivers excellent audio quality. However, AVPlayer cannot decode most music formats, and even when playback succeeds, it cannot read embedded cover art or lyrics from remote files.".localStr()
         case .wakePlayer:
-            return "Decoding is handled entirely by the full-format playback engine. It supports all music formats, including DSD (DSF, DFF), DTS, APE, OGG, OPUS, WMA, S3M, TTA, MOD, WV, and more. It can also read embedded cover art and lyrics from remote files.".localStr()
+            return "Use only the All-Format Audio Engine for decoding. It can parse embedded artwork and lyrics from remote files and supports all music formats, including DSD (DSF, DFF), DTS, APE, OGG, OPUS, WMA, S3M, TTA, MOD, WV, and more.".localStr()
         case .autoPlayer:
             return "Prefer Apple's built-in AVPlayer. If AVPlayer fails to play a file, playback will automatically switch to the All-Format Audio Engine. If AVPlayer successfully decodes the file, this mode may not be able to read embedded artwork and lyrics from remote files.".localStr()
         }

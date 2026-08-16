@@ -75,7 +75,7 @@ class PlayBackgroundListController: SuperViewController {
             return
         }
                 
-        let popView = CMPopTipView(message: "Customize wallpaper".localStr())
+        let popView = CMPopTipView(message: "Custom Wallpaper".localStr())
         popView?.hasShadow = true
         popView?.has3DStyle = false
         popView?.borderColor = UIColor.white
@@ -237,7 +237,7 @@ extension PlayBackgroundListController: UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return section == 0 ? "Preferences".localStr() : "Customize wallpaper".localStr()
+        return section == 0 ? "Preferences".localStr() : "Custom Wallpaper".localStr()
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

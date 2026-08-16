@@ -171,7 +171,7 @@ extension AuthNavidromeController: UITableViewDataSource, UITableViewDelegate, L
     
     func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
         let groupModel = dataArray[section]
-        return groupModel.group == .serverGroup ? "If your server has more than 10,000 songs. Turning it off will only show all artists and songs. If the number is too high, turning it on will consume more request time and memory, and there will be unfixable lagging issues".localStr() : nil
+        return groupModel.group == .serverGroup ? "If your server has more than 10,000 songs, turning this off will show only Artists and Songs. Turning it on may require more requests and memory, and can cause severe performance issues that cannot be resolved.".localStr() : nil
     }
     
     func loginViewCellDidEndEditing(cell: LoginTableViewCell, itemType: LoginGroupItemType, content: String) {

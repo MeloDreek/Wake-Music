@@ -65,7 +65,7 @@ enum PlayConfigItemType {
         case .showExtension:
             return "Show Extension".localStr()
         case .lyricStyle:
-            return "Lyrics on screen".localStr()
+            return "On-Screen Lyrics".localStr()
         case .lastTimeCache:
             return "Record last progress".localStr()
         case .showMissTags:

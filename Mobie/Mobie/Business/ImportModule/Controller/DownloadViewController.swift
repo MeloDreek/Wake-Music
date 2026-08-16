@@ -24,7 +24,7 @@ class DownloadViewController: SuperViewController {
     
     override func preSetupHandleBuness() {
         super.preSetupHandleBuness()
-        self.title = kaka_IsMacOS() ? "Download".localStr() : "Download Queue".localStr()
+        self.title = "Download".localStr()
         
         DownloadManager.shared.$taskArray.receive(on: DispatchQueue.main)
             .sink { [weak self] tasks in
@@ -185,7 +185,7 @@ view.refreshControl = self.kaka_header
     }()
     
     lazy var downloadBarItem: UIBarButtonItem = {
-        let selectItem = UIBarButtonItem(title: "Download All".localStr(), style: .plain, target: self, action: #selector(startDownloadClick))
+        let selectItem = UIBarButtonItem(title: "Download".localStr(), style: .plain, target: self, action: #selector(startDownloadClick))
         return selectItem
     }()
     
@@ -209,7 +209,7 @@ extension DownloadViewController: UITableViewDataSource, UITableViewDelegate, Em
         guard dataArray.count > 0 else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "EmptyTableViewCell", for: indexPath) as! EmptyTableViewCell
             cell.delegate = self
-            cell.messaleLabel.text = "Download music from your remote server and play it offline to maximize your music experience.".localStr()
+            cell.messaleLabel.text = "Download music from your cloud drive or server for the best offline listening experience.".localStr()
             return cell
         }
         

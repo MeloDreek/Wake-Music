@@ -27,7 +27,7 @@ public enum KakaError: LocalizedError, Equatable {
         case .youhaveCanceled:
             return "You have canceled😭".localStr()
         case .duplicateNames:
-            return "Duplicate file name. Please edit it again".localStr()
+            return "Duplicate file name. Please rename the file.".localStr()
         case .permissionDenied:
             return "You do not have permission to access this file".localStr()
         case .tokenExpiredAuthAgain:

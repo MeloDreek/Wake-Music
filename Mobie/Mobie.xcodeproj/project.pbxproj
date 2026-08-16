@@ -80,7 +80,6 @@
 		224A4DF52E1692CB0041244A /* BaiduDriveFileListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224A4DF32E1692CB0041244A /* BaiduDriveFileListController.swift */; };
 		224AC8A82CE4333200F4F2AF /* PlayerTimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224AC8A72CE4333200F4F2AF /* PlayerTimerViewController.swift */; };
 		224AC8AA2CE4349E00F4F2AF /* PlayerRingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224AC8A92CE4349E00F4F2AF /* PlayerRingViewController.swift */; };
-		224AC8AC2CE4B80200F4F2AF /* PlayerVolumeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224AC8AB2CE4B80200F4F2AF /* PlayerVolumeViewController.swift */; };
 		224B43DE2E2D3F88007F3E89 /* Drive115FileListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224B43DD2E2D3F88007F3E89 /* Drive115FileListController.swift */; };
 		224B43DF2E2D3F88007F3E89 /* Drive115FileListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224B43DD2E2D3F88007F3E89 /* Drive115FileListController.swift */; };
 		224BF9B52DF7284A009F1421 /* HorizonLyricsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224BF9B42DF7284A009F1421 /* HorizonLyricsViewCell.swift */; };
@@ -240,7 +239,6 @@
 		225F58322D85B2AB0055BDFF /* DonateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2261E8802CB5267E009506C0 /* DonateViewController.swift */; };
 		225F58332D85B2AB0055BDFF /* NavidromeSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227998BA2D773D6300BCE0B9 /* NavidromeSearchViewController.swift */; };
 		225F58342D85B2AB0055BDFF /* MusicsViewController+Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A139D2CA0633400E2948E /* MusicsViewController+Data.swift */; };
-		225F58352D85B2AB0055BDFF /* PlayerVolumeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224AC8AB2CE4B80200F4F2AF /* PlayerVolumeViewController.swift */; };
 		225F58362D85B2AB0055BDFF /* MusicActionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13AB2CA0633400E2948E /* MusicActionType.swift */; };
 		225F58372D85B2AB0055BDFF /* ServerSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CCFBFA2D6B012900A6710D /* ServerSectionView.swift */; };
 		225F58382D85B2AB0055BDFF /* UserInfoGroupCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13E12CA0633400E2948E /* UserInfoGroupCellModel.swift */; };
@@ -748,7 +746,6 @@
 		224A4DF32E1692CB0041244A /* BaiduDriveFileListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaiduDriveFileListController.swift; sourceTree = "<group>"; };
 		224AC8A72CE4333200F4F2AF /* PlayerTimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerTimerViewController.swift; sourceTree = "<group>"; };
 		224AC8A92CE4349E00F4F2AF /* PlayerRingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerRingViewController.swift; sourceTree = "<group>"; };
-		224AC8AB2CE4B80200F4F2AF /* PlayerVolumeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerVolumeViewController.swift; sourceTree = "<group>"; };
 		224B43DD2E2D3F88007F3E89 /* Drive115FileListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drive115FileListController.swift; sourceTree = "<group>"; };
 		224BF9B42DF7284A009F1421 /* HorizonLyricsViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizonLyricsViewCell.swift; sourceTree = "<group>"; };
 		224C8A122CE1F06E008B594C /* LyricEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LyricEditorViewController.swift; sourceTree = "<group>"; };
@@ -1465,7 +1462,6 @@
 				2243D76C2DE8A5E50010F9FB /* MusicPlayerViewController+Animation.swift */,
 				22496B6B2D3641A100ED4E05 /* AudioChannelViewController.swift */,
 				224AC8A72CE4333200F4F2AF /* PlayerTimerViewController.swift */,
-				224AC8AB2CE4B80200F4F2AF /* PlayerVolumeViewController.swift */,
 				224AC8A92CE4349E00F4F2AF /* PlayerRingViewController.swift */,
 				2258ACFB2DE5FB0300F5754B /* LyricSetViewController.swift */,
 				226FEC5C2D374E5B007ADA70 /* MusicPlaylistView.swift */,
@@ -2245,7 +2241,6 @@
 				22FB960C2DED507B007EA2FD /* PlayControlVinylView.swift in Sources */,
 				2258AD002DE5FD0D00F5754B /* LyricSetCellModel.swift in Sources */,
 				22C707782DCB9C5500A1B79A /* MacTabbarViewController+Noti.swift in Sources */,
-				225F58352D85B2AB0055BDFF /* PlayerVolumeViewController.swift in Sources */,
 				225F58362D85B2AB0055BDFF /* MusicActionType.swift in Sources */,
 				22569AC32DE464000038E914 /* PlayerBasicCollectCell.swift in Sources */,
 				22D16A5D2DDC1EB8008A5F8B /* PlayerUICellModel.swift in Sources */,
@@ -2537,7 +2532,6 @@
 				22FB960D2DED507B007EA2FD /* PlayControlVinylView.swift in Sources */,
 				2258ACFF2DE5FD0D00F5754B /* LyricSetCellModel.swift in Sources */,
 				22C707772DCB9C5500A1B79A /* MacTabbarViewController+Noti.swift in Sources */,
-				224AC8AC2CE4B80200F4F2AF /* PlayerVolumeViewController.swift in Sources */,
 				228A14402CA0633400E2948E /* MusicActionType.swift in Sources */,
 				22569AC42DE464000038E914 /* PlayerBasicCollectCell.swift in Sources */,
 				22D16A5C2DDC1EB8008A5F8B /* PlayerUICellModel.swift in Sources */,

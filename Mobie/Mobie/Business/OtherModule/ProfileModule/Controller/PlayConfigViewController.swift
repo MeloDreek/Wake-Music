@@ -326,7 +326,7 @@ class PlayConfigTableCell: UITableViewCell {
             let action = UIAction(title: subType.formatStr(), image: subType.iconImage(), state: selectType == subType ? .on : .off, handler: { _ in
                 if kaka_IsMacOS() {
                     if subType != .toolbarUI {
-                        appKeyWindow?.makeToast("For iOS only".localStr())
+                        appKeyWindow?.makeToast("iOS Only".localStr())
                     }
                     return
                 }

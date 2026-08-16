@@ -16,9 +16,9 @@ extension AudioLevelType {
         case .SACD:
             return "Super Audio CD".localStr()
         case .lossless:
-            return "Lossless Audio".localStr()
+            return "Lossless".localStr()
         case .normal:
-            return "Lossy Audio".localStr()
+            return "Lossy".localStr()
         }
     }
     
@@ -29,7 +29,7 @@ extension AudioLevelType {
         case .lossless:
             return "Regular lossless audio, which loses a small amount of audio data during compression, typically has a sample rate of 44.1kHz, 48.1kHz, or 96kHz.".localStr()
         case .normal:
-            return "Lossy audio, with a higher compression rate, smaller file size, but sacrifices a significant amount of sound quality.".localStr()
+            return "Lossy audio uses higher compression to reduce file size, at the cost of audio quality.".localStr()
         }
     }
     

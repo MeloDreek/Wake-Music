@@ -15,9 +15,9 @@ extension PlayBackgroundEffect {
         case .gaussianBlur:
             return "Gaussian Blur".localStr()
         case .coverAssetColor:
-            return "Dominant Colors".localStr()
+            return "Dominant Color".localStr()
         case .translucencyMask:
-            return "Customize wallpaper".localStr()
+            return "Custom Wallpaper".localStr()
             
         case .showAlphaMask:
             return "Show Translucency Mask".localStr()
@@ -27,9 +27,9 @@ extension PlayBackgroundEffect {
     public func descStr() -> String? {
         switch self {
         case .gaussianBlur:
-            return "Frosted glass effect".localStr()
+            return "Glass Effect".localStr()
         case .coverAssetColor:
-            return "Extract the dominant color tone of cover art or wallpapers".localStr()
+            return "Extract the dominant color from album artwork or your custom wallpaper".localStr()
         case .translucencyMask:
             return "DIY"
         

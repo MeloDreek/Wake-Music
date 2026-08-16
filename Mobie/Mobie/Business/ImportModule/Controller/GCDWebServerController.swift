@@ -66,10 +66,7 @@ class GCDWebServerController: SuperViewController {
         self.navigationItem.rightBarButtonItem = techItem
         
         self.refreshDataAction()
-        
-        // 监听网络变化
-        NotificationCenter.default.addObserver(self, selector: #selector(reachabilityChanged(note:)), name: .reachabilitySwiftChanged, object: reachability)
-        
+                
         NotificationCenter.default.addObserver(self, selector: #selector(purchageSuccessNoti(_:)), name: Notification.Name(kPurchageSuccessKey), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(purchageSuccessNoti(_:)), name: UIApplication.didBecomeActiveNotification, object: nil)
     }
@@ -93,31 +90,6 @@ class GCDWebServerController: SuperViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        try? self.reachability.startNotifier()
-    }
-    
-    // 网络状态变化了
-    @objc func reachabilityChanged(note: Notification) {
-        guard let reachability = note.object as? ReachabilitySwift else { return }
-                
-        self.netConnect = reachability.connection
-        
-        if reachability.connection == .unavailable {
-            
-            let alertController: UIAlertController = UIAlertController(title: "Reminder".localStr(), message: "Even though this is an offline music player, we still need your unlimited LAN access. Otherwise, we can't finish importing music files over Wi-Fi!".localStr(), preferredStyle: .alert)
-            let action: UIAlertAction = UIAlertAction(title: "Settings".localStr(), style: .default) { (sender) in
-                guard let vURL = URL(string: UIApplication.openSettingsURLString) else { return }
-                UIApplication.shared.open(vURL)
-            }
-            
-            alertController.addAction(action)
-            self.present(alertController, animated: true, completion: nil)
-            
-            self.alertController = alertController
-            return
-        }
-        
-        self.alertController?.dismiss(animated: false)
     }
     
     // 监听支付成功，提示配置。
@@ -211,17 +183,9 @@ class GCDWebServerController: SuperViewController {
     weak var viewModel: MusicViewModel!
         
     var playIndex: Int = -1
-        
-    var alertController: UIViewController?
-        
+                
     lazy var dataArray: [MusicItemModel] = {
         return [MusicItemModel]()
-    }()
-    
-    var netConnect: ReachabilitySwift.Connection = .unavailable
-    
-    lazy var reachability: ReachabilitySwift = {
-        return try! ReachabilitySwift()
     }()
     
     // 正在传输文件

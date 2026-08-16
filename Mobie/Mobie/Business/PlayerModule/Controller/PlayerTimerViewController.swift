@@ -94,7 +94,7 @@ extension PlayerTimerViewController: UITableViewDataSource, UITableViewDelegate 
             let miniteStr = String(format: "%.0f", time / 60.0)
             cellConfig.text = String(format: "%@ mins".localStr(), miniteStr)
         }else{
-            cellConfig.text = "Close".localStr()
+            cellConfig.text = "Off".localStr()
         }
 
         let isSelect = MusicConfigManager.shared.sleepTime == time

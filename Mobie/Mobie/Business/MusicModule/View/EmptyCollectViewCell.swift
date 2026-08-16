@@ -153,7 +153,7 @@ class EmptyCollectViewCell: UICollectionViewCell {
         self.importButton.setTitle("Import Music".localStr(), for: .normal)
         
         self.titleLabel.text = "Connect Your Music".localStr()
-        self.messaleLabel.text = "Even if you collect a million songs, it won't take up any disk space on your device. No need for any APIs, and you can perfectly display embedded album art and lyrics in remote files".localStr()
+        self.messaleLabel.text = "Even with a million songs in your library, your device storage stays free. No API required—Wake Music can display embedded album artwork and lyrics directly from remote files.".localStr()
         self.layoutIfNeeded()
     }
     
@@ -161,10 +161,10 @@ class EmptyCollectViewCell: UICollectionViewCell {
         self.importButton.isHidden = false
         self.formatButton.isHidden = true
         
-        self.importButton.setTitle("Login".localStr(), for: .normal)
+        self.importButton.setTitle("Sign In".localStr(), for: .normal)
         
         self.titleLabel.text = "Not Authenticated".localStr()
-        self.messaleLabel.text = "Login failed or token has expired, please reauthorize".localStr()
+        self.messaleLabel.text = KakaError.tokenExpiredAuthAgain.errorDescription
         self.layoutIfNeeded()
     }
     
@@ -208,7 +208,7 @@ class EmptyCollectViewCell: UICollectionViewCell {
         let view = UILabel()
         view.numberOfLines = 0
         view.textAlignment = .center
-        view.text = "The ultimate player for your local library. Experience flawless support for embedded covers and lyrics. Running out of space? Seamlessly connect your cloud storage.".localStr()
+        view.text = "The ultimate player for your local music library. Enjoy embedded artwork and lyrics, and seamlessly connect to your cloud storage when you need more space.".localStr()
         view.textColor = UIColor.secondaryLabel
         view.font = UIFontLight(16.ckValue())
         return view

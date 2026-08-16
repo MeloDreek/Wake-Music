@@ -188,7 +188,7 @@ class PlayCacheViewController: SuperViewController, DocumentFolderWatcherDelegat
     lazy var dataArray: [CacheGroupCellModel] = {
         let model1 = CacheGroupCellModel(group: .header, headTitle: nil, itemArray: [.header], footTitle: nil)
         let model2 = CacheGroupCellModel(group: .config, headTitle: nil, itemArray: [.cacheSwitch, .cacheSize, .cachePath], footTitle: nil)
-        let model3 = CacheGroupCellModel(group: .caches, headTitle: "Downloaded Music".localStr(), itemArray: [], footTitle: nil)
+        let model3 = CacheGroupCellModel(group: .caches, headTitle: "Cached Music".localStr(), itemArray: [], footTitle: nil)
         return [model1, model2, model3]
     }()
     

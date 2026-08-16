@@ -108,7 +108,7 @@ extension DonateViewController: UITableViewDataSource, UITableViewDelegate {
             var cellConfig = UIListContentConfiguration.cell()
 
             if isLast {
-                cellConfig.text = "Five Star Rating".localStr()
+                cellConfig.text = "Rate Us 5 Stars".localStr()
                 cellConfig.textProperties.color = UIColor.systemRed
                 cellConfig.textProperties.alignment = .center
             }else{

@@ -97,7 +97,7 @@ class PurchageListViewcell: UITableViewCell {
 
         vipIconView.image = Reasource.systemNamed("crown.fill", color: appMainColor)
         purchageDateLabel.text = "Purchase Date:".localStr() +  nonSubModel.purchaseDate.convertToDateString(dateFormat: "yyyy-MM-dd HH:mm:ss")
-        expireDateLabel.text = "Effective Date:".localStr() + "♾️"
+        expireDateLabel.text = "Expiration Date".localStr() + ": " + "♾️"
         addTimeLabel.text = nil
     }
     
@@ -109,7 +109,7 @@ class PurchageListViewcell: UITableViewCell {
         statusView.image = nil
         vipIconView.image = Reasource.systemNamed("crown.fill", color: appMainColor)
         purchageDateLabel.text = "Purchase Date:".localStr() +  subModel.purchaseDate.convertToDateString(dateFormat: "yyyy-MM-dd HH:mm:ss")
-        expireDateLabel.text = "Effective Date:".localStr() + (subModel.expiresDate?.convertToDateString(dateFormat: "yyyy-MM-dd HH:mm:ss") ?? "")
+        expireDateLabel.text = "Expiration Date".localStr() + ": " + (subModel.expiresDate?.convertToDateString(dateFormat: "yyyy-MM-dd HH:mm:ss") ?? "")
     }
     
     

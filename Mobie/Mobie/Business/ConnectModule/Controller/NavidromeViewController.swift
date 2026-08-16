@@ -125,7 +125,7 @@ class NavidromeViewController: SuperViewController {
     }()
     
     lazy var loginBarItem: UIBarButtonItem = {
-        let item = UIBarButtonItem(title: "Edit Config".localStr(), style: .plain, target: self, action: #selector(reloginItemClick))
+        let item = UIBarButtonItem(title: "Edit Configuration".localStr(), style: .plain, target: self, action: #selector(reloginItemClick))
         return item
     }()
 #endif

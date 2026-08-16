@@ -143,7 +143,7 @@ class MusicPlayerViewController: SuperViewController {
             return
         }
                 
-        let popView = CMPopTipView(message: "Connect your Car and TV".localStr())
+        let popView = CMPopTipView(message: "Connect Your Car and TV".localStr())
         popView?.hasShadow = true
         popView?.has3DStyle = false
         popView?.borderColor = UIColor.white

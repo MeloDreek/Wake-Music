@@ -142,7 +142,7 @@ class PrimaryToolViewController: SuperViewController {
     let maxDiscountTime: Double = DiscountIAPManager.shared.maxDiscountTime
     
     lazy var dataArray: [PrimaryCellGroupModel] = {
-        let model1 = PrimaryCellGroupModel(group: .musicGroup, headTitle: "Offline".localStr(), itemArray: [.allMusics, .artist, .album, .genre], footTitle: nil)
+        let model1 = PrimaryCellGroupModel(group: .musicGroup, headTitle: "Music".localStr(), itemArray: [.allMusics, .artist, .album, .genre], footTitle: nil)
         let model2 = PrimaryCellGroupModel(group: .connectGroup, headTitle: "Connect".localStr(), itemArray: [.connect, .download], footTitle: nil)
         let model3 = PrimaryCellGroupModel(group: .otherGroup, headTitle: "Others".localStr(), itemArray: [.selectEngine, .guideiOS, .settings], footTitle: nil)
         return [model1, model2, model3]

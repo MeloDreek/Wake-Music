@@ -142,11 +142,11 @@ extension VideoConverterViewController {
     func finishVideoConvert() {
         self.tableView.isUserInteractionEnabled = true
         
-        let alertController = UIAlertController(title: "Successful".localStr(), message: "Extracting audio was successful! Continue to select another video? Edit the current audio information? Or leave?".localStr(), preferredStyle: .alert)
+        let alertController = UIAlertController(title: "Successful".localStr(), message: "Audio extracted successfully! Would you like to select another video, edit the current track, or leave?".localStr(), preferredStyle: .alert)
         let action1 = UIAlertAction(title: "Continue to select video".localStr(), style: .destructive) { [weak self] (sender) in
             self?.deleteVideoFile()
         }
-        let action2 = UIAlertAction(title: "Edit the music".localStr(), style: .default) { [weak self] (sender) in
+        let action2 = UIAlertAction(title: "Edit Current Track".localStr(), style: .default) { [weak self] (sender) in
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                 if let cell1 = self?.tableView.cellForRow(at: IndexPath(row: 0, section: 1)) as? VideoAudioInfoViewCell {
                     cell1.kaka_playShakeAnim()

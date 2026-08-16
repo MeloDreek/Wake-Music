@@ -34,59 +34,6 @@ extension PlaybackOrderType {
     }
 }
 
-extension MusicPlayMode {
-    func audioCategory() -> AVAudioSession.Category {
-        switch self {
-        case .music:
-            return .playback
-        case .game:
-//            return .ambient
-            return .playback
-        }
-    }
-    
-    func titleStr() -> String {
-        switch self {
-        case .music:
-            return "Music Mode".localStr()
-        case .game:
-            return "Game Mode".localStr()
-        }
-    }
-    
-    func iconImage() -> UIImage? {
-        switch self {
-        case .music:
-            if #available(iOS 14.5, *) {
-                return Reasource.systemNamed("hifispeaker.and.homepodmini.fill", color: .white)
-            }else{
-                return Reasource.systemNamed("airpods", color: .white)
-            }
-        case .game:
-            return Reasource.systemNamed("gamecontroller.fill", color: .white)
-        }
-    }
-    
-    func tintColor() -> UIColor {
-        switch self {
-        case .music:
-            return UIColor.green
-        case .game:
-            return UIColor.rgb(247, 42, 74)
-        }
-    }
-    
-    func descStr() -> String {
-        switch self {
-        case .music:
-            return "In music mode, the app's audio output will be assigned as dominant by the system, but can still be mixed with audio from other apps such as map navigation.".localStr()
-        case .game:
-            return "In game mode, the app's audio will be mixed with other apps' audio, you can freely adjust the volume of each to get the best experience, and play offline music without hogging your game's internet speed.".localStr()
-        }
-    }
-    
-}
-
 extension LyricTextAlignment {
     public func textAlignment() -> NSTextAlignment {
         switch self {

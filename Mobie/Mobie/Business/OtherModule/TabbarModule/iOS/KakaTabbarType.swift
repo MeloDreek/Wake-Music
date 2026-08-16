@@ -18,13 +18,13 @@ enum KakaTabbarType: Int {
     func formatStr() -> String {
         switch self {
         case .musics:
-            return kaka_IsMacOS() ? "All Music".localStr() : "Offline".localStr()
+            return kaka_IsMacOS() ? "All Music".localStr() : "Music".localStr()
         case .collection:
             return "Library".localStr()
         case .connect:
             return "Connect".localStr()
         case .profile:
-            return kaka_IsMacOS() ? "Preferences".localStr() : "Profile".localStr()
+            return "Profile".localStr()
         }
     }
     
@@ -37,24 +37,20 @@ enum KakaTabbarType: Int {
         case .connect:
             return UIImage(systemName: "externaldrive.badge.wifi")
         case .profile:
-            return UIImage(systemName: kaka_IsMacOS() ? "slider.vertical.3" : "person.crop.circle")
+            return UIImage(systemName: "person.crop.circle")
         }
     }
     
     func selectImage() -> UIImage? {
         switch self {
         case .musics:
-//            return UIImage(systemName: "shippingbox.fill")
             return Reasource.systemNamed("shippingbox.fill")
         case .collection:
-//            return UIImage(systemName: "rectangle.stack.fill")
             return Reasource.systemNamed("rectangle.stack.fill")
         case .connect:
-//            return UIImage(systemName: "externaldrive.fill.badge.wifi")
             return Reasource.systemNamed("externaldrive.fill.badge.wifi")
         case .profile:
-//            return UIImage(systemName: kaka_IsMacOS() ? "slider.vertical.3" : "person.crop.circle.fill")
-            return Reasource.systemNamed(kaka_IsMacOS() ? "slider.vertical.3" : "person.crop.circle.fill")
+            return Reasource.systemNamed("person.crop.circle.fill")
         }
     }
     

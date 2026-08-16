@@ -169,7 +169,7 @@ class GuideRatingViewCell: UITableViewCell {
     
     lazy var appstoreButton: UIButton = {
         let font = UIFontLight(15.ckValue())
-        let text = "Five Star Rating".localStr()
+        let text = "Rate Us 5 Stars".localStr()
         
         let view = UIButton(type: .custom)
         view.setTitle(text, for: .normal)

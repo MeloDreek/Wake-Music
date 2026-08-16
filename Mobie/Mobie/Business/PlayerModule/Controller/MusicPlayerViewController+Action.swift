@@ -134,16 +134,6 @@ extension MusicPlayerViewController {
 #endif
     }
     
-    /// 独立音量
-    @objc func volumeButtonClick(_ sender: UIButton) {
-        let volumeVC = PlayerVolumeViewController()
-        if kaka_IsiPhone() {
-            self.presentPanModal(volumeVC)
-        }else{
-            self.present(volumeVC, animated: true)
-        }
-    }
-    
     // 睡眠计时器
     @objc func setupSleepTimer() {
         let timerVC = PlayerTimerViewController()
@@ -255,7 +245,7 @@ extension MusicPlayerViewController {
         }
         
         if !model.mediaPlayURL.isFileURL && model.fileSourceType != .demoFile {
-            self.view.makeToast("It's limited to local files".localStr())
+            self.view.makeToast("Currently available for local files only".localStr())
             return
         }
 
@@ -273,12 +263,12 @@ extension MusicPlayerViewController {
         guard let playingMusic = KakaMusicPlayer.shared.playingMusic else { return }
         
         if playingMusic.fileSourceType == .demoFile {
-            self.view.makeToast("It's limited to local files".localStr())
+            self.view.makeToast("Currently available for local files only".localStr())
             return
         }
         
         if !playingMusic.mediaPlayURL.isFileURL && playingMusic.fileSourceType != .demoFile {
-            self.view.makeToast("It's limited to local files".localStr())
+            self.view.makeToast("Currently available for local files only".localStr())
             return
         }
         
@@ -341,6 +331,6 @@ extension MusicPlayerViewController {
     }
     
     @objc func showEmbeddedFailed() {
-        self.showOneAlert(title: "Embedded Failed".localStr(), message: "This format does not have music tags. We recommend using mainstream music formats like FLAC, M4A, or MP3.".localStr(), confirm: "OK".localStr())
+        self.showOneAlert(title: "Embedded Failed".localStr(), message: "This format does not support embedded music metadata. We recommend using common audio formats such as MP3, FLAC, M4A, or WAV.".localStr(), confirm: "OK".localStr())
     }
 }

@@ -38,14 +38,14 @@ enum MusicActionType {
         switch self {
             
         case .musictag:
-            return "Music Tag".localStr()
+            return "Music Tags".localStr()
         case .audioFinger:
             return "Auto-Match".localStr()
             
         case .play:
             return "Play".localStr()
         case .addFavirote:
-            return "Favorite".localStr()
+            return "Like".localStr()
         case .removeFavirote:
             return "Dislike".localStr()
         case .addPlaylist:
