@@ -136,7 +136,7 @@ class PurchageOpsViewcell: UITableViewCell {
     
     lazy var messageLabel: UILabel = {
         let view = UILabel()
-        view.text = "New device? Try restoring the cache".localStr()
+        view.text = "New device? Try Restore Purchases!".localStr()
         view.font = UIFontLight(15.ckValue())
         view.numberOfLines = 0
         view.textAlignment = .center

@@ -446,7 +446,7 @@ extension BaiduDriveFileListController {
 
         if audioArray.count == 0 {
             self.tableView.kaka_playShakeAnim()
-            self.showOneAlert(title: "Reminder".localStr(), message: "No audio files available".localStr())
+            self.showOneAlert(title: "Reminder".localStr(), message: "No Audio Files".localStr())
             return
         }
         
@@ -485,7 +485,7 @@ extension BaiduDriveFileListController {
         
         if audioArray.count == 0 {
             self.tableView.kaka_playShakeAnim()
-            self.showOneAlert(title: "Reminder".localStr(), message: "No audio files available".localStr())
+            self.showOneAlert(title: "Reminder".localStr(), message: "No Audio Files".localStr())
             return
         }
         

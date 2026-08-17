@@ -62,7 +62,7 @@ class LyricOtherConfigTableCell: UITableViewCell {
 
             actionArray1.append(action)
         }
-        let normalMenu = UIMenu(title: "millisecond".localStr(), options: .displayInline, children: actionArray1)
+        let normalMenu = UIMenu(title: "Milliseconds".localStr(), options: .displayInline, children: actionArray1)
         return normalMenu
     }
     

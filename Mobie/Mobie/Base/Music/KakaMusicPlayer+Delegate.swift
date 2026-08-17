@@ -443,7 +443,7 @@ extension KakaMusicPlayer {
         if success {
             appKeyWindow?.makeToast("The LRC lyrics file of the same name has been automatically embedded into the music file.".localStr())
         }else{
-            appKeyWindow?.makeToast("Matched LRC lyrics files with the same name".localStr())
+            appKeyWindow?.makeToast("Matched an LRC file with the same name".localStr())
         }
     }
     

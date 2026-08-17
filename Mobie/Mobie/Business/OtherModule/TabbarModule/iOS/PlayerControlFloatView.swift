@@ -335,7 +335,6 @@ class PlayerControlFloatView: UIView {
         let view = UIButton(type: .custom)
         view.isSelected = KakaMusicPlayer.shared.isPlaying
         view.contentMode = .scaleAspectFit
-        view.accessibilityLabel = "Play/Pause".localStr()
         view.addTarget(self, action: #selector(playButtonClick(_:)), for: .touchUpInside)
         view.setImage(Reasource.systemNamed("play.fill", color: btnColor, config: playBtnConfig), for: .normal)
         view.setImage(Reasource.systemNamed("pause.fill", color: btnColor, config: playBtnConfig), for: .selected)

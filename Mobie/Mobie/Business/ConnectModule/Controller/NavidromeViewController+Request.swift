@@ -141,7 +141,7 @@ extension NavidromeViewController {
             if jsonArray == nil {
                 let jsonStr = String(data: data, encoding: .utf8) ?? ""
                 debugPrint("jsonStr = \(jsonStr)")
-                self.isAuthenticated = !jsonStr.contains("Not authenticated")
+                self.isAuthenticated = !jsonStr.contains("Authentication Failed")
             }else{
                 let tempArray = [NavidromePlaylist].deserialize(from: jsonArray) ?? []
                 let playlistArray = tempArray.map({
@@ -189,7 +189,7 @@ extension NavidromeViewController {
                 guard let jsonArray = try? JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [[String : Any]], jsonArray.count > 0 else {
                     let jsonStr = String(data: data, encoding: .utf8) ?? ""
                     debugPrint("jsonStr = \(jsonStr)")
-                    self.isAuthenticated = !jsonStr.contains("Not authenticated")
+                    self.isAuthenticated = !jsonStr.contains("Authentication Failed")
                     completion?()
                     return
                 }

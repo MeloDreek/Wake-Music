@@ -23,7 +23,7 @@ extension DonateViewController {
         }
         
         if self.netConnect == .unavailable {
-            self.showTwoAlert(title: "Reminder".localStr(), message: "No network access permission, please enable it for the best experience.".localStr(), confirm: "Settings".localStr(), cancle: "Cancel".localStr()) {
+            self.showTwoAlert(title: "Reminder".localStr(), message: "Network access is disabled. Enable it for the best experience.".localStr(), confirm: "Settings".localStr(), cancle: "Cancel".localStr()) {
                 guard let vURL = URL(string: UIApplication.openSettingsURLString) else { return }
                 UIApplication.shared.open(vURL)
             }

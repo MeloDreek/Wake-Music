@@ -163,7 +163,7 @@ class EmptyCollectViewCell: UICollectionViewCell {
         
         self.importButton.setTitle("Sign In".localStr(), for: .normal)
         
-        self.titleLabel.text = "Not Authenticated".localStr()
+        self.titleLabel.text = "Authentication Failed".localStr()
         self.messaleLabel.text = KakaError.tokenExpiredAuthAgain.errorDescription
         self.layoutIfNeeded()
     }

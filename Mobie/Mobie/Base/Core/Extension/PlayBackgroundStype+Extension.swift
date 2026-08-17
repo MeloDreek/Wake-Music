@@ -97,9 +97,9 @@ extension PlayBackgroundSystem {
 extension PlayerUIStyle {
     func titleStr() -> String? {
         switch self {
-        case .defaultRect: return "Square shape".localStr()
-        case .defaultCircle: return "Round shape".localStr()
-        case .default8Side: return "Octagon shape".localStr()
+        case .defaultRect: return "Square".localStr()
+        case .defaultCircle: return "Circle".localStr()
+        case .default8Side: return "Octagon".localStr()
         default: return nil
         }
     }

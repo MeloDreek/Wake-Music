@@ -299,7 +299,7 @@ extension UserInfoViewController: UITableViewDataSource, UITableViewDelegate, Us
                 
         let editAlertVC = UIAlertController(title: "Nickname".localStr(), message: nil, preferredStyle: .alert)
         editAlertVC.addTextField { textView in
-            let placeText = "Please enter your nickname".localStr()
+            let placeText = "Nickname".localStr()
             let placeAttbute = NSAttributedString(string: placeText, attributes: [.font: UIFontLight(15.ckValue()), .foregroundColor: UIColor.placeholderText])
             textView.attributedPlaceholder = placeAttbute
             textView.text = UserInfoManager.shared.nickName

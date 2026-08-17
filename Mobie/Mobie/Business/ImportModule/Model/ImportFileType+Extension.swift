@@ -116,8 +116,6 @@ extension ImportFileType {
             return Reasource.named("Drive_ownCloud")
         case .fromNextcloud:
             return Reasource.named("Drive_nextcloud")
-        case .priveteServer:
-            return Reasource.named("Drive_private")
         }
         
     }
@@ -125,8 +123,6 @@ extension ImportFileType {
     public func titleStr() -> String {
         switch self {
         
-        case .priveteServer:
-            return "Private Server".localStr()
         case .demoFile: return "Wake Music".localStr()
         case .localFile: return "Local".localStr()
         case .fromFile:
