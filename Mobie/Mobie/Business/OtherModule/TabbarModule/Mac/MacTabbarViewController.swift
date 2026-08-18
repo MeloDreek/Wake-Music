@@ -58,10 +58,6 @@ class MacTabbarViewController: UISplitViewController {
         self.addObserviseNoti()
         
         self.fileWatcher.startWatching()
-                
-#if !Target_Mobie_Pro
-        self.perform(#selector(guideShowShareAction), with: nil, afterDelay: 3)
-#endif
 
 #if targetEnvironment(macCatalyst)
         guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene else { return }
@@ -71,33 +67,6 @@ class MacTabbarViewController: UISplitViewController {
         }
 #endif
         
-    }
-    
-    @objc func guideShowShareAction() {
-        
-//        debugPrint("用户信息 = \(UserInfoManager.shared.toJSONString() ?? "")")
-        
-//        if UserInfoManager.shared.payGoodsId != nil { return }
-        
-//        if AppLocalManager.shared.isFreeMacos { return }
-        
-//        self.showOneAlert(title: "Reminder".localStr(), message: "The macOS version has temporarily enabled all premium features. Please share this news with your friends.".localStr()) {
-//            let storeURL = Application.wakeMusic.appstoreURL()
-//
-//            let shareVC = UIActivityViewController(activityItems: [storeURL], applicationActivities: nil)
-//            shareVC.popoverPresentationController?.sourceView = self.toolbarView
-//            shareVC.completionWithItemsHandler = { (activityType, completed, returnedItems, activityError) in
-//                AppLocalManager.shared.isFreeMacos = true
-//                if completed {
-//                    if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
-//                        SKStoreReviewController.requestReview(in: windowScene)
-//                    }
-//                }
-//                UIPasteboard.general.string = storeURL.absoluteString
-//                self.view.makeToast("Copied".localStr())
-//            }
-//            self.present(shareVC, animated: true, completion: nil)
-//        }
     }
     
     var cancellables = Set<AnyCancellable>()

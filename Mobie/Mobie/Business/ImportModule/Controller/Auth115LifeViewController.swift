@@ -471,7 +471,7 @@ extension Auth115LifeViewController {
                 }, completionHandler: { success, error in
                     DispatchQueue.main.async {
                         if success {
-                            self.showOneAlert(title: "Reminder".localStr(), message: "The photo has been saved to your album".localStr(), confirm: "Scan QR Code".localStr()) {
+                            self.showOneAlert(title: "Reminder".localStr(), message: "Photo saved to your Photos.".localStr(), confirm: "Scan QR Code".localStr()) {
                                 
                                 guard let appURL = URL(string: "oof.disk://") else { return }
                                 if UIApplication.shared.canOpenURL(appURL) {

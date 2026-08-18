@@ -53,7 +53,7 @@ enum PlayConfigItemType {
         case .playerStyle:
             return "Player Style".localStr()
         case .playerBack:
-            return "Player background".localStr()
+            return "Player Background".localStr()
         case .playAnimation:
             return "Play Animation".localStr()
         case .miniStyle:
@@ -63,13 +63,13 @@ enum PlayConfigItemType {
             
             
         case .showExtension:
-            return "Show Extension".localStr()
+            return "Show File Extension".localStr()
         case .lyricStyle:
             return "On-Screen Lyrics".localStr()
         case .lastTimeCache:
-            return "Record last progress".localStr()
+            return "Remember Last Position".localStr()
         case .showMissTags:
-            return "Show missing tags".localStr()
+            return "Show Missing Tags".localStr()
         case .randomSort:
             return "Shuffle".localStr()
         

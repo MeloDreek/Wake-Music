@@ -130,7 +130,7 @@ extension DonateViewController: UITableViewDataSource, UITableViewDelegate {
             let cell = tableView.dequeueReusableCell(withIdentifier: "PurchageViewCell", for: indexPath)
             cell.backgroundColor = appMainColor
             var cellConfig = UIListContentConfiguration.cell()
-            cellConfig.text = "Small donation".localStr()
+            cellConfig.text = "Support Us".localStr()
             cellConfig.textProperties.alignment = .center
             cellConfig.textProperties.color = UIColor.deAccent
             cellConfig.textProperties.font = UIFontBold(17.ckValue())
@@ -249,7 +249,7 @@ class DonateHeadCell: UITableViewCell {
         let view = UILabel()
         view.numberOfLines = 0
         view.textColor = .label
-        view.text = "This is a huge project and we are committed to providing you with the best possible music experience. Your donation not only supports our work, but also allows us to continue to improve the app and introduce new features. Thank you for your love and support!".localStr()
+        view.text = "This is a large project, and we're committed to providing you with the best possible music experience. Your donation not only supports our work, but also helps us continue improving the app and bringing you new features. Thank you for your support!".localStr()
         view.font = UIFontLight(15.ckValue())
         view.textAlignment = .center
         return view

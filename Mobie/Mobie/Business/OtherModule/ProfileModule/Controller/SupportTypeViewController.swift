@@ -14,7 +14,7 @@ extension AudioLevelType {
     func headStr() -> String {
         switch self {
         case .SACD:
-            return "Super Audio CD".localStr()
+            return "Super Lossless".localStr()
         case .lossless:
             return "Lossless".localStr()
         case .normal:

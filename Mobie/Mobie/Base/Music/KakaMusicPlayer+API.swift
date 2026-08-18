@@ -145,7 +145,7 @@ extension KakaMusicPlayer {
                 }
                
                 if let baiduError = BaiduDriveError.parseError(playError), baiduError.isUnsupportedFormat(), UIApplication.shared.applicationState == .active {
-                    appKeyWindow?.makeToast("This format isn’t supported for streaming on the Cloud Drive. Loading...".localStr(), duration: 6)
+                    appKeyWindow?.makeToast("This cloud storage doesn't support streaming this format. Loading the original file...".localStr(), duration: 6)
                 }
                 
                 self.fetchBaiduDownloadURL(accessToken: baiduUser.access_token, fileModel: baiduFile) { downloadResult in

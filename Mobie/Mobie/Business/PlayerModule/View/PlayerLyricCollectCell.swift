@@ -527,17 +527,17 @@ extension PlayerLyricCollectCell: UITableViewDataSource, UITableViewDelegate, UI
         albumLabel.textColor = .secondaryLabel
         albumLabel.textAlignment = .center
         albumLabel.font = artistLabel.font
-        if !UserInfoManager.shared.isVIP() && (self.model?.fileSourceType != .demoFile) {
-            albumLabel.text = nil
-            let font = UIFontLight(kaka_IsiPhone() ? 15 : 20)
-            let attbuteStr = NSAttributedString(string: "You are enjoying a free three-day lyrics experience!".localStr() + "\r" + "Upgrade to Premium".localStr(), attributes: [.font: font, .foregroundColor: UIColor.accent, .underlineStyle: 1])
-            albumLabel.attributedText = attbuteStr
-            albumLabel.isUserInteractionEnabled = true
-            let clickTap = UITapGestureRecognizer(target: self, action: #selector(upgradePremiumTag))
-            albumLabel.addGestureRecognizer(clickTap)
-        }else{
-            albumLabel.attributedText = nil
-        }
+//        if !UserInfoManager.shared.isVIP() && (self.model?.fileSourceType != .demoFile) {
+//            albumLabel.text = nil
+//            let font = UIFontLight(kaka_IsiPhone() ? 15 : 20)
+//            let attbuteStr = NSAttributedString(string: "You are enjoying a free three-day lyrics experience!".localStr() + "\r" + "Upgrade to Premium".localStr(), attributes: [.font: font, .foregroundColor: UIColor.accent, .underlineStyle: 1])
+//            albumLabel.attributedText = attbuteStr
+//            albumLabel.isUserInteractionEnabled = true
+//            let clickTap = UITapGestureRecognizer(target: self, action: #selector(upgradePremiumTag))
+//            albumLabel.addGestureRecognizer(clickTap)
+//        }else{
+//            albumLabel.attributedText = nil
+//        }
         headView.addSubview(albumLabel)
         albumLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
@@ -550,7 +550,7 @@ extension PlayerLyricCollectCell: UITableViewDataSource, UITableViewDelegate, UI
         let tipsLabel = UILabel()
         tipsLabel.isHidden = !isNoneTime
         tipsLabel.numberOfLines = 0
-        tipsLabel.text = "The lyrics tag for this song has no time line".localStr()
+        tipsLabel.text = "The lyrics for this song have no timestamps.".localStr()
         tipsLabel.textColor = UIColor.yellow
         tipsLabel.textAlignment = .center
         tipsLabel.font = UIFontLight(kaka_IsiPhone() ? 13 : 15)

@@ -182,7 +182,7 @@ extension SelectPlaylistController: UITableViewDataSource, UITableViewDelegate {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "EmptyDataTableCell", for: indexPath) as! EmptyDataTableCell
                 cell.selectionStyle = .none
                 cell.backgroundColor = .clear
-                cell.updateMessage("Please create your first folder (playlist)".localStr())
+                cell.updateMessage("Create your first folder (playlist)".localStr())
                 return cell
             }
             

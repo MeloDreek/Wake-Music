@@ -180,7 +180,7 @@ extension MusicsViewController {
         
         let fileExtension = clickModel.mediaPlayURL.pathExtension.lowercased()
         if AudioExtension.forbiddenExtensions.contains(fileExtension) {
-            let alertController = UIAlertController(title: fileExtension.uppercased(), message: "The current file is an exclusive encrypted audio, please use a third party tool to convert the format.".localStr(), preferredStyle: kaka_IsiPhone() ? .actionSheet : .alert)
+            let alertController = UIAlertController(title: fileExtension.uppercased(), message: "This is a proprietary encrypted audio file. Please use a third-party tool to convert it to another format.".localStr(), preferredStyle: kaka_IsiPhone() ? .actionSheet : .alert)
             let action1 = UIAlertAction(title: "Delete".localStr(), style: .destructive) { (sender) in
                 SandboxFileManager.shared.deleteMusicModels(models: [clickModel]) { [weak self] models in
                     self?.refreshDataAction()
@@ -271,7 +271,7 @@ extension MusicsViewController {
     
     /// 3️⃣ 删除歌曲
     func deleteMusicModel(_ models: [MusicItemModel]) {
-        self.showTwoAlert(title: "Reminder".localStr(), message: "Unable to recover after deletion".localStr(), confirm: "Delete".localStr(), cancle: "Cancel".localStr(), style: kaka_IsiPhone() ? .actionSheet : .alert) {
+        self.showTwoAlert(title: "Reminder".localStr(), message: "Files cannot be recovered after deletion.".localStr(), confirm: "Delete".localStr(), cancle: "Cancel".localStr(), style: kaka_IsiPhone() ? .actionSheet : .alert) {
             SandboxFileManager.shared.deleteMusicModels(models: models) { [weak self] models in
                 guard let wSelf = self else { return }
                 for subModel in models {

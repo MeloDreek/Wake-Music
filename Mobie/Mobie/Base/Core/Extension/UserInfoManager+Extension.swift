@@ -19,13 +19,13 @@ extension UserInfoManager {
         case .normal: return "Basic User".localStr()
         case .subscribing, .expired:
             guard let expireDate = self.expireDate, expireDate > 1 else {
-                return "Premium expired".localStr()
+                return "Premium Expired".localStr()
             }
             
             let dateStr = Date(timeIntervalSince1970: (expireDate/1000).rounded()).convertToDateString(dateFormat: "yyyy-MM-dd")
             return dateStr
         case .lifetime: return "♾️"
-        case .refunded: return "refunded".localStr()
+        case .refunded: return "Refunded".localStr()
         }
 #endif
         

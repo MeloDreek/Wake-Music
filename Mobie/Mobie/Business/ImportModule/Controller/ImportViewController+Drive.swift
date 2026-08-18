@@ -164,7 +164,7 @@ extension ImportViewController {
     func importFromGoogleDrive() {
         
         if ConnectConfigManager.shared.connectedModels.filter({ $0.serverType == .fromGoogleDrive }).count > 0 {
-            self.showOneAlert(title: ImportFileType.fromGoogleDrive.titleStr(), message: "You can’t sign in with multiple accounts. Please remove the previously connected account first".localStr())
+            self.showOneAlert(title: ImportFileType.fromGoogleDrive.titleStr(), message: "You can’t sign in to multiple accounts at the same time. Please remove the previously signed-in account.".localStr())
             return
         }
         
@@ -194,7 +194,7 @@ extension ImportViewController {
     func importFromDropBoxDrive() {
         
         if ConnectConfigManager.shared.connectedModels.filter({ $0.serverType == .fromDropboxDrive }).count > 0 {
-            self.showOneAlert(title: ImportFileType.fromDropboxDrive.titleStr(), message: "You can’t sign in with multiple accounts. Please remove the previously connected account first".localStr())
+            self.showOneAlert(title: ImportFileType.fromDropboxDrive.titleStr(), message: "You can’t sign in to multiple accounts at the same time. Please remove the previously signed-in account.".localStr())
             return
         }
         
@@ -211,7 +211,7 @@ extension ImportViewController {
 #if canImport(MSAL)
         
         if ConnectConfigManager.shared.connectedModels.filter({ $0.serverType == .fromOneDrive }).count > 0 {
-            self.showOneAlert(title: ImportFileType.fromOneDrive.titleStr(), message: "You can’t sign in with multiple accounts. Please remove the previously connected account first".localStr())
+            self.showOneAlert(title: ImportFileType.fromOneDrive.titleStr(), message: "You can’t sign in to multiple accounts at the same time. Please remove the previously signed-in account.".localStr())
             return
         }
         
@@ -248,7 +248,7 @@ extension ImportViewController {
         
 //        
 //        if ConnectConfigManager.shared.connectedModels.filter({ $0.serverType == .fromYandexDrive }).count > 0 {
-//            self.showOneAlert(title: ImportFileType.fromYandexDrive.titleStr(), message: "You can’t sign in with multiple accounts. Please remove the previously connected account first".localStr())
+//            self.showOneAlert(title: ImportFileType.fromYandexDrive.titleStr(), message: "You can’t sign in to multiple accounts at the same time. Please remove the previously signed-in account.".localStr())
 //            return
 //        }
 //        

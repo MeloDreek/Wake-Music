@@ -30,7 +30,7 @@ extension PurchargeStatus {
         case .expired:
             return "Expired. Please renew.".localStr()
         case .refunded:
-            return "Refunded, please renew".localStr()
+            return "Refunded. Please renew.".localStr()
         }
     }
 }

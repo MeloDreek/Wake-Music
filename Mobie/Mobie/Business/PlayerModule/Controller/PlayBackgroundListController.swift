@@ -43,7 +43,7 @@ class PlayBackgroundListController: SuperViewController {
     
     override func preSetupHandleBuness() {
         super.preSetupHandleBuness()
-        self.title = "Player background".localStr()
+        self.title = "Player Background".localStr()
         if self.isPresent() {
             self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(cancelButtonClick))
         }

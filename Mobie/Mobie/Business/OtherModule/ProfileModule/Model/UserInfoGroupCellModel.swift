@@ -45,7 +45,7 @@ enum UserInfoCellItemType: Int {
             return "Upgrade to Lifetime".localStr()
             
         case .purchageList:
-            return "Purchase Records".localStr()
+            return "Purchase History".localStr()
         
         }
     }

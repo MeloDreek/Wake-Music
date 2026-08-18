@@ -23,7 +23,7 @@ class PlayerGuideView: UIView {
         view.font = UIFontBold(17.ckValue())
         view.textAlignment = .center
         view.numberOfLines = 0
-        view.text = "Tap to customize your cassettes and backgrounds".localStr()
+        view.text = "Click to customize your cassette and playback background".localStr()
         var italicTransform = CGAffineTransform.identity
         italicTransform.c = -0.2 // 负值向右倾斜，正值向左倾斜
         view.transform = italicTransform

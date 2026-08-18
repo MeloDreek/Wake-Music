@@ -441,7 +441,7 @@ extension KakaMusicPlayer {
         
         let success = TaglibMetadataParser.setLyris(content, toFileURL: model.mediaPlayURL)
         if success {
-            appKeyWindow?.makeToast("The LRC lyrics file of the same name has been automatically embedded into the music file.".localStr())
+            appKeyWindow?.makeToast("The matching LRC lyrics have been automatically embedded into the music file.".localStr())
         }else{
             appKeyWindow?.makeToast("Matched an LRC file with the same name".localStr())
         }

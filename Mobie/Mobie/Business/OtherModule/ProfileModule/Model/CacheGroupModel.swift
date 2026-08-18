@@ -41,7 +41,7 @@ enum CacheGroupCellItem: Int {
     func titleStr() -> String {
         switch self {
         case .header:
-            return "When playing remote music will pre-download the next song. Once completed, it can be played immediately without buffering time and without the need for Wi-Fi or cellular networks.".localStr()
+            return "Pre-download the next song while playing remote music. Once downloaded, it plays instantly without buffering, Wi-Fi, or cellular data.".localStr()
         case .cacheSwitch:
             return "Pre-download".localStr()
         case .cacheSize:

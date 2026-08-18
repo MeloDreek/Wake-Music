@@ -12,9 +12,7 @@ public enum KakaError: LocalizedError, Equatable {
     case unknowError      // 未知错误
     case youhaveCanceled // 您已取消
     case duplicateNames // 重复的文件名
-    case permissionDenied  // 没有权限
     case tokenExpiredAuthAgain   // 网盘token过期，需要重新授权
-    case needRefreshToken         // 网盘token需要重新刷新
     case emptyData             // 暂无数据
     
     /// 自定义的错误提示
@@ -23,17 +21,13 @@ public enum KakaError: LocalizedError, Equatable {
         case .custom(let message):
             return message
         case .unknowError:
-            return "Unknown error❗️".localStr()
+            return "Unknown Error❗️".localStr()
         case .youhaveCanceled:
             return "You have canceled😭".localStr()
         case .duplicateNames:
             return "Duplicate file name. Please rename the file.".localStr()
-        case .permissionDenied:
-            return "You do not have permission to access this file".localStr()
         case .tokenExpiredAuthAgain:
-            return "Login failed or token has expired, please reauthorize".localStr()
-        case .needRefreshToken:
-            return "token expired，refreshing".localStr()
+            return "Login failed or your authorization has expired. Please sign in again.".localStr()
         case .emptyData:
             return "No data available".localStr()
         }
@@ -46,10 +40,8 @@ public enum KakaError: LocalizedError, Equatable {
         case (.duplicateNames, .duplicateNames),
             (.unknowError, .unknowError),
             (.youhaveCanceled, .youhaveCanceled),
-              (.permissionDenied, .permissionDenied),
               (.tokenExpiredAuthAgain, .tokenExpiredAuthAgain),
-            (.emptyData, .emptyData),
-              (.needRefreshToken, .needRefreshToken):
+            (.emptyData, .emptyData):
             return true
         default:
             return false

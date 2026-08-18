@@ -293,7 +293,7 @@ extension NavidromeArtistDetialController: UITableViewDataSource, UITableViewDel
         if section == 0 {
             return nil
         }else{
-            return "Similar Singers".localStr()
+            return "Similar Artists".localStr()
         }
     }
     

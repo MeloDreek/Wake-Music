@@ -359,7 +359,7 @@ class PlayControlTapeView: UIView {
             wSelf.delegate?.playerBasicCellDidPlayerStyle(basicView: wSelf)
         })
         
-        let playbackAction = UIAction(title: "Player background".localStr(), image: UIImage(systemName: "wand.and.rays"), identifier: nil, discoverabilityTitle: nil, attributes: [], state: .off, handler: { [weak self] _ in
+        let playbackAction = UIAction(title: "Player Background".localStr(), image: UIImage(systemName: "wand.and.rays"), identifier: nil, discoverabilityTitle: nil, attributes: [], state: .off, handler: { [weak self] _ in
             guard let wSelf = self else { return }
             wSelf.delegate?.playerBasicCellDidPlayerBackground(basicView: wSelf)
         })

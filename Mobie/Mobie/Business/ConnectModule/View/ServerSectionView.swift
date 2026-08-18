@@ -120,7 +120,6 @@ class ServerSectionView: UIView {
     
     lazy var serverLabel: UILabel = {
         let view = UILabel()
-        view.accessibilityLabel = "Switch Servers".localStr()
         view.text = defaultTitle
         view.font = titleFont
         view.textAlignment = .center
