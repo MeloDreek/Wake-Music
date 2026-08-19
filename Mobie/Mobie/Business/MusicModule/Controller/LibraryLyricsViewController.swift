@@ -9,7 +9,7 @@ import KakaFoundation
 import AppGroupKit
 import KakaUIKit
 import UniformTypeIdentifiers
-import GCDWebServer
+import SwiftyUploader
 
 enum MusicTopMode: Int {
     case coverLibrary = 0
@@ -50,7 +50,7 @@ enum MusicTopMode: Int {
 
 
 /// 歌词库
-class LibraryLyricsViewController: SuperViewController, UIDocumentPickerDelegate, DocumentFolderWatcherDelegate, GCDWebUploaderDelegate {
+class LibraryLyricsViewController: SuperViewController, UIDocumentPickerDelegate, DocumentFolderWatcherDelegate {
     
     deinit {
 #if !targetEnvironment(macCatalyst)
@@ -93,7 +93,7 @@ class LibraryLyricsViewController: SuperViewController, UIDocumentPickerDelegate
         self.folderWatcher.startWatching()
         
 #if !targetEnvironment(macCatalyst)
-        self.webServer.start()
+        self.webServer.run()
 #endif
         
         self.refreshDataAction()
@@ -123,8 +123,10 @@ class LibraryLyricsViewController: SuperViewController, UIDocumentPickerDelegate
         
         actionArray.append(subMenu1)
         actionArray.append(subMenu2)
+#if !targetEnvironment(macCatalyst)
         actionArray.append(subMenu3)
-                
+#endif
+        
         let addMenu = UIMenu(title: "", children: actionArray)
         
         let importBarItem = UIBarButtonItem(image: UIImage(systemName: "plus"), menu: addMenu)
@@ -231,14 +233,16 @@ class LibraryLyricsViewController: SuperViewController, UIDocumentPickerDelegate
     
     var onSelectCallback: ((URL)->Void)?
     
+    let baseURL = SandboxFileManager.shared.lyricsPathURL()
+
+    
     // MARK:  懒加载
     lazy var dataArray: [URL] = {
         return [URL]()
     }()
     
     lazy var folderWatcher: DocumentFolderWatcher = {
-        let baseFileURL = SandboxFileManager.shared.lyricsPathURL()
-        let watcher = DocumentFolderWatcher(baseFileURL)
+        let watcher = DocumentFolderWatcher(self.baseURL)
         watcher.delegate = self
         return watcher
     }()
@@ -250,23 +254,31 @@ class LibraryLyricsViewController: SuperViewController, UIDocumentPickerDelegate
     }()
     
 #if !targetEnvironment(macCatalyst)
-    lazy var webServer: GCDWebUploader = {
-        var auduoTypes: [String] = ["lrc"]
         
-        let appVersion = (Bundle.main.infoDictionary!["CFBundleShortVersionString"] as? String) ?? "1.0.0"
-        let appBuildVersion = Bundle.main.infoDictionary!["CFBundleVersion"] as? String
+    lazy var webServer: SwiftyUploader = {
+        let footStr = "lrc"
         
-        let server = GCDWebUploader(uploadDirectory: SandboxFileManager.shared.lyricsPathURL().path)
-        server.delegate = self
-        server.title = "🏷️" + Application.wakeMusic.appTitle()
-        server.footer = "Waketag".localStr() + " \(appVersion) " + "(\(appBuildVersion ?? "99"))"
-        server.prologue = "Please put the LRC lyrics file here, and do not close this page, let alone rest the screen, during transmission.".localStr()
-        server.epilogue = "Please make sure the current device is connected to the same Wi-Fi as your computer or Android phone, and keep the screen on during transmission❗️".localStr()
-        server.allowedFileExtensions = auduoTypes
-        server.allowHiddenItems = true
+        let title = Application.wakeMusic.appTitle()
+        let message = "Please put the LRC lyrics file here, and do not close this page, let alone rest the screen, during transmission.".localStr()
+        
+        var config = SwiftyUploaderConfig()
+        config.header = title
+        config.title = title
+        config.message = message
+        config.footer = footStr
+        config.showCreateFolder = false
+        
+        SwiftyUploader.config = config
+        let server = SwiftyUploader(self.baseURL)
         return server
     }()
 #endif
+    
+    lazy var fileWatcher: DocumentFolderWatcher = {
+        let watcher = DocumentFolderWatcher(self.baseURL)
+        watcher.delegate = self
+        return watcher
+    }()
     
     lazy var tableView: UITableView = {
         let view = UITableView(frame: self.view.bounds, style: .insetGrouped)
@@ -302,14 +314,6 @@ class LibraryLyricsViewController: SuperViewController, UIDocumentPickerDelegate
         }
     }
     
-    func webServerDidDisconnect(_ server: GCDWebServer) {
-        debugPrint("链接断开")
-        self.refreshDataAction()
-    }
-    
-    func webServerDidConnect(_ server: GCDWebServer) {
-        self.refreshDataAction()
-    }
 #endif
     
 }
@@ -335,7 +339,7 @@ extension LibraryLyricsViewController: UITableViewDataSource, UITableViewDelegat
             if !kaka_IsMacOS() && indexPath.section == 1 {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "GCDURLTableViewCell", for: indexPath) as! GCDURLTableViewCell
 #if !targetEnvironment(macCatalyst)
-                cell.webUrl = self.webServer.serverURL?.absoluteString
+                cell.webUrl = self.webServer.getIPAddress()
 #endif
                 return cell
             }else{
@@ -360,12 +364,10 @@ extension LibraryLyricsViewController: UITableViewDataSource, UITableViewDelegat
         if indexPath.section == 1 {
             // 复制网址
             guard let curCell = tableView.cellForRow(at: indexPath) as? GCDURLTableViewCell else { return }
-            guard let serverURL = self.webServer.serverURL else {
-                curCell.kaka_playShakeAnim()
-                return
-            }
             
-            curCell.webUrl = serverURL.absoluteString
+            let serverURL = self.webServer.getIPAddress()
+            
+            curCell.webUrl = serverURL
 
             let shareVC = UIActivityViewController(activityItems: [serverURL], applicationActivities: nil)
             if !kaka_IsiPhone() {
@@ -374,7 +376,7 @@ extension LibraryLyricsViewController: UITableViewDataSource, UITableViewDelegat
             }
             self.present(shareVC, animated: true, completion: nil)
             
-            UIPasteboard.general.string = serverURL.absoluteString
+            UIPasteboard.general.string = serverURL
             shareVC.view.makeToast("Copied".localStr())
             return
         }

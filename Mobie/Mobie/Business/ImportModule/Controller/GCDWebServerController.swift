@@ -214,7 +214,7 @@ class GCDWebServerController: SuperViewController {
     
     // MARK:  懒加载
     
-    let baseURL = SandboxFileManager.shared.lyricsPathURL()
+    let baseURL = SandboxFileManager.shared.basePublicFileURL()
     
     lazy var webServer: SwiftyUploader = {
         let auduoTypes: [String] = (["LRC"] + AudioExtension.audioSuffixs).map({ $0.lowercased() })
