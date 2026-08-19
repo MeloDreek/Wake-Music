@@ -539,6 +539,8 @@
 		2290E6D92DFAC20700137CF9 /* WelcomeTapeCollectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2290E6D72DFAC20700137CF9 /* WelcomeTapeCollectCell.swift */; };
 		22953EF630357CB5001B0546 /* AudioFingerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22953EF530357CB5001B0546 /* AudioFingerTableViewCell.swift */; };
 		22953EF730357CB5001B0546 /* AudioFingerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22953EF530357CB5001B0546 /* AudioFingerTableViewCell.swift */; };
+		22953EFA30359265001B0546 /* SwiftyUploader in Frameworks */ = {isa = PBXBuildFile; productRef = 22953EF930359265001B0546 /* SwiftyUploader */; };
+		22953EFC30359278001B0546 /* SwiftyUploader in Frameworks */ = {isa = PBXBuildFile; productRef = 22953EFB30359278001B0546 /* SwiftyUploader */; };
 		2296BCCE2CD8B4F500E9166E /* MeteDataGroupCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2296BCCD2CD8B4F500E9166E /* MeteDataGroupCellModel.swift */; };
 		2296BCD42CD91A7E00E9166E /* SupportTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2296BCD32CD91A7E00E9166E /* SupportTypeViewController.swift */; };
 		2299B8FD2D8A95C100D9F886 /* NavidromeSongListController+Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2299B8FC2D8A95C000D9F886 /* NavidromeSongListController+Search.swift */; };
@@ -1052,6 +1054,7 @@
 				A76382012EDED2E60040A84D /* Alamofire in Frameworks */,
 				225F58D82D85B5A10055BDFF /* Kingfisher in Frameworks */,
 				22526E0C2E84F5AD00C32DBF /* Reachability in Frameworks */,
+				22953EFC30359278001B0546 /* SwiftyUploader in Frameworks */,
 				225F58E82D85B6000055BDFF /* ZLImageEditor in Frameworks */,
 				A763817D2EDEB7770040A84D /* MPVPlayer in Frameworks */,
 				9C59B94A22559628B11B9185 /* Pods_Mobie_Pro.framework in Frameworks */,
@@ -1066,6 +1069,7 @@
 			files = (
 				227FD02F2E8471FA0076B773 /* PanModal in Frameworks */,
 				227FD03A2E84723D0076B773 /* Reachability in Frameworks */,
+				22953EFA30359265001B0546 /* SwiftyUploader in Frameworks */,
 				A763815C2EDEA4650040A84D /* PanModal in Frameworks */,
 				223FDA622E04148200079731 /* MorphingLabel in Frameworks */,
 				220F66273002838600915384 /* RevenueCat in Frameworks */,
@@ -1903,6 +1907,7 @@
 				2242159B2F88DAAF00766F40 /* XCLocalSwiftPackageReference "../../../本地公开库/aliyunpan-ios-sdk" */,
 				220F66233002838600915384 /* XCLocalSwiftPackageReference "../../../本地公开库/purchases-ios" */,
 				22A801D9302B284D000FB581 /* XCLocalSwiftPackageReference "../../../本地公开库/firebase-ios-sdk" */,
+				22953EF830359265001B0546 /* XCLocalSwiftPackageReference "../../../本地公开库/SwiftyUploader" */,
 			);
 			productRefGroup = 228A135C2CA00F5600E2948E /* Products */;
 			projectDirPath = "";
@@ -3116,6 +3121,10 @@
 			isa = XCLocalSwiftPackageReference;
 			relativePath = "../../../本地公开库/Reachability.swift";
 		};
+		22953EF830359265001B0546 /* XCLocalSwiftPackageReference "../../../本地公开库/SwiftyUploader" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = "../../../本地公开库/SwiftyUploader";
+		};
 		22A801D9302B284D000FB581 /* XCLocalSwiftPackageReference "../../../本地公开库/firebase-ios-sdk" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = "../../../本地公开库/firebase-ios-sdk";
@@ -3470,6 +3479,15 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 22822C792DF42B8D00183445 /* XCRemoteSwiftPackageReference "PanModal" */;
 			productName = PanModal;
+		};
+		22953EF930359265001B0546 /* SwiftyUploader */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SwiftyUploader;
+		};
+		22953EFB30359278001B0546 /* SwiftyUploader */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 22953EF830359265001B0546 /* XCLocalSwiftPackageReference "../../../本地公开库/SwiftyUploader" */;
+			productName = SwiftyUploader;
 		};
 		22A801DA302B284D000FB581 /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;

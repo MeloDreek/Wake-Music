@@ -24599,6 +24599,257 @@
         }
       }
     },
+    "Complimentary quota of 10 auto-identified and embedded audio fingerprint files during free trial, Lifetime Premium is recommended for immediate full library cleaning" : {
+      "extractionState" : "pasted",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تتضمن التجربة المجانية 10 ملفات مجانية للتعرف التلقائي على بصمة الصوت وتضمينها، ويوصى بـ Lifetime Premium لتنظيف المكتبة الكاملة فورًا"
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La prova inclou 10 fitxers gratuïts d identificació i incrustació automàtica d empremta digital d àudio, es recomana Lifetime Premium per netejar la biblioteca"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zkušební verze obsahuje 10 bezplatných souborů pro automatickou identifikaci a vložení akustického otisku, pro okamžité vyčištění celé knihovny doporučujeme Lifetime Premium"
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prøveperioden indeholder 10 gratis filer til automatisk genkendelse og indlejring af lydfingeraftryk, Lifetime Premium anbefales til øjeblikkelig rengøring af hele biblioteket"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Die Testversion enthält ein Gratis-Kontingent von 10 Dateien für automatische Audio-Fingerprinting und Einbettung, für die sofortige Bereinigung der Bibliothek wird Lifetime Premium empfohlen"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Η δοκιμή περιλαμβάνει 10 δωρεάν αρχεία για αυτόματη αναγνώριση και ενσωμάτωση ακουστικού αποτυπώματος, συνιστάται το Lifetime Premium για άμεσο καθαρισμό ολόκληρης της βιβλιοθήκης"
+          }
+        },
+        "en-AU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Includes 10 free auto-identified and embedded audio fingerprint files during trial, Lifetime Premium is recommended for instant full library cleaning"
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Complimentary quota of 10 auto-identified and embedded audio fingerprint files during free trial, Lifetime Premium is recommended for full library cleaning"
+          }
+        },
+        "en-IN" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Get 10 free auto-identified and embedded audio fingerprint files in free trial, Lifetime Premium is recommended for immediate full library cleaning"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La prueba incluye 10 archivos gratuitos para identificación e incrustación automática de huella digital de audio, se recomienda Lifetime Premium para limpiar inmediatamente toda la biblioteca"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La prueba incluye 10 archivos gratuitos para identificación e incrustación automática de huella digital de audio, se recomienda Lifetime Premium para limpiar inmediatamente toda la biblioteca"
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La prueba incluye 10 archivos gratuitos para identificación e incrustación automática de huella digital de audio, se recomienda Lifetime Premium para limpiar inmediatamente toda la biblioteca"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kokeilujakso sisältää 10 ilmaista tiedostoa äänisormenjäljen automaattiseen tunnistukseen ja upotukseen, koko kirjaston välittömään puhdistukseen suositellaan Lifetime Premiumia"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "L essai comprend 10 fichiers gratuits d identification et d intégration automatiques d empreinte audio, Lifetime Premium est recommandé pour nettoyer immédiatement toute la bibliothèque"
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "L essai comprend 10 fichiers gratuits d identification et d intégration automatiques d empreinte audio, Lifetime Premium est recommandé pour nettoyer immédiatement toute la bibliothèque"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "הניסיון כולל 10 קבצים חינמיים לזיהוי והטמעה אוטומטיים של טביעת אצבע קולית, מומלץ לבחור ב-Lifetime Premium לניקוי מיידי של הספרייה כולה"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "निःशुल्क परीक्षण में ऑडियो फिंगरप्रिंट की स्वचालित पहचान और एम्बेडिंग के लिए 10 मुफ़्त फ़ाइलें शामिल हैं, पूरी लाइब्रेरी की तुरंत सफ़ाई के लिए Lifetime Premium की अनुशंसा की जाती है"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Besplatno probno razdoblje uključuje 10 besplatnih datoteka za automatsko prepoznavanje i ugrađivanje zvučnog otiska, za trenutačno čišćenje cijele biblioteke preporučujemo Lifetime Premium"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A próbaidőszak 10 ingyenes fájlt tartalmaz az audió ujjlenyomat automatikus azonosításához és beágyazásához, a teljes könyvtár azonnali tisztításához a Lifetime Premium ajánlott"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Uji coba mencakup 10 file gratis untuk identifikasi dan penyematan sidik jari audio otomatis, Lifetime Premium disarankan untuk membersihkan seluruh perpustakaan seketika"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La prova include 10 file gratuiti per l identificazione e l incorporazione automatica dell impronta audio, si consiglia Lifetime Premium per pulire immediatamente l intera libreria"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "無料トライアル期間中は音声指紋の自動識別と自動埋め込みが10ファイル分無料プレゼント、ライブラリ全体を今すぐ一括クリーンアップするには Lifetime Premium がおすすめ"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "무료 체험 기간 동안 오디오 핑거프린트 자동 인식 및 자동 삽입 10개 파일 무료 제공, 전체 라이브러리를 즉시 정리하려면 Lifetime Premium을 추천합니다"
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Percubaan merangkumi 10 fail percuma untuk pengecaman dan pembenaman cap jari audio automatik, Lifetime Premium disyorkan untuk membersihkan seluruh pustaka dengan serta-merta"
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prøveperioden inkluderer 10 gratis filer for automatisk gjenkjennelse og innebygging av lydfingeraftrykket, Lifetime Premium anbefales for umiddelbar rengjøring av hele biblioteket"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "De proefperiode bevat 10 gratis bestanden voor automatische herkenning en insluiting van audiovingerafdrukken, Lifetime Premium wordt aanbevolen voor het direct opschonen van de hele bibliotheek"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Okres próbny zawiera 10 bezpłatnych plików do automatycznego rozpoznawania i osadzania odcisku cyfrowego audio, do natychmiastowego wyczyszczenia całej biblioteki zalecamy Lifetime Premium"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O teste inclui 10 arquivos gratuitos para identificação e incorporação automática de impressão digital de áudio, o Lifetime Premium é recomendado para limpar toda a biblioteca imediatamente"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O teste inclui 10 ficheiros gratuitos para identificação e incorporação automática de impressão digital de áudio, o Lifetime Premium é recomendado para limpar toda a biblioteca imediatamente"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Proba include 10 fișiere gratuite pentru identificarea și încorporarea automată a amprentei audio, Lifetime Premium este recomandat pentru curățarea imediată a întregii biblioteci"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Период пробной версии включает 10 бесплатных файлов для автоматического распознавания и встраивания акустического отпечатка, для немедленной очистки всей медиатеки рекомендуется Lifetime Premium"
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Skúšobná verzia obsahuje 10 bezplatných súborov na automatickú identifikáciu a vloženie akustického odtlačku, na okamžité vyčistenie celej knižnice odporúčame Lifetime Premium"
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Preizkus vključuje 10 brezplačnih datotek za samodejno prepoznavanje in vstavljanje zvočnega prstnega odtisa, za takojšnje čiščenje celotne knjižnice priporočamo Lifetime Premium"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Provperioden innehåller 10 gratis filer för automatisk identifiering och inbäddning av ljudfingeravtryck, Lifetime Premium rekommenderas för omedelbar rensning av hela biblioteket"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ช่วงทดลองใช้งานมีไฟล์ฟรี 10 ไฟล์สำหรับการระบุและการฝังลายนิ้วมือเสียงอัตโนมัติ, แนะนำให้เลือก Lifetime Premium หากต้องการทำความสะอาดคลังทั้งหมดทันที"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Deneme süresi, otomatik ses parmak izi tanıma ve gömme için 10 ücretsiz dosya içerir; tüm kitaplığı hemen temizlemek için Lifetime Premium önerilir"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Період пробної версії включає 10 безкоштовних файлів для автоматичного розпізнавання та вбудовування акустичного відбитка, для негайного очищення всієї медіатеки рекомендується Lifetime Premium"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Thời gian dùng thử bao gồm 10 tệp miễn phí để nhận diện và nhúng dấu vân tay âm thanh tự động, khuyến nghị chọn Lifetime Premium để dọn dẹp toàn bộ thư viện ngay lập tức"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "免费试用期间免费赠送 10 个音频指纹自动识别、自动内嵌的额度，若需立即批量清洗完整曲库，推荐选择一次买断、永久有效的终身高级版"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "免費試用期間免費贈送 10 個音訊指紋自動識別、自動內嵌的額度，若需立即批量清理完整曲庫，推薦選擇一次買斷、永久有效的終身高級版"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "免費試用期間免費贈送 10 個音訊指紋自動識別、自動內嵌的額度，若需立即批量清理完整曲庫，推薦選擇一次買斷、永久有效的終身高級版"
+          }
+        }
+      }
+    },
     "Computer" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -44930,6 +45181,257 @@
         }
       }
     },
+    "Fill Mode" : {
+      "extractionState" : "pasted",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "وضع التعبئة"
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mode d emplenat"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Režim vyplňování"
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Udfyldelsestilstand"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ausfüllmodus"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Λειτουργία συμπλήρωσης"
+          }
+        },
+        "en-AU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fill Mode"
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fill Mode"
+          }
+        },
+        "en-IN" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fill Mode"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Modo de rellenado"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Modo de rellenado"
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Modo de rellenado"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Täyttötila"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mode de remplissage"
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mode de remplissage"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "מצב מילוי"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "भरने का मोड"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Način popunjavanja"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kitöltési mód"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mode Pengisian"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Modalità di riempimento"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "適用モード"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "채우기 모드"
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mod Pengisian"
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fyllmodus"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Invulmodus"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tryb wypełniania"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Modo de preenchimento"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Modo de preenchimento"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mod de completare"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Режим заполнения"
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Režim vyplnenia"
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Način polnjenja"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fyllningsläge"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "โหมดการเติม"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Doldurma Modu"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Режим заповнення"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Chế độ điền"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "填充模式"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "填入模式"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "填入模式"
+          }
+        }
+      }
+    },
     "First Line" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -46181,6 +46683,257 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "強制覆蓋"
+          }
+        }
+      }
+    },
+    "Formats supporting audio fingerprinting:" : {
+      "extractionState" : "pasted",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "التنسيقات التي تدعم بصمة الصوت:"
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Formats que admeten la petjada digital d àudio:"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Formáty podporující akustický otisk:"
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Formater der understøtter lydfingeraftryk:"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Formate mit Unterstützung für Audio-Fingerprinting:"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Μορφές που υποστηρίζουν ακουστικό αποτύπωμα:"
+          }
+        },
+        "en-AU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Formats supported for audio fingerprinting:"
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Formats supporting audio fingerprinting:"
+          }
+        },
+        "en-IN" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Formats supporting audio fingerprinting:"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Formatos compatibles con la huella digital de audio:"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Formatos compatibles con la huella digital de audio:"
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Formatos compatibles con la huella digital de audio:"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Äänisormenjälkeä tukevat muodot:"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Formats prenant en charge l empreinte audio :"
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Formats prenant en charge l empreinte audio :"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "פורמטים התומכים בזיהוי טביעת אצבע קולית:"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ऑडियो फिंगरप्रिंटिंग का समर्थन करने वाले प्रारूप:"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Formati koji podržavaju zvučni otisak:"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Audió ujjlenyomatot Támogató formátumok:"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Format yang mendukung sidik jari audio:"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Formati che supportano l impronta digitale audio:"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "音声フィンガープリント識別対応フォーマット："
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "오디오 핑거프린트 인식을 지원하는 형식:"
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Format yang menyokong cap jari audio:"
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Formater som støtter lydfingeraftrykk:"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Formaties die audiovingerafdruk ondersteunen:"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Formaty obsługujące odcisk cyfrowy audio:"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Formatos com suporte a impressão digital de áudio:"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Formatos com suporte a impressão digital de áudio:"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Formate care suportă amprenta audio:"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Форматы с поддержкой акустического отпечатка:"
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Formáty podporujúce akustický odtlačok:"
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Formati, ki podpirajo zvočni prstni odtis:"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Formater som stöder ljudfingeravtryck:"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "รูปแบบที่รองรับการจดจำลายนิ้วมือเสียง:"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ses parmak izi tanımayı destekleyen biçimler:"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Формати з підтримкою акустичного відбитка:"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Định dạng hỗ trợ nhận dạng dấu vân tay âm thanh:"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "支持音频指纹识别的格式："
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "支援音訊指紋識別的格式："
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "支援音訊指紋識別的格式："
           }
         }
       }
@@ -101069,6 +101822,257 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "設定為純音樂"
+          }
+        }
+      }
+    },
+    "Set lyrics tag to Instrumental when no match is found" : {
+      "extractionState" : "pasted",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ضبط وسم الكلمات إلى موسيقى أدوات عندما لا يتم العثور على تطابق"
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Defineix l etiqueta de lletres com a Instrumental quan no hi hagi coincidència"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nastavit tag textu na Instrumental pokud nebyla nalezena shoda"
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Angiv sangtekst-tag som Instrumental når der ikke findes noget match"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Songtext-Tag auf Instrumental setzen wenn keine Übereinstimmung gefunden wird"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Оρισμός ετικέτας στίχων σε Ορχηστρικό όταν δεν βρεθεί αντιστοιχία"
+          }
+        },
+        "en-AU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Set lyrics tag to Instrumental when lyrics match fails"
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Set lyrics tag to Instrumental when no match is found"
+          }
+        },
+        "en-IN" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Set lyrics tag as Instrumental when no match found"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Establecer la etiqueta de letra como Instrumental cuando no haya coincidencias"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Establecer la etiqueta de letra como Instrumental cuando no haya coincidencias"
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Establecer la etiqueta de letra como Instrumental cuando no haya coincidencias"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aseta sanoitus-tagiksi Soitinmusiikki kun vastaavuutta ei löydy"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Définir la balise paroles sur Instrumental en l absence de correspondance"
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Définir la balise paroles sur Instrumental en l absence de correspondance"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "הגדר תגית מילים כאינסטרומנטלי כאשר לא נמצאה התאמה"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "कोई मेल न मिलने पर बोल टैग को वाद्य सेट करें"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Postavi oznaku stihova na Instrumentalno ako se ne pronađe podudaranje"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dalszöveg tag beállítása Enstrumentális értékre ha nincs találat"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Atur tag lirik ke Instrumental saat tidak ada yang cocok"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Imposta il tag testi su Strumentale quando non viene trovata alcuna corrispondenza"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "歌詞が見つからない場合、歌詞タグをインストゥルメンタルに設定"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "가사를 찾을 수 없을 때 가사 태그를 연주곡으로 설정"
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tetapkan tag lirik ke Instrumental apabila tiada padanan ditemui"
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Angi sangtekst-tagg til Instrumental når ingen treff blir funnet"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stel lyricstag in op Instrumentaal wanneer er geen match is gevonden"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ustaw tag tekstu na Instrumentalny gdy nie znaleziono dopasowania"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Definir tag de letra como Instrumental quando nenhuma correspondência for encontrada"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Definir tag de letra como Instrumental quando nenhuma correspondência for encontrada"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Setează eticheta versuri ca Instrumental când nu se găsește nicio potrivire"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Устанавливать тег текстов в Инструментал при отсутствии совпадений"
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nastaviť tag textu na Inštrumentálne ak sa nenašla zhoda"
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nastavi oznako besedila na Instrumentalno če ni zadetkov"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ställ in låttext-tagg till Instrumental när ingen matchning hittas"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ตั้งค่าแท็กเนื้อเพลงเป็นบรรเลงเมื่อไม่พบรายการที่ตรงกัน"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Eşleşme bulunamadığında şarkı sözü etiketini Enstrümantal olarak ayarla"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Встановлювати тег тексту в Інструментал якщо збігів не знайдено"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Đặt thẻ lời bài hát thành Nhạc không lời khi không tìm thấy kết quả"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "当无法匹配歌词时，将歌词标签设置为纯音乐"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "無法匹配歌詞時，將歌詞標籤設為純音樂"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "無法匹配歌詞時，將歌詞標籤設為純音樂"
           }
         }
       }
