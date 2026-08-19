@@ -106,7 +106,7 @@ class AudioMatchCoverFootView: UITableViewHeaderFooterView {
         if let coverURL = URL(string: model.coverArt ?? "") {
             self.coverImgView.isHidden = false
             self.coverImgView.kf.setImage(with: coverURL, placeholder: UIImage(named: "music_place"))
-            self.statusLabel.attributedText = NSAttributedString(string: "Embed".localStr(), attributes: [.font: textFont, .foregroundColor: appMainColor, .underlineStyle: 1])
+            self.statusLabel.attributedText = NSAttributedString(string: "Embed".localStr(), attributes: [.font: textFont, .foregroundColor: UIColor.systemBlue, .underlineStyle: 1])
             statusLabel.snp.remakeConstraints { make in
                 make.trailing.equalToSuperview().offset(-18.ckValue())
                 make.centerY.equalTo(coverImgView)
@@ -168,7 +168,7 @@ class AudioMatchCoverFootView: UITableViewHeaderFooterView {
         let view = UILabel()
         view.isUserInteractionEnabled = true
         view.numberOfLines = 2
-        view.textColor = appMainColor
+        view.textColor = UIColor.systemBlue
         view.font = textFont
         view.textAlignment = PhoneSetManager.isArabicCountry() ? .left : .right
         let clickTap = UITapGestureRecognizer(target: self, action: #selector(clickViewAction))

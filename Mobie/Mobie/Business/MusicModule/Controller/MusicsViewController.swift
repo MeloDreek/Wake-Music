@@ -313,7 +313,6 @@ view.refreshControl = self.kaka_header
                 
                 if subGroup != .nonGroup && wSelf.viewModel.allMusicArray.count > 300 {
                     wSelf.showTwoAlert(title: "Reminder".localStr(), message: "Too many files! Building the index for grouped sorting may take a while.".localStr(), confirm: "Continue".localStr()) {
-                        
                         self?.viewModel.groupType = subGroup
                         MusicConfigManager.shared.groupType = subGroup
                         self?.setupNavigationItem()

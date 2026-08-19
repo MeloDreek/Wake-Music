@@ -335,7 +335,7 @@ class CloudMusicTagViewController: SuperViewController {
         let model1 = MeteDataGroupCellModel(group: .headGroup, headTitle: nil, itemArray: [.headerTag], footTitle: nil)
         let model2 = MeteDataGroupCellModel(group: .basicGroup, headTitle: "*" + "Basic".localStr(), itemArray: [.title, .artist, .album, .coverImage, .lyrics], footTitle: nil)
         
-        let model3 = MeteDataGroupCellModel(group: .otherGroup, headTitle: "Others".localStr(), itemArray: [.year, .genre, .track, .comment, .channel], footTitle: nil)
+        let model3 = MeteDataGroupCellModel(group: .otherGroup, headTitle: "Others".localStr(), itemArray: [.year, .genre, .trackNumber, .comment, .channel], footTitle: nil)
                         
         return [model1, model2, model3]
     }()

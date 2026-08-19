@@ -537,6 +537,8 @@
 		228A14A32CA0633400E2948E /* KakaMusicPlayer+Play.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A14232CA0633400E2948E /* KakaMusicPlayer+Play.swift */; };
 		2290E6D82DFAC20700137CF9 /* WelcomeTapeCollectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2290E6D72DFAC20700137CF9 /* WelcomeTapeCollectCell.swift */; };
 		2290E6D92DFAC20700137CF9 /* WelcomeTapeCollectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2290E6D72DFAC20700137CF9 /* WelcomeTapeCollectCell.swift */; };
+		22953EF630357CB5001B0546 /* AudioFingerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22953EF530357CB5001B0546 /* AudioFingerTableViewCell.swift */; };
+		22953EF730357CB5001B0546 /* AudioFingerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22953EF530357CB5001B0546 /* AudioFingerTableViewCell.swift */; };
 		2296BCCE2CD8B4F500E9166E /* MeteDataGroupCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2296BCCD2CD8B4F500E9166E /* MeteDataGroupCellModel.swift */; };
 		2296BCD42CD91A7E00E9166E /* SupportTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2296BCD32CD91A7E00E9166E /* SupportTypeViewController.swift */; };
 		2299B8FD2D8A95C100D9F886 /* NavidromeSongListController+Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2299B8FC2D8A95C000D9F886 /* NavidromeSongListController+Search.swift */; };
@@ -949,6 +951,7 @@
 		228A14222CA0633400E2948E /* KakaMusicPlayer+Tools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "KakaMusicPlayer+Tools.swift"; sourceTree = "<group>"; };
 		228A14232CA0633400E2948E /* KakaMusicPlayer+Play.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "KakaMusicPlayer+Play.swift"; sourceTree = "<group>"; };
 		2290E6D72DFAC20700137CF9 /* WelcomeTapeCollectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeTapeCollectCell.swift; sourceTree = "<group>"; };
+		22953EF530357CB5001B0546 /* AudioFingerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioFingerTableViewCell.swift; sourceTree = "<group>"; };
 		2296BCCD2CD8B4F500E9166E /* MeteDataGroupCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeteDataGroupCellModel.swift; sourceTree = "<group>"; };
 		2296BCD32CD91A7E00E9166E /* SupportTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportTypeViewController.swift; sourceTree = "<group>"; };
 		2299B8FC2D8A95C000D9F886 /* NavidromeSongListController+Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NavidromeSongListController+Search.swift"; sourceTree = "<group>"; };
@@ -1431,6 +1434,7 @@
 				228A13B72CA0633400E2948E /* MusicTopHeadView.swift */,
 				22556DB22D1D694300FA1807 /* MusicTopFolderCell.swift */,
 				229C98AB2CA7DE7300925F0A /* MusicsFootView.swift */,
+				22953EF530357CB5001B0546 /* AudioFingerTableViewCell.swift */,
 				224C9BCC2DD0A1ED000CCA6C /* LRCLyricTableViewCell.swift */,
 				22C2572E302D723500A68C1B /* AudioMatchCoverFootView.swift */,
 				22C25734302D724300A68C1B /* AudioMatchTagFootView.swift */,
@@ -2153,6 +2157,7 @@
 				225F57FA2D85B2AB0055BDFF /* MusicPlayerViewController.swift in Sources */,
 				224A4DF52E1692CB0041244A /* BaiduDriveFileListController.swift in Sources */,
 				225F57FB2D85B2AB0055BDFF /* MiniPlayerStyle+Extension.swift in Sources */,
+				22953EF630357CB5001B0546 /* AudioFingerTableViewCell.swift in Sources */,
 				225F57FC2D85B2AB0055BDFF /* MusicsViewController+Search.swift in Sources */,
 				22814C542DD1CDBE00565CBC /* MusicTableViewCell+Menu.swift in Sources */,
 				22569ACA2DE464830038E914 /* PlayerVinylCollectCell.swift in Sources */,
@@ -2444,6 +2449,7 @@
 				228A144E2CA0633400E2948E /* MusicPlayerViewController.swift in Sources */,
 				224A4DF42E1692CB0041244A /* BaiduDriveFileListController.swift in Sources */,
 				225F88C62CD094F70093B359 /* MiniPlayerStyle+Extension.swift in Sources */,
+				22953EF730357CB5001B0546 /* AudioFingerTableViewCell.swift in Sources */,
 				228A14382CA0633400E2948E /* MusicsViewController+Search.swift in Sources */,
 				22814C532DD1CDBE00565CBC /* MusicTableViewCell+Menu.swift in Sources */,
 				22569AC92DE464830038E914 /* PlayerVinylCollectCell.swift in Sources */,

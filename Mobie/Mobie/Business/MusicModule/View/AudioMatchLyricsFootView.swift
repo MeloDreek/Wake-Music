@@ -87,7 +87,7 @@ class AudioMatchLyricsFootView: UITableViewHeaderFooterView {
         }
         
         if let message = message, !message.isEmpty {
-            tagLabel.attributedText = NSAttributedString(string: "  \(message)  ", attributes: [.font: textFont, .foregroundColor: appMainColor, .underlineStyle: 1])
+            tagLabel.attributedText = NSAttributedString(string: "  \(message)  ", attributes: [.font: textFont, .foregroundColor: UIColor.systemBlue, .underlineStyle: 1])
         }else{
             tagLabel.attributedText = NSAttributedString(string: editManuaStr, attributes: [.font: UIFontLight(12.ckValue()), .foregroundColor: UIColor.secondaryLabel])
         }
@@ -104,7 +104,7 @@ class AudioMatchLyricsFootView: UITableViewHeaderFooterView {
         let view = UILabel()
         view.isUserInteractionEnabled = true
         view.numberOfLines = 2
-        view.textColor = appMainColor
+        view.textColor = UIColor.systemBlue
         view.font = textFont
         view.textAlignment = PhoneSetManager.isArabicCountry() ? .left : .right
         let clickTap = UITapGestureRecognizer(target: self, action: #selector(clickViewAction))

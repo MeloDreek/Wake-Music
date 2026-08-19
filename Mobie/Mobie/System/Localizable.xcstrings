@@ -49699,6 +49699,257 @@
         }
       }
     },
+    "HD 4K cover art and lyrics are Premium metadata features. The free version supports manually editing basic metadata like Title, Artist, and Album. Upgrade to Premium to take your music collection to the next level!" : {
+      "extractionState" : "pasted",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تُعد أغطية 4K عالية الدقة والكلمات من ميزات البيانات الوصفية المتميزة. تدعم النسخة المجانية التعديل اليدوي للبيانات الأساسية مثل العنوان، والفنان، والألبوم. ترقَّ إلى النسخة المتميزة للارتقاء بمجموعتك الموسيقية إلى مستوى جديد!"
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Les caràtules en 4K HD i les lletres són funcions metadades Premium. La versió gratuïta permet editar manualment metadades bàsiques com ara el títol, l'artista i l'àlbum. Passa't a Premium per portar la teva col·lecció de música a un altre nivell!"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Obaly v HD 4K a texty písní jsou prémiové funkce metadat. Bezplatná verze podporuje ruční úpravu základních údajů, jako je název, interpret a album. Přejděte na Premium a posuňte svou hudební sbírku na novou úroveň!"
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "HD 4K-covergrafik og sangtekster er Premium-metadatafunktioner. Den gratis version understøtter manuel redigering af grundlæggende info som titel, kunstner og album. Opgrader til Premium for at tage din musiksamling til et nyt niveau!"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "HD-4K-Cover und Songtexte sind Premium-Metadaten-Funktionen. Die kostenlose Version unterstützt das manuelle Bearbeiten von Basisdaten wie Titel, Interpret und Album. Upgraden Sie auf Premium, um Ihre Musiksammlung auf ein neues Level zu heben!"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Τα εξώφυλλα HD 4K και οι στίχοι είναι λειτουργίες μεταδεδομένων Premium. Η δωρεάν έκδοση υποστηρίζει τη χειροκίνητη επεξεργασία βασικών στοιχείων όπως Τίτλος, Καλλιτέχνης και Άλμπουμ. Αναβαθμίστε σε Premium για να απογειώσετε τη μουσική συλλογή σας!"
+          }
+        },
+        "en-AU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "HD 4K album art and lyrics are Premium features. The free version covers manual edits for basic info like Title, Artist, and Album. Upgrade to Premium to take your music library to the next level!"
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "HD 4K album art and lyrics are Premium metadata features. The free version supports manual editing of basic info like Title, Artist, and Album. Upgrade to Premium to take your music collection to the next level!"
+          }
+        },
+        "en-IN" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "HD 4K artwork and lyrics are Premium metadata features. The free version lets you manually edit basic details like Title, Artist, and Album. Upgrade to Premium to elevate your music collection!"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Las portadas HD en 4K y las letras son funciones de metadatos Premium. La versión gratuita permite editar manualmente datos básicos como título, artista y álbum. ¡Pásate a Premium y lleva tu colección de música al siguiente nivel!"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Las portadas HD en 4K y las letras son funciones de metadatos Premium. La versión gratuita admite la edición manual de datos básicos como Título, Artista y Álbum. ¡Actualízate a Premium para llevar tu colección de música al siguiente nivel!"
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Las carátulas HD en 4K y las letras son funciones de metadatos Premium. La versión gratis permite la edición manual de datos básicos como Título, Artista y Álbum. ¡Obtén Premium y lleva tu colección de música al siguiente nivel!"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "HD 4K -kansikuvat ja sanoitukset ovat Premium-metatiedot-ominaisuuksia. Ilmainen versio tukee perustietojen, kuten kappaleen nimen, esittäjän ja albumin, manuaalista muokkausta. Päivitä Premium-versioon ja vie musiikkikokoelmasi uudelle tasolle!"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Les pochettes HD 4K et les paroles sont des fonctionnalités métadonnées Premium. La version gratuite permet de modifier manuellement les données de base telles que le titre, l'artiste et l'album. Passez à la version Premium pour faire passer votre collection musicale au niveau supérieur !"
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Les pochettes HD 4K et les paroles sont des options métadonnées Premium. La version gratuite prend en charge l'édition manuelle des infos de base comme le titre, l'artiste et l'album. Passez au Premium pour élever votre collection de musique à un autre niveau!"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "עטיפות 4K HD ומילים לשירים הן תכונות מטא-דאטה של Premium. הגרסה החינמית תומכת בעריכה ידנית של פרטים בסיסיים כמו כותרת, אמנות ואלבום. שדרגו ל-Premium כדי לקחת את אוסף המוזיקה שלכם לרמה הבאה!"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "HD 4K कवर आर्ट और लिरिक्स प्रीमियम मेटाडेटा फ़ीचर हैं। मुफ़्त वर्ज़न में आप शीर्षक, कलाकार और एल्बम जैसे बुनियादी मेटाडेटा को मैनुअली एडिट कर सकते हैं। अपने म्यूज़िक कलेक्शन को नए स्तर पर ले जाने के लिए प्रीमियम में अपग्रेड करें!"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "HD 4K omoti i stihovi vrhunske su značajke metapodataka. Besplatna verzija podržava ručno uređivanje osnovnih podataka poput naslova, izvođača i albuma. Nadogradite na Premium i podignite svoju glazbenu kolekciju na novu razinu!"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A HD 4K borítók és dalszövegek Premium metaadat-funkciók. Az ingyenes verzió támogatja az alapvető adatok, például a cím, az előadó és az album kézi szerkesztését. Váltson Premiumra, és emelje új szintre zenei gyűjteményét!"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sampul HD 4K dan lirik adalah fitur metadata Premium. Versi gratis mendukung pengeditan manual metadata dasar seperti Judul, Artis, dan Album. Tingkatkan ke Premium untuk membawa koleksi musik Anda ke tingkat berikutnya!"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Le copertine HD 4K e i testi sono funzionalità di metadati Premium. La versione gratuita supporta la modifica manuale dei dati di base come Titolo, Artista e Album. Passa a Premium per portare la tua collezione musicale a un livello superiore!"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "HD 4Kジャケット画像や歌詞の自動取得はプレミアム機能です。無料版では曲名、アーティスト、アルバムなどの基本メタデータの手動编辑に対応しています。プレミアムにアップグレードして、あなたのライブラリをワンランク上の完成度へ！"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "HD 4K 앨범 커버와 가사는 프리미엄 메타데이터 기능입니다. 무료 버전에서는 곡 제목, 아티스트, 앨범 등 기본 정보의 수동 편집만 지원됩니다. 프리미엄으로 업그레이드하여 음악 라이브러리를 한 차원 높여보세요!"
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kulit album HD 4K dan lirik ialah ciri metadata Premium. Versi percuma menyokong penyuntingan manual metadata asas seperti Tajuk, Artis dan Album. Naik taraf ke Premium untuk membawa koleksi muzik anda ke tahap yang baharu!"
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "HD 4K-omslag og sangtekster er Premium-metadatafunksjoner. Gratisversjonen støtter manuell redigering av grunnleggende info som tittel, artist og album. Oppgrader til Premium for å ta musikksamlingen din til et nytt nivå!"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "HD 4K-hoezen en songteksten zijn Premium-metadatafuncties. De gratis versie ondersteunt het handmatig bewerken van basiselementen zoals titel, artiest en album. Upgrade naar Premium om je muziekcollectie naar ein hoger niveau te tillen!"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Okładki HD 4K i teksty piosenek to funkcje metadanych Premium. Bezpłatna wersja obsługuje ręczną edycję podstawowych danych, takich jak tytuł, wykonawca i album. Przejdź na Premium i wznieś swoją kolekcję muzyki na nowy poziom!"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Capas HD em 4K e letras são recursos de metadados Premium. A versão gratuita suporta a edição manual de dados básicos como Título, Artista e Álbum. Mude para o Premium e leve sua coleção de música para o próximo nível!"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "As capas HD 4K e as letras são funcionalidades de metadados Premium. A versão gratuita permite a edição manual de dados básicos como Título, Artista e Álbum. Mude para Premium e eleve a sua coleção de música a um novo nível!"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Copertile HD 4K și versurile sunt funcții de metdate Premium. Versiunea gratuită suportă editarea manuală a datelor de bază, cum ar fi Titlul, Artistul și Albumul. Treci la Premium pentru a-ți duce colecția de muzică la nivelul următor!"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "HD 4K-обложки и тексты песен — это функции Premium-метаданных. Бесплатная версия поддерживает ручное редактирование базовых данных, таких как название, исполнитель и альбом. Перейдите на Premium, чтобы вывести вашу музыкальную коллекцию на новый уровень!"
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Obaly v HD 4K a texty piesní sú prémiové funkcie metadát. Bezplatná verzia podporuje ručnú úpravu základných údajov, ako je názov, interpret a album. Prejdite na Premium a posuňte svoju hudobnú zbierku na novú úroveň!"
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "HD 4K-naslovnice in besedila so Premium funkcije podatkov. Brezplačna CLI-različica podpira ročno urejanje osnovnih podatkov, kot so naslov, izvajalec in album. Nadgradite na Premium in dvignite svojo glasbeno zbirko na novo raven!"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "HD 4K-omslag och låttexter är Premium-metadatafunktioner. Gratisversionen stöder manuell redigering av grundläggande info som titel, artist och album. Uppgradera till Premium för att ta din musiksamling till nästa nivå!"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ปกเพลงระดับ HD 4K และเนื้อเพลงเป็นฟีเจอร์เมทาดาตาระดับพรีเมียม เวอร์ชันฟรีรองรับการแก้ไขข้อมูลพื้นฐานด้วยตนเอง เช่น ชื่อเพลง ศิลปิน และอัลบั้ม อัปเกรดเป็นพรีเมียมเพื่อยกระดับคลังเพลงของคุณไปอีกขั้น!"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "HD 4K kapaklar ve şarkı sözleri Premium meta veri özellikleridir. Ücretsiz sürüm Başlık, Sanatçı ve Albüm gibi temel verilerin manuel olarak düzenlenmesini destekler. Müzik arşivinizi bir üst seviyeye taşımak için Premium'a yükseltin!"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "HD 4K-обкладинки та тексти пісень — це функції Premium-метаданих. Безкоштовна версія підтримує ручне редагування базових даних, таких як назва, виконавець та альбом. Оновіться до Premium, щоб вивести вашу музичну колекцію на новий рівень!"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ảnh bìa HD 4K và lời bài hát là các tính năng metadata Premium. Phiên bản miễn phí hỗ trợ chỉnh sửa thủ công các thông tin cơ bản như Tên bài hát, Nghệ sĩ và Album. Nâng cấp lên Premium để nâng bộ sưu tập nhạc của bạn lên một tầm cao mới!"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "高清 4K 封面和歌词属于高级元数据功能，免费版支持手动编辑标题、歌手、专辑等基础元数据。升级到高级版，将您的音乐收藏提升到全新高度！"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "高清 4K 封面與歌詞屬於高級元資料功能，免費版支援手動編輯標題、歌手、專輯等基礎元資料。升級至高級版，將您的音樂收藏提升至全新境界！"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "高清 4K 封面同歌詞屬於高級元數據功能，免費版支援手動編輯標題、歌手、專輯等基礎資料。升級至高級版，將你嘅音樂收藏提升至全新境界！"
+          }
+        }
+      }
+    },
     "Highlight Color" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -68951,37 +69202,37 @@
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "محرر علامات الموسيقى\t"
+            "value" : "محرر وسوم الموسيقى"
           }
         },
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Music Tag Editor"
+            "value" : "Editor d'etiquetes de música"
           }
         },
         "cs" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Music Tag Editor"
+            "value" : "Editor hudebních tagů"
           }
         },
         "da" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Music Tag Editor"
+            "value" : "Musik-tag-editor"
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Music Tag Editor"
+            "value" : "Musik-Tag-Editor"
           }
         },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Music Tag Editor"
+            "value" : "Επεξεργαστής ετικετών μουσικής"
           }
         },
         "en-AU" : {
@@ -69005,79 +69256,79 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Music Tag Editor"
+            "value" : "Editor de etiquetas de música"
           }
         },
         "es-419" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Music Tag Editor"
+            "value" : "Editor de tags de música"
           }
         },
         "es-US" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Music Tag Editor"
+            "value" : "Editor de tags de música"
           }
         },
         "fi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Music Tag Editor"
+            "value" : "Musiikkitagitietojen muokkain"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Music Tag Editor"
+            "value" : "Éditeur de tags musicaux"
           }
         },
         "fr-CA" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Music Tag Editor"
+            "value" : "Éditeur de balises d'en-tête"
           }
         },
         "he" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Music Tag Editor"
+            "value" : "עורך תגיות מוזיקה"
           }
         },
         "hi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Music Tag Editor"
+            "value" : "म्यूजिक टैग एडिटर"
           }
         },
         "hr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Music Tag Editor"
+            "value" : "Uređivač glazbenih oznaka"
           }
         },
         "hu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Music Tag Editor"
+            "value" : "Zenei címke-szerkesztő"
           }
         },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Music Tag Editor"
+            "value" : "Editor Tag Musik"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Music Tag Editor"
+            "value" : "Editor di tag musicali"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "音楽タグエディター"
+            "value" : "音楽タグ編集"
           }
         },
         "ko" : {
@@ -69089,91 +69340,91 @@
         "ms" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Music Tag Editor"
+            "value" : "Editor Tag Muzik"
           }
         },
         "nb" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Music Tag Editor"
+            "value" : "Redigering av musikktagging"
           }
         },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Music Tag Editor"
+            "value" : "Muziektageditor"
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Music Tag Editor"
+            "value" : "Edytor tagów muzycznych"
           }
         },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Music Tag Editor"
+            "value" : "Editor de Tags de Música"
           }
         },
         "pt-PT" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Music Tag Editor"
+            "value" : "Editor de etiquetas de música"
           }
         },
         "ro" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Music Tag Editor"
+            "value" : "Editor de etichete muzicale"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Music Tag Editor"
+            "value" : "Редактор тегов музыки"
           }
         },
         "sk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Music Tag Editor"
+            "value" : "Editor hudobných tagov"
           }
         },
         "sl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Urejevalnik oznak za glasbo"
+            "value" : "Urejevalnik glasbenih oznak"
           }
         },
         "sv" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Music Tag Editor"
+            "value" : "Musiktaggredigerare"
           }
         },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "โปรแกรมแก้ไขแท็กเพลง"
+            "value" : "ตัวแก้ไขแท็กเพลง"
           }
         },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Music Tag Editor"
+            "value" : "Müzik Etiket Düzenleyici"
           }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Music Tag Editor"
+            "value" : "Редактор тегів музики"
           }
         },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Music Tag Editor"
+            "value" : "Trình chỉnh sửa thẻ nhạc"
           }
         },
         "zh-Hans" : {
@@ -72957,6 +73208,257 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "沒有可用的文件夾。您還可以跳過選擇任何文件夾並直接從連接服務中播放音樂。"
+          }
+        }
+      }
+    },
+    "No manual editing required! AI Acoustic Fingerprinting analyzes the audio waveform to instantly fetch accurate metadata, 4K artwork, lyrics, and more." : {
+      "extractionState" : "pasted",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "لا داعي للتعديل اليدوي! تُحلل البصمة الصوتية الذكية الخصائص الصوتية لملفك لتجلب لك البيانات الوصفية الدقيقة، وأغلفة 4K، والكلمات فورًا."
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sense edició manual! La empremta acústica per IA analitza les característiques del so per trobar a l'instant les metadades correctes, caràtules en 4K, lletres i molt més."
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bez ruční úpravy! Akustický otisk AI analyzuje zvukové vlastnosti a okamžitě načte správná metadata, 4K obal, texty písní a další."
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ingen manuel redigering nødvendig! AI-lydfingeraftryk analyserer de akustiske træk for øjeblikkeligt at finde præcise metadata, 4K-covergrafik, sangtekster og mere."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Keine manuelle Bearbeitung nötig! Der KI-Akustik-Fingerabdruck analysiert die Klangmerkmale, um sofort exakte Metadaten, 4K-Cover, Songtexte und mehr zu liefern."
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Δεν απαιτείται χειροκίνητη επεξεργασία! Το ακουστικό αποτύπωμα AI αναλύει τα ηχητικά χαρακτηριστικά για να αντιστοιχίσει αμέσως σωστά μεταδεδομένα, εξώφυλλα 4K, στίχους και άλλα."
+          }
+        },
+        "en-AU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No manual editing needed! AI Audio Fingerprinting uses acoustic traits to instantly match accurate track info, 4K cover art, and lyrics."
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No manual editing needed! AI Acoustic Fingerprinting analyses unique audio features to instantly match precise metadata, 4K album art, lyrics, and more."
+          }
+        },
+        "en-IN" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No manual editing required! AI Audio Fingerprinting identifies your songs via acoustic features to instantly get exact metadata, 4K covers, lyrics, and more."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¡Sin edición manual! La huella acústica con IA analiza las características del audio para obtener al instante los metadatos correctos, portadas en 4K, letras y mucho más."
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¡Sin necesidad de edición manual! La huella acústica por IA analiza las características de tu audio para coincidir al instante metadatos exactos, portadas 4K, letras y más."
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¡Sin edición manual! La huella acústica por IA analiza las características del sonido para encontrar al instante metadatos precisos, carátulas 4K, letras y más."
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ei manuaalista muokkausta! Tekoälyn äänisormenjälki analysoi äänijäljen ja hakee hetkessä oikeat metatiedot, 4K-kansikuvat, sanoitukset ja muuta."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aucune édition manuelle requise ! L'empreinte acoustique par IA analyse les caractéristiques sonores pour vous associer instantanément les bonnes métadonnées, pochette 4K, paroles et bien plus."
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Plus besoin d'édition manuelle! L'empreinte acoustique IA analyse les caractéristiques du son pour trouver instantanément les métadonnées exactes, pochettes 4K, paroles et plus encore."
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ללא צורך בעריכה ידנית! טביעת האצבע האקוסטית של AI מנתחת את מאפייני הצליל כדי להתאים מיידית מטא-דאטה מדויקים, עטיפות 4K, מילים לשירים ועוד."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "मैनुअल एडिटिंग की ज़रूरत नहीं! AI ऑडियो फिंगरप्रिंट ध्वनि की विशेषताओं से सटीक मेटाडेटा, 4K कवर आर्ट और लिरिक्स तुरंत मैच करता है।"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bez ručnog uređivanja! AI zvučni otisak analizira akustičke značajke za trenutno pronalazak točnih metapodataka, 4K omota, stihova i još mnogo toga."
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nincs szükség kézi szerkesztésre! Az AI akusztikus ujjlenyomat elemzi a hangjellemzőket, és azonnal párosítja a pontos metaadatokat, 4K borítókat, dalszövegeket és egyebeket."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tanpa perlu edit manual! Sidik jari akustik AI menganalisis karakter audio untuk mencocokkan metadata akurat, sampul 4K, lirik, dan lainnya secara instan."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nessuna modifica manuale necessaria! L'impronta acustica dell'IA analizza le caratteristiche sonore per trovare all'istante i metadati corretti, copertine 4K, testi e molto altro."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "手動編集は不要です！AI音響フィンガープリントが音声波形の特徴を解析し、正確なメタデータ、4Kジャケット画像、歌詞などを一瞬で自動マッチングします。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "수동 편집이 필요 없습니다! AI 음향 핑거프린트가 음원의 특성을 분석하여 정확한 메타데이터, 4K 앨범 커버, 가사 등을 즉시 자동으로 찾아줍니다."
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tanpa suntingan manual! Cap jari akustik AI menganalisis ciri audio untuk mencocokkan metadata tepat, kulit album 4K, lirik dan banyak lagi secara serta-merta."
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ingen manuell redigering nødvendig! AI-akustisk fingeravtrykk analyserer lydtrekkene for å umiddelbart hente riktige metadata, 4K-omslag, sangtekster og mer."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Geen handmatige bewerking nodig! AI-geluidsvingerafdruk analyseert de akoestische kenmerken om direct de juiste metadata, 4K-hoezen, songteksten en meer op te halen."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bez ręcznej edycji! Akustyczny odcisk palca AI analizuje cechy dźwięku, aby błyskawicznie dopasować dokładne metadane, okładki 4K, teksty piosenek i inne."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sem necessidade de edição manual! A impressão digital acústica por IA analisa as características do áudio para corresponder instantaneamente aos metadados exatos, capas em 4K, letras e muito mais."
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sem edição manual! A impressão digital acústica por IA analisa as características do áudio para obter instantaneamente metadados precisos, capas 4K, letras e muito mais."
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fără editare manuală! Amprenta acustică AI analizează caracteristicile audio pentru a potrivi instantaneu metadatele corecte, copertile 4K, versurile și multe altele."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Без ручного редактирования! Акустический ИИ-отпечаток анализирует звуковые характеристики, чтобы мгновенно подобрать точные метаданные, 4K-обложки, тексты песен и многое другое."
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bez ručnej úpravy! Akustický odtlačok AI analyzuje zvukové charakteristiky a okamžite priradí správne metadáta, 4K obaly, texty piesní a ďalšie."
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Brez ročnega urejanja! AI-akustični prstni odtis analizira zvokovne značilnosti za trenutno uskladitev točnih podatkov, 4K-naslovnic, besedil in še več."
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ingen manuell redigering krävs! AI-akustiskt fingeravtryck analyserar ljudets egenskaper för att direkt matcha exakta metadata, 4K-omslag, låttexter och mer."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ไม่ต้องแก้ไขเองให้ยุ่งยาก! ลายนิ้วมือเสียงด้วย AI จะวิเคราะห์คุณลักษณะของคลื่นเสียง เพื่อจับคู่เมทาดาตาที่ถูกต้อง ปกเพลงระดับ 4K เนื้อเพลง และอื่นๆ ได้ในพริบตา"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Manuel düzenlemeye son! Yapay zeka ses parmak izi, ses özelliklerini analiz ederek doğru meta verileri, 4K kapak görsellerini, şarkı sözlerini ve daha fazlasını anında eşleştirir."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Без ручного редагування! Акустичний ІІ-відбиток аналізує звукові характеристики, щоб миттєво знайти точні метадані, 4K-обкладинки, тексти пісень та інше."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Không cần chỉnh sửa thủ công! Dấu vân tay âm thanh AI phân tích đặc征 âm thanh để khớp ngay lập tức metadata chuẩn xác, ảnh bìa 4K, lời bài hát và nhiều hơn nữa."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无需手动编辑！AI 音频指纹能通过音频文件的声学特征，瞬间帮您匹配这首歌的正确元数据、4K 封面及歌词等。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "無需手動編輯！AI 音訊指紋能透過音訊特徵，瞬間幫您比對出正確的元資料、4K 高畫質封面及歌詞等資訊。"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "無需手動編輯！AI 音訊指紋能分析聲音特徵，即时幫你配對精確元數據、4K 封面及歌詞等資訊。"
           }
         }
       }

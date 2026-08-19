@@ -21,19 +21,6 @@ import MessageUI
 import StoreKit
 import SafariServices
 
-import KakaFoundation
-import KakaUIKit
-import AppGroupKit
-import PanModal
-import KakaTaglibKit
-import KakaPhotoBrowser
-import Kingfisher
-import KakaObjcKit
-import UniformTypeIdentifiers
-import StoreKit
-import KSPlayer
-import MessageUI
-import SafariServices
 
 // 封面，歌名、歌手、专辑，文件名、文件大小、文件格式、比特率、码率、声道。
 class MusicTagEditorController: SuperViewController {
@@ -50,23 +37,12 @@ class MusicTagEditorController: SuperViewController {
     override func preSetupSubViews() {
         super.preSetupSubViews()
         contentView.addSubview(tableView)
-        contentView.addSubview(identifyButton)
     }
     
     public override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
         tableView.frame = contentView.bounds
-        
-        let bottomSpace = kaka_IsMacOS() ? (playingHeight + 12.ckValue()) : 12.ckValue()
-                    
-        contentView.addSubview(identifyButton)
-        identifyButton.snp.remakeConstraints { make in
-            make.centerX.equalTo(view.safeAreaLayoutGuide.snp.centerX)
-            make.leading.equalTo(view.safeAreaLayoutGuide.snp.leading).offset(20.ckValue())
-            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-bottomSpace)
-            make.height.equalTo(identifyButton.layer.cornerRadius * 2)
-        }
         
     }
     
@@ -223,9 +199,11 @@ class MusicTagEditorController: SuperViewController {
         let model1 = MeteDataGroupCellModel(group: .headGroup, headTitle: nil, itemArray: [.headerTag], footTitle: nil)
         let model2 = MeteDataGroupCellModel(group: .basicGroup, headTitle: "*" + "Basic".localStr(), itemArray: [.title, .artist, .album, .coverImage, .lyrics], footTitle: nil)
         
-        let model3 = MeteDataGroupCellModel(group: .otherGroup, headTitle: "Others".localStr(), itemArray: [.year, .genre, .track, .comment, .channel, .bitRate, .samples], footTitle: nil)
+        let autoModel = MeteDataGroupCellModel(group: .audioFinger, headTitle: nil, itemArray: [.audioFinger], footTitle: nil)
+        
+        let model3 = MeteDataGroupCellModel(group: .otherGroup, headTitle: "Others".localStr(), itemArray: [.year, .genre, .trackNumber, .comment, .channel, .bitRate, .samples], footTitle: nil)
         let model4 = MeteDataGroupCellModel(group: .readonlyGroup, headTitle: "File".localStr(), itemArray: [.fileName, .fileExtension, .fileSize, .fileDuration, .filePath], footTitle: nil)
-        return kaka_IsMacOS() ? [model2, model3, model4] : [model1, model2, model3, model4]
+        return [model1, model2, autoModel, model3, model4]
     }()
     
     lazy var tableView: UITableView = {
@@ -236,57 +214,12 @@ class MusicTagEditorController: SuperViewController {
         view.rowHeight = UITableView.automaticDimension
         view.contentInsetAdjustmentBehavior = .automatic
         view.register(MusicTagHeadCell.self, forCellReuseIdentifier: "MusicTagHeadCell")
+        view.register(AudioFingerTableViewCell.self, forCellReuseIdentifier: "AudioFingerTableViewCell")
         view.register(MeteDataDetialViewCell.self, forCellReuseIdentifier: "MeteDataDetialViewCell")
         view.register(UITableViewCell.self, forCellReuseIdentifier: "ExportTableViewCell")
         return view
     }()
-    
-    lazy var identifyButton: UIView = {
-        let view = UIView()
-        view.backgroundColor = appMainColor
-        view.layer.cornerRadius = 25.ckValue()
         
-        // 1. 创建内部排列的栈视图
-        let stackView = UIStackView()
-        stackView.axis = .horizontal
-        stackView.spacing = 6.ckValue() // 完美的间距控制
-        stackView.alignment = .center
-        stackView.distribution = .equalSpacing
-        stackView.isUserInteractionEnabled = false // 让事件穿透到父视图
-        
-        // 2. 内部组件
-        let imgView = UIImageView(image: UIImage(systemName: "touchid"))
-        imgView.tintColor = .white
-        
-        let label = UILabel()
-        label.text = "Auto-Match".localStr()
-        label.textColor = .white
-        label.font = UIFontBold(17.ckValue())
-        
-        stackView.addArrangedSubview(imgView)
-        stackView.addArrangedSubview(label)
-        
-        // 3. 布局堆栈
-        view.addSubview(stackView)
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
-        ])
-        
-        // 4. 阴影
-        view.layer.shadowColor = UIColor.black.cgColor
-        view.layer.shadowOffset = CGSize(width: 5, height: 5)
-        view.layer.shadowOpacity = 0.3
-        view.layer.shadowRadius = 6
-        
-        // 5. 点击手势
-        let tap = UITapGestureRecognizer(target: self, action: #selector(audioMatchByAudioID))
-        view.addGestureRecognizer(tap)
-        
-        return view
-    }()
-    
 }
 
 extension MusicTagEditorController: UITableViewDataSource, UITableViewDelegate {
@@ -305,7 +238,12 @@ extension MusicTagEditorController: UITableViewDataSource, UITableViewDelegate {
         if groupModel.group == .headGroup {
             let cell = tableView.dequeueReusableCell(withIdentifier: "MusicTagHeadCell", for: indexPath) as! MusicTagHeadCell
             return cell
-        } else{
+        } else if groupModel.group == .audioFinger {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "AudioFingerTableViewCell", for: indexPath) as! AudioFingerTableViewCell
+            cell.title = itemType.titleStr()
+            return cell
+        }
+        else{
             let cell = tableView.dequeueReusableCell(withIdentifier: "MeteDataDetialViewCell", for: indexPath) as! MeteDataDetialViewCell
 #warning("模拟mock数据")
 //#if DEBUG
@@ -324,7 +262,7 @@ extension MusicTagEditorController: UITableViewDataSource, UITableViewDelegate {
         let groupModel = dataArray[indexPath.section]
         let itemType = groupModel.itemArray[indexPath.row]
         
-        let clickArray: [MeteDataCellItemType] = [.title, .artist, .album, .genre, .track, .year]
+        let clickArray: [MeteDataCellItemType] = [.title, .artist, .album, .genre, .trackNumber, .year]
         if clickArray.contains(itemType) {
             
             let alertController = UIAlertController(title: itemType.titleStr(), message: nil, preferredStyle: .alert)
@@ -333,7 +271,6 @@ extension MusicTagEditorController: UITableViewDataSource, UITableViewDelegate {
             }
             
             let action2 = UIAlertAction(title: "Manual Edit".localStr(), style: .default) { (sender) in
-                
                 
                 if itemType == .title {
                     self.editTitleAction()
@@ -351,7 +288,7 @@ extension MusicTagEditorController: UITableViewDataSource, UITableViewDelegate {
                     self.editGenreAction()
                 }
                 
-                if itemType == .track {
+                if itemType == .trackNumber {
                     self.editTrackNumberAction()
                 }
                 
@@ -377,6 +314,10 @@ extension MusicTagEditorController: UITableViewDataSource, UITableViewDelegate {
         
         if itemType == .lyrics {
             self.editLyricsAction()
+        }
+        
+        if itemType == .audioFinger {
+            self.audioMatchByAudioID()
         }
         
         if itemType == .comment {
@@ -422,6 +363,15 @@ extension MusicTagEditorController {
     
     // 0️⃣ 修改封面图
     func editArtworkAction() {
+        
+        if !UserInfoManager.shared.isVIP() {
+            let title = "🫆" + "Auto-Match".localStr()
+            let message = "HD 4K cover art and lyrics are Premium metadata features. The free version supports manually editing basic metadata like Title, Artist, and Album. Upgrade to Premium to take your music collection to the next level!".localStr()
+            self.showTwoAlert(title: title, message: message, confirm: "Unlock Premium".localStr()) {
+                self.vipCenterClick()
+            }
+            return
+        }
         
         guard let editModel = self.editModel else { return }
 
@@ -767,6 +717,15 @@ extension MusicTagEditorController {
             return
         }
         
+        if !editModel.isHaveLyric() && !UserInfoManager.shared.isVIP() {
+            let title = "🫆" + "Auto-Match".localStr()
+            let message = "HD 4K cover art and lyrics are Premium metadata features. The free version supports manually editing basic metadata like Title, Artist, and Album. Upgrade to Premium to take your music collection to the next level!".localStr()
+            self.showTwoAlert(title: title, message: message, confirm: "Unlock Premium".localStr()) {
+                self.vipCenterClick()
+            }
+            return
+        }
+        
 #warning("模拟mock数据")
 //#if DEBUG
 //        let editVC = SelectLyricViewController(music: editModel, result: nil)
@@ -806,6 +765,16 @@ extension MusicTagEditorController {
     
     // 音频指纹识别元数据
     @objc func audioMatchByAudioID() {
+        
+        if !UserInfoManager.shared.isVIP() {
+            let title = "🫆" + "Auto-Match".localStr()
+            let message = "No manual editing required! AI Acoustic Fingerprinting analyzes the audio waveform to instantly fetch accurate metadata, 4K artwork, lyrics, and more.".localStr()
+            self.showTwoAlert(title: title, message: message, confirm: "Unlock Premium".localStr()) {
+                self.vipCenterClick()
+            }
+            return
+        }
+        
         guard let origialModel = self.origialModel else { return }
         
         let recognizerVC = AudioMatchTagViewController(origialModel)
@@ -863,7 +832,7 @@ extension MusicTagEditorController: MFMailComposeViewControllerDelegate, SFSafar
     @objc func handleWithEmail() {
         self.view.endEditing(true)
         
-        let subject = "\(kaka_osType().iconStr()) \("Waketag".localStr()) Feedback"
+        let subject = "\(kaka_osType().iconStr()) \("Wake Music".localStr()) Feedback"
         let messageBody = "\r\r\r\r\r-----------------------------" + "\r" + self.getDeviceInformation()
         
         let canOpenMailScheme = UIApplication.shared.canOpenURL(URL(string: "mailto:")!)
@@ -922,7 +891,7 @@ extension MusicTagEditorController: MFMailComposeViewControllerDelegate, SFSafar
         return """
         File Name: \(fileName)
         All Metadata: \(allInfo)
-        App Name: \("Waketag".localStr())
+        App Name: \("Wake Music".localStr())
         App Version: \(appVersion)
         Device Model: \(model)
         System Version: \(systemVersion)
@@ -946,7 +915,33 @@ class MeteDataDetialViewCell: UITableViewCell {
     func update(model: MusicItemModel?, itemType: MeteDataCellItemType, coverImage: UIImage?, fileSize: String?) {
         var cellConfig = UIListContentConfiguration.cell()
         cellConfig.prefersSideBySideTextAndSecondaryText = true
-        cellConfig.text = itemType.titleStr()
+        if UserInfoManager.shared.isVIP() || (itemType != .coverImage && itemType != .lyrics) {
+            cellConfig.text = itemType.titleStr()
+        }else{
+            let titleStr = itemType.titleStr() ?? ""
+
+            // 1. 设置基础文字样式（使用系统默认字体或主色调）
+            let font = cellConfig.textProperties.font
+            let attributedTitle = NSMutableAttributedString(string: titleStr + " ", attributes: [.font: font, .foregroundColor: UIColor.label])
+            
+            // 2. 创建并配置 Pro 图标附件
+            let crownImage = UIImage(named: "pro_crown")!
+            let imageAttachment = NSTextAttachment()
+            imageAttachment.image = crownImage
+            
+            // 3. 计算图标尺寸与垂直居中偏移量（Y offset）
+            let iconHeight: CGFloat = 14
+            let iconWidth: CGFloat = crownImage.size.width * (iconHeight / crownImage.size.height)
+            let yOffset = (font.capHeight - iconHeight) / 2.0 // 精准与文字对齐
+            
+            imageAttachment.bounds = CGRect(x: 0, y: yOffset, width: iconWidth, height: iconHeight)
+            
+            // 4. 将图标拼接在文案末尾
+            let iconString = NSAttributedString(attachment: imageAttachment)
+            attributedTitle.append(iconString)
+            
+            cellConfig.attributedText = attributedTitle
+        }
         
         switch itemType {
         case .headerTag: break
@@ -974,7 +969,14 @@ class MeteDataDetialViewCell: UITableViewCell {
             self.accessoryView = nil
             self.accessoryType = .disclosureIndicator
             break
-        case .track:
+            
+        case .audioFinger:
+            cellConfig.secondaryText = nil
+            self.accessoryView = nil
+            self.accessoryType = .none
+            break
+            
+        case .trackNumber:
             cellConfig.secondaryText = (model?.track ?? 0) > 0 ? "\(model?.track ?? 0)" : ""
             self.accessoryView = nil
             self.accessoryType = .disclosureIndicator
@@ -1190,7 +1192,8 @@ class MusicTagHeadCell: UITableViewCell {
     }
     
     private func preSetupSubViews() {
-        self.addSubview(starImgView)
+        contentView.addSubview(starImgView)
+        contentView.addSubview(titleLabel)
     }
     
     private func preSetupContains() {
@@ -1201,9 +1204,15 @@ class MusicTagHeadCell: UITableViewCell {
             make.centerX.equalToSuperview()
             make.height.equalTo(self.starSize)
             make.width.equalTo(starImgView.snp.height).multipliedBy(value)
-            make.bottom.equalToSuperview()
         }
         
+        titleLabel.snp.makeConstraints { make in
+            make.top.equalTo(starImgView.snp.bottom).offset(10.ckValue())
+            make.centerX.equalToSuperview()
+            make.leading.equalTo(12.ckValue())
+            make.height.greaterThanOrEqualTo(0)
+            make.bottom.equalToSuperview().offset(-20.ckValue())
+        }
     }
     
     var starSize: CGFloat {
@@ -1229,6 +1238,15 @@ class MusicTagHeadCell: UITableViewCell {
         return view
     }()
     
+    lazy var titleLabel: UILabel = {
+        let view = UILabel()
+        view.text = "Music tag refers to the metadata embedded in a music file, including cover image, lyrics, title, artist, album, era, genre, track, sampling rate, bit rate, etc.".localStr()
+        view.numberOfLines = 0
+        view.font = UIFontLight(15.ckValue())
+        view.textColor = .secondaryLabel
+        view.textAlignment = .center
+        return view
+    }()
 }
 
 

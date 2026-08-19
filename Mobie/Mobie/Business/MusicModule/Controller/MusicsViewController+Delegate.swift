@@ -122,15 +122,11 @@ extension MusicsViewController: MusicTableViewCellDelegate {
     
     // 音频指纹识别
     func audioFingerprintRecognzer(_ model: MusicItemModel) {
-        let recognizerVC = AudioMatchTagViewController(model)
-        recognizerVC.onEditCallback = { [weak self] (newModel) in
+        let tagVC = MusicTagEditorController(model)
+        tagVC.onEditCallback = { [weak self] (newModel) in
             self?.perform(#selector(self?.refreshDataAction), with: nil, afterDelay: 1)
         }
-        let navVC = KakaNavigationController(rootViewController: recognizerVC)
-#if DEBUG
-        navVC.modalPresentationStyle = .automatic
-#endif
-        self.present(navVC, animated: true)
+        self.navigationController?.pushViewController(tagVC, animated: true)
     }
     
     // 编辑音乐标签

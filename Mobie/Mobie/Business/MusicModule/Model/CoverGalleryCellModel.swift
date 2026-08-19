@@ -8,10 +8,10 @@
 import Foundation
 
 enum CoverGalleryGroupType: Int {
-    case headGroup = 1
-    case selectImage = 2
-    case searchAI = 3
-    case localGroup = 4
+    case headGroup = 0
+    case selectImage
+    case audioFinger
+    case localGroup
 }
 
 struct CoverGalleryCellModel {

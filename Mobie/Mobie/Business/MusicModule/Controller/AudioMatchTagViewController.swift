@@ -150,7 +150,7 @@ class AudioMatchTagViewController: SuperViewController {
     }()
                 
     lazy var dataArray: [MeteDataCellItemType] = {
-        return [.coverImage, .title, .artist, .album, .year, .genre, .track, .lyrics]
+        return [.coverImage, .title, .artist, .album, .year, .genre, .trackNumber, .lyrics]
     }()
     
     lazy var tableView: UITableView = {
@@ -258,7 +258,7 @@ extension AudioMatchTagViewController: UITableViewDataSource, UITableViewDelegat
             self.manual_editAlbumAction()
         }
         
-        if cellType == .track {
+        if cellType == .trackNumber {
             self.manual_editTrackNumberAction()
         }
         
@@ -355,7 +355,7 @@ extension AudioMatchTagViewController: AudioMatchTagDelete {
             self.auto_editYearAction(year)
         }
         
-        if cellType == .track, let track = model.trackNumber, track > 0 {
+        if cellType == .trackNumber, let track = model.trackNumber, track > 0 {
             self.auto_editTrackNumberAction(track)
         }
         
@@ -971,7 +971,7 @@ extension AudioMatchTagViewController: MFMailComposeViewControllerDelegate, SFSa
     @objc func handleWithEmail() {
         self.view.endEditing(true)
         
-        let subject = "\(kaka_osType().iconStr()) \("Waketag".localStr()) Feedback"
+        let subject = "\(kaka_osType().iconStr()) \("Wake Music".localStr()) Feedback"
         let messageBody = "\r\r\r\r\r-----------------------------" + "\r" + self.getDeviceInformation()
         
         let canOpenMailScheme = UIApplication.shared.canOpenURL(URL(string: "mailto:")!)
@@ -1030,7 +1030,7 @@ extension AudioMatchTagViewController: MFMailComposeViewControllerDelegate, SFSa
         return """
         File Name: \(fileName)
         All Metadata: \(allInfo)
-        App Name: \("Waketag".localStr())
+        App Name: \("Wake Music".localStr())
         App Version: \(appVersion)
         Device Model: \(model)
         System Version: \(systemVersion)

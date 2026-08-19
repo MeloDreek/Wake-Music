@@ -101,6 +101,15 @@ class LyricDetialViewController: SuperViewController {
     
     // 没有歌词
     @objc func noneLyricsAction() {
+        if !UserInfoManager.shared.isVIP() {
+            let title = "🫆" + "Auto-Match".localStr()
+            let message = "HD 4K cover art and lyrics are Premium metadata features. The free version supports manually editing basic metadata like Title, Artist, and Album. Upgrade to Premium to take your music collection to the next level!".localStr()
+            self.showTwoAlert(title: title, message: message, confirm: "Unlock Premium".localStr()) {
+                self.vipCenterClick()
+            }
+            return
+        }
+        
         let editVC = LyricEditorViewController(musicModel: self.editModel)
         editVC.title = self.editModel.filePathName()
         editVC.editCallBack = { [weak self] (newLyric) in
@@ -122,7 +131,11 @@ class LyricDetialViewController: SuperViewController {
     // 搜索歌词页面
     func searchLyricAction() {
         if !UserInfoManager.shared.isVIP() {
-            self.vipCenterClick()
+            let title = "🫆" + "Auto-Match".localStr()
+            let message = "HD 4K cover art and lyrics are Premium metadata features. The free version supports manually editing basic metadata like Title, Artist, and Album. Upgrade to Premium to take your music collection to the next level!".localStr()
+            self.showTwoAlert(title: title, message: message, confirm: "Unlock Premium".localStr()) {
+                self.vipCenterClick()
+            }
             return
         }
         
@@ -257,6 +270,15 @@ extension LyricDetialViewController {
         let alertController = UIAlertController(title: title, message: MusicTagType.lyrics.titleStr(), preferredStyle: kaka_IsiPhone() ? .actionSheet : .alert)
         let action1 = UIAlertAction(title: "Edit".localStr(), style: .default) { [weak self] (sender) in
             guard let wSelf = self else { return }
+            
+            if !UserInfoManager.shared.isVIP() {
+                let title = "🫆" + "Auto-Match".localStr()
+                let message = "HD 4K cover art and lyrics are Premium metadata features. The free version supports manually editing basic metadata like Title, Artist, and Album. Upgrade to Premium to take your music collection to the next level!".localStr()
+                wSelf.showTwoAlert(title: title, message: message, confirm: "Unlock Premium".localStr()) {
+                    wSelf.vipCenterClick()
+                }
+                return
+            }
             
             let editVC = LyricEditorViewController(musicModel: wSelf.editModel)
             editVC.title = wSelf.editModel.filePathName()

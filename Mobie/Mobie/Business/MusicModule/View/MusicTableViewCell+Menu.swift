@@ -80,7 +80,7 @@ extension MusicTableViewCell {
         
         let deleteMenu = UIMenu(title: "", options: .displayInline, children: kaka_IsMacOS() ? [finderAction, deleteAction] : [deleteAction])
         
-        let menu = UIMenu(title: self.musicModel.showTitleName(), image: UIImage(systemName: "ellipsis"), identifier: nil, options: [], children: [musictagMenu, otherMenu, deleteMenu])
+        let menu = UIMenu(title: self.musicModel.mediaPlayURL.lastPathComponent, image: UIImage(systemName: "ellipsis"), identifier: nil, options: [], children: [musictagMenu, otherMenu, deleteMenu])
         
         return menu
     }

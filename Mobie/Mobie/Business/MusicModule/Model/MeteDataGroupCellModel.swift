@@ -9,11 +9,11 @@ import AppGroupKit
 
 enum MeteDataCellGroupType: Int {
     case headGroup  = 0
-    case basicGroup = 1
-    case searchAI = 2
-    case otherGroup  = 3
-    case readonlyGroup  = 4
-    case exportGroup = 5
+    case basicGroup
+    case audioFinger
+    case otherGroup
+    case readonlyGroup
+    case exportGroup
 }
 
 // 【封面、歌名、歌手、专辑、歌词】，【年代、声道、流派、音轨】，【文件名、扩展名、文件大小、比特率、码率】
@@ -37,25 +37,27 @@ enum MeteDataCellItemType: Int {
     
     case headerTag = 0
     
-    case coverImage = 1
-    case title = 2
-    case artist = 3
-    case album = 4
-    case lyrics = 5
-        
-    case year    = 7
-    case channel = 8
-    case genre   = 9
-    case track   = 10
-    case comment = 11
-    case bitRate = 12
-    case samples = 13
+    case coverImage
+    case title
+    case artist
+    case album
+    case lyrics
     
-    case fileName = 14
-    case fileExtension = 15
-    case fileSize = 16
-    case fileDuration = 17
-    case filePath = 18
+    case audioFinger
+        
+    case year
+    case channel
+    case genre
+    case trackNumber
+    case comment
+    case bitRate
+    case samples
+    
+    case fileName
+    case fileExtension
+    case fileSize
+    case fileDuration
+    case filePath
         
     func titleStr() -> String? {
         switch self {
@@ -73,11 +75,14 @@ enum MeteDataCellItemType: Int {
         case .lyrics:
             return MusicTagType.lyrics.titleStr()
             
+        case .audioFinger:
+            return "Auto-Match".localStr()
+            
         case .year:
             return MusicTagType.year.titleStr()
         case .genre:
             return MusicTagType.genre.titleStr()
-        case .track:
+        case .trackNumber:
             return MusicTagType.trackNumber.titleStr()
         case .comment:
             return MusicTagType.comment.titleStr()

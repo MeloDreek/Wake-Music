@@ -223,7 +223,7 @@ class LibraryCoverViewController: SuperViewController, PHPickerViewControllerDel
     lazy var dataArray: [CoverGalleryCellModel] = {
         let model1 = CoverGalleryCellModel(group: .headGroup, headTitle: nil, footTitle: nil)
         let model2 = CoverGalleryCellModel(group: .selectImage, headTitle: nil, footTitle: nil)
-        let model3 = CoverGalleryCellModel(group: .searchAI, headTitle: "🫆 "  + "Audio Fingerprint".localStr(), footTitle: nil)
+        let model3 = CoverGalleryCellModel(group: .audioFinger, headTitle: "🫆 "  + "Audio Fingerprint".localStr(), footTitle: nil)
         let model4 = CoverGalleryCellModel(group: .localGroup, headTitle: "Cached Files".localStr(), footTitle: nil)
         
         switch self.editStyle {
@@ -352,7 +352,7 @@ extension LibraryCoverViewController: UITableViewDataSource, UITableViewDelegate
             return 1
         }else if groupModel.group == .selectImage {
             return 1
-        } else if groupModel.group == .searchAI {
+        } else if groupModel.group == .audioFinger {
             return remoteUrlArray.count > 0 ? remoteUrlArray.count : 1
         }else{
             return self.localUrlArray.count
@@ -365,7 +365,7 @@ extension LibraryCoverViewController: UITableViewDataSource, UITableViewDelegate
             let cell = tableView.dequeueReusableCell(withIdentifier: "CoverGalleryHeadCell", for: indexPath) as! CoverGalleryHeadCell
             
             return cell
-        }else if groupModel.group == .searchAI {
+        }else if groupModel.group == .audioFinger {
             if remoteUrlArray.count > 0 {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "CoverGalleryTableCell", for: indexPath) as! CoverGalleryTableCell
                 cell.updateRemote(remoteModel: remoteUrlArray[indexPath.row], isSelect: false)
@@ -421,7 +421,7 @@ extension LibraryCoverViewController: UITableViewDataSource, UITableViewDelegate
             self.cameraItemsAction()
         }
         
-        if groupModel.group == .localGroup || groupModel.group == .searchAI {
+        if groupModel.group == .localGroup || groupModel.group == .audioFinger {
             
             guard let imageCell = tableView.cellForRow(at: indexPath) as? CoverGalleryTableCell else { return }
             if self.editStyle != .preview {

@@ -34,7 +34,7 @@ class PurchaseHeadCell: UITableViewCell {
         descLabel.snp.makeConstraints { make in
             make.leading.equalToSuperview()
             make.centerX.equalToSuperview()
-            make.bottom.equalToSuperview()
+            make.bottom.equalToSuperview().offset(-20.ckValue())
             make.height.greaterThanOrEqualTo(0)
         }
         
