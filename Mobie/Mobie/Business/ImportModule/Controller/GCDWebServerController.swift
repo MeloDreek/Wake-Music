@@ -6,7 +6,7 @@
 //
 
 import KakaFoundation
-import GCDWebServer
+import SwiftyUploader
 import KakaUIKit
 import AppGroupKit
 import FLAnimatedImage
@@ -17,6 +17,7 @@ import StoreKit
 class GCDWebServerController: SuperViewController {
     
     deinit {
+        self.fileWatcher.startWatching()
         try? FileManager.default.removeItem(atPath: SandboxType_WifiPC)
     }
     
@@ -66,35 +67,22 @@ class GCDWebServerController: SuperViewController {
         self.navigationItem.rightBarButtonItem = techItem
         
         self.refreshDataAction()
-                
-        NotificationCenter.default.addObserver(self, selector: #selector(purchageSuccessNoti(_:)), name: Notification.Name(kPurchageSuccessKey), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(purchageSuccessNoti(_:)), name: UIApplication.didBecomeActiveNotification, object: nil)
+        
+        self.fileWatcher.startWatching()
     }
     
     @objc func refreshDataAction() {
+        self.webServer.run()
         
-        if self.webServer.isRunning {
-            self.webServer.stop()
-        }
-        
-        // 生成一个随机端口号，范围从 1024 到 65535
-        let randomPort = UInt(arc4random_uniform(64512)) + 1024
-
-        self.webServer.start(withPort: randomPort, bonjourName: nil)
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] () in
-            self?.tableView.reloadData()
-            self?.kaka_header.endRefreshing()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            self.tableView.reloadData()
+            self.kaka_header.endRefreshing()
         }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-    }
-    
-    // 监听支付成功，提示配置。
-    @objc func purchageSuccessNoti(_ noti: Notification) {
-        self.tableView.reloadData()
     }
     
     @objc func supportVideoClick() {
@@ -224,22 +212,32 @@ class GCDWebServerController: SuperViewController {
     }
     
     
-    // MARK:  懒加载 
-    lazy var webServer: GCDWebUploader = {
+    // MARK:  懒加载
+    
+    let baseURL = SandboxFileManager.shared.lyricsPathURL()
+    
+    lazy var webServer: SwiftyUploader = {
         let auduoTypes: [String] = (["LRC"] + AudioExtension.audioSuffixs).map({ $0.lowercased() })
+        let footStr = auduoTypes.map({ $0.uppercased() }).joined(separator: ", ") + "..."
         
-        let appVersion = (Bundle.main.infoDictionary!["CFBundleShortVersionString"] as? String) ?? "1.0.0"
-        let appBuildVersion = Bundle.main.infoDictionary!["CFBundleVersion"] as? String
+        let title = Application.wakeMusic.appTitle()
+        let message = "Drag and drop music files into this window or click the Upload File button. Please keep the screen on while transferring.".localStr()
         
-        let server = GCDWebUploader(uploadDirectory: self.tmpFolderPath)
-        server.delegate = self
-        server.title = "🎵" + "Wake Music".localStr()
-        server.footer = "Wake Music".localStr() + " \(appVersion) " + "(\(appBuildVersion ?? "99"))"
-        server.prologue = "Drag and drop music files into this window or click the Upload File button. Please keep the screen on while transferring.".localStr()
-        server.epilogue = auduoTypes.map({ $0.uppercased() }).joined(separator: ", ") + "..."
-        server.allowedFileExtensions = auduoTypes
-        server.allowHiddenItems = true
+        var config = SwiftyUploaderConfig()
+        config.header = title
+        config.title = title
+        config.message = message
+        config.footer = footStr
+        
+        SwiftyUploader.config = config
+        let server = SwiftyUploader(self.baseURL)
         return server
+    }()
+    
+    lazy var fileWatcher: DocumentFolderWatcher = {
+        let watcher = DocumentFolderWatcher(self.baseURL)
+        watcher.delegate = self
+        return watcher
     }()
     
     lazy var tableView: UITableView = {
@@ -247,7 +245,7 @@ class GCDWebServerController: SuperViewController {
         view.delegate = self
         view.dataSource = self
 #if !targetEnvironment(macCatalyst)
-view.refreshControl = self.kaka_header
+        view.refreshControl = self.kaka_header
 #endif
         view.tableHeaderView = self.headerView
         view.contentInsetAdjustmentBehavior = .automatic
@@ -273,6 +271,19 @@ view.refreshControl = self.kaka_header
     
 }
 
+extension GCDWebServerController: DocumentFolderWatcherDelegate {
+    func documentFolderWatcherDidAddFiles(watcher: DocumentFolderWatcher, addFiles: [URL]) {
+        for subFile in addFiles {
+            self.view.makeToast(subFile.lastPathComponent)
+        }
+    }
+    
+    func documentFolderWatcherDidDeleteFiles(watcher: DocumentFolderWatcher, deleteFiles: [URL]) {
+        
+    }
+    
+}
+
 
 extension GCDWebServerController: UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -286,7 +297,7 @@ extension GCDWebServerController: UITableViewDataSource, UITableViewDelegate, UI
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "GCDURLTableViewCell", for: indexPath) as! GCDURLTableViewCell
-            cell.webUrl = self.webServer.serverURL
+            cell.webUrl = self.webServer.getIPAddress()
             return cell
         }else{
             if self.dataArray.count == 0 {
@@ -315,22 +326,13 @@ extension GCDWebServerController: UITableViewDataSource, UITableViewDelegate, UI
             tableView.deselectRow(at: indexPath, animated: true)
             
             guard let curCell = tableView.cellForRow(at: indexPath) as? GCDURLTableViewCell else { return }
-            guard let serverURL = self.webServer.serverURL else {
-                curCell.kaka_playShakeAnim()
-                return
-            }
+            
+            let serverURL = self.webServer.getIPAddress()
             
             curCell.webUrl = serverURL
-
-            let shareVC = UIActivityViewController(activityItems: [serverURL], applicationActivities: nil)
-            if !kaka_IsiPhone() {
-                shareVC.popoverPresentationController?.sourceView = curCell.contentView
-                curCell.copyButton.isSelected = true
-            }
-            self.present(shareVC, animated: true, completion: nil)
             
-            UIPasteboard.general.string = serverURL.absoluteString
-            shareVC.view.makeToast("Copied".localStr())
+            UIPasteboard.general.string = serverURL
+            self.view.makeToast("Copied".localStr())
         }else{
             
             if dataArray.count == 0 {
@@ -367,7 +369,9 @@ extension GCDWebServerController: UITableViewDataSource, UITableViewDelegate, UI
         if section == 0 {
             return "Please make sure the current device is connected to the same Wi-Fi as your computer or Android phone, and keep the screen on during transmission❗️".localStr()
         }else{
-            return self.webServer.epilogue
+            let auduoTypes: [String] = (["LRC"] + AudioExtension.audioSuffixs).map({ $0.lowercased() })
+            let footStr = auduoTypes.map({ $0.uppercased() }).joined(separator: ", ") + "..."
+            return footStr
         }
     }
     
@@ -504,14 +508,14 @@ class GCDURLTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    var webUrl: URL? {
+    var webUrl: String? {
         didSet {
             self.accessoryView = self.copyButton
             
             var cellConfig = UIListContentConfiguration.cell()
-            cellConfig.text = webUrl?.absoluteString ?? "Please connect to Wi-Fi".localStr()
+            cellConfig.text = webUrl ?? "Please connect to Wi-Fi".localStr()
             cellConfig.textProperties.font = UIFontBold(14.ckValue())
-            cellConfig.textProperties.color = webUrl?.absoluteString.count == 0 ? UIColor.orange : UIColor.label
+            cellConfig.textProperties.color = webUrl?.count == 0 ? UIColor.orange : UIColor.label
             self.contentConfiguration = cellConfig
         }
     }

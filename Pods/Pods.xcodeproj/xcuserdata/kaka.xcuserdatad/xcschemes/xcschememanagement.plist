@@ -29,11 +29,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>GCDWebServer.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>GTMAppAuth-GTMAppAuth_Privacy.xcscheme</key>
 		<dict>
 			<key>isShown</key>

@@ -335,7 +335,7 @@ extension LibraryLyricsViewController: UITableViewDataSource, UITableViewDelegat
             if !kaka_IsMacOS() && indexPath.section == 1 {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "GCDURLTableViewCell", for: indexPath) as! GCDURLTableViewCell
 #if !targetEnvironment(macCatalyst)
-                cell.webUrl = self.webServer.serverURL
+                cell.webUrl = self.webServer.serverURL?.absoluteString
 #endif
                 return cell
             }else{
@@ -365,7 +365,7 @@ extension LibraryLyricsViewController: UITableViewDataSource, UITableViewDelegat
                 return
             }
             
-            curCell.webUrl = serverURL
+            curCell.webUrl = serverURL.absoluteString
 
             let shareVC = UIActivityViewController(activityItems: [serverURL], applicationActivities: nil)
             if !kaka_IsiPhone() {

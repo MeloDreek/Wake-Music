@@ -15,9 +15,6 @@ PODS:
     - KakaTaglibKit
     - KakaUIKit
   - FLAnimatedImage (1.0.17)
-  - GCDWebServer/Core (3.5.4)
-  - GCDWebServer/WebUploader (3.5.4):
-    - GCDWebServer/Core
   - GoogleSignIn (9.0.0):
     - AppAuth (~> 2.0)
     - AppCheckCore (~> 11.0)
@@ -68,7 +65,6 @@ PODS:
 
 DEPENDENCIES:
   - AppGroupKit (from `./LocalSDK/AppGroupKit`)
-  - GCDWebServer/WebUploader (~> 3.5.4)
   - GoogleSignIn (~> 9.0.0)
   - JXSegmentedView (~> 1.4.1)
   - KakaFoundation (from `./LocalSDK/KakaFoundation`)
@@ -85,7 +81,6 @@ SPEC REPOS:
     - AppAuth
     - AppCheckCore
     - FLAnimatedImage
-    - GCDWebServer
     - GoogleSignIn
     - GoogleUtilities
     - GTMAppAuth
@@ -121,7 +116,6 @@ SPEC CHECKSUMS:
   AppCheckCore: cc8fd0a3a230ddd401f326489c99990b013f0c4f
   AppGroupKit: 3b3d2dec739ef581c065f1324d565894eb64d7d0
   FLAnimatedImage: bbf914596368867157cc71b38a8ec834b3eeb32b
-  GCDWebServer: 2c156a56c8226e2d5c0c3f208a3621ccffbe3ce4
   GoogleSignIn: c7f09cfbc85a1abf69187be091997c317cc33b77
   GoogleUtilities: 00c88b9a86066ef77f0da2fab05f65d7768ed8e1
   GTMAppAuth: 217a876b249c3c585a54fd6f73e6b58c4f5c4238
@@ -142,6 +136,6 @@ SPEC CHECKSUMS:
   SwiftyDropbox: 3dbb9cb3dc28220e6b7b492d97b9160730e5ca81
   WakeMusicPlayer: 6d7ff038405541492944454e1a56cff5de9e5ce7
 
-PODFILE CHECKSUM: 566d4c4bb092e5ffe2aa9d234b77dd65c756a0b6
+PODFILE CHECKSUM: e0337e228108c5e1f03c18da9e3c01785c88e381
 
 COCOAPODS: 1.16.2

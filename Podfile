@@ -35,7 +35,6 @@ target 'Mobie' do
 #  pod 'YandexLoginSDK', '~> 3.0.2'
 #  pod 'MegaSDK', :git => 'https://github.com/meganz/sdk.git', :tag => 'v18.0' # 替换为最新版本号
 
-  pod "GCDWebServer/WebUploader", "~> 3.5.4"
   pod 'JXSegmentedView', '~> 1.4.1'
   pod 'ProgressHUD', '~> 14.1.1'
   
@@ -72,7 +71,6 @@ target 'Mobie_Pro' do
 #  pod 'YandexLoginSDK', '~> 3.0.2'
 #  pod 'MegaSDK', :git => 'https://github.com/meganz/sdk.git', :tag => 'v18.0' # 替换为最新版本号
   
-  pod "GCDWebServer/WebUploader", "~> 3.5.4"
   pod 'JXSegmentedView', '~> 1.4.1'
   pod 'ProgressHUD', '~> 14.1.1'
   

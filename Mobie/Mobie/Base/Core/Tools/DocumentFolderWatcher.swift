@@ -6,8 +6,8 @@
 //
 
 import Foundation
-import KakaTaglibKit
 
+@MainActor
 protocol DocumentFolderWatcherDelegate: AnyObject {
     
     // 新增了文件
@@ -44,7 +44,9 @@ class DocumentFolderWatcher {
         folderSource = DispatchSource.makeFileSystemObjectSource(fileDescriptor: folderDescriptor, eventMask: .write, queue: DispatchQueue.global())
         
         folderSource?.setEventHandler { [weak self] in
-            self?.folderDidChange()
+            DispatchQueue.main.async {
+                self?.folderDidChange()
+            }
         }
 
         folderSource?.setCancelHandler { [weak self] in
@@ -66,7 +68,7 @@ class DocumentFolderWatcher {
     }
 
     /// 文件夹变化处理
-    private func folderDidChange() {
+    @MainActor private func folderDidChange() {
         
         // 获取当前文件列表
         let currentFiles = currentFiles()
@@ -78,15 +80,10 @@ class DocumentFolderWatcher {
         let deletedFiles = previousFiles.subtracting(currentFiles)
         
         // 更新之前的文件列表
-        self.previousFiles = currentFiles
+        previousFiles = currentFiles
         
         if newFiles.count > 0 {
             let newFileURLs = newFiles.map { URL(fileURLWithPath: $0) }
-            newFileURLs.forEach { subURL in
-                if (subURL as NSURL).isReadOnly() {
-                    (subURL as NSURL).setReadableAndWritable()
-                }
-            }
             self.delegate?.documentFolderWatcherDidAddFiles(watcher: self, addFiles: newFileURLs)
         }
         
@@ -102,6 +99,7 @@ class DocumentFolderWatcher {
             let fileURLs = try FileManager.default.contentsOfDirectory(at: fileURL, includingPropertiesForKeys: nil, options: .skipsHiddenFiles)
             return Set(fileURLs.map { $0.path })
         } catch {
+            debugPrint("无法获取文件夹内容: \(error.localizedDescription)")
             return Set()
         }
     }
