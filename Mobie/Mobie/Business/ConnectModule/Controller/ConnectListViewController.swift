@@ -273,7 +273,7 @@ extension ConnectListViewController: UITableViewDataSource, UITableViewDelegate 
         // 删除
         let deleteAction = UIContextualAction(style: .normal, title: nil) { [weak self] action, view, finish in
             guard let wSelf = self else { return }
-            wSelf.showTwoAlert(title: "Reminder".localStr(), message: "Are you sure to delete it?".localStr(), confirm: "Delete".localStr(), cancle: "Cancel".localStr(), style: kaka_IsiPhone() ? .actionSheet : .alert) {
+            wSelf.showTwoAlert(message: "Are you sure to delete it?".localStr(), confirm: "Delete".localStr(), cancle: "Cancel".localStr(), style: kaka_IsiPhone() ? .actionSheet : .alert) {
                 let model = wSelf.connectArray[indexPath.section]
                 self?.deleteConnectServer(serverModel: model)
                 finish(true)

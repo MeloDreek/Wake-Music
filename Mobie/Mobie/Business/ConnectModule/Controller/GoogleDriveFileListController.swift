@@ -144,7 +144,7 @@ class GoogleDriveFileListController: SuperViewController {
 
                     if failure == .tokenExpiredAuthAgain {
                         // 重新授权
-                        self?.showOneAlert(title: "Reminder".localStr(), message: failure.errorDescription, confirm: "OK".localStr()) {
+                        self?.showOneAlert(message: failure.errorDescription, confirm: "OK".localStr()) {
                             
                             ProgressHUD.animate()
                             
@@ -154,7 +154,7 @@ class GoogleDriveFileListController: SuperViewController {
                                 
                                 guard let result = result, error == nil else {
                                     let message = error?.localizedDescription ?? KakaError.unknowError.errorDescription
-                                    wSelf.showOneAlert(title: "Reminder".localStr(), message: message)
+                                    wSelf.showOneAlert(message: message)
                                     return
                                 }
                                 
@@ -485,7 +485,7 @@ extension GoogleDriveFileListController {
 
         if audioArray.count == 0 {
             self.tableView.kaka_playShakeAnim()
-            self.showOneAlert(title: "Reminder".localStr(), message: "No Audio Files".localStr())
+            self.showOneAlert(message: "No Audio Files".localStr())
             return
         }
         
@@ -524,7 +524,7 @@ extension GoogleDriveFileListController {
         
         if audioArray.count == 0 {
             self.tableView.kaka_playShakeAnim()
-            self.showOneAlert(title: "Reminder".localStr(), message: "No Audio Files".localStr())
+            self.showOneAlert(message: "No Audio Files".localStr())
             return
         }
         

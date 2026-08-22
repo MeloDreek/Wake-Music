@@ -98,15 +98,6 @@ class MusicsViewController: SuperViewController {
                         KakaMusicPlayer.shared.tempMusicArray = sortedArray
                     }
                 }
-//                else{
-//                    
-//                    let sortedArray = ConnectConfigManager.shared.lastPlaylist.sorted(by: { element1, element2 in
-//                        return element1.sortAnotherModel(model2: element2, sortType: MusicConfigManager.shared.sortType)
-//                    })
-//                    
-//                    KakaMusicPlayer.shared.musicArray = sortedArray
-//                    KakaMusicPlayer.shared.tempMusicArray = sortedArray
-//                }
             }
 
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) { [weak self] () in
@@ -312,7 +303,7 @@ view.refreshControl = self.kaka_header
                 }
                 
                 if subGroup != .nonGroup && wSelf.viewModel.allMusicArray.count > 300 {
-                    wSelf.showTwoAlert(title: "Reminder".localStr(), message: "Too many files! Building the index for grouped sorting may take a while.".localStr(), confirm: "Continue".localStr()) {
+                    wSelf.showTwoAlert(message: "Too many files! Building the index for grouped sorting may take a while.".localStr(), confirm: "Continue".localStr()) {
                         self?.viewModel.groupType = subGroup
                         MusicConfigManager.shared.groupType = subGroup
                         self?.setupNavigationItem()

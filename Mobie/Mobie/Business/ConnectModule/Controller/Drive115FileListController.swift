@@ -116,7 +116,7 @@ class Drive115FileListController: SuperViewController {
             case .failure(let failure):
                 if failure == .tokenExpiredAuthAgain {
                     // 重新授权
-                    self?.showOneAlert(title: "Reminder".localStr(), message: failure.errorDescription, confirm: "OK".localStr()) {
+                    self?.showOneAlert(message: failure.errorDescription, confirm: "OK".localStr()) {
                         let drive115VC = Auth115LifeViewController { userModel in
                             self?.loginModel = userModel
                             self?.refreshDataAction()
@@ -445,7 +445,7 @@ extension Drive115FileListController {
 
         if audioArray.count == 0 {
             self.tableView.kaka_playShakeAnim()
-            self.showOneAlert(title: "Reminder".localStr(), message: "No Audio Files".localStr())
+            self.showOneAlert(message: "No Audio Files".localStr())
             return
         }
         
@@ -484,7 +484,7 @@ extension Drive115FileListController {
 
         if audioArray.count == 0 {
             self.tableView.kaka_playShakeAnim()
-            self.showOneAlert(title: "Reminder".localStr(), message: "No Audio Files".localStr())
+            self.showOneAlert(message: "No Audio Files".localStr())
             return
         }
         

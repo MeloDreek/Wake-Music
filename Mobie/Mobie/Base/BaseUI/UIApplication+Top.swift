@@ -12,7 +12,6 @@ public struct AlertActionConfig {
     let title: String
     let style: UIAlertAction.Style
     let actionType: AlertActionType
-//    var backColor: UIColor?
 }
 
 /// 用来区分回调的标识

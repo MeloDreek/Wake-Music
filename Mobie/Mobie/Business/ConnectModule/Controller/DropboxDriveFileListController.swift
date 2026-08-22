@@ -156,7 +156,7 @@ class DropboxDriveFileListController: SuperViewController {
 
                     if failure == .tokenExpiredAuthAgain {
                         // 重新授权
-                        self?.showOneAlert(title: "Reminder".localStr(), message: failure.errorDescription, confirm: "OK".localStr()) {
+                        self?.showOneAlert(message: failure.errorDescription, confirm: "OK".localStr()) {
                             let scopeRequest = ScopeRequest(scopeType: .user, scopes: DropBox_Scopes, includeGrantedScopes: false)
                             
                             DropboxClientsManager.authorizeFromControllerV2(UIApplication.shared, controller: wSelf, loadingStatusDelegate: nil, openURL: { url in
@@ -476,7 +476,7 @@ extension DropboxDriveFileListController {
 
         if audioArray.count == 0 {
             self.tableView.kaka_playShakeAnim()
-            self.showOneAlert(title: "Reminder".localStr(), message: "No Audio Files".localStr())
+            self.showOneAlert(message: "No Audio Files".localStr())
             return
         }
         
@@ -515,7 +515,7 @@ extension DropboxDriveFileListController {
         
         if audioArray.count == 0 {
             self.tableView.kaka_playShakeAnim()
-            self.showOneAlert(title: "Reminder".localStr(), message: "No Audio Files".localStr())
+            self.showOneAlert(message: "No Audio Files".localStr())
             return
         }
         

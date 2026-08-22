@@ -117,7 +117,7 @@ class AliyunDriveFileListController: SuperViewController {
 
                 if failure == .tokenExpiredAuthAgain {
                     // 重新授权
-                    self?.showOneAlert(title: "Reminder".localStr(), message: failure.errorDescription, confirm: "OK".localStr()) {
+                    self?.showOneAlert(message: failure.errorDescription, confirm: "OK".localStr()) {
                         self?.importFromAliyunDrive()
                     }
                 }
@@ -184,7 +184,7 @@ class AliyunDriveFileListController: SuperViewController {
         
         if files.isEmpty {
             let message = "【备份文件】内暂无音频文件"
-            self.showOneAlert(title: "Reminder".localStr(), message: message)
+            self.showOneAlert(message: message)
         }
     }
 
@@ -202,7 +202,7 @@ class AliyunDriveFileListController: SuperViewController {
                 self?.refreshDataAction()
                 break
             case .failure(let failure):
-                self?.showOneAlert(title: "Reminder".localStr(), message: failure.errorDescription)
+                self?.showOneAlert(message: failure.errorDescription)
                 break
             }
         }
@@ -454,7 +454,7 @@ extension AliyunDriveFileListController {
 
         if audioArray.count == 0 {
             self.tableView.kaka_playShakeAnim()
-            self.showOneAlert(title: "Reminder".localStr(), message: "No Audio Files".localStr())
+            self.showOneAlert(message: "No Audio Files".localStr())
             return
         }
         
@@ -493,7 +493,7 @@ extension AliyunDriveFileListController {
         
         if audioArray.count == 0 {
             self.tableView.kaka_playShakeAnim()
-            self.showOneAlert(title: "Reminder".localStr(), message: "No Audio Files".localStr())
+            self.showOneAlert(message: "No Audio Files".localStr())
             return
         }
         

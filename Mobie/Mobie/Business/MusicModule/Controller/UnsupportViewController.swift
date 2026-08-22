@@ -59,7 +59,7 @@ class UnsupportViewController: SuperViewController {
     }()
     
     @objc func deleteBarItemAction() {
-        self.showTwoAlert(title: "Reminder".localStr(), message: "Are you sure to delete it?".localStr(), confirm: "Delete".localStr(), style: kaka_IsiPhone() ? .actionSheet : .alert, complete: { [weak self] () in
+        self.showTwoAlert(message: "Are you sure to delete it?".localStr(), confirm: "Delete".localStr(), style: kaka_IsiPhone() ? .actionSheet : .alert, complete: { [weak self] () in
             guard let wSelf = self else { return }
             wSelf.deleteFilesAction(wSelf.allFiles)
         })
@@ -132,7 +132,7 @@ extension UnsupportViewController: UITableViewDataSource, UITableViewDelegate {
         // 删除
         let deleteAction = UIContextualAction(style: .normal, title: nil) { [weak self] action, view, finish in
             self?.tableView.setEditing(false, animated: true)
-            self?.showTwoAlert(title: "Reminder".localStr(), message: "Are you sure to delete it?".localStr(), confirm: "Delete".localStr(), style: kaka_IsiPhone() ? .actionSheet : .alert, complete: { [weak self] () in
+            self?.showTwoAlert(message: "Are you sure to delete it?".localStr(), confirm: "Delete".localStr(), style: kaka_IsiPhone() ? .actionSheet : .alert, complete: { [weak self] () in
                 self?.deleteFilesAction([subURL])
                 finish(true)
             })

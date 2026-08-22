@@ -23,7 +23,7 @@ extension DonateViewController {
         }
         
         if self.netConnect == .unavailable {
-            self.showTwoAlert(title: "Reminder".localStr(), message: "Network access is disabled. Enable it for the best experience.".localStr(), confirm: "Settings".localStr(), cancle: "Cancel".localStr()) {
+            self.showTwoAlert(message: "Network access is disabled. Enable it for the best experience.".localStr(), confirm: "Settings".localStr(), cancle: "Cancel".localStr()) {
                 guard let vURL = URL(string: UIApplication.openSettingsURLString) else { return }
                 UIApplication.shared.open(vURL)
             }
@@ -44,7 +44,7 @@ extension DonateViewController {
                 ProgressHUD.failed(err.localizedDescription)
             } else {
                 ProgressHUD.dismiss()
-                self?.showOneAlert(title: "Reminder".localStr(), message: "Thank you for your support!".localStr(), complete: {
+                self?.showOneAlert(message: "Thank you for your support!".localStr(), complete: {
                     self?.navigationController?.popViewController(animated: true)
                 })
             }

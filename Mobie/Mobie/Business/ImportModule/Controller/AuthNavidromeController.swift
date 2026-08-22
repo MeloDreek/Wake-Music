@@ -251,7 +251,7 @@ extension AuthNavidromeController: UITableViewDataSource, UITableViewDelegate, L
                 self?.cancelButtonClick()
                 break
             case .failure(let error):
-                self?.showOneAlert(title: "Reminder".localStr(), message: error.errorDescription)
+                self?.showOneAlert(message: error.errorDescription)
 //                var navModel = self!.loginModel
 //                navModel.customName = self?.loginModel.customName ?? "My Navidrome".localStr()
 //                

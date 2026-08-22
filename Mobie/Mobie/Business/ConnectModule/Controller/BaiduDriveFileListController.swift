@@ -121,7 +121,7 @@ class BaiduDriveFileListController: SuperViewController {
 
                 if failure == .tokenExpiredAuthAgain {
                     // 重新授权
-                    self?.showOneAlert(title: "Reminder".localStr(), message: failure.errorDescription, confirm: "OK".localStr()) {
+                    self?.showOneAlert(message: failure.errorDescription, confirm: "OK".localStr()) {
                         let baiduVC = AuthBaiduViewController { serverModel in
                             self?.loginModel = serverModel.baiduUser
                             self?.loadingView.startAnimating()
@@ -129,7 +129,7 @@ class BaiduDriveFileListController: SuperViewController {
                             self?.allfileArray.removeAll()
                             self?.refreshDataAction()
                         } onFailure: { error in
-                            self?.showOneAlert(title: "Reminder".localStr(), message: error.errorDescription)
+                            self?.showOneAlert(message: error.errorDescription)
                         }
 
                         let navVC = KakaNavigationController(rootViewController: baiduVC)
@@ -446,7 +446,7 @@ extension BaiduDriveFileListController {
 
         if audioArray.count == 0 {
             self.tableView.kaka_playShakeAnim()
-            self.showOneAlert(title: "Reminder".localStr(), message: "No Audio Files".localStr())
+            self.showOneAlert(message: "No Audio Files".localStr())
             return
         }
         
@@ -485,7 +485,7 @@ extension BaiduDriveFileListController {
         
         if audioArray.count == 0 {
             self.tableView.kaka_playShakeAnim()
-            self.showOneAlert(title: "Reminder".localStr(), message: "No Audio Files".localStr())
+            self.showOneAlert(message: "No Audio Files".localStr())
             return
         }
         

@@ -143,7 +143,7 @@ class Auth115LifeViewController: SuperViewController {
         self.netConnect = reachability.connection
         
         if self.netConnect == .unavailable {
-            self.showTwoAlert(title: "Reminder".localStr(), message: "Network access is disabled. Enable it for the best experience.".localStr(), confirm: "Settings".localStr(), cancle: "Cancel".localStr()) {
+            self.showTwoAlert(message: "Network access is disabled. Enable it for the best experience.".localStr(), confirm: "Settings".localStr(), cancle: "Cancel".localStr()) {
                 guard let vURL = URL(string: UIApplication.openSettingsURLString) else { return }
                 UIApplication.shared.open(vURL)
             }
@@ -184,7 +184,7 @@ class Auth115LifeViewController: SuperViewController {
                 debugPrint("1️⃣open/authDeviceCode/返回 = \(responseString)")
 
                 guard let response = Response115_LoginModel.deserialize(from: responseString)  else {
-                    self.showOneAlert(title: "Reminder".localStr(), message: responseString)
+                    self.showOneAlert(message: responseString)
                     return
                 }
                 
@@ -197,7 +197,7 @@ class Auth115LifeViewController: SuperViewController {
                 break
             case .failure(let error):
                 debugPrint("Request failed with error: \(error)")
-                self.showOneAlert(title: "Reminder".localStr(), message: error.localizedDescription) {
+                self.showOneAlert(message: error.localizedDescription) {
                     self.cancelButtonClick()
                 }
             }
@@ -226,7 +226,7 @@ class Auth115LifeViewController: SuperViewController {
             case .success(let responseString):
                 debugPrint("2️⃣get/status/返回 = \(responseString)")
                 guard let response = Response115_LoginModel.deserialize(from: responseString)  else {
-                    self.showOneAlert(title: "Reminder".localStr(), message: responseString)
+                    self.showOneAlert(message: responseString)
                     return
                 }
                 
@@ -244,7 +244,7 @@ class Auth115LifeViewController: SuperViewController {
                 
                 if response.data?.status == -2 {
                     // -2：已取消登录，请刷新重试
-                    self.showOneAlert(title: "Reminder".localStr(), message: response.data?.msg ?? "", confirm: "OK".localStr()) {
+                    self.showOneAlert(message: response.data?.msg ?? "", confirm: "OK".localStr()) {
                         self.refreshAuthQrCode()
                     }
                     return
@@ -289,7 +289,7 @@ class Auth115LifeViewController: SuperViewController {
                 debugPrint("3️⃣open/deviceCodeToToken返回 = \(responseString)")
 
                 guard let response = Response115_LoginModel.deserialize(from: responseString)  else {
-                    self.showOneAlert(title: "Reminder".localStr(), message: responseString)
+                    self.showOneAlert(message: responseString)
                     return
                 }
                 
@@ -309,7 +309,7 @@ class Auth115LifeViewController: SuperViewController {
                         
                     }
                 }else{
-                    self.showOneAlert(title: "Reminder".localStr(), message: response.message ?? "", confirm: "OK".localStr()) {
+                    self.showOneAlert(message: response.message ?? "", confirm: "OK".localStr()) {
                         self.cancelButtonClick()
                     }
                 }
@@ -317,7 +317,7 @@ class Auth115LifeViewController: SuperViewController {
                 break
             case .failure(let error):
                 debugPrint("Request failed with error2: \(error)")
-                self.showOneAlert(title: "Reminder".localStr(), message: error.localizedDescription)
+                self.showOneAlert(message: error.localizedDescription)
             }
         }
     }
@@ -336,7 +336,7 @@ class Auth115LifeViewController: SuperViewController {
 
                 guard let dict = try? JSONSerialization.jsonObject(with: data) as? [String: Any], let state = dict["state"] as? Bool, state, let dataJson = dict["data"] as? [String: Any], let userModel = Drive115UserModel.deserialize(from: dataJson) else {
                     let errorMsg = String(data: data, encoding: .utf8) ?? ""
-                    self.showOneAlert(title: "Reminder".localStr(), message: errorMsg) {
+                    self.showOneAlert(message: errorMsg) {
                         self.cancelButtonClick()
                     }
                     return
@@ -347,7 +347,7 @@ class Auth115LifeViewController: SuperViewController {
                 break
             case .failure(let afError):
                 debugPrint("afError = \(afError.localizedDescription)")
-                self.showOneAlert(title: "Reminder".localStr(), message: afError.localizedDescription) {
+                self.showOneAlert(message: afError.localizedDescription) {
                     self.cancelButtonClick()
                 }
                 break
@@ -471,7 +471,7 @@ extension Auth115LifeViewController {
                 }, completionHandler: { success, error in
                     DispatchQueue.main.async {
                         if success {
-                            self.showOneAlert(title: "Reminder".localStr(), message: "Photo saved to your Photos.".localStr(), confirm: "Scan QR Code".localStr()) {
+                            self.showOneAlert(message: "Photo saved to your Photos.".localStr(), confirm: "Scan QR Code".localStr()) {
                                 
                                 guard let appURL = URL(string: "oof.disk://") else { return }
                                 if UIApplication.shared.canOpenURL(appURL) {
@@ -490,7 +490,7 @@ extension Auth115LifeViewController {
                 break
             case .denied, .restricted, .limited:
                 DispatchQueue.main.async {
-                    self.showTwoAlert(title: "Reminder".localStr(), message: "You have denied access to the album, please re-enable it.".localStr(), confirm: "Settings".localStr(), cancle: "Cancel".localStr(), style: .alert) {
+                    self.showTwoAlert(message: "You have denied access to the album, please re-enable it.".localStr(), confirm: "Settings".localStr(), cancle: "Cancel".localStr(), style: .alert) {
                         guard let vURL = URL(string: UIApplication.openSettingsURLString) else { return }
                         UIApplication.shared.open(vURL)
                     }

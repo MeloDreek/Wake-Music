@@ -60,7 +60,7 @@ class VideoConverterViewController: SuperViewController {
     @objc func cancelBarClick() {
         
         if self.videoCell?.loadingView.isAnimating ?? false {
-            self.showTwoAlert(title: "Reminder".localStr(), message: "The files are in transit and will not continue when closed. Are you sure to close?".localStr()) { [weak self] () in
+            self.showTwoAlert(message: "The files are in transit and will not continue when closed. Are you sure to close?".localStr()) { [weak self] () in
                 self?.videoCell?.stopLoading()
                 self?.cancelBarClick()
             }
@@ -224,7 +224,7 @@ extension VideoConverterViewController: UITableViewDataSource, UITableViewDelega
         }
         
         if action == .selectSuffix {
-            self.showOneAlert(title: "Reminder".localStr(), message: "M4A(Alac) is Apple's own lossless audio format, and you'll get an M4A audio with minimal size but minimal audio loss, which is the same lossless audio format used by Apple Music.".localStr(), confirm: "OK".localStr())
+            self.showOneAlert(message: "M4A(Alac) is Apple's own lossless audio format, and you'll get an M4A audio with minimal size but minimal audio loss, which is the same lossless audio format used by Apple Music.".localStr(), confirm: "OK".localStr())
         }
         
         if action == .musicName {

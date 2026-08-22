@@ -17,7 +17,8 @@ import StoreKit
 class GCDWebServerController: SuperViewController {
     
     deinit {
-        self.fileWatcher.startWatching()
+        self.fileWatcher.stopWatching()
+        self.webServer.stop()
         try? FileManager.default.removeItem(atPath: SandboxType_WifiPC)
     }
     
@@ -148,7 +149,7 @@ class GCDWebServerController: SuperViewController {
     @objc func cancelBarClick() {
         
         if self.isUploading {
-            self.showTwoAlert(title: "Reminder".localStr(), message: "The files are in transit and will not continue when closed. Are you sure to close?".localStr()) { [weak self] () in
+            self.showTwoAlert(message: "The files are in transit and will not continue when closed. Are you sure to close?".localStr()) { [weak self] () in
                 self?.isUploading = false
                 self?.cancelBarClick()
             }
@@ -221,7 +222,7 @@ class GCDWebServerController: SuperViewController {
         let footStr = auduoTypes.map({ $0.uppercased() }).joined(separator: ", ") + "..."
         
         let title = Application.wakeMusic.appTitle()
-        let message = "Drag and drop music files into this window or click the Upload File button. Please keep the screen on while transferring.".localStr()
+        let message = "Drag and drop audio files into this window, or click the 【Upload Files】 button. Please keep the screen on during the transfer❗️".localStr()
         
         var config = SwiftyUploaderConfig()
         config.header = title

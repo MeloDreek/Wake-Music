@@ -68,7 +68,7 @@ extension VideoConverterViewController {
                 case .failed:
                     debugPrint("转换失败")
                     self?.timer.stopTimer()
-                    self?.showOneAlert(title: "Reminder".localStr(), message: "Conversion failed, the source file may be incorrect. Please change the audio quality or source file.".localStr(), confirm: "OK".localStr())
+                    self?.showOneAlert(message: "Conversion failed, the source file may be incorrect. Please change the audio quality or source file.".localStr(), confirm: "OK".localStr())
                     self?.deleteVideoFile()
                 case .cancelled:
                     debugPrint("已取消")

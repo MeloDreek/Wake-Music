@@ -262,7 +262,7 @@ extension PlayBackgroundListController: UITableViewDataSource, UITableViewDelega
     
     // 删除自定义壁纸
     func deleteCustomWallpaper(_ model: PlayBackgroundModel) {
-        self.showTwoAlert(title: "Reminder".localStr(), message: "Are you sure to delete it?".localStr(), confirm: "Delete".localStr(), cancle: "Cancel".localStr(), style: kaka_IsiPhone() ? .actionSheet : .alert) { [weak self] () in
+        self.showTwoAlert(message: "Are you sure to delete it?".localStr(), confirm: "Delete".localStr(), cancle: "Cancel".localStr(), style: kaka_IsiPhone() ? .actionSheet : .alert) { [weak self] () in
             let filePathURL = SandboxFileManager.shared.customPlayerbackURL().appendingPathComponent(model.backgroundName ?? "")
             do {
 #if targetEnvironment(macCatalyst)

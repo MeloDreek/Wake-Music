@@ -135,7 +135,7 @@ extension KakaMusicPlayer {
                             }
                                                         
                         } onFailure: { error in
-                            self.currentViewController()?.showOneAlert(title: "Reminder".localStr(), message: error.errorDescription)
+                            self.currentViewController()?.showOneAlert(message: error.errorDescription)
                         }
                         let navVC = KakaNavigationController(rootViewController: baiduVC)
                         navVC.modalPresentationStyle = kaka_IsiPad() ? .fullScreen : .automatic
@@ -301,7 +301,7 @@ extension KakaMusicPlayer {
                 
                 self.playbackStatus = .error
                 if failure == .tokenExpiredAuthAgain {
-                    self.currentViewController()?.showOneAlert(title: "Reminder".localStr(), message: KakaError.tokenExpiredAuthAgain.errorDescription, confirm: "OK".localStr()) {
+                    self.currentViewController()?.showOneAlert(message: KakaError.tokenExpiredAuthAgain.errorDescription, confirm: "OK".localStr()) {
                         
                         self.authorizedAliyunpan { result in
                             switch result {
@@ -336,7 +336,7 @@ extension KakaMusicPlayer {
                         }
                     }
                 }else{
-                    self.currentViewController()?.showOneAlert(title: "Reminder".localStr(), message: failure.errorDescription)
+                    self.currentViewController()?.showOneAlert(message: failure.errorDescription)
                 }
             }
         }
@@ -519,7 +519,7 @@ extension KakaMusicPlayer {
                 
                 self.playbackStatus = .error
                 if failure == .tokenExpiredAuthAgain {
-                    self.currentViewController()?.showOneAlert(title: "Reminder".localStr(), message: KakaError.tokenExpiredAuthAgain.errorDescription, confirm: "OK".localStr()) {
+                    self.currentViewController()?.showOneAlert(message: KakaError.tokenExpiredAuthAgain.errorDescription, confirm: "OK".localStr()) {
                         let drive115VC = Auth115LifeViewController { userModel in
                             // 1️⃣更新播放列表
                             var newArray = [MusicItemModel]()
@@ -552,7 +552,7 @@ extension KakaMusicPlayer {
                         self.currentViewController()?.present(navVC, animated: true)
                     }
                 }else{
-                    self.currentViewController()?.showOneAlert(title: "Reminder".localStr(), message: failure.errorDescription)
+                    self.currentViewController()?.showOneAlert(message: failure.errorDescription)
                 }
             }
         }
@@ -1146,19 +1146,19 @@ extension KakaMusicPlayer {
                     case .failure(let failure):
                         self.playerView.resetPlayer()
                         self.playbackStatus = .error
-                        self.currentViewController()?.showOneAlert(title: "Reminder".localStr(), message: failure.errorDescription)
+                        self.currentViewController()?.showOneAlert(message: failure.errorDescription)
                     }
                 }
                 break
             case .error(_, let description):
                 debugPrint("刷新Dropbox的token错误:\(description ?? "")")
                 self.playbackStatus = .error
-                self.currentViewController()?.showOneAlert(title: "Reminder".localStr(), message: description ?? "")
+                self.currentViewController()?.showOneAlert(message: description ?? "")
                 break
             case .cancel:
                 debugPrint("刷新Dropbox的token已取消")
                 self.playbackStatus = .error
-                self.currentViewController()?.showOneAlert(title: "Reminder".localStr(), message: KakaError.youhaveCanceled.errorDescription)
+                self.currentViewController()?.showOneAlert(message: KakaError.youhaveCanceled.errorDescription)
                 break
             case .none:
                 debugPrint("不需要刷新Dropbox，直接播放")
@@ -1176,7 +1176,7 @@ extension KakaMusicPlayer {
                     case .failure(let failure):
                         self.playerView.resetPlayer()
                         self.playbackStatus = .error
-                        self.currentViewController()?.showOneAlert(title: "Reminder".localStr(), message: failure.errorDescription)
+                        self.currentViewController()?.showOneAlert(message: failure.errorDescription)
                     }
                 }
                 break

@@ -29371,10 +29371,250 @@
     "Create Folder" : {
       "extractionState" : "manual",
       "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "إنشاء مجلد"
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Crear carpeta"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vytvořit složku"
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Opret mappe"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ordner erstellen"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Δημιουργία φακέλου"
+          }
+        },
+        "en-AU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Create Folder"
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Create Folder"
+          }
+        },
+        "en-IN" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Create Folder"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Crear carpeta"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Crear carpeta"
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Crear carpeta"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Luo kansio"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Créer un dossier"
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Créer un dossier"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "יצירת תיקייה"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "फ़ोल्डर बनाएँ"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stvori mapu"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mappa létrehozása"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Buat Folder"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Crea cartella"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "フォルダを作成"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "폴더 생성"
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cipta Folder"
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Opprett mappe"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Map aanmaken"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Utwórz folder"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Criar Pasta"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Criar pasta"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Creați dosar"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Создать папку"
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vytvoriť priečinok"
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ustvari mapo"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Skapa mapp"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "สร้างโฟลเดอร์"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Klasör Oluştur"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Створити папку"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tạo thư mục"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "创建文件夹"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "建立檔案夾"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "建立資料夾"
           }
         }
       }
@@ -36156,253 +36396,253 @@
         }
       }
     },
-    "Drag and drop music files into this window or click the Upload File button. Please keep the screen on while transferring." : {
+    "Drag and drop audio files into this window, or click the 【Upload Files】 button. Please keep the screen on during the transfer❗️" : {
       "extractionState" : "manual",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "اسحب ملف الموسيقى وأفلته في هذه النافذة ، أو انقر فوق الزر \"تحميل ملف\". يرجى عدم إيقاف تشغيل الشاشة ❗️ أثناء الإرسال"
+            "value" : "اسحب ملفات الصوت وأفلتها في هذه النافذة، أو انقر على زر 【رفع الملفات】. يُرجى إبقاء الشاشة قيد التشغيل أثناء النقل❗️"
           }
         },
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Arrossegueu i deixeu anar el fitxer de música en aquesta finestra o feu clic al botó \"Carrega fitxer\". Si us plau, no apagueu la pantalla ❗️ durant la transmissió"
+            "value" : "Arrossegueu i deixeu anar els fitxers d’àudio en aquesta finestra o feu clic al botó 【Pujar fitxers】. Manteniu la pantalla encesa durant la transferència❗️"
           }
         },
         "cs" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Přetáhněte hudební soubor do tohoto okna nebo klikněte na tlačítko \"Nahrát soubor\". Během přenosu prosím nevypínejte obrazovku ❗️"
+            "value" : "Přetáhněte zvukové soubory do tohoto okna nebo klikněte na tlačítko 【Nahrát soubory】. Během přenosu nevypínejte obrazovku❗️"
           }
         },
         "da" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Træk og slip musikfilen i dette vindue, eller klik på knappen \"Upload fil\". Sluk ikke for skærmen ❗️ under transmission"
+            "value" : "Træk og slip lydfiler i dette vindue, eller klik på knappen 【Upload filer】. Hold venligst skærmen tændt under overførslen❗️"
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ziehen Sie die Musikdatei per Drag & Drop in dieses Fenster oder klicken Sie auf die Schaltfläche \"Datei hochladen\". Bitte schalten Sie den Bildschirm ❗️ während der Übertragung nicht aus"
+            "value" : "Ziehen Sie Audiodateien in dieses Fenster oder klicken Sie auf die Schaltfläche 【Dateien hochladen】. Lassen Sie den Bildschirm während der Übertragung eingeschaltet❗️"
           }
         },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Σύρετε και αποθέστε το αρχείο μουσικής σε αυτό το παράθυρο ή κάντε κλικ στο κουμπί \"Μεταφόρτωση αρχείου\". Μην απενεργοποιείτε την οθόνη ❗️ κατά τη μετάδοση"
+            "value" : "Σύρετε και αποθέστε αρχεία ήχου σε αυτό το παράθυρο ή κάντε κλικ στο κουμπί 【Μεταφόρτωση αρχείων】. Διατηρήστε την οθόνη ενεργή κατά τη μεταφορά❗️"
           }
         },
         "en-AU" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Drag and drop music files into this window or click the Upload File button. Please keep the screen on while transferring."
+            "value" : "Drag and drop audio files into this window, or click the 【Upload Files】 button. Please keep the screen on during the transfer❗️"
           }
         },
         "en-GB" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Drag and drop music files into this window or click the Upload File button. Please keep the screen on while transferring."
+            "value" : "Drag and drop audio files into this window, or click the 【Upload Files】 button. Please keep the screen on during the transfer❗️"
           }
         },
         "en-IN" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Drag and drop music files into this window or click the Upload File button. Please keep the screen on while transferring."
+            "value" : "Drag and drop audio files into this window, or click the 【Upload Files】 button. Please keep the screen on during the transfer❗️"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Arrastra y suelta el archivo de música en esta ventana, o haz clic en el botón \"Subir archivo\". Por favor, no apague la pantalla ❗️ durante la transmisión"
+            "value" : "Arrastra y suelta los archivos de audio en esta ventana o haz clic en el botón 【Subir archivos】. Mantén la pantalla encendida durante la transferencia❗️"
           }
         },
         "es-419" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Arrastra y suelta el archivo de música en esta ventana, o haz clic en el botón \"Subir archivo\". Por favor, no apague la pantalla ❗️ durante la transmisión"
+            "value" : "Arrastra y suelta los archivos de audio en esta ventana o haz clic en el botón 【Subir archivos】. Mantén la pantalla encendida durante la transferencia❗️"
           }
         },
         "es-US" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Arrastra y suelta el archivo de música en esta ventana, o haz clic en el botón \"Subir archivo\". Por favor, no apague la pantalla ❗️ durante la transmisión"
+            "value" : "Arrastra y suelta los archivos de audio en esta ventana o haz clic en el botón 【Subir archivos】. Mantén la pantalla encendida durante la transferencia❗️"
           }
         },
         "fi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Vedä ja pudota musiikkitiedosto tähän ikkunaan tai napsauta \"Lataa tiedosto\" -painiketta. Älä sammuta näyttöä ❗️ lähetyksen aikana"
+            "value" : "Vedä äänitiedostot tähän ikkunaan tai napsauta 【Lataa tiedostoja】 -painiketta. Pidä näyttö päällä siirron aikana❗️"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Faites glisser et déposez le fichier musical dans cette fenêtre, ou cliquez sur le bouton « Télécharger le fichier ». Veuillez ne pas éteindre l’écran ❗️ pendant la transmission"
+            "value" : "Faites glisser les fichiers audio dans cette fenêtre ou cliquez sur le bouton 【Importer des fichiers】. Veuillez garder l’écran allumé pendant le transfert❗️"
           }
         },
         "fr-CA" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Faites glisser et déposez le fichier musical dans cette fenêtre, ou cliquez sur le bouton « Télécharger le fichier ». Veuillez ne pas éteindre l’écran ❗️ pendant la transmission"
+            "value" : "Faites glisser les fichiers audio dans cette fenêtre ou cliquez sur le bouton 【Téléverser des fichiers】. Veuillez garder l’écran allumé pendant le transfert❗️"
           }
         },
         "he" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "גרור ושחרר את קובץ המוסיקה לחלון זה, או לחץ על כפתור \"העלה קובץ\". נא לא לכבות את המסך ❗️ במהלך השידור"
+            "value" : "גרור ושחרר קובצי שמע לחלון זה, או לחץ על הלחצן 【העלאת קבצים】. יש להשאיר את המסך דולק במהלך ההעברה❗️"
           }
         },
         "hi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "संगीत फ़ाइल को इस विंडो में खींचें और छोड़ें, या \"फ़ाइल अपलोड करें\" बटन पर क्लिक करें। कृपया प्रसारण के दौरान स्क्रीन ❗️ को बंद न करें"
+            "value" : "ऑडियो फ़ाइलों को इस विंडो में खींचकर छोड़ें या 【फ़ाइलें अपलोड करें】 बटन पर क्लिक करें। ट्रांसफ़र के दौरान स्क्रीन को चालू रखें❗️"
           }
         },
         "hr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Povucite i ispustite glazbenu datoteku u ovaj prozor ili kliknite gumb \"Prenesi datoteku\". Nemojte isključivati zaslon ❗️ tijekom prijenosa"
+            "value" : "Povucite i ispustite audio datoteke u ovaj prozor ili kliknite gumb 【Prenesi datoteke】. Tijekom prijenosa nemojte isključivati zaslon❗️"
           }
         },
         "hu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Húzza át a zenefájlt ebbe az ablakba, vagy kattintson a \"Fájl feltöltése\" gombra. Kérjük, ne kapcsolja ki a képernyőt ❗️ átvitel közben"
+            "value" : "Húzza az audiofájlokat ebbe az ablakba, vagy kattintson a 【Fájlok feltöltése】 gombra. Az átvitel közben tartsa bekapcsolva a képernyőt❗️"
           }
         },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Seret dan lepas file musik ke jendela ini, atau klik tombol \"Unggah File\". Tolong jangan matikan layar ❗️ selama transmisi"
+            "value" : "Seret dan lepas file audio ke jendela ini, atau klik tombol 【Unggah File】. Harap tetap nyalakan layar selama transfer❗️"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Trascina e rilascia il file musicale in questa finestra o fai clic sul pulsante \"Carica file\". Si prega di non spegnere lo schermo ❗️ durante la trasmissione"
+            "value" : "Trascina i file audio in questa finestra oppure fai clic sul pulsante 【Carica file】. Mantieni lo schermo acceso durante il trasferimento❗️"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "音楽ファイルをこのウィンドウにドラッグアンドドロップするか、「ファイルのアップロード」ボタンをクリックします。 送信中は画面❗️をオフにしないでください"
+            "value" : "オーディオファイルをこのウィンドウにドラッグ＆ドロップするか、【ファイルをアップロード】ボタンをクリックしてください。転送中は画面を消さないでください❗️"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "음악 파일을 이 창으로 끌어다 놓거나 \"파일 업로드\" 버튼을 클릭합니다. 전송 중에는 화면을 ❗️ 끄지 마십시오."
+            "value" : "오디오 파일을 이 창으로 드래그 앤 드롭하거나 【파일 업로드】 버튼을 클릭하세요. 전송 중에는 화면을 켜진 상태로 유지하세요❗️"
           }
         },
         "ms" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Seret dan lepaskan fail muzik ke dalam tetingkap ini, atau klik butang \"Muat Naik Fail\". Tolong jangan matikan skrin ❗️ semasa penghantaran"
+            "value" : "Seret dan lepaskan fail audio ke dalam tetingkap ini, atau klik butang 【Muat Naik Fail】. Sila pastikan skrin kekal menyala semasa pemindahan❗️"
           }
         },
         "nb" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Dra og slipp musikkfilen inn i dette vinduet, eller klikk på \"Last opp fil\"-knappen. Vennligst ikke slå av skjermen ❗️ under overføring"
+            "value" : "Dra og slipp lydfiler i dette vinduet, eller klikk på knappen 【Last opp filer】. Hold skjermen på under overføringen❗️"
           }
         },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Sleep het muziekbestand naar dit venster of klik op de knop \"Bestand uploaden\". Schakel het scherm ❗️ niet uit tijdens het verzenden"
+            "value" : "Sleep audiobestanden naar dit venster of klik op de knop 【Bestanden uploaden】. Houd het scherm tijdens de overdracht ingeschakeld❗️"
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Przeciągnij i upuść plik muzyczny do tego okna lub kliknij przycisk \"Prześlij plik\". Proszę nie wyłączać ekranu ❗️ podczas transmisji"
+            "value" : "Przeciągnij pliki audio do tego okna lub kliknij przycisk 【Prześlij pliki】. Podczas przesyłania nie wyłączaj ekranu❗️"
           }
         },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Arraste e solte o arquivo de música nesta janela ou clique no botão \"Carregar arquivo\". Por favor, não desligue a tela ❗️ durante a transmissão"
+            "value" : "Arraste e solte os arquivos de áudio nesta janela ou clique no botão 【Enviar arquivos】. Mantenha a tela ligada durante a transferência❗️"
           }
         },
         "pt-PT" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Arraste e solte o arquivo de música nesta janela ou clique no botão \"Carregar arquivo\". Por favor, não desligue a tela ❗️ durante a transmissão"
+            "value" : "Arraste e largue os ficheiros de áudio nesta janela ou clique no botão 【Carregar ficheiros】. Mantenha o ecrã ligado durante a transferência❗️"
           }
         },
         "ro" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Trageți și plasați fișierul muzical în această fereastră sau faceți clic pe butonul \"Încărcați fișierul\". Vă rugăm să nu opriți ecranul ❗️ în timpul transmisiei"
+            "value" : "Trageți și plasați fișierele audio în această fereastră sau faceți clic pe butonul 【Încărcați fișiere】. Mențineți ecranul pornit în timpul transferului❗️"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Перетащите музыкальный файл в это окно, или нажмите кнопку \"Загрузить файл\". Пожалуйста, не выключайте экран ❗️ во время передачи"
+            "value" : "Перетащите аудиофайлы в это окно или нажмите кнопку 【Загрузить файлы】. Не выключайте экран во время передачи❗️"
           }
         },
         "sk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Presuňte hudobný súbor do tohto okna alebo kliknite na tlačidlo \"Nahrať súbor\". Počas prenosu nevypínajte obrazovku ❗️"
+            "value" : "Presuňte zvukové súbory do tohto okna alebo kliknite na tlačidlo 【Nahrať súbory】. Počas prenosu nevypínajte obrazovku❗️"
           }
         },
         "sl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Povlecite in spustite glasbene datoteke v to okno ali kliknite gumb Naloži datoteko. Med prenosom naj bo zaslon prižgan."
+            "value" : "Zvočne datoteke povlecite v to okno ali kliknite gumb 【Naloži datoteke】. Med prenosom naj bo zaslon vklopljen❗️"
           }
         },
         "sv" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Dra och släpp musikfilen i det här fönstret eller klicka på knappen \"Ladda upp fil\". Stäng inte av skärmen ❗️ under överföringen"
+            "value" : "Dra och släpp ljudfiler i det här fönstret eller klicka på knappen 【Ladda upp filer】. Håll skärmen på under överföringen❗️"
           }
         },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "ลากและวางไฟล์เพลงลงในหน้าต่างนี้ หรือคลิกปุ่ม \"อัปโหลดไฟล์\" กรุณาอย่าปิดหน้าจอ❗️ระหว่างการส่งสัญญาณ"
+            "value" : "ลากและวางไฟล์เสียงลงในหน้าต่างนี้ หรือคลิกปุ่ม 【อัปโหลดไฟล์】 โปรดเปิดหน้าจอไว้ระหว่างการถ่ายโอน❗️"
           }
         },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Müzik dosyasını bu pencereye sürükleyip bırakın veya \"Dosya Yükle\" düğmesini tıklayın. Lütfen iletim sırasında ekranı ❗️ kapatmayın"
+            "value" : "Ses dosyalarını bu pencereye sürükleyip bırakın veya 【Dosya Yükle】 düğmesine tıklayın. Aktarım sırasında lütfen ekranı açık tutun❗️"
           }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Перетягніть музичний файл у це вікно, або натисніть кнопку «Завантажити файл». Будь ласка, не вимикайте екран ❗️ під час передачі"
+            "value" : "Перетягніть аудіофайли в це вікно або натисніть кнопку 【Завантажити файли】. Не вимикайте екран під час передачі❗️"
           }
         },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Kéo và thả tệp nhạc vào cửa sổ này hoặc nhấp vào nút \"Tải lên tệp\". Vui lòng không tắt màn hình ❗️ trong khi truyền"
+            "value" : "Kéo và thả các tệp âm thanh vào cửa sổ này hoặc nhấp vào nút 【Tải tệp lên】. Vui lòng giữ màn hình luôn bật trong khi truyền❗️"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "将音乐文件拖放到此窗口中，或单击 「Upload File」按钮。传输中请不要熄屏❗️"
+            "value" : "将音频文件拖放到此窗口中，或单击【上传文件】按钮。传输中请不要熄屏❗️"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "將音樂檔案拖曳到此視窗中，或按一下 “Upload File”按鈕。傳輸中請不要熄屏❗️"
+            "value" : "將音訊檔案拖放到此視窗中，或點擊【上傳檔案】按鈕。傳輸期間請勿關閉螢幕❗️"
           }
         },
         "zh-HK" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "將音樂文件拖放到呢個窗口入面，或者撳一下「 Upload File 」掣。傳輸中請唔好熄屏❗ ️"
+            "value" : "將音訊檔案拖放到此視窗中，或按一下【上載檔案】按鈕。傳輸期間請勿關閉螢幕❗️"
           }
         }
       }
@@ -83768,10 +84008,250 @@
     "Please enter a folder name" : {
       "extractionState" : "manual",
       "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "يُرجى إدخال اسم المجلد"
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Introduïu un nom de carpeta"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zadejte název složky"
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Indtast venligst et mappenavn"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bitte geben Sie einen Ordnernamen ein"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Εισαγάγετε ένα όνομα φακέλου"
+          }
+        },
+        "en-AU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Please enter a folder name"
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Please enter a folder name"
+          }
+        },
+        "en-IN" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Please enter a folder name"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Introduce el nombre de la carpeta"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ingresa el nombre de la carpeta"
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ingresa el nombre de la carpeta"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Anna kansion nimi"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Veuillez saisir un nom de dossier"
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Veuillez saisir un nom de dossier"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "נא להזין שם תיקייה"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "कृपया फ़ोल्डर का नाम दर्ज करें"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unesite naziv mape"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Adja meg a mappa nevét"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Silakan masukkan nama folder"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inserisci il nome della cartella"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "フォルダ名を入力してください"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "폴더 이름을 입력하세요"
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sila masukkan nama folder"
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Skriv inn et mappenavn"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Voer een mapnaam in"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wprowadź nazwę folderu"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Digite o nome da pasta"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Introduza o nome da pasta"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Introduceți numele folderului"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Введите название папки"
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zadajte názov priečinka"
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vnesite ime mape"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ange ett mappnamn"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "โปรดป้อนชื่อโฟลเดอร์"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lütfen klasör adını girin"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Введіть назву папки"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vui lòng nhập tên thư mục"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "请输入文件夹名称"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "請輸入資料夾名稱"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "請輸入資料夾名稱"
           }
         }
       }
@@ -121931,10 +122411,250 @@
     "Upload Files" : {
       "extractionState" : "manual",
       "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "رفع الملفات"
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pujar fitxers"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nahrát soubory"
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Upload filer"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dateien hochladen"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Μεταφόρτωση αρχείων"
+          }
+        },
+        "en-AU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Upload Files"
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Upload Files"
+          }
+        },
+        "en-IN" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Upload Files"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Subir archivos"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Subir archivos"
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Subir archivos"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lataa tiedostoja"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Importer des fichiers"
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Téléverser des fichiers"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "העלאת קבצים"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "फ़ाइलें अपलोड करें"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prenesi datoteke"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fájlok feltöltése"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unggah File"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Carica file"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ファイルをアップロード"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "파일 업로드"
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Muat Naik Fail"
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Last opp filer"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bestanden uploaden"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prześlij pliki"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enviar arquivos"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Carregar ficheiros"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Încărcați fișiere"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Загрузить файлы"
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nahrať súbory"
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Naloži datoteke"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ladda upp filer"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "อัปโหลดไฟล์"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dosya Yükle"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Завантажити файли"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tải tệp lên"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "上传文件"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "上傳檔案"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "上載檔案"
           }
         }
       }
@@ -121942,10 +122662,250 @@
     "Uploading file..." : {
       "extractionState" : "manual",
       "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "جارٍ رفع الملف..."
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "S’està carregant el fitxer..."
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nahrávání souboru..."
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Uploader fil..."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Datei wird hochgeladen..."
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Μεταφόρτωση αρχείου..."
+          }
+        },
+        "en-AU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Uploading file..."
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Uploading file..."
+          }
+        },
+        "en-IN" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Uploading file..."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Subiendo archivo..."
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Subiendo archivo..."
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Subiendo archivo..."
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lähetetään tiedostoa..."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Téléversement du fichier…"
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Téléversement du fichier…"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "מעלה את הקובץ..."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "फ़ाइल अपलोड हो रही है..."
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prijenos datoteke..."
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fájl feltöltése..."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mengunggah file..."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Caricamento del file..."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ファイルをアップロード中…"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "파일 업로드 중…"
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Memuat naik fail..."
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Laster opp fil..."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bestand uploaden..."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Przesyłanie pliku..."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enviando arquivo..."
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A carregar o ficheiro..."
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Se încarcă fișierul..."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Загрузка файла..."
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nahrávanie súboru..."
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nalaganje datoteke ..."
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Laddar upp fil..."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "กำลังอัปโหลดไฟล์..."
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dosya yükleniyor..."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Завантаження файлу..."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Đang tải tệp lên..."
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "正在上传文件……"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "正在上傳檔案⋯"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "正在上載檔案⋯"
           }
         }
       }

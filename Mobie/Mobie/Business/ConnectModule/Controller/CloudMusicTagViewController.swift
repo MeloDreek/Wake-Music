@@ -162,7 +162,7 @@ class CloudMusicTagViewController: SuperViewController {
                     }
                 } catch {
                     DispatchQueue.main.async {
-                        self.showOneAlert(title: "Reminder".localStr(), message: error.localizedDescription)
+                        self.showOneAlert(message: error.localizedDescription)
                         self.stopLoadingAction()
                     }
                 }
@@ -400,7 +400,7 @@ extension CloudMusicTagViewController: UITableViewDataSource, UITableViewDelegat
         let groupModel = dataArray[indexPath.section]
         if groupModel.group == .headGroup { return }
         
-        self.showOneAlert(title: "Reminder".localStr(), message: "Download the file before editing its embedded tags.".localStr())
+        self.showOneAlert(message: "Download the file before editing its embedded tags.".localStr())
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

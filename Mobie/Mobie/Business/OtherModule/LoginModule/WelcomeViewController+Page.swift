@@ -35,7 +35,7 @@ extension WelcomeViewController {
             if errorMsg == KakaError.youhaveCanceled.errorDescription {
                 wSelf.view.makeToast(errorMsg)
             }else{
-                wSelf.showOneAlert(title: "Reminder".localStr(), message: errorMsg)
+                wSelf.showOneAlert(message: errorMsg)
             }
         }
                 

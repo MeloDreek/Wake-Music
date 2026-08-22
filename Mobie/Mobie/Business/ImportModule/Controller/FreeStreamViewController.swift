@@ -178,7 +178,7 @@
 //    
 //    func clickPlayWithIndex(_ index: Int) {
 //        if self.netConnect == .unavailable {
-//            self.showTwoAlert(title: "Reminder".localStr(), message: "Although this is an offline music player, we need your network authorization to play radio music, please authorize the network permission.".localStr(), confirm: "Settings".localStr(), cancle: "Cancel".localStr()) {
+//            self.showTwoAlert(message: "Although this is an offline music player, we need your network authorization to play radio music, please authorize the network permission.".localStr(), confirm: "Settings".localStr(), cancle: "Cancel".localStr()) {
 //                guard let vURL = URL(string: UIApplication.openSettingsURLString) else { return }
 //                UIApplication.shared.open(vURL)
 //            }

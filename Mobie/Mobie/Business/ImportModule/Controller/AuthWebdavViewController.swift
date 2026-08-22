@@ -126,7 +126,7 @@ class AuthWebdavViewController: SuperViewController {
                         errorMessage = "Please Try switching networks or turning off the VPN (if it's turned on)".localStr()
                         self?.showOneAlert(title: error.localizedDescription, message: errorMessage, confirm: "OK".localStr(), complete: nil)
                     }else{
-                        self?.showOneAlert(title: "Reminder".localStr(), message: errorMessage, confirm: "OK".localStr(), complete: nil)
+                        self?.showOneAlert(message: errorMessage, confirm: "OK".localStr(), complete: nil)
                     }
                     
                 }else{
@@ -134,7 +134,7 @@ class AuthWebdavViewController: SuperViewController {
                         errorMessage = "Please Try switching networks or turning off the VPN (if it's turned on)".localStr()
                         self?.showOneAlert(title: error.localizedDescription, message: errorMessage, confirm: "OK".localStr(), complete: nil)
                     }else{
-                        self?.showOneAlert(title: "Reminder".localStr(), message: error.localizedDescription, confirm: "OK".localStr(), complete: nil)
+                        self?.showOneAlert(message: error.localizedDescription, confirm: "OK".localStr(), complete: nil)
                     }
                 }
                 

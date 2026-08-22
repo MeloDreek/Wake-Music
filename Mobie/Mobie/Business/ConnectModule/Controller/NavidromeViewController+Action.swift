@@ -134,7 +134,7 @@ extension NavidromeViewController: ConnectMyPlayListCellDelegate {
     // 删除歌单
     func connectMyPlayListCellDidDelete(cell: ConnectMyPlayListCell, playlist: AppGroupKit.NavidromePlaylist) {
         
-        self.showTwoAlert(title: "Reminder".localStr(), message: "Are you sure to delete it?".localStr(), style: kaka_IsiPhone() ? .actionSheet : .alert, complete: {
+        self.showTwoAlert(message: "Are you sure to delete it?".localStr(), style: kaka_IsiPhone() ? .actionSheet : .alert, complete: {
             
             let param = ["id": playlist.id]
             APIManager.shared.requestSubsonic(navUser: self.navUser, endpoint: API.Subsonic.deletePlaylist, method: .delete, parameters: param) { [weak self] response in

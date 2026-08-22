@@ -89,7 +89,7 @@ extension ConnectListViewController {
             let fileVC = BaiduDriveFileListController(loginModel: serverModel.baiduUser!)
             self?.navigationController?.pushViewController(fileVC, animated: true)
         } onFailure: { [weak self] error in
-            self?.showOneAlert(title: "Reminder".localStr(), message: error.errorDescription)
+            self?.showOneAlert(message: error.errorDescription)
         }
 
         let navVC = KakaNavigationController(rootViewController: baiduVC)
@@ -111,7 +111,7 @@ extension ConnectListViewController {
                 self.navigationController?.pushViewController(folderVC, animated: true)
                 break
             case .failure(let failure):
-                self.showOneAlert(title: "Reminder".localStr(), message: failure.errorDescription)
+                self.showOneAlert(message: failure.errorDescription)
                 break
             }
         }
@@ -143,7 +143,7 @@ extension ConnectListViewController {
             
             guard let result = result, error == nil else {
                 let message = error?.localizedDescription ?? KakaError.unknowError.errorDescription
-                self.showOneAlert(title: "Reminder".localStr(), message: message)
+                self.showOneAlert(message: message)
                 return
             }
             
@@ -174,7 +174,7 @@ extension ConnectListViewController {
 //                print("授权成功，用户 ID: \(user.id)")
 //                break
 //            case .failure(let error):
-//                self.showOneAlert(title: "Reminder".localStr(), message: error.rawValue)
+//                self.showOneAlert(message: error.rawValue)
 //                break
 //            case .cancel:
 //                self.view.makeToast(KakaError.youhaveCanceled.errorDescription)
@@ -209,7 +209,7 @@ extension ConnectListViewController {
             
         } catch {
             debugPrint("MSAL 初始化失败: \(error)")
-            self.showOneAlert(title: "Reminder".localStr(), message: error.localizedDescription)
+            self.showOneAlert(message: error.localizedDescription)
         }
 #endif
     }

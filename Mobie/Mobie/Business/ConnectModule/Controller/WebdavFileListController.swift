@@ -154,7 +154,7 @@ class WebdavFileListController: SuperViewController {
                             errorMessage = "Please Try switching networks or turning off the VPN (if it's turned on)".localStr()
                             self?.showOneAlert(title: error.localizedDescription, message: errorMessage, confirm: "OK".localStr(), complete: nil)
                         }else{
-                            self?.showOneAlert(title: "Reminder".localStr(), message: errorMessage, confirm: "OK".localStr(), complete: nil)
+                            self?.showOneAlert(message: errorMessage, confirm: "OK".localStr(), complete: nil)
                         }
                         
                     }else{
@@ -162,7 +162,7 @@ class WebdavFileListController: SuperViewController {
                             errorMessage = "Please Try switching networks or turning off the VPN (if it's turned on)".localStr()
                             self?.showOneAlert(title: error.localizedDescription, message: errorMessage, confirm: "OK".localStr(), complete: nil)
                         }else{
-                            self?.showOneAlert(title: "Reminder".localStr(), message: error.localizedDescription, confirm: "OK".localStr(), complete: nil)
+                            self?.showOneAlert(message: error.localizedDescription, confirm: "OK".localStr(), complete: nil)
                         }
                     }
                     
@@ -270,7 +270,7 @@ class WebdavFileListController: SuperViewController {
         
         if audioArray.count == 0 {
             self.tableView.kaka_playShakeAnim()
-            self.showOneAlert(title: "Reminder".localStr(), message: "No Audio Files".localStr())
+            self.showOneAlert(message: "No Audio Files".localStr())
             return
         }
         
@@ -534,7 +534,7 @@ view.refreshControl = self.kaka_header
 
         if audioArray.count == 0 {
             self.tableView.kaka_playShakeAnim()
-            self.showOneAlert(title: "Reminder".localStr(), message: "No Audio Files".localStr())
+            self.showOneAlert(message: "No Audio Files".localStr())
             return
         }
         

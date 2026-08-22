@@ -160,7 +160,7 @@ extension KakaMusicPlayer: @preconcurrency PlayerControllerDelegate {
         
         if self.isRetry {
             let message = error.localizedDescription
-            self.currentViewController()?.showOneAlert(title: "Reminder".localStr(), message: message, confirm: "Done".localStr())
+            self.currentViewController()?.showOneAlert(message: message, confirm: "Done".localStr())
             return
         }
         
@@ -183,7 +183,7 @@ extension KakaMusicPlayer: @preconcurrency PlayerControllerDelegate {
         self.isDecodingError = isDecodingError
         
         if isDecodingError && MusicConfigManager.shared.playerEngine == .avPlayer {
-            self.currentViewController()?.showOneAlert(title: "Reminder".localStr(), message: "The system's built-in AVPlayer can't decode this format. Please switch the Player Engine.".localStr(), confirm: "OK".localStr()) {
+            self.currentViewController()?.showOneAlert(message: "The system's built-in AVPlayer can't decode this format. Please switch the Player Engine.".localStr(), confirm: "OK".localStr()) {
                 let navVC = KakaNavigationController(rootViewController: PlayerEngineViewController())
                 navVC.modalPresentationStyle = kaka_IsiPad() ? .fullScreen : .automatic
                 self.currentViewController()?.present(navVC, animated: true)

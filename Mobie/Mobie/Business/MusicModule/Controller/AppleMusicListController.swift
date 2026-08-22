@@ -73,7 +73,7 @@ class AppleMusicListController: SuperViewController {
                 self.stopLoadingAction()
                 self.tableView.separatorStyle = .none
                 self.tableView.reloadData()
-                self.showOneAlert(title: "Reminder".localStr(), message: "You’ve denied access to your media library. Please grant access again.".localStr(), confirm: "Settings".localStr()) {
+                self.showOneAlert(message: "You’ve denied access to your media library. Please grant access again.".localStr(), confirm: "Settings".localStr()) {
                     guard let vURL = URL(string: UIApplication.openSettingsURLString) else {
                         return
                     }
@@ -114,7 +114,7 @@ class AppleMusicListController: SuperViewController {
     @objc func showAppleMusicTips() {
         
         #if targetEnvironment(macCatalyst)
-        self.showOneAlert(title: "Reminder".localStr(), message: message)
+        self.showOneAlert(message: message)
         #else
         let popView = CMPopTipView(message: self.message)
         popView?.hasShadow = true

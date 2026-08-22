@@ -271,7 +271,7 @@ extension MusicsViewController {
     
     /// 3️⃣ 删除歌曲
     func deleteMusicModel(_ models: [MusicItemModel]) {
-        self.showTwoAlert(title: "Reminder".localStr(), message: "Files cannot be recovered after deletion.".localStr(), confirm: "Delete".localStr(), cancle: "Cancel".localStr(), style: kaka_IsiPhone() ? .actionSheet : .alert) {
+        self.showTwoAlert(message: "Files cannot be recovered after deletion.".localStr(), confirm: "Delete".localStr(), cancle: "Cancel".localStr(), style: kaka_IsiPhone() ? .actionSheet : .alert) {
             SandboxFileManager.shared.deleteMusicModels(models: models) { [weak self] models in
                 guard let wSelf = self else { return }
                 for subModel in models {

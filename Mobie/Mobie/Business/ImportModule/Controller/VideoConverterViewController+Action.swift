@@ -43,7 +43,7 @@ extension VideoConverterViewController: PHPickerViewControllerDelegate, UIDocume
                         picker.delegate = self
                         self.present(picker, animated: true)
                     }else{
-                        self.showOneAlert(title: "Reminder".localStr(), message: "You have denied access to the album, please re-enable it.".localStr(), confirm: "Settings".localStr()) {
+                        self.showOneAlert(message: "You have denied access to the album, please re-enable it.".localStr(), confirm: "Settings".localStr()) {
                             guard let vURL = URL(string: UIApplication.openSettingsURLString) else { return }
                             UIApplication.shared.open(vURL)
                         }

@@ -136,7 +136,7 @@ class OneDriveFileListController: SuperViewController {
 
                     if failure == .tokenExpiredAuthAgain {
                         // 重新授权
-                        self?.showOneAlert(title: "Reminder".localStr(), message: failure.errorDescription, confirm: "OK".localStr()) {
+                        self?.showOneAlert(message: failure.errorDescription, confirm: "OK".localStr()) {
                             wSelf.reAuthorizeOneDrive()
                         }
                     }
@@ -177,7 +177,7 @@ class OneDriveFileListController: SuperViewController {
             
         } catch {
             debugPrint("MSAL 初始化失败: \(error)")
-            self.showOneAlert(title: "Reminder".localStr(), message: error.localizedDescription)
+            self.showOneAlert(message: error.localizedDescription)
         }
         #endif
     }
@@ -483,7 +483,7 @@ extension OneDriveFileListController {
 
         if audioArray.count == 0 {
             self.tableView.kaka_playShakeAnim()
-            self.showOneAlert(title: "Reminder".localStr(), message: "No Audio Files".localStr())
+            self.showOneAlert(message: "No Audio Files".localStr())
             return
         }
         
@@ -522,7 +522,7 @@ extension OneDriveFileListController {
         
         if audioArray.count == 0 {
             self.tableView.kaka_playShakeAnim()
-            self.showOneAlert(title: "Reminder".localStr(), message: "No Audio Files".localStr())
+            self.showOneAlert(message: "No Audio Files".localStr())
             return
         }
         

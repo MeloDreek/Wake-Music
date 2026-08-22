@@ -46,7 +46,7 @@ extension KakaMusicPlayer {
         
         let isPremiumType = AudioExtensionType.premiumExtensions().contains(model.mediaPlayURL.pathExtension.lowercased())
         if !UserInfoManager.shared.isVIP() && isPremiumType && (model.fileSourceType != .demoFile) {
-            self.currentViewController()?.showOneAlert(title: "Reminder".localStr(), message: "The system's built-in AVPlayer can't decode this format. Please switch the Player Engine.".localStr(), confirm: "OK".localStr()) {
+            self.currentViewController()?.showOneAlert(message: "The system's built-in AVPlayer can't decode this format. Please switch the Player Engine.".localStr(), confirm: "OK".localStr()) {
                 let navVC = KakaNavigationController(rootViewController: PlayerEngineViewController())
                 navVC.modalPresentationStyle = kaka_IsiPad() ? .fullScreen : .automatic
                 self.currentViewController()?.present(navVC, animated: true)
