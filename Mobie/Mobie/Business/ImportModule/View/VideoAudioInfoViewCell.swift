@@ -35,13 +35,13 @@ enum VideoAudioInfoType: Int {
             return nil
             
         case .musicName:
-            return MusicActionType.title.formatStr()
+            return MusicActionType.title.titleStr()
         case .singerName:
-            return MusicActionType.artist.formatStr()
+            return MusicActionType.artist.titleStr()
         case .albumName:
-            return MusicActionType.album.formatStr()
+            return MusicActionType.album.titleStr()
         case .coverImage:
-            return MusicActionType.coverArt.formatStr()
+            return MusicActionType.coverArt.titleStr()
         case .fileSize:
             return SortedbyType.fileSize.formatStr()
         }

@@ -53,7 +53,7 @@ class CloudMusicTagViewController: SuperViewController {
     
     override func preSetupHandleBuness() {
         super.preSetupHandleBuness()
-        self.title = MusicActionType.musictag.formatStr()
+        self.title = MusicActionType.musictag.titleStr()
         self.navigationItem.leftBarButtonItem = self.cancelBarItem
         
         self.refreshDataAction()

@@ -579,7 +579,7 @@ extension OneDriveFileListController {
             return
         }
                                               
-        let playlist = SelectPlaylistController(isLocal: true, serverModel: nil)
+        let playlist = SelectPlaylistController(selectType: .downloadTask)
         playlist.onLocalBlock = { [weak self] (folderURL) in
             guard let wSelf = self else { return }
             let tempArray = wSelf.selectArray.map {
@@ -869,7 +869,7 @@ extension OneDriveFileListController: MusicTableViewCellDelegate {
             return
         }
         
-        let playlist = SelectPlaylistController(isLocal: true, serverModel: nil)
+        let playlist = SelectPlaylistController(selectType: .downloadTask)
         playlist.onLocalBlock = { [weak self] (folderURL) in
             var musicModel = MusicItemModel(onedriveFile: onedriveFile)
             musicModel.downloadFolderName = folderURL.lastPathComponent

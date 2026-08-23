@@ -39,28 +39,22 @@ extension MusicTableViewCell {
         guard let model = self.musicModel else { return UIMenu() }
         
         // 音频指纹识别
-        let audioFingerAction = UIAction(title: MusicActionType.audioFinger.formatStr(), image: MusicActionType.audioFinger.iconImage()) { [weak self] _ in
-            guard let wSelf = self, let model = wSelf.musicModel else { return }
-            wSelf.delegate?.musicTableCell(cell: wSelf, model: model, action: .audioFinger)
-        }
-        
-        // 音乐标签编辑器
-        let musictagAction = UIAction(title: "Music Tag Editor".localStr(), image: MusicActionType.musictag.iconImage()) { [weak self] _ in
+        let audioFingerAction = UIAction(title: MusicActionType.audioFinger.titleStr(), image: MusicActionType.audioFinger.iconImage()) { [weak self] _ in
             guard let wSelf = self, let model = wSelf.musicModel else { return }
             wSelf.delegate?.musicTableCell(cell: wSelf, model: model, action: .musictag)
         }
         
-        let musictagMenu = UIMenu(title: "", options: .displayInline, children: [audioFingerAction, musictagAction])
+        let musictagMenu = UIMenu(title: "", options: .displayInline, children: [audioFingerAction])
         
         // 喜欢
         let likeType = model.isFlagFavorite() ? MusicActionType.removeFavirote : MusicActionType.addFavirote
-        let likeItem = UIAction(title: likeType.formatStr(), image: likeType.iconImage()) { [weak self] (_) in
+        let likeItem = UIAction(title: likeType.titleStr(), image: likeType.iconImage()) { [weak self] (_) in
             guard let wSelf = self, let model = wSelf.musicModel else { return }
             wSelf.delegate?.musicTableCell(cell: wSelf, model: model, action: .addFavirote)
         }
         
         // 移动到其他歌单
-        let playlistAction = UIAction(title: MusicActionType.addPlaylist.formatStr(), image: MusicActionType.addPlaylist.iconImage()) { [weak self] _ in
+        let playlistAction = UIAction(title: MusicActionType.addPlaylist.titleStr(), image: MusicActionType.addPlaylist.iconImage()) { [weak self] _ in
             guard let wSelf = self, let model = wSelf.musicModel else { return }
             wSelf.delegate?.musicTableCell(cell: wSelf, model: model, action: .addPlaylist)
         }
@@ -68,12 +62,12 @@ extension MusicTableViewCell {
         let otherMenu = UIMenu(title: "", options: .displayInline, children: [likeItem, playlistAction])
         
         // 在Finder中显示
-        let finderAction = UIAction(title: MusicActionType.showInFinder.formatStr(), image: MusicActionType.showInFinder.iconImage()) { [weak self] (_) in
+        let finderAction = UIAction(title: MusicActionType.showInFinder.titleStr(), image: MusicActionType.showInFinder.iconImage()) { [weak self] (_) in
             guard let wSelf = self, let model = wSelf.musicModel else { return }
             wSelf.delegate?.musicTableCell(cell: wSelf, model: model, action: .showInFinder)
         }
         // 删除
-        let deleteAction = UIAction(title: MusicActionType.deleteItem.formatStr(), image: MusicActionType.deleteItem.iconImage(), attributes: .destructive) { [weak self] (_) in
+        let deleteAction = UIAction(title: MusicActionType.deleteItem.titleStr(), image: MusicActionType.deleteItem.iconImage(), attributes: .destructive) { [weak self] (_) in
             guard let wSelf = self, let model = wSelf.musicModel else { return }
             wSelf.delegate?.musicTableCell(cell: wSelf, model: model, action: .deleteItem)
         }
@@ -122,7 +116,7 @@ extension MusicTableViewCell {
         
         for subType in typeArray {
             let isRed = subType == .download || subType == .deleteItem
-            let subMemu = UIAction(title: subType.formatStr(), image: subType.iconImage(), identifier: nil, discoverabilityTitle: nil, attributes: isRed ? [.destructive] : [], state: .off, handler: { [weak self] _ in
+            let subMemu = UIAction(title: subType.titleStr(), image: subType.iconImage(), identifier: nil, discoverabilityTitle: nil, attributes: isRed ? [.destructive] : [], state: .off, handler: { [weak self] _ in
                 guard let wSelf = self, let model = wSelf.musicModel else { return }
                 wSelf.delegate?.musicTableCell(cell: wSelf, model: model, action: subType)
             })
@@ -153,7 +147,7 @@ extension MusicTableViewCell {
         
         for subType in typeArray {
             let isRed = subType == .download || subType == .deleteItem
-            let subMemu = UIAction(title: subType.formatStr(), image: subType.iconImage(), identifier: nil, discoverabilityTitle: nil, attributes: isRed ? [.destructive] : [], state: .off, handler: { [weak self] _ in
+            let subMemu = UIAction(title: subType.titleStr(), image: subType.iconImage(), identifier: nil, discoverabilityTitle: nil, attributes: isRed ? [.destructive] : [], state: .off, handler: { [weak self] _ in
                 guard let wSelf = self, let model = wSelf.musicModel else { return }
                 wSelf.delegate?.musicTableCell(cell: wSelf, model: model, action: subType)
             })
@@ -183,13 +177,13 @@ extension MusicTableViewCell {
         
         // 喜欢/不喜欢
         let likeItem: MusicActionType = model.isFlagFavorite() ? .removeFavirote : .addFavirote
-        let likeAction = UIAction(title: likeItem.formatStr(), image: likeItem.iconImage()) { [weak self] _ in
+        let likeAction = UIAction(title: likeItem.titleStr(), image: likeItem.iconImage()) { [weak self] _ in
             guard let wSelf = self, let model = wSelf.musicModel else { return }
             wSelf.delegate?.musicTableCell(cell: wSelf, model: model, action: likeItem)
         }
         
         // 添加到歌单
-        let playlistAction = UIAction(title: MusicActionType.addPlaylist.formatStr(), image: MusicActionType.addPlaylist.iconImage()) { [weak self] _ in
+        let playlistAction = UIAction(title: MusicActionType.addPlaylist.titleStr(), image: MusicActionType.addPlaylist.iconImage()) { [weak self] _ in
             guard let wSelf = self, let model = wSelf.musicModel else { return }
             wSelf.delegate?.musicTableCell(cell: wSelf, model: model, action: .addPlaylist)
         }
@@ -198,13 +192,13 @@ extension MusicTableViewCell {
         
         
         // 艺术家
-        let artistAction = UIAction(title: MusicActionType.artistDetial.formatStr(), image: MusicActionType.artistDetial.iconImage()) { [weak self] _ in
+        let artistAction = UIAction(title: MusicActionType.artistDetial.titleStr(), image: MusicActionType.artistDetial.iconImage()) { [weak self] _ in
             guard let wSelf = self, let model = wSelf.musicModel else { return }
             wSelf.delegate?.musicTableCell(cell: wSelf, model: model, action: .artistDetial)
         }
                 
         // 专辑
-        let albumAction = UIAction(title: MusicActionType.albumDetial.formatStr(), image: MusicActionType.albumDetial.iconImage()) { [weak self] _ in
+        let albumAction = UIAction(title: MusicActionType.albumDetial.titleStr(), image: MusicActionType.albumDetial.iconImage()) { [weak self] _ in
             guard let wSelf = self, let model = wSelf.musicModel else { return }
             wSelf.delegate?.musicTableCell(cell: wSelf, model: model, action: .albumDetial)
         }
@@ -212,7 +206,7 @@ extension MusicTableViewCell {
         let detialMenu = UIMenu(title: "", options: .displayInline, children: [artistAction/*, albumAction*/])
 
         // 下载
-        let downloadAction = UIAction(title: MusicActionType.download.formatStr(), image: MusicActionType.download.iconImage(), attributes: .destructive) { [weak self] (_) in
+        let downloadAction = UIAction(title: MusicActionType.download.titleStr(), image: MusicActionType.download.iconImage(), attributes: .destructive) { [weak self] (_) in
             guard let wSelf = self, let model = wSelf.musicModel else { return }
             wSelf.delegate?.musicTableCell(cell: wSelf, model: model, action: .download)
         }
@@ -244,13 +238,13 @@ extension MusicTableViewCell {
         
         // 喜欢/不喜欢
         let likeItem: MusicActionType = model.isFlagFavorite() ? .removeFavirote : .addFavirote
-        let likeAction = UIAction(title: likeItem.formatStr(), image: likeItem.iconImage()) { [weak self] _ in
+        let likeAction = UIAction(title: likeItem.titleStr(), image: likeItem.iconImage()) { [weak self] _ in
             guard let wSelf = self, let model = wSelf.musicModel else { return }
             wSelf.delegate?.musicTableCell(cell: wSelf, model: model, action: likeItem)
         }
         
         // 添加到歌单
-        let playlistAction = UIAction(title: MusicActionType.addPlaylist.formatStr(), image: MusicActionType.addPlaylist.iconImage()) { [weak self] _ in
+        let playlistAction = UIAction(title: MusicActionType.addPlaylist.titleStr(), image: MusicActionType.addPlaylist.iconImage()) { [weak self] _ in
             guard let wSelf = self, let model = wSelf.musicModel else { return }
             wSelf.delegate?.musicTableCell(cell: wSelf, model: model, action: .addPlaylist)
         }
@@ -259,7 +253,7 @@ extension MusicTableViewCell {
         
         
         // 下载
-        let downloadAction = UIAction(title: MusicActionType.download.formatStr(), image: MusicActionType.download.iconImage(), attributes: .destructive) { [weak self] (_) in
+        let downloadAction = UIAction(title: MusicActionType.download.titleStr(), image: MusicActionType.download.iconImage(), attributes: .destructive) { [weak self] (_) in
             guard let wSelf = self, let model = wSelf.musicModel else { return }
             wSelf.delegate?.musicTableCell(cell: wSelf, model: model, action: .download)
         }
@@ -290,13 +284,13 @@ extension MusicTableViewCell {
         
         // 喜欢/不喜欢
         let likeItem: MusicActionType = model.isFlagFavorite() ? .removeFavirote : .addFavirote
-        let likeAction = UIAction(title: likeItem.formatStr(), image: likeItem.iconImage()) { [weak self] _ in
+        let likeAction = UIAction(title: likeItem.titleStr(), image: likeItem.iconImage()) { [weak self] _ in
             guard let wSelf = self, let model = wSelf.musicModel else { return }
             wSelf.delegate?.musicTableCell(cell: wSelf, model: model, action: likeItem)
         }
         
         // 从歌单中除移
-        let playlistAction = UIAction(title: MusicActionType.removePlaylist.formatStr(), image: MusicActionType.removePlaylist.iconImage()) { [weak self] _ in
+        let playlistAction = UIAction(title: MusicActionType.removePlaylist.titleStr(), image: MusicActionType.removePlaylist.iconImage()) { [weak self] _ in
             guard let wSelf = self, let model = wSelf.musicModel else { return }
             wSelf.delegate?.musicTableCell(cell: wSelf, model: model, action: .removePlaylist)
         }
@@ -304,13 +298,13 @@ extension MusicTableViewCell {
         let actionMenu = UIMenu(title: "", options: .displayInline, children: [likeAction/*, playlistAction*/])
         
         // 艺术家
-        let artistAction = UIAction(title: MusicActionType.artistDetial.formatStr(), image: MusicActionType.artistDetial.iconImage()) { [weak self] _ in
+        let artistAction = UIAction(title: MusicActionType.artistDetial.titleStr(), image: MusicActionType.artistDetial.iconImage()) { [weak self] _ in
             guard let wSelf = self, let model = wSelf.musicModel else { return }
             wSelf.delegate?.musicTableCell(cell: wSelf, model: model, action: .artistDetial)
         }
                 
         // 专辑
-        let albumAction = UIAction(title: MusicActionType.albumDetial.formatStr(), image: MusicActionType.albumDetial.iconImage()) { [weak self] _ in
+        let albumAction = UIAction(title: MusicActionType.albumDetial.titleStr(), image: MusicActionType.albumDetial.iconImage()) { [weak self] _ in
             guard let wSelf = self, let model = wSelf.musicModel else { return }
             wSelf.delegate?.musicTableCell(cell: wSelf, model: model, action: .albumDetial)
         }
@@ -318,7 +312,7 @@ extension MusicTableViewCell {
         let detialMenu = UIMenu(title: "", options: .displayInline, children: [artistAction/*, albumAction*/])
         
         // 下载
-        let downloadAction = UIAction(title: MusicActionType.download.formatStr(), image: MusicActionType.download.iconImage(), attributes: .destructive) { [weak self] (_) in
+        let downloadAction = UIAction(title: MusicActionType.download.titleStr(), image: MusicActionType.download.iconImage(), attributes: .destructive) { [weak self] (_) in
             guard let wSelf = self, let model = wSelf.musicModel else { return }
             wSelf.delegate?.musicTableCell(cell: wSelf, model: model, action: .download)
         }

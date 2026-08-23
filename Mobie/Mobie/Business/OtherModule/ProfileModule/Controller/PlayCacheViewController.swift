@@ -429,7 +429,7 @@ extension PlayCacheViewController: MusicTableViewCellDelegate {
         }
         
         if action == .addPlaylist {
-            let playlist = SelectPlaylistController(isLocal: true, serverModel: nil)
+            let playlist = SelectPlaylistController(selectType: .navidromeList)
             playlist.onLocalBlock = { [weak self] (folderURL) in
                 guard let wSelf = self else { return }
                 do {

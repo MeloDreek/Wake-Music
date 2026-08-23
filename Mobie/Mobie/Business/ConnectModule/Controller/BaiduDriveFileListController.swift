@@ -542,7 +542,7 @@ extension BaiduDriveFileListController {
             return
         }
                                               
-        let playlist = SelectPlaylistController(isLocal: true, serverModel: nil)
+        let playlist = SelectPlaylistController(selectType: .downloadTask)
         playlist.onLocalBlock = { [weak self] (folderURL) in
             guard let wSelf = self else { return }
             let tempArray = wSelf.selectArray.map {
@@ -834,7 +834,7 @@ extension BaiduDriveFileListController: MusicTableViewCellDelegate {
         
         guard let baiduFile = model.baiduFileModel, baiduFile.size > 0 else { return }
         
-        let playlist = SelectPlaylistController(isLocal: true, serverModel: nil)
+        let playlist = SelectPlaylistController(selectType: .downloadTask)
         playlist.onLocalBlock = { [weak self] (folderURL) in
             var musicModel = MusicItemModel(baiduFile: baiduFile)
             musicModel.downloadFolderName = folderURL.lastPathComponent

@@ -378,7 +378,6 @@ view.refreshControl = self.kaka_header
     }
     
     lazy var deleteToolBar: UIToolbar = {
-        
         // 分享，已选择 88 项，更多
         let frame = CGRectMake(0, self.view.height - 49.ckValue() - kaka_safeAreaInsets().bottom, self.view.width, 49.ckValue())
         let view = UIToolbar(frame: frame)
@@ -405,40 +404,34 @@ view.refreshControl = self.kaka_header
         return item
     }()
     
-    // 导出、移动、删除
+    // 移动到歌单、删除
     func editMoreMenu() -> UIMenu {
-        // 1️⃣组
-        let editTypes: [MusicActionType] = [.move, .export]
+        let editTypes: [MusicActionType] = [.addPlaylist, .deleteItem]
         var editArray = [UIAction]()
 
         for subItem in editTypes {
-            let subMenu = UIAction(title: subItem.formatStr(), image: subItem.iconImage(), identifier: nil, discoverabilityTitle: nil, attributes: [], state: .off, handler: { [weak self] _ in
+            let isDelete = subItem == .deleteItem
+            let subMenu = UIAction(title: subItem.titleStr(), image: subItem.iconImage(), identifier: nil, discoverabilityTitle: nil, attributes: isDelete ? [.destructive] : [], state: .off, handler: { [weak self] _ in
                 guard let wSelf = self else { return }
                 if wSelf.viewModel.selectArray.count == 0 {
                     wSelf.tableView.kaka_playShakeAnim()
                     return
                 }
-                                
+                
+                if subItem == .addPlaylist {
+                    self?.moveToOtherPlaylist(wSelf.viewModel.selectArray)
+                }
+                
+                if subItem == .deleteItem {
+                    wSelf.deleteMusicModel(wSelf.viewModel.selectArray)
+                }
             })
 
             editArray.append(subMenu)
         }
         let editMenu = UIMenu(title: "", options: .displayInline, children: editArray)
-        
-        // 2️⃣组
-        let deleteMenu = UIAction(title: MusicActionType.deleteItem.formatStr(), image: MusicActionType.deleteItem.iconImage(), identifier: nil, discoverabilityTitle: nil, attributes: [.destructive], state: .off, handler: { [weak self] _ in
-            guard let wSelf = self else { return }
-            if wSelf.viewModel.selectArray.count == 0 {
-                wSelf.tableView.kaka_playShakeAnim()
-                return
-            }
-            
-            wSelf.deleteMusicModel(wSelf.viewModel.selectArray)
-        })
-        
-        let mainMenu = UIMenu(title: "", children: [deleteMenu, editMenu])
-        
-        return mainMenu
+                
+        return editMenu
     }
     
     override func didReceiveMemoryWarning() {

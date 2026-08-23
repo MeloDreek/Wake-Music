@@ -27,14 +27,14 @@ enum MusicActionType {
     case artist
     case album
     
-    case move
+//    case move
     case export
     
     case showInFinder
     case deleteItem
     case download
     
-    func formatStr() -> String {
+    func titleStr() -> String {
         switch self {
             
         case .musictag:
@@ -62,8 +62,8 @@ enum MusicActionType {
         case .album, .albumDetial:
             return "Album".localStr()
             
-        case .move:
-            return "Move".localStr()
+//        case .move:
+//            return "Move".localStr()
         case .export:
             return "Export".localStr()
             
@@ -104,8 +104,8 @@ enum MusicActionType {
         case .album, .albumDetial:
             return UIImage(systemName: "rectangle.stack")
             
-        case .move:
-            return UIImage(systemName: "move.3d")
+//        case .move:
+//            return UIImage(systemName: "move.3d")
         case .export:
             return UIImage(systemName: "square.and.arrow.up")
             

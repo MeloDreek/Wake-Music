@@ -272,7 +272,7 @@ extension MusicPlayerViewController {
             return
         }
         
-        let playlist = SelectPlaylistController(isLocal: true, serverModel: nil)
+        let playlist = SelectPlaylistController(selectType: .selectPlaylist)
         playlist.onLocalBlock = { [weak self] (folderURL) in
             guard let wSelf = self else { return }
             do {

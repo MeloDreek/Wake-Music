@@ -9,11 +9,28 @@ import KakaFoundation
 import AppGroupKit
 import PanModal
 
+enum SelectPlaylistType: Int {
+    case selectPlaylist = 0
+    case downloadTask
+    case navidromeList
+    
+    func titleStr() -> String {
+        switch self {
+        case .selectPlaylist:
+            return "Select Playlist".localStr()
+        case .downloadTask:
+            return "Download".localStr()
+        case .navidromeList:
+            return MusicActionType.addPlaylist.titleStr()
+        }
+    }
+}
+
 /// 选择歌单（播放列表）
 class SelectPlaylistController: SuperViewController {
     
-    init(isLocal: Bool, serverModel: ServerConfigModel?) {
-        self.isLocal = isLocal
+    init(selectType: SelectPlaylistType, serverModel: ServerConfigModel? = nil) {
+        self.selectType = selectType
         self.curServerModel = serverModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -36,7 +53,7 @@ class SelectPlaylistController: SuperViewController {
     override func preSetupHandleBuness() {
         super.preSetupHandleBuness()
         
-        self.title = "Download".localStr()
+        self.title = self.selectType.titleStr()
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationItem.largeTitleDisplayMode = .automatic
         
@@ -46,7 +63,10 @@ class SelectPlaylistController: SuperViewController {
     }
     
     func refreshDataAction() {
-        if self.isLocal {
+        
+        if self.selectType == .navidromeList {
+            self.refreshMyPlayLists()
+        }else{
             let baseURL = SandboxFileManager.shared.basePublicFileURL()
             self.localArray = baseURL.readLocalSubFiles().filter({ $0.hasDirectoryPath }).filter { subFolder in
                 debugPrint("文件名称 = \(subFolder.lastPathComponent.lowercased())")
@@ -55,8 +75,6 @@ class SelectPlaylistController: SuperViewController {
             
             self.tableView.separatorStyle = localArray.isEmpty ? .none : .singleLine
             self.tableView.reloadData()
-        }else{
-            self.refreshMyPlayLists()
         }
     }
     
@@ -90,7 +108,7 @@ class SelectPlaylistController: SuperViewController {
     
     // MARK:  GET && SET
     
-    var isLocal: Bool = true
+    var selectType = SelectPlaylistType.selectPlaylist
     
     var curServerModel: ServerConfigModel?
 
@@ -126,12 +144,10 @@ class SelectPlaylistController: SuperViewController {
         
         let action1 = UIAlertAction(title: "Cancel".localStr(), style: .cancel, handler: nil)
         let action2 = UIAlertAction(title: "Done".localStr(), style: .destructive, handler: { [weak self] action in
-            guard let nameField = editAlertVC.textFields?.first, var nameText = nameField.text, nameText.count > 0 else {
+            guard let nameField = editAlertVC.textFields?.first, let nameText = nameField.text?.standardFileName, nameText.count > 0 else {
                 return
             }
-            
-            nameText = nameText.replaceChar(oldChar: "/", newChar: " ")
-            
+                        
             SandboxFileManager.shared.addOrUpdateFolder(folderName: nameText) { result in
                 switch result {
                 case .success(_):
@@ -158,35 +174,15 @@ extension SelectPlaylistController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if isLocal {
-            return localArray.count > 0 ? localArray.count : 1
-        }else{
+        if self.selectType == .navidromeList {
             return remoteArray.count > 0 ? remoteArray.count : 1
+        }else{
+            return localArray.count > 0 ? localArray.count : 1
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if self.isLocal {
-            
-            if localArray.count > 0 {
-                let cell = tableView.dequeueReusableCell(withIdentifier: "MusicTableViewCell", for: indexPath) as! MusicTableViewCell
-                let subURL = localArray[indexPath.row]
-                cell.coverImgView.image = UIImage(named: "folder_icon")
-                cell.nameLabel.text = subURL.lastPathComponent
-                cell.descLabel.text = String(format: "%d songs".localStr(), subURL.readLocalSubFiles().count)
-                cell.loadingBgView.isHidden = true
-                cell.accessoryType = .disclosureIndicator
-                cell.accessoryView = nil
-                return cell
-            }else{
-                let cell = tableView.dequeueReusableCell(withIdentifier: "EmptyDataTableCell", for: indexPath) as! EmptyDataTableCell
-                cell.selectionStyle = .none
-                cell.backgroundColor = .clear
-                cell.updateMessage("Create your first folder (playlist)".localStr())
-                return cell
-            }
-            
-        }else{
+        if self.selectType == .navidromeList {
             if remoteArray.count > 0 {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "MusicTableViewCell", for: indexPath) as! MusicTableViewCell
                 let subModel = remoteArray[indexPath.row]
@@ -204,32 +200,50 @@ extension SelectPlaylistController: UITableViewDataSource, UITableViewDelegate {
                 cell.updateMessage()
                 return cell
             }
+        }else{
+            if localArray.count > 0 {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "MusicTableViewCell", for: indexPath) as! MusicTableViewCell
+                let subURL = localArray[indexPath.row]
+                cell.coverImgView.image = UIImage(named: "folder_icon")
+                cell.nameLabel.text = subURL.lastPathComponent
+                cell.descLabel.text = String(format: "%d songs".localStr(), subURL.readLocalSubFiles().count)
+                cell.loadingBgView.isHidden = true
+                cell.accessoryType = .disclosureIndicator
+                cell.accessoryView = nil
+                return cell
+            }else{
+                let cell = tableView.dequeueReusableCell(withIdentifier: "EmptyDataTableCell", for: indexPath) as! EmptyDataTableCell
+                cell.selectionStyle = .none
+                cell.backgroundColor = .clear
+                cell.updateMessage("Create your first folder (playlist)".localStr())
+                return cell
+            }
         }
         
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        if self.isLocal {
-            if localArray.count > 0 {
-                let subURL = localArray[indexPath.row]
-                self.onLocalBlock?(subURL)
-                self.dismiss(animated: true)
-            }
-        }else{
+        if self.selectType == .navidromeList {
             if remoteArray.count > 0 {
                 let selectModel = remoteArray[indexPath.row]
                 self.onRemoteBlock?(selectModel)
+                self.dismiss(animated: true)
+            }
+        }else{
+            if localArray.count > 0 {
+                let subURL = localArray[indexPath.row]
+                self.onLocalBlock?(subURL)
                 self.dismiss(animated: true)
             }
         }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if self.isLocal {
-            return localArray.isEmpty ? 500.ckValue() : UITableView.automaticDimension
-        }else{
+        if self.selectType == .navidromeList {
             return remoteArray.isEmpty ? 500.ckValue() : UITableView.automaticDimension
+        }else{
+            return localArray.isEmpty ? 500.ckValue() : UITableView.automaticDimension
         }
     }
 }

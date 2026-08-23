@@ -572,7 +572,7 @@ extension DropboxDriveFileListController {
             return
         }
                                               
-        let playlist = SelectPlaylistController(isLocal: true, serverModel: nil)
+        let playlist = SelectPlaylistController(selectType: .downloadTask)
         playlist.onLocalBlock = { [weak self] (folderURL) in
             guard let wSelf = self else { return }
             let tempArray = wSelf.selectArray.map {
@@ -865,7 +865,7 @@ extension DropboxDriveFileListController: MusicTableViewCellDelegate {
             return
         }
         
-        let playlist = SelectPlaylistController(isLocal: true, serverModel: nil)
+        let playlist = SelectPlaylistController(selectType: .downloadTask)
         playlist.onLocalBlock = { [weak self] (folderURL) in
             var musicModel = MusicItemModel(dropboxFile: dropboxFile)
             musicModel.downloadFolderName = folderURL.lastPathComponent

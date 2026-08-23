@@ -526,7 +526,7 @@ extension AudioMatchTagViewController {
     // 2️⃣ 手动编辑标题
     private func manual_editTitleAction() {
         
-        let editAlertVC = UIAlertController(title: MusicActionType.title.formatStr(), message: nil, preferredStyle: .alert)
+        let editAlertVC = UIAlertController(title: MusicActionType.title.titleStr(), message: nil, preferredStyle: .alert)
         editAlertVC.addTextField { textView in
             textView.text = (self.model.title?.count ?? 0 > 0) ? self.model.title : self.model.showTitleName()
             textView.clearButtonMode = .always
@@ -590,7 +590,7 @@ extension AudioMatchTagViewController {
     /// 3️⃣ 手动编辑艺术家
     private func manual_editArtistAction() {
         
-        let editAlertVC = UIAlertController(title: MusicActionType.artist.formatStr(), message: nil, preferredStyle: .alert)
+        let editAlertVC = UIAlertController(title: MusicActionType.artist.titleStr(), message: nil, preferredStyle: .alert)
         editAlertVC.addTextField { textView in
             textView.text = (self.model.artist?.count ?? 0 > 0) ? self.model.artist : self.model.showArtistName()
             textView.clearButtonMode = .always
@@ -654,7 +654,7 @@ extension AudioMatchTagViewController {
     /// 4️⃣ 手动编辑专辑
     private func manual_editAlbumAction() {
         
-        let editAlertVC = UIAlertController(title: MusicActionType.album.formatStr(), message: nil, preferredStyle: .alert)
+        let editAlertVC = UIAlertController(title: MusicActionType.album.titleStr(), message: nil, preferredStyle: .alert)
         editAlertVC.addTextField { textView in
             textView.text = self.model.album
             textView.clearButtonMode = .always

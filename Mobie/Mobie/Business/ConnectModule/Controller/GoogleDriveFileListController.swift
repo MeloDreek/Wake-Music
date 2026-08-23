@@ -581,7 +581,7 @@ extension GoogleDriveFileListController {
             return
         }
                                               
-        let playlist = SelectPlaylistController(isLocal: true, serverModel: nil)
+        let playlist = SelectPlaylistController(selectType: .downloadTask)
         playlist.onLocalBlock = { [weak self] (folderURL) in
             guard let wSelf = self else { return }
             let tempArray = wSelf.selectArray.map {
@@ -873,7 +873,7 @@ extension GoogleDriveFileListController: MusicTableViewCellDelegate {
         
         guard let googleFile = model.googleFile, googleFile.size > 0 else { return }
         
-        let playlist = SelectPlaylistController(isLocal: true, serverModel: nil)
+        let playlist = SelectPlaylistController(selectType: .downloadTask)
         playlist.onLocalBlock = { [weak self] (folderURL) in
             var musicModel = MusicItemModel(googleFile: googleFile)
             musicModel.downloadFolderName = folderURL.lastPathComponent

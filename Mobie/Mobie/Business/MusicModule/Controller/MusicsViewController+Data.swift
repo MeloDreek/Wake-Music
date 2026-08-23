@@ -258,7 +258,7 @@ extension MusicsViewController: UITableViewDataSource, UITableViewDelegate {
                 self?.editMusicTagsAction(model)
                 finish(true)
             }
-            musictagAction.image = Reasource.systemNamed("tag", color: .white)
+            musictagAction.image = Reasource.systemNamed("touchid", color: .white)
             musictagAction.backgroundColor = UIColor.systemBlue
             
             // 移动到歌单
@@ -276,18 +276,17 @@ extension MusicsViewController: UITableViewDataSource, UITableViewDelegate {
                 finish(true)
             }
             likeAction.image = Reasource.systemNamed(model.isFlagFavorite() ? "heart.fill" : "heart", color: .white)
-            likeAction.backgroundColor = UIColor.systemPink
+            likeAction.backgroundColor = UIColor.systemOrange
             
             // 删除
             let deleteAction = UIContextualAction(style: .normal, title: nil) { [weak self] action, view, finish in
-                self?.tableView.setEditing(false, animated: true)
                 self?.deleteMusicModel([model])
                 finish(true)
             }
             deleteAction.image = Reasource.systemNamed("trash", color: .white)
             deleteAction.backgroundColor = UIColor.systemPink
                     
-            let actions = model.isFolder() ? [deleteAction, moveAction] : [musictagAction, moveAction, likeAction]
+            let actions = [musictagAction, moveAction, likeAction, deleteAction]
             return UISwipeActionsConfiguration(actions: actions)
         }else{
             return nil
@@ -306,26 +305,21 @@ extension MusicsViewController: UITableViewDataSource, UITableViewDelegate {
         let model = dataArray[indexPath.row]
                         
         // 音频指纹识别
-        let audiofingerAction = UIAction(title: MusicActionType.audioFinger.formatStr(), image: MusicActionType.audioFinger.iconImage()) { [weak self] _ in
-            self?.audioFingerprintRecognzer(model)
-        }
-        
-        // 音乐标签编辑器
-        let musictagAction = UIAction(title: "Music Tag Editor".localStr(), image: MusicActionType.musictag.iconImage()) { [weak self] _ in
+        let audiofingerAction = UIAction(title: MusicActionType.audioFinger.titleStr(), image: MusicActionType.audioFinger.iconImage()) { [weak self] _ in
             self?.editMusicTagsAction(model)
         }
         
-        let musictagMenu = UIMenu(title: "", options: .displayInline, children: [audiofingerAction, musictagAction])
+        let musictagMenu = UIMenu(title: "", options: .displayInline, children: [audiofingerAction])
         
         // 喜欢/不喜欢
         let likeType = model.isFlagFavorite() ? MusicActionType.removeFavirote : MusicActionType.addFavirote
-        let likeItem = UIAction(title: likeType.formatStr(), image: likeType.iconImage()) { [weak self] (_) in
+        let likeItem = UIAction(title: likeType.titleStr(), image: likeType.iconImage()) { [weak self] (_) in
             SandboxFileManager.shared.addOrDeleteFavirote(model.mediaPlayURL)
             self?.refreshDataAction()
         }
         
         // 移动到歌单
-        let playlistAction = UIAction(title: MusicActionType.addPlaylist.formatStr(), image: MusicActionType.addPlaylist.iconImage()) { [weak self] _ in
+        let playlistAction = UIAction(title: MusicActionType.addPlaylist.titleStr(), image: MusicActionType.addPlaylist.iconImage()) { [weak self] _ in
             self?.tableView.setEditing(false, animated: true)
             guard let cell = self?.tableView.cellForRow(at: indexPath) as? MusicTableViewCell else { return }
             self?.moveToPlaylistAction(cell: cell, model: model)
@@ -334,14 +328,14 @@ extension MusicsViewController: UITableViewDataSource, UITableViewDelegate {
         let otherMenu = UIMenu(title: "", options: .displayInline, children: [likeItem, playlistAction])
         
         // 删除
-        let deleteAction = UIAction(title: MusicActionType.deleteItem.formatStr(), image: MusicActionType.deleteItem.iconImage(), attributes: .destructive) { [weak self] (_) in
+        let deleteAction = UIAction(title: MusicActionType.deleteItem.titleStr(), image: MusicActionType.deleteItem.iconImage(), attributes: .destructive) { [weak self] (_) in
             self?.deleteMusicModel([model])
         }
         
         let deleteMenu = UIMenu(title: "", options: .displayInline, children: [deleteAction])
         
         return UIContextMenuConfiguration(identifier: nil, previewProvider: .none, actionProvider: { _ in
-            return UIMenu(title: model.showTitleName(), children: [musictagMenu, otherMenu, deleteMenu])
+            return UIMenu(title: model.mediaPlayURL.lastPathComponent, children: [musictagMenu, otherMenu, deleteMenu])
         })
     }
     

@@ -540,7 +540,7 @@ extension Drive115FileListController {
             return
         }
                                               
-        let playlist = SelectPlaylistController(isLocal: true, serverModel: nil)
+        let playlist = SelectPlaylistController(selectType: .downloadTask)
         playlist.onLocalBlock = { [weak self] (folderURL) in
             guard let wSelf = self else { return }
             let tempArray = wSelf.selectArray.map {
@@ -835,7 +835,7 @@ extension Drive115FileListController: MusicTableViewCellDelegate {
         
         guard let drive115Model = model.drive115Model else { return }
         
-        let playlist = SelectPlaylistController(isLocal: true, serverModel: nil)
+        let playlist = SelectPlaylistController(selectType: .downloadTask)
         playlist.onLocalBlock = { [weak self] (folderURL) in
             var musicModel = MusicItemModel(file115: drive115Model)
             musicModel.downloadFolderName = folderURL.lastPathComponent

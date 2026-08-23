@@ -469,21 +469,21 @@ extension MusicTableViewCell {
         
         if let _ = musicModel.musicCoverImage() {
         }else{
-            let tagView = self.createTagView(MusicActionType.coverArt.formatStr())
+            let tagView = self.createTagView(MusicActionType.coverArt.titleStr())
             tagView.tagBackgroundColor = .systemRed
             taglistView.addTagView(tagView)
         }
         
         if let title = musicModel.title, title.count > 0 {
         }else{
-            let tagView = self.createTagView(MusicActionType.title.formatStr())
+            let tagView = self.createTagView(MusicActionType.title.titleStr())
             tagView.tagBackgroundColor = .systemRed
             taglistView.addTagView(tagView)
         }
         
         if let artist = musicModel.artist, artist.count > 0 {
         }else{
-            let tagView = self.createTagView(MusicActionType.artist.formatStr())
+            let tagView = self.createTagView(MusicActionType.artist.titleStr())
             tagView.tagBackgroundColor = .systemRed
             taglistView.addTagView(tagView)
         }

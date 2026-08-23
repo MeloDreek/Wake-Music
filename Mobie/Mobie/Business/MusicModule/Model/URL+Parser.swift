@@ -27,12 +27,12 @@ extension URL {
         if songName.contains("." + songInfo.fileExtension) {
             songName = songName.replaceChar(oldChar: "." + songInfo.fileExtension, newChar: "")
         }
-        songName = songName.replaceChar(oldChar: "/", newChar: " ")
+        songName = songName.standardFileName
         
         // 艺术家名
         var artistName: String = ((metadata?.artist?.count ?? 0) > 0) ? (metadata?.artist ?? "Unknown Artist".localStr()) : (songInfo.artist ?? "")
         
-        artistName = artistName.replaceChar(oldChar: "/", newChar: "&")
+        artistName = artistName.standardFileName
         
         // 检查重名文件并自增
         let baseFileName = "\(artistName) - \(songName)".replaceChar(oldChar: ".", newChar: "")
@@ -54,7 +54,7 @@ extension URL {
         }
         
         var albumName: String = ((metadata?.album?.count ?? 0) > 0) ? (metadata?.album ?? "Unknown Album".localStr()) : "Unknown Album".localStr()
-        albumName = albumName.replaceChar(oldChar: "/", newChar: " ")
+        albumName = albumName.standardFileName
         
         newModel.handleType = handleType
         newModel.title = songName

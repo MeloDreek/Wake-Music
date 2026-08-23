@@ -113,7 +113,7 @@ class PlayBackCoverTableCell: UITableViewCell, UICollectionViewDataSource, UICol
             guard let wSelf = self, let curCell = collectionView.cellForItem(at: indexPath) as? SelectBackCoverCollectCell else { return }
             wSelf.onPreviewCallback?(model, curCell)
         }
-        let deleteAction = UIAction(title: MusicActionType.deleteItem.formatStr(), image: MusicActionType.deleteItem.iconImage(), attributes: model.backgroundType == .customType ? .destructive : .disabled) { [weak self] (_) in
+        let deleteAction = UIAction(title: MusicActionType.deleteItem.titleStr(), image: MusicActionType.deleteItem.iconImage(), attributes: model.backgroundType == .customType ? .destructive : .disabled) { [weak self] (_) in
             self?.onDeleteCallback?(model)
         }
                 

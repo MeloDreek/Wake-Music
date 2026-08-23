@@ -418,7 +418,7 @@ extension MusicTagEditorController {
         guard let oldModel = self.origialModel, let tempURL = self.origialModel?.mediaPlayURL else { return }
         guard let editModel = self.editModel else { return }
 
-        let editAlertVC = UIAlertController(title: MusicActionType.title.formatStr(), message: nil, preferredStyle: .alert)
+        let editAlertVC = UIAlertController(title: MusicActionType.title.titleStr(), message: nil, preferredStyle: .alert)
         editAlertVC.addTextField { textView in
             textView.text = (editModel.title?.count ?? 0 > 0) ? editModel.title : oldModel.showTitleName()
             textView.clearButtonMode = .always
@@ -426,12 +426,11 @@ extension MusicTagEditorController {
         
         let action1 = UIAlertAction(title: "Cancel".localStr(), style: .cancel, handler: nil)
         let action2 = UIAlertAction(title: "Embed".localStr(), style: .destructive, handler: { [weak self] action in
-            guard let nameField = editAlertVC.textFields?.first, var nameText = nameField.text, nameText.count > 0 else {
+            guard let nameField = editAlertVC.textFields?.first, var nameText = nameField.text?.standardFileName, nameText.count > 0 else {
                 return
             }
             
             let baseFileURL: URL = tempURL.deletingLastPathComponent()
-            nameText = nameText.replaceChar(oldChar: "/", newChar: "|")
             var editModel = oldModel
             editModel.title = nameText
             
@@ -464,7 +463,7 @@ extension MusicTagEditorController {
         guard let oldModel = self.origialModel, let tempURL = self.origialModel?.mediaPlayURL else { return }
         guard let editModel = self.editModel else { return }
 
-        let editAlertVC = UIAlertController(title: MusicActionType.artist.formatStr(), message: nil, preferredStyle: .alert)
+        let editAlertVC = UIAlertController(title: MusicActionType.artist.titleStr(), message: nil, preferredStyle: .alert)
         editAlertVC.addTextField { textView in
             textView.text = (editModel.artist?.count ?? 0 > 0) ? editModel.artist : oldModel.artist
             textView.clearButtonMode = .always
@@ -472,12 +471,11 @@ extension MusicTagEditorController {
         
         let action1 = UIAlertAction(title: "Cancel".localStr(), style: .cancel, handler: nil)
         let action2 = UIAlertAction(title: "Embed".localStr(), style: .destructive, handler: { [weak self] action in
-            guard let nameField = editAlertVC.textFields?.first, var nameText = nameField.text, nameText.count > 0 else {
+            guard let nameField = editAlertVC.textFields?.first, var nameText = nameField.text?.standardFileName, nameText.count > 0 else {
                 return
             }
             
             let baseFileURL: URL = tempURL.deletingLastPathComponent()
-            nameText = nameText.replaceChar(oldChar: "/", newChar: "|")
             
             var editModel = oldModel
             editModel.artist = nameText
@@ -511,7 +509,7 @@ extension MusicTagEditorController {
         guard var oldModel = self.origialModel, let tempURL = self.origialModel?.mediaPlayURL else { return }
         guard let editModel = self.editModel else { return }
 
-        let editAlertVC = UIAlertController(title: MusicActionType.album.formatStr(), message: nil, preferredStyle: .alert)
+        let editAlertVC = UIAlertController(title: MusicActionType.album.titleStr(), message: nil, preferredStyle: .alert)
         editAlertVC.addTextField { textView in
             textView.text = (editModel.album?.count ?? 0 > 0) ? editModel.album : oldModel.album
             textView.clearButtonMode = .always

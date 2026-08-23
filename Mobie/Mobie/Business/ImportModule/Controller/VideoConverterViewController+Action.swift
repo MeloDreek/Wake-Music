@@ -180,7 +180,7 @@ extension VideoConverterViewController: PHPickerViewControllerDelegate, UIDocume
         
         guard let oldModel = self.musicModel else { return }
 
-        let editAlertVC = UIAlertController(title: MusicActionType.title.formatStr(), message: nil, preferredStyle: .alert)
+        let editAlertVC = UIAlertController(title: MusicActionType.title.titleStr(), message: nil, preferredStyle: .alert)
         editAlertVC.addTextField { textView in
             textView.placeholder = oldModel.showTitleName()
             textView.clearButtonMode = .always
@@ -188,13 +188,12 @@ extension VideoConverterViewController: PHPickerViewControllerDelegate, UIDocume
         
         let action1 = UIAlertAction(title: "Cancel".localStr(), style: .cancel, handler: nil)
         let action2 = UIAlertAction(title: "Done".localStr(), style: .destructive, handler: { [weak self] action in
-            guard let nameField = editAlertVC.textFields?.first, var nameText = nameField.text, nameText.count > 0 else {
+            guard let nameField = editAlertVC.textFields?.first, var nameText = nameField.text?.standardFileName, nameText.count > 0 else {
                 return
             }
             
             guard let wSelf = self else { return }
             
-            nameText = nameText.replaceChar(oldChar: "/", newChar: "|")
             let success = SandboxFileManager.shared.updateTitleTag(oldModel: oldModel, newTitle: nameText)
             self?.musicModel?.title = success ? nameText : oldModel.title
             
@@ -224,7 +223,7 @@ extension VideoConverterViewController: PHPickerViewControllerDelegate, UIDocume
         
         guard let oldModel = self.musicModel else { return }
         
-        let editAlertVC = UIAlertController(title: MusicActionType.artist.formatStr(), message: nil, preferredStyle: .alert)
+        let editAlertVC = UIAlertController(title: MusicActionType.artist.titleStr(), message: nil, preferredStyle: .alert)
         editAlertVC.addTextField { textView in
             textView.placeholder = oldModel.showArtistName()
             textView.clearButtonMode = .always
@@ -232,13 +231,12 @@ extension VideoConverterViewController: PHPickerViewControllerDelegate, UIDocume
         
         let action1 = UIAlertAction(title: "Cancel".localStr(), style: .cancel, handler: nil)
         let action2 = UIAlertAction(title: "Done".localStr(), style: .destructive, handler: { [weak self] action in
-            guard let nameField = editAlertVC.textFields?.first, var nameText = nameField.text, nameText.count > 0 else {
+            guard let nameField = editAlertVC.textFields?.first, var nameText = nameField.text?.standardFileName, nameText.count > 0 else {
                 return
             }
             
             guard let wSelf = self else { return }
             
-            nameText = nameText.replaceChar(oldChar: "/", newChar: "|")
             let success = SandboxFileManager.shared.updateArtistTag(oldModel: oldModel, newArtist: nameText)
             
             if success {
@@ -266,7 +264,7 @@ extension VideoConverterViewController: PHPickerViewControllerDelegate, UIDocume
     private func editAlbumNameAction() {
         guard let oldModel = self.musicModel else { return }
 
-        let editAlertVC = UIAlertController(title: MusicActionType.album.formatStr(), message: nil, preferredStyle: .alert)
+        let editAlertVC = UIAlertController(title: MusicActionType.album.titleStr(), message: nil, preferredStyle: .alert)
         editAlertVC.addTextField { textView in
             textView.placeholder = oldModel.album ?? "Unknown Album".localStr()
             textView.clearButtonMode = .always

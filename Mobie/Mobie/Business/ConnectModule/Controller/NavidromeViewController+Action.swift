@@ -88,12 +88,10 @@ extension NavidromeViewController: EmptyContentCellDelegate, ConnectSectionHeadV
         
         let action1 = UIAlertAction(title: "Cancel".localStr(), style: .cancel, handler: nil)
         let action2 = UIAlertAction(title: "Done".localStr(), style: .destructive, handler: { [weak self] action in
-            guard let nameField = editAlertVC.textFields?.first, var nameText = nameField.text, nameText.count > 0 else {
+            guard let nameField = editAlertVC.textFields?.first, var nameText = nameField.text?.standardFileName, nameText.count > 0 else {
                 return
             }
-            
-            nameText = nameText.replaceChar(oldChar: "/", newChar: " ")
-            
+                        
             footView?.startLoading()
             let params: [String: Any] = ["name": nameText]
             APIManager.shared.requestSubsonic(navUser: self?.navUser, endpoint: API.Subsonic.createPlaylist, method: .post, parameters: params) { response in
@@ -160,12 +158,10 @@ extension NavidromeViewController: ConnectMyPlayListCellDelegate {
         
         let action1 = UIAlertAction(title: "Cancel".localStr(), style: .cancel, handler: nil)
         let action2 = UIAlertAction(title: "Done".localStr(), style: .destructive, handler: { [weak self] action in
-            guard let nameField = editAlertVC.textFields?.first, var nameText = nameField.text, nameText.count > 0 else {
+            guard let nameField = editAlertVC.textFields?.first, var nameText = nameField.text?.standardFileName, nameText.count > 0 else {
                 return
             }
-            
-            nameText = nameText.replaceChar(oldChar: "/", newChar: " ")
-            
+                        
             let param = ["playlistId": playlist.id, "name": nameText]
             
             APIManager.shared.requestSubsonic(navUser: self?.navUser, endpoint: API.Subsonic.updatePlaylist, parameters: param) { response in
@@ -252,7 +248,7 @@ extension NavidromeViewController: MusicTableViewCellDelegate {
     // 加入歌单
     func navidromeSearchDidAddPlaylist(navSong: AppGroupKit.NavidromeSong) {
         let serverModel = ServerConfigModel(serverType: .fromNavidrome, navUser: self.navUser)
-        let playlist = SelectPlaylistController(isLocal: false, serverModel: serverModel)
+        let playlist = SelectPlaylistController(selectType: .navidromeList, serverModel: serverModel)
         playlist.onRemoteBlock = { [weak self] (playlist) in
             let params = ["playlistId": playlist.id, "songIdToAdd": navSong.id]
             APIManager.shared.requestSubsonic(navUser: self?.navUser, endpoint: API.Subsonic.updatePlaylist, parameters: params) { response in
@@ -270,7 +266,7 @@ extension NavidromeViewController: MusicTableViewCellDelegate {
     // 下载Navidrme
     func navidromeSearchDidDownload(cell: MusicTableViewCell, navSong: AppGroupKit.NavidromeSong) {
                         
-        let playlist = SelectPlaylistController(isLocal: true, serverModel: nil)
+        let playlist = SelectPlaylistController(selectType: .downloadTask)
         playlist.onLocalBlock = { [weak self] (folderURL) in
             
             var musicModel = MusicItemModel(navSong: navSong)

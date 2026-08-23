@@ -567,7 +567,7 @@ view.refreshControl = self.kaka_header
             return
         }
                                               
-        let playlist = SelectPlaylistController(isLocal: true, serverModel: nil)
+        let playlist = SelectPlaylistController(selectType: .downloadTask)
         playlist.onLocalBlock = { [weak self] (folderURL) in
             guard let wSelf = self else { return }
             let tempArray = wSelf.selectArray.map {
@@ -862,7 +862,7 @@ extension WebdavFileListController: MusicTableViewCellDelegate {
         
         guard let webFileModel = model.webFileModel, webFileModel.fileSize > 0 else { return }
         
-        let playlist = SelectPlaylistController(isLocal: true, serverModel: nil)
+        let playlist = SelectPlaylistController(selectType: .downloadTask)
         playlist.onLocalBlock = { [weak self] (folderURL) in
             var musicModel = MusicItemModel(webFileModel: webFileModel)
             musicModel.downloadFolderName = folderURL.lastPathComponent

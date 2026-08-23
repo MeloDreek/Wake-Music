@@ -79,7 +79,7 @@ class NavidromeSearchViewController: UISearchController, MusicTableViewCellDeleg
     // 添加到歌单
     func navidromeSearchDidAddPlaylist(navSong: AppGroupKit.NavidromeSong) {
         let serverModel = ServerConfigModel(serverType: .fromNavidrome, navUser: self.navUser)
-        let playlist = SelectPlaylistController(isLocal: false, serverModel: serverModel)
+        let playlist = SelectPlaylistController(selectType: .navidromeList, serverModel: serverModel)
         playlist.onRemoteBlock = { [weak self] (playlist) in
             guard let wSelf = self else { return }
             let params = ["playlistId": playlist.id, "songIdToAdd": navSong.id]
@@ -102,7 +102,7 @@ class NavidromeSearchViewController: UISearchController, MusicTableViewCellDeleg
             return
         }
         
-        let playlist = SelectPlaylistController(isLocal: true, serverModel: nil)
+        let playlist = SelectPlaylistController(selectType: .downloadTask)
         playlist.onLocalBlock = { [weak self] (folderURL) in
             var musicModel = MusicItemModel(navSong: navSong)
             musicModel.downloadFolderName = folderURL.lastPathComponent
@@ -115,7 +115,7 @@ class NavidromeSearchViewController: UISearchController, MusicTableViewCellDeleg
     
     func webdavSearchDidDownload(cell: MusicTableViewCell, webFileModel: AppGroupKit.WebdavFileModel) {
         
-        let playlist = SelectPlaylistController(isLocal: true, serverModel: nil)
+        let playlist = SelectPlaylistController(selectType: .downloadTask)
         playlist.onLocalBlock = { [weak self] (folderURL) in
             var musicModel = MusicItemModel(webFileModel: webFileModel)
             musicModel.downloadFolderName = folderURL.lastPathComponent

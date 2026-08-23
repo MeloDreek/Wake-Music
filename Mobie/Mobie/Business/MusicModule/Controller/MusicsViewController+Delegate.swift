@@ -150,25 +150,43 @@ extension MusicsViewController: MusicTableViewCellDelegate {
     
     // 移动到其他文件夹
     func moveToPlaylistAction(cell: MusicTableViewCell, model: MusicItemModel) {
-        let playlist = SelectPlaylistController(isLocal: true, serverModel: nil)
-        playlist.onLocalBlock = { [weak self] (folderURL) in
-            guard let wSelf = self else { return }
-            do {
-                let downloadName = model.filePathName() + model.addPathExtension()
-                
-                let targetURL = folderURL.appendingPathComponent(downloadName)
-                try FileManager.default.moveItem(at: model.mediaPlayURL, to: targetURL)
-                wSelf.headView.updateLocal(folders: wSelf.viewModel.folderArray)
-                wSelf.refreshDataAction()
-                wSelf.guideFiveStarRating()
-            } catch {
-                wSelf.view.makeToast(error.localizedDescription)
-            }
+        self.moveToOtherPlaylist([model])
+    }
+    
+    // 批量移动到其他文件夹
+    func moveToOtherPlaylist(_ models: [MusicItemModel]) {
+        guard !models.isEmpty else {
+            self.tableView.kaka_playShakeAnim()
+            return
         }
         
+        let playlist = SelectPlaylistController(selectType: .selectPlaylist)
+        playlist.onLocalBlock = { [weak self] (folderURL) in
+            guard let wSelf = self else { return }
+            
+            let fileManager = FileManager.default
+            
+            // 遍历批量处理所有模型
+            for model in models {
+                do {
+                    let downloadName = model.filePathName() + model.addPathExtension()
+                    let targetURL = folderURL.appendingPathComponent(downloadName)
+                    
+                    try fileManager.moveItem(at: model.mediaPlayURL, to: targetURL)
+                } catch {
+                    debugPrint("❌移动文件失败: \(model.mediaPlayURL), error: \(error)")
+                }
+            }
+            
+            wSelf.stopEditBarClick()
+            wSelf.headView.updateLocal(folders: wSelf.viewModel.folderArray)
+            wSelf.refreshDataAction()
+        }
+
         self.present(KakaNavigationController(rootViewController: playlist), animated: true)
     }
     
+    // 引导好评
     @objc func guideFiveStarRating() {
         guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene else { return }
         if #available(iOS 16.0, *) {
@@ -243,12 +261,10 @@ extension MusicsViewController: EmptyContentCellDelegate {
         
         let action1 = UIAlertAction(title: "Cancel".localStr(), style: .cancel, handler: nil)
         let action2 = UIAlertAction(title: "Done".localStr(), style: .destructive, handler: { [weak self] action in
-            guard let nameField = editAlertVC.textFields?.first, var nameText = nameField.text, nameText.count > 0 else {
+            guard let nameField = editAlertVC.textFields?.first, var nameText = nameField.text?.standardFileName, nameText.count > 0 else {
                 return
             }
-            
-            nameText = nameText.replaceChar(oldChar: "/", newChar: " ")
-            
+                        
             SandboxFileManager.shared.addOrUpdateFolder(folderName: nameText) { result in
                 switch result {
                 case .success(_):
@@ -271,7 +287,7 @@ extension MusicsViewController: EmptyContentCellDelegate {
     
     // 文件夹重新命名
     func renameFolderURL(_ folderURL: URL) {
-        let editAlertVC = UIAlertController(title: MusicActionType.title.formatStr(), message: nil, preferredStyle: .alert)
+        let editAlertVC = UIAlertController(title: MusicActionType.title.titleStr(), message: nil, preferredStyle: .alert)
         editAlertVC.addTextField { textView in
             textView.text = folderURL.lastPathComponent
             textView.clearButtonMode = .always
@@ -279,12 +295,10 @@ extension MusicsViewController: EmptyContentCellDelegate {
         
         let action1 = UIAlertAction(title: "Cancel".localStr(), style: .cancel, handler: nil)
         let action2 = UIAlertAction(title: "Done".localStr(), style: .destructive, handler: { [weak self] action in
-            guard let nameField = editAlertVC.textFields?.first, var nameText = nameField.text, nameText.count > 0 else {
+            guard let nameField = editAlertVC.textFields?.first, var nameText = nameField.text?.standardFileName, nameText.count > 0 else {
                 return
             }
-                        
-            nameText = nameText.replaceChar(oldChar: "/", newChar: "|")
-            
+                                    
             let fileManager = FileManager.default
                 
             // 获取父目录的 URL

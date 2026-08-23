@@ -101073,6 +101073,17 @@
         }
       }
     },
+    "Select Playlist" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "选择歌单"
+          }
+        }
+      }
+    },
     "Select Video" : {
       "extractionState" : "manual",
       "localizations" : {
