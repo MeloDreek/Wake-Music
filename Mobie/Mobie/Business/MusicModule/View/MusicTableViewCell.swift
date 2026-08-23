@@ -392,7 +392,7 @@ extension MusicTableViewCell {
         if fileModel.isDirectory {
             return dateStr
         }else{
-            return kaka_IsMacOS() ? dateStr : URL.formatFileSize(UInt64(fileModel.fileSize)) + "  " + dateStr
+            return kaka_IsMacOS() ? dateStr : URL.formatFileSize(fileModel.fileSize) + "  " + dateStr
         }
     }
     
@@ -402,7 +402,7 @@ extension MusicTableViewCell {
         if fileModel.isDirectory() {
             return dateStr
         }else{
-            return kaka_IsMacOS() ? dateStr : URL.formatFileSize(UInt64(fileModel.size)) + "  " + dateStr
+            return kaka_IsMacOS() ? dateStr : URL.formatFileSize(Int64(fileModel.size)) + "  " + dateStr
         }
     }
     
@@ -412,7 +412,7 @@ extension MusicTableViewCell {
         if fileModel.isDirectory() {
             return dateStr
         }else{
-            return kaka_IsMacOS() ? dateStr : URL.formatFileSize(UInt64(fileModel.size ?? 0)) + "  " + dateStr
+            return kaka_IsMacOS() ? dateStr : URL.formatFileSize(fileModel.size ?? 0) + "  " + dateStr
         }
     }
     
@@ -426,7 +426,7 @@ extension MusicTableViewCell {
                 return dateStr
             }
         }else{
-            return kaka_IsMacOS() ? dateStr : URL.formatFileSize(UInt64(fileModel.size)) + "  " + dateStr
+            return kaka_IsMacOS() ? dateStr : URL.formatFileSize(fileModel.size) + "  " + dateStr
         }
     }
     
@@ -434,9 +434,9 @@ extension MusicTableViewCell {
     private func secondGoogleStr(_ fileModel: GoogleDriveFileModel) -> String {
         let dateStr = fileModel.createdDate()?.dateTimeString(ofStyle: .medium)
         if fileModel.isDirectory() {
-            return dateStr ?? URL.formatFileSize(UInt64(fileModel.size))
+            return dateStr ?? URL.formatFileSize(fileModel.size)
         }else{
-            return kaka_IsMacOS() ? (dateStr ?? "") : URL.formatFileSize(UInt64(fileModel.size)) + "  " + (dateStr ?? "")
+            return kaka_IsMacOS() ? (dateStr ?? "") : URL.formatFileSize(fileModel.size) + "  " + (dateStr ?? "")
         }
     }
     
@@ -444,9 +444,9 @@ extension MusicTableViewCell {
     private func secondDropboxStr(_ fileModel: DropboxDriveFileModel) -> String {
         let dateStr = fileModel.createdDate()?.dateTimeString(ofStyle: .medium)
         if fileModel.isDirectory() {
-            return dateStr ?? (fileModel.path_display ?? URL.formatFileSize(UInt64(fileModel.size ?? 0)))
+            return dateStr ?? (fileModel.path_display ?? URL.formatFileSize(fileModel.size ?? 0))
         }else{
-            return kaka_IsMacOS() ? (dateStr ?? "") : URL.formatFileSize(UInt64(fileModel.size ?? 0)) + "  " + (dateStr ?? "")
+            return kaka_IsMacOS() ? (dateStr ?? "") : URL.formatFileSize(fileModel.size ?? 0) + "  " + (dateStr ?? "")
         }
     }
     
@@ -458,7 +458,7 @@ extension MusicTableViewCell {
         if fileModel.isDirectory() {
             return subFileStr
         }else{
-            return kaka_IsMacOS() ? (dateStr ?? "") : URL.formatFileSize(UInt64(fileModel.size)) + "  " + (dateStr ?? "")
+            return kaka_IsMacOS() ? (dateStr ?? "") : URL.formatFileSize(fileModel.size) + "  " + (dateStr ?? "")
         }
     }
     

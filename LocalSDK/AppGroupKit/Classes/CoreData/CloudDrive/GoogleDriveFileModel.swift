@@ -26,7 +26,7 @@ public struct GoogleDriveFileModel: SmartCodableX, Equatable, Hashable {
     public var mimeType: String = ""
     
     /// 文件尺寸
-    public var size: Int = 0
+    public var size: Int64 = 0
     
     /// 下载地址
     public var webContentLink: String = ""

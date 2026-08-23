@@ -95,7 +95,7 @@ public struct Drive115FileModel: SmartCodableX, Hashable, Equatable {
     public var count: Int?
     
     /// 文件(夹)总大小
-    public var size: Int = 0
+    public var size: Int64 = 0
     
     /// 上传时间
     public var ptime: TimeInterval?

@@ -19,7 +19,8 @@ class AuthWebdavViewController: SuperViewController {
         super.init(nibName: nil, bundle: nil)
         
 #if DEBUG
-        let webdavUser = WebdavUserModel(customName: "123的WebDav", hostUrl: "webdav.123pan.cn", path: "webdav", port: nil, netProtocol: .https, username: "19927730016", password: "1wpyy8t1000dc04313u4kok3c402c3s2")
+//        let webdavUser = WebdavUserModel(customName: "123的WebDav", hostUrl: "webdav.123pan.cn", path: "webdav", port: nil, netProtocol: .https, username: "19927730016", password: "1wpyy8t1000dc04313u4kok3c402c3s2")
+        let webdavUser = WebdavUserModel(customName: "卡卡西的夸克网盘", hostUrl: "118.89.62.59", path: nil, port: "5050", netProtocol: .http, username: "482q5yeAVo", password: "T76euwBcDq")
         self.loginModel = webdavUser
 #else
         self.loginModel = model

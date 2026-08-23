@@ -17,7 +17,7 @@ public struct DropboxDriveFileModel: SmartCodableX, Equatable, Hashable {
     
     public init() { }
     
-    public init(fileType: DropboxFileType = .file, name: String, id: String?, path_display: String? = nil, path_lower: String? = nil, size: UInt64?, is_downloadable: Bool, client_modified: TimeInterval?, server_modified: TimeInterval?, dropboxUser: DropboxDriveUserModel? = nil) {
+    public init(fileType: DropboxFileType = .file, name: String, id: String?, path_display: String? = nil, path_lower: String? = nil, size: Int64?, is_downloadable: Bool, client_modified: TimeInterval?, server_modified: TimeInterval?, dropboxUser: DropboxDriveUserModel? = nil) {
         self.fileType = fileType
         self.name = name
         self.id = id
@@ -46,7 +46,7 @@ public struct DropboxDriveFileModel: SmartCodableX, Equatable, Hashable {
     public var path_lower: String?
     
     /// 文件大小（仅文件有）
-    public var size: UInt64?
+    public var size: Int64?
     
     /// 是否可以下载
     public var is_downloadable: Bool = false

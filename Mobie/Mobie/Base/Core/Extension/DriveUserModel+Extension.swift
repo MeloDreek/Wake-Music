@@ -53,7 +53,7 @@ extension Files.FolderMetadata {
 
 extension Files.FileMetadata {
     func convertDropboxFile() -> DropboxDriveFileModel {
-        let model = DropboxDriveFileModel(fileType: .file, name: self.name, id: self.id, path_display: self.pathDisplay, path_lower: self.pathLower, size: self.size, is_downloadable: self.isDownloadable, client_modified: self.clientModified.timeIntervalSince1970, server_modified: self.serverModified.timeIntervalSince1970, dropboxUser: nil)
+        let model = DropboxDriveFileModel(fileType: .file, name: self.name, id: self.id, path_display: self.pathDisplay, path_lower: self.pathLower, size: Int64(self.size), is_downloadable: self.isDownloadable, client_modified: self.clientModified.timeIntervalSince1970, server_modified: self.serverModified.timeIntervalSince1970, dropboxUser: nil)
         
         return model
     }

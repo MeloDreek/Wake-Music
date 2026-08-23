@@ -207,26 +207,26 @@ extension MusicItemModel {
     }
     
     /// 文件尺寸，字节为单位
-    public func fileSize() -> UInt64 {
+    public func fileSize() -> Int64 {
         if let navSong = self.navidromeSong {
-            return UInt64(max(navSong.size, 0))
+            return Int64(max(navSong.size, 0))
         }else if let webFileModel = self.webFileModel {
-            return UInt64(max(webFileModel.fileSize, 0))
+            return Int64(max(webFileModel.fileSize, 0))
         }else if let baiduFile = self.baiduFileModel {
-            return UInt64(max(baiduFile.size, 0))
+            return Int64(max(baiduFile.size, 0))
         }else if let aliFileModel = self.aliFileModel {
-            return UInt64(max(aliFileModel.size ?? 0, 0))
+            return Int64(max(aliFileModel.size ?? 0, 0))
         }else if let file115 = self.drive115Model {
-            return UInt64(max(file115.size, 0))
+            return Int64(max(file115.size, 0))
         }else if let googleFile = self.googleFile {
-            return UInt64(max(googleFile.size, 0))
+            return Int64(max(googleFile.size, 0))
         }else if let dropboxFile = self.dropboxFile {
-            return UInt64(max(dropboxFile.size ?? 0, 0))
+            return Int64(max(dropboxFile.size ?? 0, 0))
         }else if let onedriveFile = self.onedriveFile {
-            return UInt64(max(onedriveFile.size, 0))
+            return Int64(max(onedriveFile.size, 0))
         }
         else{
-            return UInt64(self.mediaPlayURL.fileSize)
+            return Int64(self.mediaPlayURL.fileSize)
         }
     }
 }
@@ -295,31 +295,31 @@ extension MusicItemModel {
             }
             
             if let webFileModel = self.webFileModel, webFileModel.fileSize > 0 {
-                return URL.formatFileSize(UInt64(webFileModel.fileSize))
+                return URL.formatFileSize(webFileModel.fileSize)
             }
             
             if let baiduFileModel = self.baiduFileModel {
-                return baiduFileModel.isDirectory() ? "" : URL.formatFileSize(UInt64(baiduFileModel.size))
+                return baiduFileModel.isDirectory() ? "" : URL.formatFileSize(Int64(baiduFileModel.size))
             }
             
             if let aliFileModel = self.aliFileModel {
-                return aliFileModel.isDirectory() ? "" : URL.formatFileSize(UInt64(aliFileModel.size ?? 0))
+                return aliFileModel.isDirectory() ? "" : URL.formatFileSize(aliFileModel.size ?? 0)
             }
             
             if let drive115Model = self.drive115Model {
-                return drive115Model.isDirectory() ? "" : URL.formatFileSize(UInt64(drive115Model.size))
+                return drive115Model.isDirectory() ? "" : URL.formatFileSize(Int64(drive115Model.size))
             }
             
             if let googleFile = self.googleFile {
-                return googleFile.isDirectory() ? "" : URL.formatFileSize(UInt64(googleFile.size))
+                return googleFile.isDirectory() ? "" : URL.formatFileSize(Int64(googleFile.size))
             }
             
             if let dropboxFile = self.dropboxFile {
-                return dropboxFile.isDirectory() ? "" : URL.formatFileSize(UInt64(dropboxFile.size ?? 0))
+                return dropboxFile.isDirectory() ? "" : URL.formatFileSize(Int64(dropboxFile.size ?? 0))
             }
             
             if let onedriveFile = self.onedriveFile {
-                return onedriveFile.isDirectory() ? "" : URL.formatFileSize(UInt64(onedriveFile.size))
+                return onedriveFile.isDirectory() ? "" : URL.formatFileSize(onedriveFile.size)
             }
             
             return ""

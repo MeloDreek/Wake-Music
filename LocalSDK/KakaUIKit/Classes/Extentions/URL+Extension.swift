@@ -52,9 +52,9 @@ extension URL {
     }
     
     // 获得这个文件夹下的所有文件大小
-    public func totalFileSize() -> UInt64 {
+    public func totalFileSize() -> Int64 {
         let fileManager = FileManager.default
-        var totalSize: UInt64 = 0
+        var totalSize: Int64 = 0
         
         // 检查该 URL 是否是目录
         guard let isDirectory = try? resourceValues(forKeys: [.isDirectoryKey]).isDirectory, isDirectory == true else {
@@ -70,7 +70,7 @@ extension URL {
                     
                     // 如果是文件（而不是目录），获取其大小
                     if resourceValues.isDirectory == false, let fileSize = resourceValues.fileSize {
-                        totalSize += UInt64(fileSize)
+                        totalSize += Int64(fileSize)
                     }
                 } catch {
                     debugPrint("Error while getting file size for \(fileURL): \(error)")
@@ -82,10 +82,10 @@ extension URL {
     }
     
     /// 获取文件大小的字节数
-    public var fileSize: UInt64 {
+    public var fileSize: Int64 {
         do {
             let attributes = try FileManager.default.attributesOfItem(atPath: self.path)
-            let size = (attributes[.size] as? UInt64) ?? 0
+            let size = (attributes[.size] as? Int64) ?? 0
 //            debugPrint("文件size = \(size)")
             return size
         } catch {
@@ -94,16 +94,16 @@ extension URL {
     }
     
     /// 格式化文件大小
-    public static func formatFileSize(_ size: UInt64) -> String {
+    public static func formatFileSize(_ size: Int64) -> String {
         
         if size <= 0 { return "" }
-        
+            
         let byteCountFormatter = ByteCountFormatter()
         byteCountFormatter.allowedUnits = [.useBytes, .useKB, .useMB, .useGB, .useTB]
         byteCountFormatter.countStyle = .file
         byteCountFormatter.includesUnit = true
         byteCountFormatter.isAdaptive = true
-        return byteCountFormatter.string(fromByteCount: Int64(size))
+        return byteCountFormatter.string(fromByteCount: size)
     }
     
     /// 获取文件的创建时间（creation date）

@@ -57,7 +57,7 @@ class MusicsFootView: UITableViewHeaderFooterView {
         let totalCount = totalURLs.count
         let fileSize = musicURL.totalFileSize()
         
-        let useStr = String(format: "%d Files Imported".localStr(), totalCount) + "\r" + URL.formatFileSize(fileSize)
+        let useStr = String(format: "%d Files Imported".localStr(), totalCount) + "\r" + URL.formatFileSize(Int64(fileSize))
         usedLabel.text = useStr
         
         self.usedLabel.isHidden = fileSize == 0

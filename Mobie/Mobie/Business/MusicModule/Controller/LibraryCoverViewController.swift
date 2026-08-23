@@ -575,7 +575,7 @@ class CoverGalleryTableCell: UITableViewCell {
     func update(webImage:UIImage, title: String?) {
         coverImgView.image = webImage
         nameLabel.text = title
-        descLabel.text = URL.formatFileSize(UInt64(webImage.pngData()?.count ?? 0))
+        descLabel.text = URL.formatFileSize(Int64(webImage.pngData()?.count ?? 0))
     }
     
     lazy var coverImgView: UIImageView = {

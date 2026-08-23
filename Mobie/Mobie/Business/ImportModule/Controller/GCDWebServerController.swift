@@ -354,7 +354,7 @@ extension GCDWebServerController: UITableViewDataSource, UITableViewDelegate, UI
         if section == 0 {
             return nil
         }else{
-            var totalSize: UInt64 = 0
+            var totalSize: Int64 = 0
             let _ = self.dataArray.map {
                 totalSize += $0.mediaPlayURL.fileSize
             }

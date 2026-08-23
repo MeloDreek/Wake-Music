@@ -19,7 +19,7 @@ public class KakaCacheTools {
         
         let cacheSize = cachePathURL.totalFileSize()
         
-        return URL.formatFileSize(cacheSize)
+        return URL.formatFileSize(Int64(cacheSize))
     }
     
     // 完成缓存清理
