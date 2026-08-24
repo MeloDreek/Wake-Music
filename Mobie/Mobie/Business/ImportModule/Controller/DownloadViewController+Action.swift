@@ -143,7 +143,7 @@ extension DownloadViewController {
                 }
                 break
             case .failure(let error):
-                debugPrint("下载失败 = \(error.localizedDescription)")
+                debugPrint("❌下载失败 = \(error.localizedDescription)")
                 self.isDownloading = false
                 self.tableView.reloadData()
                 self.view.makeToast(error.localizedDescription)
@@ -194,6 +194,7 @@ extension DownloadViewController {
                 }
                 break
             case .failure(let error):
+                self.isDownloading = false
                 debugPrint("不存在同名文件 = \(error.localizedDescription)")
                 break
             }

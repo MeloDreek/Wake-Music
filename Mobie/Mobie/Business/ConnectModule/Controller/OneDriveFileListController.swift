@@ -705,7 +705,7 @@ extension OneDriveFileListController: UITableViewDataSource, UITableViewDelegate
                 self.pushDocumentPage(subModel)
             }else if subModel.fileType() == .music {
                 
-                self.downloadWithMusic(subModel)
+                self.playWithMusic(subModel)
                                 
             }else{
                 

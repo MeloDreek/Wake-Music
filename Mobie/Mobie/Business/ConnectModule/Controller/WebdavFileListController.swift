@@ -647,9 +647,8 @@ extension WebdavFileListController: UITableViewDataSource, UITableViewDelegate {
             if subModel.fileType() == .folder {
                 self.pushDocumentPage(subModel)
             }else if subModel.fileType() == .music {
-
-                self.downloadWithMusic(cell: MusicTableViewCell(), model: subModel)
-                                
+//                self.downloadWithMusic(cell: MusicTableViewCell(), model: subModel)
+                self.playWithMusic(subModel)
             }else{
                 let pathExtension = subModel.mediaPlayURL.pathExtension.lowercased()
                 let isVideo = AudioExtension.videoSuffixs.contains(pathExtension)
@@ -855,12 +854,7 @@ extension WebdavFileListController: MusicTableViewCellDelegate {
     // 下载
     func downloadWithMusic(cell: MusicTableViewCell, model: MusicItemModel) {
         
-        guard UserInfoManager.shared.isVIP() else {
-            self.vipCenterClick()
-            return
-        }
-        
-        guard let webFileModel = model.webFileModel, webFileModel.fileSize > 0 else { return }
+        guard let webFileModel = model.webFileModel else { return }
         
         let playlist = SelectPlaylistController(selectType: .downloadTask)
         playlist.onLocalBlock = { [weak self] (folderURL) in

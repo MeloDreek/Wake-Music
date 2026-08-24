@@ -665,9 +665,7 @@ extension BaiduDriveFileListController: UITableViewDataSource, UITableViewDelega
             if subModel.fileType() == .folder {
                 self.pushDocumentPage(subModel)
             }else if subModel.fileType() == .music {
-                
-                self.downloadWithMusic(cell: MusicTableViewCell(), model: subModel)
-                                
+                self.playWithMusic(subModel)                
             }else{
                 
                 guard let baiduFile = subModel.baiduFileModel else { return }
@@ -832,7 +830,7 @@ extension BaiduDriveFileListController: MusicTableViewCellDelegate {
     // 下载
     func downloadWithMusic(cell: MusicTableViewCell, model: MusicItemModel) {
         
-        guard let baiduFile = model.baiduFileModel, baiduFile.size > 0 else { return }
+        guard let baiduFile = model.baiduFileModel else { return }
         
         let playlist = SelectPlaylistController(selectType: .downloadTask)
         playlist.onLocalBlock = { [weak self] (folderURL) in

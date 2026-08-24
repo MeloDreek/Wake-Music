@@ -696,7 +696,7 @@ extension DropboxDriveFileListController: UITableViewDataSource, UITableViewDele
                 self.pushDocumentPage(subModel)
             }else if subModel.fileType() == .music {
                 
-                self.downloadWithMusic(subModel)
+                self.playWithMusic(subModel)
                                 
             }else{
                 
@@ -876,11 +876,6 @@ extension DropboxDriveFileListController: MusicTableViewCellDelegate {
         self.present(KakaNavigationController(rootViewController: playlist), animated: true)
     }
     
-    
-    
-    
-    
-
 }
 
 

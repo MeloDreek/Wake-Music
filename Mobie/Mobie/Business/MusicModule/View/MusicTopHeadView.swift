@@ -30,7 +30,6 @@ protocol MusicTopHeadViewDelegate: AnyObject {
 
 class MusicTopHeadView: UITableViewHeaderFooterView {
     
-    
     override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
         
@@ -55,7 +54,7 @@ class MusicTopHeadView: UITableViewHeaderFooterView {
     
     
     private func preSetupHandleBuness() {
-        self.backgroundColor = .clear
+        self.backgroundColor = .random()
         NotificationCenter.default.addObserver(self, selector: #selector(appModeStyleChanged(_:)), name: Notification.Name(kAppThemeColorChangedKey), object: nil)
     }
     

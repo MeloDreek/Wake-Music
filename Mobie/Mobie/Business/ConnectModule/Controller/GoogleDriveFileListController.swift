@@ -628,11 +628,6 @@ extension GoogleDriveFileListController {
     
     @objc func supportVideoClick(_ videoURL: URL) {
         
-        if !UserInfoManager.shared.isVIP() {
-            self.vipCenterClick()
-            return
-        }
-        
         self.changeDeviceOrientation()
         
         let player = AVPlayer(url: videoURL)
@@ -711,8 +706,8 @@ extension GoogleDriveFileListController: UITableViewDataSource, UITableViewDeleg
                 self.pushDocumentPage(subModel)
             }else if subModel.fileType() == .music {
                 
-                self.downloadWithMusic(subModel)
-                                
+                self.playWithMusic(subModel)
+                
             }else{
                 
                 guard let googleFile = subModel.googleFile else { return }
@@ -871,7 +866,7 @@ extension GoogleDriveFileListController: MusicTableViewCellDelegate {
     // 下载音乐
     func downloadWithMusic(_ model: MusicItemModel) {
         
-        guard let googleFile = model.googleFile, googleFile.size > 0 else { return }
+        guard let googleFile = model.googleFile else { return }
         
         let playlist = SelectPlaylistController(selectType: .downloadTask)
         playlist.onLocalBlock = { [weak self] (folderURL) in

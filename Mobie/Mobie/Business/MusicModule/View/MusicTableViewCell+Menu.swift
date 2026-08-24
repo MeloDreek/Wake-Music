@@ -112,7 +112,7 @@ extension MusicTableViewCell {
         
     private func cloudDriveMenu() -> UIMenu {
         var actionArray = [UIAction]()
-        let typeArray: [MusicActionType] = [.play, .musictag, .download]
+        let typeArray: [MusicActionType] = [.musictag, .download]
         
         for subType in typeArray {
             let isRed = subType == .download || subType == .deleteItem

@@ -679,7 +679,7 @@ extension AliyunDriveFileListController: UITableViewDataSource, UITableViewDeleg
                 self.pushDocumentPage(subModel)
             }else if subModel.fileType() == .music {
                 
-                self.downloadWithMusic(cell: MusicTableViewCell(), model: subModel)
+                self.playWithMusic(subModel)
                                 
             }else{
                 

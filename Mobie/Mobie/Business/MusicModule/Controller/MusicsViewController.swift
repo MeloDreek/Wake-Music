@@ -240,7 +240,6 @@ view.refreshControl = self.kaka_header
     lazy var premiumBarItem: UIBarButtonItem = {
         let timerView = PremiumTimerView(frame: CGRectMake(0, 0, PremiumTimerView.maxWidth(), 30.ckValue()))
         timerView.onStopCallback = { [weak self] () in
-//            self?.setupNavigationItem()
             self?.navigationItem.leftBarButtonItems = nil
         }
         timerView.addTarget(self, action: #selector(vipCenterClick), for: .touchUpInside)
@@ -384,7 +383,7 @@ view.refreshControl = self.kaka_header
         let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         let fixedSpace = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
         
-        let shareItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareItemsAction))
+        let shareItem = UIBarButtonItem(title: "Export".localStr(), style: .plain, target: self, action: #selector(shareItemsAction))
         let selectItem = self.selectCountItem
         let moreItem = UIBarButtonItem(image: UIImage(systemName: "ellipsis.circle"), menu: self.editMoreMenu())
         
@@ -429,9 +428,14 @@ view.refreshControl = self.kaka_header
 
             editArray.append(subMenu)
         }
+        
+        let batchAction = UIAction(title: "Batch Auto-Embed".localStr(), image: UIImage(systemName: "touchid"), attributes: []) { [weak self] (_) in
+            self?.batchAutoEditAction()
+        }
+        
         let editMenu = UIMenu(title: "", options: .displayInline, children: editArray)
                 
-        return editMenu
+        return UIMenu(children: [batchAction, editMenu])
     }
     
     override func didReceiveMemoryWarning() {

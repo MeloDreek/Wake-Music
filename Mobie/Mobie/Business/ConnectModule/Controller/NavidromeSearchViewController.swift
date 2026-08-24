@@ -97,10 +97,6 @@ class NavidromeSearchViewController: UISearchController, MusicTableViewCellDeleg
     
     // 下载
     func navidromeSearchDidDownload(cell: MusicTableViewCell, navSong: NavidromeSong) {
-        guard UserInfoManager.shared.isVIP() else {
-            self.vipCenterClick()
-            return
-        }
         
         let playlist = SelectPlaylistController(selectType: .downloadTask)
         playlist.onLocalBlock = { [weak self] (folderURL) in

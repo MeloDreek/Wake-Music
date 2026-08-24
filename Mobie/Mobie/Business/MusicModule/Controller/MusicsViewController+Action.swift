@@ -242,6 +242,24 @@ extension MusicsViewController {
         self.shareMusicModel(self.viewModel.selectArray)
     }
     
+    // 前往批量编辑页面
+    func batchAutoEditAction() {
+        guard !self.viewModel.selectArray.isEmpty else {
+            self.tableView.kaka_playShakeAnim()
+            return
+        }
+                
+        let batchVC = BatchAutoEmbedController(self.viewModel.selectArray)
+        batchVC.onDoneBlock = { [weak self] () in
+            guard let wSelf = self else { return }
+            wSelf.refreshDataAction()
+            wSelf.headView.updateLocal(folders: wSelf.viewModel.folderArray)
+        }
+        self.navigationController?.pushViewController(batchVC, animated: true)
+        
+        self.stopEditBarClick()
+    }
+    
     // 定位到当前播放cell
     @objc func locationPlayingCell() {
         guard let model = KakaMusicPlayer.shared.playingMusic else { return }
