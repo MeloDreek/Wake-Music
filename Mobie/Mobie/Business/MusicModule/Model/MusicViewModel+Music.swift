@@ -173,40 +173,81 @@ extension MusicViewModel {
             return groupedDictionary
         }else{
             // 2️⃣ 有分组
-            let sectionTitles = UILocalizedIndexedCollation.current().sectionTitles
-
-            groupedDictionary = Dictionary(grouping: tempAllArray, by: { $0.firstChar(self.groupType) })
             
-            for (key, value) in groupedDictionary {
-                // 内部组的排序
-                groupedDictionary[key] = value.sorted(by: { element1, element2 in
-                    return element1.sortAnotherModel(model2: element2, sortType: self.sortType)
+            if self.groupType == .musictagGroup {
+                let sectionTitles = UILocalizedIndexedCollation.current().sectionTitles
+                groupedDictionary = Dictionary(grouping: tempAllArray, by: {
+                    $0.isFullMusicTag() ? "✅" : "❗️"
                 })
-            }
-                        
-            // 分组内部按照文件大小排序
-            let sortedDictory = groupedDictionary.sorted { element1, element2 in
-                guard let index1 = sectionTitles.firstIndex(of: element1.key), let index2 = sectionTitles.firstIndex(of: element2.key) else {
-                    return false
+                
+                for (key, value) in groupedDictionary {
+                    // 内部组的排序
+                    groupedDictionary[key] = value.sorted(by: { element1, element2 in
+                        return element1.sortAnotherModel(model2: element2, sortType: self.sortType)
+                    })
+                }
+                            
+                // 分组内部按照文件大小排序
+                let sortedDictory = groupedDictionary.sorted { element1, element2 in
+                    guard let index1 = sectionTitles.firstIndex(of: element1.key), let index2 = sectionTitles.firstIndex(of: element2.key) else {
+                        return false
+                    }
+                    
+                    return index1 < index2
                 }
                 
-                return index1 < index2
-            }
-            
-            var indexArr = sortedDictory.map({ $0.key })
-            
-            // 处理已收藏的音乐
-            let starArray = tempAllArray.filter { $0.isFlagFavorite() }
-            if (starArray.count > 0) {
-                indexArr.insert("♥", at: 0)
-                groupedDictionary["♥"] = Array(Set(starArray)).sorted(by: {element1, element2 in
-                    return element1.sortAnotherModel(model2: element2, sortType: self.sortType)
+                var indexArr = sortedDictory.map(\.key).sorted { $0 > $1 }
+                
+                // 处理已收藏的音乐
+                let starArray = tempAllArray.filter { $0.isFlagFavorite() }
+                if (starArray.count > 0) {
+                    indexArr.insert("♥", at: 0)
+                    groupedDictionary["♥"] = Array(Set(starArray)).sorted(by: {element1, element2 in
+                        return element1.sortAnotherModel(model2: element2, sortType: self.sortType)
+                    })
+                }
+                
+                self.musicIndexArray = indexArr
+                self.musicDictionary = groupedDictionary
+                return groupedDictionary
+                
+            }else{
+                let sectionTitles = UILocalizedIndexedCollation.current().sectionTitles
+
+                groupedDictionary = Dictionary(grouping: tempAllArray, by: { $0.firstChar(self.groupType)
                 })
+                
+                for (key, value) in groupedDictionary {
+                    // 内部组的排序
+                    groupedDictionary[key] = value.sorted(by: { element1, element2 in
+                        return element1.sortAnotherModel(model2: element2, sortType: self.sortType)
+                    })
+                }
+                            
+                // 分组内部按照文件大小排序
+                let sortedDictory = groupedDictionary.sorted { element1, element2 in
+                    guard let index1 = sectionTitles.firstIndex(of: element1.key), let index2 = sectionTitles.firstIndex(of: element2.key) else {
+                        return false
+                    }
+                    
+                    return index1 < index2
+                }
+                
+                var indexArr = sortedDictory.map(\.key).sorted { $0 < $1 }
+                
+                // 处理已收藏的音乐
+                let starArray = tempAllArray.filter { $0.isFlagFavorite() }
+                if (starArray.count > 0) {
+                    indexArr.insert("♥", at: 0)
+                    groupedDictionary["♥"] = Array(Set(starArray)).sorted(by: {element1, element2 in
+                        return element1.sortAnotherModel(model2: element2, sortType: self.sortType)
+                    })
+                }
+                
+                self.musicIndexArray = indexArr
+                self.musicDictionary = groupedDictionary
+                return groupedDictionary
             }
-            
-            self.musicIndexArray = indexArr
-            self.musicDictionary = groupedDictionary
-            return groupedDictionary
         }
         
     }

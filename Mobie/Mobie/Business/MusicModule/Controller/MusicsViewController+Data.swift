@@ -224,7 +224,15 @@ extension MusicsViewController: UITableViewDataSource, UITableViewDelegate {
                         }
                     }
                 }else{
-                    return header
+                    if viewModel.groupType == .musictagGroup {
+                        if header == "❗️" {
+                            return "❗️" + "Missing Tags".localStr()
+                        }else{
+                            return "✅" + "Complete Tags".localStr()
+                        }
+                    }else{
+                        return header
+                    }
                 }
             }
         }
