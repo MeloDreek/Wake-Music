@@ -66,7 +66,7 @@ class AboutAppTableCell: UITableViewCell {
     // MARK:  懒加载 
     lazy var appIconbackColorView: UIView = {
         let view = UIView()
-        view.backgroundColor = .white
+        view.backgroundColor = .clear
         view.layer.cornerRadius = 20.ckValue()
         view.layer.shadowColor = UIColor.quaternaryLabel.withAlphaComponent(0.6).cgColor
         view.layer.shadowOpacity = 0.5

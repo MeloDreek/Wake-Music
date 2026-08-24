@@ -141,6 +141,10 @@ class Drive115FileListController: SuperViewController {
     // 分组、排序文件列表
     func sortAllServerFiles(_ files: [MusicItemModel]) {
         
+        if files.isEmpty {
+            self.view.makeToast("No Audio Files".localStr())
+        }
+        
         let sortType = MusicConfigManager.shared.sortType
         
         var sortedDictionary = [ConnectFileType: [MusicItemModel]]()

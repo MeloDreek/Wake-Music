@@ -181,6 +181,10 @@ class WebdavFileListController: SuperViewController {
     // 整理或排序文件
     func sortAllServerFiles(_ files: [MusicItemModel]) {
         
+        if files.isEmpty {
+            self.view.makeToast("No Audio Files".localStr())
+        }
+        
         let sortType = MusicConfigManager.shared.sortType
         var sortedDictionary = [ConnectFileType: [MusicItemModel]]()
         let folderKey = ConnectFileType.folder
