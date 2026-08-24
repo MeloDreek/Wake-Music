@@ -378,7 +378,7 @@ view.refreshControl = self.kaka_header
     }()
     
     lazy var doneSelectItem: UIBarButtonItem = {
-        let doneItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneSelectItemAction))
+        let doneItem = UIBarButtonItem(image: UIImage(systemName: "square.and.arrow.down"), style: .plain, target: self, action: #selector(doneSelectItemAction))
         doneItem.tintColor = self.btnTincolor
         return doneItem
     }()
