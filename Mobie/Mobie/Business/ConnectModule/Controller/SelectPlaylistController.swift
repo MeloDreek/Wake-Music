@@ -24,6 +24,17 @@ enum SelectPlaylistType: Int {
             return MusicActionType.addPlaylist.titleStr()
         }
     }
+    
+    func descStr() -> String {
+        switch self {
+        case .selectPlaylist:
+            return "Please select a playlist. For offline music, folders are playlists and playlists are folders.".localStr()
+        case .downloadTask:
+            return "Download music for offline listening to maximize your experience. For offline music, folders are playlists and playlists are folders.".localStr()
+        case .navidromeList:
+            return "Please select a playlist".localStr()
+        }
+    }
 }
 
 /// 选择歌单（播放列表）
@@ -54,8 +65,7 @@ class SelectPlaylistController: SuperViewController {
         super.preSetupHandleBuness()
         
         self.title = self.selectType.titleStr()
-        self.navigationController?.navigationBar.prefersLargeTitles = true
-        self.navigationItem.largeTitleDisplayMode = .automatic
+        self.navigationItem.largeTitleDisplayMode = .never
         
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelButtonClick))
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "New Playlist".localStr(), style: .plain, target: self, action: #selector(addButtonClick))
@@ -129,10 +139,53 @@ class SelectPlaylistController: SuperViewController {
         let view = UITableView(frame: contentView.bounds, style: .insetGrouped)
         view.delegate = self
         view.dataSource = self
+        view.tableHeaderView = self.headView
         view.rowHeight = UITableView.automaticDimension
         view.contentInsetAdjustmentBehavior = .automatic
         view.register(EmptyDataTableCell.self, forCellReuseIdentifier: "EmptyDataTableCell")
         view.register(MusicTableViewCell.self, forCellReuseIdentifier: "MusicTableViewCell")
+        return view
+    }()
+    
+    lazy var headView: UITableViewHeaderFooterView = {
+        
+        let descStr = self.selectType.descStr()
+        let font = UIFontLight(15.ckValue())
+        let descHeight = descStr.height(forWidth: self.contentView.width - 30.ckValue(), font: font)
+        
+        var height = 120.ckValue()
+        switch kaka_osType() {
+        case .iOS: height = 130
+        case .iPadOS: height = 150
+        case .macOS: height = 150
+        }
+        
+        let iconImage = UIImage(systemName: "music.note.list")
+        let view = UITableViewHeaderFooterView(frame: CGRectMake(0, 0, self.view.width, height + descHeight + 10.ckValue()))
+        view.backgroundColor = .clear
+        let faceImgView = UIImageView(image: iconImage)
+        faceImgView.contentMode = .scaleAspectFit
+        view.contentView.addSubview(faceImgView)
+        faceImgView.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.top.equalToSuperview().offset(15.ckValue())
+            make.size.equalTo(height - descHeight - 10.ckValue())
+        }
+        
+        let titleLabel = UILabel()
+        titleLabel.numberOfLines = 0
+        titleLabel.text = descStr
+        titleLabel.font = font
+        titleLabel.textColor = .label
+        titleLabel.textAlignment = .center
+        view.contentView.addSubview(titleLabel)
+        titleLabel.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.top.equalTo(faceImgView.snp.bottom).offset(5.ckValue())
+            make.leading.equalTo(15.ckValue())
+            make.height.greaterThanOrEqualTo(0)
+        }
+        
         return view
     }()
     

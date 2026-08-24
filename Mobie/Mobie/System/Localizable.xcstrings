@@ -35894,6 +35894,257 @@
         }
       }
     },
+    "Download music for offline listening to maximize your experience. For offline music, folders are playlists and playlists are folders." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "قم بتنزيل الموسيقى محليًا لتعزيز تجربة الاستماع. في الموسيقى غير المتصلة بالإنترنت، المجلدات هي قوائم تشغيل وقوائم التشغيل هي مجلدات."
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Descarrega música per escoltar-la sense connexió i millora la teva experiència. A la música fora de línia, les carpetes són llistes i les llistes són carpetes."
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stáhněte si hudbu pro offline poslech a užijte si skvělý zážitek. V offline hudbě jsou složky seznamy skladeb a seznamy skladeb jsou složky."
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Download musik lokalt for at maksimere din lytteoplevelse. For offlinemusik er mapper spillelister, og spillelister er mapper."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Laden Sie Musik für ein optimales Hörerlebnis herunter. Bei Offline-Musik sind Ordner Wiedergabelisten und Wiedergabelisten Ordner."
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Κατεβάστε μουσική τοπικά για τη βέλτιστη εμπειρία. Στη μουσική εκτός σύνδεσης, οι φάκελοι είναι λίστες και οι λίστες είναι φάκελοι."
+          }
+        },
+        "en-AU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Download music for offline listening to maximize your experience. For offline music, folders are playlists and playlists are folders."
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Download music for offline listening to maximize your experience. For offline music, folders are playlists and playlists are folders."
+          }
+        },
+        "en-IN" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Download music for offline listening to maximize your experience. For offline music, folders are playlists and playlists are folders."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Descarga música en tu dispositivo para disfrutar al máximo. En la música sin conexión, las carpetas son listas y las listas son carpetas."
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Descarga música en tu dispositivo para disfrutar al máximo. En la música sin conexión, las carpetas son listas y las listas son carpetas."
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Descarga música en tu dispositivo para disfrutar al máximo. En la música sin conexión, las carpetas son listas y las listas son carpetas."
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lataa musiikkia laitteellesi parhaan kuuntelukokemuksen saamiseksi. Offline-musiikissa kansiot ovat soittolistoja ja soittolistat kansioita."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Téléchargez de la musique hors ligne pour maximiser votre expérience. Pour la musique hors ligne, les dossiers sont des playlists et les playlists sont des dossiers."
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Téléchargez votre musique pour une écoute hors ligne optimale. En mode hors ligne, les dossiers sont des listes de lecture et les listes de lecture sont des dossiers."
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "הורד מוזיקה למכשיר כדי למקסם את חוויית ההאזנה. במוזיקה ולא מקוונת, תיקיות הן רשימות השמעה ורשימות השמעה הן תיקיות."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "बेहतर अनुभव के लिए संगीत को लोकल डाउनलोड करें। ऑफ़लाइन संगीत में, फ़ोल्डर ही प्लेलिस्ट हैं और प्लेलिस्ट ही फ़ोल्डर हैं।"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Preuzmite glazbu lokalno za najbolje iskustvo. U glazbi izvan mreže, mape su popisi izvođenja, a popisi su mape."
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Töltse le a zenét az eszközére a maximális élményért. Offline zenéknél a mappák lejátszási listák, a lejátszási listák pedig mappák."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unduh musik ke lokal untuk pengalaman mendengarkan maksimal. Untuk musik offline, folder adalah daftar putar dan daftar putar adalah folder."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scarica la musica in locale per un'esperienza d'ascolto migliore. Per la musica offline, le cartelle sono playlist e le playlist sono cartelle."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "楽曲をローカルにダウンロードして、最高の音楽体験を。オフライン再生では、フォルダがプレイリストであり、プレイリストがフォルダです"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "음악을 로컬로 다운로드하여 최고의 음악 감상을 즐기세요. 오프라인 음악에서 폴더는 플레이리스트이고, 플레이리스트는 폴더입니다."
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Muat turun muzik ke tempatan untuk pengalaman mendengarkan yang terbaik. Untuk muzik luar talian, folder ialah senarai main dan senarai main ialah folder."
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Last ned musikk lokalt for å maksimere lytteopplevelsen. For offlinemusik er mapper spillelister, og spillelister er mapper."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Download muziek lokaal voor de beste luisterervaring. Bij offline muziek zijn mappen afspeellijsten en afspeellijsten mappen."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pobieraj muzykę lokalnie, aby uzyskać najlepsze wrażenia. W muzyce offline foldery to playlisty, a playlisty to foldery."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Baixe músicas para ouvir offline e melhore sua experiência. Na música offline, pastas são playlists e playlists são pastas."
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Transfira música para o dispositivo para uma melhor experiência. Na música offline, as pastas são listas de reprodução e as listas de reprodução são pastas."
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Descărcați muzica local pentru o experiență optimă. Pentru muzica offline, dosarele sunt liste de redare și listele sunt dosare."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Скачивайте музыку локально для лучшего прослушивания. В офлайн-музыке папки — это плейлисты, а плейлисты — это папки."
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Stiahnite si hudbu lokálne pre najlepší zážitok. Pri offline hudbe sú priečinky zoznamami skladieb a zoznamy skladieb priečinkami."
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prenesite glasbo lokalno za najboljšo izkušnjo. Pri glasbi brez povezave so mape seznami predvajanja in seznami predvajanja so mape."
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ladda ner musik lokalt för den bästa lyssnarupplevelsen. För offlinemusik är mappar spellistor och spellistor är mappar."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ดาวน์โหลดเพลงลงในเครื่องเพื่อรับประสบการณ์การฟังที่ดีที่สุด สำหรับเพลงออฟไลน์ โฟลเดอร์คือเพลย์ลิสต์ และเพลย์ลิสต์คือโฟลเดอร์"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "En iyi müzik deneyimi için müzikleri yerel olarak indirin. Çevrimdışı müzikte klasörler çalma listesidir, çalma listeleri de klasördür."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Завантажуйте музику локально для найкращого прослуховування. В офлайн-музиці папки — це плейлисти, а плейлисти — це папки."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tải nhạc về máy để tối ưu hóa trải nghiệm nghe nhạc. Với nhạc ngoại tuyến, thư mục chính là danh sách phát và danh sách phát chính là thư mục."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "将音乐下载到本地，最大化您的听歌体验。在离线音乐中，文件夹就是歌单，歌单就是文件夹"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "將音樂下載至本地，最大化您的聽歌體驗。在離線音樂中，資料夾就是播放清單，播放清單就是資料夾。"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "將音樂下載至本地，最大化您的聽歌體驗。在離線音樂中，資料夾就是歌單，歌單就是資料夾"
+          }
+        }
+      }
+    },
     "Download music from your cloud drive or server for the best offline listening experience." : {
       "extractionState" : "manual",
       "localizations" : {
@@ -85260,6 +85511,508 @@
         }
       }
     },
+    "Please select a playlist" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "يرجى تحديد قائمة تشغيل"
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Si us plau, selecciona una llista de reproducció"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prosím, vyberte seznam skladeb"
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vælg venligst en spilleliste"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bitte wählen Sie eine Wiedergabeliste"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Παρακαλώ επιλέξτε μια λίστα αναπαραγωγής"
+          }
+        },
+        "en-AU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Please select a playlist"
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Please select a playlist"
+          }
+        },
+        "en-IN" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Please select a playlist"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Por favor, selecciona una lista de reproducción"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Por favor, selecciona una lista de reproducción"
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Por favor, selecciona una lista de reproducción"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ole hyvä ja valitse soittolista"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Veuillez sélectionner une playlist"
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Veuillez sélectionner une liste de lecture"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "אנא בחר רשימת השמעה"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "कृपया एक प्लेलिस्ट चुनें"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Molimo odaberite popis izvođenja"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kérjük, válasszon egy lejátszási listát"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Silakan pilih daftar putar"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Per favore, seleziona una playlist"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "プレイリストを選択してください"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "플레이리스트를 선택해 주세요"
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sila pilih senarai main"
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vennligst velg en spilleliste"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Selecteer a.u.b. een afspeellijst"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Proszę wybrać playlistę"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Por favor, selecione uma playlist"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Por favor, selecione uma lista de reprodução"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vă rugăm să selectați o listă de redare"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Пожалуйста, выберите плейлист"
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prosím, vyberte zoznam skladieb"
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prosimo, izberite seznam predvajanja"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vänligen välj en spellista"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "โปรดเลือกเพลย์ลิสต์"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lütfen bir çalma listesi seçin"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Будь ласка, виберіть плейлист"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vui lòng chọn một danh sách phát"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "请选择一个歌单"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "請選擇一個播放清單"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "請選擇一個歌單"
+          }
+        }
+      }
+    },
+    "Please select a playlist. For offline music, folders are playlists and playlists are folders." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "يرجى تحديد قائمة تشغيل. في الموسيقى غير المتصلة بالإنترنت، المجلدات هي قوائم تشغيل وقوائم التشغيل هي مجلدات."
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Si us plau, selecciona una llista de reproducció. A la música fora de línia, les carpetes són llistes i les llistes són carpetes."
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prosím, vyberte seznam skladeb. V offline hudbě jsou složky seznamy skladeb a seznamy skladeb jsou složky."
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vælg venligst en spilleliste. For offlinemusik er mapper spillelister, og spillelister er mapper."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bitte wählen Sie eine Wiedergabeliste. Bei Offline-Musik sind Ordner Wiedergabelisten und Wiedergabelisten Ordner."
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Παρακαλώ επιλέξτε μια λίστα αναπαραγωγής. Στη μουσική εκτός σύνδεσης, οι φάκελοι είναι λίστες και οι λίστες είναι φάκελοι."
+          }
+        },
+        "en-AU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Please select a playlist. For offline music, folders are playlists and playlists are folders."
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Please select a playlist. For offline music, folders are playlists and playlists are folders."
+          }
+        },
+        "en-IN" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Please select a playlist. For offline music, folders are playlists and playlists are folders."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Por favor, selecciona una lista de reproducción. En la música sin conexión, las carpetas son listas y las listas son carpetas."
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Por favor, selecciona una lista de reproducción. En la música sin conexión, las carpetas son listas y las listas son carpetas."
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Por favor, selecciona una lista de reproducción. En la música sin conexión, las carpetas son listas y las listas son carpetas."
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ole hyvä ja valitse soittolista. Offline-musiikissa kansiot ovat soittolistoja ja soittolistat kansioita."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Veuillez sélectionner une playlist. Pour la musique hors ligne, les dossiers sont des playlists et les playlists sont des dossiers."
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Veuillez sélectionner une liste de lecture. En mode hors ligne, les dossiers sont des listes de lecture et les listes de lecture sont des dossiers."
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "אנא בחר רשימת השמעה. במוזיקה ולא מקוונת, תיקיות הן רשימות השמעה ורשימות השמעה הן תיקיות."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "कृपया एक प्लेलिस्ट चुनें। ऑफ़लाइन संगीत में, फ़ोल्डर ही प्लेलिस्ट हैं और प्लेलिस्ट ही फ़ोल्डर हैं।"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Molimo odaberite popis izvođenja. U glazbi izvan mreže, mape su popisi izvođenja, a popisi su mape."
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kérjük, válasszon egy lejátszási listát. Offline zenéknél a mappák lejátszási listák, a lejátszási listák pedig mappák."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Silakan pilih daftar putar. Untuk musik offline, folder adalah daftar putar dan daftar putar adalah folder."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Per favore, seleziona una playlist. Per la musica offline, le cartelle sono playlist e le playlist sono cartelle."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "プレイリストを選択してください。オフライン再生では、フォルダがプレイリストであり、プレイリストがフォルダです。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "플레이리스트를 선택해 주세요. 오프라인 음악에서 폴더는 플레이리스트이고, 플레이리스트는 폴더입니다."
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sila pilih senarai main. Untuk muzik luar talian, folder ialah senarai main dan senarai main ialah folder."
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vennligst velg en spilleliste. For vanlige offline-sanger er mapper spillelister, og spillelister er mapper."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Selecteer a.u.b. een afspeellijst. Bij offline muziek zijn mappen afspeellijsten en afspeellijsten mappen."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Proszę wybrać playlistę. W muzyce offline foldery to playlisty, a playlisty to foldery."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Por favor, selecione uma playlist. Na música offline, pastas são playlists e playlists são pastas."
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Por favor, selecione uma lista de reprodução. Na música offline, as pastas são listas de reprodução e as listas de reprodução são pastas."
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vă rugăm să selectați o listă de redare. Pentru muzica offline, dosarele sunt liste de redare și listele sunt dosare."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Пожалуйста, выберите плейлист. В офлайн-музыке папки — это плейлисты, а плейлисты — это папки."
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prosím, vyberte zoznam skladieb. Pri offline hudbe sú priečinky zoznamami skladieb a zoznamy skladieb priečinkami."
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prosimo, izberite seznam predvajanja. Pri glasbi brez povezave so mape seznami predvajanja in seznami predvajanja so mape."
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vänligen välj en spellista. För offlinemusik är mappar spellistor och spellistor är mappar."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "โปรดเลือกเพลย์ลิสต์ สำหรับเพลงออฟไลน์ โฟลเดอร์คือเพลย์ลิสต์ และเพลย์ลิสต์คือโฟลเดอร์"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lütfen bir çalma listesi seçin. Çevrimdışı müzikte klasörler çalma listesidir, çalma listeleri de klasördür."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Будь ласка, виберіть плейлист. В офлайн-музиці папки — це плейлисти, а плейлисти — це папки."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vui lòng chọn một danh sách phát. Với nhạc ngoại tuyến, thư mục chính là danh sách phát và danh sách phát chính là thư mục."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "请选择一个歌单，在离线音乐中，文件夹就是歌单，歌单就是文件夹"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "請選擇一個播放清單。在離線音樂中，資料夾就是播放清單，播放清單就是資料夾。"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "請選擇一個歌單。在離線音樂中，資料夾就是歌單，歌單就是資料夾。"
+          }
+        }
+      }
+    },
     "Please set before selecting the video" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -101076,10 +101829,250 @@
     "Select Playlist" : {
       "extractionState" : "manual",
       "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تحديد قائمة التشغيل"
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Selecciona la llista de reproducció"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vybrat seznam skladeb"
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vælg spilleliste"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wiedergabeliste auswählen"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Επιλογή λίστας αναπαραγωγής"
+          }
+        },
+        "en-AU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Select Playlist"
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Select Playlist"
+          }
+        },
+        "en-IN" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Select Playlist"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Seleccionar lista de reproducción"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Seleccionar lista de reproducción"
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Seleccionar lista de reproducción"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Valitse soittolista"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sélectionner une playlist"
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sélectionner une liste de lecture"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "בחירת רשימת השמעה"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "प्लेलिस्ट चुनें"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Odaberite popis izvođenja"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lejátszási lista kiválasztása"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pilih Daftar Putar"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Seleziona playlist"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "プレイリストを選択"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "플레이리스트 선택"
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pilih Senarai Main"
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Velg spilleliste"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Selecteer afspeellijst"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wybierz playlistę"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Selecionar playlist"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Selecionar lista de reprodução"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Selectează lista de redare"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Выберите плейлист"
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vybrať zoznam skladieb"
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Izberite seznam predvajanja"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Välj spellista"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "เลือกเพลย์ลิสต์"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Çalma Listesi Seç"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Вибрати плейлист"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Chọn danh sách phát"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "选择歌单"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "選擇播放清單"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "選擇歌單"
           }
         }
       }

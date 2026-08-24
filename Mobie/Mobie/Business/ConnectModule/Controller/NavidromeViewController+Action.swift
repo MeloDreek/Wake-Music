@@ -88,7 +88,7 @@ extension NavidromeViewController: EmptyContentCellDelegate, ConnectSectionHeadV
         
         let action1 = UIAlertAction(title: "Cancel".localStr(), style: .cancel, handler: nil)
         let action2 = UIAlertAction(title: "Done".localStr(), style: .destructive, handler: { [weak self] action in
-            guard let nameField = editAlertVC.textFields?.first, var nameText = nameField.text?.standardFileName, nameText.count > 0 else {
+            guard let nameField = editAlertVC.textFields?.first, let nameText = nameField.text?.standardFileName, nameText.count > 0 else {
                 return
             }
                         
@@ -158,7 +158,7 @@ extension NavidromeViewController: ConnectMyPlayListCellDelegate {
         
         let action1 = UIAlertAction(title: "Cancel".localStr(), style: .cancel, handler: nil)
         let action2 = UIAlertAction(title: "Done".localStr(), style: .destructive, handler: { [weak self] action in
-            guard let nameField = editAlertVC.textFields?.first, var nameText = nameField.text?.standardFileName, nameText.count > 0 else {
+            guard let nameField = editAlertVC.textFields?.first, let nameText = nameField.text?.standardFileName, nameText.count > 0 else {
                 return
             }
                         
