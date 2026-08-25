@@ -10,16 +10,16 @@ import AppGroupKit
 import KakaTaglibKit
 
 enum MusicKeyTitle: Equatable, Hashable, Comparable {
-    case likedSongs
     case folder
+    case likedSongs
     case missingTags
     case completeTags
     case customKey(String)
     
     func keyStr() -> String {
         switch self {
-        case .likedSongs: return "♥"
         case .folder: return "📁"
+        case .likedSongs: return "♥"
         case .missingTags: return "❗️"
         case .completeTags: return "✅"
         case .customKey(let key): return key
@@ -28,8 +28,8 @@ enum MusicKeyTitle: Equatable, Hashable, Comparable {
     
     func titleStr() -> String {
         switch self {
+        case .folder: return "📁" + "Folder".localStr() + " (\("Playlist".localStr()))"
         case .likedSongs: return "♥"
-        case .folder: return "📁" + "Folder".localStr()
         case .missingTags: return "❗️" + "Missing Tags".localStr()
         case .completeTags: return "✅" + "Complete Tags".localStr()
         case .customKey(let key): return key
@@ -39,8 +39,8 @@ enum MusicKeyTitle: Equatable, Hashable, Comparable {
     // 定义排序优先级权值（越小越靠前）
     private var sortWeight: Int {
         switch self {
-        case .likedSongs: return 0
-        case .folder: return 1
+        case .folder: return 0
+        case .likedSongs: return 1
         case .missingTags: return 2
         case .completeTags: return 3
         case .customKey: return 4
@@ -252,6 +252,14 @@ extension MusicViewModel {
             })
         }
         
+        // 处理已收藏的音乐
+        let starArray = tempAllArray.filter { $0.isFlagFavorite() }
+        if !starArray.isEmpty {
+            groupedDictionary[.likedSongs] = Array(Set(starArray)).sorted {
+                $0.sortAnotherModel(model2: $1, sortType: self.sortType)
+            }
+        }
+        
         // 组内排序
         for (key, value) in groupedDictionary {
             groupedDictionary[key] = value.sorted {
@@ -260,16 +268,7 @@ extension MusicViewModel {
         }
         
         // 生成排好序的索引数组 (借助 MusicKeyTitle 实现的 Comparable 自动按权重和字符排序)
-        var indexArr = groupedDictionary.keys.sorted()
-        
-        // 处理已收藏的音乐（插到最顶部）
-        let starArray = tempAllArray.filter { $0.isFlagFavorite() }
-        if !starArray.isEmpty {
-            indexArr.insert(.likedSongs, at: 0)
-            groupedDictionary[.likedSongs] = Array(Set(starArray)).sorted {
-                $0.sortAnotherModel(model2: $1, sortType: self.sortType)
-            }
-        }
+        let indexArr = groupedDictionary.keys.sorted()
         
         self.musicIndexArray = indexArr
         self.musicDictionary = groupedDictionary

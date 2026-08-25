@@ -72950,7 +72950,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "新播放列表"
+            "value" : "新建歌單"
           }
         },
         "zh-HK" : {
@@ -83235,19 +83235,19 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "播放列表"
+            "value" : "歌单"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "播放列表"
+            "value" : "歌單"
           }
         },
         "zh-HK" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "播放列表"
+            "value" : "歌單"
           }
         }
       }

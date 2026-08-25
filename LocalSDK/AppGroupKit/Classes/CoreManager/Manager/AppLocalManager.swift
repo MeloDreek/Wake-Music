@@ -120,6 +120,14 @@ public class AppLocalManager: SmartCodableX, ObservableObject {
         }
     }
     
+    /// 一次生命周期只提醒一次好评
+    @SmartPublished
+    public var isGuideFiveStar: Bool = false {
+        didSet {
+            save()
+        }
+    }
+    
     /// 播放动画
     @SmartPublished
     public var playAnimation = PlayAnimationType.animation0 {

@@ -217,7 +217,10 @@ class MusicTableViewCell: UITableViewCell {
             descLabel.textColor = .secondaryLabel
         }
         
-        let isShowTag = MusicConfigManager.shared.isShowMissTag && !musicModel.isFullMusicTag() && cellType == .local
+        var isShowTag = MusicConfigManager.shared.isShowMissTag && !musicModel.isFullMusicTag() && cellType == .local
+        if musicModel.isFolder() {
+            isShowTag = false
+        }
         
         descLabel.isHidden = isShowTag
         taglistView.isHidden = !isShowTag
@@ -364,7 +367,7 @@ extension MusicTableViewCell {
     // 本地音乐
     private func secondLocalStr(_ musicModel: MusicItemModel) -> String {
         if musicModel.isFolder() {
-            return String(format: "%d subfiles".localStr(), musicModel.mediaPlayURL.totalFileCount())
+            return String(format: "%d songs".localStr(), musicModel.mediaPlayURL.totalFileCount())
         }else{
             let artistStr = musicModel.showArtistName()
             if cellType == .download && !kaka_IsMacOS() {

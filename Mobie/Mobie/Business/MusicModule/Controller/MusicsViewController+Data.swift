@@ -93,6 +93,11 @@ extension MusicsViewController: UITableViewDataSource, UITableViewDelegate {
             return
         }
         
+        if self.isBatchEditing {
+            self.tableView.tableHeaderView?.kaka_playShakeAnim()
+            return
+        }
+        
         if !self.tableView.isEditing {
             let dataArray = self.viewModel.homeSectionArray(indexPath.section)
             let model = dataArray[indexPath.row]
@@ -248,10 +253,19 @@ extension MusicsViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
+        if self.isBatchEditing {
+            self.tableView.tableHeaderView?.kaka_playShakeAnim()
+            return nil
+        }
+        
         let dataArray = self.viewModel.homeSectionArray(indexPath.section)
         
         if dataArray.count > indexPath.row {
             let model = dataArray[indexPath.row]
+            
+            if model.isFolder() {
+                return nil
+            }
             
             // 音乐标签
             let musictagAction = UIContextualAction(style: .normal, title: nil) { [weak self] action, view, finish in
@@ -299,10 +313,19 @@ extension MusicsViewController: UITableViewDataSource, UITableViewDelegate {
         
         if tableView.isEditing { return nil }
         
+        if self.isBatchEditing {
+            self.tableView.tableHeaderView?.kaka_playShakeAnim()
+            return nil
+        }
+        
         let dataArray = self.viewModel.homeSectionArray(indexPath.section)
         if dataArray.count <= indexPath.row { return nil }
         
         let model = dataArray[indexPath.row]
+        
+        if model.isFolder() {
+            return nil
+        }
                         
         // 音频指纹识别
         let audiofingerAction = UIAction(title: MusicActionType.audioFinger.titleStr(), image: MusicActionType.audioFinger.iconImage()) { [weak self] _ in

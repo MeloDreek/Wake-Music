@@ -535,6 +535,8 @@
 		228A14A32CA0633400E2948E /* KakaMusicPlayer+Play.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A14232CA0633400E2948E /* KakaMusicPlayer+Play.swift */; };
 		2290E6D82DFAC20700137CF9 /* WelcomeTapeCollectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2290E6D72DFAC20700137CF9 /* WelcomeTapeCollectCell.swift */; };
 		2290E6D92DFAC20700137CF9 /* WelcomeTapeCollectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2290E6D72DFAC20700137CF9 /* WelcomeTapeCollectCell.swift */; };
+		22948BD6303D8E5000139F6A /* BatchEditSuccessController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22948BD5303D8E5000139F6A /* BatchEditSuccessController.swift */; };
+		22948BD7303D8E5000139F6A /* BatchEditSuccessController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22948BD5303D8E5000139F6A /* BatchEditSuccessController.swift */; };
 		22953EF630357CB5001B0546 /* AudioFingerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22953EF530357CB5001B0546 /* AudioFingerTableViewCell.swift */; };
 		22953EF730357CB5001B0546 /* AudioFingerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22953EF530357CB5001B0546 /* AudioFingerTableViewCell.swift */; };
 		22953EFA30359265001B0546 /* SwiftyUploader in Frameworks */ = {isa = PBXBuildFile; productRef = 22953EF930359265001B0546 /* SwiftyUploader */; };
@@ -956,6 +958,7 @@
 		228A14222CA0633400E2948E /* KakaMusicPlayer+Tools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "KakaMusicPlayer+Tools.swift"; sourceTree = "<group>"; };
 		228A14232CA0633400E2948E /* KakaMusicPlayer+Play.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "KakaMusicPlayer+Play.swift"; sourceTree = "<group>"; };
 		2290E6D72DFAC20700137CF9 /* WelcomeTapeCollectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeTapeCollectCell.swift; sourceTree = "<group>"; };
+		22948BD5303D8E5000139F6A /* BatchEditSuccessController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatchEditSuccessController.swift; sourceTree = "<group>"; };
 		22953EF530357CB5001B0546 /* AudioFingerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioFingerTableViewCell.swift; sourceTree = "<group>"; };
 		2296BCCD2CD8B4F500E9166E /* MeteDataGroupCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeteDataGroupCellModel.swift; sourceTree = "<group>"; };
 		2296BCD32CD91A7E00E9166E /* SupportTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportTypeViewController.swift; sourceTree = "<group>"; };
@@ -1396,6 +1399,7 @@
 				22A44486303C4A8300DD3E62 /* BatchAutoEmbedController.swift */,
 				22C2572B302D721400A68C1B /* AudioMatchTagViewController.swift */,
 				22C25737302D739400A68C1B /* AutoEditConfigViewController.swift */,
+				22948BD5303D8E5000139F6A /* BatchEditSuccessController.swift */,
 				22577F6A2D04215F00AD35E7 /* LyricDetialViewController.swift */,
 				224C8A122CE1F06E008B594C /* LyricEditorViewController.swift */,
 				22C2573A302D7A1D00A68C1B /* SelectLyricViewController.swift */,
@@ -2396,6 +2400,7 @@
 				225F588F2D85B2AB0055BDFF /* AppStoreKitManager+Price.swift in Sources */,
 				227E2E612DC0B26000EF8E3B /* AppleMusicListController.swift in Sources */,
 				225F58922D85B2AB0055BDFF /* PlayerLyricsCell.swift in Sources */,
+				22948BD7303D8E5000139F6A /* BatchEditSuccessController.swift in Sources */,
 				225F58942D85B2AB0055BDFF /* MusicViewModel+Parse.swift in Sources */,
 				225F58952D85B2AB0055BDFF /* PurchaseViewController.swift in Sources */,
 				225F58962D85B2AB0055BDFF /* LyricEditorViewController.swift in Sources */,
@@ -2690,6 +2695,7 @@
 				228A149D2CA0633400E2948E /* AppStoreKitManager+Price.swift in Sources */,
 				227E2E622DC0B26000EF8E3B /* AppleMusicListController.swift in Sources */,
 				22AB3BCD2CE6406B0063F284 /* PlayerLyricsCell.swift in Sources */,
+				22948BD6303D8E5000139F6A /* BatchEditSuccessController.swift in Sources */,
 				22697C592CA9879B0030A9E2 /* MusicViewModel+Parse.swift in Sources */,
 				228A14532CA0633400E2948E /* PurchaseViewController.swift in Sources */,
 				224C8A132CE1F06F008B594C /* LyricEditorViewController.swift in Sources */,

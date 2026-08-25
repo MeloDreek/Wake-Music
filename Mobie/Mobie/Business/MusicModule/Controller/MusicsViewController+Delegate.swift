@@ -91,6 +91,117 @@ extension MusicsViewController: DocumentFolderWatcherDelegate, MusicTopHeadViewD
     
 }
 
+extension MusicsViewController: MusicTopBatchEditHeadViewDelegate {
+    
+    // 批量自动编辑
+    func musicTopHeadViewDidStartEditing(topView: MusicTopBatchEditHeadView) {
+        self.stopEditBarClick()
+        
+        let allModels = self.viewModel.allMusicArray
+        
+        guard allModels.count > 0 else {
+            self.tableView.kaka_playShakeAnim()
+            return
+        }
+        
+#warning("模拟mock数据")
+//#if DEBUG
+//        self.headMusictagView.state = .matching
+//        var cureModel = allModels.last
+//        cureModel?.mediaPlayURL = SandboxFileManager.shared.basePublicFileURL().appendingPathComponent("Michael Jackson - Dangerous.flac")
+//        self.headMusictagView.updateProgress(curModel: cureModel, completed: allModels.count / 2, total: allModels.count)
+//        return
+//#endif
+        
+        if !UserInfoManager.shared.isVIP() {
+            let message = "Say goodbye to tedious manual typing! Upgrade to Premium to automatically fix tags, fetch 4K artwork, and download lyrics via instant audio fingerprinting. Or, you can choose to continue editing manually.".localStr()
+            let action1 = AlertActionConfig(title: "Unlock Premium".localStr(), style: .destructive, actionType: .first)
+            let action2 = AlertActionConfig(title: "Manual Edit".localStr(), style: .default, actionType: .second)
+            self.showThreeAlert(message: message, btn1: action1, btn2: action2) { [weak self] actionType in
+                if actionType == .first {
+                    self?.vipCenterClick()
+                }else{
+                    guard let wSelf = self else { return }
+                    wSelf.tableView(wSelf.tableView, didSelectRowAt: IndexPath(row: 0, section: 0))
+                }
+            }
+            return
+        }
+        
+        let configVC = AutoEditConfigViewController()
+        configVC.onSelectBlock = { [weak self] (config) in
+            self?.starBatchAutoEdit(config)
+        }
+        configVC.modalPresentationStyle = kaka_IsMacOS() ? .automatic : .overFullScreen
+        self.present(configVC, animated: false)
+        
+    }
+    
+    func starBatchAutoEdit(_ config: AutoEditConfig) {
+        var allModels = self.viewModel.allMusicArray
+        if UserInfoManager.shared.isFreeTrail {
+            // 免费试用期间只处理10个文件
+            allModels = Array(allModels.prefix(10))
+        }
+        
+        guard allModels.count > 0 else {
+            self.tableView.kaka_playShakeAnim()
+            return
+        }
+        
+        self.isBatchEditing = true
+        self.headMusictagView.state = .matching
+        self.headMusictagView.updateProgress(curModel: allModels.first, completed: 1, total: allModels.count)
+        let startTime = Date()
+        
+        self.tagEditor.batchEmbeddedMetadata(models: allModels, config: config) { [weak self] curModel, completed, total in
+            self?.headMusictagView.updateProgress(curModel: curModel, completed: completed, total: total)
+        } completion: { [weak self] completedModels, missingTagModels in
+            
+            let spentTime = Date().timeIntervalSince(startTime)
+            let missTagModels = missingTagModels ?? []
+            
+            guard let wSelf = self else { return }
+            
+            // 更新头部和列表
+            let totalCount = allModels.count
+            let completeTagCount = totalCount - missTagModels.count
+            
+            wSelf.isBatchEditing = false
+            wSelf.headMusictagView.state = .completed
+            wSelf.headMusictagView.updateComplete(time: spentTime, completeTagCount: completeTagCount, misstagCount: missTagModels.count)
+            wSelf.refreshDataAction()
+            
+            var autoEditFileCount = UserInfoManager.shared.autoEditFileCount
+            autoEditFileCount += allModels.count
+            UserInfoManager.shared.autoEditFileCount = autoEditFileCount
+            
+            // 进入完成页面
+            let successVC = BatchEditSuccessController(spentTime: spentTime, totalCount: allModels.count, missingTagCount: missTagModels.count)
+            successVC.modalPresentationStyle = kaka_IsMacOS() ? .automatic : .overFullScreen
+            self?.present(successVC, animated: false)
+        }
+    }
+    
+    // 取消队列
+    func musicTopHeadViewDidClickCancel(topView: MusicTopBatchEditHeadView) {
+        self.showTwoAlert(message: "Are you sure you want to cancel?".localStr()) { [weak self] () in
+            self?.tagEditor.cancelBatchEmbeddedQueue()
+            self?.headMusictagView.state = .normal
+            self?.isBatchEditing = false
+            self?.headMusictagView.matchingView.progressView.update(current: 0, total: 0)
+            self?.view.makeToast(KakaError.youhaveCanceled.errorDescription)
+        }
+    }
+    
+    // 已完成，用户点击重置
+    func musicTopHeadViewDidCompletReset(topView: MusicTopBatchEditHeadView) {
+        self.headMusictagView.state = .normal
+        self.isBatchEditing = false
+        self.headMusictagView.matchingView.progressView.update(current: 0, total: 0)
+    }
+}
+
 extension MusicsViewController: MusicTableViewCellDelegate {
     // 点击更多
     func musicTableCell(cell: MusicTableViewCell, model: MusicItemModel, action: MusicActionType) {

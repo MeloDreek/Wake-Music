@@ -57,6 +57,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //#endif
         
         ConnectConfigManager.updateConnectNewData()
+        AppLocalManager.shared.isGuideFiveStar = false
                         
         if UserInfoManager.shared.isVIP() {
             return

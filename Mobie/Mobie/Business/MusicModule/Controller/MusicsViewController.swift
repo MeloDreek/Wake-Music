@@ -156,6 +156,9 @@ class MusicsViewController: SuperViewController {
     // MARK:  GET && SET
     var baseFileURL: URL!
     
+    /// 是否正在批量编辑中
+    var isBatchEditing: Bool = false
+    
     var cancellables = Set<AnyCancellable>()
             
     // MARK:  懒加载
@@ -175,7 +178,6 @@ class MusicsViewController: SuperViewController {
         let view = UITableView(frame: self.view.bounds, style: .insetGrouped)
         view.delegate = self
         view.dataSource = self
-//        view.tableHeaderView = self.headFolderView
         view.tableFooterView = self.footView
 #if !targetEnvironment(macCatalyst)
         view.refreshControl = self.kaka_header
@@ -197,8 +199,12 @@ class MusicsViewController: SuperViewController {
     
     lazy var headMusictagView: MusicTopBatchEditHeadView = {
         let view = MusicTopBatchEditHeadView(frame: CGRectMake(0, 0, self.contentView.width, MusicTopBatchEditHeadView.headHeight()))
-//        view.delegate = self
+        view.delegate = self
         return view
+    }()
+    
+    lazy var tagEditor: MusicTagEditor = {
+        return MusicTagEditor()
     }()
     
     lazy var footView: MusicsFootView = {
@@ -237,17 +243,12 @@ class MusicsViewController: SuperViewController {
     /// 应该展示的头部区域
     var showHeadView: UIView? {
         get {
-            // 列表有数据、首页
-            let folderArray = self.viewModel.folderArray
-            let isShow = folderArray.count > 0 && self.viewModel.isBaseDoc
-            if isShow {
-                if self.viewModel.groupType == .musictagGroup {
-                    return self.headMusictagView
-                }else{
-                    return self.headFolderView
-                }
+            
+            if self.viewModel.groupType == .musictagGroup || !self.viewModel.isBaseDoc {
+                return self.headMusictagView
             }else{
-                return nil
+                let folderArray = self.viewModel.folderArray
+                return folderArray.isEmpty ? nil : self.headFolderView
             }
         }
     }
@@ -446,13 +447,14 @@ class MusicsViewController: SuperViewController {
             editArray.append(subMenu)
         }
         
-        let batchAction = UIAction(title: "Batch Auto-Embed".localStr(), image: UIImage(systemName: "touchid"), attributes: []) { [weak self] (_) in
-            self?.batchAutoEditAction()
-        }
-        
         let editMenu = UIMenu(title: "", options: .displayInline, children: editArray)
-                
-        return UIMenu(children: [batchAction, editMenu])
+        
+//        let batchAction = UIAction(title: "Batch Auto-Embed".localStr(), image: UIImage(systemName: "touchid"), attributes: []) { [weak self] (_) in
+//            self?.batchAutoEditAction()
+//        }
+                        
+        return editMenu
+//        return UIMenu(children: [batchAction, editMenu])
     }
     
     override func didReceiveMemoryWarning() {
