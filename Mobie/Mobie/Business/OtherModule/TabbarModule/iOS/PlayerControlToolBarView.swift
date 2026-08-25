@@ -151,7 +151,12 @@ class PlayerControlToolBarView: UIToolbar {
         }
         
         if kaka_IsiPhone() {
-            playlistButton.snp.makeConstraints { make in
+//            playlistButton.snp.makeConstraints { make in
+//                make.trailing.equalToSuperview().inset(20.ckValue())
+//                make.centerY.equalToSuperview()
+//                make.size.equalTo(otherSize)
+//            }
+            nextButton.snp.makeConstraints { make in
                 make.trailing.equalToSuperview().inset(20.ckValue())
                 make.centerY.equalToSuperview()
                 make.size.equalTo(otherSize)
@@ -173,7 +178,7 @@ class PlayerControlToolBarView: UIToolbar {
         playButton.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
             if kaka_IsiPhone() {
-                make.trailing.equalTo(playlistButton.snp.leading).offset(-10.ckValue())
+                make.trailing.equalTo(nextButton.snp.leading).offset(-10.ckValue())
             }else{
                 make.trailing.equalTo(nextButton.snp.leading).offset(-10.ckValue())
             }

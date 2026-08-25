@@ -71,16 +71,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let playerStyle = MusicConfigManager.shared.playerStyle
         if playerStyle.isTapeStyle() || playerStyle.isVinylStyle() {
-            MusicConfigManager.shared.playerStyle = .defaultRect
+            MusicConfigManager.shared.playerStyle = .defaultCircle
         }
         
         var defaultModel = MusicConfigManager.shared.playbackModel
         defaultModel.backgroundType = .defaultType
         MusicConfigManager.shared.playbackModel = defaultModel
-        
-        AppLocalManager.shared.playAnimation = .animation0
-        ColorFontManager.shared.accentTyle = .color0
-        
+                
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

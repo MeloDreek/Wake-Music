@@ -90,10 +90,10 @@ public class ConnectConfigManager: SmartCodableX, ObservableObject {
         }
         
         // 防止此前未付费的用户继续使用远程功能
-        if let firstFile = ConnectConfigManager.shared.lastPlaylist.first, (!firstFile.isLocalFile() && !UserInfoManager.shared.isPremium()) {
-            ConnectConfigManager.shared.lastPlaylist = []
-            ConnectConfigManager.shared.connectedModels = []
-        }
+//        if let firstFile = ConnectConfigManager.shared.lastPlaylist.first, (!firstFile.isLocalFile() && !UserInfoManager.shared.isPremium()) {
+//            ConnectConfigManager.shared.lastPlaylist = []
+//            ConnectConfigManager.shared.connectedModels = []
+//        }
         
     }
     

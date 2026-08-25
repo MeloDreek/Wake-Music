@@ -58,7 +58,7 @@ enum VIPBenefitsModel: CaseIterable {
         case .lyricFeature:
             return "Complete Lyrics Experience".localStr()
         case .advancedSetting:
-            return "Some Premium Customization such as animations, music player, etc.".localStr()
+            return "Premium customization options, including dynamic animations, advanced audio engine, and more.".localStr()
         case .allAppleOS:
             return "One-time purchase. Unlock all features on iPhone, iPad, and Mac.".localStr()
         case .newMore:

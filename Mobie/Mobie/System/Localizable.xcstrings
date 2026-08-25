@@ -6516,13 +6516,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "本地音樂檔案解析後的專輯封面，您可以重複使用這些圖片，快速填充缺少封面的音樂檔案"
+            "value" : "離線音樂檔案解析後的專輯封面，您可以重複使用這些圖片，快速填充缺少封面的音樂檔案"
           }
         },
         "zh-HK" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "本地音樂文件解析後嘅專輯封面，你可以重複使用呢啲圖片，快速填充缺少封面嘅音樂文件"
+            "value" : "離線音樂文件解析後嘅專輯封面，你可以重複使用呢啲圖片，快速填充缺少封面嘅音樂文件"
           }
         }
       }
@@ -26596,13 +26596,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "無限制連接您的遠端音樂，無須佔用本地儲存空間。如 WebDAV、Navidrome 等"
+            "value" : "無限制連接您的遠端音樂，無須佔用本機儲存空間。如 WebDAV、Navidrome 等"
           }
         },
         "zh-HK" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "無限制連接您的遠端音樂，無須占用本地儲存空間。如 WebDAV、Navidrome 等"
+            "value" : "無限制連接您的遠端音樂，無須占用本機儲存空間。如 WebDAV、Navidrome 等"
           }
         }
       }
@@ -36385,13 +36385,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "將音樂下載至本地，最大化您的聽歌體驗。在離線音樂中，資料夾就是播放清單，播放清單就是資料夾。"
+            "value" : "將音樂下載至本機，最大化您的聽歌體驗。在離線音樂中，資料夾就是播放清單，播放清單就是資料夾。"
           }
         },
         "zh-HK" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "將音樂下載至本地，最大化您的聽歌體驗。在離線音樂中，資料夾就是歌單，歌單就是資料夾"
+            "value" : "將音樂下載至本機，最大化您的聽歌體驗。在離線音樂中，資料夾就是歌單，歌單就是資料夾"
           }
         }
       }
@@ -54878,13 +54878,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "進口音樂"
+            "value" : "匯入音樂"
           }
         },
         "zh-HK" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "進口音樂"
+            "value" : "匯入音樂"
           }
         }
       }
@@ -69185,7 +69185,7 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "移至本地"
+            "value" : "移至本機"
           }
         },
         "zh-HK" : {
@@ -75968,7 +75968,7 @@
         "zh-HK" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "唔。解析同編輯音樂文件內嵌嘅元數據需要完整嘅文件，所以我哋唔可以直接對網絡文件直接進行修改。你需要將音樂文件下載到本地先可以編輯"
+            "value" : "不。解析同編輯音樂文件內嵌嘅元數據需要完整嘅文件，所以我哋唔可以直接對網絡文件直接進行修改。你需要將音樂文件下載到本機先可以編輯"
           }
         }
       }
@@ -78221,13 +78221,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "僅適用於離線音樂，是否下載至本地後編輯？"
+            "value" : "僅適用於離線音樂，是否下載至本機後編輯？"
           }
         },
         "zh-HK" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "僅適用於離線音樂，是否下載至本地後編輯？"
+            "value" : "僅適用於離線音樂，是否下載至本機後編輯？"
           }
         }
       }
@@ -81986,13 +81986,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "自動內嵌"
+            "value" : "永久內嵌"
           }
         },
         "zh-HK" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "自動內嵌"
+            "value" : "永久內嵌"
           }
         }
       }
@@ -89774,6 +89774,257 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "高級自訂"
+          }
+        }
+      }
+    },
+    "Premium customization options, including dynamic animations, advanced audio engine, and more." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تخصيصات مميزة مثل التأثيرات المتحركة، محرك تشغيل الموسيقى، وغيرها الكثير."
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Personalització prèmium com animacions, motor de reproducció de música, etc."
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Premium přizpůsobení, jako jsou animace, hudební přehrávací engine a další."
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Premium-tilpasning som animationer, afspillermotor og meget mere."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Premium-Anpassungen wie Animationen, Audio-Engine und mehr."
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Premium προσαρμογές, όπως κινούμενα σχέδια, μηχανή αναπαραγωγής μουσικής κ.ά."
+          }
+        },
+        "en-AU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Premium customization options, including dynamic animations, advanced audio engine, and more."
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Premium customisation options, including dynamic animations, advanced audio engine, and more."
+          }
+        },
+        "en-IN" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Premium customization options, including dynamic animations, advanced audio engine, and more."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Personalización Premium: animaciones, motor de reproducción y más."
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Personalización Premium: animaciones, motor de reproducción y más."
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Personalización Premium: animaciones, motor de reproducción y más."
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Premium-mukautukset, kuten animaatiot, toistomoottori ja muuta."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Personnalisation Premium : animations, moteur de lecture audio, et plus encore."
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Personnalisation Premium : animations, moteur de lecture audio, et plus encore."
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "התאמה אישית פרימיום כמו אנימציות, מנוע נגן מוזיקה ועוד."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "प्रीमियम कस्टमाइज़ेशन जैसे एनीमेशन, संगीत प्लेयर इंजन आदि।"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Premium prilagodbe poput animacija, naprednog glazbenog pokretača i još mnogo toga."
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Premium testreszabási lehetőségek: animációk, lejátszómotor és egyebek."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kustomisasi Premium seperti animasi, mesin pemutar musik, dan lainnya."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Personalizzazioni Premium come animazioni, motore di riproduzione e altro."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "アニメーションや高音質再生エンジンなどのプレミアムカスタマイズ機能"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "애니메이션, 음악 플레이어 엔진 등 프리미엄 커스텀 기능."
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Penyesuaian Premium seperti animasi, enjin pemain muzik dan banyak lagi."
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Premium-tilpassinger som animasjoner, avspillingsmotor og mer."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Premium aanpassingen zoals animaties, audio-engine en meer."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Personalizacja Premium: animacje, silnik odtwarzania muzyki i więcej."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Personalização Premium: animações, motor de reprodução de música e muito mais."
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Personalização Premium: animações, motor de reprodução de música e muito mais."
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Personalizări Premium, cum ar fi animații, motorul de redare și altele."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Премиум-настройки: анимации, аудиодвижок воспроизведения и многое другое."
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Premium prispôsobenia, ako sú animácie, prehrávací engine a ďalšie."
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Premium prilagoditve, kot so animacije, predvajalni motor in še več."
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Premium-anpassning som animationer, uppspelningsmotor och mer."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "การปรับแต่งระดับพรีเมียม เช่น แอนิเมชัน, เอนจินเครื่องเล่นเพลง และอื่น ๆ"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Animasyonlar, müzik çalar motoru ve daha fazlasını içeren Premium özelleştirme."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Преміум-персоналізація: анімації, аудіодвигун відтворення та багато іншого."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tùy chỉnh Premium như hiệu ứng chuyển động, trình phát nhạc chuyên nghiệp v.v."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "高级自定义功能（如动画效果、音乐播放引擎等）"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "高級自訂功能，如動畫效果、專業音樂播放引擎等"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "高級自訂功能，如動畫效果、專業音樂播放引擎等"
           }
         }
       }
@@ -112112,7 +112363,7 @@
         "zh-HK" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "無法直接編輯雲端標籤。請先將檔案下載至本地。"
+            "value" : "無法直接編輯雲端標籤。請先將檔案下載至本機。"
           }
         }
       }
@@ -115871,13 +116122,13 @@
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "本地音樂庫的終極播放器。完美支援內嵌封面與歌詞；空間不足？無縫連接您的雲端儲存空間。"
+            "value" : "離線音樂庫的終極播放器。完美支援內嵌封面與歌詞；空間不足？無縫連接您的雲端儲存空間。"
           }
         },
         "zh-HK" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "本地音樂庫的終極播放器。完美支援內嵌封面與歌詞；空間不足？無縫連接您的雲端儲存空間。"
+            "value" : "離線音樂庫的終極播放器。完美支援內嵌封面與歌詞；空間不足？無縫連接您的雲端儲存空間。"
           }
         }
       }

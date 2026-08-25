@@ -245,6 +245,7 @@ class MusicsViewController: SuperViewController {
         get {
             
             if self.viewModel.groupType == .musictagGroup || !self.viewModel.isBaseDoc {
+//                return self.viewModel.allMusicArray.isEmpty ? nil : self.headMusictagView
                 return self.headMusictagView
             }else{
                 let folderArray = self.viewModel.folderArray
