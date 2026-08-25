@@ -13304,253 +13304,253 @@
         }
       }
     },
-    "Audio fingerprint successfully generated, but no match was found in the global cloud database. This is usually due to unique acoustic waveform variations. Please edit manually." : {
+    "Audio fingerprint generated, but no matching track was found in global music databases. It may be an unreleased edit or remix, often related to unique waveform characteristics. Please edit manually." : {
       "extractionState" : "manual",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "تم إنشاء البصمة الصوتية بنجاح، ولكن لم يتم العثور على تطابق في قاعدة البيانات السحابية العالمية. يرتبط هذا عادةً بخصائص موجة الصوت. يرجى التعديل يدوياً."
+            "value" : "تم إنشاء البصمة الصوتية بنجاح، ولكن لم يتم العثور على أغنية مطابقة في قاعدة بيانات الموسيقى السحابية العالمية. قد تكون هذه النسخة غير رسمية أو معدلة، وهو ما يرتبط غالبًا بخصائص الموجة الصوتية. يرجى التعديل يدويًا."
           }
         },
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "L'empremta d'àudio s'ha generat correctament, però no s'ha trobat cap coincidència a la base de dades global del núvol. Això se sol deure a variants en la forma de l'ona. Editeu manualment."
+            "value" : "S'ha generat l'empremta digital d'àudio, però no s'ha trobat cap cançó coincident a la base de dades musical global. Pot ser una versió no oficial o modificada, relacionat amb les característiques de l'ona d'àudio. Editeu-la manualment."
           }
         },
         "cs" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Zvukový otisk byl úspěšně vygenerován, ale v globální cloudové databázi nebyla nalezena žádná shoda. To obvykle souvisí s vlastnostmi průběhu zvuku. Upravte data ručně."
+            "value" : "Zvukový otisk byl úspěšně vygenerován, ale v globální hudební databázi nebyla nalezena žádná odpovídající skladba. Může jít o neoficiální úpravu, což často souvisí s vlastnostmi zvukové vlny. Upravte ručně."
           }
         },
         "da" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Lydfingeraftrykket blev genereret, men der blev ikke fundet noget match i den globale cloud-database. Dette skyldes normalt akustiske bølgeformsfunktioner. Rediger venligst manuelt."
+            "value" : "Lydfingeraftryk blev oprettet, men der blev ikke fundet et matchende spor i den globale musikdatabase. Det kan være en uofficiel version eller remix, hvilket ofte skyldes lydbølgeegenskaber. Rediger venligst manuelt."
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Audio-Fingerprint erfolgreich generiert, aber keine Übereinstimmung in der globalen Cloud-Datenbank gefunden. Dies liegt meist an den spezifischen Eigenschaften der Wellenform. Bitte manuell bearbeiten."
+            "value" : "Audio-Fingerprint erfolgreich erstellt, aber in der globalen Musikdatenbank wurde kein passender Titel gefunden. Es handelt sich möglicherweise um ein inoffizielles Edit/Remix, was oft mit der Schallwelle zusammenhängt. Bitte manuell bearbeiten."
           }
         },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Το αποτύπωμα ήχου δημιουργήθηκε επιτυχώς, αλλά δεν βρέθηκε αντιστοίχιση στην παγκόσμια βάση δεδομένων cloud. Αυτό συνήθως σχετίζεται με τα χαρακτηριστικά της κυματομορφής. Παρακαλώ επεξεργαστείτε χειροκίνητα."
+            "value" : "Το ηχητικό αποτύπωμα δημιουργήθηκε, αλλά δεν βρέθηκε αντιστοιχία στην παγκόσμια βάση δεδομένων μουσικής. Ίσως πρόκειται για μη επίσημη διασκευή, κάτι που συχνά σχετίζεται με τα χαρακτηριστικά του ηχητικού κύματος. Παρακαλώ επεξεργαστείτε χειροκίνητα."
           }
         },
         "en-AU" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Audio fingerprint successfully generated, but no match was found in the global cloud database. This is usually due to unique acoustic waveform variations. Please edit manually."
+            "value" : "Audio fingerprint generated, but no matching track was found in global music databases. It may be an unreleased edit or remix, often related to unique waveform characteristics. Please edit manually."
           }
         },
         "en-GB" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Audio fingerprint successfully generated, but no match was found in the global cloud database. This is usually due to unique acoustic waveform variations. Please edit manually."
+            "value" : "Audio fingerprint generated, but no matching track was found in global music databases. It may be an unreleased edit or remix, often related to unique waveform characteristics. Please edit manually."
           }
         },
         "en-IN" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Audio fingerprint successfully generated, but no match was found in the global cloud database. This is usually due to unique acoustic waveform variations. Please edit manually."
+            "value" : "Audio fingerprint generated, but no matching track was found in global music databases. It may be an unreleased edit or remix, often related to unique waveform characteristics. Please edit manually."
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Huella de audio generada correctamente, pero no se han encontrado coincidencias en la base de données en la nube global. Esto suele deberse a las características de la forma de onda. Edita a mano."
+            "value" : "Huella digital de audio generada, pero no se encontró ninguna canción coincidente en la base de datos musical global. Puede ser una versión no oficial o remix, relacionado con las características de la onda sonora. Edita manualmente."
           }
         },
         "es-419" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Huella de audio generada correctamente, pero no se encontraron coincidencias en la base de datos en la nube global. Esto suele deberse a las características de la forma de onda. Edita manualmente."
+            "value" : "Huella digital de audio generada, pero no se encontró ninguna canción coincidente en la base de datos musical global. Puede ser una versión no oficial o remix, relacionado con las características de la onda sonora. Edita manualmente."
           }
         },
         "es-US" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Huella de audio generada correctamente, pero no se han encontrado coincidencias en la base de données en la nube global. Esto suele deberse a las características de la forma de onda. Edita a mano."
+            "value" : "Huella digital de audio generada, pero no se encontró ninguna canción coincidente en la base de datos musical global. Puede ser una versión no oficial o remix, relacionado con las características de la onda sonora. Edita manualmente."
           }
         },
         "fi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Äänitunniste luotiin onnistuneesti, mutta vastaavuutta ei löytynyt maailmanlaajuisesta pilvitietokannasta. Tämä johtuu yleensä ääniaallon ominaisuuksista. Muokkaa manuaalisesti."
+            "value" : "Äänisormenjälki luotiin, mutta vastaavaa kappaletta ei löytynyt maailmanlaajuisesta tietokannasta. Kyseessä voi olla julkaisematon versio, mikä liittyy usein ääniaallon ominaisuuksiin. Muokkaa manuaalisesti."
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Empreinte audio générée avec succès, mais aucune correspondance trouvée dans la base de données cloud mondiale. Cela est généralement dû aux spécificités de la forme d'onde. Veuillez éditer manuellement."
+            "value" : "Empreinte audio générée, mais aucun morceau correspondant n'a été trouvé dans la base de données musicale globale. Il s'agit peut-être d'une version non officielle ou d'un remix lié aux caractéristiques de l'onde sonore. Veuillez éditer manuellement."
           }
         },
         "fr-CA" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Empreinte audio générée avec succès, mais aucune correspondance trouvée dans la base de données cloud mondiale. Cela est généralement dû aux spécificités de la forme d'onde. Veuillez éditer manuellement."
+            "value" : "Empreinte audio générée, mais aucun morceau correspondant n'a été trouvé dans la base de données musicale mondiale. Il peut s'agir d'une version non officielle ou modifiée liée aux caractéristiques de l'onde sonore. Veuillez modifier manuellement."
           }
         },
         "he" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "טביעת האצבע הקולית נוצרה בהצלחה, אך לא נמצאה התאמה במסד הנתונים הגלובלי בענן. דבר זה קשור בדרך כלל למאפייני צורת הגל של השמע. אנא ערוך ידנית."
+            "value" : "טביעת האצבע הקולית נוצרה בהצלחה, אך לא נמצא שיר תואם במסד הנתונים המוזיקלי העולמי. ייתכן שמדובר בגרסה לא רשמית או ערוכה, הדבר קשור לרוב למאפייני גל הקול. אנא ערוך ידנית."
           }
         },
         "hi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "ऑडियो फिंगरप्रिंट सफलतापूर्वक जेनरेट हो गया है, लेकिन वैश्विक क्लाउड डेटाबेस में कोई मैच नहीं मिला। यह आमतौर पर ऑडियो वेवफॉर्म की विशेषताओं के कारण होता है। कृपया मैन्युअल रूप से संपादित करें।"
+            "value" : "ऑडियो फिंगरप्रिंट बन गया है, लेकिन वैश्विक संगीत डेटाबेस में कोई मेल नहीं मिला। यह एक अनधिकृत संपादन या रीमिक्स हो सकता है, जो ऑडियो तरंग की विशेषताओं से संबंधित है। कृपया मैन्युअल रूप से संपादित करें।"
           }
         },
         "hr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Audio otisak je uspješno generiran, ali nije pronađeno podudaranje u globalnoj bazi podataka u oblaku. To je obično povezano s karakteristikama valnog oblika. Uredite ručno."
+            "value" : "Audio otisak je uspješno generiran, ali u globalnoj glazbenoj bazi podataka nije pronađena odgovarajuća pjesma. Možda se radi o neslužbenoj obradi, što je često povezano s karakteristikama zvučnog vala. Uredite ručno."
           }
         },
         "hu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "A hanglenyomat sikeresen elkészült, de nem található egyezés a globális felhőadatbázisban. Ez általában a hanghullám egyedi jellemzőivel függ össze. Kérjük, szerkessze manuálisan."
+            "value" : "Az hanguconnectivity ujjlenyomat elkészült, de nem található egyező zeneszám a globális zenei adatbázisban. Lehet, hogy nem hivatalos átdolgozásról van szó, ami a hanghullám tulajdonságaival függ össze. Kérjük, szerkessze manuálisan."
           }
         },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Sidik jari audio berhasil dibuat, tetapi tidak ada kecocokan di database cloud global. Ini biasanya terkait dengan karakteristik bentuk gelombang audio. Silakan edit secara manual."
+            "value" : "Sidik jari audio berhasil dibuat, tetapi tidak ada lagu yang cocok di basis data musik global. Ini mungkin versi editan tidak resmi, yang sering kali terkait dengan karakteristik gelombang suara. Silakan edit secara manual."
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Impronta audio generata con successo, ma nessuna corrispondenza trovata nel database cloud globale. Ciò è solitamente dovuto alle caratteristiche della forma d'onda. Modifica manualmente."
+            "value" : "Impronta digitale audio generata, ma nessun brano corrispondente è stato trovato nel database musicale globale. Potrebbe trattarsi di una versione non ufficiale o modificata, spesso legata alle caratteristiche dell'onda sonora. Modifica manualmente."
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "オーディオ指紋は正常に生成されましたが、グローバルクラウドデータベース内に対象の楽曲が見つかりませんでした。これは通常、音響波形の固有の特性に起因します。手動で編集してください。"
+            "value" : "オーディオフィンガープリントは生成されましたが、世界中のクラウド音楽データベースに一致する楽曲が見つかりませんでした。未解放の編集版やリミックスの可能性があり、音波の特性に起因します。手動で編集してください。"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "오디오 지문은 성공적으로 생성되었으나, 글로벌 클라우드 데이터베이스에서 일치하는 곡을 찾지 못했습니다. 이는 주로 오디오 파형의 특성상 차이로 인해 발생합니다. 수동으로 편집해 주세요."
+            "value" : "오디오 핑거프린트가 생성되었으나 전 세계 음악 데이터베이스에서 일치하는 곡을 찾을 수 없습니다. 정식 발매되지 않은 편곡 버전일 수 있으며, 이는 음파 특성과 관련이 있습니다. 수동으로 편집해 주세요."
           }
         },
         "ms" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Cap jari audio berjaya dijana, tetapi tiada padanan ditemui dalam pangkalan data awan global. Ini biasanya berkait rapat dengan ciri bentuk gelombang audio. Sila edit secara manual."
+            "value" : "Cap jari audio berjaya dijana, tetapi tiada lagu yang sepadan dijumpai dalam pangkalan data muzik global. Ia mungkin versi ubah suai tidak rasmi, yang selalunya berkaitan dengan ciri gelombang audio. Sila sunting secara manual."
           }
         },
         "nb" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Lydfingeravtrykk ble generert, men ingen treff ble funnet i den globale skydatabasen. Dette skyldes vanligvis akustiske bølgeformegenskaper. Vennligst rediger manuelt."
+            "value" : "Lydfingeravtrykk ble generert, me det ble ikke funnet noe matchende spor i den globale musikkdatabasen. Det kan være en uoffisiell versjon eller remix, noe som ofte skyldes lydbølgeegenskaper. Vennligst rediger manuelt."
           }
         },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Audio-fingerprint succesvol gegenereerd, maar geen match gevonden in de wereldwijde cloud-database. Dit hangt meestal samen met akoestische golfvormkenmerken. Gelieve handmatig te bewerken."
+            "value" : "Audio-vingerafdruk is gegenereerd, maar er is geen overeenkomend nummer gevonden in de wereldwijde muziekdatabase. Het is mogelijk een niet-officiële bewerking, vaak gerelateerd aan de geluidsgolf. Bewerk handmatig."
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Odcisk audio został pomyślnie wygenerowany, ale nie znaleziono dopasowania w globalnej bazie danych w chmurze. Zwykle wynika to ze specyfikacji kształtu fali dźwiękowej. Edytuj ręcznie."
+            "value" : "Odcisk cyfrowy audio został wygenerowany, ale w globalnej bazie muzycznej nie znaleziono pasującego utworu. Może to być nieoficjalna edycja, co często wiąże się sa właściwościami fali dźwiękowej. Edytuj ręcznie."
           }
         },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Impressão digital de áudio gerada com sucesso, mas nenhuma correspondência encontrada no banco de dados em nuvem global. Isso geralmente ocorre devido a variações na forma de onda. Edite manualmente."
+            "value" : "Impronta digital de áudio gerada, mas nenhuma música correspondente foi encontrada no banco de dados global. Pode ser uma versão não oficial ou remix, frequentemente associada às características da onda sonora. Edite manualmente."
           }
         },
         "pt-PT" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Impressão digital de áudio gerada com sucesso, mas nenhuma correspondência encontrada na base de dados em nuvem global. Isto deve-se geralmente a variações na forma de onda. Edite manualmente."
+            "value" : "Impronta digital de áudio gerada, mas não foi encontrada nenhuma faixa correspondente na base de dados global. Pode ser uma versão não oficial ou editada, associada às características da onda sonora. Edite manualmente."
           }
         },
         "ro" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Amprenta audio a fost generată cu succes, dar nu a fost găsită nicio potrivire în baza de date globală din cloud. Acest lucru este legat de caracteristicile formei de undă. Te rugăm să editezi manual."
+            "value" : "Amprenta audio a fost generată, dar nu s-a găsit nicio melodie potrivită în baza de date globală. Poate fi o versiune neoficială sau remixată, legată de caracteristicile undei sonore. Vă rugăm să editați manual."
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Аудиоотпечаток успешно сгенерирован, но совпадений в глобальной облачной базе данных не найдено. Обычно это связано со спецификой волнового профиля звука. Пожалуйста, отредактируйте вручную."
+            "value" : "Аудиоотпечаток успешно создан, но в глобальной музыкальной базе данных совпадений не найдено. Возможно, это неофициальная версия или ремикс, что связано с особенностями звуковой волны. Отредактируйте вручную."
           }
         },
         "sk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Zvukový odtlačok bol úspešne vygenerovaný, ale v globálnej cloudovej databáze sa nenašla žiadna zhoda. To zvyčajne súvisí s vlastnosťami priebehu zvuku. Upravte údaje ručne."
+            "value" : "Zvukový odtlačok bol vygenerovaný, ale v globálnej hudobnej databáze sa nenašla žiadna zodpovedajúca skladba. Môže iSection o neoficiálnu úpravu, čo často súvisí s vlastnosťami zvukovej vlny. Upravte ručne."
           }
         },
         "sl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Zvočni prstni odtis je bil uspešno ustvarjen, vendar v svetovni zbirki podatkov v oblaku ni bilo mogoče najti ujemanja. To je običajno povezano z značilnostmi zvočnega valovanja. Uredite ročno."
+            "value" : "Zvočni odtiski so ustvarjeni, vendar v globalni podatkovni zbirki ni bilo mogoče najti ustrezne skladbe. Morda gre za neuradno predelavo, kar je pogosto povezano z lastnostmi zvočnega valovanja. Uredite ročno."
           }
         },
         "sv" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ljudfingeravtrycket skapades, men ingen matchning hittades i den globala molndatabasen. Detta beror vanligtvis på akustiska bølgeformsegenskaper. Vänligen redigera manuellt."
+            "value" : "Ljudfingeravtryck har skapats, men ingen matchande låt hittades i den globala musikdatabasen. Det kan vara en inofficiell version eller remix, vilket ofta beror på ljudvågens egenskaper. Redigera manuellt."
           }
         },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "สร้างลายนิ้วมือเสียงสำเร็จแล้ว แต่ไม่พบเพลงที่ตรงกันในฐานข้อมูลคลาวด์ทั่วโลก ซึ่งมักจะเกี่ยวข้องกับคุณลักษณะของรูปคลื่นเสียง โปรดแก้ไขด้วยตนเอง"
+            "value" : "สร้างลายนิ้วมือเสียงสำเร็จแล้ว แต่ไม่พบเพลงที่ตรงกันในฐานข้อมูลเพลงคลาวด์ทั่วโลก อาจเป็นเวอร์ชันดัดแปลงที่ไม่เป็นทางการ ซึ่งมักเกี่ยวกับลักษณะของคลื่นเสียง โปรดแก้ไขด้วยตนเอง"
           }
         },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ses parmak izi başarıyla oluşturuldu, ancak küresel bulut veritabanında eşleşen bir şarkı bulunamadı. Bu durum genellikle dalga formu özelliklerinden kaynaklanır. Lütfen manuel olarak düzenleyin."
+            "value" : "Ses parmak izi oluşturuldu, ancak küresel müzik veri tabanında eşleşen şarkı bulunamadı. Resmi olmayan bir düzenleme olabilir, bu durum genellikle ses dalgası özellikleriyle ilgilidir. Lütfen el ile düzenleyin."
           }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Аудіовідбиток успішно згенеровано, але збігів у глобальній хмарній базі даних не знайдено. Зазвичай це пов’язано зі специфікою форми звукової хвилі. Будь ласка, відредагуйте вручну."
+            "value" : "Аудіовідбиток успішно створено, але в глобальній музичній базі даних не знайдено відповідного треку. Можливо, це неофіційна версія або ремікс, що пов'язано з خصوصيات звукової хвилі. Відредагуйте вручну."
           }
         },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Dấu vân tay âm thanh đã được tạo thành công, nhưng không tìm thấy bài hát phù hợp trong cơ sở dữ liệu đám mây toàn cầu. Điều này thường liên quan đến đặc tính dạng sóng âm thanh. Vui lòng chỉnh sửa thủ công."
+            "value" : "Dấu vân tay âm thanh đã được tạo, nhưng không tìm thấy bài hát tương ứng trong cơ sở dữ liệu nhạc toàn cầu. Đây có thể là bản phối lại không chính thức, thường liên quan đến đặc tính sóng âm. Vui lòng chỉnh sửa thủ công."
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "音频指纹已成功生成，但全球云端音乐数据库中未找到对应的歌曲，这通常与音频波形特质有关。请手动编辑。"
+            "value" : "音频指纹已成功生成，但全球云端音乐数据库中未找到对应的歌曲，可能不是正式发行的改编版本，这通常与音频波形特质有关。请手动编辑。"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "音訊指紋已成功生成，但全球雲端音樂資料庫中未找到對應的歌曲，這通常與音訊波形特質有關。請手動編輯。"
+            "value" : "音訊指紋已成功生成，但全球雲端音樂資料庫中未找到對應的歌曲，可能不是正式發行的改編版本，這通常與音訊波形特質有關。請手動編輯。"
           }
         },
         "zh-HK" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "音訊指紋已成功生成，但全球雲端音樂資料庫中未找到對應的歌曲，這通常與音訊波形特質有關。請手動編輯。"
+            "value" : "音訊指紋已成功生成，但全球雲端音樂數據庫中未找到對應的歌曲，可能不是正式發行的改編版本，這通常與音訊波形特質有關。請手動編輯。"
           }
         }
       }

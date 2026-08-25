@@ -706,4 +706,25 @@ extension TimeInterval {
 
         return formatter.string(from: self) ?? "00:00"
     }
+    
+    /// 将秒数转换为本地化的时长文本（如：1分48秒 / 1 min 48 sec）
+    public func toLocalizedDurationString() -> String {
+        let formatter = DateComponentsFormatter()
+        
+        // 1. 指定允许显示的时间单位（我们只需要分和秒，如果文件超多可能需要加上 .hour）
+        formatter.allowedUnits = [.minute, .second]
+        
+        // 2. 格式化样式：.positional 是 "1:48"，.abbreviated 是简写 "1分48秒" 或 "1m 48s"
+        // 如果想要最完整的全称（"1分钟48秒" / "1 minute, 48 seconds"），可以使用 .full
+        formatter.unitsStyle = .abbreviated
+        
+        // 3. 自动处理本地化语言环境
+        formatter.calendar = Calendar.current
+        
+        // 4. 细节控制：如果不足 1 分钟（比如 12 秒），是否显示 0 分？
+        // .dropAll 会自动省略多余的 0，显示为 "12秒"；如果设为 .positional 样式则建议保留
+        formatter.zeroFormattingBehavior = .dropAll
+        
+        return formatter.string(from: self) ?? "\(Int(self))s"
+    }
 }

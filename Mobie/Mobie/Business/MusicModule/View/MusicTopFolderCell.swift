@@ -61,7 +61,7 @@ class MusicTopFolderCell: UICollectionViewCell {
         countLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.centerY.equalTo(coverImgView.snp.bottom)
-            make.width.equalTo(MusicTopHeadView.cellSize().height * (kaka_IsMacOS() ? 0.45 : 0.6))
+            make.width.equalTo(MusicTopFolderHeadView.cellSize().height * (kaka_IsMacOS() ? 0.45 : 0.6))
             make.height.equalTo(countLabel.font.lineHeight * 1.5)
         }
     }
@@ -122,7 +122,7 @@ class MusicTopFolderCell: UICollectionViewCell {
     
     // MARK:  懒加载
     lazy var backView: UIView = {
-        let imgWidth = MusicTopHeadView.cellSize().width * 0.75
+        let imgWidth = MusicTopFolderHeadView.cellSize().width * 0.75
         let cellSize = kaka_IsMacOS() ? 106.ckValue() : imgWidth + 6.ckValue()
 
         let view = UIView(frame: CGRectMake(0, 0, cellSize, cellSize))
@@ -133,7 +133,7 @@ class MusicTopFolderCell: UICollectionViewCell {
     }()
     
     lazy var coverImgView: UIImageView = {
-        let imgWidth = MusicTopHeadView.cellSize().width * 0.75
+        let imgWidth = MusicTopFolderHeadView.cellSize().width * 0.75
         let cellSize = kaka_IsMacOS() ? 100.ckValue() : imgWidth
 
         let image = UIImage(contentsOfFile: Reasource.fullFilePath("singer_8@3x.png"))

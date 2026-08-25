@@ -23,7 +23,7 @@ class AudioFingerprintMatcher: NSObject, SHSessionDelegate {
     private var model: MusicItemModel?
     
     // 一般错误
-    private let normalError = "Audio fingerprint successfully generated, but no match was found in the global cloud database. This is usually due to unique acoustic waveform variations. Please edit manually.".localStr()
+    private let normalError = "Audio fingerprint generated, but no matching track was found in global music databases. It may be an unreleased edit or remix, often related to unique waveform characteristics. Please edit manually.".localStr()
     
     // 格式问题
     private let formatError = "This specific audio format is not supported for fingerprinting. We highly recommend using modern popular formats such as FLAC, M4A, WAV, or MP3. Please edit manually.".localStr()

@@ -73,11 +73,11 @@ class MusicsViewController: SuperViewController {
         self.viewModel.refreshMusicDataAction { [weak self] models in
             guard let self = self else { return }
             self.tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: self.isNoneMusic ? 0 : playingHeight, right: 0)
-            self.tableView.tableHeaderView = self.isShowHeadView ? self.headView : nil
+            self.tableView.tableHeaderView = self.showHeadView
             self.tableView.tableFooterView = self.isNoneMusic ? nil : self.footView
             
             if self.viewModel.isBaseDoc {
-                self.headView.updateLocal(folders: self.viewModel.folderArray)
+                self.headFolderView.updateLocal(folders: self.viewModel.folderArray)
             }
             
             self.footView.update(self.viewModel.baseFileURL)
@@ -175,10 +175,10 @@ class MusicsViewController: SuperViewController {
         let view = UITableView(frame: self.view.bounds, style: .insetGrouped)
         view.delegate = self
         view.dataSource = self
-        view.tableHeaderView = self.headView
+//        view.tableHeaderView = self.headFolderView
         view.tableFooterView = self.footView
 #if !targetEnvironment(macCatalyst)
-view.refreshControl = self.kaka_header
+        view.refreshControl = self.kaka_header
 #endif
         view.allowsMultipleSelection = true
         view.allowsMultipleSelectionDuringEditing = true
@@ -189,9 +189,15 @@ view.refreshControl = self.kaka_header
         return view
     }()
     
-    lazy var headView: MusicTopHeadView = {
-        let view = MusicTopHeadView(frame: CGRectMake(0, 0, contentView.width, MusicTopHeadView.cellSize().height))
+    lazy var headFolderView: MusicTopFolderHeadView = {
+        let view = MusicTopFolderHeadView(frame: CGRectMake(0, 0, contentView.width, MusicTopFolderHeadView.cellSize().height))
         view.delegate = self
+        return view
+    }()
+    
+    lazy var headMusictagView: MusicTopBatchEditHeadView = {
+        let view = MusicTopBatchEditHeadView(frame: CGRectMake(0, 0, self.contentView.width, MusicTopBatchEditHeadView.headHeight()))
+//        view.delegate = self
         return view
     }()
     
@@ -228,13 +234,24 @@ view.refreshControl = self.kaka_header
         }
     }
     
-    var isShowHeadView: Bool {
+    /// 应该展示的头部区域
+    var showHeadView: UIView? {
         get {
             // 列表有数据、首页
             let folderArray = self.viewModel.folderArray
-            return folderArray.count > 0 && self.viewModel.isBaseDoc
+            let isShow = folderArray.count > 0 && self.viewModel.isBaseDoc
+            if isShow {
+                if self.viewModel.groupType == .musictagGroup {
+                    return self.headMusictagView
+                }else{
+                    return self.headFolderView
+                }
+            }else{
+                return nil
+            }
         }
     }
+    
     
     
     lazy var premiumBarItem: UIBarButtonItem = {

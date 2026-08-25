@@ -20,22 +20,20 @@ extension URL {
         }
         
         var newModel = MusicItemModel(fileURL: self, sourceType: sourceType)
-        let songInfo = self.parseSongInfo()
 
         // 歌曲名
-        var songName: String = ((metadata?.title?.count ?? 0) > 0) ? (metadata?.title ?? Date().convertString()) : (songInfo.title)
-        if songName.contains("." + songInfo.fileExtension) {
-            songName = songName.replaceChar(oldChar: "." + songInfo.fileExtension, newChar: "")
-        }
-        songName = songName.standardFileName
-        
+        let songName: String? = metadata?.title
+                
         // 艺术家名
-        var artistName: String = ((metadata?.artist?.count ?? 0) > 0) ? (metadata?.artist ?? "Unknown Artist".localStr()) : (songInfo.artist ?? "")
+        let artistName: String? = metadata?.artist
         
-        artistName = artistName.standardFileName
+        var fullName: String = self.lastPathComponent
+        if let songName = songName, !songName.isEmpty, let artistName = artistName, !artistName.isEmpty {
+            fullName = artistName + " - " + songName + "." + self.pathExtension
+        }
         
         // 检查重名文件并自增
-        let baseFileName = "\(artistName) - \(songName)".replaceChar(oldChar: ".", newChar: "")
+        let baseFileName = fullName.replaceChar(oldChar: "/", newChar: "&")
         var fileName = baseFileName
         var fileCount = 1
         
@@ -53,13 +51,10 @@ extension URL {
             }
         }
         
-        var albumName: String = ((metadata?.album?.count ?? 0) > 0) ? (metadata?.album ?? "Unknown Album".localStr()) : "Unknown Album".localStr()
-        albumName = albumName.standardFileName
-        
         newModel.handleType = handleType
-        newModel.title = songName
-        newModel.artist = artistName
-        newModel.album = albumName
+        newModel.title = metadata?.title
+        newModel.artist = metadata?.artist
+        newModel.album = metadata?.album
         
         if let year = metadata?.year {
             newModel.year = Int(year)

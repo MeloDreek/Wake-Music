@@ -208,7 +208,7 @@
 		225F58102D85B2AB0055BDFF /* WelcomeInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13922CA0633400E2948E /* WelcomeInfoModel.swift */; };
 		225F58112D85B2AB0055BDFF /* PlayerStyleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2247DC112D1A7DF50082F76D /* PlayerStyleViewController.swift */; };
 		225F58122D85B2AB0055BDFF /* MusicViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13AD2CA0633400E2948E /* MusicViewModel.swift */; };
-		225F58132D85B2AB0055BDFF /* MusicTopHeadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13B72CA0633400E2948E /* MusicTopHeadView.swift */; };
+		225F58132D85B2AB0055BDFF /* MusicTopFolderHeadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13B72CA0633400E2948E /* MusicTopFolderHeadView.swift */; };
 		225F58142D85B2AB0055BDFF /* ConnectArtistTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22436B1B2D744B750004E09D /* ConnectArtistTableCell.swift */; };
 		225F58162D85B2AB0055BDFF /* ConnectListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2275AC6C2D265D8E00D125B2 /* ConnectListViewController.swift */; };
 		225F58172D85B2AB0055BDFF /* HomeTabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13ED2CA0633400E2948E /* HomeTabbarViewController.swift */; };
@@ -470,7 +470,7 @@
 		228A14482CA0633400E2948E /* EmptyCollectViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13B42CA0633400E2948E /* EmptyCollectViewCell.swift */; };
 		228A14492CA0633400E2948E /* EmptyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13B52CA0633400E2948E /* EmptyTableViewCell.swift */; };
 		228A144A2CA0633400E2948E /* MusicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13B62CA0633400E2948E /* MusicTableViewCell.swift */; };
-		228A144B2CA0633400E2948E /* MusicTopHeadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13B72CA0633400E2948E /* MusicTopHeadView.swift */; };
+		228A144B2CA0633400E2948E /* MusicTopFolderHeadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13B72CA0633400E2948E /* MusicTopFolderHeadView.swift */; };
 		228A144D2CA0633400E2948E /* FreeStreamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13BB2CA0633400E2948E /* FreeStreamViewController.swift */; };
 		228A144E2CA0633400E2948E /* MusicPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13BC2CA0633400E2948E /* MusicPlayerViewController.swift */; };
 		228A144F2CA0633400E2948E /* MusicPlayerViewController+Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13BD2CA0633400E2948E /* MusicPlayerViewController+Action.swift */; };
@@ -547,6 +547,10 @@
 		229DEA442D716124003967DB /* SubsonicResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229DEA432D716124003967DB /* SubsonicResponse.swift */; };
 		22A44487303C4A8300DD3E62 /* BatchAutoEmbedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A44486303C4A8300DD3E62 /* BatchAutoEmbedController.swift */; };
 		22A44488303C4A8300DD3E62 /* BatchAutoEmbedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A44486303C4A8300DD3E62 /* BatchAutoEmbedController.swift */; };
+		22A4448A303C8CA300DD3E62 /* MusicTopBatchEditHeadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A44489303C8CA300DD3E62 /* MusicTopBatchEditHeadView.swift */; };
+		22A4448B303C8CA300DD3E62 /* MusicTopBatchEditHeadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A44489303C8CA300DD3E62 /* MusicTopBatchEditHeadView.swift */; };
+		22A4448F303C8F8500DD3E62 /* MatchingProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A4448E303C8F8500DD3E62 /* MatchingProgressView.swift */; };
+		22A44490303C8F8500DD3E62 /* MatchingProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A4448E303C8F8500DD3E62 /* MatchingProgressView.swift */; };
 		22A801DB302B284D000FB581 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 22A801DA302B284D000FB581 /* FirebaseAnalytics */; };
 		22A801DD302B284D000FB581 /* FirebaseAnalyticsCore in Frameworks */ = {isa = PBXBuildFile; productRef = 22A801DC302B284D000FB581 /* FirebaseAnalyticsCore */; };
 		22A801DF302B284D000FB581 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 22A801DE302B284D000FB581 /* FirebaseCrashlytics */; };
@@ -888,7 +892,7 @@
 		228A13B42CA0633400E2948E /* EmptyCollectViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyCollectViewCell.swift; sourceTree = "<group>"; };
 		228A13B52CA0633400E2948E /* EmptyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyTableViewCell.swift; sourceTree = "<group>"; };
 		228A13B62CA0633400E2948E /* MusicTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicTableViewCell.swift; sourceTree = "<group>"; };
-		228A13B72CA0633400E2948E /* MusicTopHeadView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicTopHeadView.swift; sourceTree = "<group>"; };
+		228A13B72CA0633400E2948E /* MusicTopFolderHeadView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicTopFolderHeadView.swift; sourceTree = "<group>"; };
 		228A13BB2CA0633400E2948E /* FreeStreamViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FreeStreamViewController.swift; sourceTree = "<group>"; };
 		228A13BC2CA0633400E2948E /* MusicPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicPlayerViewController.swift; sourceTree = "<group>"; };
 		228A13BD2CA0633400E2948E /* MusicPlayerViewController+Action.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MusicPlayerViewController+Action.swift"; sourceTree = "<group>"; };
@@ -959,6 +963,8 @@
 		229C98AB2CA7DE7300925F0A /* MusicsFootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicsFootView.swift; sourceTree = "<group>"; };
 		229DEA432D716124003967DB /* SubsonicResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubsonicResponse.swift; sourceTree = "<group>"; };
 		22A44486303C4A8300DD3E62 /* BatchAutoEmbedController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatchAutoEmbedController.swift; sourceTree = "<group>"; };
+		22A44489303C8CA300DD3E62 /* MusicTopBatchEditHeadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicTopBatchEditHeadView.swift; sourceTree = "<group>"; };
+		22A4448E303C8F8500DD3E62 /* MatchingProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchingProgressView.swift; sourceTree = "<group>"; };
 		22AAE39D2FA34EEA0021773B /* PlayerGuideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerGuideView.swift; sourceTree = "<group>"; };
 		22AB3BC62CE5EED00063F284 /* MusicInfoTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicInfoTagView.swift; sourceTree = "<group>"; };
 		22AB3BCC2CE6406B0063F284 /* PlayerLyricsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerLyricsCell.swift; sourceTree = "<group>"; };
@@ -1435,7 +1441,9 @@
 				228A13B52CA0633400E2948E /* EmptyTableViewCell.swift */,
 				228A13B62CA0633400E2948E /* MusicTableViewCell.swift */,
 				22814C522DD1CDBE00565CBC /* MusicTableViewCell+Menu.swift */,
-				228A13B72CA0633400E2948E /* MusicTopHeadView.swift */,
+				228A13B72CA0633400E2948E /* MusicTopFolderHeadView.swift */,
+				22A44489303C8CA300DD3E62 /* MusicTopBatchEditHeadView.swift */,
+				22A4448E303C8F8500DD3E62 /* MatchingProgressView.swift */,
 				22556DB22D1D694300FA1807 /* MusicTopFolderCell.swift */,
 				229C98AB2CA7DE7300925F0A /* MusicsFootView.swift */,
 				22953EF530357CB5001B0546 /* AudioFingerTableViewCell.swift */,
@@ -2145,6 +2153,7 @@
 				22497AF32DDE0807001D8338 /* PlayBackgroundListController+Upload.swift in Sources */,
 				22C2573B302D7A1D00A68C1B /* SelectLyricViewController.swift in Sources */,
 				227607F52DF2D75A00B6776E /* OrientationManager.swift in Sources */,
+				22A4448F303C8F8500DD3E62 /* MatchingProgressView.swift in Sources */,
 				225F57ED2D85B2AB0055BDFF /* ImportTableViewCell.swift in Sources */,
 				225F57EF2D85B2AB0055BDFF /* ImportFileType+Extension.swift in Sources */,
 				225F57F02D85B2AB0055BDFF /* EmptyStatusView.swift in Sources */,
@@ -2198,7 +2207,7 @@
 				225F58102D85B2AB0055BDFF /* WelcomeInfoModel.swift in Sources */,
 				225F58112D85B2AB0055BDFF /* PlayerStyleViewController.swift in Sources */,
 				225F58122D85B2AB0055BDFF /* MusicViewModel.swift in Sources */,
-				225F58132D85B2AB0055BDFF /* MusicTopHeadView.swift in Sources */,
+				225F58132D85B2AB0055BDFF /* MusicTopFolderHeadView.swift in Sources */,
 				225F58142D85B2AB0055BDFF /* ConnectArtistTableCell.swift in Sources */,
 				225F58162D85B2AB0055BDFF /* ConnectListViewController.swift in Sources */,
 				22497AEC2DDDEE27001D8338 /* PlayBackDefaultTableCell.swift in Sources */,
@@ -2401,6 +2410,7 @@
 				225F589D2D85B2AB0055BDFF /* MusicsViewController+Delegate.swift in Sources */,
 				225F589E2D85B2AB0055BDFF /* SocialMediaType.swift in Sources */,
 				225F589F2D85B2AB0055BDFF /* Reasource.swift in Sources */,
+				22A4448A303C8CA300DD3E62 /* MusicTopBatchEditHeadView.swift in Sources */,
 				225F58A02D85B2AB0055BDFF /* MusicsViewController.swift in Sources */,
 				225F58A12D85B2AB0055BDFF /* LoginedViewCell.swift in Sources */,
 				22C7078A2DCBA20A00A1B79A /* DownloadViewController+Action.swift in Sources */,
@@ -2437,6 +2447,7 @@
 				22497AF22DDE0807001D8338 /* PlayBackgroundListController+Upload.swift in Sources */,
 				22C2573C302D7A1D00A68C1B /* SelectLyricViewController.swift in Sources */,
 				227607F42DF2D75A00B6776E /* OrientationManager.swift in Sources */,
+				22A44490303C8F8500DD3E62 /* MatchingProgressView.swift in Sources */,
 				22B4F2A22D105D0D005EBB2F /* ImportTableViewCell.swift in Sources */,
 				228A143F2CA0633400E2948E /* ImportFileType+Extension.swift in Sources */,
 				228A14882CA0633400E2948E /* EmptyStatusView.swift in Sources */,
@@ -2490,7 +2501,7 @@
 				228A14292CA0633400E2948E /* WelcomeInfoModel.swift in Sources */,
 				2247DC122D1A7DF50082F76D /* PlayerStyleViewController.swift in Sources */,
 				228A14422CA0633400E2948E /* MusicViewModel.swift in Sources */,
-				228A144B2CA0633400E2948E /* MusicTopHeadView.swift in Sources */,
+				228A144B2CA0633400E2948E /* MusicTopFolderHeadView.swift in Sources */,
 				22436B1C2D744B750004E09D /* ConnectArtistTableCell.swift in Sources */,
 				2275AC6D2D265D8E00D125B2 /* ConnectListViewController.swift in Sources */,
 				22497AEB2DDDEE27001D8338 /* PlayBackDefaultTableCell.swift in Sources */,
@@ -2693,6 +2704,7 @@
 				228A14342CA0633400E2948E /* MusicsViewController+Delegate.swift in Sources */,
 				22059B832CAE9378006F6E7A /* SocialMediaType.swift in Sources */,
 				228A148F2CA0633400E2948E /* Reasource.swift in Sources */,
+				22A4448B303C8CA300DD3E62 /* MusicTopBatchEditHeadView.swift in Sources */,
 				228A14312CA0633400E2948E /* MusicsViewController.swift in Sources */,
 				228A14712CA0633400E2948E /* LoginedViewCell.swift in Sources */,
 				22C7078B2DCBA20A00A1B79A /* DownloadViewController+Action.swift in Sources */,

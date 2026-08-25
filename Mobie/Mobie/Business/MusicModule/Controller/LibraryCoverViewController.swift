@@ -197,7 +197,7 @@ class LibraryCoverViewController: SuperViewController, PHPickerViewControllerDel
     
     var isRequesting: Bool = true
     
-    let normalError = "Audio fingerprint successfully generated, but no match was found in the global cloud database. This is usually due to unique acoustic waveform variations. Please edit manually.".localStr()
+    let normalError = "Audio fingerprint generated, but no matching track was found in global music databases. It may be an unreleased edit or remix, often related to unique waveform characteristics. Please edit manually.".localStr()
     
     // MARK:  懒加载
     

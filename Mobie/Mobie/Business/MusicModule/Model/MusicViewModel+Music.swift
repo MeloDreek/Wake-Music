@@ -9,6 +9,63 @@ import KakaFoundation
 import AppGroupKit
 import KakaTaglibKit
 
+enum MusicKeyTitle: Equatable, Hashable, Comparable {
+    case likedSongs
+    case folder
+    case missingTags
+    case completeTags
+    case customKey(String)
+    
+    func keyStr() -> String {
+        switch self {
+        case .likedSongs: return "♥"
+        case .folder: return "📁"
+        case .missingTags: return "❗️"
+        case .completeTags: return "✅"
+        case .customKey(let key): return key
+        }
+    }
+    
+    func titleStr() -> String {
+        switch self {
+        case .likedSongs: return "♥"
+        case .folder: return "📁" + "Folder".localStr()
+        case .missingTags: return "❗️" + "Missing Tags".localStr()
+        case .completeTags: return "✅" + "Complete Tags".localStr()
+        case .customKey(let key): return key
+        }
+    }
+
+    // 定义排序优先级权值（越小越靠前）
+    private var sortWeight: Int {
+        switch self {
+        case .likedSongs: return 0
+        case .folder: return 1
+        case .missingTags: return 2
+        case .completeTags: return 3
+        case .customKey: return 4
+        }
+    }
+
+    // 实现 Comparable 协议
+    static func < (lhs: MusicKeyTitle, rhs: MusicKeyTitle) -> Bool {
+        if lhs.sortWeight != rhs.sortWeight {
+            return lhs.sortWeight < rhs.sortWeight
+        }
+        
+        // 如果都是 customKey，处理字符串排序（让 "#" 沉底到最后）
+        if case .customKey(let str1) = lhs, case .customKey(let str2) = rhs {
+            if str1 == "#" { return false } // str1 是 "#"，强制认定为大（排后面）
+            if str2 == "#" { return true }  // str2 是 "#"，强制认定 str1 小（排前面）
+            
+            // 其它字母正常按照自然语言字母表顺序比较（自动处理大小写和本地化）
+            return str1.localizedStandardCompare(str2) == .orderedAscending
+        }
+        
+        return false
+    }
+
+}
 extension MusicViewModel {
     /// 获取所有音乐数据
     func refreshMusicDataAction(completion: (([MusicItemModel])->Void)? = nil, fail: ((String?)->Void)? = nil) {
@@ -34,7 +91,7 @@ extension MusicViewModel {
                 var tempSortArray = [MusicItemModel]()
 
                 for title in self.musicIndexArray {
-                    if let items = sortedMusic[title], title != "♥" {
+                    if let items = sortedMusic[title], title != .likedSongs {
                         tempSortArray.append(contentsOf: items)
                     }
                 }
@@ -133,7 +190,7 @@ extension MusicViewModel {
             var tempSortArray = [MusicItemModel]()
 
             for title in self.musicIndexArray {
-                if let items = sortedMusic[title], title != "♥" {
+                if let items = sortedMusic[title], title != .likedSongs {
                     tempSortArray.append(contentsOf: items)
                 }
             }
@@ -147,109 +204,76 @@ extension MusicViewModel {
     }
     
     // 整理/排序首页数据源
-    public func sortHomeMusics(_ allArray: [MusicItemModel]) -> [String: [MusicItemModel]] {
-        var groupedDictionary = [String: [MusicItemModel]]()
+    public func sortHomeMusics(_ allArray: [MusicItemModel]) -> [MusicKeyTitle: [MusicItemModel]] {
+        var groupedDictionary = [MusicKeyTitle: [MusicItemModel]]()
         self.musicIndexArray.removeAll()
+        
+        let folderArray = self.folderArray.map { MusicItemModel(fileURL: $0, sourceType: .localFile) }
         
         var tempAllArray = allArray.filter { $0.mediaPlayURL.isSupportMusicFile(false) || $0.isFolder() }
         tempAllArray = Array(Set(tempAllArray))
         
+        // 1️⃣ 不分组 <包括搜索>
         if self.groupType == .nonGroup || self.searchKey != nil {
-            // 1️⃣ 不分组<包括搜索>
             let starArray = tempAllArray.filter { $0.isFlagFavorite() && !$0.isFolder() }
-            if (starArray.count > 0) {
-                self.musicIndexArray.append("♥")
-                groupedDictionary["♥"] = Array(Set(starArray)).sorted(by: { element1, element2 in
-                    return element1.sortAnotherModel(model2: element2, sortType: self.sortType)
-                })
+            if !starArray.isEmpty {
+                self.musicIndexArray.append(.likedSongs)
+                groupedDictionary[.likedSongs] = Array(Set(starArray)).sorted {
+                    $0.sortAnotherModel(model2: $1, sortType: self.sortType)
+                }
             }
             
-            self.musicIndexArray.append("#")
-            groupedDictionary["#"] = tempAllArray.sorted(by: { element1, element2 in
-                return element1.sortAnotherModel(model2: element2, sortType: self.sortType)
-            })
+            self.musicIndexArray.append(.customKey("#"))
+            groupedDictionary[.customKey("#")] = tempAllArray.sorted {
+                $0.sortAnotherModel(model2: $1, sortType: self.sortType)
+            }
 
             self.musicDictionary = groupedDictionary
             return groupedDictionary
-        }else{
-            // 2️⃣ 有分组
+        }
+        
+        // 2️⃣ 有分组
+        if self.groupType == .musictagGroup {
+            // 按照音乐标签完整度分组
+            groupedDictionary = Dictionary(grouping: tempAllArray, by: {
+                $0.isFullMusicTag() ? .completeTags : .missingTags
+            })
             
-            if self.groupType == .musictagGroup {
-                let sectionTitles = UILocalizedIndexedCollation.current().sectionTitles
-                groupedDictionary = Dictionary(grouping: tempAllArray, by: {
-                    $0.isFullMusicTag() ? "✅" : "❗️"
-                })
-                
-                for (key, value) in groupedDictionary {
-                    // 内部组的排序
-                    groupedDictionary[key] = value.sorted(by: { element1, element2 in
-                        return element1.sortAnotherModel(model2: element2, sortType: self.sortType)
-                    })
+            // 如果文件夹数组不为空，将文件夹单独塞入 .folder 组（借助 Weight: 1 自动实现置顶）
+            if !folderArray.isEmpty {
+                groupedDictionary[.folder] = folderArray.sorted {
+                    $0.sortAnotherModel(model2: $1, sortType: self.sortType)
                 }
-                            
-                // 分组内部按照文件大小排序
-                let sortedDictory = groupedDictionary.sorted { element1, element2 in
-                    guard let index1 = sectionTitles.firstIndex(of: element1.key), let index2 = sectionTitles.firstIndex(of: element2.key) else {
-                        return false
-                    }
-                    
-                    return index1 < index2
-                }
-                
-                var indexArr = sortedDictory.map(\.key).sorted { $0 > $1 }
-                
-                // 处理已收藏的音乐
-                let starArray = tempAllArray.filter { $0.isFlagFavorite() }
-                if (starArray.count > 0) {
-                    indexArr.insert("♥", at: 0)
-                    groupedDictionary["♥"] = Array(Set(starArray)).sorted(by: {element1, element2 in
-                        return element1.sortAnotherModel(model2: element2, sortType: self.sortType)
-                    })
-                }
-                
-                self.musicIndexArray = indexArr
-                self.musicDictionary = groupedDictionary
-                return groupedDictionary
-                
-            }else{
-                let sectionTitles = UILocalizedIndexedCollation.current().sectionTitles
-
-                groupedDictionary = Dictionary(grouping: tempAllArray, by: { $0.firstChar(self.groupType)
-                })
-                
-                for (key, value) in groupedDictionary {
-                    // 内部组的排序
-                    groupedDictionary[key] = value.sorted(by: { element1, element2 in
-                        return element1.sortAnotherModel(model2: element2, sortType: self.sortType)
-                    })
-                }
-                            
-                // 分组内部按照文件大小排序
-                let sortedDictory = groupedDictionary.sorted { element1, element2 in
-                    guard let index1 = sectionTitles.firstIndex(of: element1.key), let index2 = sectionTitles.firstIndex(of: element2.key) else {
-                        return false
-                    }
-                    
-                    return index1 < index2
-                }
-                
-                var indexArr = sortedDictory.map(\.key).sorted { $0 < $1 }
-                
-                // 处理已收藏的音乐
-                let starArray = tempAllArray.filter { $0.isFlagFavorite() }
-                if (starArray.count > 0) {
-                    indexArr.insert("♥", at: 0)
-                    groupedDictionary["♥"] = Array(Set(starArray)).sorted(by: {element1, element2 in
-                        return element1.sortAnotherModel(model2: element2, sortType: self.sortType)
-                    })
-                }
-                
-                self.musicIndexArray = indexArr
-                self.musicDictionary = groupedDictionary
-                return groupedDictionary
+            }
+        } else {
+            // 按照首字母等普通规则分组
+            groupedDictionary = Dictionary(grouping: tempAllArray, by: {
+                .customKey($0.firstChar(self.groupType))
+            })
+        }
+        
+        // 组内排序
+        for (key, value) in groupedDictionary {
+            groupedDictionary[key] = value.sorted {
+                $0.sortAnotherModel(model2: $1, sortType: self.sortType)
             }
         }
         
+        // 生成排好序的索引数组 (借助 MusicKeyTitle 实现的 Comparable 自动按权重和字符排序)
+        var indexArr = groupedDictionary.keys.sorted()
+        
+        // 处理已收藏的音乐（插到最顶部）
+        let starArray = tempAllArray.filter { $0.isFlagFavorite() }
+        if !starArray.isEmpty {
+            indexArr.insert(.likedSongs, at: 0)
+            groupedDictionary[.likedSongs] = Array(Set(starArray)).sorted {
+                $0.sortAnotherModel(model2: $1, sortType: self.sortType)
+            }
+        }
+        
+        self.musicIndexArray = indexArr
+        self.musicDictionary = groupedDictionary
+        return groupedDictionary
     }
     
     // 正在播放中的音乐所在的索引
@@ -288,10 +312,10 @@ extension MusicViewModel {
     }
     
     /// 首页音乐的索引
-    public var musicIndexArray: [String] {
+    public var musicIndexArray: [MusicKeyTitle] {
         get {
-            guard let cacheArr = objc_getAssociatedObject(self, &MusicKeys.kMusicIndexKey) as? [String] else {
-                let initArr = [String]()
+            guard let cacheArr = objc_getAssociatedObject(self, &MusicKeys.kMusicIndexKey) as? [MusicKeyTitle] else {
+                let initArr = [MusicKeyTitle]()
                 
                 objc_setAssociatedObject(self, &MusicKeys.kMusicIndexKey, initArr, .OBJC_ASSOCIATION_COPY_NONATOMIC)
                 return initArr
@@ -305,10 +329,10 @@ extension MusicViewModel {
     }
     
     /// 首页索引—>排序后的音乐
-    private var musicDictionary: [String: [MusicItemModel]] {
+    private var musicDictionary: [MusicKeyTitle: [MusicItemModel]] {
         get {
-            guard let cacheArr = objc_getAssociatedObject(self, &MusicKeys.kMusicDictKey) as? [String: [MusicItemModel]] else {
-                let initArr = [String: [MusicItemModel]]()
+            guard let cacheArr = objc_getAssociatedObject(self, &MusicKeys.kMusicDictKey) as? [MusicKeyTitle: [MusicItemModel]] else {
+                let initArr = [MusicKeyTitle: [MusicItemModel]]()
                 
                 objc_setAssociatedObject(self, &MusicKeys.kMusicDictKey, initArr, .OBJC_ASSOCIATION_COPY_NONATOMIC)
                 return initArr
@@ -356,7 +380,6 @@ extension MusicViewModel {
     public var parserManager: OperationQueue {
         get {
             guard let queue = objc_getAssociatedObject(self, &MusicKeys.kTaskKey) as? OperationQueue else {
-                let cpuCount = ProcessInfo.processInfo.activeProcessorCount
                 let manager = OperationQueue()
                 manager.name = "com.parser.operationQueue"
                 manager.qualityOfService = .userInteractive

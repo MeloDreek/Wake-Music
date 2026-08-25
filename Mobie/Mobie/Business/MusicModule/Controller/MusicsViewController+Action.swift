@@ -253,7 +253,7 @@ extension MusicsViewController {
         batchVC.onDoneBlock = { [weak self] () in
             guard let wSelf = self else { return }
             wSelf.refreshDataAction()
-            wSelf.headView.updateLocal(folders: wSelf.viewModel.folderArray)
+            wSelf.headFolderView.updateLocal(folders: wSelf.viewModel.folderArray)
         }
         self.navigationController?.pushViewController(batchVC, animated: true)
         

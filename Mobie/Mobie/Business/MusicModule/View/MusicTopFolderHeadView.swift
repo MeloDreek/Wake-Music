@@ -1,5 +1,5 @@
 //
-//  TopBroadcastTableCell.swift
+//  MusicTopFolderHeadView.swift
 //  Wake Music
 //
 //  Created by Melo on 9/1/24.
@@ -28,7 +28,7 @@ protocol MusicTopHeadViewDelegate: AnyObject {
     
 }
 
-class MusicTopHeadView: UITableViewHeaderFooterView {
+class MusicTopFolderHeadView: UITableViewHeaderFooterView {
     
     override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
@@ -133,7 +133,7 @@ class MusicTopHeadView: UITableViewHeaderFooterView {
     
 }
 
-extension MusicTopHeadView: UICollectionViewDataSource, UICollectionViewDelegate {
+extension MusicTopFolderHeadView: UICollectionViewDataSource, UICollectionViewDelegate {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1

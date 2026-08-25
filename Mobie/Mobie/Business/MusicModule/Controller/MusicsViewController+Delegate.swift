@@ -25,7 +25,7 @@ extension MusicsViewController: DocumentFolderWatcherDelegate, MusicTopHeadViewD
             DispatchQueue.main.asyncAfter(wallDeadline: .now() + time) { [weak self] () in
                 guard let wSelf = self else { return }
                 wSelf.tableView.tableFooterView = wSelf.footView
-                wSelf.tableView.tableHeaderView = wSelf.isShowHeadView ? wSelf.headView : nil
+                wSelf.tableView.tableHeaderView = wSelf.showHeadView
                 wSelf.footView.update(wSelf.viewModel.baseFileURL)
                 self?.tableView.reloadData()
             }
@@ -35,7 +35,7 @@ extension MusicsViewController: DocumentFolderWatcherDelegate, MusicTopHeadViewD
         DispatchQueue.main.async { [weak self] () in
             guard let wSelf = self else { return }
             
-            wSelf.headView.updateLocal(folders: wSelf.viewModel.folderArray)
+            wSelf.headFolderView.updateLocal(folders: wSelf.viewModel.folderArray)
         }
     }
     
@@ -45,7 +45,7 @@ extension MusicsViewController: DocumentFolderWatcherDelegate, MusicTopHeadViewD
             guard let wSelf = self else { return }
             let fileCount = wSelf.baseFileURL.totalFileCount()
             wSelf.tableView.tableFooterView = fileCount == 0 ? nil : wSelf.footView
-            wSelf.tableView.tableHeaderView = wSelf.isShowHeadView ? wSelf.headView : nil
+            wSelf.tableView.tableHeaderView = wSelf.showHeadView
             wSelf.footView.update(wSelf.viewModel.baseFileURL)
             self?.tableView.reloadData()
         }
@@ -54,7 +54,7 @@ extension MusicsViewController: DocumentFolderWatcherDelegate, MusicTopHeadViewD
         DispatchQueue.main.async { [weak self] () in
             guard let wSelf = self else { return }
             
-            wSelf.headView.updateLocal(folders: wSelf.viewModel.folderArray)
+            wSelf.headFolderView.updateLocal(folders: wSelf.viewModel.folderArray)
         }
         
     }
@@ -179,7 +179,7 @@ extension MusicsViewController: MusicTableViewCellDelegate {
             }
             
             wSelf.stopEditBarClick()
-            wSelf.headView.updateLocal(folders: wSelf.viewModel.folderArray)
+            wSelf.headFolderView.updateLocal(folders: wSelf.viewModel.folderArray)
             wSelf.refreshDataAction()
         }
 

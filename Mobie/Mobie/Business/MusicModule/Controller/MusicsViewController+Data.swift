@@ -212,8 +212,8 @@ extension MusicsViewController: UITableViewDataSource, UITableViewDelegate {
                 
                 let header = viewModel.musicIndexArray[section]
                 if self.viewModel.groupType == .nonGroup || self.viewModel.searchKey != nil {
-                    if header == "♥" {
-                        return header
+                    if header == .likedSongs {
+                        return header.titleStr()
                     }else{
                         if let searchKey = self.viewModel.searchKey {
                             let searchStr = self.searchController.searchBar.placeholder ?? ""
@@ -224,15 +224,7 @@ extension MusicsViewController: UITableViewDataSource, UITableViewDelegate {
                         }
                     }
                 }else{
-                    if viewModel.groupType == .musictagGroup {
-                        if header == "❗️" {
-                            return "❗️" + "Missing Tags".localStr()
-                        }else{
-                            return "✅" + "Complete Tags".localStr()
-                        }
-                    }else{
-                        return header
-                    }
+                    return header.titleStr()
                 }
             }
         }
@@ -242,10 +234,10 @@ extension MusicsViewController: UITableViewDataSource, UITableViewDelegate {
         if isNoneMusic {
             return nil
         }else{
-            if self.viewModel.groupType == .nonGroup || self.viewModel.searchKey != nil {
+            if viewModel.groupType == .nonGroup || viewModel.searchKey != nil {
                 return nil
             }else{
-                return viewModel.musicIndexArray
+                return viewModel.musicIndexArray.map { $0.keyStr() }
             }
         }
     }
