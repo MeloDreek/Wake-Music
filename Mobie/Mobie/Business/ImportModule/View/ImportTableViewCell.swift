@@ -38,11 +38,4 @@ class ImportTableViewCell: UITableViewCell {
         self.contentConfiguration = cellConfig
     }
     
-    lazy var proIconView: UIImageView = {
-        let view = UIImageView(image: UIImage(named: "pro_crown"))
-        view.contentMode = .scaleAspectFit
-        view.size = CGSizeMake(30.ckValue(), 20.ckValue())
-        return view
-    }()
-    
 }

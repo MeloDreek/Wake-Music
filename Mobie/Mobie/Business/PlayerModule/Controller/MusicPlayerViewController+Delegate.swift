@@ -102,12 +102,40 @@ extension MusicPlayerViewController {
 
 extension MusicPlayerViewController: PlayerSubViewDelegate {
     
+    // 音频指纹识别
     func playerBasicCellDidAudioFinger(basicView: UIView) {
-        self.view.makeToast("音频指纹")
+        guard let model = KakaMusicPlayer.shared.playingMusic else { return }
+
+        if !model.mediaPlayURL.isFileURL {
+            self.showTwoAlert(message: "Only available for offline music. Download to local storage and edit?".localStr(), confirm: "Download".localStr()) {
+                DownloadManager.shared.addMusicModel([model])
+                self.view.makeToast("Added to Downloads".localStr())
+            }
+            return
+        }
+        
+        if !UserInfoManager.shared.isVIP() {
+            let title = "🫆" + "Auto-Match".localStr()
+            let message = "No manual editing required! AI Acoustic Fingerprinting analyzes the audio waveform to instantly fetch accurate metadata, 4K artwork, lyrics, and more.".localStr()
+            self.showTwoAlert(title: title, message: message, confirm: "Unlock Premium".localStr()) {
+                self.vipCenterClick()
+            }
+            return
+        }
+        
+        let recognizerVC = AudioMatchTagViewController(model)
+        recognizerVC.onEditCallback = { [weak self] (newModel) in
+            KakaMusicPlayer.shared.playingMusic = newModel
+            self?.collectionView.reloadData()
+            self?.refreshUIViewAction()
+        }
+        let navVC = KakaNavigationController(rootViewController: recognizerVC)
+        self.present(navVC, animated: true)
     }
     
+    // 编辑内嵌的歌词
     func playerBasicCellDidSelectLyric(basicView: UIView) {
-        self.view.makeToast("选择歌词")
+        self.presentMusicTagController()
     }
     
     // 点击模拟歌词区域
@@ -178,16 +206,6 @@ extension MusicPlayerViewController: PlayerSubViewDelegate {
     func playerBasicCellDidSleepTimer(basicView: UIView, sleepView: UIView?) {
         self.setupSleepTimer()
     }
-    
-//    // AI搜索封面
-//    func playerBasicCellDidAICover(basicView: UIView) {
-//        self.searchAlbumCoverWithAI()
-//    }
-//    
-//    // AI搜索歌词
-//    func playerBasicCellDidAILyric(basicView: UIView) {
-//        self.searchLyricWithAI()
-//    }
     
     // 音乐标签编辑器
     func playerBasicCellDidMusicEditor(basicView: UIView) {

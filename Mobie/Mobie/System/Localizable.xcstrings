@@ -17069,6 +17069,257 @@
         }
       }
     },
+    "Awesome! %d tracks fully updated. Enjoying the app? Leave us a review on the App Store!" : {
+      "extractionState" : "pasted",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ممتاز! تم تحديث %d من المقاطع الصوتية بالكامل. إذا أعجبك التطبيق، يُرجى ترك تقييم لنا!"
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Genial! s'han actualitzat %d pistes completament. Si t'agrada l'aplicació, deixa'ns una ressenya!"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Skvělé! %d skladeb bylo plně aktualizováno. Pokud se vám aplikace líbí, zanechte nám recenzi!"
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fantastisk! %d sange er opdateret. Kan du lide appen? Skriv gerne en anmeldelse!"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Klasse! %d Titel erfolgreich aktualisiert. Sagen Ihnen die Ergebnisse zu? Hinterlassen Sie uns gerne eine Bewertung!"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Τέλεια! %d τραγούδια ενημερώθηκαν πλήρως. Αν σας αρέσει η εφαρμογή, αφήστε μας μια αξιολόγηση!"
+          }
+        },
+        "en-AU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Awesome! %d tracks fully updated. Loving the results? Leave us a review!"
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Brilliant! %d tracks fully updated. Enjoying the app? Leave us a review!"
+          }
+        },
+        "en-IN" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Awesome! %d tracks fully updated. If you love the app, please leave us a review!"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¡Genial! %d canciones se han actualizado por completo. ¿Te gusta la aplicación? ¡Déjanos una reseña!"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¡Increíble! %d pistas actualizadas por completo. ¿Te gustó el resultado? ¡Déjanos una reseña!"
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¡Excelente! %d pistas totalmente actualizadas. Si te gusta la app, ¡déjanos una calificación!"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mahtavaa! %d kappaletta päivitetty onnistuneesti. Jos pidät sovelluksesta, jätä meille arvostelu!"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Superbe ! %d morceaux entièrement mis à jour. Vous aimez l'application ? Laissez-nous un avis !"
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Genial ! %d pistes entièrement mises à jour. Vous aimez l'application ? Laissez-nous un avis !"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "מעולה! %d שירים עודכנו במלואם. אוהבים את האפליקציה? נשמח אם תרשמו לנו דירוג!"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "बहुत बढ़िया! %d गानों के टैग अपडेट हो गए हैं। अगर ऐप पसंद आया, तो हमें रिव्यू ज़रूर दें!"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Izvrsno! Potpuno je ažurirano %d pjesama. Ako vam se sviđa aplikacija, ostavite nam recenziju!"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Szuper! %d szám sikeresen frissítve. Ha tetszik az alkalmazás, kérjük, értékeljen minket!"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Luar biasa! %d lagu berhasil diperbarui. Suka dengan hasilnya? Beri kami ulasan, ya!"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fantastico! %d brani aggiornati con successo. Ti piace l'app? Lasciaci una recensione!"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "素晴らしい！%d曲のタグ情報を完全更新しました。気に入っていただけましたら、ぜひストアレビューで応援をお願いします！"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "완벽해요! %d개 트랙의 태그가 모두 업데이트되었습니다. 앱이 마음에 드셨다면 스토어 리뷰를 남겨주세요!"
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hebat! %d lagu telah berjaya dikemas kini. Jika anda menyukai aplikasi ini, tinggalkan ulasan untuk kami!"
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Supert! %d sanger ble oppdatert. Fornøyd med resultatet? Legg gjerne igjen en anmeldelse!"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Geweldig! %d nummers volledig bijgewerkt. Blij met het resultaat? Laat een beoordeling achter!"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Świetnie! %d utworów zostało pomyślnie zaktualizowanych. Podoba Ci się aplikacja? Zostaw нам opinię!"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Incrível! %d faixas atualizadas com sucesso. Gostou do resultado? Deixe uma avaliação para nós!"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fantástico! %d faixas totalmente atualizadas. Se gosta da aplicação, deixe-nos uma avaliação!"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Excelent! %d melodii au fost actualizate cu succes. Îți place aplicația? Lasă-ne un recenzie!"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Отлично! %d треков успешно обновлено. Нравится приложение? Оставьте нам отзыв!"
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Skvelé! %d skladieb bolo úplne aktualizovaných. Ak sa vám aplikácia páči, zanechajte nám recenziu!"
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Odlično! %d skladb je bilo uspešno posodobljenih. Vam je aplikacija všeč? Pustite nam oceno!"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Strålande! %d spår har uppdaterats helt. Gillar du appen? Lämna gärna en recension!"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ยอดเยี่ยมมาก! อัปเดตเพลง %d เพลงเรียบร้อยแล้ว หากคุณชื่นชอบแอปนี้ โปรดให้คะแนนรีวิวเพื่อเป็นกำลังใจให้เรา!"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Harika! %d şarkı tamamen güncellendi. Uygulamamızı beğendiniz mi? Bize bir değerlendirme bırakın!"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Чудово! %d треків успішно оновлено. Подобається застосунок? Залиште нам відгук!"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tuyệt vời! %d bài hát đã được cập nhật hoàn toàn. Nếu bạn yêu thích ứng dụng, hãy để lại đánh giá cho chúng tôi nhé!"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "太棒了！已完美更新 %d 首歌曲。如果觉得好用，请给我们留个好评吧！"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "太棒了！已成功更新 %d 首曲目。如果喜歡我們的 App，歡迎給我們留下好評！"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "太棒了！已成功更新 %d 首歌曲。如果你滿意，不妨去 App Store 留個好評支持我哋！"
+          }
+        }
+      }
+    },
     "Baidu Drive" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -19073,6 +19324,257 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "底部工具列"
+          }
+        }
+      }
+    },
+    "Built for lifelong music collections, Wake Music prioritizes embedded LRC lyrics over unreliable online matching. Please complete your missing metadata with our Music Tag Editor." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "حرصًا على القيمة الدائمة لمجموعتك الموسيقية، يلتزم Wake Music بقراءة كلمات LRC المدمجة بدلاً من الاعتماد على المطابقة عبر الإنترنت غير المستقرة. استخدم محرر علامات الموسيقى لإكمال البيانات المفقودة."
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Per a la conservació permanent de la teva música, Wake Music utilitza lletres LRC integrades en lloc de cerques en línia poc fiables. Completa les dades amb el nostre editor d'etiquetes."
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "S ohledem na trvalou hodnotu vaší hudební sbírky staví Wake Music na integrovaných LRC textech místo nestabilního online párování. Doplňte chybějící data pomocí našeho editoru tagů."
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Med tanke på din musiksamlings varige værdi læser Wake Music indlejrede LRC-sangtekster frem for usikker online-matching. Udfyld manglende data med vores musik-tag-editor."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Für den dauerhaften Wert Ihrer Musiksammlung setzt Wake Music auf eingebettete LRC-Songtexte statt instabiler Online-Treffer. Ergänzen Sie fehlende Metadaten mit unserem Musik-Tag-Editor."
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Για τη διαχρονική αξία της μουσικής σας συλλογής, το Wake Music διαβάζει ενσωματωμένους στίχους LRC αντί για ασταθείς διαδικτυακές αντιστοιχίσεις. Συμπληρώστε τα μεταδεδομένα με τον επεξεργαστή ετικετών."
+          }
+        },
+        "en-AU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Built for lifelong music collections, Wake Music prioritizes embedded LRC lyrics over unreliable online matching. Complete your missing metadata with our Music Tag Editor."
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Built for lifelong music collections, Wake Music prioritises embedded LRC lyrics over unreliable online matching. Complete your missing metadata with our Music Tag Editor."
+          }
+        },
+        "en-IN" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Built for lifelong music collections, Wake Music prioritizes embedded LRC lyrics over unreliable online matching. Complete your missing metadata with our Music Tag Editor."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Para preservar el valor de tu colección musical, Wake Music prioriza las letras LRC integradas frente a las búsquedas en línea inestables. Completa los metadatos con nuestro editor de etiquetas."
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Para preservar el valor de tu colección musical, Wake Music prioriza las letras LRC integradas frente a las búsquedas en línea inestables. Completa los metadatos con nuestro editor de etiquetas."
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Para preservar el valor de tu colección musical, Wake Music prioriza las letras LRC integradas frente a las búsquedas en línea inestables. Completa los metadatos con nuestro editor de etiquetas."
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Elämänpituista musiikkikokoelmaa varten Wake Music lukee upotettuja LRC-sanoituksia epävarman online-haun sijaan. Täydennä puuttuvat tiedot musiikkitunnisteiden muokkaimella."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pour la valeur durable de votre collection musicale, Wake Music privilégie les paroles LRC intégrées plutôt qu'un appariement en ligne instable. Complétez vos métadonnées avec notre éditeur de tags."
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pour préserver la valeur de votre collection musicale, Wake Music privilégie les paroles LRC intégrées aux correspondances en ligne instables. Complétez vos métadonnées grâce à notre éditeur de balises."
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "למען הערך לטווח ארוך של אוסף המוזיקה שלך, Wake Music מתמקד במילות LRC מוטמעות במקום התאמות מקוונות לא יציבות. השלם את המטא-נתונים באמצעות עורך תגיות המוזיקה שלנו."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "आपके संगीत संग्रह के दीर्घकालिक मूल्य के लिए, Wake Music अस्थिर ऑनलाइन मिलान के बजाय एम्बेडेड LRC बोलों को प्राथमिकता देता है। हमारे संगीत टैग संपादक के साथ अनुपस्थित मेटाडेटा भरें।"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Za trajno vrijednost vaše glazbene zbirke, Wake Music čita ugrađene LRC stihove umjesto nestabilnog mrežnog podudaranja. Popunite podatke pomoću našeg uređivača oznaka."
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zenei gyűjteménye maradandó értékéért a Wake Music a beágyazott LRC dalszövegeket elemzi a bizonytalan online párosítás helyett. Pótolja a hiányzó adatokat zenecímke-szerkesztőnkkel."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Demi nilai koleksi musik jangka panjang, Wake Music mengutamakan lirik LRC tertanam daripada pencocokan online yang tidak stabil. Lengkapi metadata yang hilang dengan Editor Tag Musik kami."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Per il valore duraturo della tua collezione musicale, Wake Music predilige i testi LRC incorporati rispetto all'abbinamento online instabile. Completa i metadati mancanti con il nostro editor di tag."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "音楽コレクションの永続的な価値のために、Wake Musicは不安定なオンライン検索ではなく、埋め込みLRC歌詞の解析を優先します。音楽タグエディターで不足しているメタデータを追加しましょう"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "평생 소장할 음악의 가치를 위해 Wake Music은 불안정한 온라인 매칭 대신 파일에 임베디드된 LRC 가사를 분석합니다. 음악 태그 편집기로 누락된 메타데이터를 채워보세요."
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Demi nilai koleksi muzik jangka panjang, Wake Music mengutamakan lirik LRC tertanam berbanding padanan dalam talian yang tidak stabil. Lengkapkan metadata yang hilang dengan Editor Tag Muzik kami."
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "For den varige verdien av musikksamlingen din, satser Wake Music på innebygde LRC-sangtekster fremfor usikker online-matching. Fyll inn manglende metadata med vår musikk-tag-editor."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Met het oog op een levenslange muziekcollectie kiest Wake Music voor ingesloten LRC-songteksten in plaats van onbetrouwbare online matching. Vul ontbrekende metadata aan met onze tag-editor."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Z myślą o trwałej wartości Twojej kolekcji muzycznej Wake Music stawia na osadzone teksty LRC zamiast niestabilnego dopasowywania online. Uzupełnij brakujące metadane za pomocą naszego edytora tagów."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Valorizando sua coleção musical permanente, o Wake Music prioriza letras LRC incorporadas em vez de correspondências online instáveis. Complete os metadados ausentes com nosso Editor de Tags."
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Para preservar o valor da sua coleção musical, o Wake Music prioriza letras LRC incorporadas em vez de correspondências online instáveis. Preencha os metadados em falta com o nosso Editor de Tags."
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pentru valoarea de durată a colecției tale muzicale, Wake Music mizează pe versurile LRC integrate în loc de potriviri online instabile. Completează metadatele lipsă cu editorul nostru de etichete."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Заботясь о долговечности вашей музыкальной коллекции, Wake Music использует встроенные тексты LRC, а не нестабильный онлайн-поиск. Заполните недостающие метаданные в нашем Редакторе тегов."
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pre trvalú hodnotu važej hudobnej zbierky stavil Wake Music na integrované LRC texty namiesto nestabilného online párovania. Doplňte chybajúce údaje pomocou nášho editora tagov."
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Za trajno vrednost vaše glasbene zbirke Wake Music stavi na vgrajena besedila LRC namesto nestabilnega spletnega ujemanja. Dopolnite manjkajoče podatke z našim urejevalnikom oznak."
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "För den varaktiga värdet i din musiksamling satsar Wake Music på inbäddade LRC-låttexter framför osäker online-matchning. Fyll i saknad metadata med vår musik-taggeditor."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "เพื่อคุณค่าการสะสมเพลงอย่างยาวนาน Wake Music ถอดรหัสเนื้อเพลง LRC ที่ฝังในไฟล์แทนการค้นหาออนไลน์ที่ไม่เสถียร เติมข้อมูลเมตาเดทาที่ขาดหายด้วยตัวแก้ไขแท็กเพลงของเรา"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Müzik koleksiyonunuzun kalıcı değeri için Wake Music, kararsız çevrim içi eşleşmeler yerine gömülü LRC sözlerini okumayı tercih eder. Eksik meta verileri Müzik Etiket Düzenleyicimiz ile tamamlayın."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Дбаючи про довговічність вашої музичної колекції, Wake Music віддає перевагу вбудованим текстам LRC, а не нестабільному онлайн-пошуку. Заповніть відсутні метадані за допомогою нашого Редактора тегів."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vì giá trị lưu trữ lâu dài của bộ sưu tập âm nhạc, Wake Music ưu tiên đọc lời bài hát LRC được nhúng thay vì khớp trực tuyến không ổn định. Hãy bổ sung thẻ dữ liệu còn thiếu bằng Trình chỉnh sửa thẻ nhạc của chúng tôi."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "考虑到音乐资产的终身收藏价值，维克音乐坚持解析音频文件内嵌的LRC歌词，而不是依赖不稳定的在线匹配。请借助我们的音乐标签编辑器填充缺失的元数据"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "考慮到音樂資產的終身收藏價值，維克音樂堅持解析音訊檔案內嵌的LRC歌詞，而不是依賴不穩定的線上比對。請借助我們的音樂標籤編輯器填補缺失的元資料"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "考慮到音樂資產的終身收藏價值，維克音樂堅持解析音訊檔案內嵌的LRC歌詞，而不是依賴不穩定的線上配對。請借助我們的音樂標籤編輯器填充缺失的元數據"
           }
         }
       }
@@ -30372,257 +30874,6 @@
         }
       }
     },
-    "Currently available for local files only" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "متاح حاليًا للملفات المحلية فقط"
-          }
-        },
-        "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Actualment només disponible per als fitxers locals"
-          }
-        },
-        "cs" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Aktuálně dostupné pouze pro místní soubory"
-          }
-        },
-        "da" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Kun tilgængelig for lokale filer i øjeblikket"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Derzeit nur für lokale Dateien verfügbar"
-          }
-        },
-        "el" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Προς το παρόν διαθέσιμο μόνο για τοπικά αρχεία"
-          }
-        },
-        "en-AU" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Currently available for local files only"
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Currently available for local files only"
-          }
-        },
-        "en-IN" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Currently available for local files only"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Actualmente disponible solo para archivos locales"
-          }
-        },
-        "es-419" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Actualmente disponible solo para archivos locales"
-          }
-        },
-        "es-US" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Actualmente disponible solo para archivos locales"
-          }
-        },
-        "fi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tällä hetkellä saatavilla vain paikallisille tiedostoille"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Disponible uniquement pour les fichiers locaux pour le moment"
-          }
-        },
-        "fr-CA" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Disponible uniquement pour les fichiers locaux pour le moment"
-          }
-        },
-        "he" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "זמין כרגע לקבצים מקומיים בלבד"
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "अभी केवल स्थानीय फ़ाइलों के लिए उपलब्ध है"
-          }
-        },
-        "hr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Trenutno dostupno samo za lokalne datoteke"
-          }
-        },
-        "hu" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Jelenleg csak helyi fájlokhoz érhető el"
-          }
-        },
-        "id" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Saat ini hanya tersedia untuk file lokal"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Attualmente disponibile solo per i file locali"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "現在はローカルファイルのみ対応しています"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "현재 로컬 파일만 지원합니다"
-          }
-        },
-        "ms" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Buat masa ini hanya tersedia untuk fail tempatan"
-          }
-        },
-        "nb" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Foreløpig bare tilgjengelig for lokale filer"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Momenteel alleen beschikbaar voor lokale bestanden"
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Obecnie dostępne tylko dla plików lokalnych"
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Disponível no momento apenas para arquivos locais"
-          }
-        },
-        "pt-PT" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "De momento, disponível apenas para ficheiros locais"
-          }
-        },
-        "ro" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Momentan disponibil doar pentru fișiere locale"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Пока доступно только для локальных файлов"
-          }
-        },
-        "sk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Momentálne dostupné iba pre lokálne súbory"
-          }
-        },
-        "sl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Trenutno na voljo samo za lokalne datoteke"
-          }
-        },
-        "sv" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "För närvarande endast tillgängligt för lokala filer"
-          }
-        },
-        "th" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ขณะนี้รองรับเฉพาะไฟล์ในเครื่องเท่านั้น"
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Şu anda yalnızca yerel dosyalar için kullanılabilir"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Наразі доступно лише для локальних файлів"
-          }
-        },
-        "vi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Hiện chỉ hỗ trợ tệp cục bộ"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "暂只适用于本地文件"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "暫時只適用於本機檔案"
-          }
-        },
-        "zh-HK" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "暫時只適用於本機檔案"
-          }
-        }
-      }
-    },
     "Custom Genre" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -38651,6 +38902,257 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "編輯目前音軌"
+          }
+        }
+      }
+    },
+    "Edit Embedded Lyrics" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تعديل الكلمات المدمجة"
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Edita les lletres integrades"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Upravit integrované texty"
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rediger indlejrede sangtekster"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Eingebettete Songtexte bearbeiten"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Επεξεργασία ενσωματωμένων στίχων"
+          }
+        },
+        "en-AU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Edit Embedded Lyrics"
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Edit Embedded Lyrics"
+          }
+        },
+        "en-IN" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Edit Embedded Lyrics"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Editar letras integradas"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Editar letras integradas"
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Editar letras integradas"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Muokkaa upotettuja sanoituksia"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Modifier les paroles intégrées"
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Modifier les paroles intégrées"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ערוך מילים מוטמעות"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "एम्बेडेड बोल संपादित करें"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Uredi ugrađene stihove"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Beágyazott dalszöveg szerkesztése"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Edit Lirik Tertanam"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Modifica testi incorporati"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "埋め込み歌詞を編集"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "임베디드 가사 편집"
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sunting Lirik Tertanam"
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rediger innebygde sangtekster"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ingesloten songtekst bewerken"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Edytuj osadzone teksty"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Editar letras incorporadas"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Editar letras incorporadas"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Editează versurile integrate"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Редактировать встроенный текст"
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Upraviť integrované texty"
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Uredi vgrajena besedila"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Redigera inbäddad låttext"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "แก้ไขเนื้อเพลงที่ฝังไว้"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gömülü Sözleri Düzenle"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Редагувати вбудований текст"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Chỉnh sửa lời bài hát nhúng"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "编辑内嵌歌词"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "編輯內嵌歌詞"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "編輯內嵌歌詞"
           }
         }
       }
@@ -77479,6 +77981,257 @@
         }
       }
     },
+    "Only available for offline music. Download to local storage and edit?" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ينطبق هذا فقط على الموسيقى غير المتصلة بالإنترنت. هل تريد التنزيل محليًا والتعديل؟"
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Només aplicable a la música fora de línia. Voleu descarregar-ho localment i editar-ho?"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Platí pouze pro offline hudbu. Chcete ji stáhnout lokálně a upravit?"
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gælder kun for offlinemusik. Vil du downloade lokalt og redigere?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gilt nur für Offline-Musik. Lokale Kopie herunterladen und bearbeiten?"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ισχύει μόνο για μουσική εκτός σύνδεσης. Λήψη τοπικά και επεξεργασία;"
+          }
+        },
+        "en-AU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Only available for offline music. Download to local storage and edit?"
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Only available for offline music. Download to local storage and edit?"
+          }
+        },
+        "en-IN" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Only available for offline music. Download to local storage and edit?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Solo aplicable a la música sin conexión. ¿Descargar en el dispositivo y editar?"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Solo aplicable a la música sin conexión. ¿Descargar en el dispositivo y editar?"
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Solo aplicable a la música sin conexión. ¿Descargar en el dispositivo y editar?"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Koskee vain offline-musiikkia. Ladataanko laitteelle muokkausta varten?"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Applicable uniquement à la musique hors ligne. Télécharger localement pour modifier ?"
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Applicable uniquement à la musique hors ligne. Télécharger localement pour modifier ?"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "תקף רק למוזיקה שלא מקוונת. האם להוריד למכשיר ולערוך?"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "केवल ऑफ़लाइन संगीत पर लागू। क्या आप इसे स्थानीय रूप से डाउनलोड करके संपादित करना चाहते हैं?"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Primjenjivo samo na glazbu izvan mreže. Želite li preuzeti lokalno i urediti?"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Csak offline zenére vonatkozik. Letölti a helyi tárhelyre a szerkesztéshez?"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hanya berlaku untuk musik offline. Unduh ke lokal lalu edit?"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Applicabile solo alla musica offline. Scaricare in locale e modificare?"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "オフラインの楽曲のみ対応しています。ローカルにダウンロードして編集しますか？"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "오프라인 음악에만 적용됩니다. 로컬로 다운로드한 후 편집하시겠습니까?"
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hanya berlaku untuk muzik luar talian. Muat turun ke tempatan dan sunting?"
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gjelder kun for offlinemusik. Last ned lokalt og rediger?"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Alleen van toepassing op offline muziek. Lokaal downloaden en bewerken?"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dotyczy tylko muzyki offline. Pobrać lokalnie i edytować?"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aplicável apenas a músicas offline. Baixar localmente para editar?"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aplicável apenas a música offline. Transferir para o dispositivo e editar?"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Valabil doar pentru muzica offline. Descărcați local și editați?"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Применимо только к офлайн-музыке. Скачать локально и отредактировать?"
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Platí len pre offline hudbu. Chcete ju stiahnuť lokálne a upraviť?"
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Velja le za glasbo brez povezave. Prenesti lokalno in urediti?"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gäller endast offlinemusik. Ladda ner lokalt och redigera?"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ใช้ได้เฉพาะกับเพลงออฟไลน์เท่านั้น ต้องการดาวน์โหลดลงเครื่องเพื่อแก้ไขหรือไม่?"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Yalnızca çevrimdışı müzik için geçerlidir. Yerel olarak indirip düzenlensin mi?"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Застосовується лише до офлайн-музики. Завантажити локально та відредагувати?"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Chỉ áp dụng cho nhạc ngoại tuyến. Tải về máy và chỉnh sửa?"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "仅适用于离线音乐，是否下载到本地后编辑？"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "僅適用於離線音樂，是否下載至本地後編輯？"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "僅適用於離線音樂，是否下載至本地後編輯？"
+          }
+        }
+      }
+    },
     "Only downloaded Apple Music songs can be read. These files are encrypted and can only be played using Apple's built-in AVPlayer. Third-party apps cannot export the original files." : {
       "extractionState" : "manual",
       "localizations" : {
@@ -84754,257 +85507,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "請確保當前設備同電腦或安卓手機連接住相同嘅 Wi-Fi ，傳輸中請唔好熄屏❗ ️"
-          }
-        }
-      }
-    },
-    "Please make sure your file contains embedded LRC lyrics." : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "يُرجى التأكد من أن ملفك يحتوي على كلمات LRC مضمّنة."
-          }
-        },
-        "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Assegura’t que el fitxer contingui lletres LRC incrustades."
-          }
-        },
-        "cs" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ujistěte se, že váš soubor obsahuje vložené texty LRC."
-          }
-        },
-        "da" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sørg for, at din fil indeholder indlejrede LRC-sangtekster."
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Stelle sicher, dass deine Datei eingebettete LRC-Liedtexte enthält."
-          }
-        },
-        "el" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Βεβαιωθείτε ότι το αρχείο σας περιέχει ενσωματωμένους στίχους LRC."
-          }
-        },
-        "en-AU" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Please make sure your file contains embedded LRC lyrics."
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Please make sure your file contains embedded LRC lyrics."
-          }
-        },
-        "en-IN" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Please make sure your file contains embedded LRC lyrics."
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Asegúrate de que el archivo contenga letras LRC incrustadas."
-          }
-        },
-        "es-419" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Asegúrate de que el archivo contenga letras LRC incrustadas."
-          }
-        },
-        "es-US" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Asegúrate de que el archivo contenga letras LRC incrustadas."
-          }
-        },
-        "fi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Varmista, että tiedostosi sisältää upotetut LRC-sanoitukset."
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Assurez-vous que votre fichier contient des paroles LRC intégrées."
-          }
-        },
-        "fr-CA" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Assurez-vous que votre fichier contient des paroles LRC intégrées."
-          }
-        },
-        "he" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ודאו שהקובץ שלכם מכיל מילות שיר LRC מוטמעות."
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "कृपया सुनिश्चित करें कि आपकी फ़ाइल में LRC लिरिक्स एम्बेडेड हैं।"
-          }
-        },
-        "hr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Provjerite sadrži li vaša datoteka ugrađene LRC tekstove."
-          }
-        },
-        "hu" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Győződjön meg róla, hogy a fájlja beágyazott LRC-dalszöveget tartalmaz."
-          }
-        },
-        "id" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Pastikan file Anda berisi lirik LRC yang disematkan."
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Assicurati che il file contenga testi LRC incorporati."
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ファイルにLRC歌詞が埋め込まれていることを確認してください"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "파일에 LRC 가사가 삽입되어 있는지 확인해 주세요."
-          }
-        },
-        "ms" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sila pastikan fail anda mengandungi lirik LRC yang terbenam."
-          }
-        },
-        "nb" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sørg for at filen inneholder innebygde LRC-sangtekster."
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Zorg ervoor dat je bestand ingesloten LRC-songteksten bevat."
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Upewnij się, że plik zawiera osadzone teksty LRC."
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Verifique se o arquivo contém letras LRC incorporadas."
-          }
-        },
-        "pt-PT" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Certifique-se de que o ficheiro contém letras LRC incorporadas."
-          }
-        },
-        "ro" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Asigurați-vă că fișierul conține versuri LRC încorporate."
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Убедитесь, что в вашем файле встроены тексты LRC."
-          }
-        },
-        "sk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Uistite sa, že váš súbor obsahuje vložené texty LRC."
-          }
-        },
-        "sl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Prepričajte se, da datoteka vsebuje vdelana besedila LRC."
-          }
-        },
-        "sv" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Se till att filen innehåller inbäddade LRC-låttexter."
-          }
-        },
-        "th" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "โปรดตรวจสอบว่าไฟล์ของคุณมีเนื้อเพลง LRC ฝังอยู่"
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Lütfen dosyanızda gömülü LRC şarkı sözlerinin bulunduğundan emin olun."
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Переконайтеся, що у вашому файлі вбудовано текст LRC."
-          }
-        },
-        "vi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Hãy đảm bảo tệp của bạn có lời bài hát LRC được nhúng."
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "请确保您的文件已经内嵌了 LRC 歌词"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "請確保您的檔案已內嵌 LRC 歌詞"
-          }
-        },
-        "zh-HK" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "請確保你的檔案已內嵌 LRC 歌詞"
           }
         }
       }
@@ -126305,7 +126807,7 @@
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "ウェイク音楽"
+            "value" : "Wake Music"
           }
         },
         "ko" : {
@@ -131691,6 +132193,257 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "您已成功連接一個雲端服務！升級到高級版，即可解鎖「多雲聚合」功能，無限制連接 WebDAV、Navidrome 及第三方網盤，打造您的專屬全媒體音樂中心。"
+          }
+        }
+      }
+    },
+    "Your free trial is almost over! Enjoying our auto-tagging algorithm? Upgrade to Lifetime Premium with a one-time purchase for permanent access." : {
+      "extractionState" : "pasted",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "نُسختك التجريبية المجانية على وشك الانتهاء! إذا كنت راضيًا عن الخوارزمية الخاصة بنا، فنوصيك بالترقية إلى النسخة المتميزة مدى الحياة بشرائها لمرة واحدة."
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La teva prova gratuïta està a punt d'acabar! Si t'agrada com funciona el nostre algorisme, passa't a la versió Premium de per vida amb un pagament únic."
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vaše bezplatná zkušební verze brzy skončí! Pokud jste s naším algoritmem spokojeni, doplňte si doživotní Premium jednorázovým nákupem."
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Din gratis prøveperiode er ved at udløbe! Er du tilfreds med vores algoritme? Opgrader til Lifetime Premium med et engangskøb for livslang adgang."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ihre kostenlose Testphase läuft bald ab! Zufrieden mit unserem Algorithmus? Upgraden Sie mit einem einmaligen Kauf auf die lebenslange Premium-Version."
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Η δωρεάν δοκιμή σας ολοκληρώνεται σύντομα! Αν είστε ικανοποιημένοι με τον αλγόριθμό μας, αναβαθμίστε σε Lifetime Premium με μια εφάπαξ αγορά."
+          }
+        },
+        "en-AU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your free trial is ending soon! Happy with how our algorithm tags your tracks? Upgrade to Lifetime Premium for a single purchase with unlimited lifetime access."
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your free trial is almost up! Happy with the results from our tagging algorithm? Upgrade to Lifetime Premium with a single, one-off purchase."
+          }
+        },
+        "en-IN" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your free trial is about to end! If you're happy with our recognition algorithm, upgrade to Lifetime Premium with a one-time payment."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¡Tu prueba gratuita está a punto de terminar! Si estás satisfecho con nuestro algoritmo, pásate al Premium de por vida con un pago único."
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¡Tu prueba gratuita está por terminar! Si te gustó nuestro algoritmo, actualízate a Premium de por vida con una compra única."
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¡Tu período de prueba gratis está por vencer! Si estás satisfecho con nuestro algoritmo, obtén el Premium De Por Vida con un solo pago."
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ilmainen kokeilujaksosi on päättymässä! Jos olet tyytyväinen algoritmiimme, päivitä kerralla ostettavaan elinikäiseen Premium-versioon."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Votre essai gratuit touche à sa fin ! Si notre algorithme vous convient, optez pour la version Premium à vie avec un achat unique."
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Votre essai gratuit s'achève bientôt ! Satisfait de notre algorithme ? Passez à la version Premium à vie grâce à un achat unique."
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "תקופת הניסיון בחינם עומדת להסתיים! מרוצים מהאלגוריתם שלנו? שדרגו לגרסת פרימיום לכל החיים ברכישה חד-פעמית."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "आपका फ़्री ट्रायल जल्द खत्म होने वाला है! अगर आपको हमारा एल्गोरिदम पसंद आया, तो एक बार के भुगतान से लाइफटाइम प्रीमियम में अपग्रेड करें।"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Besplatno probno razdoblje uskoro završava! Ako ste zadovoljni našim algoritmom, nadogradite na Lifetime Premium uz jednokratnu kupnju."
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A ingyenes próbaidőszak hamarosan lejár! Ha elégedett az algoritmusunkkal, váltson az egyszeri vásárlással elérhető örökös Premium verzióra."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Masa uji coba gratis Anda hampir berakhir! Jika Anda puas dengan algoritma kami, tingkatkan ke Premium Seumur Hidup dengan sekali bayar."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La tua prova gratuita sta per scadere! Se sei soddisfatto del nostro algoritmo, passa a Premium a Vita con un acquisto unico."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "無料体験期間がまもなく終了します！タグ自動編集アルゴリズムにご満足いただけましたら、追加料金のない1回払いの「買い切り永久プレミアム」へのアップグレードがおすすめです。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "무료 체험 기간이 곧 종료됩니다! 자동 편집 알고리즘에 만족하셨다면, 추가 구독료 없는 1회 결제 영구 평생 프리미엄으로 업그레이드해 보세요."
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Percubaan percuma anda akan tamat tidak lama lagi! Jika anda berpuas hati dengan algoritma kami, tingkatkan ke Premium Seumur Hidup dengan satu kali pembelian."
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Din gratis prøveperiode utløper snart! Fornøyd med algoritmen vår? Oppgrader til Lifetime Premium med et engangskjøp."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Je gratis proefperiode loopt bijna af! Blij met ons algoritme? Upgrade naar Lifetime Premium met een eenmalige aankoop voor permanente toegang."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Twój darmowy okres próbny dobiega końca! Jeśli podoba Ci się nasz algorytm, przejdź na wersję Lifetime Premium dzięki jednorazowemu zakupowi."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Seu período de teste gratuito está quase acabando! Se você gostou do nosso algoritmo, mude para o Premium Vitalício com uma compra única."
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O seu teste gratuito está prestes a terminar! Se está satisfeito com o nosso algoritmo, mude para a versão Premium Vitalícia com uma compra única."
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Perioada de probă gratuită se apropie de sfârșit! Dacă ești mulțumit de algoritmul nostru, treci la Premium pe Viață printr-o achiziție unică."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Бесплатный пробный период скоро закончится! Если вам нравится наш алгоритм, перейдите на пожизненную Premium-версию с разовой оплатой."
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vaše bezplatné skúšobné obdobie sa čoskoro skončí! Ak ste s naším algoritmom spokojní, prejdite na doživotné Premium s jednorazovou platbou."
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vaše brezplačno preizkusno obdobje se kmalu izteče! Če ste zadovoljni z našim algoritmom, nadgradite na doživljenjski Premium z enkratnim nakupom."
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Din kostnadsfria provperiod går snart ut! Nöjd med vår algoritm? Uppgradera till Lifetime Premium med ett engångsköp för permanent åtkomst."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ช่วงทดลองใช้งานฟรีใกล้จะหมดลงแล้ว! หากคุณพึงพอใจกับอัลกอริทึมของเรา แนะนำให้อัปเกรดเป็นเวอร์ชันพรีเมียมตลอดชีพด้วยการชำระเงินเพียงครั้งเดียว"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ücretsiz deneme süreniz bitmek üzere! Algoritmamızdan memnunsanız, tek seferlik ödeme ile Ömür Boyu Premium'a yükseltin."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Безкоштовний пробний період добігає кінця! Якщо вам подобається наш алгоритм, оновіться до довічної Premium-версії за допомогою разової покупки."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dùng thử miễn phí sắp hết hạn! Nếu bạn hài lòng với thuật toán của chúng tôi, hãy nâng cấp lên bản Premium Trọn Đời chỉ với một lần thanh toán."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "免费试用即将结束！如果您对我们的算法还满意，建议升级到一次性买断、永久有效的终身高级版。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "免費試用即將結束！如果您對我們的辨識演算法感到滿意，建議升級至一次性付款、永久有效的終身高級版。"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "免費試用即將結束！如果你對我哋嘅識別演算法滿意，建議升級至一次性買斷、永久生效嘅終身高級版。"
           }
         }
       }

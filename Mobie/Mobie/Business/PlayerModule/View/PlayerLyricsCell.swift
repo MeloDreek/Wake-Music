@@ -253,10 +253,10 @@ class NoneLyriclistView: UIView {
         
         emptyImgView.image =  Reasource.systemNamed("exclamationmark.triangle.fill", color: .orange)
         titleLabel.text = "No Embedded Lyrics in This Song".localStr()
-        let emptyText = "Please make sure your file contains embedded LRC lyrics.".localStr()
+        let emptyText = "Built for lifelong music collections, Wake Music prioritizes embedded LRC lyrics over unreliable online matching. Please complete your missing metadata with our Music Tag Editor.".localStr()
         
         messaleLabel.text = emptyText
-        upgradeButton.setTitle("Auto Search LRC".localStr(), for: .normal)
+        upgradeButton.setTitle("Edit Embedded Lyrics".localStr(), for: .normal)
         
         self.layoutIfNeeded()
         

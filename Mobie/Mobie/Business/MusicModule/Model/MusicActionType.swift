@@ -96,7 +96,7 @@ enum MusicActionType {
             return Reasource.systemNamed("minus.circle")
             
         case .coverArt:
-            return UserInfoManager.shared.isVIP() ? UIImage(systemName: "photo.on.rectangle") : UIImage(named: "pro_crown")
+            return UIImage(systemName: "photo.on.rectangle")
         case .title:
             return UIImage(systemName: "at")
         case .artist, .artistDetial:

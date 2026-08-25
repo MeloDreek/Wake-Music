@@ -236,7 +236,7 @@ extension MusicPlayerViewController {
 #endif
     }
     
-    // 前往音乐标签
+    // 前往音乐标签编辑器
     @objc func presentMusicTagController() {
         guard var model = KakaMusicPlayer.shared.playingMusic else { return }
         
@@ -244,14 +244,24 @@ extension MusicPlayerViewController {
             model.mediaPlayURL = cacheURL
         }
         
-        if !model.mediaPlayURL.isFileURL && model.fileSourceType != .demoFile {
-            self.view.makeToast("Currently available for local files only".localStr())
+        if model.fileSourceType == .demoFile {
+            self.view.kaka_playShakeAnim()
+            return
+        }
+        
+        if !model.mediaPlayURL.isFileURL {
+            self.showTwoAlert(message: "Only available for offline music. Download to local storage and edit?".localStr(), confirm: "Download".localStr()) {
+                DownloadManager.shared.addMusicModel([model])
+                self.view.makeToast("Added to Downloads".localStr())
+            }
             return
         }
 
         let tagVC = MusicTagEditorController(model)
-        tagVC.onEditCallback = { (editModel) in
+        tagVC.onEditCallback = { [weak self] (editModel) in
             KakaMusicPlayer.shared.updateNowPlayingInfo(musicModel: editModel)
+            self?.collectionView.reloadData()
+            self?.refreshUIViewAction()
         }
         let navVC = KakaNavigationController(rootViewController: tagVC)
         navVC.modalPresentationStyle = kaka_IsiPad() ? .fullScreen : .automatic
@@ -260,15 +270,18 @@ extension MusicPlayerViewController {
     
     // 添加到歌单
     @objc func addToLocalPlaylist() {
-        guard let playingMusic = KakaMusicPlayer.shared.playingMusic else { return }
+        guard let model = KakaMusicPlayer.shared.playingMusic else { return }
         
-        if playingMusic.fileSourceType == .demoFile {
-            self.view.makeToast("Currently available for local files only".localStr())
+        if model.fileSourceType == .demoFile {
+            self.view.kaka_playShakeAnim()
             return
         }
         
-        if !playingMusic.mediaPlayURL.isFileURL && playingMusic.fileSourceType != .demoFile {
-            self.view.makeToast("Currently available for local files only".localStr())
+        if !model.mediaPlayURL.isFileURL {
+            self.showTwoAlert(message: "Only available for offline music. Download to local storage and edit?".localStr(), confirm: "Download".localStr()) {
+                DownloadManager.shared.addMusicModel([model])
+                self.view.makeToast("Added to Downloads".localStr())
+            }
             return
         }
         
@@ -276,10 +289,10 @@ extension MusicPlayerViewController {
         playlist.onLocalBlock = { [weak self] (folderURL) in
             guard let wSelf = self else { return }
             do {
-                let downloadName = playingMusic.filePathName() + playingMusic.addPathExtension()
+                let downloadName = model.filePathName() + model.addPathExtension()
                 
                 let targetURL = folderURL.appendingPathComponent(downloadName)
-                try FileManager.default.moveItem(at: playingMusic.mediaPlayURL, to: targetURL)
+                try FileManager.default.moveItem(at: model.mediaPlayURL, to: targetURL)
                 self?.view.makeToast("Successful".localStr())
             } catch {
                 wSelf.view.makeToast(error.localizedDescription)

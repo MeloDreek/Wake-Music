@@ -59,6 +59,10 @@ class MusicTagEditorController: SuperViewController {
             return
         }
         
+        if self.isPresent() {
+            self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelButtonClick))
+        }
+        
 //#if DEBUG
 //        if let origialModel = self.origialModel {
 //            let fileURL = origialModel.mediaPlayURL

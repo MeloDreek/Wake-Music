@@ -148,7 +148,7 @@ class BatchEditSuccessController: SuperViewController {
         let isGuideScore = totalCount >= 5 && successRate >= 0.75
         
         self.isGuideScore = isGuideScore
-        self.rateButton.setTitle(isGuideScore ? "Rate on the App Store".localStr() : "Share with Friends".localStr(), for: .normal)
+        self.rateButton.setTitle(isGuideScore ? "Rate Us 5 Stars".localStr() : "Share with Friends".localStr(), for: .normal)
         
         self.achieveCardView.updateComplete(time: time, totalCount: totalCount, missingTagCount: misstagCount, isGuideScore: isGuideScore)
     }

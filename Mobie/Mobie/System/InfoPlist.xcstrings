@@ -640,13 +640,13 @@
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "ウェイク音楽"
+            "value" : "Wake Music"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "웨이크음악"
+            "value" : "Wake Music"
           }
         },
         "ms" : {
@@ -694,7 +694,7 @@
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Уэйк Музыка"
+            "value" : "Wake Music"
           }
         },
         "sk" : {
@@ -898,13 +898,13 @@
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "ウェイク音楽"
+            "value" : "Wake Music"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "웨이크음악"
+            "value" : "Wake Music"
           }
         },
         "ms" : {
@@ -952,7 +952,7 @@
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Уэйк Музыка"
+            "value" : "Wake Music"
           }
         },
         "sk" : {

@@ -9,9 +9,9 @@ import Foundation
 
 enum PlayerGroupStyle: Int {
     case basic = 0
-    case vinyl = 1
-    case tape = 2
+    case vinyl
+    case tape
     
-    case listLyric = 3
-    case bigLyrics = 4
+    case listLyric
+    case bigLyrics
 }

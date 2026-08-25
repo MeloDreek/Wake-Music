@@ -74,6 +74,20 @@ extension MusicPlayerViewController: UICollectionViewDataSource, UICollectionVie
     }
     
     func lyricCollectionCellClick(_ isShowBigLyric: Bool) {
+        
+        let status = KakaMusicPlayer.shared.playbackStatus
+        
+        debugPrint("status = \(status)")
+        
+        if status == .preparing || status == .buffering || status == .error {
+            self.playDefaultControl.loadingView.kaka_playShakeAnim()
+            self.playDefaultControl.playButton.kaka_playShakeAnim()
+            
+            self.playTapeControl.loadingView.kaka_playShakeAnim()
+            self.playTapeControl.playButton.kaka_playShakeAnim()
+            return
+        }
+        
         self.collectionView.contentOffset = CGPoint(x: isShowBigLyric ? self.flowLayout.itemSize.width : 0, y: 0)
         
 //        DispatchQueue.main.asyncAfter(wallDeadline: .now() + 0.01) { [weak self] () in

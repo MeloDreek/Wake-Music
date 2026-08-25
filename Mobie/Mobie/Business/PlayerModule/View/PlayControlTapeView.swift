@@ -334,19 +334,21 @@ class PlayControlTapeView: UIView {
             guard let wSelf = self else { return }
             wSelf.delegate?.playerBasicCellDidMusicEditor(basicView: wSelf)
         }
-        let playlistAction = UIAction(title: MusicActionType.addPlaylist.titleStr(), image: MusicActionType.addPlaylist.iconImage()) { [weak self] _ in
-            guard let wSelf = self else { return }
-            wSelf.delegate?.playerSubViewDidClickAddPlaylisy(baseView: wSelf)
-        }
+//        let playlistAction = UIAction(title: MusicActionType.addPlaylist.titleStr(), image: MusicActionType.addPlaylist.iconImage()) { [weak self] _ in
+//            guard let wSelf = self else { return }
+//            wSelf.delegate?.playerSubViewDidClickAddPlaylisy(baseView: wSelf)
+//        }
         let isLike = KakaMusicPlayer.shared.playingMusic?.isFlagFavorite() ?? false
+        let isLocal = KakaMusicPlayer.shared.playingMusic?.isLocalFile() ?? false
+
         let likeType = isLike ? MusicActionType.removeFavirote : MusicActionType.addFavirote
-        let likeAction = UIAction(title: likeType.titleStr(), image: likeType.iconImage()) { [weak self] _ in
+        let likeAction = UIAction(title: likeType.titleStr(), image: likeType.iconImage(), attributes: isLocal ? [] : [.disabled], state: .off,) { [weak self] _ in
             guard let wSelf = self else { return }
             wSelf.delegate?.playerSubViewDidClickFavorite(baseView: wSelf)
             wSelf.moreButton.menu = wSelf.moreMenu()
         }
         
-        let musictagMenu = UIMenu(title: "", options: .displayInline, children: [audiofingerAction, musictagAction, playlistAction, likeAction])
+        let musictagMenu = UIMenu(title: "", options: .displayInline, children: [audiofingerAction, musictagAction, likeAction])
         
         // 2️⃣ 播放器内核、播放器样式、播放器背景
         let engineAction = UIAction(title: "Playback Engine".localStr(), image: UIImage(systemName: "play.rectangle"), identifier: nil, discoverabilityTitle: nil, attributes: [], state: .off, handler: { [weak self] _ in
@@ -364,10 +366,10 @@ class PlayControlTapeView: UIView {
             wSelf.delegate?.playerBasicCellDidPlayerBackground(basicView: wSelf)
         })
         
-        let lyricsetAction = UIAction(title: "Lyrics Settings".localStr(), image: UIImage(systemName: "slider.vertical.3"), identifier: nil, discoverabilityTitle: nil, attributes: [], state: .off, handler: { [weak self] _ in
-            guard let wSelf = self else { return }
-            wSelf.delegate?.playerBasicCellDidLyricSettings(basicView: wSelf)
-        })
+//        let lyricsetAction = UIAction(title: "Lyrics Settings".localStr(), image: UIImage(systemName: "slider.vertical.3"), identifier: nil, discoverabilityTitle: nil, attributes: [], state: .off, handler: { [weak self] _ in
+//            guard let wSelf = self else { return }
+//            wSelf.delegate?.playerBasicCellDidLyricSettings(basicView: wSelf)
+//        })
         
         let isShowAudioTag = AppLocalManager.shared.isShowAudioTag
         let showTagAction = UIAction(title: "Show Audio Information".localStr(), image: isShowAudioTag ? nil : UIImage(systemName: "tag.slash"), identifier: nil, discoverabilityTitle: nil, attributes: [], state: isShowAudioTag ? .on : .off, handler: { [weak self] _ in
@@ -375,14 +377,14 @@ class PlayControlTapeView: UIView {
             self?.moreButton.menu = self?.moreMenu()
         })
         
-        let playStylegMenu = UIMenu(title: "", options: .displayInline, children: [engineAction, playerAction, playbackAction, lyricsetAction, showTagAction])
+        let playStylegMenu = UIMenu(title: "", options: .displayInline, children: [engineAction, playerAction, playbackAction, showTagAction])
         
         // 3️⃣ 睡眠计时器，下载，倍数
         let sleepAction = UIAction(title: "Sleep Timer".localStr(), image: UIImage(systemName: "clock.arrow.circlepath"), identifier: nil, discoverabilityTitle: nil, attributes: [], state: .off, handler: { [weak self] _ in
             self?.setupSleepTimer()
         })
         
-        let downloadAction = UIAction(title: "Download".localStr(), image: UIImage(systemName: "square.and.arrow.down"), identifier: nil, discoverabilityTitle: nil, attributes: (KakaMusicPlayer.shared.playingMusic?.isLocalFile() ?? true) ? [.disabled] : [], state: .off, handler: { [weak self] _ in
+        let downloadAction = UIAction(title: "Download".localStr(), image: UIImage(systemName: "square.and.arrow.down"), attributes: isLocal ? [.disabled] : [], state: .off, handler: { [weak self] _ in
             self?.addDownloadQueue()
         })
         
