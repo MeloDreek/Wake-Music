@@ -259,8 +259,8 @@ extension MusicPlayerViewController {
 
         let tagVC = MusicTagEditorController(model)
         tagVC.onEditCallback = { [weak self] (editModel) in
+            KakaMusicPlayer.shared.playingMusic = editModel
             KakaMusicPlayer.shared.updateNowPlayingInfo(musicModel: editModel)
-            self?.collectionView.reloadData()
             self?.refreshUIViewAction()
         }
         let navVC = KakaNavigationController(rootViewController: tagVC)

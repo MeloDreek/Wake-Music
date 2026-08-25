@@ -149,7 +149,7 @@ public struct LyricConfigModel: SmartCodableX {
     public var isShowMiniLyric: Bool = true
     
     /// 迷你歌词动画
-    public var miniLyricAnimation: MiniLyricAnimation = .anvil
+    public var miniLyricAnimation: MiniLyricAnimation = .random
     
     /// 低电量模式
     public var isLowPowerMode: Bool = true

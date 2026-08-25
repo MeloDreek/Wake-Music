@@ -126,7 +126,6 @@ extension MusicPlayerViewController: PlayerSubViewDelegate {
         let recognizerVC = AudioMatchTagViewController(model)
         recognizerVC.onEditCallback = { [weak self] (newModel) in
             KakaMusicPlayer.shared.playingMusic = newModel
-            self?.collectionView.reloadData()
             self?.refreshUIViewAction()
         }
         let navVC = KakaNavigationController(rootViewController: recognizerVC)

@@ -71,7 +71,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let playerStyle = MusicConfigManager.shared.playerStyle
         if playerStyle.isTapeStyle() || playerStyle.isVinylStyle() {
-            MusicConfigManager.shared.playerStyle = .defaultCircle
+            MusicConfigManager.shared.playerStyle = .defaultRect
         }
         
         var defaultModel = MusicConfigManager.shared.playbackModel
