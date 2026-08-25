@@ -326,11 +326,12 @@ class PlayControlTapeView: UIView {
     func moreMenu() -> UIMenu {
         
         // 1️⃣ 音频指纹、音乐标签编辑器
-        let audiofingerAction = UIAction(title: MusicActionType.audioFinger.titleStr(), image: MusicActionType.audioFinger.iconImage()) { [weak self] _ in
+        let audioFingerAction = UIAction(title: MusicActionType.audioFinger.titleStr(), image: UIImage(systemName: "touchid")) { [weak self] _ in
             guard let wSelf = self else { return }
             wSelf.delegate?.playerBasicCellDidAudioFinger(basicView: wSelf)
         }
-        let musictagAction = UIAction(title: "Music Tag Editor".localStr(), image: MusicActionType.musictag.iconImage()) { [weak self] _ in
+        
+        let musictagAction = UIAction(title: "Music Tag Editor".localStr(), image: UIImage(systemName: "tag")) { [weak self] _ in
             guard let wSelf = self else { return }
             wSelf.delegate?.playerBasicCellDidMusicEditor(basicView: wSelf)
         }
@@ -342,13 +343,15 @@ class PlayControlTapeView: UIView {
         let isLocal = KakaMusicPlayer.shared.playingMusic?.isLocalFile() ?? false
 
         let likeType = isLike ? MusicActionType.removeFavirote : MusicActionType.addFavirote
-        let likeAction = UIAction(title: likeType.titleStr(), image: likeType.iconImage(), attributes: isLocal ? [] : [.disabled], state: .off,) { [weak self] _ in
+        let likeImage = UIImage(systemName: isLike ? "heart.fill" : "heart")
+
+        let likeAction = UIAction(title: likeType.titleStr(), image: likeImage, attributes: isLocal ? [] : [.disabled], state: .off,) { [weak self] _ in
             guard let wSelf = self else { return }
             wSelf.delegate?.playerSubViewDidClickFavorite(baseView: wSelf)
             wSelf.moreButton.menu = wSelf.moreMenu()
         }
         
-        let musictagMenu = UIMenu(title: "", options: .displayInline, children: [audiofingerAction, musictagAction, likeAction])
+        let musictagMenu = UIMenu(title: "", options: .displayInline, children: [audioFingerAction, musictagAction, likeAction])
         
         // 2️⃣ 播放器内核、播放器样式、播放器背景
         let engineAction = UIAction(title: "Playback Engine".localStr(), image: UIImage(systemName: "play.rectangle"), identifier: nil, discoverabilityTitle: nil, attributes: [], state: .off, handler: { [weak self] _ in

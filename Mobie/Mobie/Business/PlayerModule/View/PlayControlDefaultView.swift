@@ -395,7 +395,7 @@ class PlayControlDefaultView: UIView {
 //        }
 //    }
     
-#if targetEnvironment(macCatalyst)
+//#if targetEnvironment(macCatalyst)
     lazy var sliderView: KakSliderControl = {
         let view = KakSliderControl()
         view.overrideUserInterfaceStyle = .dark
@@ -403,47 +403,46 @@ class PlayControlDefaultView: UIView {
         view.value = 0
         view.defaultTrackColor = .secondarySystemFill // 进度条背景色
         view.enlargedTrackColor = .systemFill
-        view.defaultProgressColor = .secondaryLabel
-        view.enlargedProgressColor = .label
+        view.defaultProgressColor = .label // 默认的进度颜色
+        view.enlargedProgressColor = .label // 拖动时的进度颜色
         view.valuePublisher.sink { progress in
-                let progress = TimeInterval(progress)
-                
-                let playTime = KakaMusicPlayer.shared.playerView.totalTime * progress
-                if KakaMusicPlayer.shared.isPlaying {
-                    KakaMusicPlayer.shared.seek(time: playTime)
-                }else{
-                    KakaMusicPlayer.shared.play()
-                }
+            let progress = TimeInterval(progress)
+            
+            let playTime = KakaMusicPlayer.shared.playerView.totalTime * progress
+            if KakaMusicPlayer.shared.isPlaying {
+                KakaMusicPlayer.shared.seek(time: playTime)
+            }else{
+                KakaMusicPlayer.shared.play()
             }
-            .store(in: &cancellables)
+        }.store(in: &cancellables)
         return view
     }()
     
-#else
-
-    lazy var sliderView: UISlider = {
-        
-        let view = UISlider()
-        view.minimumValue = 0
-        view.maximumValue = 1
-        view.value = 0
-        view.addTarget(self, action: #selector(sliderViewVauleChanged(_:)), for: .valueChanged)
-        view.addTarget(self, action: #selector(sliderViewEndTouchup(_:)), for: .touchUpInside)
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(sliderTapped(_:)))
-        view.addGestureRecognizer(tapGesture)
-        
-        let config1 = UIImage.SymbolConfiguration(pointSize: 10.ckValue(), weight: .light)
-        let image1 = Reasource.systemNamed("circle.fill", color: .white, config: config1)
-        
-        let config2 = UIImage.SymbolConfiguration(pointSize: 20.ckValue(), weight: .light)
-        let image2 = Reasource.systemNamed("circle.fill", color: .white, config: config2)
-        
-        view.minimumTrackTintColor = .white
-        view.setThumbImage(image1, for: .normal)
-        view.setThumbImage(image2, for: .highlighted)
-        return view
-    }()
-#endif
+//#else
+//
+//    lazy var sliderView: UISlider = {
+//        
+//        let view = UISlider()
+//        view.minimumValue = 0
+//        view.maximumValue = 1
+//        view.value = 0
+//        view.addTarget(self, action: #selector(sliderViewVauleChanged(_:)), for: .valueChanged)
+//        view.addTarget(self, action: #selector(sliderViewEndTouchup(_:)), for: .touchUpInside)
+//        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(sliderTapped(_:)))
+//        view.addGestureRecognizer(tapGesture)
+//        
+//        let config1 = UIImage.SymbolConfiguration(pointSize: 10.ckValue(), weight: .light)
+//        let image1 = Reasource.systemNamed("circle.fill", color: .white, config: config1)
+//        
+//        let config2 = UIImage.SymbolConfiguration(pointSize: 20.ckValue(), weight: .light)
+//        let image2 = Reasource.systemNamed("circle.fill", color: .white, config: config2)
+//        
+//        view.minimumTrackTintColor = .white
+//        view.setThumbImage(image1, for: .normal)
+//        view.setThumbImage(image2, for: .highlighted)
+//        return view
+//    }()
+//#endif
     
     lazy var currentTimeLabel: UILabel = {
         let isRTL = UIView.userInterfaceLayoutDirection(for: self.semanticContentAttribute) == .rightToLeft
@@ -491,12 +490,12 @@ class PlayControlDefaultView: UIView {
     func moreMenu() -> UIMenu {
         
         // 1️⃣ 音频指纹识别、音乐标签编辑器、喜欢、添加到歌单
-        let audioFingerAction = UIAction(title: MusicActionType.audioFinger.titleStr(), image: MusicActionType.audioFinger.iconImage()) { [weak self] _ in
+        let audioFingerAction = UIAction(title: MusicActionType.audioFinger.titleStr(), image: UIImage(systemName: "touchid")) { [weak self] _ in
             guard let wSelf = self else { return }
             wSelf.delegate?.playerBasicCellDidAudioFinger(basicView: wSelf)
         }
         
-        let musictagAction = UIAction(title: "Music Tag Editor".localStr(), image: MusicActionType.musictag.iconImage()) { [weak self] _ in
+        let musictagAction = UIAction(title: "Music Tag Editor".localStr(), image: UIImage(systemName: "tag")) { [weak self] _ in
             guard let wSelf = self else { return }
             wSelf.delegate?.playerBasicCellDidMusicEditor(basicView: wSelf)
         }
@@ -505,9 +504,12 @@ class PlayControlDefaultView: UIView {
 //            wSelf.delegate?.playerSubViewDidClickAddPlaylisy(baseView: wSelf)
 //        }
         let isLike = KakaMusicPlayer.shared.playingMusic?.isFlagFavorite() ?? false
-        let isLocal = KakaMusicPlayer.shared.playingMusic?.mediaPlayURL.isFileURL ?? false
+        let isLocal = KakaMusicPlayer.shared.playingMusic?.isLocalFile() ?? false
+        
         let likeType = isLike ? MusicActionType.removeFavirote : MusicActionType.addFavirote
-        let likeAction = UIAction(title: likeType.titleStr(), image: likeType.iconImage(), attributes: isLocal ? [] : [.disabled], state: .off,) { [weak self] _ in
+        let likeImage = UIImage(systemName: isLike ? "heart.fill" : "heart")
+        
+        let likeAction = UIAction(title: likeType.titleStr(), image: likeImage, attributes: isLocal ? [] : [.disabled], state: .off,) { [weak self] _ in
             guard let wSelf = self else { return }
             wSelf.delegate?.playerSubViewDidClickFavorite(baseView: wSelf)
             wSelf.moreButton.menu = wSelf.moreMenu()

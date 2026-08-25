@@ -142,9 +142,34 @@ extension ThemeColorViewController: UICollectionViewDataSource, UICollectionView
             window.tintColorDidChange()
         }
         
-        NotificationCenter.default.post(name: Notification.Name(kAppThemeColorChangedKey), object: themeColor)
+        self.finishAllPage()
         
-        (self.navigationController ?? self).dismiss(animated: true)
+//        NotificationCenter.default.post(name: Notification.Name(kAppThemeColorChangedKey), object: themeColor)
+//        
+//        (self.navigationController ?? self).dismiss(animated: true)
+    }
+    
+    // 跳转
+    @objc func finishAllPage() {
+        self.view.isUserInteractionEnabled = false
+        AppLocalManager.shared.isFirstLaunch = false
+
+        let ani: CATransition = CATransition()
+        ani.type = CATransitionType(rawValue: "cube")
+        ani.subtype = CATransitionSubtype.fromRight
+        ani.duration = 0.35
+        ani.isRemovedOnCompletion = true
+        appKeyWindow?.layer.add(ani, forKey: nil)
+        
+        self.perform(#selector(dismissAnimation), with: nil, afterDelay: ani.duration - 0.1)
+    }
+    
+    @objc func dismissAnimation() {
+        let homeVC = kaka_IsMacOS() ? MacTabbarViewController(style: .doubleColumn) : HomeTabbarViewController()
+        let scene = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate
+        scene?.window?.rootViewController = homeVC
+        scene?.window?.makeKeyAndVisible()
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {

@@ -6,15 +6,27 @@
 //
 
 import KakaFoundation
+import AppGroupKit
 
 class AudioFingerTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        self.backgroundColor = UIColor.black
+//        self.backgroundColor = UIColor.black
+        self.backgroundColor = appMainColor
         self.selectionStyle = .default
         self.accessoryType = .disclosureIndicator
         self.accessoryView = nil
         self.overrideUserInterfaceStyle = .dark
+    }
+    
+    var appMainColor: UIColor {
+        get {
+            if ColorFontManager.shared.accentTyle == .color0 {
+                return ColorFontManager.shared.defaultType.color()
+            }else{
+                return ColorFontManager.shared.accentTyle.color()
+            }
+        }
     }
     
     required init?(coder: NSCoder) {

@@ -15,7 +15,7 @@ extension MusicTableViewCell {
     func autoTagButton() -> UIButton {
         let view = UIButton(type: .custom)
         view.size = CGSizeMake(50.ckValue(), 50.ckValue())
-        view.setImage(Reasource.systemNamed("touchid", color: .systemBlue), for: .normal)
+        view.setImage(Reasource.systemNamed("touchid", color: appMainColor), for: .normal)
         view.addTarget(self, action: #selector(autoTagButtonClick), for: .touchUpInside)
         return view
     }

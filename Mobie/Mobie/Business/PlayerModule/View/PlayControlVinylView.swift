@@ -326,12 +326,12 @@ class PlayControlVinylView: UIView {
     func moreMenu() -> UIMenu {
         
         // 1️⃣ 音频指纹识别、音乐标签编辑器
-        let audioFingerAction = UIAction(title: MusicActionType.audioFinger.titleStr(), image: MusicActionType.audioFinger.iconImage()) { [weak self] _ in
+        let audioFingerAction = UIAction(title: MusicActionType.audioFinger.titleStr(), image: UIImage(systemName: "touchid")) { [weak self] _ in
             guard let wSelf = self else { return }
             wSelf.delegate?.playerBasicCellDidAudioFinger(basicView: wSelf)
         }
         
-        let musictagAction = UIAction(title: "Music Tag Editor".localStr(), image: MusicActionType.musictag.iconImage()) { [weak self] _ in
+        let musictagAction = UIAction(title: "Music Tag Editor".localStr(), image: UIImage(systemName: "tag")) { [weak self] _ in
             guard let wSelf = self else { return }
             wSelf.delegate?.playerBasicCellDidMusicEditor(basicView: wSelf)
         }
@@ -343,7 +343,9 @@ class PlayControlVinylView: UIView {
         let isLocal = KakaMusicPlayer.shared.playingMusic?.isLocalFile() ?? false
 
         let likeType = isLike ? MusicActionType.removeFavirote : MusicActionType.addFavirote
-        let likeAction = UIAction(title: likeType.titleStr(), image: likeType.iconImage(), state: isLocal ? .on : .off) { [weak self] _ in
+        let likeImage = UIImage(systemName: isLike ? "heart.fill" : "heart")
+
+        let likeAction = UIAction(title: likeType.titleStr(), image: likeImage, state: isLocal ? .on : .off) { [weak self] _ in
             guard let wSelf = self else { return }
             wSelf.delegate?.playerSubViewDidClickFavorite(baseView: wSelf)
             wSelf.moreButton.menu = wSelf.moreMenu()

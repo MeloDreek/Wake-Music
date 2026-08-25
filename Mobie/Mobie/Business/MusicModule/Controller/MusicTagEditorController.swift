@@ -1235,7 +1235,7 @@ class MusicTagHeadCell: UITableViewCell {
     }
     
     lazy var starImgView: UIImageView = {
-        let view = UIImageView(image: UIImage(systemName: "tag.fill"))
+        let view = UIImageView(image: Reasource.systemNamed("tag.fill"))
         view.contentMode = .scaleAspectFit
         return view
     }()
