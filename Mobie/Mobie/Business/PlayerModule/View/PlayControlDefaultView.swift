@@ -14,7 +14,7 @@ import Combine
 import KSPlayer
 
 /// 底部控制层
-class PlayControlDefaultView: UIView {
+class PlayControlDefaultView: UIView, UIGestureRecognizerDelegate {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -162,7 +162,7 @@ class PlayControlDefaultView: UIView {
         KakaMusicPlayer.shared.$currentTime
             .receive(on: DispatchQueue.main)
             .sink { [weak self] currentTime in
-                self?.updateDuration(curTime: currentTime, endTime: KakaMusicPlayer.shared.totalTime)
+                self?.updateDuration(curTime: currentTime)
             }.store(in: &cancellables)
         
         // 睡眠时间
@@ -195,8 +195,19 @@ class PlayControlDefaultView: UIView {
                 }
             }.store(in: &cancellables)
         
+        // 点击切换歌词
         let clickTap = UITapGestureRecognizer(target: self, action: #selector(clickTapAction))
+        clickTap.delegate = self
         self.addGestureRecognizer(clickTap)
+    }
+    
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        // 如果点击的目标 View 是 sliderView 或其子视图，拦截父视图的手势
+        if let touchView = touch.view, touchView.isDescendant(of: sliderView) {
+            return false
+        }
+        
+        return true
     }
     
     @objc func clickTapAction() {
@@ -254,18 +265,6 @@ class PlayControlDefaultView: UIView {
         }
     }
     
-    // 更新播放时间
-    func updateDuration(curTime: TimeInterval, endTime: TimeInterval) {
-                
-        let endTime = KakaMusicPlayer.shared.totalTime
-
-        self.sliderView.value = Float(curTime / endTime)
-
-        self.currentTimeLabel.text = curTime.stringValue
-        self.totalTimeLabel.text = endTime.stringValue
-
-    }
-    
     // 睡眠计时器
     func updateSleepTime(_ sleepTime: TimeInterval) {
         
@@ -284,7 +283,7 @@ class PlayControlDefaultView: UIView {
     var curTime: TimeInterval = 0
     
     weak var delegate: PlayerSubViewDelegate?
-    
+        
     var playSize: CGFloat {
         get {
             let isPhoneLandscape = kaka_IsiPhone() && OrientationManager.shared.isLandscape
@@ -367,83 +366,60 @@ class PlayControlDefaultView: UIView {
         view.contentMode = .scaleAspectFit
         view.addTarget(self, action: #selector(playNextButtonClick(_:)), for: .touchUpInside)
         view.setImage(Reasource.systemNamed("forward.fill", color: .white, config: nextBtnConfig).flippedImage(), for: .normal)
-        
-//        // 创建双击手势识别器
-//        let doubleTap = UITapGestureRecognizer(target: self, action: #selector(playNextButtonDoubleClick(_:)))
-//        doubleTap.numberOfTapsRequired = 2 // 设置为双击
-//        
-//        let longPress = UILongPressGestureRecognizer(target: self, action: #selector(playNextButtonLongPress(_:)))
-//        longPress.minimumPressDuration = 0.5 // 设置长按持续时间为0.5秒
-//
-//        // 将手势识别器添加到按钮
-//        view.addGestureRecognizer(doubleTap)
-        
         return view
     }()
     
-//    // 双击事件处理方法
-//    @objc func playNextButtonDoubleClick(_ sender: UITapGestureRecognizer) {
-//        // 处理双击事件
-//        debugPrint("Next button double clicked")
-//    }
-//    
-//    // 长按事件处理方法
-//    @objc func playNextButtonLongPress(_ sender: UILongPressGestureRecognizer) {
-//        if sender.state == .began {
-//            // 处理长按事件
-//            debugPrint("Next button long pressed")
-//        }
-//    }
-    
-//#if targetEnvironment(macCatalyst)
     lazy var sliderView: KakSliderControl = {
         let view = KakSliderControl()
         view.overrideUserInterfaceStyle = .dark
         view.valueRange = 0...1
         view.value = 0
-        view.defaultTrackColor = .secondarySystemFill // 进度条背景色
+        view.defaultTrackColor = .secondarySystemFill
         view.enlargedTrackColor = .systemFill
-        view.defaultProgressColor = .label // 默认的进度颜色
-        view.enlargedProgressColor = .label // 拖动时的进度颜色
-        view.valuePublisher.sink { progress in
-            let progress = TimeInterval(progress)
-            
-            let playTime = KakaMusicPlayer.shared.playerView.totalTime * progress
-            if KakaMusicPlayer.shared.isPlaying {
-                KakaMusicPlayer.shared.seek(time: playTime)
-            }else{
-                KakaMusicPlayer.shared.play()
+        view.defaultProgressColor = .label
+        view.enlargedProgressColor = .label
+        
+        // 拖动/点击状态监听（仅用于日志或UI辅助状态）
+        view.onEditingChanged = { isEditing in
+            if isEditing {
+                debugPrint("用户按住进度条（点击或拖拽中）")
+            } else {
+                debugPrint("用户松开手指")
             }
-        }.store(in: &cancellables)
+        }
+        
+        // 点击松手 & 拖动松拽 都会统一且仅在松手时触发一次回调
+        view.valuePublisher
+            .sink { [weak self] progress in
+                guard let self = self else { return }
+                let progressRatio = TimeInterval(progress)
+                let totalTime = KakaMusicPlayer.shared.totalTime
+                let seekTime = totalTime * progressRatio
+                
+                debugPrint("松手 Seek 目标时间 = \(seekTime)")
+                
+                if KakaMusicPlayer.shared.isPlaying {
+                    KakaMusicPlayer.shared.seek(time: seekTime)
+                } else {
+                    KakaMusicPlayer.shared.seek(time: seekTime)
+                    KakaMusicPlayer.shared.play()
+                }
+            }
+            .store(in: &cancellables)
+            
         return view
     }()
     
-//#else
-//
-//    lazy var sliderView: UISlider = {
-//        
-//        let view = UISlider()
-//        view.minimumValue = 0
-//        view.maximumValue = 1
-//        view.value = 0
-//        view.addTarget(self, action: #selector(sliderViewVauleChanged(_:)), for: .valueChanged)
-//        view.addTarget(self, action: #selector(sliderViewEndTouchup(_:)), for: .touchUpInside)
-//        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(sliderTapped(_:)))
-//        view.addGestureRecognizer(tapGesture)
-//        
-//        let config1 = UIImage.SymbolConfiguration(pointSize: 10.ckValue(), weight: .light)
-//        let image1 = Reasource.systemNamed("circle.fill", color: .white, config: config1)
-//        
-//        let config2 = UIImage.SymbolConfiguration(pointSize: 20.ckValue(), weight: .light)
-//        let image2 = Reasource.systemNamed("circle.fill", color: .white, config: config2)
-//        
-//        view.minimumTrackTintColor = .white
-//        view.setThumbImage(image1, for: .normal)
-//        view.setThumbImage(image2, for: .highlighted)
-//        return view
-//    }()
-//#endif
-    
+    // 更新播放时间
+    func updateDuration(curTime: TimeInterval) {
+        let endTime = KakaMusicPlayer.shared.totalTime
+
+        self.currentTimeLabel.text = curTime.stringValue
+        self.totalTimeLabel.text = endTime.stringValue
+
+        self.sliderView.value = Float(curTime / endTime)
+    }
+
     lazy var currentTimeLabel: UILabel = {
         let isRTL = UIView.userInterfaceLayoutDirection(for: self.semanticContentAttribute) == .rightToLeft
 
@@ -646,53 +622,73 @@ extension PlayControlDefaultView {
         self.delegate?.playerBasicCellDidSleepTimer(basicView: self, sleepView: self.sleepTimerLabel)
     }
     
-    // 拖动进度条
-    @objc func sliderViewVauleChanged(_ sender: UISlider) {
-        let progress = sender.value
-        sender.value = progress
-                
-        // 将毫秒转换为秒
-        let totalSeconds = KakaMusicPlayer.shared.playerView.totalTime * Double(progress)
-        
-        // 计算分钟和秒
-        let minutes = Int(totalSeconds) / 60
-        let seconds = Int(totalSeconds) % 60
-        
-        self.currentTimeLabel.text = String(format: "%02d:%02d", minutes, seconds)
-    }
+//    // 拖动进度条
+//    @objc func sliderViewVauleChanged(_ sender: UISlider) {
+//        let progress = sender.value
+//        sender.value = progress
+//                
+//        // 将毫秒转换为秒
+//        let totalSeconds = KakaMusicPlayer.shared.playerView.totalTime * Double(progress)
+//        
+//        // 计算分钟和秒
+//        let minutes = Int(totalSeconds) / 60
+//        let seconds = Int(totalSeconds) % 60
+//        
+//        self.currentTimeLabel.text = String(format: "%02d:%02d", minutes, seconds)
+//    }
     
-    // 点击进度条
-    @objc func sliderTapped(_ gesture: UITapGestureRecognizer) {
-        guard let slider = gesture.view as? UISlider else { return }
-        let point = gesture.location(in: slider)
-
-        // 计算点击的横向位置占 UISlider 宽度的比例
-        let percentage = point.x / slider.bounds.width
-
-        // 计算新的值
-        let newValue = Float(percentage) * (slider.maximumValue - slider.minimumValue) + slider.minimumValue
-
-        // 设置 UISlider 的值
-        slider.setValue(newValue, animated: true)
-
-        // 如果 UISlider 控制播放进度，则在此处更新播放进度
-        self.sliderViewEndTouchup(slider)
-    }
+//    // 点击进度条
+//    @objc func sliderTapped(_ gesture: UITapGestureRecognizer) {
+//        
+//        if let slider = gesture.view as? UISlider {
+//            let point = gesture.location(in: slider)
+//
+//            // 计算点击的横向位置占 UISlider 宽度的比例
+//            let percentage = point.x / slider.bounds.width
+//
+//            // 计算新的值
+//            let newValue = Float(percentage) * (slider.maximumValue - slider.minimumValue) + slider.minimumValue
+//
+//            // 设置 UISlider 的值
+//            slider.setValue(newValue, animated: true)
+//
+//            // 如果 UISlider 控制播放进度，则在此处更新播放进度
+//            self.sliderViewEndTouchup(slider)
+//        }
+//
+//        if let slider = gesture.view as? KakSliderControl {
+//            let point = gesture.location(in: slider)
+//
+//            // 计算点击的横向位置占 UISlider 宽度的比例
+//            let percentage = point.x / slider.bounds.width
+//
+//            // 计算新的值
+//            let newValue = Float(percentage) * (slider.maximumValue - slider.minimumValue) + slider.minimumValue
+//
+//            // 设置 UISlider 的值
+//            slider.value = newValue
+//
+//            // 如果 UISlider 控制播放进度，则在此处更新播放进度
+//            self.kaka_sliderViewEndTouchup(slider)
+//        }
+//    }
     
-    // 手指松开
-    @objc func sliderViewEndTouchup(_ sender: UISlider) {
-        let progress = TimeInterval(sender.value)
-        
-        let playTime = KakaMusicPlayer.shared.playerView.totalTime * progress
-
-        debugPrint("进度 = \(progress), 时间 = \(playTime)")
-        
-        if KakaMusicPlayer.shared.isPlaying {
-            KakaMusicPlayer.shared.seek(time: playTime)
-        }else{
-            KakaMusicPlayer.shared.play()
-        }
-    }
+//    /// UISlider：手指松开
+//    @objc func sliderViewEndTouchup(_ sender: UISlider) {
+//        let progress = TimeInterval(sender.value)
+//        
+//        let playTime = KakaMusicPlayer.shared.playerView.totalTime * progress
+//
+//        debugPrint("进度 = \(progress), 时间 = \(playTime)")
+//        
+//        if KakaMusicPlayer.shared.isPlaying {
+//            KakaMusicPlayer.shared.seek(time: playTime)
+//        }else{
+//            KakaMusicPlayer.shared.play()
+//        }
+//    }
+    
+    
 
     // 播放列表
     @objc func playlistButtonClick(_ sender: UIButton) {

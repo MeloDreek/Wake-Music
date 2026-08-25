@@ -11,12 +11,12 @@ import AppGroupKit
 class AudioFingerTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-//        self.backgroundColor = UIColor.black
+        
+        self.overrideUserInterfaceStyle = .dark
         self.backgroundColor = appMainColor
         self.selectionStyle = .default
         self.accessoryType = .disclosureIndicator
         self.accessoryView = nil
-        self.overrideUserInterfaceStyle = .dark
     }
     
     var appMainColor: UIColor {
