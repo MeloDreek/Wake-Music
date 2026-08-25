@@ -18,6 +18,7 @@ class PlayControlDefaultView: UIView, UIGestureRecognizerDelegate {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+                
         self.setupSubViews()
         self.layoutSubviews()
         self.setupCusBuness()
@@ -54,7 +55,6 @@ class PlayControlDefaultView: UIView, UIGestureRecognizerDelegate {
         let timeLeading = kaka_IsMacOS() ? 36 : 15.ckValue()
         let btnSpace = (self.bounds.width - playSize * 3) / (isPhoneLandscape ? 4 : 6)
         
-        let isRTL = UIView.userInterfaceLayoutDirection(for: self.semanticContentAttribute) == .rightToLeft
         let timeLabelWidth = self.bounds.width * 0.2
         
         sliderView.frame = CGRectMake(
@@ -64,14 +64,14 @@ class PlayControlDefaultView: UIView, UIGestureRecognizerDelegate {
             20.ckValue())
 
         currentTimeLabel.frame = CGRect(
-            x: isRTL ? self.bounds.width - timeLabelWidth - timeLeading : timeLeading,
+            x: timeLeading,
             y: sliderView.frame.maxY + 5.ckValue(),
             width: timeLabelWidth,
             height: currentTimeLabel.font.lineHeight * 1.2
         )
 
         totalTimeLabel.frame = CGRect(
-            x: isRTL ? timeLeading : self.bounds.width - timeLabelWidth - timeLeading,
+            x: self.bounds.width - timeLabelWidth - timeLeading,
             y: sliderView.frame.maxY + 5.ckValue(),
             width: timeLabelWidth,
             height: currentTimeLabel.font.lineHeight * 1.2
@@ -90,12 +90,8 @@ class PlayControlDefaultView: UIView, UIGestureRecognizerDelegate {
             playSize)
         
         let btnOffset = btnSpace * (isPhoneLandscape ? 1 : 2)
-        let lastButtonX = isRTL
-            ? playButton.frame.maxX + btnOffset
-            : playButton.left - btnOffset - playButton.width
-        let nextButtonX = isRTL
-            ? playButton.left - btnOffset - playButton.width
-            : playButton.frame.maxX + btnOffset
+        let lastButtonX = playButton.left - btnOffset - playButton.width
+        let nextButtonX = playButton.frame.maxX + btnOffset
 
         lastButton.frame = CGRect(
             x: lastButtonX,
@@ -355,7 +351,7 @@ class PlayControlDefaultView: UIView, UIGestureRecognizerDelegate {
         view.frame.size = playButton.frame.size
         view.contentMode = .scaleAspectFit
         view.addTarget(self, action: #selector(playLastButtonClick(_:)), for: .touchUpInside)
-        view.setImage(Reasource.systemNamed("backward.fill", color: .white, config: nextBtnConfig).flippedImage(), for: .normal)
+        view.setImage(Reasource.systemNamed("backward.fill", color: .white, config: nextBtnConfig), for: .normal)
         return view
     }()
     
@@ -365,12 +361,13 @@ class PlayControlDefaultView: UIView, UIGestureRecognizerDelegate {
         view.frame.size = playButton.frame.size
         view.contentMode = .scaleAspectFit
         view.addTarget(self, action: #selector(playNextButtonClick(_:)), for: .touchUpInside)
-        view.setImage(Reasource.systemNamed("forward.fill", color: .white, config: nextBtnConfig).flippedImage(), for: .normal)
+        view.setImage(Reasource.systemNamed("forward.fill", color: .white, config: nextBtnConfig), for: .normal)
         return view
     }()
     
     lazy var sliderView: KakSliderControl = {
         let view = KakSliderControl()
+        view.semanticContentAttribute = .forceLeftToRight
         view.overrideUserInterfaceStyle = .dark
         view.valueRange = 0...1
         view.value = 0
@@ -421,13 +418,11 @@ class PlayControlDefaultView: UIView, UIGestureRecognizerDelegate {
     }
 
     lazy var currentTimeLabel: UILabel = {
-        let isRTL = UIView.userInterfaceLayoutDirection(for: self.semanticContentAttribute) == .rightToLeft
-
         let view = UILabel()
         view.font = UIFontLight(11.ckValue())
         view.textColor = UIColor.white.withAlphaComponent(0.5)
         view.text = "00:00"
-        view.textAlignment = isRTL ? .right : .left
+        view.textAlignment = .left
         return view
     }()
     
@@ -444,13 +439,11 @@ class PlayControlDefaultView: UIView, UIGestureRecognizerDelegate {
     }()
     
     lazy var totalTimeLabel: UILabel = {
-        let isRTL = UIView.userInterfaceLayoutDirection(for: self.semanticContentAttribute) == .rightToLeft
-
         let view = UILabel()
         view.font = currentTimeLabel.font
         view.textColor = currentTimeLabel.textColor
         view.text = "00:00"
-        view.textAlignment = isRTL ? .left : .right
+        view.textAlignment = .right
         return view
     }()
     

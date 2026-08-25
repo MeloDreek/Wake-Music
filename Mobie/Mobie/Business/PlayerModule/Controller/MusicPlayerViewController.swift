@@ -26,7 +26,7 @@ class MusicPlayerViewController: SuperViewController {
     
     override func preSetupSubViews() {
         super.preSetupSubViews()
-        
+                
         self.darkAppearanceClick()
                 
         contentView.addSubview(backView)

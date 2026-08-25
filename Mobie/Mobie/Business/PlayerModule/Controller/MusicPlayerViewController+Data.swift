@@ -77,9 +77,7 @@ extension MusicPlayerViewController: UICollectionViewDataSource, UICollectionVie
         
         guard let playingMusic = KakaMusicPlayer.shared.playingMusic else { return }
         let status = KakaMusicPlayer.shared.playbackStatus
-        
-        debugPrint("status = \(status)")
-        
+                
         if !playingMusic.isLocalFile() && (status == .preparing || status == .buffering || status == .error) {
             self.playDefaultControl.loadingView.kaka_playShakeAnim()
             self.playDefaultControl.playButton.kaka_playShakeAnim()
