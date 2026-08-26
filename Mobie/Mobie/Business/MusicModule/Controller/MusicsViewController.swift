@@ -243,19 +243,15 @@ class MusicsViewController: SuperViewController {
     /// 应该展示的头部区域
     var showHeadView: UIView? {
         get {
-            
             if self.viewModel.groupType == .musictagGroup || !self.viewModel.isBaseDoc {
-//                return self.viewModel.allMusicArray.isEmpty ? nil : self.headMusictagView
                 return self.headMusictagView
             }else{
                 let folderArray = self.viewModel.folderArray
-                return folderArray.isEmpty ? nil : self.headFolderView
+                return folderArray.isEmpty ? (kaka_IsMacOS() ? self.headMusictagView : nil) : self.headFolderView
             }
         }
     }
-    
-    
-    
+        
     lazy var premiumBarItem: UIBarButtonItem = {
         let timerView = PremiumTimerView(frame: CGRectMake(0, 0, PremiumTimerView.maxWidth(), 30.ckValue()))
         timerView.onStopCallback = { [weak self] () in

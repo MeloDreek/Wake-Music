@@ -1242,7 +1242,7 @@ class MusicTagHeadCell: UITableViewCell {
     
     lazy var titleLabel: UILabel = {
         let view = UILabel()
-        view.text = "Music tag refers to the metadata embedded in a music file, including cover image, lyrics, title, artist, album, era, genre, track, sampling rate, bit rate, etc.".localStr()
+        view.text = MeteDataCellItemType.headerTag.titleStr()
         view.numberOfLines = 0
         view.font = UIFontLight(15.ckValue())
         view.textColor = .secondaryLabel

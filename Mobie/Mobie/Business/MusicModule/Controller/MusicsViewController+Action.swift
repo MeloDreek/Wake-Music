@@ -182,10 +182,8 @@ extension MusicsViewController {
         if AudioExtension.forbiddenExtensions.contains(fileExtension) {
             let alertController = UIAlertController(title: fileExtension.uppercased(), message: "This is a proprietary encrypted audio file. Please use a third-party tool to convert it to another format.".localStr(), preferredStyle: kaka_IsiPhone() ? .actionSheet : .alert)
             let action1 = UIAlertAction(title: "Delete".localStr(), style: .destructive) { (sender) in
-                SandboxFileManager.shared.deleteMusicModels(models: [clickModel]) { [weak self] models in
-                    self?.refreshDataAction()
-                } fail: { [weak self] errorMsg in
-                    self?.refreshDataAction()
+                SandboxFileManager.shared.deleteMusicModels(models: [clickModel]) { result in
+                    self.refreshDataAction()
                 }
 
             }
@@ -213,12 +211,9 @@ extension MusicsViewController {
         
         let alertController: UIAlertController = UIAlertController(title: "Reminder".localStr(), message: "File not found. Would you like to delete it?".localStr(), preferredStyle: kaka_IsiPhone() ? .actionSheet : .alert)
         let action1 = UIAlertAction(title: "Delete".localStr(), style: .destructive) { (sender) in
-            SandboxFileManager.shared.deleteMusicModels(models: [model]) { [weak self] models in
-                self?.refreshDataAction()
-            } fail: { [weak self] errorMsg in
-                self?.refreshDataAction()
+            SandboxFileManager.shared.deleteMusicModels(models: [model]) { result in
+                self.refreshDataAction()
             }
-
         }
         let action2 = UIAlertAction(title: "Cancel".localStr(), style: .cancel)
         
@@ -289,23 +284,81 @@ extension MusicsViewController {
     
     /// 3️⃣ 删除歌曲
     func deleteMusicModel(_ models: [MusicItemModel]) {
-        self.showTwoAlert(message: "Files cannot be recovered after deletion.".localStr(), confirm: "Delete".localStr(), cancle: "Cancel".localStr(), style: kaka_IsiPhone() ? .actionSheet : .alert) {
-            SandboxFileManager.shared.deleteMusicModels(models: models) { [weak self] models in
-                guard let wSelf = self else { return }
-                for subModel in models {
-                    if KakaMusicPlayer.shared.playingMusic == subModel {
-                        KakaMusicPlayer.shared.stop()
-                        KakaMusicPlayer.shared.playingMusic = nil
-                        
-                        KakaMusicPlayer.shared.playingMusic = MusicItemModel.demoMusicModel()
-                    }
-                    
-                    KakaMusicPlayer.shared.removeOneMusicModel(subModel)
+        
+#if targetEnvironment(macCatalyst)
+        let message = "Move to Trash or Remove Reference?".localStr()
+        let action1 = AlertActionConfig(title: "Move to Trash".localStr(), style: .destructive, actionType: .first)
+        let action2 = AlertActionConfig(title: "Remove Reference".localStr(), style: .default, actionType: .second)
+        self.showThreeAlert(message: message, btn1: action1, btn2: action2) { [weak self] actionType in
+            if actionType == .first {
+                self?.showTwoAlert(message: "Are you sure to delete it?".localStr(), confirm: "Delete".localStr(), style: kaka_IsiPhone() ? .actionSheet : .alert) {
+                    self?.moveToTrashAction(models)
                 }
-                self?.refreshDataAction()
+            }else{
+                let urlArray = models.map { $0.mediaPlayURL }
+                AppLocalManager.shared.removeBookmark(fileURLs: urlArray) { result in
+                    switch result {
+                    case .success(_):
+                        self?.refreshDataAction()
+                        self?.perform(#selector(self?.stopEditBarClick), with: nil, afterDelay: 2)
+                        break
+                    case .failure(let failure):
+                        switch failure {
+                        case .partialOrTotalFailure(let success, let unnecessary, let failed):
+                            var messageLines: [String] = []
+                                    
+                            if !success.isEmpty {
+                                let str1 = String(format: "✅ Successfully removed %d external references".localStr(), success.count)
+                                messageLines.append(str1)
+                            }
+                            
+                            if !unnecessary.isEmpty {
+                                // 优雅包装：告诉用户这是系统原生目录，本身就很安全
+                                let str2 = String(format: "ℹ️ Skipped %d system native files (already have permanent access, no unlinking needed)".localStr(), unnecessary.count)
+                                messageLines.append(str2)
+                            }
+                            
+                            if !failed.isEmpty {
+                                let str3 = String(format: "⚠️ Failed %d files (no reference found or data corrupted)".localStr(), failed.count)
+                                messageLines.append(str3)
+                            }
+                            
+                            let alertMessage = messageLines.joined(separator: "\n\n")
+                            
+                            self?.showOneAlert(message: alertMessage)
+                            self?.refreshDataAction()
+                        }
+                        break
+                    }
+                }
+            }
+        }
+#else
+        self.showTwoAlert(message: "Are you sure to delete it?".localStr(), confirm: "Delete".localStr(), cancle: "Cancel".localStr(), style: kaka_IsiPhone() ? .actionSheet : .alert) {
+            self.moveToTrashAction(models)
+            self.perform(#selector(self.stopEditBarClick), with: nil, afterDelay: 2)
+        }
+#endif
+    }
+    
+    // 移动到废纸篓
+    fileprivate func moveToTrashAction(_ models: [MusicItemModel]) {
+        SandboxFileManager.shared.deleteMusicModels(models: models) { [weak self] result in
+            switch result {
+            case .success(_):
+                guard let wSelf = self else { return }
+                
                 wSelf.stopEditBarClick()
-            } fail: { [weak self] errorMsg in
-                self?.view.makeToast(errorMsg)
+                                
+                wSelf.tableView.tableHeaderView = wSelf.showHeadView
+                wSelf.tableView.tableFooterView = wSelf.isNoneMusic ? nil : wSelf.footView
+                wSelf.footView.update(wSelf.baseFileURL)
+                
+                wSelf.refreshDataAction()
+                break
+            case .failure(let failure):
+                self?.showOneAlert(message: failure.errorDescription)
+                break
             }
         }
     }

@@ -450,18 +450,23 @@ extension PlayCacheViewController: MusicTableViewCellDelegate {
     func deleteMusicModel(_ models: [MusicItemModel]) {
         
         self.showTwoAlert(message: "Files cannot be recovered after deletion.".localStr(), confirm: "Delete".localStr(), cancle: "Cancel".localStr(), style: kaka_IsiPhone() ? .actionSheet : .alert) {
-            SandboxFileManager.shared.deleteMusicModels(models: models) { models in
-                for subModel in models {
-                    if KakaMusicPlayer.shared.playingMusic == subModel {
-                        KakaMusicPlayer.shared.playingMusic = nil
-                        KakaMusicPlayer.shared.pause()
-                        KakaMusicPlayer.shared.stop()
+            SandboxFileManager.shared.deleteMusicModels(models: models) { [weak self] result in
+                switch result {
+                case .success(let success):
+                    for subModel in success {
+                        if KakaMusicPlayer.shared.playingMusic == subModel {
+                            KakaMusicPlayer.shared.playingMusic = nil
+                            KakaMusicPlayer.shared.pause()
+                            KakaMusicPlayer.shared.stop()
+                        }
+                        
+                        KakaMusicPlayer.shared.removeOneMusicModel(subModel)
                     }
-                    
-                    KakaMusicPlayer.shared.removeOneMusicModel(subModel)
+                    break
+                case .failure(let failure):
+                    self?.view.makeToast(failure.errorDescription)
+                    break
                 }
-            } fail: { [weak self] errorMsg in
-                self?.view.makeToast(errorMsg)
             }
         }
     }

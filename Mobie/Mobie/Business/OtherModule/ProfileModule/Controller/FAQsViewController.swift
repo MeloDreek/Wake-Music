@@ -29,7 +29,7 @@ struct QuestionAnswerModel {
         paragraphStyle.lineSpacing = 4.ckValue()           // 行与行之间的间距
         paragraphStyle.paragraphSpacing = 10.ckValue()     // 段与段（数组元素）之间的间距
         
-        let boldFont = UIFontBold(kaka_IsMacOS() ? 16 : 18)
+        let boldFont = UIFontBold(kaka_IsMacOS() ? 15 : 18)
         
         let attributeStr = NSAttributedString(string: self.question, attributes: [
             .font: boldFont,
@@ -49,8 +49,8 @@ struct QuestionAnswerModel {
         paragraphStyle.lineSpacing = 4.ckValue()
         paragraphStyle.paragraphSpacing = 10.ckValue()
         
-        let boldFont = UIFontLight(kaka_IsMacOS() ? 16 : 17)
-        let mediumFont = UIFontLight(kaka_IsMacOS() ? 16 : 16)
+        let boldFont = UIFontLight(kaka_IsMacOS() ? 15 : 17)
+        let mediumFont = UIFontLight(kaka_IsMacOS() ? 13 : 16)
         
         for (index, text) in answers.enumerated() {
             // 为每段文本应用统一的属性

@@ -383,10 +383,11 @@ extension SandboxFileManager {
     }
     
     /// 批量删除本地信息
-    public func deleteMusicModels(models: [MusicItemModel], success:(([MusicItemModel])->Void)? = nil, fail:((String?)->Void)? = nil) {
+    /// 批量删除本地信息
+    public func deleteMusicModels(models: [MusicItemModel], completion: @escaping (Result<[MusicItemModel], KakaError>) -> Void) {
         
         if models.count == 0 {
-            fail?(nil)
+            completion(.failure(.emptyData))
             return
         }
 
@@ -416,14 +417,12 @@ extension SandboxFileManager {
         }
 
         fetchDataGroup.notify(queue: .main) { [weak self] in
-            guard let errorMsg = errorMsg, errorMsg.count > 6 else {
-                success?(deleteArray)
-                return
+            if let errorMsg = errorMsg, !errorMsg.isEmpty {
+                completion(.failure(.custom(errorMsg)))
+            }else{
+                completion(.success(deleteArray))
             }
-
-            fail?(errorMsg)
         }
-        
         
     }
     

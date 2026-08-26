@@ -74216,257 +74216,6 @@
         }
       }
     },
-    "Music tag refers to the metadata embedded in a music file, including cover image, lyrics, title, artist, album, era, genre, track, sampling rate, bit rate, etc." : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "علامة الموسيقى هي البيانات الوصفية المضمنة في ملف الموسيقى ، بما في ذلك صورة الغلاف وكلمات الأغاني والعنوان والفنان والألبوم والسنة والنوع والمسار الصوتي ومعدل العينة ومعدل البت وما إلى ذلك"
-          }
-        },
-        "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Una etiqueta de música són les metadades incrustades en un fitxer de música, incloent-hi la portada, la lletra, el títol, l'artista, l'àlbum, l'any, el gènere, la pista d'àudio, la freqüència de mostreig, la velocitat de bits, etc."
-          }
-        },
-        "cs" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Hudební značka jsou metadata vložená do hudebního souboru, včetně obrázku obalu, textu, názvu, interpreta, alba, roku, žánru, zvukové stopy, vzorkovací frekvence, datového toku atd."
-          }
-        },
-        "da" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Et musiktag er de metadata, der er indlejret i en musikfil, herunder coverbillede, tekster, titel, kunstner, album, år, genre, lydspor, samplingshastighed, bithastighed og så videre"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ein Musik-Tag ist die Metadaten, die in eine Musikdatei eingebettet sind, einschließlich Cover, Liedtext, Titel, Künstler, Album, Jahr, Genre, Audiospur, Abtastrate, Bitrate und so weiter"
-          }
-        },
-        "el" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Μια ετικέτα μουσικής είναι τα μεταδεδομένα που είναι ενσωματωμένα σε ένα αρχείο μουσικής, συμπεριλαμβανομένων των γραφικών εξωφύλλου, των στίχων, του τίτλου, του καλλιτέχνη, του άλμπουμ, του έτους, του είδους, του κομματιού ήχου, του ρυθμού δειγματοληψίας, του ρυθμού bit και ούτω καθεξής"
-          }
-        },
-        "en-AU" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Music tag refers to the metadata embedded in a music file, including cover image, lyrics, title, artist, album, era, genre, track, sampling rate, bit rate, etc."
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Music tag refers to the metadata embedded in a music file, including cover image, lyrics, title, artist, album, era, genre, track, sampling rate, bit rate, etc."
-          }
-        },
-        "en-IN" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Music tag refers to the metadata embedded in a music file, including cover image, lyrics, title, artist, album, era, genre, track, sampling rate, bit rate, etc."
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Una etiqueta de música son los metadatos incrustados en un archivo de música, como la carátula, la letra, el título, el artista, el álbum, el año, el género, la pista de audio, la frecuencia de muestreo, la tasa de bits, etc"
-          }
-        },
-        "es-419" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Una etiqueta de música son los metadatos incrustados en un archivo de música, como la carátula, la letra, el título, el artista, el álbum, el año, el género, la pista de audio, la frecuencia de muestreo, la tasa de bits, etc"
-          }
-        },
-        "es-US" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Una etiqueta de música son los metadatos incrustados en un archivo de música, como la carátula, la letra, el título, el artista, el álbum, el año, el género, la pista de audio, la frecuencia de muestreo, la tasa de bits, etc"
-          }
-        },
-        "fi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Musiikkitunniste on musiikkitiedostoon upotettu metatieto, mukaan lukien kansikuva, sanoitukset, otsikko, esittäjä, albumi, vuosi, tyylilaji, ääniraita, näytteenottotaajuus, bittinopeus ja niin edelleen"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Une balise musicale est les métadonnées intégrées dans un fichier musical, y compris la pochette, les paroles, le titre, l’artiste, l’album, l’année, le genre, la piste audio, la fréquence d’échantillonnage, le débit binaire, etc"
-          }
-        },
-        "fr-CA" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Une balise musicale est les métadonnées intégrées dans un fichier musical, y compris la pochette, les paroles, le titre, l’artiste, l’album, l’année, le genre, la piste audio, le taux d’échantillonnage, le débit binaire, etc"
-          }
-        },
-        "he" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "תג מוסיקה הוא המטא-נתונים המוטבעים בקובץ מוסיקה, כולל תמונת עטיפה, מילים, כותרת, אמן, אלבום, שנה, ז'אנר, רצועת שמע, קצב דגימה, קצב סיביות וכן הלאה"
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "संगीत टैग किसी संगीत फ़ाइल में एम्बेड किया गया मेटाडेटा होता है, जिसमें कवर आर्ट, गीत, शीर्षक, कलाकार, एल्बम, वर्ष, शैली, ऑडियो ट्रैक, नमूना दर, बिटरेट आदि शामिल होते हैं"
-          }
-        },
-        "hr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Glazbena oznaka metapodaci su ugrađeni u glazbenu datoteku, uključujući omot, tekst, naslov, izvođača, album, godinu, žanr, audio zapis, brzinu uzorkovanja, brzinu prijenosa i tako dalje"
-          }
-        },
-        "hu" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "A zenei címke a zenefájlba ágyazott metaadatok, beleértve a borítót, a dalszöveget, a címet, az előadót, az albumot, az évet, a műfajt, a hangsávot, a mintavételi sebességet, a bitrátát stb."
-          }
-        },
-        "id" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tag musik adalah metadata yang disematkan dalam file musik, termasuk sampul sampul , lirik, judul, artis, album, tahun, genre, trek audio, laju sampel, laju bit, dan sebagainya"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Un tag musicale è costituito dai metadati incorporati in un file musicale, tra cui copertina, testo, titolo, artista, album, anno, genere, traccia audio, frequenza di campionamento, bitrate e così via"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "音楽タグは、カバーアート、歌詞、タイトル、アーティスト、アルバム、年、ジャンル、オーディオトラック、サンプルレート、ビットレートなど、音楽ファイルに埋め込まれたメタデータです"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "음악 태그는 커버 아트, 가사, 제목, 아티스트, 앨범, 연도, 장르, 오디오 트랙, 샘플 속도, 비트 전송률 등을 포함하여 음악 파일에 포함된 메타데이터입니다"
-          }
-        },
-        "ms" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tag muzik ialah metadata yang dibenamkan dalam fail muzik, termasuk seni muka depan, lirik, tajuk, artis, album, tahun, genre, trek audio, kadar sampel, kadar bit dan sebagainya"
-          }
-        },
-        "nb" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "En musikkkode er metadataene som er innebygd i en musikkfil, inkludert omslagsbilde, tekster, tittel, artist, album, år, sjanger, lydspor, samplingsfrekvens, bitrate og så videre"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Een muziektag is de metadata die is ingesloten in een muziekbestand, inclusief albumhoes, songteksten, titel, artiest, album, jaar, genre, audiotrack, samplefrequentie, bitrate, enzovoort"
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tag muzyczny to metadane osadzone w pliku muzycznym, w tym okładka, tekst, tytuł, wykonawca, album, rok, gatunek, ścieżka audio, częstotliwość próbkowania, szybkość transmisji itd"
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Uma tag de música são os metadados incorporados em um arquivo de música, incluindo capa, letra, título, artista, álbum, ano, gênero, faixa de áudio, taxa de amostragem, taxa de bits e assim por diante"
-          }
-        },
-        "pt-PT" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Uma tag de música são os metadados incorporados em um arquivo de música, incluindo arte da capa, letras, título, artista, álbum, ano, gênero, faixa de áudio, taxa de amostragem, taxa de bits e assim por diante"
-          }
-        },
-        "ro" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "O etichetă muzicală este metadatele încorporate într-un fișier muzical, inclusiv coperta, versurile, titlul, artistul, albumul, anul, genul, piesa audio, rata de eșantionare, rata de biți și așa mai departe"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Музыкальный тег — это метаданные, встроенные в музыкальный файл, включая обложку, текст песни, название, исполнителя, альбом, год, жанр, звуковую дорожку, частоту дискретизации, битрейт и т. д."
-          }
-        },
-        "sk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Hudobná značka sú metadáta vložené do hudobného súboru vrátane obalu, textu, názvu, interpreta, albumu, roku, žánru, zvukovej stopy, vzorkovacej frekvencie, bitovej rýchlosti atď."
-          }
-        },
-        "sl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Glasbena oznaka se nanaša na metapodatke, vdelane v glasbeno datoteko, vključno s sliko naslovnice, besedilom, naslovom, izvajalcem, albumom, obdobjem, žanrom, skladbo, hitrostjo vzorčenja, bitno hitrostjo itd."
-          }
-        },
-        "sv" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "En musiktagg är metadata som är inbäddade i en musikfil, inklusive omslagsbilder, låttexter, titel, artist, album, år, genre, ljudspår, samplingshastighet, bithastighet och så vidare"
-          }
-        },
-        "th" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "แท็กเพลงคือข้อมูลเมตาที่ฝังอยู่ในไฟล์เพลง รวมถึงภาพหน้าปก เนื้อเพลง ชื่อเรื่อง ศิลปิน อัลบั้ม ปี ประเภท แทร็กเสียง อัตราตัวอย่าง บิตเรต และอื่นๆ"
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Müzik etiketi, kapak resmi, şarkı sözleri, başlık, sanatçı, albüm, yıl, tür, ses parçası, örnekleme hızı, bit hızı vb. dahil olmak üzere bir müzik dosyasına gömülü meta verilerdir"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Музичний тег — це метадані, вбудовані в музичний файл, включаючи обкладинку, текст пісні, назву, виконавця, альбом, рік, жанр, звукову доріжку, частоту дискретизації, бітрейт тощо"
-          }
-        },
-        "vi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Thẻ nhạc là siêu dữ liệu được nhúng trong tệp nhạc, bao gồm ảnh bìa, lời bài hát, tiêu đề, nghệ sĩ, album, năm, thể loại, bản âm thanh, tốc độ mẫu, tốc độ bit, v.v"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "音乐标签是指一个音乐文件内嵌的元数据，包括封面图、歌词、标题、艺术家、专辑、年代、流派、音轨、采样率、比特率等等"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "音樂標籤是指一個音樂檔案內嵌的元數據，包括封面圖、歌詞、標題、藝術家、專輯、年代、流派、音軌、取樣率、位元率等等"
-          }
-        },
-        "zh-HK" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "音樂標籤係指一個音樂文件內嵌嘅元數據，包括封面圖、歌詞、標題、藝術家、專輯、年代、流派、音軌、採樣率、比特率等等"
-          }
-        }
-      }
-    },
     "Music Tags" : {
       "extractionState" : "pasted",
       "localizations" : {
@@ -74850,7 +74599,7 @@
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "音楽タグ（ID3メタデータ）とは、音声ファイル内部に永久に埋め込まれるメタデータ情報のことで、カバー画像、歌詞、曲名、アーティスト名、アルバム名、リリース年、ジャンル、サンプリングレート、ビットレートなどが含まれます。"
+            "value" : "音楽タグ（ID3メタデータ）とは、音声ファイル内部に永久に埋め込まれるメタデータ情報のことで、カバー画像、歌詞、曲名、アーティスト名、アルバム名、リリース年、ジャンル、サンプリングレート、ビットレートなどが含まれます"
           }
         },
         "ko" : {
@@ -74952,19 +74701,19 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "音乐标签（ID3 元数据）是指永久嵌入在音频文件内部的元数据信息，包含：封面图、歌词、曲名、艺术家、专辑名、发行年份、音乐流派、采样率与比特率等。"
+            "value" : "音乐标签（ID3 元数据）是指永久嵌入在音频文件内部的元数据信息，包含：封面图、歌词、曲名、艺术家、专辑名、发行年份、音乐流派、采样率与比特率等"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "音樂標籤（ID3 元資料）是指永久內嵌在音訊檔案內部的元資料資訊，包含：封面圖、歌詞、曲名、演出者、專輯名、發行年份、音樂流派、取樣率與位元率等。"
+            "value" : "音樂標籤（ID3 元資料）是指永久內嵌在音訊檔案內部的元資料資訊，包含：封面圖、歌詞、曲名、演出者、專輯名、發行年份、音樂流派、取樣率與位元率等"
           }
         },
         "zh-HK" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "音樂標籤（ID3 元數據）是指永久內嵌在音訊檔案內部的元數據資訊，包含：封面圖、歌詞、曲名、演出者、專輯名、發行年份、音樂流派、取樣率與位元率等。"
+            "value" : "音樂標籤（ID3 元數據）是指永久內嵌在音訊檔案內部的元數據資訊，包含：封面圖、歌詞、曲名、演出者、專輯名、發行年份、音樂流派、取樣率與位元率等"
           }
         }
       }

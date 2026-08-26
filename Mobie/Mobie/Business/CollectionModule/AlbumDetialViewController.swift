@@ -175,10 +175,8 @@ extension AlbumDetialViewController: UITableViewDataSource, UITableViewDelegate,
         
         let alertController: UIAlertController = UIAlertController(title: "Reminder".localStr(), message: "File not found. Would you like to delete it?".localStr(), preferredStyle: kaka_IsiPhone() ? .actionSheet : .alert)
         let action1 = UIAlertAction(title: "Delete".localStr(), style: .destructive) { (sender) in
-            SandboxFileManager.shared.deleteMusicModels(models: [model]) { [weak self] models in
-                self?.refreshDataAction()
-            } fail: { [weak self] errorMsg in
-                self?.refreshDataAction()
+            SandboxFileManager.shared.deleteMusicModels(models: [model]) { result in
+                self.refreshDataAction()
             }
 
         }

@@ -19,7 +19,10 @@ extension MusicsViewController: DocumentFolderWatcherDelegate, MusicTopHeadViewD
     
     // 新增了文件
     func documentFolderWatcherDidAddFiles(watcher: DocumentFolderWatcher, addFiles: [URL]) {
-                
+        if self.headMusictagView.state == .matching {
+            return
+        }
+        
         self.viewModel.addNewMusics(newUrls: addFiles) { models in
             let time: TimeInterval = addFiles[0].hasDirectoryPath ? 1 : 1
             DispatchQueue.main.asyncAfter(wallDeadline: .now() + time) { [weak self] () in
@@ -41,6 +44,11 @@ extension MusicsViewController: DocumentFolderWatcherDelegate, MusicTopHeadViewD
     
     // 删除了文件
     func documentFolderWatcherDidDeleteFiles(watcher: DocumentFolderWatcher, deleteFiles: [URL]) {
+        
+        if self.headMusictagView.state == .matching {
+            return
+        }
+        
         self.viewModel.deleteMusics(newUrls: deleteFiles) { [weak self] models in
             guard let wSelf = self else { return }
             let fileCount = wSelf.baseFileURL.totalFileCount()
