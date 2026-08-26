@@ -137,7 +137,12 @@ extension PlayerStyleViewController: UITableViewDataSource, UITableViewDelegate 
                 MusicConfigManager.shared.playerStyle = style
                 self?.isChanged = true
                 self?.tableView.reloadData()
-                self?.cancelButtonClick()
+                
+                let message = "Set successfully! Continue to customize your wallpaper and rendering effects?".localStr()
+                self?.showTwoAlert(message: message, confirm: "Custom Wallpaper".localStr()) {
+                    self?.playBackgroundAction()
+                }
+                
             }
             return cell
         }else{
@@ -152,7 +157,12 @@ extension PlayerStyleViewController: UITableViewDataSource, UITableViewDelegate 
                 MusicConfigManager.shared.playerStyle = style
                 self?.isChanged = true
                 self?.tableView.reloadData()
-                self?.cancelButtonClick()
+                
+                let message = "Set successfully! Continue to customize your wallpaper and rendering effects?".localStr()
+                self?.showTwoAlert(message: message, confirm: "Custom Wallpaper".localStr()) {
+                    self?.playBackgroundAction()
+                }
+                
             }
             return cell
         }
@@ -168,7 +178,11 @@ extension PlayerStyleViewController: UITableViewDataSource, UITableViewDelegate 
             MusicConfigManager.shared.playerStyle = style
             self.isChanged = true
             self.tableView.reloadData()
-            self.cancelButtonClick()
+            
+            let message = "Set successfully! Continue to customize your wallpaper and rendering effects?".localStr()
+            self.showTwoAlert(message: message, confirm: "Custom Wallpaper".localStr()) {
+                self.playBackgroundAction()
+            }
         }
     }
     

@@ -108352,6 +108352,257 @@
         }
       }
     },
+    "Set successfully! Continue to customize your wallpaper and rendering effects?" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تم الضبط بنجاح! هل تريد الاستمرار في تخصيص الخلفية وتأثيرات العرض؟"
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "S'ha configurat correctament! Voleu continuar personalitzant el fons de pantalla i els efectes de renderització?"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nastavení proběhlo úspěšně! Chcete pokračovat v úpravě tapety a efektů vykreslování?"
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Indstillet med succes! Vil du fortsætte med at tilpasse dit baggrundsbillede og dine gengivelseseffekter?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erfolgreich eingestellt! Möchten Sie mit der Anpassung Ihres Hintergrundbilds und der Rendering-Effekte fortfahren?"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ρυθμίστηκε με επιτυχία! Θέλετε να συνεχίσετε την προσαρμογή της ταπετσαρίας και των εφέ αποτύπωσης;"
+          }
+        },
+        "en-AU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Set successfully! Continue to customize your wallpaper and rendering effects?"
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Set successfully! Continue to customize your wallpaper and rendering effects?"
+          }
+        },
+        "en-IN" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Set successfully! Continue to customize your wallpaper and rendering effects?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¡Configurado con éxito! ¿Quieres continuar personalizando tu fondo de pantalla y los efectos de renderizado?"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¡Configurado con éxito! ¿Quieres continuar personalizando tu fondo de pantalla y los efectos de renderizado?"
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¡Configurado con éxito! ¿Quieres continuar personalizando tu fondo de pantalla y los efectos de renderizado?"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Asetus onnistui! Haluatko jatkaa taustakuvan ja renderöintitehosteiden mukauttamista?"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Configuration réussie ! Souhaitez-vous continuer à personnaliser votre fond d'écran et vos effets de rendu ?"
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Configuration réussie! Souhaitez-vous continuer à personnaliser votre fond d'écran et vos effets de rendu?"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "הוגדר בהצלחה! האם להמשיך בהתאמה אישית של הטפט ואפקטי הרינדור?"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "सफलतापूर्वक सेट हो गया! क्या आप अपने वॉलपेपर और रेंडरिंग प्रभावों को कस्टमाइज़ करना जारी रखना चाहते हैं?"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Uspješno postavljeno! Želite li nastaviti s prilagodbom pozadine i efekata renderiranja?"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Beállítás sikeres! Folytatja a háttérkép és a renderelési effektek testreszabását?"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Berhasil diatur! Lanjutkan untuk menyesuaikan wallpaper dan efek rendering Anda?"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impostato con successo! Vuoi continuare a personalizzare lo sfondo e gli effetti di rendering?"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "設定が完了しました！続けて壁紙やレンダリングエフェクトをカスタマイズしますか？"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "설정 완료! 이어서 배경화면과 렌더링 효과를 맞춤 설정하시겠습니까?"
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Berjaya ditetapkan! Teruskan untuk menyesuaikan kertas dinding dan kesan rendering anda?"
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Konfigurert! Vil du fortsette å tilpasse bakgrunnsbildet og renderingseffektene dine?"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Instellen geslaagd! Wilt u doorgaan met het aanpassen van uw achtergrond en renderingeffecten?"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ustawiono pomyślnie! Czy chcesz kontynuować dostosowywanie tapety i efektów renderowania?"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Configurado com sucesso! Deseja continuar personalizando seu papel de parede e efeitos de renderização?"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Configurado com sucesso! Deseja continuar a personalizar o seu fundo de ecrã e efeitos de renderização?"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Setat cu succes! Continuați să vă personalizați fundalul și efectele de redare?"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Успешно установлено! Продолжить настройку обоев и эффектов рендеринга?"
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nastavenie prebehlo úspešne! Chcete pokračovať v úprave tapety a efektov vykresľovania?"
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Uspešno nastavljeno! Želite nadaljevati s prilagajanjem ozadja in učinkov upodabljanja?"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inställt! Vill du fortsätta att anpassa din bakgrundsbild och dina renderingseffekter?"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ตั้งค่าสำเร็จแล้ว! ต้องการปรับแต่งวอลเปเปอร์และเอฟเฟกต์การเรนเดอร์ ต่อหรือไม่?"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Başarıyla ayarlandı! Duvar kağıdınızı ve işleme efektlerinizi özelleştirmeye devam etmek ister misiniz?"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Успішно встановлено! Продовжити налаштування шпалер та ефектів рендерингу?"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Thiết lập thành công! Bạn có muốn tiếp tục tùy chỉnh hình nền và hiệu ứng dựng hình không?"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "设置成功！继续自定义您的壁纸和渲染效果？"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "設定成功！要繼續自訂您的桌布與繪製效果嗎？"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "設定成功！要繼續自訂您的桌布和轉譯效果嗎？"
+          }
+        }
+      }
+    },
     "Settings" : {
       "extractionState" : "manual",
       "localizations" : {

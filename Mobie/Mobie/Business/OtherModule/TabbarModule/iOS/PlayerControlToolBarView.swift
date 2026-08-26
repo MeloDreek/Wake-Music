@@ -559,7 +559,14 @@ class PlayerControlToolBarView: UIToolbar {
     @objc func progressViewTapped(_ gesture: UITapGestureRecognizer) {
         let location = gesture.location(in: progressView)
         let width = progressView.bounds.width
-        let progress = TimeInterval(location.x / width) // 计算点击位置对应的进度
+        guard width > 0 else { return }
+        
+        // 🔴 关键适配：判断 RTL 环境
+        let isRTL = PhoneSetManager.isArabicLanguage() || UIView.userInterfaceLayoutDirection(for: self.semanticContentAttribute) == .rightToLeft
+        
+        // 如果是 RTL，从右往左计算进度；否则从左往右
+        let rawProgress = isRTL ? (width - location.x) / width : location.x / width
+        let progress = max(0, min(1, TimeInterval(rawProgress)))
                         
         if !KakaMusicPlayer.shared.isPlaying {
             KakaMusicPlayer.shared.play()
@@ -568,7 +575,7 @@ class PlayerControlToolBarView: UIToolbar {
         let playTime = KakaMusicPlayer.shared.playerView.totalTime * progress
         if KakaMusicPlayer.shared.isPlaying {
             KakaMusicPlayer.shared.seek(time: playTime)
-        }else{
+        } else {
             KakaMusicPlayer.shared.play()
         }
     }
@@ -615,7 +622,6 @@ class LineProgressView: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
         self.lineHeight = self.bounds.height
         
         NotificationCenter.default.addObserver(self, selector: #selector(appModeStyleChanged(_:)), name: Notification.Name(kAppThemeColorChangedKey), object: nil)
@@ -647,7 +653,14 @@ class LineProgressView: UIView {
         
         // 绘制进度
         let progressWidth = rect.width * progress
-        let progressPath = UIBezierPath(rect: CGRect(x: 0, y: (rect.height - lineHeight) / 2, width: progressWidth, height: lineHeight))
+        
+        // 🔴 关键适配：判断是否为阿拉伯语/希伯来语等 RTL 环境
+        let isRTL = PhoneSetManager.isArabicLanguage() || UIView.userInterfaceLayoutDirection(for: self.semanticContentAttribute) == .rightToLeft
+        
+        // LTR 从 x = 0 开始；RTL 从物理右侧 (rect.width - progressWidth) 开始往左延伸
+        let startX = isRTL ? (rect.width - progressWidth) : 0
+        
+        let progressPath = UIBezierPath(rect: CGRect(x: startX, y: (rect.height - lineHeight) / 2, width: progressWidth, height: lineHeight))
         progressColor.setFill()
         progressPath.fill()
     }
