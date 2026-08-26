@@ -46,7 +46,7 @@ enum AboutAppCellType {
         case .crossSystem:
             return nil
         case .appStore:
-            return "iOS & Mac"
+            return "iOS & macOS"
         
         case .privacy:
             return string
