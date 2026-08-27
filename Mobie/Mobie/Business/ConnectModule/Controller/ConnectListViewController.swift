@@ -255,7 +255,7 @@ extension ConnectListViewController: UITableViewDataSource, UITableViewDelegate 
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         let sumCount = connectArray.count == 0 ? self.avalibleArray.count : self.connectArray.count
-        if sumCount - 1 == section {
+        if sumCount - 1 == section && connectArray.isEmpty {
             return 120.ckValue()
         }else{
             return UITableView.automaticDimension
@@ -264,7 +264,7 @@ extension ConnectListViewController: UITableViewDataSource, UITableViewDelegate 
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         let sumCount = connectArray.count == 0 ? self.avalibleArray.count : self.connectArray.count
-        if sumCount - 1 == section {
+        if sumCount - 1 == section && connectArray.isEmpty {
             let attbuteStr = NSAttributedString(string: "Don't see your connection method? Tell us!".localStr(), attributes: [.font: UIFontLight(13.ckValue()), .foregroundColor: UIColor.systemBlue, .underlineStyle: 1])
             
             let footView = UITableViewHeaderFooterView()
