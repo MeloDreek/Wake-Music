@@ -14,6 +14,8 @@ import Combine
 import GoogleSignIn
 import SwiftyDropbox
 import AliyunpanSDK
+import MessageUI
+import SafariServices
 
 
 // 已添加的服务器列表
@@ -251,6 +253,38 @@ extension ConnectListViewController: UITableViewDataSource, UITableViewDelegate 
         }
     }
     
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        let sumCount = connectArray.count == 0 ? self.avalibleArray.count : self.connectArray.count
+        if sumCount - 1 == section {
+            return 120.ckValue()
+        }else{
+            return UITableView.automaticDimension
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let sumCount = connectArray.count == 0 ? self.avalibleArray.count : self.connectArray.count
+        if sumCount - 1 == section {
+            let attbuteStr = NSAttributedString(string: "Don't see your connection method? Tell us!".localStr(), attributes: [.font: UIFontLight(13.ckValue()), .foregroundColor: UIColor.systemBlue, .underlineStyle: 1])
+            
+            let footView = UITableViewHeaderFooterView()
+            let footButton = UIButton()
+            footButton.addTarget(self, action: #selector(handleWithEmail), for: .touchUpInside)
+            footButton.setAttributedTitle(attbuteStr, for: .normal)
+            footView.contentView.addSubview(footButton)
+            footButton.snp.makeConstraints { make in
+                make.leading.equalToSuperview().offset(10.ckValue())
+                make.top.equalTo(15.ckValue())
+                make.centerX.equalToSuperview()
+                make.height.greaterThanOrEqualTo(0)
+            }
+            return footView
+        }else{
+            return nil
+        }
+        
+    }
+    
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         if !UserInfoManager.shared.isVIP() {
             return false
@@ -331,3 +365,71 @@ extension ConnectListViewController: UITableViewDataSource, UITableViewDelegate 
     
 }
 
+extension ConnectListViewController: MFMailComposeViewControllerDelegate, SFSafariViewControllerDelegate {
+    @objc func handleWithEmail() {
+        self.view.endEditing(true)
+        
+        let subject = "\(kaka_osType().iconStr()) \("Wake Music".localStr()) Feedback"
+        let messageBody = "\r\r\r\r\r-----------------------------" + "\r" + self.getDeviceInformation()
+        
+        let canOpenMailScheme = UIApplication.shared.canOpenURL(URL(string: "mailto:")!)
+        let mailtoURL = URL(string: "mailto:\(companyEmail)?subject=\(subject)&body=\(messageBody)")!
+        
+        if !MFMailComposeViewController.canSendMail() {
+            
+            if canOpenMailScheme {
+                // 2️⃣ 打开第三方邮件客户端
+                UIApplication.shared.open(mailtoURL)
+            }else{
+                // 3️⃣ 用户没有任何邮件客户端
+                if kaka_IsMacOS() {
+                    UIApplication.shared.open(FeedbackURL)
+                }else{
+                    let feedbackVC = SFSafariViewController(url: FeedbackURL)
+                    self.present(feedbackVC, animated: true)
+                }
+            }
+            return
+        }
+        
+        // 1️⃣ 优先使用Apple的邮件客户端
+        if canOpenMailScheme && kaka_IsMacOS() {
+            UIApplication.shared.open(mailtoURL)
+        }else{
+            let emailVC = MFMailComposeViewController()
+            emailVC.mailComposeDelegate = self
+            emailVC.setToRecipients([companyEmail])
+            emailVC.setSubject(subject)
+            emailVC.setMessageBody(messageBody, isHTML: false)
+            self.present(emailVC, animated: true, completion: nil)
+        }
+    }
+    
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
+        if result == .sent {
+            self.view.makeToast("Thank you for your feedback".localStr())
+        }
+        
+    }
+    
+    func safariViewControllerDidFinish(_ controller: SFSafariViewController) {
+        controller.dismiss(animated: true)
+    }
+    
+    func getDeviceInformation() -> String {
+        let device = UIDevice.current
+        let systemVersion = device.systemVersion
+        let model = kaka_IsMacOS() ? "macOS" : device.model
+        let appVersion = ((Bundle.main.infoDictionary!["CFBundleShortVersionString"] as? String) ?? "") + "_" + "\(UserInfoManager.shared.isVIP() ? "1" : "0")"
+
+        return """
+        ServerType: "ConnectListViewController"
+        App Name: \("Wake Music".localStr())
+        App Version: \(appVersion)
+        Device Model: \(model)
+        System Version: \(systemVersion)
+        Language: \(PhoneSetManager.languge_region())
+        """
+    }
+}
