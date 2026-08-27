@@ -134,14 +134,6 @@ class CollectionViewController: SuperViewController {
     
     // MARK:  懒加载
     
-//    @objc func vipCenterClick() {
-//        if !DiscountIAPManager.shared.isShowDiscount() {
-//            DiscountIAPManager.reset()
-//        }
-//        
-//        self.vipCenterClick()
-//    }
-    
     lazy var segmentedDataSource: JXSegmentedTitleDataSource = {
         let titles = self.dataArray.map { $0.titleStr() }
         

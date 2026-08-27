@@ -142,9 +142,14 @@ class ProfileViewController: SuperViewController {
             
             tempArray.append(model1)
             
-            if !UserInfoManager.shared.isVIP() {
+            if UserInfoManager.shared.isVIP() && UserInfoManager.shared.isFreeTrail {
                 let model2 = SettingGroupCellModel(group: .guideVIPGroup, headTitle: nil, itemArray: [.guideVIP], footTitle: nil)
                 tempArray.append(model2)
+            }else{
+                if !UserInfoManager.shared.isVIP() {
+                    let model2 = SettingGroupCellModel(group: .guideVIPGroup, headTitle: nil, itemArray: [.guideVIP], footTitle: nil)
+                    tempArray.append(model2)
+                }
             }
             
             tempArray.append(model3)

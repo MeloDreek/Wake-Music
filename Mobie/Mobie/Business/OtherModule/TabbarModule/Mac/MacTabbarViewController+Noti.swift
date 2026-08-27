@@ -62,10 +62,6 @@ extension MacTabbarViewController {
     }
     
     @objc func macOSshowReceiveGiftbox() {
-//        if !DiscountIAPManager.shared.isShowDiscount() {
-//            DiscountIAPManager.reset()
-//        }
-        
         AppStoreKitManager.presentPurcharseVC(self)
     }
     

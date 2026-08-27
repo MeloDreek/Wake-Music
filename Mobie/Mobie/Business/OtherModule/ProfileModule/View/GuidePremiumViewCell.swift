@@ -104,8 +104,7 @@ class GuidePremiumViewCell: UITableViewCell {
     }()
     
     lazy var moreButton: UIButton = {
-        
-        let text = "Upgrade to Premium".localStr()
+        let text = "Get Lifetime Access".localStr()
         let font = UIFontBold(15.ckValue())
         let width = text.width(font) + 60.ckValue()
         

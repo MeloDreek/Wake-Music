@@ -93,7 +93,7 @@ class LoginedViewCell: UITableViewCell {
         self.descdescLabel.text = "Premium User".localStr()
         self.descdescLabel.textColor = UIColor.secondaryLabel
 #else
-        self.descdescLabel.text = isVIP ? "Premium User".localStr() : (isExperiencing ? "Basic User".localStr() : "Premium Expired".localStr())
+        self.descdescLabel.text = isVIP ? (userModel.isFreeTrail ? "Free Trial Active".localStr() : "Premium User".localStr()) : (isExperiencing ? "Basic User".localStr() : "Premium Expired".localStr())
         self.descdescLabel.textColor = (isVIP || isExperiencing) ? UIColor.secondaryLabel : UIColor.red
 #endif
         

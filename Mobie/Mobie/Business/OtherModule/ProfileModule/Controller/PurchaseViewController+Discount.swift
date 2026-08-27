@@ -18,7 +18,7 @@ extension PurchaseViewController {
     func handlePriceGoods(_ models: [StoreProduct]) {
         
         // 1. VIP 状态判断
-        if UserInfoManager.shared.isVIP() {
+        if UserInfoManager.shared.isVIP() && !UserInfoManager.shared.isFreeTrail {
             self.priceArray = models.filter { $0.productIdentifier != PurchaseStoreID.lifetime198.rawValue }
             self.selectModel = models.first { $0.productIdentifier == PurchaseStoreID.lifetime298.rawValue }
             self.tableView.reloadData()
@@ -37,7 +37,7 @@ extension PurchaseViewController {
         let isShowDiscount = manager.isShowDiscount() && manager.remainingDiscountTime() > 0
 
         // 3. 根据状态过滤商品
-        if isShowDiscount {
+        if isShowDiscount || UserInfoManager.shared.isFreeTrail {
             // 展示 198 终身折扣价
             self.priceArray = models.filter { $0.productIdentifier != PurchaseStoreID.lifetime298.rawValue }
             self.selectModel = self.priceArray.first { $0.productIdentifier == PurchaseStoreID.lifetime198.rawValue }

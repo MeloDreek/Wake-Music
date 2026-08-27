@@ -29,7 +29,7 @@ public final class DiscountIAPManager: SmartCodableX {
 #if DEBUG
     private(set) var maxDiscountTime: Double = 0.1 * 60 * 60
 #else
-    private(set) var maxDiscountTime: Double = 3 * 60 * 60
+    private(set) var maxDiscountTime: Double = 24 * 60 * 60
 #endif
     
     // 冷却天数（调试环境 1 天，正式环境 2 天）
