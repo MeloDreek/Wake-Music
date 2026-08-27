@@ -90,7 +90,7 @@ class GCDWebServerController: SuperViewController {
         
         self.changeDeviceOrientation()
         
-        let fileURL = URL(fileURLWithPath: Reasource.fullFilePath("sync_wifi_en.mov"))
+        let fileURL = URL(fileURLWithPath: videoURL)
                 
         let player = AVPlayer(url: fileURL)
         let playerViewController = KakaAVPlayerViewController()
@@ -172,6 +172,8 @@ class GCDWebServerController: SuperViewController {
     weak var viewModel: MusicViewModel!
         
     var playIndex: Int = -1
+    
+    let videoURL = Reasource.fullFilePath("sync_wifi_en.mp4")
                 
     lazy var dataArray: [MusicItemModel] = {
         return [MusicItemModel]()
@@ -303,6 +305,7 @@ extension GCDWebServerController: UITableViewDataSource, UITableViewDelegate, UI
         }else{
             if self.dataArray.count == 0 {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "HowtoImportTableCell", for: indexPath) as! HowtoImportTableCell
+                cell.coverImgView.image = URL(fileURLWithPath: self.videoURL).getVideoThumbnail()
                 return cell
             }else{
                 let cell = tableView.dequeueReusableCell(withIdentifier: "MusicTableViewCell", for: indexPath) as! MusicTableViewCell
@@ -573,7 +576,7 @@ class HowtoImportTableCell: UITableViewCell {
     
     // MARK:  懒加载
     lazy var coverImgView: UIImageView = {
-        let view = UIImageView(image: Reasource.named("sync_tech_bg"))
+        let view = UIImageView(image: nil)
         view.contentMode = .scaleAspectFill
         view.clipsToBounds = true
         return view

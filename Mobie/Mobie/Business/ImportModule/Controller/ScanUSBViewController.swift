@@ -109,6 +109,8 @@ class ScanUSBViewController: SuperViewController {
     // MARK:  GET && SET
     
     var isUploading: Bool = false
+    
+    let videoURL = Reasource.fullFilePath("sync_usb_en.mp4")
         
     weak var viewModel: MusicViewModel!
     
@@ -199,7 +201,7 @@ extension ScanUSBViewController: UITableViewDataSource, UITableViewDelegate, Doc
             
         }else{
             let cell = tableView.dequeueReusableCell(withIdentifier: "HowtoImportTableCell", for: indexPath) as! HowtoImportTableCell
-            cell.coverImgView.image = Reasource.named("import_usb_en")
+            cell.coverImgView.image = URL(fileURLWithPath: self.videoURL).getVideoThumbnail()
             return cell
         }
     }
@@ -226,7 +228,7 @@ extension ScanUSBViewController: UITableViewDataSource, UITableViewDelegate, Doc
         
         self.changeDeviceOrientation()
         
-        let fileURL = URL(fileURLWithPath: Reasource.fullFilePath("sync_usb_en.mov"))
+        let fileURL = URL(fileURLWithPath: self.videoURL)
                 
         let player = AVPlayer(url: fileURL)
         let playerViewController = KakaAVPlayerViewController()
