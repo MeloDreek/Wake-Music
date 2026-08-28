@@ -131,15 +131,10 @@ extension ImportViewController: UITableViewDataSource, UITableViewDelegate {
         self.connectNewServer(itemType)
     }
     
-//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-//        let groupModel = dataArray[section]
-//        return groupModel.headTitle
-//    }
-//    
-//    func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
-//        let groupModel = dataArray[section]
-//        return groupModel.footTitle
-//    }
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        let groupModel = dataArray[section]
+        return groupModel.headTitle
+    }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         if dataArray.count - 1 == section {

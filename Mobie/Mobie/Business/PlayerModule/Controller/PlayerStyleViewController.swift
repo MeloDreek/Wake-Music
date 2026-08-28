@@ -21,7 +21,10 @@ class PlayerStyleViewController: SuperViewController {
         ImageCache.default.clearMemoryCache()
 #if !DEBUG
         if self.isChanged && self.currentViewController() is MusicPlayerViewController {
-            if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
+            guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene else { return }
+            if #available(iOS 16.0, *) {
+                AppStore.requestReview(in: windowScene)
+            } else {
                 SKStoreReviewController.requestReview(in: windowScene)
             }
         }
@@ -179,10 +182,20 @@ extension PlayerStyleViewController: UITableViewDataSource, UITableViewDelegate 
             self.isChanged = true
             self.tableView.reloadData()
             
+#warning("模拟mock数据")
+//#if DEBUG
+//            let backModel = PlayBackgroundModel(backgroundType: .defaultType, backgroundName: nil, backgroundConfig: .gaussianBlur, isShowAlphaMask: false)
+//            MusicConfigManager.shared.playbackModel = backModel
+//            KakaMusicPlayer.shared.pause()
+//            KakaMusicPlayer.shared.play()
+//            self.cancelButtonClick()
+//#else
             let message = "Set successfully! Continue to customize your wallpaper and rendering effects?".localStr()
             self.showTwoAlert(message: message, confirm: "Custom Wallpaper".localStr()) {
                 self.playBackgroundAction()
             }
+//#endif
+            
         }
     }
     

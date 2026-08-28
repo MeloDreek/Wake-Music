@@ -1231,9 +1231,9 @@ class MusicTagHeadCell: UITableViewCell {
         titleLabel.snp.makeConstraints { make in
             make.top.equalTo(starImgView.snp.bottom).offset(10.ckValue())
             make.centerX.equalToSuperview()
-            make.leading.equalTo(6.ckValue())
+            make.leading.equalTo(5.ckValue())
             make.height.greaterThanOrEqualTo(0)
-            make.bottom.equalToSuperview().offset(-20.ckValue())
+            make.bottom.equalToSuperview().offset(-5.ckValue())
         }
     }
     
