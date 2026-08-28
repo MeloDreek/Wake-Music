@@ -55,6 +55,7 @@ class PlayerControlToolBarView: UIToolbar {
         
         playingControl.addSubview(coverBackView)
         coverBackView.addSubview(coverImgView)
+        coverImgView.addSubview(blurEffectView)
         playingControl.addSubview(nameLabel)
         playingControl.addSubview(timeLabel)
         
@@ -92,6 +93,9 @@ class PlayerControlToolBarView: UIToolbar {
             make.size.equalTo(coverImgView.layer.cornerRadius * 2)
         }
         
+        blurEffectView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
         
 #if targetEnvironment(macCatalyst)
         
@@ -527,6 +531,18 @@ class PlayerControlToolBarView: UIToolbar {
         view.layer.masksToBounds = true
         view.layer.cornerRadius = coverBackView.layer.cornerRadius - 8.ckValue()
         view.kf.setImage(with: musicModel?.coverThumbnailURL(), placeholder: musicModel?.placeImage())
+        return view
+    }()
+    
+    lazy var blurEffectView: UIVisualEffectView = {
+        let blurEffect = UIBlurEffect(style: .extraLight)
+        let view = UIVisualEffectView(effect: blurEffect)
+#if !DEBUG
+        view.isHidden = true
+#endif
+        view.frame = self.coverImgView.bounds
+        view.alpha = 0.58
+        view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         return view
     }()
     

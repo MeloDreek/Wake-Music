@@ -24,27 +24,27 @@ class MatchingProgressView: UIView {
     }
     
     private func setupSubViews() {
-        self.addSubview(sliderView)
+        self.addSubview(progressView)
         self.addSubview(numberLabel)
         self.addSubview(percentLabel)
     }
     
     private func setupAutoLayout() {
-        sliderView.snp.makeConstraints { make in
-            make.leading.equalTo(23.ckValue())
-            make.centerY.equalToSuperview().offset(-10.ckValue())
+        progressView.snp.makeConstraints { make in
+            make.leading.equalTo(21.ckValue())
+            make.centerY.equalToSuperview().offset(-8.ckValue())
             make.centerX.equalToSuperview()
-            make.height.equalTo(20.ckValue())
+            make.height.equalTo(8.ckValue())
         }
         
         numberLabel.snp.makeConstraints { make in
-            make.leading.equalTo(sliderView).offset(5.ckValue())
-            make.top.equalTo(sliderView.snp.bottom).offset(1.ckValue())
+            make.leading.equalTo(progressView).offset(5.ckValue())
+            make.top.equalTo(progressView.snp.bottom).offset(5.ckValue())
             make.size.greaterThanOrEqualTo(0)
         }
         
         percentLabel.snp.makeConstraints { make in
-            make.trailing.equalTo(sliderView).offset(-5.ckValue())
+            make.trailing.equalTo(progressView).offset(-5.ckValue())
             make.centerY.equalTo(numberLabel)
             make.size.greaterThanOrEqualTo(0)
         }
@@ -62,29 +62,27 @@ class MatchingProgressView: UIView {
     var onCancelBlock: (()->Void)?
     
     
+    // MARK: - 替换 update 方法
     func update(current: Int, total: Int) {
         guard total > 0 else {
-            sliderView.value = 0
+            progressView.progress = 0
             numberLabel.text = "0/0"
             percentLabel.text = "0.0%"
             return
         }
         
         let progress = Float(current) / Float(total)
-        sliderView.value = min(max(progress, 0), 1)
+        progressView.progress = min(max(progress, 0), 1)
         numberLabel.text = "\(current)/\(total)"
         percentLabel.text = String(format: "%.2f%%", progress * 100)
     }
-
     
     // MARK:  懒加载
-    lazy var sliderView: KakSliderControl = {
-        let view = KakSliderControl()
-        view.valueRange = 0...1
-        view.value = 0
-        view.defaultTrackColor = UIColor.systemBackground.withAlphaComponent(0.5)
-        view.defaultProgressColor = .systemBackground
+    lazy var progressView: RTLProgressView = {
+        let view = RTLProgressView()
         view.isUserInteractionEnabled = false
+        view.trackColor = UIColor.systemBackground.withAlphaComponent(0.5)
+        view.progressColor = .systemBackground
         return view
     }()
     

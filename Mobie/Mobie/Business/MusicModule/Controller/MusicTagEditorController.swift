@@ -92,7 +92,7 @@ class MusicTagEditorController: SuperViewController {
 #warning("模拟mock数据")
         
 //#if DEBUG
-//        let musicGenre = MusicGenreType.hipHop
+//        let musicGenre = MusicGenreType.pop
 //        self.coverImage = musicGenre.iconImage()
 //        self.editModel?.title = musicGenre.formatStr()
 //        self.editModel?.artist = Application.wakeMusic.appTitle()
@@ -101,6 +101,7 @@ class MusicTagEditorController: SuperViewController {
 //        self.editModel?.channel = .surround51
 //        self.editModel?.genre = musicGenre.rawValue
 //        self.editModel?.album = musicGenre.formatStr() + "1999"
+//        self.tableView.reloadData()
 //#endif
         
     }
@@ -332,6 +333,16 @@ extension MusicTagEditorController: UITableViewDataSource, UITableViewDelegate {
             self.clickFilePathAction()
         }
         
+#warning("模拟mock数据")
+//#if DEBUG
+//        if itemType == .headerTag {
+//            if let tabbarVC = self.tabBarController as? HomeTabbarViewController {
+//                tabbarVC.tabBar.isHidden = !tabbarVC.tabBar.isHidden
+//                tabbarVC.toolbarView.isHidden = !tabbarVC.toolbarView.isHidden
+//                return
+//            }
+//        }
+//#endif
     }
     
     
@@ -1155,6 +1166,15 @@ class MeteDataDetialViewCell: UITableViewCell {
             let clickTap = UITapGestureRecognizer(target: self, action: #selector(coverImgViewClick(_:)))
             view.addGestureRecognizer(clickTap)
         }
+        
+#if DEBUG
+        let effectView = UIVisualEffectView(effect: UIBlurEffect(style: .extraLight))
+        effectView.frame = view.bounds
+        effectView.alpha = 0.58
+        effectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        view.addSubview(effectView)
+#endif
+        
         return view
     }
     
@@ -1211,7 +1231,7 @@ class MusicTagHeadCell: UITableViewCell {
         titleLabel.snp.makeConstraints { make in
             make.top.equalTo(starImgView.snp.bottom).offset(10.ckValue())
             make.centerX.equalToSuperview()
-            make.leading.equalTo(12.ckValue())
+            make.leading.equalTo(6.ckValue())
             make.height.greaterThanOrEqualTo(0)
             make.bottom.equalToSuperview().offset(-20.ckValue())
         }

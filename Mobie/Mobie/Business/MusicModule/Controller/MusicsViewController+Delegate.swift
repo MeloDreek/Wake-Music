@@ -116,8 +116,8 @@ extension MusicsViewController: MusicTopBatchEditHeadViewDelegate {
 //#if DEBUG
 //        self.headMusictagView.state = .matching
 //        var cureModel = allModels.last
-//        cureModel?.mediaPlayURL = SandboxFileManager.shared.basePublicFileURL().appendingPathComponent("Michael Jackson - Dangerous.flac")
-//        self.headMusictagView.updateProgress(curModel: cureModel, completed: allModels.count / 2, total: allModels.count)
+//        cureModel?.mediaPlayURL = SandboxFileManager.shared.basePublicFileURL().appendingPathComponent("Drake  - God's Plan.flac")
+//        self.headMusictagView.updateProgress(curModel: cureModel, completed: 185, total: 365)
 //        return
 //#endif
         

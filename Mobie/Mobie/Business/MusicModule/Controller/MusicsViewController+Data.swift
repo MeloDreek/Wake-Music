@@ -85,15 +85,11 @@ extension MusicsViewController: UITableViewDataSource, UITableViewDelegate {
         
         if isNoneMusic {
             tableView.deselectRow(at: indexPath, animated: true)
-#if !DEBUG
-            if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
-                SKStoreReviewController.requestReview(in: windowScene)
-            }
-#endif
             return
         }
         
         if self.isBatchEditing {
+            self.tableView.contentOffset = .zero
             self.tableView.tableHeaderView?.kaka_playShakeAnim()
             return
         }

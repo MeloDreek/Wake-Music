@@ -37,7 +37,7 @@ class DownloadViewController: SuperViewController {
 #warning("模拟mock数据")
 //#if DEBUG
 //        var testArray = [MusicItemModel]()
-//        for i in 0..<105 {
+//        for i in 0..<66 {
 //            let subGenre = MusicGenreType.allGenreArray().randomElement() ?? MusicGenreType.pop
 //            let subExtension = AudioExtension.audioSuffixs.randomElement()?.lowercased() ?? "dsf"
 //            

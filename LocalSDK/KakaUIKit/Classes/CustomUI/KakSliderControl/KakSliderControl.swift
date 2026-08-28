@@ -142,34 +142,6 @@ open class KakSliderControl: UIControl {
         return true
     }
 
-//    public override func continueTracking(_ touch: UITouch, with event: UIEvent?) -> Bool {
-//        let previousLocation = touch.previousLocation(in: self)
-//        let location = touch.location(in: self)
-//        let translationX = location.x - previousLocation.x
-//        let newWidth = effectiveUserInterfaceLayoutDirection == .leftToRight
-//            ? progressView.bounds.width + translationX
-//            : progressView.bounds.width - translationX
-//
-//        let progress = progressView.bounds.width / trackView.bounds.width
-//        let newProgress = max(0, min(1, newWidth / trackView.bounds.width))
-//
-//        if newProgress != progress {
-//            switch newProgress {
-//                case 0:
-//                    feedbackGenerator?.generateMinimumValueFeedback()
-//                case 1:
-//                    feedbackGenerator?.generateMaximumValueFeedback()
-//                default:
-//                    break
-//            }
-//        }
-//
-//        progressConstraint = progressConstraint.constraintWithMultiplier(newProgress)
-//
-//        hasPreviousSessionChangedProgress = true
-//        return true
-//    }
-
     public override func endTracking(_ touch: UITouch?, with event: UIEvent?) {
         reduceTrack()
 
@@ -198,44 +170,6 @@ open class KakSliderControl: UIControl {
         onEditingChanged?(false)
     }
 
-//    private func setup() {
-//        isMultipleTouchEnabled = false
-//        backgroundColor = .clear
-//
-//        trackView.isUserInteractionEnabled = false
-//        trackView.clipsToBounds = true
-//        trackView.backgroundColor = defaultTrackColor
-//        trackView.translatesAutoresizingMaskIntoConstraints = false
-//        addSubview(trackView)
-//
-//        addLayoutGuide(trackLayoutGuide)
-//
-//        progressView.isUserInteractionEnabled = false
-//        progressView.clipsToBounds = true
-//        progressView.backgroundColor = defaultProgressColor
-//        progressView.translatesAutoresizingMaskIntoConstraints = false
-//        trackView.addSubview(progressView)
-//
-//        heightConstraint = trackView.heightAnchor.constraint(equalToConstant: Self.defaultTrackHeight)
-//        progressConstraint = progressView.widthAnchor.constraint(equalTo: trackView.widthAnchor, multiplier: 0.5)
-//
-//        NSLayoutConstraint.activate([
-//            heightConstraint,
-//            trackView.centerYAnchor.constraint(equalTo: centerYAnchor),
-//            trackView.leadingAnchor.constraint(equalTo: leadingAnchor),
-//            trackView.trailingAnchor.constraint(equalTo: trailingAnchor),
-//
-//            trackLayoutGuide.topAnchor.constraint(equalTo: trackView.topAnchor),
-//            trackLayoutGuide.leadingAnchor.constraint(equalTo: trackView.leadingAnchor),
-//            trackView.bottomAnchor.constraint(equalTo: trackLayoutGuide.bottomAnchor),
-//            trackView.trailingAnchor.constraint(equalTo: trackLayoutGuide.trailingAnchor),
-//
-//            progressConstraint,
-//            progressView.topAnchor.constraint(equalTo: trackView.topAnchor),
-//            progressView.leadingAnchor.constraint(equalTo: trackView.leadingAnchor),
-//            progressView.bottomAnchor.constraint(equalTo: trackView.bottomAnchor)
-//        ])
-//    }
     private func setup() {
         isMultipleTouchEnabled = false
         backgroundColor = .clear

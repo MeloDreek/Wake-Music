@@ -177,6 +177,7 @@
 		21909029764BD13D05A9832E918890C0 /* flacproperties.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EC8BADAEB3B595921E1437BCCFA4D880 /* flacproperties.cpp */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		222EAE33ACDDFF53C2FC19E98D74A6AD /* JXSegmentedTitleGradientCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C5A2FC8273508D17E65C86E6346A51 /* JXSegmentedTitleGradientCell.swift */; };
 		2233A6AD2848A1B8F4BAF47EE40AAA64 /* NVActivityIndicatorAnimationSquareSpin.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF80C0F7172647D2FD0012F99968AD8 /* NVActivityIndicatorAnimationSquareSpin.swift */; };
+		2256C1B23041941C00707C90 /* RTLProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2256C1B13041941C00707C90 /* RTLProgressView.swift */; };
 		22A4448D303C8D3400DD3E62 /* LoadingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A4448C303C8D3400DD3E62 /* LoadingButton.swift */; };
 		2330D8FC02520C3DB31F7D01D9A37EF6 /* SDWebImageCacheKeyFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B6259875153629BF57057A1B25968B4 /* SDWebImageCacheKeyFilter.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		2339ECBDAF8F63AD2AA11364FFD80F23 /* flacmetadatablock.h in Headers */ = {isa = PBXBuildFile; fileRef = 847FB5A5160E22D8DAE3A4DD2FD78E1F /* flacmetadatablock.h */; settings = {ATTRIBUTES = (Private, ); }; };
@@ -1981,6 +1982,7 @@
 		222274212E0E9B3EB7E5D0F181644053 /* UsersCommon.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UsersCommon.swift; path = Source/SwiftyDropbox/Shared/Generated/UsersCommon.swift; sourceTree = "<group>"; };
 		2223115CD4B4CA2641410005BD6E8EE5 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; name = PrivacyInfo.xcprivacy; path = Sources/AppAuthCore/Resources/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		222D6C81C965FE1BA8D0A9C2CA7F1E97 /* SharingRoutes.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SharingRoutes.swift; path = Source/SwiftyDropbox/Shared/Generated/SharingRoutes.swift; sourceTree = "<group>"; };
+		2256C1B13041941C00707C90 /* RTLProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RTLProgressView.swift; sourceTree = "<group>"; };
 		225A43ABA10B0D5CF08AB7CA52EF4F0C /* KakaUDID.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = KakaUDID.m; sourceTree = "<group>"; };
 		22A4448C303C8D3400DD3E62 /* LoadingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingButton.swift; sourceTree = "<group>"; };
 		22AD995CA3D5CFA05F36EF2338C84EB7 /* asfproperties.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; path = asfproperties.cpp; sourceTree = "<group>"; };
@@ -5409,6 +5411,7 @@
 				8D75D74DBC4BCFA37475E05445A736A9 /* ClosedRange+Conversion.swift */,
 				1E8792D044408C8487B7113252A7588D /* ImpactSliderFeedbackGenerator.swift */,
 				64D58AE9409E4A63860C4193E0FBAD06 /* KakSliderControl.swift */,
+				2256C1B13041941C00707C90 /* RTLProgressView.swift */,
 				B5EEC7A5056ADD3BF57373F7D98EE084 /* NSLayoutConstraint+Multiplier.swift */,
 				8B55CD0B1C01C6478AC0DA2827E5C7D0 /* SliderFeedbackGenerator.swift */,
 			);
@@ -8535,6 +8538,7 @@
 				0CFAA811ED9E1EC88FD38B1F149A11C7 /* RippleAnimationView.swift in Sources */,
 				504DC801C6F7E5AF0215CC1306FF6082 /* SliderFeedbackGenerator.swift in Sources */,
 				1C68AC22344B9A0F59944C953D680CBF /* StarRatingView.swift in Sources */,
+				2256C1B23041941C00707C90 /* RTLProgressView.swift in Sources */,
 				8437B876DCC087795CE1781914114034 /* TagListView.swift in Sources */,
 				D82AB80CEB03D3E4D2ECCBEC3C6A70B6 /* TagView.swift in Sources */,
 				376F9F0F0B852AA4F3718B8FD773C4BF /* UIImage+Kaka.swift in Sources */,
