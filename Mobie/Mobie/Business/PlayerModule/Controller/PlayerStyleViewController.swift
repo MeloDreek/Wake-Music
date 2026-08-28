@@ -20,11 +20,8 @@ class PlayerStyleViewController: SuperViewController {
         
         ImageCache.default.clearMemoryCache()
 #if !DEBUG
-        if self.isChanged && self.currentViewController() is MusicPlayerViewController {
-            guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene else { return }
-            if #available(iOS 16.0, *) {
-                AppStore.requestReview(in: windowScene)
-            } else {
+        if self.isChanged && (self.currentViewController() is MusicPlayerViewController) {
+            if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
                 SKStoreReviewController.requestReview(in: windowScene)
             }
         }
