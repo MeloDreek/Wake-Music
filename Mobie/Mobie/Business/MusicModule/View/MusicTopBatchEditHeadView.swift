@@ -208,7 +208,6 @@ class HeadNormaltView: UIView {
     
     var onClickCallBack: (()->Void)?
     
-    
     lazy var backView: UIView = {
         let view = UIView()
         view.backgroundColor = appMainColor
@@ -218,7 +217,7 @@ class HeadNormaltView: UIView {
     }()
     
     lazy var iconView: UIImageView = {
-        let view = UIImageView(image: Reasource.systemNamed("touchid", color: .white))
+        let view = UIImageView(image: Reasource.systemNamed("touchid", color: .systemBackground))
         view.contentMode = .scaleAspectFit
         return view
     }()
@@ -239,7 +238,7 @@ class HeadNormaltView: UIView {
         let paraStyle = NSMutableParagraphStyle()
         paraStyle.lineSpacing = 5.ckValue()
         paraStyle.alignment = PhoneSetManager.isArabicLanguage() ? .right : .left
-        let attbuteStr = NSAttributedString(string: sumStr, attributes: [.foregroundColor: UIColor.white, .font: UIFontBold(16.ckValue()), .paragraphStyle: paraStyle])
+        let attbuteStr = NSAttributedString(string: sumStr, attributes: [.foregroundColor: UIColor.systemBackground, .font: UIFontBold(16.ckValue()), .paragraphStyle: paraStyle])
         
         let view = UILabel()
         view.numberOfLines = 0
@@ -254,7 +253,7 @@ class HeadNormaltView: UIView {
         
         let view = UIButton(type: .custom)
         view.frame = CGRectMake(0, 0, text.width(font) + 50.ckValue(), textHeight)
-        view.backgroundColor = .white
+        view.backgroundColor = .systemBackground
         view.setTitle(text, for: .normal)
         view.setTitleColor(appMainColor, for: .normal)
         view.titleLabel?.font = font
@@ -348,14 +347,14 @@ class HeadMatchingView: UIView {
     
     lazy var loadingView: UIActivityIndicatorView = {
         let view = UIActivityIndicatorView(style: .medium)
-        view.color = .white
+        view.color = .systemBackground
         view.startAnimating()
         return view
     }()
     
     lazy var musicLabel: UILabel = {
         let view = UILabel()
-        view.textColor = .white
+        view.textColor = .systemBackground
         view.font = UIFontBold(16.ckValue())
         view.textAlignment = .center
         view.numberOfLines = 2
@@ -373,7 +372,7 @@ class HeadMatchingView: UIView {
         let text = "Cancel".localStr()
         let font = UIFontLight(13.ckValue())
         
-        let attbuteStr = NSAttributedString(string: text, attributes: [.font: font, .foregroundColor: UIColor.white.withAlphaComponent(0.75), .underlineStyle: 1])
+        let attbuteStr = NSAttributedString(string: text, attributes: [.font: font, .foregroundColor: UIColor.systemBackground.withAlphaComponent(0.75), .underlineStyle: 1])
         
         let view = LoadingButton(type: .custom)
         view.frame = CGRectMake(0, 0, text.width(font) + 35.ckValue(), font.lineHeight + 16.ckValue())
@@ -491,7 +490,7 @@ class HeadCompletedView: UIView {
     }()
     
     lazy var completeIconView: UIImageView = {
-        let image = Reasource.systemNamed("checkmark.circle.fill", color: .white)
+        let image = Reasource.systemNamed("checkmark.circle.fill", color: .systemBackground)
         let view = UIImageView(image: image)
         view.contentMode = .scaleAspectFit
         return view
@@ -499,7 +498,7 @@ class HeadCompletedView: UIView {
     
     lazy var spentTimeLabel: UILabel = {
         let view = UILabel()
-        view.textColor = .white
+        view.textColor = .systemBackground
         view.textAlignment = .center
         view.font = UIFontNumber(17.ckValue())
         view.layer.masksToBounds = true
@@ -508,7 +507,7 @@ class HeadCompletedView: UIView {
     
     lazy var completeLabel: UILabel = {
         let view = UILabel()
-        view.textColor = .white
+        view.textColor = .systemBackground
         view.textAlignment = .center
         view.font = UIFontBold(13.ckValue())
         view.layer.masksToBounds = true
@@ -518,7 +517,7 @@ class HeadCompletedView: UIView {
     lazy var pointView: UIView = {
         let size = 7.ckValue()
         let view = UIView(frame: CGRectMake(0, 0, size, size))
-        view.backgroundColor = .white
+        view.backgroundColor = .systemBackground
         view.layer.masksToBounds = true
         view.layer.cornerRadius = size / 2
         return view
@@ -526,7 +525,7 @@ class HeadCompletedView: UIView {
     
     lazy var missingLabel: UILabel = {
         let view = UILabel()
-        view.textColor = .white
+        view.textColor = .systemBackground
         view.textAlignment = .center
         view.font = completeLabel.font
         view.layer.masksToBounds = true
@@ -537,7 +536,7 @@ class HeadCompletedView: UIView {
         let text = "Reset".localStr()
         let font = UIFontLight(13.ckValue())
         
-        let attbuteStr = NSAttributedString(string: text, attributes: [.font: font, .foregroundColor: UIColor.white, .underlineStyle: 1])
+        let attbuteStr = NSAttributedString(string: text, attributes: [.font: font, .foregroundColor: UIColor.systemBackground, .underlineStyle: 1])
         
         let view = LoadingButton(type: .custom)
         view.frame = CGRectMake(0, 0, text.width(font) + 35.ckValue(), font.lineHeight + 16.ckValue())
@@ -554,4 +553,3 @@ class HeadCompletedView: UIView {
     }
     
 }
-

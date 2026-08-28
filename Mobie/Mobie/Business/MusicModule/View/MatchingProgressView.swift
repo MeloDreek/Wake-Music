@@ -82,8 +82,8 @@ class MatchingProgressView: UIView {
         let view = KakSliderControl()
         view.valueRange = 0...1
         view.value = 0
-        view.defaultTrackColor = UIColor.white.withAlphaComponent(0.5)
-        view.defaultProgressColor = .white
+        view.defaultTrackColor = UIColor.systemBackground.withAlphaComponent(0.5)
+        view.defaultProgressColor = .systemBackground
         view.isUserInteractionEnabled = false
         return view
     }()
@@ -103,7 +103,7 @@ class MatchingProgressView: UIView {
         let view = UILabel()
         view.numberOfLines = 2
         view.font = UIFontLight(13.ckValue())
-        view.textColor = .white
+        view.textColor = .systemBackground
         view.textAlignment = PhoneSetManager.isArabicLanguage() ? .right : .left
         return view
     }()

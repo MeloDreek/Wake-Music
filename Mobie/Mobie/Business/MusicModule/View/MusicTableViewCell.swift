@@ -48,6 +48,7 @@ class MusicTableViewCell: UITableViewCell {
         #endif
         
         coverImgView.addSubview(loadingBgView)
+        coverImgView.addSubview(blurEffectView)
         if let loadingView = loadingView {
             loadingBgView.addSubview(loadingView)
         }
@@ -104,6 +105,10 @@ class MusicTableViewCell: UITableViewCell {
                 make.center.equalToSuperview()
                 make.size.equalTo(loadingView.size)
             }
+        }
+        
+        blurEffectView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
         }
         
     }
@@ -298,6 +303,18 @@ class MusicTableViewCell: UITableViewCell {
         view.contentMode = .scaleAspectFill
         view.clipsToBounds = true
         view.layer.cornerRadius = 4.ckValue()
+        return view
+    }()
+    
+    lazy var blurEffectView: UIVisualEffectView = {
+        let blurEffect = UIBlurEffect(style: .extraLight)
+        let view = UIVisualEffectView(effect: blurEffect)
+#if !DEBUG
+        view.isHidden = true
+#endif
+        view.frame = self.coverImgView.bounds
+        view.alpha = 0.58
+        view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         return view
     }()
     
