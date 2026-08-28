@@ -236,6 +236,7 @@ extension FAQsViewController: UITableViewDataSource, UITableViewDelegate {
             
             cell.contentConfiguration = cellConfig
             cell.accessoryType = .none
+            cell.selectionStyle = .none
             
             return cell
         }

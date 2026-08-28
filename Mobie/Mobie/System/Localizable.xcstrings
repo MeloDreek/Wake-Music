@@ -80976,7 +80976,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "将元数据写入标签后，无论您将音乐文件传输到什么设备，这些信息都永远都不会丢失！"
+            "value" : "将元数据写入标签后，无论您将音乐文件传输到什么设备，这些信息永远都不会丢失！"
           }
         },
         "zh-Hant" : {
@@ -81227,19 +81227,19 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "重新上传到网盘或 NAS 后在线播放，无需下载，我们的全格式播放引擎也可以完美解析文件内嵌的封面歌词等等。Wake Music 可能是 App Store 上唯一做到这一点的音乐播放器。"
+            "value" : "重新上传到网盘或 NAS 后在线播放，无需下载，我们的全格式播放引擎也可以完美解析文件内嵌的封面歌词等等。维克音乐可能是 App Store 上唯一做到这一点的音乐播放器。"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "重新上傳至雲端硬碟或 NAS 後即可直接線上播放，無需下載，我們的全格式播放引擎也能完美解析檔案內嵌的封面、歌詞等資訊。Wake Music 可能是 App Store 上唯一做到這點的音樂播放器。"
+            "value" : "重新上傳至雲端硬碟或 NAS 後即可直接線上播放，無需下載，我們的全格式播放引擎也能完美解析檔案內嵌的封面、歌詞等資訊。維克音樂可能是 App Store 上唯一做到這點的音樂播放器。"
           }
         },
         "zh-HK" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "重新上傳至雲端硬碟或 NAS 後即可直接線上播放，無需下載，我們的全格式播放引擎也能完美解析檔案內嵌的封面、歌詞等資訊。Wake Music 可能是 App Store 上唯一做到這點的音樂播放器。"
+            "value" : "重新上傳至雲端硬碟或 NAS 後即可直接線上播放，無需下載，我們的全格式播放引擎也能完美解析檔案內嵌的封面、歌詞等資訊。維克音樂可能是 App Store 上唯一做到這點的音樂播放器。"
           }
         }
       }
@@ -92786,6 +92786,257 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "省電模式"
+          }
+        }
+      }
+    },
+    "Powered by Wake Music" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "مشغل بواسطة Wake Music"
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Desenvolupat per Wake Music"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Poháněno aplikací Wake Music"
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Drevet af Wake Music"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unterstezt durch Wake Music"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Με την υποστήριξη του Wake Music"
+          }
+        },
+        "en-AU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Powered by Wake Music"
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Powered by Wake Music"
+          }
+        },
+        "en-IN" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Powered by Wake Music"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Desarrollado por Wake Music"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Desarrollado por Wake Music"
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Desarrollado por Wake Music"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Toteutettu Wake Music -sovelluksella"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Propulsé par Wake Music"
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Propulsé par Wake Music"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "מופעל על ידי Wake Music"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wake Music द्वारा संचालित"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pokreće Wake Music"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A Wake Music támogatásával"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ditenagai oleh Wake Music"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Offerto da Wake Music"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Powered by Wake Music"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wake Music 제공"
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dikuasai oleh Wake Music"
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Drevet av Wake Music"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mogelijkgemaakt door Wake Music"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wspierane przez Wake Music"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Desenvolvido por Wake Music"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Desenvolvido por Wake Music"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dezvoltat de Wake Music"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Работает на базе Wake Music"
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pogáňané aplikáciou Wake Music"
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Omogoča Wake Music"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Drivs av Wake Music"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "สนับสนุนโดย Wake Music"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wake Music tarafından desteklenmektedir"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Працює на базі Wake Music"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cung cấp bởi Wake Music"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "由 维克音乐 提供技术支持"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "由 維克音樂 提供技術支援"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "由 維克音樂 提供技術支援"
           }
         }
       }
