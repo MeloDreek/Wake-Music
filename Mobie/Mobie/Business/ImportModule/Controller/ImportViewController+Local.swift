@@ -50,7 +50,7 @@ extension ImportViewController: UIDocumentPickerDelegate {
     func importFromWiFi() {
         AnalyticsManager.shared.logEvent("import_type", parameters: ["type": "PC"])
         
-        let scanVC = GCDWebServerController(self.viewModel)
+        let scanVC = WiFiServerViewController(self.viewModel)
         self.navigationController?.pushViewController(scanVC, animated: true)
     }
     

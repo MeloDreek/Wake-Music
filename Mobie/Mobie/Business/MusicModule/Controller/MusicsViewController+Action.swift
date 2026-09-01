@@ -143,7 +143,7 @@ extension MusicsViewController {
         
         AnalyticsManager.shared.logEvent("import_type", parameters: ["type": "PC"])
         
-        let scanVC = GCDWebServerController(self.viewModel)
+        let scanVC = WiFiServerViewController(self.viewModel)
         let navVC = KakaNavigationController(rootViewController: scanVC)
         navVC.modalPresentationStyle = .fullScreen
         self.present(navVC, animated: true)

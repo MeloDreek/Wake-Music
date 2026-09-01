@@ -270,7 +270,7 @@ public class CustomGenreCollectionHeadView: UICollectionReusableView {
     }()
     
     lazy var customIconView: UIImageView = {
-        let image = Reasource.systemNamed("rectangle.and.pencil.and.ellipsis", color: .white)
+        let image = Reasource.systemNamed("rectangle.and.pencil.and.ellipsis", color: .systemBackground)
         let view = UIImageView(image: image)
         view.contentMode = .scaleAspectFit
         return view
@@ -282,7 +282,7 @@ public class CustomGenreCollectionHeadView: UICollectionReusableView {
         view.numberOfLines = 0
         view.font = UIFontBold(15.ckValue())
         view.textAlignment = .center
-        view.textColor = .white
+        view.textColor = .systemBackground
         return view
     }()
 

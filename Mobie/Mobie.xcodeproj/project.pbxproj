@@ -302,7 +302,7 @@
 		225F587A2D85B2AB0055BDFF /* KakaMusicPlayer+Tools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A14222CA0633400E2948E /* KakaMusicPlayer+Tools.swift */; };
 		225F587B2D85B2AB0055BDFF /* BaiduDriveError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CFF8272CADCF2900CF825C /* BaiduDriveError.swift */; };
 		225F587C2D85B2AB0055BDFF /* MusicItemModel+Kaka.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13AC2CA0633400E2948E /* MusicItemModel+Kaka.swift */; };
-		225F587D2D85B2AB0055BDFF /* GCDWebServerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13992CA0633400E2948E /* GCDWebServerController.swift */; };
+		225F587D2D85B2AB0055BDFF /* WiFiServerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13992CA0633400E2948E /* WiFiServerViewController.swift */; };
 		225F587E2D85B2AB0055BDFF /* NavidromeArtistListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22436B172D7443E80004E09D /* NavidromeArtistListController.swift */; };
 		225F58802D85B2AB0055BDFF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13602CA00F5600E2948E /* SceneDelegate.swift */; };
 		225F58812D85B2AB0055BDFF /* AudioTagListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FECF302CB7B9A200FBE36B /* AudioTagListView.swift */; };
@@ -451,7 +451,7 @@
 		228A14292CA0633400E2948E /* WelcomeInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13922CA0633400E2948E /* WelcomeInfoModel.swift */; };
 		228A142A2CA0633400E2948E /* AlbumDetialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13942CA0633400E2948E /* AlbumDetialViewController.swift */; };
 		228A142B2CA0633400E2948E /* AlbumListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13952CA0633400E2948E /* AlbumListViewController.swift */; };
-		228A142F2CA0633400E2948E /* GCDWebServerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13992CA0633400E2948E /* GCDWebServerController.swift */; };
+		228A142F2CA0633400E2948E /* WiFiServerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13992CA0633400E2948E /* WiFiServerViewController.swift */; };
 		228A14312CA0633400E2948E /* MusicsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A139B2CA0633400E2948E /* MusicsViewController.swift */; };
 		228A14322CA0633400E2948E /* MusicsViewController+Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A139C2CA0633400E2948E /* MusicsViewController+Action.swift */; };
 		228A14332CA0633400E2948E /* MusicsViewController+Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A139D2CA0633400E2948E /* MusicsViewController+Data.swift */; };
@@ -875,7 +875,7 @@
 		228A13922CA0633400E2948E /* WelcomeInfoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeInfoModel.swift; sourceTree = "<group>"; };
 		228A13942CA0633400E2948E /* AlbumDetialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumDetialViewController.swift; sourceTree = "<group>"; };
 		228A13952CA0633400E2948E /* AlbumListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumListViewController.swift; sourceTree = "<group>"; };
-		228A13992CA0633400E2948E /* GCDWebServerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GCDWebServerController.swift; sourceTree = "<group>"; };
+		228A13992CA0633400E2948E /* WiFiServerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WiFiServerViewController.swift; sourceTree = "<group>"; };
 		228A139B2CA0633400E2948E /* MusicsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicsViewController.swift; sourceTree = "<group>"; };
 		228A139C2CA0633400E2948E /* MusicsViewController+Action.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MusicsViewController+Action.swift"; sourceTree = "<group>"; };
 		228A139D2CA0633400E2948E /* MusicsViewController+Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MusicsViewController+Data.swift"; sourceTree = "<group>"; };
@@ -1185,7 +1185,7 @@
 				228A13C52CA0633400E2948E /* VideoConverterViewController.swift */,
 				228A13C62CA0633400E2948E /* VideoConverterViewController+Action.swift */,
 				226EF7C62CA41C93004630B0 /* VideoConverterViewController+Crop.swift */,
-				228A13992CA0633400E2948E /* GCDWebServerController.swift */,
+				228A13992CA0633400E2948E /* WiFiServerViewController.swift */,
 				228624352CBFC2DD00472448 /* ScanUSBViewController.swift */,
 				22C707862DCBA20300A1B79A /* DownloadViewController.swift */,
 				22C707892DCBA20A00A1B79A /* DownloadViewController+Action.swift */,
@@ -1905,21 +1905,21 @@
 			);
 			mainGroup = 228A13522CA00F5600E2948E;
 			packageReferences = (
-				A76381462EDEA4000040A84D /* XCLocalSwiftPackageReference "DominantColors" */,
-				A76381492EDEA40F0040A84D /* XCLocalSwiftPackageReference "FileProvider" */,
-				A763814C2EDEA4200040A84D /* XCLocalSwiftPackageReference "Kingfisher" */,
-				A763814F2EDEA4320040A84D /* XCLocalSwiftPackageReference "KSPlayer" */,
-				A76381542EDEA44B0040A84D /* XCLocalSwiftPackageReference "LTMorphingLabel" */,
-				A76381572EDEA4570040A84D /* XCLocalSwiftPackageReference "MarqueeLabel" */,
-				A763815A2EDEA4650040A84D /* XCLocalSwiftPackageReference "PanModal" */,
-				A76381662EDEA48C0040A84D /* XCLocalSwiftPackageReference "Reachability.swift" */,
-				A76381692EDEA4970040A84D /* XCLocalSwiftPackageReference "Toast-Swift" */,
-				A763816F2EDEAA710040A84D /* XCLocalSwiftPackageReference "ZLImageEditor" */,
-				A76381FD2EDED27C0040A84D /* XCLocalSwiftPackageReference "Alamofire" */,
-				2242159B2F88DAAF00766F40 /* XCLocalSwiftPackageReference "aliyunpan-ios-sdk" */,
-				220F66233002838600915384 /* XCLocalSwiftPackageReference "purchases-ios" */,
-				22A801D9302B284D000FB581 /* XCLocalSwiftPackageReference "firebase-ios-sdk" */,
-				22953EF830359265001B0546 /* XCLocalSwiftPackageReference "SwiftyUploader" */,
+				A76381462EDEA4000040A84D /* XCLocalSwiftPackageReference "../../../本地公开库/DominantColors" */,
+				A76381492EDEA40F0040A84D /* XCLocalSwiftPackageReference "../../../本地公开库/FileProvider" */,
+				A763814C2EDEA4200040A84D /* XCLocalSwiftPackageReference "../../../本地公开库/Kingfisher" */,
+				A763814F2EDEA4320040A84D /* XCLocalSwiftPackageReference "../../../本地公开库/KSPlayer" */,
+				A76381542EDEA44B0040A84D /* XCLocalSwiftPackageReference "../../../本地公开库/LTMorphingLabel" */,
+				A76381572EDEA4570040A84D /* XCLocalSwiftPackageReference "../../../本地公开库/MarqueeLabel" */,
+				A763815A2EDEA4650040A84D /* XCLocalSwiftPackageReference "../../../本地公开库/PanModal" */,
+				A76381662EDEA48C0040A84D /* XCLocalSwiftPackageReference "../../../本地公开库/Reachability.swift" */,
+				A76381692EDEA4970040A84D /* XCLocalSwiftPackageReference "../../../本地公开库/Toast-Swift" */,
+				A763816F2EDEAA710040A84D /* XCLocalSwiftPackageReference "../../../本地公开库/ZLImageEditor" */,
+				A76381FD2EDED27C0040A84D /* XCLocalSwiftPackageReference "../../../本地公开库/Alamofire" */,
+				2242159B2F88DAAF00766F40 /* XCLocalSwiftPackageReference "../../../本地公开库/aliyunpan-ios-sdk" */,
+				220F66233002838600915384 /* XCLocalSwiftPackageReference "../../../本地公开库/purchases-ios" */,
+				22A801D9302B284D000FB581 /* XCLocalSwiftPackageReference "../../../本地公开库/firebase-ios-sdk" */,
+				22953EF830359265001B0546 /* XCLocalSwiftPackageReference "../../../本地公开库/SwiftyUploader" */,
 			);
 			productRefGroup = 228A135C2CA00F5600E2948E /* Products */;
 			projectDirPath = "";
@@ -1997,9 +1997,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Mobie/Pods-Mobie-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Mobie/Pods-Mobie-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -2034,9 +2038,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Mobie_Pro/Pods-Mobie_Pro-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Mobie_Pro/Pods-Mobie_Pro-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -2095,9 +2103,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Mobie_Pro/Pods-Mobie_Pro-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Mobie_Pro/Pods-Mobie_Pro-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -2112,9 +2124,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Mobie/Pods-Mobie-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Mobie/Pods-Mobie-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -2361,7 +2377,7 @@
 				22677F6F2E151F4200E20147 /* ImportViewController+Drive.swift in Sources */,
 				225F587B2D85B2AB0055BDFF /* BaiduDriveError.swift in Sources */,
 				225F587C2D85B2AB0055BDFF /* MusicItemModel+Kaka.swift in Sources */,
-				225F587D2D85B2AB0055BDFF /* GCDWebServerController.swift in Sources */,
+				225F587D2D85B2AB0055BDFF /* WiFiServerViewController.swift in Sources */,
 				225F587E2D85B2AB0055BDFF /* NavidromeArtistListController.swift in Sources */,
 				22C707902DCBA3CC00A1B79A /* FAQsViewController.swift in Sources */,
 				225F58802D85B2AB0055BDFF /* SceneDelegate.swift in Sources */,
@@ -2656,7 +2672,7 @@
 				22677F6E2E151F4200E20147 /* ImportViewController+Drive.swift in Sources */,
 				22CFF8282CADCF2900CF825C /* BaiduDriveError.swift in Sources */,
 				228A14412CA0633400E2948E /* MusicItemModel+Kaka.swift in Sources */,
-				228A142F2CA0633400E2948E /* GCDWebServerController.swift in Sources */,
+				228A142F2CA0633400E2948E /* WiFiServerViewController.swift in Sources */,
 				22436B182D7443E90004E09D /* NavidromeArtistListController.swift in Sources */,
 				22C7078F2DCBA3CC00A1B79A /* FAQsViewController.swift in Sources */,
 				228A13612CA00F5600E2948E /* SceneDelegate.swift in Sources */,
@@ -3107,71 +3123,71 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		220F66233002838600915384 /* XCLocalSwiftPackageReference "purchases-ios" */ = {
+		220F66233002838600915384 /* XCLocalSwiftPackageReference "../../../本地公开库/purchases-ios" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = "../../../本地公开库/purchases-ios";
 		};
-		2242159B2F88DAAF00766F40 /* XCLocalSwiftPackageReference "aliyunpan-ios-sdk" */ = {
+		2242159B2F88DAAF00766F40 /* XCLocalSwiftPackageReference "../../../本地公开库/aliyunpan-ios-sdk" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = "../../../本地公开库/aliyunpan-ios-sdk";
 		};
-		227FD0172E8471180076B773 /* XCLocalSwiftPackageReference "KSPlayer" */ = {
+		227FD0172E8471180076B773 /* XCLocalSwiftPackageReference "../../../本地公开库/KSPlayer" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = "../../../本地公开库/KSPlayer";
 		};
-		227FD0382E84723D0076B773 /* XCLocalSwiftPackageReference "Reachability.swift" */ = {
+		227FD0382E84723D0076B773 /* XCLocalSwiftPackageReference "../../../本地公开库/Reachability.swift" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = "../../../本地公开库/Reachability.swift";
 		};
-		22953EF830359265001B0546 /* XCLocalSwiftPackageReference "SwiftyUploader" */ = {
+		22953EF830359265001B0546 /* XCLocalSwiftPackageReference "../../../本地公开库/SwiftyUploader" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = "../../../本地公开库/SwiftyUploader";
 		};
-		22A801D9302B284D000FB581 /* XCLocalSwiftPackageReference "firebase-ios-sdk" */ = {
+		22A801D9302B284D000FB581 /* XCLocalSwiftPackageReference "../../../本地公开库/firebase-ios-sdk" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = "../../../本地公开库/firebase-ios-sdk";
 		};
-		A76381462EDEA4000040A84D /* XCLocalSwiftPackageReference "DominantColors" */ = {
+		A76381462EDEA4000040A84D /* XCLocalSwiftPackageReference "../../../本地公开库/DominantColors" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = "../../../本地公开库/DominantColors";
 		};
-		A76381492EDEA40F0040A84D /* XCLocalSwiftPackageReference "FileProvider" */ = {
+		A76381492EDEA40F0040A84D /* XCLocalSwiftPackageReference "../../../本地公开库/FileProvider" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = "../../../本地公开库/FileProvider";
 		};
-		A763814C2EDEA4200040A84D /* XCLocalSwiftPackageReference "Kingfisher" */ = {
+		A763814C2EDEA4200040A84D /* XCLocalSwiftPackageReference "../../../本地公开库/Kingfisher" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = "../../../本地公开库/Kingfisher";
 		};
-		A763814F2EDEA4320040A84D /* XCLocalSwiftPackageReference "KSPlayer" */ = {
+		A763814F2EDEA4320040A84D /* XCLocalSwiftPackageReference "../../../本地公开库/KSPlayer" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = "../../../本地公开库/KSPlayer";
 		};
-		A76381542EDEA44B0040A84D /* XCLocalSwiftPackageReference "LTMorphingLabel" */ = {
+		A76381542EDEA44B0040A84D /* XCLocalSwiftPackageReference "../../../本地公开库/LTMorphingLabel" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = "../../../本地公开库/LTMorphingLabel";
 		};
-		A76381572EDEA4570040A84D /* XCLocalSwiftPackageReference "MarqueeLabel" */ = {
+		A76381572EDEA4570040A84D /* XCLocalSwiftPackageReference "../../../本地公开库/MarqueeLabel" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = "../../../本地公开库/MarqueeLabel";
 		};
-		A763815A2EDEA4650040A84D /* XCLocalSwiftPackageReference "PanModal" */ = {
+		A763815A2EDEA4650040A84D /* XCLocalSwiftPackageReference "../../../本地公开库/PanModal" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = "../../../本地公开库/PanModal";
 		};
-		A76381662EDEA48C0040A84D /* XCLocalSwiftPackageReference "Reachability.swift" */ = {
+		A76381662EDEA48C0040A84D /* XCLocalSwiftPackageReference "../../../本地公开库/Reachability.swift" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = "../../../本地公开库/Reachability.swift";
 		};
-		A76381692EDEA4970040A84D /* XCLocalSwiftPackageReference "Toast-Swift" */ = {
+		A76381692EDEA4970040A84D /* XCLocalSwiftPackageReference "../../../本地公开库/Toast-Swift" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = "../../../本地公开库/Toast-Swift";
 		};
-		A763816F2EDEAA710040A84D /* XCLocalSwiftPackageReference "ZLImageEditor" */ = {
+		A763816F2EDEAA710040A84D /* XCLocalSwiftPackageReference "../../../本地公开库/ZLImageEditor" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = "../../../本地公开库/ZLImageEditor";
 		};
-		A76381FD2EDED27C0040A84D /* XCLocalSwiftPackageReference "Alamofire" */ = {
+		A76381FD2EDED27C0040A84D /* XCLocalSwiftPackageReference "../../../本地公开库/Alamofire" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = "../../../本地公开库/Alamofire";
 		};
@@ -3283,17 +3299,17 @@
 		};
 		220F662C300283AF00915384 /* ReceiptParser */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 220F66233002838600915384 /* XCLocalSwiftPackageReference "purchases-ios" */;
+			package = 220F66233002838600915384 /* XCLocalSwiftPackageReference "../../../本地公开库/purchases-ios" */;
 			productName = ReceiptParser;
 		};
 		220F662E300283AF00915384 /* RevenueCat */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 220F66233002838600915384 /* XCLocalSwiftPackageReference "purchases-ios" */;
+			package = 220F66233002838600915384 /* XCLocalSwiftPackageReference "../../../本地公开库/purchases-ios" */;
 			productName = RevenueCat;
 		};
 		220F6632300283AF00915384 /* RevenueCatUI */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 220F66233002838600915384 /* XCLocalSwiftPackageReference "purchases-ios" */;
+			package = 220F66233002838600915384 /* XCLocalSwiftPackageReference "../../../本地公开库/purchases-ios" */;
 			productName = RevenueCatUI;
 		};
 		223A49842D7FD811003B3886 /* Kingfisher */ = {
@@ -3328,17 +3344,17 @@
 		};
 		223E51A4302B291A00FEF1E4 /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 22A801D9302B284D000FB581 /* XCLocalSwiftPackageReference "firebase-ios-sdk" */;
+			package = 22A801D9302B284D000FB581 /* XCLocalSwiftPackageReference "../../../本地公开库/firebase-ios-sdk" */;
 			productName = FirebaseAnalytics;
 		};
 		223E51A6302B291A00FEF1E4 /* FirebaseAnalyticsCore */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 22A801D9302B284D000FB581 /* XCLocalSwiftPackageReference "firebase-ios-sdk" */;
+			package = 22A801D9302B284D000FB581 /* XCLocalSwiftPackageReference "../../../本地公开库/firebase-ios-sdk" */;
 			productName = FirebaseAnalyticsCore;
 		};
 		223E51A8302B291A00FEF1E4 /* FirebaseCrashlytics */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 22A801D9302B284D000FB581 /* XCLocalSwiftPackageReference "firebase-ios-sdk" */;
+			package = 22A801D9302B284D000FB581 /* XCLocalSwiftPackageReference "../../../本地公开库/firebase-ios-sdk" */;
 			productName = FirebaseCrashlytics;
 		};
 		223FDA612E04148200079731 /* MorphingLabel */ = {
@@ -3367,17 +3383,17 @@
 		};
 		2242159E2F88DAE600766F40 /* AliyunpanSDK */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 2242159B2F88DAAF00766F40 /* XCLocalSwiftPackageReference "aliyunpan-ios-sdk" */;
+			package = 2242159B2F88DAAF00766F40 /* XCLocalSwiftPackageReference "../../../本地公开库/aliyunpan-ios-sdk" */;
 			productName = AliyunpanSDK;
 		};
 		22526E092E84F59C00C32DBF /* KSPlayer */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 227FD0172E8471180076B773 /* XCLocalSwiftPackageReference "KSPlayer" */;
+			package = 227FD0172E8471180076B773 /* XCLocalSwiftPackageReference "../../../本地公开库/KSPlayer" */;
 			productName = KSPlayer;
 		};
 		22526E0B2E84F5AD00C32DBF /* Reachability */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 227FD0382E84723D0076B773 /* XCLocalSwiftPackageReference "Reachability.swift" */;
+			package = 227FD0382E84723D0076B773 /* XCLocalSwiftPackageReference "../../../本地公开库/Reachability.swift" */;
 			productName = Reachability;
 		};
 		225F58D72D85B5A10055BDFF /* Kingfisher */ = {
@@ -3488,7 +3504,7 @@
 		};
 		22953EFB30359278001B0546 /* SwiftyUploader */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 22953EF830359265001B0546 /* XCLocalSwiftPackageReference "SwiftyUploader" */;
+			package = 22953EF830359265001B0546 /* XCLocalSwiftPackageReference "../../../本地公开库/SwiftyUploader" */;
 			productName = SwiftyUploader;
 		};
 		22A801DA302B284D000FB581 /* FirebaseAnalytics */ = {
@@ -3553,7 +3569,7 @@
 		};
 		A763817C2EDEB7770040A84D /* MPVPlayer */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = A763814F2EDEA4320040A84D /* XCLocalSwiftPackageReference "KSPlayer" */;
+			package = A763814F2EDEA4320040A84D /* XCLocalSwiftPackageReference "../../../本地公开库/KSPlayer" */;
 			productName = MPVPlayer;
 		};
 		A76381FE2EDED27C0040A84D /* Alamofire */ = {
@@ -3562,7 +3578,7 @@
 		};
 		A76382002EDED2E60040A84D /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = A76381FD2EDED27C0040A84D /* XCLocalSwiftPackageReference "Alamofire" */;
+			package = A76381FD2EDED27C0040A84D /* XCLocalSwiftPackageReference "../../../本地公开库/Alamofire" */;
 			productName = Alamofire;
 		};
 /* End XCSwiftPackageProductDependency section */

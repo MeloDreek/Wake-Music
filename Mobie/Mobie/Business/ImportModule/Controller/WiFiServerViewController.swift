@@ -1,5 +1,5 @@
 //
-//  GCDWebServerController.swift
+//  WiFiServerViewController.swift
 //  Wake Music
 //
 //  Created by Kaka Inc. on 2024/3/27.
@@ -14,7 +14,7 @@ import AVKit
 import NVActivityIndicatorView
 import StoreKit
 
-class GCDWebServerController: SuperViewController {
+class WiFiServerViewController: SuperViewController {
     
     deinit {
         self.fileWatcher.stopWatching()
@@ -200,21 +200,6 @@ class GCDWebServerController: SuperViewController {
     }
     
     
-    var tmpFolderPath: String {
-        get {
-            let folderPath = SandboxType_WifiPC
-
-            if !FileManager.default.fileExists(atPath: folderPath) {
-                try? FileManager.default.createDirectory(atPath: folderPath, withIntermediateDirectories: true, attributes: nil)
-            }
-            
-            debugPrint("🦌文件地址 = \(folderPath)")
-            
-            return folderPath
-        }
-    }
-    
-    
     // MARK:  懒加载
     
     let baseURL = SandboxFileManager.shared.basePublicFileURL()
@@ -274,7 +259,7 @@ class GCDWebServerController: SuperViewController {
     
 }
 
-extension GCDWebServerController: DocumentFolderWatcherDelegate {
+extension WiFiServerViewController: DocumentFolderWatcherDelegate {
     func documentFolderWatcherDidAddFiles(watcher: DocumentFolderWatcher, addFiles: [URL]) {
         for subFile in addFiles {
             self.view.makeToast(subFile.lastPathComponent)
@@ -288,7 +273,7 @@ extension GCDWebServerController: DocumentFolderWatcherDelegate {
 }
 
 
-extension GCDWebServerController: UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate {
+extension WiFiServerViewController: UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
