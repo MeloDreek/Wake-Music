@@ -1,6 +1,6 @@
 //
 //  PurchargeStatus+Extension.swift
-// Wake Music
+//  Wakemusic
 //
 //  Created by Kaka Inc. on 2023/12/12.
 //

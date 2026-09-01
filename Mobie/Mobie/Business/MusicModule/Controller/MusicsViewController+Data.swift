@@ -1,6 +1,6 @@
 //
 //  MusicsViewController+Data.swift
-//  Wake Music
+//  Wakemusic
 //
 //  Created by Kaka Inc. on 2024/1/24.
 //
@@ -64,7 +64,7 @@ extension MusicsViewController: UITableViewDataSource, UITableViewDelegate {
 //            let musicGenre = MusicGenreType.allCases.randomElement()!
 //            
 //            cell.nameLabel.text = musicGenre.formatStr() + "." + AudioExtensionType.allCases.randomElement()!.rawValue
-//            cell.descLabel.text = "Wake Music".localStr()
+//            cell.descLabel.text = "Wakemusic".localStr()
 //            cell.coverImgView.image = musicGenre.iconImage()
 //#endif
             return cell

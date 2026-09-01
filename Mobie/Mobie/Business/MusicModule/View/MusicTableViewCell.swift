@@ -1,6 +1,6 @@
 //
 //  MusicTableViewCell.swift
-//  Wake Music
+//  Wakemusic
 //
 //  Created by Melo on 7/26/24.
 //

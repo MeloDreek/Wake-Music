@@ -1,6 +1,6 @@
 //
 //  MusicItemModel+Kaka.swift
-//  Wake Music
+//  Wakemusic
 //
 //  Created by Melo on 7/29/24.
 //
@@ -219,9 +219,9 @@ extension MusicItemModel {
     
     /// 构造一个试听音乐模型
     static func demoMusicModel() -> MusicItemModel {
-        let fileURL = URL(fileURLWithPath: Reasource.fullFilePath("Wake Music.dts"))
+        let fileURL = URL(fileURLWithPath: Reasource.fullFilePath("Wakemusic.dts"))
         
-        let placeArtist = "Wake Music".localStr()
+        let placeArtist = "Wakemusic".localStr()
         let lyricStr = "[00:00.000] \(placeArtist)\r[00:03.662] ⚡️⚡️⚡️\r[00:05.663] ☁️☁️☁️\r[00:07.664] 🌩️🌩️🌩️\r[00:09.665] 🌧️🌧️🌧️\r[00:11.666] ☂️☂️☂️\r[00:13.667] ☔️☔️☔️\r[00:15.668] 🌊🌊🌊\r[00:17.669] ❄️❄️❄️\r[00:19.660] ⛄️⛄️⛄️\r[00:21.661] ☃️☃️☃️\r[00:23.662] 💧💧💧\r[00:25.663] 🌈🌈🌈\r[00:27.664] 🌥️🌥️🌥️\r[00:29.665] ⛅️⛅️⛅️\r[00:31.666] 🌤️🌤️🌤️\r[00:32.666] ☀️☀️☀️\r[00:33.000] \(placeArtist)"
         
         let metaData = TaglibMetadataParser.readMetadata(withFileURL: fileURL, read: .all)
@@ -230,8 +230,8 @@ extension MusicItemModel {
         newModel.fileSourceType = .demoFile
         newModel.coverArt = metaData?.coverArt ?? UIImage(named: "demo_art")
         newModel.title = metaData?.title ?? "7.1 Surround".localStr()
-        newModel.artist = metaData?.artist ?? "Wake Music".localStr()
-        newModel.album = metaData?.album ?? "Wake Music".localStr()
+        newModel.artist = metaData?.artist ?? "Wakemusic".localStr()
+        newModel.album = metaData?.album ?? "Wakemusic".localStr()
         newModel.year = Int(metaData?.year ?? UInt(Date().year))
         newModel.durationSeconds = Int(metaData?.durationSeconds ?? 35)
         newModel.track = Int(metaData?.track ?? 1)

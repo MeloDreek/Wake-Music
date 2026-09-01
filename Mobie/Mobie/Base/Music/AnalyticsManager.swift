@@ -1,6 +1,6 @@
 //
 //  AnalyticsManager.swift
-//  Wake Music
+//  Wakemusic
 //
 //  Created by Melo on 7/29/24.
 //

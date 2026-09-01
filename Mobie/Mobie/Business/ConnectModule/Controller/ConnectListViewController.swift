@@ -369,7 +369,7 @@ extension ConnectListViewController: MFMailComposeViewControllerDelegate, SFSafa
     @objc func handleWithEmail() {
         self.view.endEditing(true)
         
-        let subject = "\(kaka_osType().iconStr()) \("Wake Music".localStr()) Feedback"
+        let subject = "\(kaka_osType().iconStr()) \("Wakemusic".localStr()) Feedback"
         let messageBody = "\r\r\r\r\r-----------------------------" + "\r" + self.getDeviceInformation()
         
         let canOpenMailScheme = UIApplication.shared.canOpenURL(URL(string: "mailto:")!)
@@ -425,7 +425,7 @@ extension ConnectListViewController: MFMailComposeViewControllerDelegate, SFSafa
 
         return """
         ServerType: "ConnectListViewController"
-        App Name: \("Wake Music".localStr())
+        App Name: \("Wakemusic".localStr())
         App Version: \(appVersion)
         Device Model: \(model)
         System Version: \(systemVersion)

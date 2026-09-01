@@ -1,6 +1,6 @@
 //
 //  EmptyCollectViewCell.swift
-//  Wake Music
+//  Wakemusic
 //
 //  Created by 张文 on 9/18/24.
 //
@@ -153,7 +153,7 @@ class EmptyCollectViewCell: UICollectionViewCell {
         self.importButton.setTitle("Import Music".localStr(), for: .normal)
         
         self.titleLabel.text = "Connect Your Music".localStr()
-        self.messaleLabel.text = "Even with a million songs in your library, your device storage stays free. No API required—Wake Music can display embedded album artwork and lyrics directly from remote files.".localStr()
+        self.messaleLabel.text = "Even with a million songs in your library, your device storage stays free. No API required—Wakemusic can display embedded album artwork and lyrics directly from remote files.".localStr()
         self.layoutIfNeeded()
     }
     

@@ -1,6 +1,6 @@
 //
 //  BroadcastsModel.swift
-//  Wake Music
+//  Wakemusic
 //
 //  Created by Melo on 8/1/24.
 //

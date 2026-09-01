@@ -5,10 +5,40 @@
       "comment" : "Class = \"UILabel\"; text = \"Wake Music\"; ObjectID = \"dR6-H5-kbO\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wakemusic"
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wakemusic"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wakemusic"
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wakemusic"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Wake Musik"
+            "value" : "Wakemusic"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wakemusic"
           }
         },
         "en" : {
@@ -20,79 +50,193 @@
         "en-AU" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Wake Music"
+            "value" : "Wakemusic"
           }
         },
         "en-GB" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Wake Music"
+            "value" : "Wakemusic"
           }
         },
         "en-IN" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Wake Music"
+            "value" : "Wakemusic"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Wake Música"
+            "value" : "Wakemusic"
           }
         },
         "es-419" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Wake Música"
+            "value" : "Wakemusic"
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wakemusic"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wakemusic"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Musique Wake"
+            "value" : "Wakemusic"
           }
         },
         "fr-CA" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Musique Wake"
+            "value" : "Wakemusic"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wakemusic"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wakemusic"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wakemusic"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wakemusic"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wakemusic"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wakemusic"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "ウェイク音楽"
+            "value" : "Wakemusic"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wakemusic"
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wakemusic"
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wakemusic"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wakemusic"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wakemusic"
           }
         },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Wake Música"
+            "value" : "Wakemusic"
           }
         },
         "pt-PT" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Wake Música"
+            "value" : "Wakemusic"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wakemusic"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Уэйк Музыка"
+            "value" : "Wakemusic"
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wakemusic"
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wakemusic"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wakemusic"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wakemusic"
           }
         },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Wake Müzik"
+            "value" : "Wakemusic"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wakemusic"
           }
         },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Wake Music"
+            "value" : "Wakemusic"
           }
         },
         "zh-Hans" : {
@@ -110,7 +254,7 @@
         "zh-HK" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "維克音樂"
+            "value" : "Wakemusic"
           }
         }
       }
@@ -119,115 +263,14 @@
       "comment" : "Class = \"UILabel\"; text = \"Copyright 2024-2026 Kaka Inc.\"; ObjectID = \"oIM-bJ-Pdg\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Copyright 2025 Kaka Inc."
-          }
-        },
         "en" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "Copyright 2024-2026 Kaka Inc."
           }
-        },
-        "en-AU" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Copyright 2025 Kaka Inc."
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Copyright 2025 Kaka Inc."
-          }
-        },
-        "en-IN" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Copyright 2025 Kaka Inc."
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Copyright 2025 Kaka Inc."
-          }
-        },
-        "es-419" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Copyright 2025 Kaka Inc."
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Copyright 2025 Kaka Inc."
-          }
-        },
-        "fr-CA" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Copyright 2025 Kaka Inc."
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Copyright 2025 Kaka Inc."
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Copyright 2025 Kaka Inc."
-          }
-        },
-        "pt-PT" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Copyright 2025 Kaka Inc."
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Copyright 2025 Kaka Inc."
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Copyright 2025 Kaka Inc."
-          }
-        },
-        "vi" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Copyright 2025 Kaka Inc."
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Copyright 2025 Kaka Inc."
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Copyright 2025 Kaka Inc."
-          }
-        },
-        "zh-HK" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Copyright 2025 Kaka Inc."
-          }
         }
-      }
+      },
+      "shouldTranslate" : false
     }
   },
   "version" : "1.0"

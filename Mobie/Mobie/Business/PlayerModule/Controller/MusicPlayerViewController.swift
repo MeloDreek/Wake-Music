@@ -1,6 +1,6 @@
 //
 //  MusicPlayerViewController.swift
-//  Wake Music
+//  Wakemusic
 //
 //  Created by Melo on 7/29/24.
 //
@@ -81,7 +81,7 @@ class MusicPlayerViewController: SuperViewController {
         
         ImageCache.default.clearMemoryCache()
         
-        self.title = "Wake Music".localStr()
+        self.title = "Wakemusic".localStr()
                                 
         self.refreshUIViewAction()
         self.configMusicPlayer()
@@ -277,7 +277,7 @@ class MusicPlayerViewController: SuperViewController {
     }()
     
     lazy var nameLabel: UILabel = {
-        let text = "Wake Music".localStr()
+        let text = "Wakemusic".localStr()
         let font = UIFontLight(13.ckValue())
         
         let view = UILabel(frame: CGRectMake(0, 0, text.width(font), font.lineHeight))

@@ -1,6 +1,6 @@
 //
 //  ImportFileType.swift
-//  Wake Music
+//  Wakemusic
 //
 //  Created by Kaka Inc. on 2024/6/25.
 //
@@ -123,7 +123,7 @@ extension ImportFileType {
     public func titleStr() -> String {
         switch self {
         
-        case .demoFile: return "Wake Music".localStr()
+        case .demoFile: return "Wakemusic".localStr()
         case .localFile: return "Local".localStr()
         case .fromFile:
             return "File".localStr()

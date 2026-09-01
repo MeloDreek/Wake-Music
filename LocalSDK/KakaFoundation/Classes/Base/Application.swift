@@ -93,7 +93,7 @@ public enum Application: Int, CaseIterable {
     public func appTitle() -> String {
         switch self {
         case .wakeMusic:
-            return "Wake Music".localStr()
+            return "Wakemusic".localStr()
         case .wakeTag:
             return "Waketag".localStr()
         case .playlistPort:

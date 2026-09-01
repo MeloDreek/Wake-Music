@@ -42,7 +42,7 @@ class DownloadViewController: SuperViewController {
 //            let subExtension = AudioExtension.audioSuffixs.randomElement()?.lowercased() ?? "dsf"
 //            
 //            var model = MusicItemModel(fileURL: SandboxFileManager.shared.basePublicFileURL().appendingPathComponent("\(subGenre.formatStr()).\(subExtension)"), sourceType: .localFile)
-//            model.title = "Wake Music".localStr() + " \(i)." + subExtension
+//            model.title = "Wakemusic".localStr() + " \(i)." + subExtension
 //            model.artist = "From".localStr() + " " + ImportFileType.fromGoogleDrive.titleStr()
 //            model.coverArt = subGenre.iconImage()
 //            testArray.append(model)

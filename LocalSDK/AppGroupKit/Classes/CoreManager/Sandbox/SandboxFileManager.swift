@@ -63,7 +63,7 @@ public final class SandboxFileManager: @unchecked Sendable {
         }
         
 #if targetEnvironment(macCatalyst)
-        let bundleID = (Bundle.main.infoDictionary?["CFBundleIdentifier"] as? String) ?? "Wake Music"
+        let bundleID = (Bundle.main.infoDictionary?["CFBundleIdentifier"] as? String) ?? "Wakemusic"
         cacheURLStr = cacheURLStr + bundleID + "/" + SandboxType_PreDownload
 #else
         cacheURLStr = cacheURLStr + SandboxType_PreDownload
@@ -116,7 +116,7 @@ public final class SandboxFileManager: @unchecked Sendable {
         let musicDirectory = FileManager.default.urls(for: .musicDirectory, in: .userDomainMask).first
         
         // 创建应用程序文件夹的名称
-        let appFolderName = "Wake Music"
+        let appFolderName = "Wakemusic"
         
         // 创建完整的文件夹路径
         guard let appFolderURL = musicDirectory?.appendingPathComponent(appFolderName) else {

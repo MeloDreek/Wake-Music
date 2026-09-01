@@ -971,7 +971,7 @@ extension AudioMatchTagViewController: MFMailComposeViewControllerDelegate, SFSa
     @objc func handleWithEmail() {
         self.view.endEditing(true)
         
-        let subject = "\(kaka_osType().iconStr()) \("Wake Music".localStr()) Feedback"
+        let subject = "\(kaka_osType().iconStr()) \("Wakemusic".localStr()) Feedback"
         let messageBody = "\r\r\r\r\r-----------------------------" + "\r" + self.getDeviceInformation()
         
         let canOpenMailScheme = UIApplication.shared.canOpenURL(URL(string: "mailto:")!)
@@ -1030,7 +1030,7 @@ extension AudioMatchTagViewController: MFMailComposeViewControllerDelegate, SFSa
         return """
         File Name: \(fileName)
         All Metadata: \(allInfo)
-        App Name: \("Wake Music".localStr())
+        App Name: \("Wakemusic".localStr())
         App Version: \(appVersion)
         Device Model: \(model)
         System Version: \(systemVersion)

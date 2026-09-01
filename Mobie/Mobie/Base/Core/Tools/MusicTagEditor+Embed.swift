@@ -228,7 +228,7 @@ extension MusicTagEditor {
         }
         
         // 9️⃣ 注释
-        let comment = "Powered by Wake Music".localStr()
+        let comment = "Powered by Wakemusic".localStr()
         if TaglibMetadataParser.setComment(comment, toFileURL: fileURL) {
             newModel.comment = comment
         }

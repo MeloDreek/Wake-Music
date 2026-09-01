@@ -61,7 +61,7 @@ class GenreDetialViewController: SuperViewController {
         
 #warning("模拟mock数据")
 //        #if DEBUG
-//        headView.nameLabel.text = "Wake Music".localStr()
+//        headView.nameLabel.text = "Wakemusic".localStr()
 //        let name = "singer_13@3x.png"
 //        let coverURL = URL(fileURLWithPath: Reasource.fullFilePath(name))
 //        headView.effectView.isHidden = true

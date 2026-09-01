@@ -172,7 +172,7 @@ extension ImportViewController: MFMailComposeViewControllerDelegate, SFSafariVie
     @objc func handleWithEmail() {
         self.view.endEditing(true)
         
-        let subject = "\(kaka_osType().iconStr()) \("Wake Music".localStr()) Feedback"
+        let subject = "\(kaka_osType().iconStr()) \("Wakemusic".localStr()) Feedback"
         let messageBody = "\r\r\r\r\r-----------------------------" + "\r" + self.getDeviceInformation()
         
         let canOpenMailScheme = UIApplication.shared.canOpenURL(URL(string: "mailto:")!)
@@ -228,7 +228,7 @@ extension ImportViewController: MFMailComposeViewControllerDelegate, SFSafariVie
 
         return """
         ServerType: "ImportViewController"
-        App Name: \("Wake Music".localStr())
+        App Name: \("Wakemusic".localStr())
         App Version: \(appVersion)
         Device Model: \(model)
         System Version: \(systemVersion)

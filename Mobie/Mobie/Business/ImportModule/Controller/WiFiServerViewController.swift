@@ -1,6 +1,6 @@
 //
 //  WiFiServerViewController.swift
-//  Wake Music
+//  Wakemusic
 //
 //  Created by Kaka Inc. on 2024/3/27.
 //
@@ -299,7 +299,7 @@ extension WiFiServerViewController: UITableViewDataSource, UITableViewDelegate, 
 #warning("模拟mock数据")
 //                #if DEBUG
 //                cell.nameLabel.text = "Music 00\(indexPath.row + 1).dsd"
-//                cell.singerLabel.text = "Wake Music".localStr()
+//                cell.singerLabel.text = "Wakemusic".localStr()
 //                let name = "singer_\(indexPath.row + 1)@3x.png"
 //                let coverURL = URL(fileURLWithPath: Reasource.fullFilePath(name))
 //                cell.coverImgView.kf.setImage(with: coverURL, placeholder: UIImage(named: "music_place"))

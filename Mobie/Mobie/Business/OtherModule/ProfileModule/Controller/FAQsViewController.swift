@@ -154,7 +154,7 @@ class FAQsViewController: SuperViewController {
                 answers: [
                     "Directly editing files in cloud storage or NAS is currently not supported.".localStr(),
                     "Writing embedded metadata requires reading and writing the entire audio file. Therefore, you need to download the music file to your local device first, export it after editing, and then re-upload it to your cloud storage or NAS.".localStr(),
-                    "Once re-uploaded to cloud storage or NAS, you can stream directly without downloading. Our all-format audio engine seamlessly parses embedded cover art, lyrics, and metadata. Wake Music is likely the only music player on the App Store to achieve this.".localStr()
+                    "Once re-uploaded to cloud storage or NAS, you can stream directly without downloading. Our all-format audio engine seamlessly parses embedded cover art, lyrics, and metadata. Wakemusic is likely the only music player on the App Store to achieve this.".localStr()
                 ]
             )
                     
@@ -267,7 +267,7 @@ extension FAQsViewController: MFMailComposeViewControllerDelegate, SFSafariViewC
     @objc func handleWithEmail() {
         self.view.endEditing(true)
         
-        let subject = "\(kaka_osType().iconStr()) \("Wake Music".localStr()) Feedback"
+        let subject = "\(kaka_osType().iconStr()) \("Wakemusic".localStr()) Feedback"
         let messageBody = "\r\r\r\r\r-----------------------------" + "\r" + self.getDeviceInformation()
         
         let canOpenMailScheme = UIApplication.shared.canOpenURL(URL(string: "mailto:")!)
@@ -322,7 +322,7 @@ extension FAQsViewController: MFMailComposeViewControllerDelegate, SFSafariViewC
         let appVersion = ((Bundle.main.infoDictionary!["CFBundleShortVersionString"] as? String) ?? "") + "_" + "\(UserInfoManager.shared.isVIP() ? "1" : "0")"
 
         return """
-        App Name: \("Wake Music".localStr())
+        App Name: \("Wakemusic".localStr())
         App Version: \(appVersion)
         Device Model: \(model)
         System Version: \(systemVersion)

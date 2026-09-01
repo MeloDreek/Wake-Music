@@ -1,6 +1,6 @@
 //
 //  AboutAppTableCell.swift
-//  Wake Music
+//  Wakemusic
 //
 //  Created by Kaka Inc. on 2024/1/22.
 //
@@ -90,7 +90,7 @@ class AboutAppTableCell: UITableViewCell {
     lazy var appNameLabel: UILabel = {
         let label = UILabel()
         label.textColor = UIColor.label
-        label.text = "Wake Music".localStr()
+        label.text = "Wakemusic".localStr()
         label.font = UIFont.boldSystemFont(ofSize: UIFont.labelFontSize)
         label.textAlignment = .center
         return label

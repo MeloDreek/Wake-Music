@@ -373,7 +373,7 @@ extension MusicItemModel {
         
         if self.isLocalFile() {
             if self.fileSourceType == .demoFile {
-                return "Wake Music".localStr()
+                return "Wakemusic".localStr()
             }else if self.isLRCFile() {
                 return "LRC Lyrics File".localStr()
             }else{

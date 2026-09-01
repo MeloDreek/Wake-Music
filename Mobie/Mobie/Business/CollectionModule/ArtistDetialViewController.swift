@@ -1,6 +1,6 @@
 //
 //  ArtistDetialViewController.swift
-//  Wake Music
+//  Wakemusic
 //
 //  Created by Melo on 9/11/24.
 //

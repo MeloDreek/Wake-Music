@@ -82,7 +82,7 @@ class MiniPlayerLyricView: UIView {
 //#warning("模拟mock数据")
 //#if DEBUG
 //        DispatchQueue.main.asyncAfter(wallDeadline: .now() + 1) {
-//            self.aniLyricLabel.text = "Wake Music".localStr()
+//            self.aniLyricLabel.text = "Wakemusic".localStr()
 //        }
 //#endif
     }

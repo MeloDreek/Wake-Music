@@ -1,6 +1,6 @@
 //
 //  MusicsViewController+Noti.swift
-//  Wake Music
+//  Wakemusic
 //
 //  Created by Kaka Inc. on 2024/1/27.
 //

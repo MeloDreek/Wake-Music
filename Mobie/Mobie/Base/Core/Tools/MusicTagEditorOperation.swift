@@ -93,7 +93,7 @@ final class MusicTagEditorOperation: AsynchronousOperation, @unchecked Sendable 
                 }
                 
                 // 9️⃣ 强行写入注释
-                let comment = "Powered by Wake Music".localStr()
+                let comment = "Powered by Wakemusic".localStr()
                 if TaglibMetadataParser.setComment(comment, toFileURL: newModel.mediaPlayURL) {
                     newModel.comment = comment
                 }
@@ -246,7 +246,7 @@ final class MusicTagEditorOperation: AsynchronousOperation, @unchecked Sendable 
         }
         
         // 9️⃣ 注释
-        let comment = "Powered by Wake Music".localStr()
+        let comment = "Powered by Wakemusic".localStr()
         if TaglibMetadataParser.setComment(comment, toFileURL: fileURL) {
             newModel.comment = comment
         }

@@ -1,6 +1,6 @@
 //
 //  KakaTabbarType.swift
-//  Wake Music
+//  Wakemusic
 //
 //  Created by Kaka Inc. on 2024/6/25.
 //

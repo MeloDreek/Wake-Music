@@ -94,7 +94,7 @@ extension VideoConverterViewController {
         self.coverImage = tempImage?.croppedToCenteredSquare()
 
         let songName = "Video to Music".localStr() + Date().convertString(false)
-        let artistName = "Wake Music".localStr()
+        let artistName = "Wakemusic".localStr()
         
         TaglibMetadataParser.setCoverArt(self.coverImage, toFileURL: audioURL)
         TaglibMetadataParser.setTitle(songName, toFileURL: audioURL)

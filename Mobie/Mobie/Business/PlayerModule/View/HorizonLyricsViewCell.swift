@@ -259,7 +259,7 @@ class HorizonLyricsViewCell: UICollectionViewCell {
     }()
     
     lazy var nameLabel: UILabel = {
-        let text = "Wake Music".localStr()
+        let text = "Wakemusic".localStr()
         let font = UIFontLight(14.ckValue())
         
         let view = UILabel(frame: CGRectMake(0, 0, text.width(font) + 5, 44.ckValue()))

@@ -1,6 +1,6 @@
 //
 //  AlbumListViewController.swift
-//  Wake Music
+//  Wakemusic
 //
 //  Created by 张文 on 9/18/24.
 //

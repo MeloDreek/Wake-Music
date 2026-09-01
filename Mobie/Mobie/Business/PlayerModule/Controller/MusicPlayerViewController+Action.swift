@@ -1,6 +1,6 @@
 //
 //  MusicPlayerViewController+Action.swift
-//  Wake Music
+//  Wakemusic
 //
 //  Created by Melo on 9/1/24.
 //

@@ -1,6 +1,6 @@
 //
 //  PlayerControlToolBarView.swift
-//  Wake Music
+//  Wakemusic
 //
 //  Created by Melo on 7/29/24.
 //
@@ -461,7 +461,7 @@ class PlayerControlToolBarView: UIToolbar {
             
 #warning("模拟mock数据")
 //#if DEBUG
-//            nameLabel.text = "Wake Music".localStr()
+//            nameLabel.text = "Wakemusic".localStr()
 //            coverImgView.image = MusicGenreType.pop.iconImage()
 //#endif
                         
