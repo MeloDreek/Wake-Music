@@ -886,11 +886,11 @@ extension DropboxDriveFileListController: MusicTableViewCellDelegate {
 extension DropboxDriveFileListController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        if searchText.isEmpty {
-            self.sortAllServerFiles(self.allfileArray)
-        }else{
-            self.searchWithKey(searchText)
-        }
+//        if searchText.isEmpty {
+//            self.sortAllServerFiles(self.allfileArray)
+//        }else{
+//            self.searchWithKey(searchText)
+//        }
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {

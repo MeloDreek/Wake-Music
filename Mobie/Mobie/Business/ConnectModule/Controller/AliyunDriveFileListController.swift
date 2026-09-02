@@ -186,10 +186,6 @@ class AliyunDriveFileListController: SuperViewController {
         self.stopLoadingAction()
         self.tableView.reloadData()
         
-        if files.isEmpty {
-            let message = "【备份文件】内暂无音频文件"
-            self.showOneAlert(message: message)
-        }
     }
 
     // 阿里云盘
@@ -869,11 +865,11 @@ extension AliyunDriveFileListController: MusicTableViewCellDelegate {
 extension AliyunDriveFileListController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        if searchText.isEmpty {
-            self.sortAllServerFiles(self.allfileArray)
-        }else{
-            self.searchWithKey(searchText)
-        }
+//        if searchText.isEmpty {
+//            self.sortAllServerFiles(self.allfileArray)
+//        }else{
+//            self.searchWithKey(searchText)
+//        }
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {

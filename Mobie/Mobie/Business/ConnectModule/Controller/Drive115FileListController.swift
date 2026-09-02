@@ -859,11 +859,11 @@ extension Drive115FileListController: MusicTableViewCellDelegate {
 extension Drive115FileListController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        if searchText.isEmpty {
-            self.sortAllServerFiles(self.allfileArray)
-        }else{
-            self.searchWithKey(searchText)
-        }
+//        if searchText.isEmpty {
+//            self.sortAllServerFiles(self.allfileArray)
+//        }else{
+//            self.searchWithKey(searchText)
+//        }
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
