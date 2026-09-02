@@ -322,7 +322,7 @@ class PlayerLyricCollectCell: UICollectionViewCell {
         let view = NoneLyriclistView(frame: self.tableView.bounds, isShowIcon: true)
         view.backgroundColor = .clear
         view.isHidden = self.isShowLyric
-        view.onClickCallBack = { [weak self] () in
+        view.onEditCallBack = { [weak self] () in
             guard let wSelf = self, let model = wSelf.model else { return }
             if model.isHaveLyric() {
                 if !UserInfoManager.shared.isVIP() {
@@ -331,6 +331,10 @@ class PlayerLyricCollectCell: UICollectionViewCell {
             }else{
                 wSelf.delegate?.playerBasicCellDidSelectLyric(basicView: wSelf)
             }
+        }
+        view.onFaqCallBack = { [weak self] () in
+            guard let wSelf = self else { return }
+            wSelf.delegate?.playerBasicCellDidFAQPage(basicView: wSelf)
         }
         return view
     }()

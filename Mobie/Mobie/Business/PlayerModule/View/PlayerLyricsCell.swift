@@ -178,7 +178,8 @@ class NoneLyriclistView: UIView {
         middleView.addSubview(emptyImgView)
         middleView.addSubview(titleLabel)
         middleView.addSubview(messaleLabel)
-        middleView.addSubview(upgradeButton)
+        middleView.addSubview(editButton)
+        middleView.addSubview(faqButton)
     }
     
     func preSetupContains() {
@@ -203,15 +204,22 @@ class NoneLyriclistView: UIView {
             make.height.greaterThanOrEqualTo(messaleLabel.font.lineHeight)
         }
         
-        upgradeButton.snp.makeConstraints { make in
+        editButton.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             if kaka_IsiPad() {
                 make.width.equalTo(400.ckValue())
             } else {
-                make.width.equalToSuperview().multipliedBy(0.75)
+                make.width.equalToSuperview().multipliedBy(0.85)
             }
             make.top.equalTo(messaleLabel.snp.bottom).offset(30.ckValue())
-            make.height.equalTo(upgradeButton.layer.cornerRadius * 2)
+            make.height.equalTo(editButton.layer.cornerRadius * 2)
+        }
+        
+        faqButton.snp.makeConstraints { make in
+            make.top.equalTo(editButton.snp.bottom).offset(15.ckValue())
+            make.centerX.equalToSuperview()
+            make.width.equalTo(editButton)
+            make.height.equalTo(faqButton.layer.cornerRadius * 2)
             make.bottom.equalToSuperview()
         }
         
@@ -223,13 +231,15 @@ class NoneLyriclistView: UIView {
     }
     
     func preSetupHandleBuness() {
-        self.backgroundColor = .clear
+        self.backgroundColor = .random()
         self.overrideUserInterfaceStyle = .dark
     }
     
     // MARK:  GET && SET
     
-    var onClickCallBack: (()->Void)?
+    var onEditCallBack: (()->Void)?
+    
+    var onFaqCallBack: (()->Void)?
     
     var musicModel: MusicItemModel?
     
@@ -256,7 +266,6 @@ class NoneLyriclistView: UIView {
         let emptyText = "Built for lifelong music collections, Wakemusic prioritizes embedded LRC lyrics over unreliable online matching. Please complete your missing metadata with our Music Tag Editor.".localStr()
         
         messaleLabel.text = emptyText
-        upgradeButton.setTitle("Edit Embedded Lyrics".localStr(), for: .normal)
         
         self.layoutIfNeeded()
         
@@ -296,20 +305,38 @@ class NoneLyriclistView: UIView {
         return view
     }()
     
-    lazy var upgradeButton: UIButton = {
+    lazy var editButton: UIButton = {
         let view = UIButton()
-        view.addTarget(self, action: #selector(upgradeButtonClick), for: .touchUpInside)
-        view.backgroundColor = appMainColor
-        view.setTitleColor(UIColor.deAccent, for: .normal)
+        view.setTitle("Edit Embedded Lyrics".localStr(), for: .normal)
+        view.addTarget(self, action: #selector(editButtonClick), for: .touchUpInside)
+        view.backgroundColor = UIColor.systemBlue
+        view.setTitleColor(UIColor.white, for: .normal)
         view.titleLabel?.font = UIFontBold(15.ckValue())
         view.layer.masksToBounds = true
         view.layer.cornerRadius = 25.ckValue()
         return view
     }()
     
-    @objc func upgradeButtonClick() {
-        self.onClickCallBack?()
+    lazy var faqButton: UIButton = {
+        let view = UIButton()
+        view.setTitle("FAQ".localStr(), for: .normal)
+        view.addTarget(self, action: #selector(faqButtonClick), for: .touchUpInside)
+        view.backgroundColor = UIColor.systemOrange
+        view.setTitleColor(UIColor.white, for: .normal)
+        view.titleLabel?.font = UIFontBold(15.ckValue())
+        view.layer.masksToBounds = true
+        view.layer.cornerRadius = 25.ckValue()
+        return view
+    }()
+    
+    @objc func editButtonClick() {
+        self.onEditCallBack?()
     }
+    
+    @objc func faqButtonClick() {
+        self.onFaqCallBack?()
+    }
+    
     
 }
 

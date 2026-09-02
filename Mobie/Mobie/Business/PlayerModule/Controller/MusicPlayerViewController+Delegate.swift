@@ -188,6 +188,13 @@ extension MusicPlayerViewController: PlayerSubViewDelegate {
         self.lyricSetButtonClick()
     }
     
+    // 常见问题
+    func playerBasicCellDidFAQPage(basicView: UIView) {
+        let faqVC = FAQsViewController()
+        let navVC = KakaNavigationController(rootViewController: faqVC)
+        self.present(navVC, animated: true)
+    }
+    
     // 点击封面
     func playerBasicCellDidCoverImage(backView: UIImageView, coverImage: UIImage) {
         let photoItem = KakaPhotoItem(sourceView: backView, image: coverImage)

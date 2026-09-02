@@ -43,6 +43,9 @@ protocol PlayerSubViewDelegate: AnyObject {
     // 选择歌词
     func playerBasicCellDidSelectLyric(basicView: UIView)
     
+    // 前往FAQ页面
+    func playerBasicCellDidFAQPage(basicView: UIView)
+    
     // 播放器内核
     func playerBasicCellDidPlayerEngine(basicView: UIView)
     

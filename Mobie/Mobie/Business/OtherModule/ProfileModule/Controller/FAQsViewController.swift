@@ -102,6 +102,9 @@ class FAQsViewController: SuperViewController {
     override func preSetupHandleBuness() {
         super.preSetupHandleBuness()
         
+        if self.isPresent() {
+            self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelButtonClick))
+        }
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: Reasource.systemNamed("envelope"), style: .plain, target: self, action: #selector(handleWithEmail))
 
         // 1️⃣ 音频格式选择
