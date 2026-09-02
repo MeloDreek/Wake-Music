@@ -2793,7 +2793,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.5.0;
+				MARKETING_VERSION = 3.5.1;
 				OTHER_SWIFT_FLAGS = "$(inherited) -D COCOAPODS -D Target_Mobie_Pro";
 				PRODUCT_BUNDLE_IDENTIFIER = com.OfflineMusic.www.pro;
 				PRODUCT_NAME = Wakemusic;
@@ -2848,7 +2848,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.5.0;
+				MARKETING_VERSION = 3.5.1;
 				OTHER_SWIFT_FLAGS = "$(inherited) -D COCOAPODS -D Target_Mobie_Pro";
 				PRODUCT_BUNDLE_IDENTIFIER = com.OfflineMusic.www.pro;
 				PRODUCT_NAME = Wakemusic;
@@ -3021,7 +3021,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.5.0;
+				MARKETING_VERSION = 3.5.1;
 				OTHER_SWIFT_FLAGS = "$(inherited) -D COCOAPODS";
 				PRODUCT_BUNDLE_IDENTIFIER = com.OfflineMusic.www;
 				PRODUCT_NAME = Wakemusic;
@@ -3076,7 +3076,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.5.0;
+				MARKETING_VERSION = 3.5.1;
 				OTHER_SWIFT_FLAGS = "$(inherited) -D COCOAPODS";
 				PRODUCT_BUNDLE_IDENTIFIER = com.OfflineMusic.www;
 				PRODUCT_NAME = Wakemusic;

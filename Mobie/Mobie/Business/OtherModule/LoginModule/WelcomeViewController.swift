@@ -227,16 +227,17 @@ class WelcomeViewController: SuperViewController {
                 return product1.price < product2.price
             }
             
-            let newSubArray = [tempSubArray.last].compactMap { $0 } // 主推年度会员
+            let newSubArray = [tempSubArray.first].compactMap { $0 } // 主推周会员
+//            let newSubArray = [tempSubArray.last].compactMap { $0 } // 主推年会员
                         
             let isLifetimeOffer = (lifetime1Model?.price == 0) || (lifetime2Model?.price == 0)
-            let isFreeTrial = (weekModel?.hasFreeTrial ?? false) && (yearModel?.hasFreeTrial ?? false)
+            let isFreeTrial = (weekModel?.hasFreeTrial ?? false) || (yearModel?.hasFreeTrial ?? false)
             
             if isLifetimeOffer { // 终身限免最高优
                 self.productArray = lifetimeArray
                 self.selectModel = lifetimeArray.first
             }else{
-                // 终身会员兜底
+                // 推荐免费试用产品
                 self.productArray = isFreeTrial ? newSubArray : lifetimeArray
                 self.selectModel = isFreeTrial ? newSubArray.first : lifetimeArray.first
             }
