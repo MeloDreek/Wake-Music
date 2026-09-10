@@ -32,7 +32,7 @@ target 'Mobie' do
   
   pod 'GoogleSignIn', '~> 9.0.0'
   pod 'SwiftyDropbox', '~> 10.2.4'
-#  pod 'YandexLoginSDK', '~> 3.0.2'
+  pod 'YandexLoginSDK', '~> 3.0.2'
 #  pod 'MegaSDK', :git => 'https://github.com/meganz/sdk.git', :tag => 'v18.0' # 替换为最新版本号
 
   pod 'JXSegmentedView', '~> 1.4.1'
@@ -68,7 +68,7 @@ target 'Mobie_Pro' do
   
   pod 'GoogleSignIn', '~> 9.0.0'
   pod 'SwiftyDropbox', '~> 10.2.4'
-#  pod 'YandexLoginSDK', '~> 3.0.2'
+  pod 'YandexLoginSDK', '~> 3.0.2'
 #  pod 'MegaSDK', :git => 'https://github.com/meganz/sdk.git', :tag => 'v18.0' # 替换为最新版本号
   
   pod 'JXSegmentedView', '~> 1.4.1'

@@ -615,6 +615,8 @@
 		22C2573F302D92FC00A68C1B /* GalleryEmptyViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C2573D302D92FC00A68C1B /* GalleryEmptyViewCell.swift */; };
 		22C25741302D937200A68C1B /* MusicConfigManager+Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C25740302D937200A68C1B /* MusicConfigManager+Action.swift */; };
 		22C25742302D937200A68C1B /* MusicConfigManager+Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C25740302D937200A68C1B /* MusicConfigManager+Action.swift */; };
+		22C287AA30530BAE00801D66 /* PCloudSDKSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 22C287A930530BAE00801D66 /* PCloudSDKSwift */; };
+		22C287AC30530BC200801D66 /* PCloudSDKSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 22C287AB30530BC200801D66 /* PCloudSDKSwift */; };
 		22C707712DCB9C1700A1B79A /* MacTabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C707702DCB9C1700A1B79A /* MacTabbarViewController.swift */; };
 		22C707722DCB9C1700A1B79A /* MacTabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C707702DCB9C1700A1B79A /* MacTabbarViewController.swift */; };
 		22C707742DCB9C2100A1B79A /* MacTabbarViewController+Drop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C707732DCB9C2100A1B79A /* MacTabbarViewController+Drop.swift */; };
@@ -1059,6 +1061,7 @@
 				220F662D300283AF00915384 /* ReceiptParser in Frameworks */,
 				225F58DE2D85B5BB0055BDFF /* FilesProvider in Frameworks */,
 				225F58B72D85B2AB0055BDFF /* StoreKit.framework in Frameworks */,
+				22C287AC30530BC200801D66 /* PCloudSDKSwift in Frameworks */,
 				220F662F300283AF00915384 /* RevenueCat in Frameworks */,
 				A76382012EDED2E60040A84D /* Alamofire in Frameworks */,
 				225F58D82D85B5A10055BDFF /* Kingfisher in Frameworks */,
@@ -1108,6 +1111,7 @@
 				227FD0452E8473540076B773 /* Kingfisher in Frameworks */,
 				223A49852D7FD811003B3886 /* Kingfisher in Frameworks */,
 				223A49932D7FE1BD003B3886 /* Toast in Frameworks */,
+				22C287AA30530BAE00801D66 /* PCloudSDKSwift in Frameworks */,
 				22822C7B2DF42B8D00183445 /* PanModal in Frameworks */,
 				223A49A12D7FE709003B3886 /* FilesProvider in Frameworks */,
 				A76381712EDEAA710040A84D /* ZLImageEditor in Frameworks */,
@@ -1920,6 +1924,7 @@
 				220F66233002838600915384 /* XCLocalSwiftPackageReference "../../../本地公开库/purchases-ios" */,
 				22A801D9302B284D000FB581 /* XCLocalSwiftPackageReference "../../../本地公开库/firebase-ios-sdk" */,
 				22953EF830359265001B0546 /* XCLocalSwiftPackageReference "../../../本地公开库/SwiftyUploader" */,
+				22C287A830530BAE00801D66 /* XCLocalSwiftPackageReference "../../../本地公开库/pcloud-sdk-swift" */,
 			);
 			productRefGroup = 228A135C2CA00F5600E2948E /* Products */;
 			projectDirPath = "";
@@ -3147,6 +3152,10 @@
 			isa = XCLocalSwiftPackageReference;
 			relativePath = "../../../本地公开库/firebase-ios-sdk";
 		};
+		22C287A830530BAE00801D66 /* XCLocalSwiftPackageReference "../../../本地公开库/pcloud-sdk-swift" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = "../../../本地公开库/pcloud-sdk-swift";
+		};
 		A76381462EDEA4000040A84D /* XCLocalSwiftPackageReference "../../../本地公开库/DominantColors" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = "../../../本地公开库/DominantColors";
@@ -3518,6 +3527,15 @@
 		22A801DE302B284D000FB581 /* FirebaseCrashlytics */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = FirebaseCrashlytics;
+		};
+		22C287A930530BAE00801D66 /* PCloudSDKSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = PCloudSDKSwift;
+		};
+		22C287AB30530BC200801D66 /* PCloudSDKSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 22C287A830530BAE00801D66 /* XCLocalSwiftPackageReference "../../../本地公开库/pcloud-sdk-swift" */;
+			productName = PCloudSDKSwift;
 		};
 		A76381472EDEA4000040A84D /* DominantColors */ = {
 			isa = XCSwiftPackageProductDependency;

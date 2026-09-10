@@ -109,7 +109,13 @@ class Drive115FileListController: SuperViewController {
                     return MusicItemModel(file115: newModel)
                 }
                 
-                self?.title = files.first?.pathTitle() ?? self?.loginModel.pageTitle()
+//                self?.title = files.first?.pathTitle() ?? self?.loginModel.pageTitle()
+                if let pathTitle = files.first?.pathTitle() {
+                    self?.title = pathTitle
+                } else {
+                    self?.title = self?.loginModel?.pageTitle()
+                }
+
                 self?.allfileArray = musicArray
                 self?.sortAllServerFiles(musicArray)
                 break

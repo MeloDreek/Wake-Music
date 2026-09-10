@@ -102,6 +102,7 @@ PODS:
   - SnapKit (5.7.1)
   - SwiftyDropbox (10.2.4)
   - WakeMusicPlayer (1.0.0)
+  - YandexLoginSDK (3.0.2)
 
 DEPENDENCIES:
   - AppGroupKit (from `./LocalSDK/AppGroupKit`)
@@ -116,6 +117,7 @@ DEPENDENCIES:
   - ProgressHUD (~> 14.1.1)
   - SwiftyDropbox (~> 10.2.4)
   - WakeMusicPlayer (from `./LocalSDK/WakeMusicPlayer`)
+  - YandexLoginSDK (~> 3.0.2)
 
 SPEC REPOS:
   https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git:
@@ -143,6 +145,7 @@ SPEC REPOS:
     - SmartCodable
     - SnapKit
     - SwiftyDropbox
+    - YandexLoginSDK
 
 EXTERNAL SOURCES:
   AppGroupKit:
@@ -192,7 +195,8 @@ SPEC CHECKSUMS:
   SnapKit: d612e99e678a2d3b95bf60b0705ed0a35c03484a
   SwiftyDropbox: 3dbb9cb3dc28220e6b7b492d97b9160730e5ca81
   WakeMusicPlayer: 6d7ff038405541492944454e1a56cff5de9e5ce7
+  YandexLoginSDK: ea15fc6d5afc2869a320180b0e33ce55937a9783
 
-PODFILE CHECKSUM: cd38938330a704398d87babae8342e5a8ca8c3fa
+PODFILE CHECKSUM: d28d6197f7c94192b1917af7ac209baacce7703b
 
 COCOAPODS: 1.16.2
