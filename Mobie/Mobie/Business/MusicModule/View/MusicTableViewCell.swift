@@ -22,6 +22,7 @@ class MusicTableViewCell: UITableViewCell {
     
     deinit {
         NotificationCenter.default.removeObserver(self, name: Notification.Name(rawValue: kAppThemeColorChangedKey), object: nil)
+        NotificationCenter.default.removeObserver(self, name: .playbackArtworkCached, object: nil)
     }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -30,6 +31,14 @@ class MusicTableViewCell: UITableViewCell {
         self.preSetupSubViews()
         self.preSetupContains()
         self.hanldeBessness()
+        NotificationCenter.default.addObserver(self, selector: #selector(playbackArtworkCached(_:)), name: .playbackArtworkCached, object: nil)
+    }
+
+    @objc private func playbackArtworkCached(_ notification: Notification) {
+        guard let model = musicModel, let key = notification.object as? String,
+              key == model.filePathName(), let image = model.musicCoverImage() else { return }
+        coverImgView.kf.cancelDownloadTask()
+        coverImgView.image = image
     }
     
     required init?(coder: NSCoder) {
@@ -245,26 +254,26 @@ class MusicTableViewCell: UITableViewCell {
             if musicModel.mediaPlayURL.isSupportMusicFile(false) {
                 let fileName = webFileModel.fileName.ocString.deletingPathExtension + ".jpg"
                 let coverURL = SandboxFileManager.shared.coverPathURL().appendingPathComponent(fileName)
-                self.coverImgView.kf.setImage(with: coverURL, placeholder: musicModel.placeImage())
+                self.coverImgView.kf.setImage(with: coverURL, placeholder: musicModel.musicCoverImage() ?? musicModel.placeImage())
             }else{
-                self.coverImgView.kf.setImage(with: webFileModel.mediaPlayURL, placeholder: musicModel.placeImage())
+                self.coverImgView.kf.setImage(with: webFileModel.mediaPlayURL, placeholder: musicModel.musicCoverImage() ?? musicModel.placeImage())
             }
             
             self.nameLabel.text = webFileModel.fileName
             self.descLabel.text = self.secondWebdavStr(webFileModel)
         }else if let baiduFileModel = musicModel.baiduFileModel {
             // 2️⃣百度网盘
-            coverImgView.kf.setImage(with: musicModel.coverThumbnailURL(), placeholder: musicModel.placeImage())
+            coverImgView.kf.setImage(with: musicModel.coverThumbnailURL(), placeholder: musicModel.musicCoverImage() ?? musicModel.placeImage())
             nameLabel.text = musicModel.showTitleName() + musicModel.addPathExtension()
             self.descLabel.text = self.secondBaiduStr(baiduFileModel)
         }else if let aliFileModel = musicModel.aliFileModel {
             // 3️⃣阿里云盘
-            coverImgView.kf.setImage(with: musicModel.coverThumbnailURL(), placeholder: musicModel.placeImage())
+            coverImgView.kf.setImage(with: musicModel.coverThumbnailURL(), placeholder: musicModel.musicCoverImage() ?? musicModel.placeImage())
             nameLabel.text = musicModel.showTitleName() + musicModel.addPathExtension()
             self.descLabel.text = self.secondAliyunStr(aliFileModel)
         }else if let drive115Model = musicModel.drive115Model {
             // 4️⃣115网盘
-            coverImgView.kf.setImage(with: musicModel.coverThumbnailURL(), placeholder: musicModel.placeImage())
+            coverImgView.kf.setImage(with: musicModel.coverThumbnailURL(), placeholder: musicModel.musicCoverImage() ?? musicModel.placeImage())
             nameLabel.text = musicModel.showTitleName() + musicModel.addPathExtension()
             self.descLabel.text = self.second115Str(drive115Model)
         }else if let googleFile = musicModel.googleFile {
@@ -277,9 +286,9 @@ class MusicTableViewCell: UITableViewCell {
                     return r
                 }
                 
-                coverImgView.kf.setImage(with: musicModel.mediaPlayURL, placeholder: musicModel.placeImage(), options: [.requestModifier(modifier)])
+                coverImgView.kf.setImage(with: musicModel.mediaPlayURL, placeholder: musicModel.musicCoverImage() ?? musicModel.placeImage(), options: [.requestModifier(modifier)])
             }else{
-                coverImgView.kf.setImage(with: musicModel.coverThumbnailURL(), placeholder: musicModel.placeImage())
+                coverImgView.kf.setImage(with: musicModel.coverThumbnailURL(), placeholder: musicModel.musicCoverImage() ?? musicModel.placeImage())
             }
             
             nameLabel.text = musicModel.showTitleName() + musicModel.addPathExtension()
@@ -287,26 +296,26 @@ class MusicTableViewCell: UITableViewCell {
             
         }else if let dropboxFile = musicModel.dropboxFile {
             // 6️⃣Dropbox网盘
-            coverImgView.kf.setImage(with: musicModel.coverThumbnailURL(), placeholder: musicModel.placeImage())
+            coverImgView.kf.setImage(with: musicModel.coverThumbnailURL(), placeholder: musicModel.musicCoverImage() ?? musicModel.placeImage())
             nameLabel.text = musicModel.showTitleName() + musicModel.addPathExtension()
             self.descLabel.text = self.secondDropboxStr(dropboxFile)
         }else if let file = musicModel.boxFile {
-            coverImgView.kf.setImage(with: musicModel.coverThumbnailURL(), placeholder: musicModel.placeImage())
+            coverImgView.kf.setImage(with: musicModel.coverThumbnailURL(), placeholder: musicModel.musicCoverImage() ?? musicModel.placeImage())
             nameLabel.text = file.name
             self.descLabel.text = file.isDirectory() ? "Box" : musicModel.durationTimeStr()
         }else if let file = musicModel.pcloudFile {
-            coverImgView.kf.setImage(with: musicModel.coverThumbnailURL(), placeholder: musicModel.placeImage())
+            coverImgView.kf.setImage(with: musicModel.coverThumbnailURL(), placeholder: musicModel.musicCoverImage() ?? musicModel.placeImage())
             nameLabel.text = file.name
             self.descLabel.text = file.isDirectory() ? "pCloud" : musicModel.durationTimeStr()
         }else if let onedriveFile = musicModel.onedriveFile {
             // 7️⃣OneDrive网盘
-            coverImgView.kf.setImage(with: musicModel.coverThumbnailURL(), placeholder: musicModel.placeImage())
+            coverImgView.kf.setImage(with: musicModel.coverThumbnailURL(), placeholder: musicModel.musicCoverImage() ?? musicModel.placeImage())
             nameLabel.text = musicModel.showTitleName() + musicModel.addPathExtension()
             self.descLabel.text = self.secondOnedriveStr(onedriveFile)
         }
         else{
             // 本地音乐
-            coverImgView.kf.setImage(with: musicModel.coverThumbnailURL(), placeholder: musicModel.placeImage())
+            coverImgView.kf.setImage(with: musicModel.coverThumbnailURL(), placeholder: musicModel.musicCoverImage() ?? musicModel.placeImage())
             nameLabel.text = musicModel.showTitleName() + (MusicConfigManager.shared.isShowExtension ? musicModel.addPathExtension() : "")
             self.descLabel.text = self.secondLocalStr(musicModel)
         }

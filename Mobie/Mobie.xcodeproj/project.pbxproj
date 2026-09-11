@@ -699,6 +699,8 @@
 		C10D00000000000000000001 /* PCloudDriveService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10D00000000000000000002 /* PCloudDriveService.swift */; };
 		B01000000000000000000001 /* BoxDriveService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01000000000000000000002 /* BoxDriveService.swift */; };
 		B01200000000000000000001 /* BoxDriveAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01200000000000000000002 /* BoxDriveAPI.swift */; };
+		C09110000000000000000001 /* EmbeddedArtworkReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09110000000000000000002 /* EmbeddedArtworkReader.swift */; };
+		C09110000000000000000003 /* EmbeddedArtworkReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09110000000000000000002 /* EmbeddedArtworkReader.swift */; };
 		C10D00000000000000000003 /* PCloudDriveService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10D00000000000000000002 /* PCloudDriveService.swift */; };
 		B01000000000000000000003 /* BoxDriveService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01000000000000000000002 /* BoxDriveService.swift */; };
 		B01200000000000000000003 /* BoxDriveAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01200000000000000000002 /* BoxDriveAPI.swift */; };
@@ -1061,6 +1063,7 @@
 		C10D00000000000000000002 /* PCloudDriveService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCloudDriveService.swift; sourceTree = "<group>"; };
 		B01000000000000000000002 /* BoxDriveService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxDriveService.swift; sourceTree = "<group>"; };
 		B01200000000000000000002 /* BoxDriveAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxDriveAPI.swift; sourceTree = "<group>"; };
+		C09110000000000000000002 /* EmbeddedArtworkReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmbeddedArtworkReader.swift; sourceTree = "<group>"; };
 		C10D00000000000000000005 /* PCloudDriveFileListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCloudDriveFileListController.swift; sourceTree = "<group>"; };
 		B01000000000000000000005 /* BoxDriveFileListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxDriveFileListController.swift; sourceTree = "<group>"; };
 		C10D00000000000000000008 /* KakaMusicPlayer+PCloud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KakaMusicPlayer+PCloud.swift"; sourceTree = "<group>"; };
@@ -1728,6 +1731,7 @@
 				C10D00000000000000000002 /* PCloudDriveService.swift */,
 				B01000000000000000000002 /* BoxDriveService.swift */,
 				B01200000000000000000002 /* BoxDriveAPI.swift */,
+				C09110000000000000000002 /* EmbeddedArtworkReader.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -2393,6 +2397,7 @@
 				C10D00000000000000000003 /* PCloudDriveService.swift in Sources */,
 				B01000000000000000000003 /* BoxDriveService.swift in Sources */,
 				B01200000000000000000003 /* BoxDriveAPI.swift in Sources */,
+				C09110000000000000000003 /* EmbeddedArtworkReader.swift in Sources */,
 				225F58652D85B2AB0055BDFF /* PurchageListViewcell.swift in Sources */,
 				225F58672D85B2AB0055BDFF /* PlayerTimerViewController.swift in Sources */,
 				22109C562DF09DC900A39370 /* MiniLyricAnimation+Extension.swift in Sources */,
@@ -2697,6 +2702,7 @@
 				C10D00000000000000000001 /* PCloudDriveService.swift in Sources */,
 				B01000000000000000000001 /* BoxDriveService.swift in Sources */,
 				B01200000000000000000001 /* BoxDriveAPI.swift in Sources */,
+				C09110000000000000000001 /* EmbeddedArtworkReader.swift in Sources */,
 				228A14722CA0633400E2948E /* PurchageListViewcell.swift in Sources */,
 				224AC8A82CE4333200F4F2AF /* PlayerTimerViewController.swift in Sources */,
 				22109C572DF09DC900A39370 /* MiniLyricAnimation+Extension.swift in Sources */,

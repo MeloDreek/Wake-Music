@@ -214,13 +214,9 @@ extension MusicItemModel {
             cacheCoverURL = SandboxFileManager.shared.coverPathURL().appendingPathComponent(fileName)
         }
         
+        if FileManager.default.fileExists(atPath: cacheCoverURL.path) { return cacheCoverURL }
         if let navSong = self.navidromeSong {
-            if FileManager.default.fileExists(atPath: cacheCoverURL.path) {
-                return cacheCoverURL
-            }else{
-                let navURL = navSong.coverImgURL() ?? cacheCoverURL
-                return navURL
-            }
+            return navSong.coverImgURL() ?? cacheCoverURL
         }else if let baiduFile = self.baiduFileModel {
             return baiduFile.coverImgURL() ?? cacheCoverURL
         }else if let drive115Model = self.drive115Model {
@@ -233,6 +229,8 @@ extension MusicItemModel {
     
     /// 音乐封面
     public func musicCoverImage() -> KakaImage? {
+        let localURL = SandboxFileManager.shared.coverPathURL().appendingPathComponent(filePathName() + ".jpg")
+        if let cached = UIImage(contentsOfFile: localURL.path) { return cached }
         if let navSong = self.navidromeSong, let imageURL = navSong.coverImgURL() {
             return imageURL.getCachedImage()
         }else if let baiduFile = self.baiduFileModel, let imageURL = baiduFile.coverImgURL() {
@@ -245,6 +243,15 @@ extension MusicItemModel {
                 return UIImage(contentsOfFile: filePathStr)
             }
         }
+    }
+
+    /// UI may display cached cloud artwork in any engine, but must never initiate tag parsing.
+    func playbackCoverImage() -> UIImage {
+        if let image = musicCoverImage() { return image }
+        if isLocalFile(), mediaPlayURL.isFileURL, let image = TaglibMetadataParser.extractCoverArt(from: mediaPlayURL) {
+            return image
+        }
+        return placeImage()
     }
     
     /// 构造一个试听音乐模型

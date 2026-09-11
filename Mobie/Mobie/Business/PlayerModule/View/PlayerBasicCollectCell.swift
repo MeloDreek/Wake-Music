@@ -264,7 +264,7 @@ extension PlayerBasicCollectCell {
         
         self.toptagView.model = model
 
-        let coverImage: UIImage? = (model.musicCoverImage() ?? TaglibMetadataParser.extractCoverArt(from: model.mediaPlayURL)) ?? model.placeImage()
+        let coverImage: UIImage? = model.playbackCoverImage()
         self.coverImgView.kf.setImage(with: model.coverThumbnailURL(), placeholder: coverImage)
     }
     

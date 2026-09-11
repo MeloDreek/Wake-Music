@@ -75,7 +75,7 @@ class PlayBackgroundView: UIView {
         
         switch backType {
         case .defaultType:
-            let coverImage: UIImage = (model.musicCoverImage() ?? TaglibMetadataParser.extractCoverArt(from: model.mediaPlayURL)) ?? model.placeImage()
+            let coverImage: UIImage = model.playbackCoverImage()
             self.backImgView.kf.setImage(with: model.coverThumbnailURL(), placeholder: coverImage)
             
             self.updateCoverGradientColor(coverImage)
@@ -91,7 +91,7 @@ class PlayBackgroundView: UIView {
             let backImage = playbackModel.backgroundImage() ?? model.placeImage()
             self.backImgView.image = backImage
             
-            let coverImage: UIImage = (model.musicCoverImage() ?? TaglibMetadataParser.extractCoverArt(from: model.mediaPlayURL)) ?? model.placeImage()
+            let coverImage: UIImage = model.playbackCoverImage()
             self.updateCoverGradientColor(coverImage)
             break
         }

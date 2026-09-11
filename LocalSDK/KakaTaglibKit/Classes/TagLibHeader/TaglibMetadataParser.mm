@@ -700,9 +700,12 @@
     NSData *imageData = UIImageJPEGRepresentation(coverImage, 0.1);
 #endif
     
-    // 构建封面数据的 VariantMap，仅包含 data 键
+    if (imageData.length == 0) { return NO; }
+    // FFmpeg uses the MIME type to recognize APIC artwork. Data alone is not enough.
     TagLib::VariantMap pictureProperty;
     pictureProperty["data"] = TagLib::ByteVector((const char *)[imageData bytes], [imageData length]);
+    pictureProperty["mimeType"] = TagLib::String("image/jpeg");
+    pictureProperty["pictureType"] = TagLib::String("Front Cover");
 
     TagLib::List<TagLib::VariantMap> pictureList;
     pictureList.append(pictureProperty);
@@ -980,5 +983,4 @@
 
 
 @end
-
 

@@ -74,9 +74,12 @@ extension KakaMusicPlayer {
                                     
             if let cacheURL = SandboxFileManager.shared.getDownloadPlayURL(model) {
                 // 优先读取缓存路径
-                let meteData = TaglibMetadataParser.readMetadata(withFileURL: cacheURL, read: .all)
-                let newLyric = meteData?.lyricModel?.convertSwiftModel()
-                self.playingMusic?.lyricModel = newLyric
+                // Remote caches follow the same engine gate as streaming. Their tags/artwork
+                // are loaded asynchronously after buffering, not synchronously on the UI thread.
+                if model.isLocalFile() {
+                    let metadata = TaglibMetadataParser.readMetadata(withFileURL: cacheURL, read: .all)
+                    self.playingMusic?.lyricModel = metadata?.lyricModel?.convertSwiftModel()
+                }
                 
                 model.mediaPlayURL = cacheURL
                 self.playingMusic?.mediaPlayURL = cacheURL

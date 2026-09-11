@@ -78,9 +78,19 @@ public class KakaMusicPlayer: NSObject, ObservableObject {
     /// Invalidates pending pCloud/Box link requests on play/pause/stop.
     var pcloudPlaybackRequestID = UUID()
 
+    var remoteMetadataTask: Task<Void, Never>?
+    var remoteMetadataGeneration = UUID()
+    var remoteMetadataAttempted = false
+
     /// 正在播放中的音乐
     @Published var playingMusic: MusicItemModel? {
         didSet {
+            if oldValue?.uniqueID() != playingMusic?.uniqueID() || oldValue?.mediaPlayURL != playingMusic?.mediaPlayURL {
+                remoteMetadataTask?.cancel()
+                remoteMetadataTask = nil
+                remoteMetadataGeneration = UUID()
+                remoteMetadataAttempted = false
+            }
             guard let playingMusic = self.playingMusic else { return }
                         
             self.lastUpdateTime = 0
@@ -206,14 +216,10 @@ public class KakaMusicPlayer: NSObject, ObservableObject {
                 KSOptions.secondPlayerType = KSAVPlayer.self
                 option.playerTypes = [KSMEPlayer.self, KSAVPlayer.self]
             }else{
-//                let playerEngine = MusicConfigManager.shared.playerEngine
-//                
-//                KSOptions.firstPlayerType = playerEngine.engineTypes().first ?? KSAVPlayer.self
-//                KSOptions.secondPlayerType = playerEngine.engineTypes().last ?? KSAVPlayer.self
-//                option.playerTypes = playerEngine.engineTypes()
-                
-                #warning("臨時改成強制高級內核")
-                option.playerTypes = [KSMEPlayer.self, KSAVPlayer.self]
+                let playerEngine = MusicConfigManager.shared.playerEngine
+                KSOptions.firstPlayerType = playerEngine.engineTypes().first ?? KSAVPlayer.self
+                KSOptions.secondPlayerType = playerEngine.engineTypes().last ?? KSAVPlayer.self
+                option.playerTypes = playerEngine.engineTypes()
             }
         }
         

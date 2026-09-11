@@ -13,7 +13,12 @@ import StoreKit
 import Kingfisher
 import KakaTaglibKit
 import Alamofire
+import ImageIO
 
+// Produced on one background task and only consumed on the main actor afterwards.
+private struct PlaybackMetadataResult: @unchecked Sendable {
+    let info: VideoInfo?
+}
 
 extension KakaMusicPlayer: @preconcurrency PlayerControllerDelegate {
     
@@ -112,45 +117,7 @@ extension KakaMusicPlayer: @preconcurrency PlayerControllerDelegate {
             return
         }
         
-        // 非VIP只能在试用期间体验歌词和封面解析能力
-        if !UserInfoManager.shared.isVIP() {
-            debugPrint("不是VIP，并且已经过了三天试用期")
-            return
-        }
-
-        // 读取远程文件的元数据
-        DispatchQueue.main.async {
-            guard let player = self.playerView.playerLayer?.player else { return }
-            
-            if player.dynamicInfo.metadata.keys.count > 0 { // 1️⃣ 直接就可以读取的元数据
-                debugPrint("ffmpeg元数据：\(playingMusic.showTitleName()) = \(player.dynamicInfo.metadata)")
-                let audioTracks = (player.audioTracks as? [FFmpegAssetTrack]) ?? []
-            
-                let infoModel = VideoInfo(duration: self.totalTime, fileSize: 0, metadata: player.dynamicInfo.metadata, assetTracks: audioTracks)
-                self.handleAudioMetadata(infoModel)
-                Task {
-                    if let cgImage = await player.thumbnailImageAtCurrentTime() {
-                        let coverImage = UIImage(cgImage: cgImage)
-                        self.saveCacheCoverImage(coverImage: coverImage, musicModel: playingMusic)
-                    }
-                }
-            }else{ // 2️⃣ 可能是AVPlayer或者百度的m3u文件
-                // 1、百度网盘，只有是m3u时需要获取下载地址
-                if let baiduFile = playingMusic.baiduFileModel, let access_token = baiduFile.baiduUser?.access_token, FileManager.default.fileExists(atPath: baiduFile.m3uCacheURL().path) {
-                    
-                    self.fetchBaiduDownloadURL(accessToken: access_token, fileModel: baiduFile) { result in
-                        switch result {
-                        case .success(let downloadURL):
-                            self.ffmpegGetMetadata(downloadURL: downloadURL, playingMusic: playingMusic)
-                        case .failure(let failure):
-                            debugPrint("提取元数据 = \(failure)")
-                        }
-                    }
-                }else{
-                    self.ffmpegGetMetadata(downloadURL: playingMusic.mediaPlayURL, playingMusic: playingMusic)
-                }
-            }
-        }
+        loadRemotePlaybackMetadata(playingMusic)
         
     }
     
@@ -209,38 +176,103 @@ extension KakaMusicPlayer: @preconcurrency PlayerControllerDelegate {
 
 extension KakaMusicPlayer {
     
-    /// 使用ffmpeg提取远程文件内嵌的元数据和封面
-    func ffmpegGetMetadata(downloadURL: URL, playingMusic: MusicItemModel) {
-        
-        DispatchQueue.main.async {
-            let currentOption = self.audioOption(playingMusic)
-            KSOptions.firstPlayerType = KSMEPlayer.self
-            currentOption.playerTypes = [KSMEPlayer.self]
-            
-            DispatchQueue.global().async {
-                do {
-                    let metadata = try FFmpegUtility.getMetadata(for: downloadURL, options: currentOption)
-                    debugPrint("ffmpeg元数据 = \(metadata.metadata), 封面宽 = \(metadata.coverImage?.width ?? 0)")
-                    DispatchQueue.main.async {
-                        self.handleAudioMetadata(metadata)
-                        if let cgImage = metadata.coverImage {
-                            let coverImage = UIImage(cgImage: cgImage)
-                            self.saveCacheCoverImage(coverImage: coverImage, musicModel: playingMusic)
-                        }
+    @MainActor private func acceptsRemoteMetadata(_ model: MusicItemModel, generation: UUID) -> Bool {
+        MusicConfigManager.shared.playerEngine == .wakePlayer && UserInfoManager.shared.isVIP()
+            && !Task.isCancelled && remoteMetadataGeneration == generation
+            && self.playingMusic?.uniqueID() == model.uniqueID()
+    }
+
+    @MainActor private func loadRemotePlaybackMetadata(_ model: MusicItemModel) {
+        let generation = remoteMetadataGeneration
+        guard acceptsRemoteMetadata(model, generation: generation), !remoteMetadataAttempted,
+              let player = playerView.playerLayer?.player else { return }
+        remoteMetadataAttempted = true
+        let metadata = player.dynamicInfo.metadata
+        let tracks = (player.audioTracks as? [FFmpegAssetTrack]) ?? []
+        if !metadata.isEmpty {
+            handleAudioMetadata(VideoInfo(duration: totalTime, fileSize: 0, metadata: metadata, assetTracks: tracks))
+        }
+        // Use the resolved playback URL, never a provider's box:// / pcloud:// identity URL.
+        let playbackURL = playerView.playerLayer?.url ?? model.mediaPlayURL
+        remoteMetadataTask = Task { @MainActor [weak self] in
+            guard let self, self.acceptsRemoteMetadata(model, generation: generation) else { return }
+            if model.musicCoverImage() == nil, let image = await player.thumbnailImageAtCurrentTime() {
+                guard self.acceptsRemoteMetadata(model, generation: generation) else { return }
+                self.saveCacheCoverImage(coverImage: UIImage(cgImage: image), musicModel: model, generation: generation)
+                if !metadata.isEmpty { return }
+            } else if model.musicCoverImage() != nil && !metadata.isEmpty { return }
+
+            var sourceURL = playbackURL
+            if let file = model.baiduFileModel, let token = file.baiduUser?.access_token,
+               FileManager.default.fileExists(atPath: file.m3uCacheURL().path) {
+                let resolved: URL? = await withCheckedContinuation { continuation in
+                    self.fetchBaiduDownloadURL(accessToken: token, fileModel: file) { result in
+                        continuation.resume(returning: try? result.get())
                     }
-                } catch {
-                    debugPrint("提取元数据失败 = \(error.localizedDescription)")
                 }
+                guard let resolved else { return }
+                sourceURL = resolved
+            }
+            guard self.acceptsRemoteMetadata(model, generation: generation) else { return }
+            let cachedURL = SandboxFileManager.shared.getDownloadPlayURL(model)
+            let artworkURL = sourceURL.isFileURL ? sourceURL : (cachedURL ?? sourceURL)
+            let options = self.audioOption(model)
+            // TagLib accepts existing empty-MIME covers in complete local caches.
+            if artworkURL.isFileURL {
+                let tags = await Task.detached(priority: .utility) {
+                    TaglibMetadataParser.readMetadata(withFileURL: artworkURL, read: .all)
+                }.value
+                guard self.acceptsRemoteMetadata(model, generation: generation) else { return }
+                if let lyrics = tags?.lyricModel?.convertSwiftModel(), self.playingMusic?.lyricModel == nil {
+                    self.playingMusic?.lyricModel = lyrics
+                }
+                if let cover = tags?.coverArt {
+                    self.saveCacheCoverImage(coverImage: cover, musicModel: model, generation: generation)
+                    if !metadata.isEmpty { return }
+                }
+            }
+            if model.musicCoverImage() == nil {
+                var headers = [String: String]()
+                for line in (options.formatContextOptions["headers"] as? String ?? "").components(separatedBy: "\r\n") {
+                    if let colon = line.firstIndex(of: ":") {
+                        headers[String(line[..<colon])] = String(line[line.index(after: colon)...]).trimmingCharacters(in: .whitespaces)
+                    }
+                }
+                if let agent = options.userAgent { headers["User-Agent"] = agent }
+                if let data = try? await EmbeddedArtworkReader.imageData(url: artworkURL, headers: headers),
+                   let source = CGImageSourceCreateWithData(data as CFData, nil),
+                   let image = CGImageSourceCreateThumbnailAtIndex(source, 0, [
+                    kCGImageSourceCreateThumbnailFromImageAlways: true,
+                    kCGImageSourceThumbnailMaxPixelSize: 1200,
+                    kCGImageSourceCreateThumbnailWithTransform: true
+                   ] as CFDictionary) {
+                    guard self.acceptsRemoteMetadata(model, generation: generation) else { return }
+                    self.saveCacheCoverImage(coverImage: UIImage(cgImage: image), musicModel: model, generation: generation)
+                    if !metadata.isEmpty { return }
+                }
+            }
+            guard self.acceptsRemoteMetadata(model, generation: generation) else { return }
+            // Standard FLAC/MP4/etc. artwork and missing text tags still use FFmpeg.
+            let info = await Task.detached(priority: .utility) {
+                PlaybackMetadataResult(info: try? FFmpegUtility.getMetadata(for: sourceURL, options: options))
+            }.value
+            guard self.acceptsRemoteMetadata(model, generation: generation), let info = info.info else { return }
+            self.handleAudioMetadata(info)
+            if model.musicCoverImage() == nil, let image = info.coverImage {
+                self.saveCacheCoverImage(coverImage: UIImage(cgImage: image), musicModel: model, generation: generation)
             }
         }
     }
     
     // 保存封面图
-    func saveCacheCoverImage(coverImage: UIImage?, musicModel: MusicItemModel) {
+    @MainActor func saveCacheCoverImage(coverImage: UIImage?, musicModel: MusicItemModel, generation: UUID) {
+        guard acceptsRemoteMetadata(musicModel, generation: generation), let coverImage else { return }
                         
         // 写入沙盒封面并清理缓存
         SandboxFileManager.shared.writeMusicthumbnailImage(model: musicModel, image: coverImage) { vURL in
-            ImageCache.default.clearMemoryCache()
+            ImageCache.default.removeImage(forKey: vURL.absoluteString)
+            NotificationCenter.default.post(name: .playbackArtworkCached, object: musicModel.filePathName())
+            guard self.acceptsRemoteMetadata(musicModel, generation: generation) else { return }
             
             // 更新播放信息（触发封面刷新）
             let newModel = KakaMusicPlayer.shared.playingMusic

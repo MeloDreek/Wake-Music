@@ -309,7 +309,7 @@ extension HorizonLyricsViewCell {
         
         switch backType {
         case .defaultType:
-            let coverImage: UIImage = (model.musicCoverImage() ?? TaglibMetadataParser.extractCoverArt(from: model.mediaPlayURL)) ?? model.placeImage()
+            let coverImage: UIImage = model.playbackCoverImage()
             
             self.updateCoverGradientColor(coverImage)
             break
@@ -320,7 +320,7 @@ extension HorizonLyricsViewCell {
             self.updateCoverGradientColor(coverImage)
             break
         case .customType:            
-            let coverImage: UIImage = (model.musicCoverImage() ?? TaglibMetadataParser.extractCoverArt(from: model.mediaPlayURL)) ?? model.placeImage()
+            let coverImage: UIImage = model.playbackCoverImage()
             
             self.updateCoverGradientColor(coverImage)
             break

@@ -245,7 +245,7 @@ extension PlayerVinylCollectCell {
     func playingMusicChanged() {
         guard let model = KakaMusicPlayer.shared.playingMusic else { return }
         
-        let coverImage: UIImage? = (model.musicCoverImage() ?? TaglibMetadataParser.extractCoverArt(from: model.mediaPlayURL)) ?? model.placeImage()
+        let coverImage: UIImage? = model.playbackCoverImage()
 
         self.coverImgView.kf.setImage(with: model.coverThumbnailURL(), placeholder: coverImage)
                 
