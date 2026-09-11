@@ -1,6 +1,1035 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "Please sign in to the same Box account.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "يرجى تسجيل الدخول إلى حساب Box نفسه."
+          }
+        },
+        "ca": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Inicia la sessió amb el mateix compte de Box."
+          }
+        },
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Přihlaste se ke stejnému účtu Box."
+          }
+        },
+        "da": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Log ind på den samme Box-konto."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bitte melde dich mit demselben Box-Konto an."
+          }
+        },
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Συνδεθείτε στον ίδιο λογαριασμό Box."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Please sign in to the same Box account."
+          }
+        },
+        "en-AU": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Please sign in to the same Box account."
+          }
+        },
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Please sign in to the same Box account."
+          }
+        },
+        "en-IN": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Please sign in to the same Box account."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Inicia sesión en la misma cuenta de Box."
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Inicia sesión en la misma cuenta de Box."
+          }
+        },
+        "es-US": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Inicia sesión en la misma cuenta de Box."
+          }
+        },
+        "fi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kirjaudu samalle Box-tilille."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Connectez-vous au même compte Box."
+          }
+        },
+        "fr-CA": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Connectez-vous au même compte Box."
+          }
+        },
+        "he": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "יש להתחבר לאותו חשבון Box."
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "कृपया उसी Box खाते में साइन इन करें।"
+          }
+        },
+        "hr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Prijavite se na isti Box račun."
+          }
+        },
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Jelentkezz be ugyanabba a Box-fiókba."
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Silakan masuk ke akun Box yang sama."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Accedi allo stesso account Box."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "同じBoxアカウントでサインインしてください。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "동일한 Box 계정으로 로그인해 주세요."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sila log masuk ke akaun Box yang sama."
+          }
+        },
+        "nb": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Logg inn på den samme Box-kontoen."
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Log in met hetzelfde Box-account."
+          }
+        },
+        "pl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zaloguj się na to samo konto Box."
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Entre na mesma conta do Box."
+          }
+        },
+        "pt-PT": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Inicie sessão na mesma conta do Box."
+          }
+        },
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Conectează-te la același cont Box."
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Войдите в ту же учётную запись Box."
+          }
+        },
+        "sk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Prihláste sa do rovnakého účtu Box."
+          }
+        },
+        "sl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Prijavite se v isti račun Box."
+          }
+        },
+        "sv": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Logga in på samma Box-konto."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "โปรดลงชื่อเข้าใช้บัญชี Box เดิม"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lütfen aynı Box hesabında oturum açın."
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Увійдіть до того самого облікового запису Box."
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vui lòng đăng nhập vào cùng tài khoản Box."
+          }
+        },
+        "zh-HK": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "請登入原來連接的 Box 帳戶。"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "请登录原来连接的 Box 账号。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "請登入原來連接的 Box 帳號。"
+          }
+        }
+      }
+    },
+    "Unable to save Box authorization. Please try again.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "تعذر حفظ تفويض Box. يرجى المحاولة مرة أخرى."
+          }
+        },
+        "ca": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No s’ha pogut desar l’autorització de Box. Torna-ho a provar."
+          }
+        },
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Autorizaci Box se nepodařilo uložit. Zkuste to znovu."
+          }
+        },
+        "da": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Box-godkendelsen kunne ikke gemmes. Prøv igen."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Die Box-Autorisierung konnte nicht gespeichert werden. Bitte versuche es erneut."
+          }
+        },
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Δεν ήταν δυνατή η αποθήκευση της εξουσιοδότησης Box. Δοκιμάστε ξανά."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Unable to save Box authorization. Please try again."
+          }
+        },
+        "en-AU": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Unable to save Box authorization. Please try again."
+          }
+        },
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Unable to save Box authorization. Please try again."
+          }
+        },
+        "en-IN": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Unable to save Box authorization. Please try again."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No se ha podido guardar la autorización de Box. Inténtalo de nuevo."
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No se ha podido guardar la autorización de Box. Inténtalo de nuevo."
+          }
+        },
+        "es-US": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No se ha podido guardar la autorización de Box. Inténtalo de nuevo."
+          }
+        },
+        "fi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Box-valtuutusta ei voitu tallentaa. Yritä uudelleen."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Impossible d’enregistrer l’autorisation Box. Veuillez réessayer."
+          }
+        },
+        "fr-CA": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Impossible d’enregistrer l’autorisation Box. Veuillez réessayer."
+          }
+        },
+        "he": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "לא ניתן לשמור את ההרשאה ל-Box. יש לנסות שוב."
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Box की अनुमति सहेजी नहीं जा सकी। कृपया फिर से कोशिश करें।"
+          }
+        },
+        "hr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nije moguće spremiti autorizaciju za Box. Pokušajte ponovno."
+          }
+        },
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "A Box-engedélyezést nem sikerült menteni. Próbáld újra."
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tidak dapat menyimpan otorisasi Box. Silakan coba lagi."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Impossibile salvare l’autorizzazione Box. Riprova."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Boxの認証情報を保存できませんでした。もう一度お試しください。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Box 인증 정보를 저장할 수 없습니다. 다시 시도해 주세요."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tidak dapat menyimpan kebenaran Box. Sila cuba lagi."
+          }
+        },
+        "nb": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kunne ikke lagre Box-godkjenningen. Prøv igjen."
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "De Box-autorisatie kan niet worden opgeslagen. Probeer het opnieuw."
+          }
+        },
+        "pl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nie można zapisać autoryzacji Box. Spróbuj ponownie."
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Não foi possível salvar a autorização do Box. Tente novamente."
+          }
+        },
+        "pt-PT": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Não foi possível guardar a autorização do Box. Tente novamente."
+          }
+        },
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nu s-a putut salva autorizarea Box. Încearcă din nou."
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Не удалось сохранить авторизацию Box. Попробуйте ещё раз."
+          }
+        },
+        "sk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Autorizáciu Box sa nepodarilo uložiť. Skúste to znova."
+          }
+        },
+        "sl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pooblastila za Box ni bilo mogoče shraniti. Poskusite znova."
+          }
+        },
+        "sv": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Det gick inte att spara Box-auktoriseringen. Försök igen."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ไม่สามารถบันทึกการอนุญาต Box ได้ โปรดลองอีกครั้ง"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Box yetkilendirmesi kaydedilemedi. Lütfen tekrar deneyin."
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Не вдалося зберегти авторизацію Box. Спробуйте ще раз."
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Không thể lưu ủy quyền Box. Vui lòng thử lại."
+          }
+        },
+        "zh-HK": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "無法儲存 Box 授權，請重試。"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "无法保存 Box 授权，请重试。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "無法儲存 Box 授權，請重試。"
+          }
+        }
+      }
+    },
+    "Box request failed. Please check your connection and account permissions.": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "فشل طلب Box. يرجى التحقق من اتصالك وأذونات الحساب."
+          }
+        },
+        "ca": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La sol·licitud a Box ha fallat. Comprova la connexió i els permisos del compte."
+          }
+        },
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Požadavek Box selhal. Zkontrolujte připojení a oprávnění účtu."
+          }
+        },
+        "da": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Box-anmodningen mislykkedes. Kontrollér din forbindelse og kontoens tilladelser."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Die Box-Anfrage ist fehlgeschlagen. Bitte überprüfe deine Verbindung und die Kontoberechtigungen."
+          }
+        },
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Το αίτημα Box απέτυχε. Ελέγξτε τη σύνδεσή σας και τα δικαιώματα του λογαριασμού."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Box request failed. Please check your connection and account permissions."
+          }
+        },
+        "en-AU": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Box request failed. Please check your connection and account permissions."
+          }
+        },
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Box request failed. Please check your connection and account permissions."
+          }
+        },
+        "en-IN": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Box request failed. Please check your connection and account permissions."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La solicitud a Box ha fallado. Comprueba tu conexión y los permisos de la cuenta."
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La solicitud a Box ha fallado. Comprueba tu conexión y los permisos de la cuenta."
+          }
+        },
+        "es-US": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La solicitud a Box ha fallado. Comprueba tu conexión y los permisos de la cuenta."
+          }
+        },
+        "fi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Box-pyyntö epäonnistui. Tarkista yhteys ja tilin käyttöoikeudet."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La requête Box a échoué. Vérifiez votre connexion et les autorisations du compte."
+          }
+        },
+        "fr-CA": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La requête Box a échoué. Vérifiez votre connexion et les autorisations du compte."
+          }
+        },
+        "he": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "הבקשה ל-Box נכשלה. יש לבדוק את החיבור ואת הרשאות החשבון."
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Box अनुरोध विफल रहा। कृपया अपना कनेक्शन और खाते की अनुमतियाँ जाँचें।"
+          }
+        },
+        "hr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zahtjev za Box nije uspio. Provjerite vezu i dopuštenja računa."
+          }
+        },
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "A Box-kérés sikertelen. Ellenőrizd a kapcsolatot és a fiók jogosultságait."
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Permintaan Box gagal. Periksa koneksi dan izin akun Anda."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La richiesta a Box non è riuscita. Controlla la connessione e le autorizzazioni dell’account."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Boxへのリクエストに失敗しました。接続とアカウントのアクセス権を確認してください。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Box 요청에 실패했습니다. 연결 상태와 계정 권한을 확인해 주세요."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Permintaan Box gagal. Sila semak sambungan dan kebenaran akaun anda."
+          }
+        },
+        "nb": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Box-forespørselen mislyktes. Kontroller tilkoblingen og kontotillatelsene."
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Het Box-verzoek is mislukt. Controleer je verbinding en accountmachtigingen."
+          }
+        },
+        "pl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Żądanie Box nie powiodło się. Sprawdź połączenie i uprawnienia konta."
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "A solicitação ao Box falhou. Verifique sua conexão e as permissões da conta."
+          }
+        },
+        "pt-PT": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "O pedido ao Box falhou. Verifique a ligação e as permissões da conta."
+          }
+        },
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Solicitarea Box a eșuat. Verifică conexiunea și permisiunile contului."
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Запрос к Box не выполнен. Проверьте подключение и разрешения учётной записи."
+          }
+        },
+        "sk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Požiadavka Box zlyhala. Skontrolujte pripojenie a oprávnenia účtu."
+          }
+        },
+        "sl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zahteva Box ni uspela. Preverite povezavo in dovoljenja računa."
+          }
+        },
+        "sv": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Box-begäran misslyckades. Kontrollera anslutningen och kontots behörigheter."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "คำขอ Box ล้มเหลว โปรดตรวจสอบการเชื่อมต่อและสิทธิ์ของบัญชี"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Box isteği başarısız oldu. Lütfen bağlantınızı ve hesap izinlerini kontrol edin."
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Запит до Box не виконано. Перевірте з’єднання та дозволи облікового запису."
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Yêu cầu Box không thành công. Vui lòng kiểm tra kết nối và quyền của tài khoản."
+          }
+        },
+        "zh-HK": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Box 請求失敗，請檢查網絡連線及帳戶存取權限。"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Box 请求失败，请检查网络连接及账号访问权限。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Box 請求失敗，請檢查網路連線及帳號存取權限。"
+          }
+        }
+      }
+    },
+    "This folder is empty. Add music to this folder in Box, then tap Refresh.": {
+      "extractionState": "manual",
+      "comment": "Box file browser empty state.",
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "此文件夹为空。请在 Box 中将音乐放入此文件夹，然后点击“刷新”。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "此資料夾是空的。請在 Box 中將音樂放入此資料夾，然後點選「重新整理」。"
+          }
+        },
+        "zh-HK": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "此資料夾是空的。請在 Box 中將音樂放入此資料夾，然後按「刷新」。"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "このフォルダは空です。Box でこのフォルダに音楽を追加してから「更新」をタップしてください。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "이 폴더는 비어 있습니다. Box에서 이 폴더에 음악을 추가한 후 ‘새로 고침’을 누르세요."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ce dossier est vide. Ajoutez-y de la musique dans Box, puis touchez Actualiser."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dieser Ordner ist leer. Füge in Box Musik zu diesem Ordner hinzu und tippe auf Aktualisieren."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Esta carpeta está vacía. Añade música a esta carpeta en Box y pulsa Actualizar."
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Esta pasta está vazia. Adicione músicas a esta pasta no Box e toque em Atualizar."
+          }
+        },
+        "pt-PT": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Esta pasta está vazia. Adicione música a esta pasta no Box e toque em Atualizar."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Questa cartella è vuota. Aggiungi musica a questa cartella in Box, poi tocca Aggiorna."
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Deze map is leeg. Voeg in Box muziek toe aan deze map en tik op Vernieuwen."
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Эта папка пуста. Добавьте в неё музыку в Box, затем нажмите «Обновить»."
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ця папка порожня. Додайте до неї музику в Box, потім натисніть «Оновити»."
+          }
+        },
+        "pl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ten folder jest pusty. Dodaj do niego muzykę w Box, a następnie stuknij Odśwież."
+          }
+        },
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tato složka je prázdná. Přidejte do ní hudbu v Box a klepněte na Obnovit."
+          }
+        },
+        "sk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tento priečinok je prázdny. Pridajte doň hudbu v Box a klepnite na Obnoviť."
+          }
+        },
+        "sl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ta mapa je prazna. Dodajte glasbo v to mapo v Box in tapnite Osveži."
+          }
+        },
+        "hr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ova je mapa prazna. Dodajte glazbu u ovu mapu u Boxu, a zatim dodirnite Osvježi."
+          }
+        },
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Acest dosar este gol. Adaugă muzică în acest dosar în Box, apoi atinge Reîmprospătează."
+          }
+        },
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ez a mappa üres. Adj hozzá zenét a Boxban, majd koppints a Frissítés gombra."
+          }
+        },
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Αυτός ο φάκελος είναι κενός. Προσθέστε μουσική σε αυτόν τον φάκελο στο Box και πατήστε Ανανέωση."
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bu klasör boş. Box’da bu klasöre müzik ekleyin, ardından Yenile’ye dokunun."
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "هذا المجلد فارغ. أضف موسيقى إلى هذا المجلد في Box، ثم اضغط على «تحديث»."
+          }
+        },
+        "he": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "התיקייה הזו ריקה. יש להוסיף אליה מוזיקה ב-Box ואז להקיש על רענון."
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "यह फ़ोल्डर खाली है। Box में इस फ़ोल्डर में संगीत जोड़ें, फिर रीफ़्रेश पर टैप करें।"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "โฟลเดอร์นี้ว่างอยู่ เพิ่มเพลงลงในโฟลเดอร์นี้ใน Box แล้วแตะรีเฟรช"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Thư mục này trống. Thêm nhạc vào thư mục này trong Box, rồi nhấn Làm mới."
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Folder ini kosong. Tambahkan musik ke folder ini di Box, lalu ketuk Segarkan."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Folder ini kosong. Tambahkan muzik ke folder ini dalam Box, kemudian ketik Muat Semula."
+          }
+        },
+        "ca": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aquesta carpeta és buida. Afegeix-hi música a Box i toca Actualitza."
+          }
+        },
+        "da": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Denne mappe er tom. Føj musik til denne mappe i Box, og tryk på Opdater."
+          }
+        },
+        "fi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tämä kansio on tyhjä. Lisää musiikkia tähän kansioon Boxissa ja napauta Päivitä."
+          }
+        },
+        "nb": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Denne mappen er tom. Legg til musikk i denne mappen i Box, og trykk på Oppdater."
+          }
+        },
+        "sv": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Den här mappen är tom. Lägg till musik i den här mappen i Box och tryck på Uppdatera."
+          }
+        },
+        "en-AU": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "This folder is empty. Add music to this folder in Box, then tap Refresh."
+          }
+        },
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "This folder is empty. Add music to this folder in Box, then tap Refresh."
+          }
+        },
+        "en-IN": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "This folder is empty. Add music to this folder in Box, then tap Refresh."
+          }
+        },
+        "fr-CA": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ce dossier est vide. Ajoutez-y de la musique dans Box, puis touchez Actualiser."
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Esta carpeta está vacía. Añade música a esta carpeta en Box y pulsa Actualizar."
+          }
+        },
+        "es-US": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Esta carpeta está vacía. Añade música a esta carpeta en Box y pulsa Actualizar."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "This folder is empty. Add music to this folder in Box, then tap Refresh."
+          }
+        }
+      }
+    },
     "Switch to the All-Format Audio Engine": {
       "extractionState": "manual",
       "comment": "Remote audio playback: suggest switching engines when embedded lyrics cannot be read. Shared by mini and full lyrics views.",

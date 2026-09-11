@@ -20,6 +20,7 @@ extension MusicItemModel {
     
     /// 文件路径名称，以 歌手名 - 歌名为格式
     public func filePathName() -> String {
+        if let file = boxFile { return file.identity }
         if let file = pcloudFile { return file.identity }
         if self.isLocalFile() {
             let title = self.showTitleName()
@@ -62,6 +63,7 @@ extension MusicItemModel {
     
     /// 歌手名 - 歌名.mp3
     public func downloadPathName() -> String {
+        if let file = boxFile { return (file.name as NSString).lastPathComponent }
         if let file = pcloudFile { return (file.name as NSString).lastPathComponent }
         if self.isLocalFile() {
             let artist = self.artist ?? "Unknown Artist".localStr()
@@ -108,6 +110,7 @@ extension MusicItemModel {
     
     /// 是否为文件夹
     public func isFolder() -> Bool {
+        if let file = boxFile { return file.isDirectory() }
         if let file = pcloudFile { return file.isDirectory() }
         
         if let webFileModel = self.webFileModel {
@@ -147,6 +150,7 @@ extension MusicItemModel {
     
     /// 文件类型<文件夹、音乐、其他>
     public func fileType() -> ConnectFileType {
+        if let file = boxFile { return file.isDirectory() ? .folder : (file.isMusic() ? .music : .other) }
         if let file = pcloudFile { return file.isDirectory() ? .folder : (file.isMusic() ? .music : .other) }
         if self.isFolder() { return .folder }
         
@@ -199,7 +203,7 @@ extension MusicItemModel {
     
     /// 是否已收藏
     public func isFlagFavorite() -> Bool {
-        if pcloudFile != nil {
+        if pcloudFile != nil || boxFile != nil {
             return ConnectConfigManager.shared.favoriteMusicArray.contains(self)
         }
         if self.isLocalFile() {
@@ -215,6 +219,7 @@ extension MusicItemModel {
     
     /// 文件尺寸，字节为单位
     public func fileSize() -> Int64 {
+        if let file = boxFile { return max(0, file.size) }
         if let file = pcloudFile { return max(0, file.size) }
         if let navSong = self.navidromeSong {
             return Int64(max(navSong.size, 0))
@@ -244,6 +249,10 @@ extension MusicItemModel {
 extension MusicItemModel {
     /// 拼接文件后缀
     public func addPathExtension() -> String {
+        if let file = boxFile {
+            let suffix = file.fileExtension()
+            return file.isDirectory() || suffix.isEmpty ? "" : "." + suffix
+        }
         if let file = pcloudFile {
             let suffix = file.fileExtension()
             return file.isDirectory() || suffix.isEmpty ? "" : "." + suffix
@@ -287,6 +296,7 @@ extension MusicItemModel {
     
     /// 时间格式化
     public func durationTimeStr() -> String {
+        if let file = boxFile { return file.isDirectory() ? "" : URL.formatFileSize(file.size) }
         if let file = pcloudFile { return file.isDirectory() ? "" : URL.formatFileSize(file.size) }
         
         if self.isLocalFile() {
@@ -342,6 +352,10 @@ extension MusicItemModel {
     
     /// 显示的音乐名称，没有后缀
     public func showTitleName() -> String {
+        if let file = boxFile {
+            if file.isDirectory() { return file.name }
+            return (title?.isEmpty == false ? title : nil) ?? (file.name as NSString).deletingPathExtension
+        }
         if let file = pcloudFile {
             if file.isDirectory() { return file.name }
             return (title?.isEmpty == false ? title : nil) ?? (file.name as NSString).deletingPathExtension
@@ -409,6 +423,9 @@ extension MusicItemModel {
     
     // 搜索方法：歌曲名、歌手名、专辑名
     public func searchMatcheItem(_ queryKey: String) -> Bool {
+        if let file = boxFile {
+            return (file.name + (title ?? "") + (artist ?? "") + (album ?? "")).localizedCaseInsensitiveContains(queryKey)
+        }
         if let file = pcloudFile {
             return (file.name + (title ?? "") + (artist ?? "") + (album ?? "")).localizedCaseInsensitiveContains(queryKey)
         }
@@ -464,6 +481,7 @@ extension MusicItemModel {
     
     /// 创建时间
     public func creationDate() -> Date {
+        if let file = boxFile { return Date(timeIntervalSince1970: file.createdTime) }
         if let file = pcloudFile { return Date(timeIntervalSince1970: file.createdTime) }
         if let webFileModel = self.webFileModel {
             // 1️⃣webdav
@@ -495,6 +513,7 @@ extension MusicItemModel {
     
     /// 修改时间
     public func modificationDate() -> Date {
+        if let file = boxFile { return Date(timeIntervalSince1970: file.modifiedTime) }
         if let file = pcloudFile { return Date(timeIntervalSince1970: file.modifiedTime) }
         if let webFileModel = self.webFileModel {
             // 1️⃣webdav
@@ -526,6 +545,7 @@ extension MusicItemModel {
     
     /// 排序使用的名称
     public func sortFileName() -> String {
+        if let file = boxFile { return file.name }
         if let file = pcloudFile { return file.name }
         if let webFileModel = self.webFileModel {
             // 1️⃣webdav

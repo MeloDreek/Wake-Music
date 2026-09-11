@@ -100,6 +100,21 @@ extension MusicItemModel {
             }else{
                 return KakaImage(named: "file_place")!
             }
+        }else if self.fileSourceType == .fromBoxDrive {
+            if let boxFile = self.boxFile {
+                let fileExtension = boxFile.fileExtension()
+                if boxFile.isDirectory() {
+                    return KakaImage(named: "folder_icon")!
+                }else if boxFile.isMusic() {
+                    return KakaImage(named: "\(fileExtension)_icon") ?? KakaImage(named: "music_place")!
+                }else if boxFile.isVideo() {
+                    return UIImage(named: "video_place")!
+                }else{
+                    return KakaImage(named: "file_place")!
+                }
+            }else{
+                return KakaImage(named: "file_place")!
+            }
         }else if self.fileSourceType == .fromePCloud {
             if let pcloudFile = self.pcloudFile {
                 let fileExtension = pcloudFile.fileExtension()

@@ -81,3 +81,9 @@ public let Aliyun_Scopes = "user:base,file:all:read"
 // pCloud
 public let pCloud_AppID = "A7jNL6xFoK4"
 public let pCloud_RedirectURL = "pclsdk-w-a7jnl6xfok4"
+
+// BOX
+public let Box_ClientID = "4t1hcuwcq410dxxq1krq3364og8oudtj"
+public let Box_ClientSecret = "Xh4skrn1UaDQgDfMhGbIbUJQZgtS77Q0"
+public let Box_DevelopToken = "De4B3j1y3kCMYjQk5I0dqshQP2iZdwSq"
+public let Box_RedirectURL = "wakemusic-box://oauth/callback"

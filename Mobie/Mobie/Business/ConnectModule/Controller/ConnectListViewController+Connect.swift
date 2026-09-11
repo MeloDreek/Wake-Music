@@ -54,6 +54,10 @@ extension ConnectListViewController {
             self.importFromDropBoxDrive()
         }
         
+        if itemType == .fromBoxDrive {
+            self.connectBoxDrive()
+        }
+
         if itemType == .fromePCloud {
             self.importFrompCloudDrive()
         }

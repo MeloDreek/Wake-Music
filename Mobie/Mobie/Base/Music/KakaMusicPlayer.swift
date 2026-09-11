@@ -75,7 +75,7 @@ public class KakaMusicPlayer: NSObject, ObservableObject {
     // 播放列表最初的排序
     var tempMusicArray: [MusicItemModel] = []
     
-    /// Invalidates pending pCloud link requests on play/pause/stop.
+    /// Invalidates pending pCloud/Box link requests on play/pause/stop.
     var pcloudPlaybackRequestID = UUID()
 
     /// 正在播放中的音乐
@@ -284,7 +284,7 @@ public class KakaMusicPlayer: NSObject, ObservableObject {
 //        debugPrint("全部文件路径 = \(allFileURLArray)")
 //        debugPrint("全部文件名称 = \(allFileNameArray)")
         
-        if nextPlayMusic.pcloudFile != nil {
+        if nextPlayMusic.pcloudFile != nil || nextPlayMusic.boxFile != nil {
             if SandboxFileManager.shared.getDownloadPlayURL(nextPlayMusic) != nil { return }
         } else if allFileNameArray.contains(nextPlayMusic.downloadPathName()) { return }
         
@@ -296,10 +296,18 @@ public class KakaMusicPlayer: NSObject, ObservableObject {
             debugPrint("删除最早的一个缓存 = \(firstURL.lastPathComponent)")
         }
         
-        let fileName = nextPlayMusic.pcloudFile == nil ? nextPlayMusic.downloadPathName() : nextPlayMusic.filePathName() + nextPlayMusic.addPathExtension()
+        let fileName = (nextPlayMusic.pcloudFile == nil && nextPlayMusic.boxFile == nil) ? nextPlayMusic.downloadPathName() : nextPlayMusic.filePathName() + nextPlayMusic.addPathExtension()
         let targetFileURL = cacheFolderURL.appendingPathComponent(fileName)
         
-        if let file = nextPlayMusic.pcloudFile {
+        if let file = nextPlayMusic.boxFile {
+            BoxDriveService.shared.fileURL(file) { [weak self] result in
+                guard let self = self, self.nextPlayMusic?.uniqueID() == nextPlayMusic.uniqueID(),
+                      MusicConfigManager.shared.isPreDownload else { return }
+                if case .success(let url) = result {
+                    self.download(downloadURL: url, targetFileURL: targetFileURL, model: nextPlayMusic)
+                }
+            }
+        }else if let file = nextPlayMusic.pcloudFile {
             PCloudDriveService.shared.fileURL(file) { [weak self] result in
                 guard let self = self, self.nextPlayMusic?.uniqueID() == nextPlayMusic.uniqueID(),
                       MusicConfigManager.shared.isPreDownload else { return }
@@ -371,7 +379,7 @@ public class KakaMusicPlayer: NSObject, ObservableObject {
         }
         
         let request = AF.download(downloadURL, headers: headers, to: destination)
-        if model?.pcloudFile != nil { request.validate(statusCode: 200..<300) }
+        if model?.pcloudFile != nil || model?.boxFile != nil { request.validate(statusCode: 200..<300) }
         request.downloadProgress { progressValue in
             debugPrint("下载进度 = \(progressValue.fractionCompleted)")
           }.responseURL { response in
@@ -380,7 +388,7 @@ public class KakaMusicPlayer: NSObject, ObservableObject {
                 debugPrint("✅下一首歌下载完成 = \(fileURL)")
                 break
             case .failure(let error):
-                if model?.pcloudFile != nil, response.fileURL == targetFileURL {
+                if model?.pcloudFile != nil || model?.boxFile != nil, response.fileURL == targetFileURL {
                     try? FileManager.default.removeItem(at: targetFileURL)
                 }
                 debugPrint("下载❌ = \(error)")

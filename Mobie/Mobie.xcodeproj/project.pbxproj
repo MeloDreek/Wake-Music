@@ -697,13 +697,23 @@
 		A76381FF2EDED27C0040A84D /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = A76381FE2EDED27C0040A84D /* Alamofire */; };
 		A76382012EDED2E60040A84D /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = A76382002EDED2E60040A84D /* Alamofire */; };
 		C10D00000000000000000001 /* PCloudDriveService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10D00000000000000000002 /* PCloudDriveService.swift */; };
+		B01000000000000000000001 /* BoxDriveService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01000000000000000000002 /* BoxDriveService.swift */; };
+		B01200000000000000000001 /* BoxDriveAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01200000000000000000002 /* BoxDriveAPI.swift */; };
 		C10D00000000000000000003 /* PCloudDriveService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10D00000000000000000002 /* PCloudDriveService.swift */; };
+		B01000000000000000000003 /* BoxDriveService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01000000000000000000002 /* BoxDriveService.swift */; };
+		B01200000000000000000003 /* BoxDriveAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01200000000000000000002 /* BoxDriveAPI.swift */; };
 		C10D00000000000000000004 /* PCloudDriveFileListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10D00000000000000000005 /* PCloudDriveFileListController.swift */; };
+		B01000000000000000000004 /* BoxDriveFileListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01000000000000000000005 /* BoxDriveFileListController.swift */; };
 		C10D00000000000000000006 /* PCloudDriveFileListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10D00000000000000000005 /* PCloudDriveFileListController.swift */; };
+		B01000000000000000000006 /* BoxDriveFileListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01000000000000000000005 /* BoxDriveFileListController.swift */; };
 		C10D00000000000000000007 /* KakaMusicPlayer+PCloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10D00000000000000000008 /* KakaMusicPlayer+PCloud.swift */; };
+		B01000000000000000000007 /* KakaMusicPlayer+Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01000000000000000000008 /* KakaMusicPlayer+Box.swift */; };
 		C10D00000000000000000009 /* KakaMusicPlayer+PCloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10D00000000000000000008 /* KakaMusicPlayer+PCloud.swift */; };
+		B01000000000000000000009 /* KakaMusicPlayer+Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01000000000000000000008 /* KakaMusicPlayer+Box.swift */; };
 		C10E00000000000000000001 /* PCloudFileListStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10E00000000000000000002 /* PCloudFileListStatus.swift */; };
+		B01100000000000000000001 /* BoxFileListStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01100000000000000000002 /* BoxFileListStatus.swift */; };
 		C10E00000000000000000003 /* PCloudFileListStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10E00000000000000000002 /* PCloudFileListStatus.swift */; };
+		B01100000000000000000003 /* BoxFileListStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01100000000000000000002 /* BoxFileListStatus.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -1049,9 +1059,14 @@
 		886CE6607B0E1400F6276768 /* Pods-Mobie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mobie.release.xcconfig"; path = "Target Support Files/Pods-Mobie/Pods-Mobie.release.xcconfig"; sourceTree = "<group>"; };
 		BD30271AF1F6DF33916F8A97 /* Pods-Mobie_Pro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mobie_Pro.release.xcconfig"; path = "Target Support Files/Pods-Mobie_Pro/Pods-Mobie_Pro.release.xcconfig"; sourceTree = "<group>"; };
 		C10D00000000000000000002 /* PCloudDriveService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCloudDriveService.swift; sourceTree = "<group>"; };
+		B01000000000000000000002 /* BoxDriveService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxDriveService.swift; sourceTree = "<group>"; };
+		B01200000000000000000002 /* BoxDriveAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxDriveAPI.swift; sourceTree = "<group>"; };
 		C10D00000000000000000005 /* PCloudDriveFileListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCloudDriveFileListController.swift; sourceTree = "<group>"; };
+		B01000000000000000000005 /* BoxDriveFileListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxDriveFileListController.swift; sourceTree = "<group>"; };
 		C10D00000000000000000008 /* KakaMusicPlayer+PCloud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KakaMusicPlayer+PCloud.swift"; sourceTree = "<group>"; };
+		B01000000000000000000008 /* KakaMusicPlayer+Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KakaMusicPlayer+Box.swift"; sourceTree = "<group>"; };
 		C10E00000000000000000002 /* PCloudFileListStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCloudFileListStatus.swift; sourceTree = "<group>"; };
+		B01100000000000000000002 /* BoxFileListStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxFileListStatus.swift; sourceTree = "<group>"; };
 		FBD07F657408F494AEAD6A1B /* Pods-Mobie_Pro.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mobie_Pro.debug.xcconfig"; path = "Target Support Files/Pods-Mobie_Pro/Pods-Mobie_Pro.debug.xcconfig"; sourceTree = "<group>"; };
 		FC044DCD42AEE7FFFB8D29DE /* Pods_Mobie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mobie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -1270,6 +1285,7 @@
 				228A14212CA0633400E2948E /* KakaMusicPlayer+Noti+Remote.swift */,
 				226AF34E2E236738007C44DF /* KakaMusicPlayer+API.swift */,
 				C10D00000000000000000008 /* KakaMusicPlayer+PCloud.swift */,
+				B01000000000000000000008 /* KakaMusicPlayer+Box.swift */,
 				228A14222CA0633400E2948E /* KakaMusicPlayer+Tools.swift */,
 				22CFF8272CADCF2900CF825C /* BaiduDriveError.swift */,
 				225F88C52CD094F70093B359 /* MiniPlayerStyle+Extension.swift */,
@@ -1308,7 +1324,9 @@
 				2252C7572F8A132400A8DDE5 /* AliyunDriveFileListController.swift */,
 				225A5D8E2EAFB4EA009DB87E /* DropboxDriveFileListController.swift */,
 				C10D00000000000000000005 /* PCloudDriveFileListController.swift */,
+				B01000000000000000000005 /* BoxDriveFileListController.swift */,
 				C10E00000000000000000002 /* PCloudFileListStatus.swift */,
+				B01100000000000000000002 /* BoxFileListStatus.swift */,
 				2217E0FC2EBC74E000C724F6 /* OneDriveFileListController.swift */,
 				224B43DD2E2D3F88007F3E89 /* Drive115FileListController.swift */,
 				227998BA2D773D6300BCE0B9 /* NavidromeSearchViewController.swift */,
@@ -1708,6 +1726,8 @@
 				22109C552DF09DC900A39370 /* MiniLyricAnimation+Extension.swift */,
 				224DAE3B2EAE5961003CFAAC /* DriveUserModel+Extension.swift */,
 				C10D00000000000000000002 /* PCloudDriveService.swift */,
+				B01000000000000000000002 /* BoxDriveService.swift */,
+				B01200000000000000000002 /* BoxDriveAPI.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -2277,7 +2297,9 @@
 				225F58312D85B2AB0055BDFF /* LibraryLyricsViewController.swift in Sources */,
 				225A5D902EAFB4EA009DB87E /* DropboxDriveFileListController.swift in Sources */,
 				C10D00000000000000000006 /* PCloudDriveFileListController.swift in Sources */,
+				B01000000000000000000006 /* BoxDriveFileListController.swift in Sources */,
 				C10E00000000000000000003 /* PCloudFileListStatus.swift in Sources */,
+				B01100000000000000000003 /* BoxFileListStatus.swift in Sources */,
 				22C2572F302D723500A68C1B /* AudioMatchCoverFootView.swift in Sources */,
 				225F58322D85B2AB0055BDFF /* DonateViewController.swift in Sources */,
 				225F58332D85B2AB0055BDFF /* NavidromeSearchViewController.swift in Sources */,
@@ -2353,6 +2375,7 @@
 				2217E0FE2EBC74E000C724F6 /* OneDriveFileListController.swift in Sources */,
 				226AF3502E236738007C44DF /* KakaMusicPlayer+API.swift in Sources */,
 				C10D00000000000000000009 /* KakaMusicPlayer+PCloud.swift in Sources */,
+				B01000000000000000000009 /* KakaMusicPlayer+Box.swift in Sources */,
 				225F585F2D85B2AB0055BDFF /* WebDavFileObject+Extension.swift in Sources */,
 				223198262DD4CD94005F9AF0 /* PlayerEngineViewController.swift in Sources */,
 				22C7077A2DCB9E8900A1B79A /* PrimaryCellGroupModel.swift in Sources */,
@@ -2368,6 +2391,8 @@
 				22C707842DCBA00000A1B79A /* AppStoreInfoModel.swift in Sources */,
 				224DAE3D2EAE5961003CFAAC /* DriveUserModel+Extension.swift in Sources */,
 				C10D00000000000000000003 /* PCloudDriveService.swift in Sources */,
+				B01000000000000000000003 /* BoxDriveService.swift in Sources */,
+				B01200000000000000000003 /* BoxDriveAPI.swift in Sources */,
 				225F58652D85B2AB0055BDFF /* PurchageListViewcell.swift in Sources */,
 				225F58672D85B2AB0055BDFF /* PlayerTimerViewController.swift in Sources */,
 				22109C562DF09DC900A39370 /* MiniLyricAnimation+Extension.swift in Sources */,
@@ -2576,7 +2601,9 @@
 				22577F6D2D04251A00AD35E7 /* LibraryLyricsViewController.swift in Sources */,
 				225A5D8F2EAFB4EA009DB87E /* DropboxDriveFileListController.swift in Sources */,
 				C10D00000000000000000004 /* PCloudDriveFileListController.swift in Sources */,
+				B01000000000000000000004 /* BoxDriveFileListController.swift in Sources */,
 				C10E00000000000000000001 /* PCloudFileListStatus.swift in Sources */,
+				B01100000000000000000001 /* BoxFileListStatus.swift in Sources */,
 				22C25730302D723500A68C1B /* AudioMatchCoverFootView.swift in Sources */,
 				2261E8812CB5267E009506C0 /* DonateViewController.swift in Sources */,
 				227998BB2D773D6300BCE0B9 /* NavidromeSearchViewController.swift in Sources */,
@@ -2652,6 +2679,7 @@
 				2217E0FD2EBC74E000C724F6 /* OneDriveFileListController.swift in Sources */,
 				226AF34F2E236738007C44DF /* KakaMusicPlayer+API.swift in Sources */,
 				C10D00000000000000000007 /* KakaMusicPlayer+PCloud.swift in Sources */,
+				B01000000000000000000007 /* KakaMusicPlayer+Box.swift in Sources */,
 				22694D9D2D23ECB400DE036D /* WebDavFileObject+Extension.swift in Sources */,
 				223198272DD4CD94005F9AF0 /* PlayerEngineViewController.swift in Sources */,
 				22C7077B2DCB9E8A00A1B79A /* PrimaryCellGroupModel.swift in Sources */,
@@ -2667,6 +2695,8 @@
 				22C707852DCBA00000A1B79A /* AppStoreInfoModel.swift in Sources */,
 				224DAE3C2EAE5961003CFAAC /* DriveUserModel+Extension.swift in Sources */,
 				C10D00000000000000000001 /* PCloudDriveService.swift in Sources */,
+				B01000000000000000000001 /* BoxDriveService.swift in Sources */,
+				B01200000000000000000001 /* BoxDriveAPI.swift in Sources */,
 				228A14722CA0633400E2948E /* PurchageListViewcell.swift in Sources */,
 				224AC8A82CE4333200F4F2AF /* PlayerTimerViewController.swift in Sources */,
 				22109C572DF09DC900A39370 /* MiniLyricAnimation+Extension.swift in Sources */,

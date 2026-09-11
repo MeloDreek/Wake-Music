@@ -197,6 +197,10 @@ class MusicTableViewCell: UITableViewCell {
             let isSupport = AudioExtension.audioSuffixs.contains(dropboxFile.fileExtension())
             isSupportType = !dropboxFile.isDirectory() && isSupport
         }
+        if let boxFile = musicModel.boxFile {
+            let isSupport = AudioExtension.audioSuffixs.contains(boxFile.fileExtension())
+            isSupportType = !boxFile.isDirectory() && isSupport
+        }
         if let pcloudFile = musicModel.pcloudFile {
             let isSupport = AudioExtension.audioSuffixs.contains(pcloudFile.fileExtension())
             isSupportType = !pcloudFile.isDirectory() && isSupport
@@ -286,6 +290,10 @@ class MusicTableViewCell: UITableViewCell {
             coverImgView.kf.setImage(with: musicModel.coverThumbnailURL(), placeholder: musicModel.placeImage())
             nameLabel.text = musicModel.showTitleName() + musicModel.addPathExtension()
             self.descLabel.text = self.secondDropboxStr(dropboxFile)
+        }else if let file = musicModel.boxFile {
+            coverImgView.kf.setImage(with: musicModel.coverThumbnailURL(), placeholder: musicModel.placeImage())
+            nameLabel.text = file.name
+            self.descLabel.text = file.isDirectory() ? "Box" : musicModel.durationTimeStr()
         }else if let file = musicModel.pcloudFile {
             coverImgView.kf.setImage(with: musicModel.coverThumbnailURL(), placeholder: musicModel.placeImage())
             nameLabel.text = file.name

@@ -67,6 +67,9 @@ extension ConnectConfigManager {
             if let dropboxUser = serverModel.dropboxUser, let _ = subFolder.dropboxFile {
                 subFolder.dropboxFile?.dropboxUser = dropboxUser
             }
+            if let user = serverModel.boxUser, subFolder.boxFile != nil {
+                subFolder.boxFile?.boxUser = user
+            }
             if let user = serverModel.pcloudUser, subFolder.pcloudFile != nil {
                 subFolder.pcloudFile?.pcloudUser = user
             }
@@ -102,6 +105,9 @@ extension ConnectConfigManager {
             }
             if let dropboxUser = serverModel.dropboxUser, let _ = subMusic.dropboxFile {
                 subMusic.dropboxFile?.dropboxUser = dropboxUser
+            }
+            if let user = serverModel.boxUser, subMusic.boxFile != nil {
+                subMusic.boxFile?.boxUser = user
             }
             if let user = serverModel.pcloudUser, subMusic.pcloudFile != nil {
                 subMusic.pcloudFile?.pcloudUser = user
@@ -147,6 +153,19 @@ extension ConnectConfigManager {
         
         self.favoriteMusicArray = musicArray
 
+        if let user = serverModel.boxUser {
+            BoxDriveService.shared.unlink(user)
+            self.lastPlaylist = self.lastPlaylist.filter { $0.boxFile?.boxUser != user }
+            let player = KakaMusicPlayer.shared
+            player.musicArray = player.musicArray.filter { $0.boxFile?.boxUser != user }
+            player.tempMusicArray = player.tempMusicArray.filter { $0.boxFile?.boxUser != user }
+            if player.nextPlayMusic?.boxFile?.boxUser == user { player.nextPlayMusic = nil }
+            if player.playingMusic?.boxFile?.boxUser == user {
+                player.stop()
+                player.playingMusic = nil
+                MusicConfigManager.shared.lastPlayModel = nil
+            }
+        }
         if let user = serverModel.pcloudUser {
             PCloudDriveService.shared.unlink(user)
             self.lastPlaylist = self.lastPlaylist.filter { $0.pcloudFile?.pcloudUser != user }
@@ -172,7 +191,7 @@ extension ConnectConfigManager {
         
         // 首先检查是否已经存在该模型
         var newModel = model
-        if model.pcloudFile != nil {
+        if model.pcloudFile != nil || model.boxFile != nil {
             newModel.isFavorite = !tempArray.contains(model)
         } else {
             newModel.isFavorite.toggle()
@@ -226,7 +245,7 @@ extension ConnectConfigManager {
                 if let _ = subModel.dropboxFile {
                     musicSet.insert(subModel)
                 }
-                if subModel.pcloudFile != nil {
+                if subModel.pcloudFile != nil || subModel.boxFile != nil {
                     musicSet.insert(subModel)
                 }
                 
@@ -341,6 +360,9 @@ extension ConnectConfigManager {
             if let dropboxFile = subModel.dropboxFile {
                 return dropboxFile.dropboxUser == serverModel?.dropboxUser
             }
+            if let file = subModel.boxFile, let user = serverModel?.boxUser {
+                return file.boxUser == user
+            }
             if let file = subModel.pcloudFile, let user = serverModel?.pcloudUser {
                 return file.pcloudUser == user
             }
@@ -382,6 +404,9 @@ extension ConnectConfigManager {
             
             if let dropboxFile = subModel.dropboxFile {
                 return dropboxFile.dropboxUser == serverModel?.dropboxUser
+            }
+            if let file = subModel.boxFile, let user = serverModel?.boxUser {
+                return file.boxUser == user
             }
             if let file = subModel.pcloudFile, let user = serverModel?.pcloudUser {
                 return file.pcloudUser == user
@@ -429,7 +454,7 @@ extension ConnectConfigManager {
             if let _ = subModel.dropboxFile {
                 selectedFolders.insert(subModel, at: 0)
             }
-            if subModel.pcloudFile != nil {
+            if subModel.pcloudFile != nil || subModel.boxFile != nil {
                 selectedFolders.insert(subModel, at: 0)
             }
             
@@ -479,7 +504,7 @@ extension ConnectConfigManager {
             if let _ = subModel.dropboxFile {
                 selectedMusics.insert(subModel, at: 0)
             }
-            if subModel.pcloudFile != nil {
+            if subModel.pcloudFile != nil || subModel.boxFile != nil {
                 selectedMusics.insert(subModel, at: 0)
             }
             

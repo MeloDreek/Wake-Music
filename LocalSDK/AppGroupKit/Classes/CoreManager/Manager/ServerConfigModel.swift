@@ -12,7 +12,7 @@ public struct ServerConfigModel: SmartCodableX, Equatable, Hashable {
     
     public init() { }
     
-    public init(serverType: ImportFileType = ImportFileType.fromWebDav, isSelected: Bool = false, webdavUser: WebdavUserModel? = nil, navUser: NavidromeUserModel? = nil, baiduUser: BaiduDriveUserModel? = nil, aliyunUser: AliyunpanUserModel? = nil, drive115User: Drive115UserModel? = nil, googleUser: GoogleDriveUserModel? = nil, dropboxUser: DropboxDriveUserModel? = nil, onedriveUser: OneDriveUserModel? = nil, pcloudUser: PCloudDriveUserModel? = nil) {
+    public init(serverType: ImportFileType = ImportFileType.fromWebDav, isSelected: Bool = false, webdavUser: WebdavUserModel? = nil, navUser: NavidromeUserModel? = nil, baiduUser: BaiduDriveUserModel? = nil, aliyunUser: AliyunpanUserModel? = nil, drive115User: Drive115UserModel? = nil, googleUser: GoogleDriveUserModel? = nil, dropboxUser: DropboxDriveUserModel? = nil, onedriveUser: OneDriveUserModel? = nil, pcloudUser: PCloudDriveUserModel? = nil, boxUser: BoxDriveUserModel? = nil) {
         self.serverType = serverType
         self.isSelected = isSelected
         self.webdavUser = webdavUser
@@ -24,6 +24,7 @@ public struct ServerConfigModel: SmartCodableX, Equatable, Hashable {
         self.dropboxUser = dropboxUser
         self.onedriveUser = onedriveUser
         self.pcloudUser = pcloudUser
+        self.boxUser = boxUser
     }
     
     /// 导入方式的信息
@@ -58,6 +59,7 @@ public struct ServerConfigModel: SmartCodableX, Equatable, Hashable {
     public var onedriveUser: OneDriveUserModel?
 
     public var pcloudUser: PCloudDriveUserModel?
+    public var boxUser: BoxDriveUserModel?
     
     /// 提高查找效率
     public func hash(into hasher: inout Hasher) {
@@ -71,12 +73,14 @@ public struct ServerConfigModel: SmartCodableX, Equatable, Hashable {
         hasher.combine(dropboxUser)
         hasher.combine(onedriveUser)
         hasher.combine(pcloudUser)
+        hasher.combine(boxUser)
     }
     
     /// 判断两个模型的值是否一致
     public static func == (lhs: ServerConfigModel, rhs: ServerConfigModel) -> Bool {
         return lhs.serverType == rhs.serverType &&
         lhs.pcloudUser == rhs.pcloudUser &&
+        lhs.boxUser == rhs.boxUser &&
         lhs.webdavUser?.username ==  rhs.webdavUser?.username &&
         lhs.navUser?.id ==  rhs.navUser?.id &&
         lhs.baiduUser?.uk ==  rhs.baiduUser?.uk &&
@@ -93,6 +97,7 @@ extension ServerConfigModel {
     
     /// 外显名称
     public func showTitle() -> String {
+        if boxUser != nil { return "Box" }
         if pcloudUser != nil { return "pCloud" }
         if self.serverType == .fromWebDav {
             return self.webdavUser?.customName ?? "WebDAV".localStr()
@@ -122,6 +127,7 @@ extension ServerConfigModel {
     
     /// 自定义的名称
     public func customNameStr() -> String? {
+        if let user = boxUser { return user.email.isEmpty ? "Box" : user.email }
         if let user = pcloudUser { return user.email.isEmpty ? "pCloud" : user.email }
         if let webdavUser = self.webdavUser {
             return webdavUser.customName
