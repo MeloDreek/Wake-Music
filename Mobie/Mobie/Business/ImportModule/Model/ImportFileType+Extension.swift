@@ -41,6 +41,32 @@ struct ImportGroupModel {
 
 
 extension ImportFileType {
+    /// Selection hints, shared by Import and the empty Connect screen.
+    /// Speed hints are relevant to Chinese-language users. They describe throttling,
+    /// not unlimited traffic or a guarantee of real-world connection throughput.
+    func connectionTags() -> [String] {
+        let language = PhoneSetManager.formatLanguage()
+        let showSpeed = language == .chinese_simplified || language == .chinese_traditional
+        let speedTags = showSpeed ? ["ConnectionTag.NoSpeedLimit".localStr()] : []
+        switch self {
+        case .fromSMB: return ["NAS", "ConnectionTag.Computer".localStr(), "ConnectionTag.LocalNetwork".localStr()]
+        case .fromWebDav: return ["NAS", "ConnectionTag.PrivateCloud".localStr(), "Cloud Drive".localStr()]
+        case .fromNavidrome: return ["ConnectionTag.MusicServer".localStr(), "NAS", "ConnectionTag.SelfHosted".localStr()]
+        case .fromGoogleDrive: return ["ConnectionTag.Free15GBShared".localStr()] + speedTags
+        case .fromDropboxDrive: return ["ConnectionTag.Free2GB".localStr()] + speedTags
+        case .fromOneDrive: return ["ConnectionTag.Free5GBShared".localStr()] + speedTags
+        case .fromePCloud: return ["ConnectionTag.Unlock10GB".localStr()] + speedTags
+        case .fromBoxDrive: return ["ConnectionTag.Free10GB".localStr()] + speedTags
+        case .fromBaiduDrive:
+            return ["ConnectionTag.FreeUpTo2TB".localStr()] + (showSpeed ? ["ConnectionTag.PartialStreaming".localStr()] : [])
+        case .fromAliyunDrive:
+            return ["ConnectionTag.Free100GB".localStr()]
+        case .from115Drive:
+            return ["ConnectionTag.Free15GB".localStr()]
+        default: return []
+        }
+    }
+
     /// 图标名称
     public func iconImage() -> UIImage? {
         switch self {

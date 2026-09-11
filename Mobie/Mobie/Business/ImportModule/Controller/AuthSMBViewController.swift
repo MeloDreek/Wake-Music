@@ -1,4 +1,5 @@
 import UIKit
+import SafariServices
 import AppGroupKit
 import KakaFoundation
 import KakaUIKit
@@ -23,12 +24,12 @@ final class AuthSMBViewController: SuperViewController, UITableViewDataSource, U
         existing = user
         self.completion = completion
         super.init(nibName: nil, bundle: nil)
-        values = [.title: user?.name ?? "", .host: user?.host ?? "",
+        values = [.title: user?.name ?? "My NAS".localStr(), .host: user?.host ?? "",
                   .port: String(user?.port ?? 445), .path: user?.share ?? "",
                   .username: user?.username ?? "", .password: "", .otherDav: user?.domain ?? ""]
 #if DEBUG
         if user == nil {
-            values = [.title: "Mac SMB", .host: "192.168.1.177", .port: "445",
+            values = [.title: "My NAS".localStr(), .host: "192.168.1.177", .port: "445",
                       .path: "音乐", .username: "wakemusic", .password: "wake", .otherDav: ""]
         }
 #endif
@@ -47,6 +48,22 @@ final class AuthSMBViewController: SuperViewController, UITableViewDataSource, U
         navigationItem.largeTitleDisplayMode = .never
         if isPresent() {
             navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelButtonClick))
+        }
+        
+        let connectItem = UIBarButtonItem(image: UIImage(systemName: "questionmark.circle"), style: .plain, target: self, action: #selector(questionBtnClick))
+        self.navigationItem.rightBarButtonItem = connectItem
+    }
+    
+    @objc func questionBtnClick() {
+        let searchStr = String(format: SearchEngineType.defaultEngine().searchUrl(), "SMB")
+        guard let vURL = URL(string: searchStr) else { return }
+        
+        if kaka_IsMacOS() {
+            UIApplication.shared.open(vURL)
+        }else{
+            let webVC = SFSafariViewController(url: vURL)
+            webVC.preferredControlTintColor = appMainColor
+            self.present(webVC, animated: true)
         }
     }
 

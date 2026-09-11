@@ -1,6 +1,594 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+  "ConnectionTag.FreeUpTo2TB": {
+    "extractionState": "manual",
+    "comment": "Free storage quota badge. Actual allocation and eligibility depend on the provider/account.",
+    "localizations": {
+      "en": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "Up to 2 TB free"
+        }
+      },
+      "zh-Hans": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "最高免费2TB"
+        }
+      },
+      "zh-Hant": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "最高免費2TB"
+        }
+      },
+      "zh-HK": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "最高免費2TB"
+        }
+      }
+    }
+  },
+  "ConnectionTag.Free100GB": {
+    "extractionState": "manual",
+    "comment": "Free storage quota badge. Actual allocation and eligibility depend on the provider/account.",
+    "localizations": {
+      "en": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "100 GB free"
+        }
+      },
+      "zh-Hans": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "免费100GB"
+        }
+      },
+      "zh-Hant": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "免費100GB"
+        }
+      },
+      "zh-HK": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "免費100GB"
+        }
+      }
+    }
+  },
+  "ConnectionTag.Free15GB": {
+    "extractionState": "manual",
+    "comment": "Free storage quota badge. Actual allocation and eligibility depend on the provider/account.",
+    "localizations": {
+      "en": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "15 GB free"
+        }
+      },
+      "zh-Hans": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "免费15GB"
+        }
+      },
+      "zh-Hant": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "免費15GB"
+        }
+      },
+      "zh-HK": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "免費15GB"
+        }
+      }
+    }
+  },
+  "ConnectionTag.FreeStorage": {
+    "extractionState": "manual",
+    "comment": "Remote service selection badge. Speed labels appear only for Chinese UI languages; no speed cap does not mean unlimited traffic. Baidu streaming eligibility varies by user.",
+    "localizations": {
+      "en": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "Free storage"
+        }
+      },
+      "zh-Hans": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "免费空间"
+        }
+      },
+      "zh-Hant": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "免費空間"
+        }
+      },
+      "zh-HK": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "免費空間"
+        }
+      }
+    }
+  },
+  "ConnectionTag.NoSpeedLimit": {
+    "extractionState": "manual",
+    "comment": "Remote service selection badge. Speed labels appear only for Chinese UI languages; no speed cap does not mean unlimited traffic. Baidu streaming eligibility varies by user.",
+    "localizations": {
+      "en": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "No speed cap"
+        }
+      },
+      "zh-Hans": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "不限速"
+        }
+      },
+      "zh-Hant": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "不限速"
+        }
+      },
+      "zh-HK": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "不限速"
+        }
+      }
+    }
+  },
+  "ConnectionTag.PartialStreaming": {
+    "extractionState": "manual",
+    "comment": "Remote service selection badge. Speed labels appear only for Chinese UI languages; no speed cap does not mean unlimited traffic. Baidu streaming eligibility varies by user.",
+    "localizations": {
+      "en": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "Uncapped streaming for some users"
+        }
+      },
+      "zh-Hans": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "在线播放部分不限速"
+        }
+      },
+      "zh-Hant": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "線上播放部分不限速"
+        }
+      },
+      "zh-HK": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "線上播放部分不限速"
+        }
+      }
+    }
+  },
+  "ConnectionTag.Computer": {
+    "extractionState": "manual",
+    "comment": "Informational badge below a remote import service. Provider quotas may be shared or require unlocking; not a Wake Music entitlement.",
+    "localizations": {
+      "en": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "Computer"
+        }
+      },
+      "zh-Hans": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "电脑"
+        }
+      },
+      "zh-Hant": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "電腦"
+        }
+      },
+      "zh-HK": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "電腦"
+        }
+      }
+    }
+  },
+  "ConnectionTag.LocalNetwork": {
+    "extractionState": "manual",
+    "comment": "Informational badge below a remote import service. Provider quotas may be shared or require unlocking; not a Wake Music entitlement.",
+    "localizations": {
+      "en": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "Local network"
+        }
+      },
+      "zh-Hans": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "局域网"
+        }
+      },
+      "zh-Hant": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "區域網絡"
+        }
+      },
+      "zh-HK": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "區域網絡"
+        }
+      }
+    }
+  },
+  "ConnectionTag.PrivateCloud": {
+    "extractionState": "manual",
+    "comment": "Informational badge below a remote import service. Provider quotas may be shared or require unlocking; not a Wake Music entitlement.",
+    "localizations": {
+      "en": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "Private cloud"
+        }
+      },
+      "zh-Hans": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "私有云"
+        }
+      },
+      "zh-Hant": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "私有雲"
+        }
+      },
+      "zh-HK": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "私有雲"
+        }
+      }
+    }
+  },
+  "ConnectionTag.MusicServer": {
+    "extractionState": "manual",
+    "comment": "Informational badge below a remote import service. Provider quotas may be shared or require unlocking; not a Wake Music entitlement.",
+    "localizations": {
+      "en": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "Music server"
+        }
+      },
+      "zh-Hans": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "专业音乐服"
+        }
+      },
+      "zh-Hant": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "專業音樂伺服器"
+        }
+      },
+      "zh-HK": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "專業音樂伺服器"
+        }
+      }
+    }
+  },
+  "ConnectionTag.SelfHosted": {
+    "extractionState": "manual",
+    "comment": "Informational badge below a remote import service. Provider quotas may be shared or require unlocking; not a Wake Music entitlement.",
+    "localizations": {
+      "en": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "Self-hosted"
+        }
+      },
+      "zh-Hans": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "需自建"
+        }
+      },
+      "zh-Hant": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "需自行架設"
+        }
+      },
+      "zh-HK": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "需自行架設"
+        }
+      }
+    }
+  },
+  "ConnectionTag.Free15GBShared": {
+    "extractionState": "manual",
+    "comment": "Informational badge below a remote import service. Provider quotas may be shared or require unlocking; not a Wake Music entitlement.",
+    "localizations": {
+      "en": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "15 GB free · shared"
+        }
+      },
+      "zh-Hans": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "免费15GB·共享"
+        }
+      },
+      "zh-Hant": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "免費15GB·共用"
+        }
+      },
+      "zh-HK": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "免費15GB·共用"
+        }
+      }
+    }
+  },
+  "ConnectionTag.NoServer": {
+    "extractionState": "manual",
+    "comment": "Informational badge below a remote import service. Provider quotas may be shared or require unlocking; not a Wake Music entitlement.",
+    "localizations": {
+      "en": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "No server setup"
+        }
+      },
+      "zh-Hans": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "无需自建"
+        }
+      },
+      "zh-Hant": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "無需自行架設"
+        }
+      },
+      "zh-HK": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "無需自行架設"
+        }
+      }
+    }
+  },
+  "ConnectionTag.Free2GB": {
+    "extractionState": "manual",
+    "comment": "Informational badge below a remote import service. Provider quotas may be shared or require unlocking; not a Wake Music entitlement.",
+    "localizations": {
+      "en": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "2 GB free"
+        }
+      },
+      "zh-Hans": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "免费2GB"
+        }
+      },
+      "zh-Hant": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "免費2GB"
+        }
+      },
+      "zh-HK": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "免費2GB"
+        }
+      }
+    }
+  },
+  "ConnectionTag.Free5GBShared": {
+    "extractionState": "manual",
+    "comment": "Informational badge below a remote import service. Provider quotas may be shared or require unlocking; not a Wake Music entitlement.",
+    "localizations": {
+      "en": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "5 GB free · shared"
+        }
+      },
+      "zh-Hans": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "免费5GB·共享"
+        }
+      },
+      "zh-Hant": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "免費5GB·共用"
+        }
+      },
+      "zh-HK": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "免費5GB·共用"
+        }
+      }
+    }
+  },
+  "ConnectionTag.Unlock10GB": {
+    "extractionState": "manual",
+    "comment": "Informational badge below a remote import service. Provider quotas may be shared or require unlocking; not a Wake Music entitlement.",
+    "localizations": {
+      "en": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "Unlock up to 10 GB free"
+        }
+      },
+      "zh-Hans": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "解锁最高免费10GB"
+        }
+      },
+      "zh-Hant": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "解鎖最高免費10GB"
+        }
+      },
+      "zh-HK": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "解鎖最高免費10GB"
+        }
+      }
+    }
+  },
+  "ConnectionTag.Free10GB": {
+    "extractionState": "manual",
+    "comment": "Informational badge below a remote import service. Provider quotas may be shared or require unlocking; not a Wake Music entitlement.",
+    "localizations": {
+      "en": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "10 GB free"
+        }
+      },
+      "zh-Hans": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "免费10GB"
+        }
+      },
+      "zh-Hant": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "免費10GB"
+        }
+      },
+      "zh-HK": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "免費10GB"
+        }
+      }
+    }
+  },
+  "ConnectionTag.File250MB": {
+    "extractionState": "manual",
+    "comment": "Informational badge below a remote import service. Provider quotas may be shared or require unlocking; not a Wake Music entitlement.",
+    "localizations": {
+      "en": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "Free: 250 MB/file"
+        }
+      },
+      "zh-Hans": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "免费版单文件≤250MB"
+        }
+      },
+      "zh-Hant": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "免費版單檔≤250MB"
+        }
+      },
+      "zh-HK": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "免費版單檔≤250MB"
+        }
+      }
+    }
+  },
+  "ConnectionTag.CloudStorage": {
+    "extractionState": "manual",
+    "comment": "Informational badge below a remote import service. Provider quotas may be shared or require unlocking; not a Wake Music entitlement.",
+    "localizations": {
+      "en": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "Cloud storage"
+        }
+      },
+      "zh-Hans": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "云端存储"
+        }
+      },
+      "zh-Hant": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "雲端儲存"
+        }
+      },
+      "zh-HK": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "雲端儲存"
+        }
+      }
+    }
+  },
+  "My NAS": {
+    "extractionState": "manual",
+    "comment": "Editable default name for a new SMB connection.",
+    "localizations": {
+      "en": {
+        "stringUnit": { "state": "translated", "value": "My NAS" }
+      },
+      "zh-Hans": {
+        "stringUnit": { "state": "translated", "value": "我的 NAS" }
+      },
+      "zh-Hant": {
+        "stringUnit": { "state": "translated", "value": "我的 NAS" }
+      },
+      "zh-HK": {
+        "stringUnit": { "state": "translated", "value": "我的 NAS" }
+      }
+    }
+  },
   "Connection Name": {
     "extractionState": "manual",
     "comment": "SMB connection, read-only audio access.",

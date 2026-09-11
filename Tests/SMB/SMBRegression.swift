@@ -11,6 +11,15 @@ enum SMBRegression {
     static func main() async throws {
         let server = try SMBAddress.parse(server: "192.168.1.177", port: "445", share: "WakeMusic-SMB-Test")
         check(server.host == "192.168.1.177" && server.share == "WakeMusic-SMB-Test", "host/share")
+        for address in ["192.168.1.177", "smb://192.168.1.177"] {
+            let parsed = try SMBAddress.parse(server: address, port: "445", share: "音乐")
+            check(parsed.host == "192.168.1.177" && parsed.share == "音乐" && parsed.port == 445,
+                  "bare and scheme-prefixed host: \(address)")
+            let defaultPort = try SMBAddress.parse(server: address, port: "", share: "音乐")
+            check(defaultPort.port == 445, "empty port defaults to SMB port")
+            let customPort = try SMBAddress.parse(server: address, port: "1445", share: "音乐")
+            check(customPort.port == 1445, "custom port field")
+        }
         let url = try SMBAddress.parse(server: "smb://nas.local/音乐", port: "445", share: "")
         check(url.share == "音乐", "Chinese share")
         let unc = try SMBAddress.parse(server: "\\\\nas.local\\Music", port: "", share: "")
