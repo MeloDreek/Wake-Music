@@ -1,6 +1,27 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "Please sign in to the same pCloud account." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "请登录原来连接的 pCloud 账号。" } },
+        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "請登入原來連接的 pCloud 帳號。" } }
+      }
+    },
+    "Unable to save pCloud authorization. Please try again." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "无法保存 pCloud 授权，请重试。" } },
+        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "無法儲存 pCloud 授權，請重試。" } }
+      }
+    },
+    "pCloud request failed. Please check your connection and account permissions." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : { "stringUnit" : { "state" : "translated", "value" : "pCloud 请求失败，请检查网络连接及账号权限。" } },
+        "zh-Hant" : { "stringUnit" : { "state" : "translated", "value" : "pCloud 請求失敗，請檢查網路連線及帳號權限。" } }
+      }
+    },
     "%@ mins" : {
       "extractionState" : "manual",
       "localizations" : {

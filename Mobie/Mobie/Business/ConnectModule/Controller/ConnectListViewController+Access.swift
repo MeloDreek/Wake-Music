@@ -14,6 +14,10 @@ import Alamofire
 extension ConnectListViewController {
     // 登录已连接的服务器
     func accessLoginedServer(_ serverModel: ServerConfigModel) {
+        if let user = serverModel.pcloudUser {
+            self.navigationController?.pushViewController(PCloudDriveFileListController(loginModel: user), animated: true)
+            return
+        }
         
         // 0️⃣Navidrome
         if let navUser = serverModel.navUser {

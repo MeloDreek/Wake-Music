@@ -13,6 +13,7 @@ extension ServerConfigModel {
     
     /// 访问子文件夹的标题
     public func pageTitle() -> String {
+        if let user = pcloudUser { return user.email.isEmpty ? "pCloud" : user.email }
         
         if let webdavUser = self.webdavUser {
             return webdavUser.pageTitle()
@@ -44,6 +45,7 @@ extension ServerConfigModel {
     
     /// 副标题
     func descString() -> String? {
+        if let user = pcloudUser { return user.email.isEmpty ? user.apiHostName : user.email }
         
         if let webdavUser = self.webdavUser {
             return webdavUser.baseServerURL(false)?.absoluteString

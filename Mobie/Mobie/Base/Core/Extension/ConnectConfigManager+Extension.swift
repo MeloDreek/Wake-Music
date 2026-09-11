@@ -67,6 +67,9 @@ extension ConnectConfigManager {
             if let dropboxUser = serverModel.dropboxUser, let _ = subFolder.dropboxFile {
                 subFolder.dropboxFile?.dropboxUser = dropboxUser
             }
+            if let user = serverModel.pcloudUser, subFolder.pcloudFile != nil {
+                subFolder.pcloudFile?.pcloudUser = user
+            }
             if let onedriveUser = serverModel.onedriveUser, let _ = subFolder.onedriveFile {
                 subFolder.onedriveFile?.onedriveUser = onedriveUser
             }
@@ -100,6 +103,9 @@ extension ConnectConfigManager {
             if let dropboxUser = serverModel.dropboxUser, let _ = subMusic.dropboxFile {
                 subMusic.dropboxFile?.dropboxUser = dropboxUser
             }
+            if let user = serverModel.pcloudUser, subMusic.pcloudFile != nil {
+                subMusic.pcloudFile?.pcloudUser = user
+            }
             if let onedriveUser = serverModel.onedriveUser, let _ = subMusic.onedriveFile {
                 subMusic.onedriveFile?.onedriveUser = onedriveUser
             }
@@ -116,6 +122,7 @@ extension ConnectConfigManager {
     }
     
     // 删除一个服务器
+    @MainActor
     public func deleteOneServer(_ serverModel: ServerConfigModel) {
         
         // 1️⃣删除服务器
@@ -139,6 +146,20 @@ extension ConnectConfigManager {
         musicArray.removeAll { musics.contains($0) }
         
         self.favoriteMusicArray = musicArray
+
+        if let user = serverModel.pcloudUser {
+            PCloudDriveService.shared.unlink(user)
+            self.lastPlaylist = self.lastPlaylist.filter { $0.pcloudFile?.pcloudUser != user }
+            let player = KakaMusicPlayer.shared
+            player.musicArray = player.musicArray.filter { $0.pcloudFile?.pcloudUser != user }
+            player.tempMusicArray = player.tempMusicArray.filter { $0.pcloudFile?.pcloudUser != user }
+            if player.nextPlayMusic?.pcloudFile?.pcloudUser == user { player.nextPlayMusic = nil }
+            if player.playingMusic?.pcloudFile?.pcloudUser == user {
+                player.stop()
+                player.playingMusic = nil
+                MusicConfigManager.shared.lastPlayModel = nil
+            }
+        }
         
         KakaMusicPlayer.shared.deleteAllM3uCache()
         
@@ -151,7 +172,11 @@ extension ConnectConfigManager {
         
         // 首先检查是否已经存在该模型
         var newModel = model
-        newModel.isFavorite.toggle()
+        if model.pcloudFile != nil {
+            newModel.isFavorite = !tempArray.contains(model)
+        } else {
+            newModel.isFavorite.toggle()
+        }
         
         if let index = tempArray.firstIndex(of: newModel) {
             tempArray.remove(at: index)
@@ -199,6 +224,9 @@ extension ConnectConfigManager {
                 }
                 
                 if let _ = subModel.dropboxFile {
+                    musicSet.insert(subModel)
+                }
+                if subModel.pcloudFile != nil {
                     musicSet.insert(subModel)
                 }
                 
@@ -313,6 +341,9 @@ extension ConnectConfigManager {
             if let dropboxFile = subModel.dropboxFile {
                 return dropboxFile.dropboxUser == serverModel?.dropboxUser
             }
+            if let file = subModel.pcloudFile, let user = serverModel?.pcloudUser {
+                return file.pcloudUser == user
+            }
             
             if let onedriveFile = subModel.onedriveFile {
                 return onedriveFile.onedriveUser == serverModel?.onedriveUser
@@ -351,6 +382,9 @@ extension ConnectConfigManager {
             
             if let dropboxFile = subModel.dropboxFile {
                 return dropboxFile.dropboxUser == serverModel?.dropboxUser
+            }
+            if let file = subModel.pcloudFile, let user = serverModel?.pcloudUser {
+                return file.pcloudUser == user
             }
             
             if let onedriveFile = subModel.onedriveFile {
@@ -393,6 +427,9 @@ extension ConnectConfigManager {
             }
             
             if let _ = subModel.dropboxFile {
+                selectedFolders.insert(subModel, at: 0)
+            }
+            if subModel.pcloudFile != nil {
                 selectedFolders.insert(subModel, at: 0)
             }
             
@@ -440,6 +477,9 @@ extension ConnectConfigManager {
             }
             
             if let _ = subModel.dropboxFile {
+                selectedMusics.insert(subModel, at: 0)
+            }
+            if subModel.pcloudFile != nil {
                 selectedMusics.insert(subModel, at: 0)
             }
             

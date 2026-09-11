@@ -41,7 +41,26 @@ extension DownloadViewController {
     func handleMusicDownloadURL(_ tempModel: MusicItemModel) {
         var model = tempModel
         
-        if let baiduFile = model.baiduFileModel {
+        if let file = model.pcloudFile {
+            self.isDownloading = true
+            PCloudDriveService.shared.fileURL(file) { [weak self] result in
+                guard let self = self else { return }
+                guard DownloadManager.shared.taskArray.contains(model) else {
+                    self.isDownloading = false
+                    self.stopDownloadAction()
+                    return
+                }
+                switch result {
+                case .success(let url):
+                    model.mediaPlayURL = url
+                    self.downloadWithTask(model)
+                case .failure(let error):
+                    self.isDownloading = false
+                    self.stopDownloadAction()
+                    self.view.makeToast(error.errorDescription)
+                }
+            }
+        }else if let baiduFile = model.baiduFileModel {
             let access_token = baiduFile.baiduUser?.access_token ?? ""
             KakaMusicPlayer.shared.fetchBaiduDownloadURL(accessToken: access_token, fileModel: baiduFile) { result in
                 switch result {
@@ -97,15 +116,28 @@ extension DownloadViewController {
         if let downloadFolderName = model.downloadFolderName {
             folderURL = folderURL.appendingPathComponent(downloadFolderName)
         }
-        let targetFilePath = folderURL.appendingPathComponent(model.downloadPathName())
+        var targetFilePath = folderURL.appendingPathComponent(model.downloadPathName())
+        if model.pcloudFile != nil {
+            // Different pCloud folders can contain identically named songs. Preserve local files.
+            let originalURL = targetFilePath
+            var suffix = 1
+            while FileManager.default.fileExists(atPath: targetFilePath.path) {
+                let stem = originalURL.deletingPathExtension().lastPathComponent
+                targetFilePath = folderURL.appendingPathComponent("\(stem) (\(suffix))").appendingPathExtension(originalURL.pathExtension)
+                suffix += 1
+            }
+        }
+        let destinationURL = targetFilePath
         
-        debugPrint("下载地址 = \(downloadURL)， 目标地址 = \(targetFilePath)")
+        if model.pcloudFile == nil {
+            debugPrint("下载地址 = \(downloadURL)， 目标地址 = \(targetFilePath)")
+        }
         
         self.isDownloading = true
         let progressView = CircleProgressView(frame: CGRectMake(0, 0, 30.ckValue(), 30.ckValue()))
         
         let destination: DownloadRequest.Destination = { _, response in
-            return (targetFilePath, [.removePreviousFile, .createIntermediateDirectories])
+            return (destinationURL, model.pcloudFile == nil ? [.removePreviousFile, .createIntermediateDirectories] : [.createIntermediateDirectories])
         }
         
         var headers: HTTPHeaders = HTTPHeaders.default
@@ -113,7 +145,9 @@ extension DownloadViewController {
             headers.add(name: "Authorization", value: "Bearer " + (googleFile.googleUser?.accessToken ?? ""))
         }
         
-        AF.download(downloadURL, headers: headers, to: destination).downloadProgress { progressValue in
+        let request = AF.download(downloadURL, headers: headers, to: destination)
+        if model.pcloudFile != nil { request.validate(statusCode: 200..<300) }
+        request.downloadProgress { progressValue in
             let progress = progressValue.fractionCompleted
             debugPrint("下载进度 = \(progress)")
             
@@ -143,6 +177,11 @@ extension DownloadViewController {
                 }
                 break
             case .failure(let error):
+                if model.pcloudFile != nil, response.fileURL == destinationURL {
+                    // Validation occurs after moving a download; never retain an HTTP error body as music.
+                    try? FileManager.default.removeItem(at: destinationURL)
+                    self.stopDownloadAction()
+                }
                 debugPrint("❌下载失败 = \(error.localizedDescription)")
                 self.isDownloading = false
                 self.tableView.reloadData()
@@ -203,4 +242,3 @@ extension DownloadViewController {
     }
     
 }
-

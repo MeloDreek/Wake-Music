@@ -100,6 +100,12 @@ public struct MusicItemModel: SmartCodableX, Equatable, Hashable, Sendable {
         self.dropboxFile = dropboxFile
     }
     
+    public init(pcloudFile: PCloudDriveFileModel) {
+        self.fileSourceType = .fromePCloud
+        self.mediaPlayURL = pcloudFile.mediaPlayURL()
+        self.pcloudFile = pcloudFile
+    }
+
     /// OneDrive的构造方法
     public init(onedriveFile: OneDriveFileModel) {
         self.fileSourceType = .fromOneDrive
@@ -137,6 +143,8 @@ public struct MusicItemModel: SmartCodableX, Equatable, Hashable, Sendable {
     /// OneDrive的文件
     public var onedriveFile: OneDriveFileModel?
     
+    public var pcloudFile: PCloudDriveFileModel?
+
     /// 媒体播放路径
     public var mediaPlayURL = SandboxFileManager.shared.basePublicFileURL()
     
@@ -195,6 +203,7 @@ public struct MusicItemModel: SmartCodableX, Equatable, Hashable, Sendable {
     
     /// 定义一个主键
     public func uniqueID() -> String {
+        if let file = pcloudFile { return file.identity }
         
         if let filePath = self.webFileModel?.filePath { return "webdav-\(filePath)" }
         if let id = self.navidromeSong?.id { return "navidrome-\(id)" }
@@ -237,5 +246,4 @@ public struct MusicItemModel: SmartCodableX, Equatable, Hashable, Sendable {
     }
     
 }
-
 

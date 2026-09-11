@@ -22,7 +22,6 @@ import GoogleSignIn
 import SwiftyDropbox
 import AliyunpanSDK
 //import YandexLoginSDK
-//import PCloudSDKSwift
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -99,7 +98,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         DropboxClientsManager.setupWithAppKey(DropBox_ApiKey)
         
-//        PCloud.setUp(withAppKey: pCloud_AppID)
+        // pCloud uses per-account clients in PCloudDriveService; no shared SDK client is required.
         
 //        do {
 //            try YandexLoginSDK.shared.activate(with: Yandex_ClientID, authorizationStrategy: .default)

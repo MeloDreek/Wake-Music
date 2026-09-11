@@ -213,9 +213,9 @@ extension ImportFileType {
         let language = PhoneSetManager.formatLanguage()
         
 #if canImport(MSAL)
-        let commonArray: [ImportFileType] = [.fromGoogleDrive, .fromDropboxDrive, .fromOneDrive]
+        let commonArray: [ImportFileType] = [.fromePCloud, .fromGoogleDrive, .fromDropboxDrive, .fromOneDrive]
 #else
-        let commonArray: [ImportFileType] = [.fromGoogleDrive, .fromDropboxDrive]
+        let commonArray: [ImportFileType] = [.fromGoogleDrive, .fromDropboxDrive, .fromePCloud]
 #endif
         let chineseArray: [ImportFileType] = [.fromBaiduDrive, .fromAliyunDrive, .from115Drive]
         let russaArray: [ImportFileType] = []

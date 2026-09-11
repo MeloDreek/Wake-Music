@@ -85,6 +85,10 @@ extension ImportViewController {
             self.importFromDropBoxDrive()
         }
         
+        if itemType == .fromePCloud {
+            self.connectPCloudDrive()
+        }
+
         if itemType == .fromOneDrive {
             self.importFromOneDrive()
         }

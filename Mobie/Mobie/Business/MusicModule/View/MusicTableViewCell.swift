@@ -197,6 +197,10 @@ class MusicTableViewCell: UITableViewCell {
             let isSupport = AudioExtension.audioSuffixs.contains(dropboxFile.fileExtension())
             isSupportType = !dropboxFile.isDirectory() && isSupport
         }
+        if let pcloudFile = musicModel.pcloudFile {
+            let isSupport = AudioExtension.audioSuffixs.contains(pcloudFile.fileExtension())
+            isSupportType = !pcloudFile.isDirectory() && isSupport
+        }
         
         if let onedriveFile = musicModel.onedriveFile {
             let isSupport = AudioExtension.audioSuffixs.contains(onedriveFile.fileExtension())
@@ -282,6 +286,10 @@ class MusicTableViewCell: UITableViewCell {
             coverImgView.kf.setImage(with: musicModel.coverThumbnailURL(), placeholder: musicModel.placeImage())
             nameLabel.text = musicModel.showTitleName() + musicModel.addPathExtension()
             self.descLabel.text = self.secondDropboxStr(dropboxFile)
+        }else if let file = musicModel.pcloudFile {
+            coverImgView.kf.setImage(with: musicModel.coverThumbnailURL(), placeholder: musicModel.placeImage())
+            nameLabel.text = file.name
+            self.descLabel.text = file.isDirectory() ? "pCloud" : musicModel.durationTimeStr()
         }else if let onedriveFile = musicModel.onedriveFile {
             // 7️⃣OneDrive网盘
             coverImgView.kf.setImage(with: musicModel.coverThumbnailURL(), placeholder: musicModel.placeImage())

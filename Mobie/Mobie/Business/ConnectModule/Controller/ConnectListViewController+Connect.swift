@@ -13,7 +13,6 @@ import Alamofire
 import SwiftyDropbox
 import ProgressHUD
 import AliyunpanSDK
-//import PCloudSDKSwift
 #if canImport(MSAL)
 import MSAL
 #endif
@@ -168,21 +167,9 @@ extension ConnectListViewController {
     
     // pCloud
     func importFrompCloudDrive() {
-//        PCloud.authorize(with: self) { result in
-//            switch result {
-//            case .success(let user):
-//                print("授权成功，用户 ID: \(user.id)")
-//                break
-//            case .failure(let error):
-//                self.showOneAlert(message: error.rawValue)
-//                break
-//            case .cancel:
-//                self.view.makeToast(KakaError.youhaveCanceled.errorDescription)
-//                break
-//            }
-//        }
+        self.connectPCloudDrive()
     }
-    
+
     ///  OneDrive
     func importFromOneDrive() {
 #if canImport(MSAL)

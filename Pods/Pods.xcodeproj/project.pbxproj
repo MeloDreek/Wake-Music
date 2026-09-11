@@ -100,6 +100,7 @@
 		0F1CCF0B90DF2D891E1D657D49EC1FD4 /* JXSegmentedTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4945C32084DFF65CAB30FEB0E4F92B6F /* JXSegmentedTitleCell.swift */; };
 		0F29FF7E62C7169B00FF56F3D8C33EB4 /* LayoutConstraintItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16B3D0D0F50FEE376305EBFECDE12A0C /* LayoutConstraintItem.swift */; };
 		0F40C76FADA60E08F4EAB90AF39382FB /* DropboxDriveFileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5066991EBAE88B5627C873D8C2527B12 /* DropboxDriveFileModel.swift */; };
+		C10D00000000000000000100 /* PCloudDriveModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10D00000000000000000101 /* PCloudDriveModel.swift */; };
 		0F68140DCE1FAC65D7B7F987334D3F21 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63C44AC2F4B50893AC23AA28A0264AA3 /* Foundation.framework */; };
 		0FBAE9BE17584AE46E73E1098525DE17 /* sv.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 3DAA307DD7088ADB6B432B93A919C5ED /* sv.lproj */; };
 		0FF46D2B7012E0C00BB1C6E41BA261B5 /* TagLibHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = 83ABA4F10737297EC054623B1CE093DF /* TagLibHeader.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -2714,6 +2715,7 @@
 		5045E1D037E3305081FE8A8F19464325 /* DropboxAppBaseRequestBox.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DropboxAppBaseRequestBox.swift; path = Source/SwiftyDropbox/Shared/Generated/DropboxAppBaseRequestBox.swift; sourceTree = "<group>"; };
 		5061F924D7F767A4C44E756F0AE1B366 /* JSONDecoderImpl+SingleValueContainer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "JSONDecoderImpl+SingleValueContainer.swift"; path = "Sources/SmartCodable/Core/JSONDecoder/Decoder/Impl/JSONDecoderImpl+SingleValueContainer.swift"; sourceTree = "<group>"; };
 		5066991EBAE88B5627C873D8C2527B12 /* DropboxDriveFileModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DropboxDriveFileModel.swift; sourceTree = "<group>"; };
+		C10D00000000000000000101 /* PCloudDriveModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PCloudDriveModel.swift; sourceTree = "<group>"; };
 		508A709C8C322756A0E0098BBC3F27ED /* UIImage+GIF.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+GIF.h"; path = "SDWebImage/Core/UIImage+GIF.h"; sourceTree = "<group>"; };
 		50B78ECAA9EC4573BEB36D9DFA1E9F6C /* OIDScopes.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = OIDScopes.h; path = Sources/AppAuthCore/OIDScopes.h; sourceTree = "<group>"; };
 		50C7BC0FDFF90732D81A630C5FC71E4B /* ResourceBundle-SnapKit_Privacy-SnapKit-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-SnapKit_Privacy-SnapKit-Info.plist"; sourceTree = "<group>"; };
@@ -4965,6 +4967,7 @@
 				8CF8003046DDA3668B8C79550A095DFD /* Drive115FileModel.swift */,
 				AADF831B4DAC9A049E99ABB270489C73 /* Drive115UserModel.swift */,
 				5066991EBAE88B5627C873D8C2527B12 /* DropboxDriveFileModel.swift */,
+				C10D00000000000000000101 /* PCloudDriveModel.swift */,
 				07047DFBAA16AB6E9D95AEBE5D02D061 /* DropboxDriveUserModel.swift */,
 				EAB817703B19BE748744BD182FD4757E /* GoogleDriveFileModel.swift */,
 				881D59489C3D92D39A67F65690924188 /* GoogleDriveUserModel.swift */,
@@ -10476,6 +10479,7 @@
 				7744BF0EDB5A871FE62046D4BCF34E3B /* Drive115FileModel.swift in Sources */,
 				2928C524030C4757C210467944E70050 /* Drive115UserModel.swift in Sources */,
 				0F40C76FADA60E08F4EAB90AF39382FB /* DropboxDriveFileModel.swift in Sources */,
+				C10D00000000000000000100 /* PCloudDriveModel.swift in Sources */,
 				5967F5DA1A14437313445E2D3BF1B638 /* DropboxDriveUserModel.swift in Sources */,
 				5F3126ADE60A55BDB2F7C531D8AFAEB3 /* GoogleDriveFileModel.swift in Sources */,
 				A8C7FBD90FC9617CD0214B8D26C427C4 /* GoogleDriveUserModel.swift in Sources */,

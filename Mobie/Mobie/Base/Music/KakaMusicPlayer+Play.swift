@@ -41,8 +41,13 @@ extension KakaMusicPlayer {
     
     // 播放
     @MainActor func play() {
+        self.pcloudPlaybackRequestID = UUID()
         
         guard var model = self.playingMusic else { return }
+
+        // Re-resolve pCloud links after a pause; the previously issued URL may have expired.
+        let isResumingPCloud = model.pcloudFile != nil && self.playerView.playerLayer?.player.playbackState == .paused && self.playerView.playerLayer?.url == model.mediaPlayURL
+        let pcloudResumeTime = isResumingPCloud ? self.currentTime : MusicConfigManager.shared.lastPlayTime
         
         let isPremiumType = AudioExtensionType.premiumExtensions().contains(model.mediaPlayURL.pathExtension.lowercased())
         if !UserInfoManager.shared.isVIP() && isPremiumType && (model.fileSourceType != .demoFile) {
@@ -54,7 +59,7 @@ extension KakaMusicPlayer {
             return
         }
         
-        if let playerLayer = self.playerView.playerLayer, playerLayer.player.playbackState == .paused, self.playingMusic?.mediaPlayURL == playerLayer.url {
+        if let playerLayer = self.playerView.playerLayer, model.pcloudFile == nil, playerLayer.player.playbackState == .paused, self.playingMusic?.mediaPlayURL == playerLayer.url {
             // 继续播放
             debugPrint("继续播放")
         }else{
@@ -79,7 +84,10 @@ extension KakaMusicPlayer {
                 
                 self.playerView.set(url: cacheURL, options: self.audioOption(model))
             }else{
-                if let _ = model.baiduFileModel {
+                if model.pcloudFile != nil {
+                    self.handlePCloudStreaming(model, resumeTime: pcloudResumeTime)
+                    return
+                }else if let _ = model.baiduFileModel {
                     // 1️⃣获取百度的播放地址
                     self.handleBaiduStreaming(model)
                     return
@@ -144,13 +152,17 @@ extension KakaMusicPlayer {
 
     // 暂停
     @MainActor func pause() {
+        self.pcloudPlaybackRequestID = UUID()
         self.playerView.pause()
+        if self.playingMusic?.pcloudFile != nil { self.playbackStatus = .paused }
     }
     
     // 停止
     @MainActor func stop() {
+        self.pcloudPlaybackRequestID = UUID()
         self.cacheCoverImage = nil
         self.playerView.playerLayer?.stop()
+        if self.playingMusic?.pcloudFile != nil { self.playbackStatus = .paused }
 
         self.currentTime = 0
         self.totalTime = 0

@@ -80,4 +80,4 @@ public let Aliyun_Scopes = "user:base,file:all:read"
 
 // pCloud
 public let pCloud_AppID = "A7jNL6xFoK4"
-public let pCloud_RedirectURL = "pclsdk-w-A7jNL6xFoK4"
+public let pCloud_RedirectURL = "pclsdk-w-a7jnl6xfok4"

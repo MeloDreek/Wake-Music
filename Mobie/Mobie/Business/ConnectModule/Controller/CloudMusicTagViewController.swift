@@ -126,6 +126,18 @@ class CloudMusicTagViewController: SuperViewController {
             self.ffmpegGetMetadata(downloadUrl)
         }
         
+        if let file = musicModel.pcloudFile {
+            PCloudDriveService.shared.fileURL(file) { [weak self] result in
+                guard let self = self else { return }
+                switch result {
+                case .success(let url): self.ffmpegGetMetadata(url)
+                case .failure(let error):
+                    self.view.makeToast(error.errorDescription)
+                    self.stopLoadingAction()
+                }
+            }
+        }
+
         // 6️⃣ Dropbox
         if let dropboxFile = musicModel.dropboxFile {
             KakaMusicPlayer.shared.fetchDropboxDownloadPlayURL(dropboxFile: dropboxFile) { result in
@@ -424,4 +436,3 @@ extension CloudMusicTagViewController: UITableViewDataSource, UITableViewDelegat
         return UITableView.automaticDimension
     }
 }
-
