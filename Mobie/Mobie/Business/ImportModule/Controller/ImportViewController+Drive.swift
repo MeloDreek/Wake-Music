@@ -87,6 +87,9 @@ extension ImportViewController {
         
         if itemType == .fromSMB { self.connectSMB() }
 
+        if itemType == .fromMEGADrive {
+            self.connectMEGADrive()
+        }
         if itemType == .fromBoxDrive {
             self.connectBoxDrive()
         }

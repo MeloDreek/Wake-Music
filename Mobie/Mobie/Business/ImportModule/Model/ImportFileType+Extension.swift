@@ -57,6 +57,7 @@ extension ImportFileType {
         case .fromOneDrive: return ["ConnectionTag.Free5GBShared".localStr()] + speedTags
         case .fromePCloud: return ["ConnectionTag.Unlock10GB".localStr()] + speedTags
         case .fromBoxDrive: return ["ConnectionTag.Free10GB".localStr()] + speedTags
+        case .fromMEGADrive: return ["MEGA.Free20GB".localStr(), "MEGA.TransferQuota".localStr()]
         case .fromBaiduDrive:
             return ["ConnectionTag.FreeUpTo2TB".localStr()] + (showSpeed ? ["ConnectionTag.PartialStreaming".localStr()] : [])
         case .fromAliyunDrive:
@@ -113,6 +114,8 @@ extension ImportFileType {
             return Reasource.named("Drive_onedrive")
         case .fromBoxDrive:
             return Reasource.named("Drive_box")
+        case .fromMEGADrive:
+            return UIImage(systemName: "m.circle.fill")?.withTintColor(.systemRed, renderingMode: .alwaysOriginal)
         case .fromDropboxDrive:
             return Reasource.named("Drive_dropbox")
         case .fromYandexDrive:
@@ -186,6 +189,8 @@ extension ImportFileType {
             return "OneDrive"
         case .fromBoxDrive:
             return "Box"
+        case .fromMEGADrive:
+            return "MEGA"
         case .fromDropboxDrive:
             return "Dropbox"
         case .fromYandexDrive:
@@ -239,9 +244,9 @@ extension ImportFileType {
         let language = PhoneSetManager.formatLanguage()
         
 #if canImport(MSAL)
-        let commonArray: [ImportFileType] = [.fromGoogleDrive, .fromDropboxDrive, .fromOneDrive, .fromePCloud, .fromBoxDrive]
+        let commonArray: [ImportFileType] = [.fromGoogleDrive, .fromDropboxDrive, .fromOneDrive, .fromePCloud, .fromBoxDrive, .fromMEGADrive]
 #else
-        let commonArray: [ImportFileType] = [.fromGoogleDrive, .fromDropboxDrive, .fromePCloud, .fromBoxDrive]
+        let commonArray: [ImportFileType] = [.fromGoogleDrive, .fromDropboxDrive, .fromePCloud, .fromBoxDrive, .fromMEGADrive]
 #endif
         let chineseArray: [ImportFileType] = [.fromBaiduDrive, .fromAliyunDrive, .from115Drive]
         let russaArray: [ImportFileType] = []

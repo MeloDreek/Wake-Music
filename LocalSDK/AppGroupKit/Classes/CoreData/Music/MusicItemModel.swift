@@ -110,6 +110,11 @@ public struct MusicItemModel: SmartCodableX, Equatable, Hashable, Sendable {
         self.mediaPlayURL = boxFile.mediaPlayURL()
         self.boxFile = boxFile
     }
+    public init(megaFile: MEGADriveFileModel) {
+        self.fileSourceType = .fromMEGADrive
+        self.mediaPlayURL = megaFile.mediaPlayURL()
+        self.megaFile = megaFile
+    }
     public init(pcloudFile: PCloudDriveFileModel) {
         self.fileSourceType = .fromePCloud
         self.mediaPlayURL = pcloudFile.mediaPlayURL()
@@ -155,6 +160,7 @@ public struct MusicItemModel: SmartCodableX, Equatable, Hashable, Sendable {
     
     public var smbFile: SMBDriveFileModel?
     public var boxFile: BoxDriveFileModel?
+    public var megaFile: MEGADriveFileModel?
     public var pcloudFile: PCloudDriveFileModel?
 
     /// 媒体播放路径
@@ -216,6 +222,7 @@ public struct MusicItemModel: SmartCodableX, Equatable, Hashable, Sendable {
     /// 定义一个主键
     public func uniqueID() -> String {
         if let file = smbFile { return file.identity }
+        if let file = megaFile { return file.identity }
         if let file = boxFile { return file.identity }
         if let file = pcloudFile { return file.identity }
         

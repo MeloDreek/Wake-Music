@@ -1,6 +1,673 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+  "MEGA.Free20GB": {
+    "extractionState": "manual",
+    "localizations": {
+      "en": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "20 GB free"
+        }
+      },
+      "zh-Hans": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "免费 20 GB"
+        }
+      },
+      "zh-Hant": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "免費 20 GB"
+        }
+      },
+      "zh-HK": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "免費 20 GB"
+        }
+      }
+    }
+  },
+  "MEGA.TransferQuota": {
+    "extractionState": "manual",
+    "localizations": {
+      "en": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "Transfer quota applies"
+        }
+      },
+      "zh-Hans": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "有传输流量额度"
+        }
+      },
+      "zh-Hant": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "設有傳輸流量額度"
+        }
+      },
+      "zh-HK": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "設有傳輸流量額度"
+        }
+      }
+    }
+  },
+  "MEGA.Email": {
+    "extractionState": "manual",
+    "localizations": {
+      "en": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "Email"
+        }
+      },
+      "zh-Hans": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "邮箱"
+        }
+      },
+      "zh-Hant": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "電郵"
+        }
+      },
+      "zh-HK": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "電郵"
+        }
+      }
+    }
+  },
+  "MEGA.CodeOptional": {
+    "extractionState": "manual",
+    "localizations": {
+      "en": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "2FA code (if enabled)"
+        }
+      },
+      "zh-Hans": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "二步验证码（如已开启）"
+        }
+      },
+      "zh-Hant": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "兩步驗證碼（如已啟用）"
+        }
+      },
+      "zh-HK": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "兩步驗證碼（如已啟用）"
+        }
+      }
+    }
+  },
+  "MEGA.ShowPassword": {
+    "extractionState": "manual",
+    "localizations": {
+      "en": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "Show password"
+        }
+      },
+      "zh-Hans": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "显示密码"
+        }
+      },
+      "zh-Hant": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "顯示密碼"
+        }
+      },
+      "zh-HK": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "顯示密碼"
+        }
+      }
+    }
+  },
+  "MEGA.HidePassword": {
+    "extractionState": "manual",
+    "localizations": {
+      "en": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "Hide password"
+        }
+      },
+      "zh-Hans": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "隐藏密码"
+        }
+      },
+      "zh-Hant": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "隱藏密碼"
+        }
+      },
+      "zh-HK": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "隱藏密碼"
+        }
+      }
+    }
+  },
+  "MEGA.LoginHint": {
+    "extractionState": "manual",
+    "localizations": {
+      "en": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "Sign in to your MEGA account to browse and play your own files. Enter a 2FA code if enabled. Wake Music does not store your password or upload or delete your cloud files. Initial library loading may take a while. MEGA transfer quotas still apply."
+        }
+      },
+      "zh-Hans": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "登录 MEGA 账号以浏览和播放自己的文件。开启二步验证时请填写验证码。维克音乐不会保存密码，也不会上传或删除网盘文件。首次加载文件库可能需要一些时间，传输仍受 MEGA 流量额度限制。"
+        }
+      },
+      "zh-Hant": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "登入 MEGA 帳戶以瀏覽和播放自己的檔案。啟用兩步驗證時請填寫驗證碼。維克音樂不會儲存密碼，也不會上傳或刪除雲端檔案。首次載入檔案庫可能需要一些時間，傳輸仍受 MEGA 流量額度限制。"
+        }
+      },
+      "zh-HK": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "登入 MEGA 帳戶以瀏覽和播放自己的檔案。啟用兩步驗證時請填寫驗證碼。維克音樂不會儲存密碼，也不會上傳或刪除雲端檔案。首次載入檔案庫可能需要一些時間，傳輸仍受 MEGA 流量額度限制。"
+        }
+      }
+    }
+  },
+  "MEGA.EnterCredentials": {
+    "extractionState": "manual",
+    "localizations": {
+      "en": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "Enter your MEGA email and password."
+        }
+      },
+      "zh-Hans": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "请输入 MEGA 邮箱和密码。"
+        }
+      },
+      "zh-Hant": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "請輸入 MEGA 電郵及密碼。"
+        }
+      },
+      "zh-HK": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "請輸入 MEGA 電郵及密碼。"
+        }
+      }
+    }
+  },
+  "MEGA.Unavailable": {
+    "extractionState": "manual",
+    "localizations": {
+      "en": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "MEGA could not be initialized. Please try again."
+        }
+      },
+      "zh-Hans": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "MEGA 初始化失败，请重试。"
+        }
+      },
+      "zh-Hant": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "MEGA 初始化失敗，請重試。"
+        }
+      },
+      "zh-HK": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "MEGA 初始化失敗，請重試。"
+        }
+      }
+    }
+  },
+  "MEGA.InvalidResponse": {
+    "extractionState": "manual",
+    "localizations": {
+      "en": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "MEGA returned an invalid response. Please sign in again."
+        }
+      },
+      "zh-Hans": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "MEGA 返回的数据无效，请重新登录。"
+        }
+      },
+      "zh-Hant": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "MEGA 傳回的資料無效，請重新登入。"
+        }
+      },
+      "zh-HK": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "MEGA 傳回的資料無效，請重新登入。"
+        }
+      }
+    }
+  },
+  "MEGA.SameAccount": {
+    "extractionState": "manual",
+    "localizations": {
+      "en": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "Please sign in to the same MEGA account."
+        }
+      },
+      "zh-Hans": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "请登录同一个 MEGA 账号。"
+        }
+      },
+      "zh-Hant": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "請登入同一個 MEGA 帳戶。"
+        }
+      },
+      "zh-HK": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "請登入同一個 MEGA 帳戶。"
+        }
+      }
+    }
+  },
+  "MEGA.KeychainError": {
+    "extractionState": "manual",
+    "localizations": {
+      "en": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "Your MEGA session could not be saved securely. Please try again."
+        }
+      },
+      "zh-Hans": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "无法安全保存 MEGA 登录会话，请重试。"
+        }
+      },
+      "zh-Hant": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "無法安全儲存 MEGA 登入階段，請重試。"
+        }
+      },
+      "zh-HK": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "無法安全儲存 MEGA 登入階段，請重試。"
+        }
+      }
+    }
+  },
+  "MEGA.NotFound": {
+    "extractionState": "manual",
+    "localizations": {
+      "en": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "This MEGA file or folder is no longer available."
+        }
+      },
+      "zh-Hans": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "此 MEGA 文件或文件夹已不可用。"
+        }
+      },
+      "zh-Hant": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "此 MEGA 檔案或資料夾已無法使用。"
+        }
+      },
+      "zh-HK": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "此 MEGA 檔案或資料夾已無法使用。"
+        }
+      }
+    }
+  },
+  "MEGA.StreamError": {
+    "extractionState": "manual",
+    "localizations": {
+      "en": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "The local MEGA playback service could not start. Please try again."
+        }
+      },
+      "zh-Hans": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "MEGA 本地播放服务启动失败，请重试。"
+        }
+      },
+      "zh-Hant": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "MEGA 本機播放服務啟動失敗，請重試。"
+        }
+      },
+      "zh-HK": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "MEGA 本機播放服務啟動失敗，請重試。"
+        }
+      }
+    }
+  },
+  "MEGA.Timeout": {
+    "extractionState": "manual",
+    "localizations": {
+      "en": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "MEGA took too long to respond. Check your connection and try again."
+        }
+      },
+      "zh-Hans": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "MEGA 响应超时，请检查网络后重试。"
+        }
+      },
+      "zh-Hant": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "MEGA 回應逾時，請檢查網絡後重試。"
+        }
+      },
+      "zh-HK": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "MEGA 回應逾時，請檢查網絡後重試。"
+        }
+      }
+    }
+  },
+  "MEGA.MFARequired": {
+    "extractionState": "manual",
+    "localizations": {
+      "en": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "Two-factor authentication is enabled. Enter the current code from your authenticator and connect again."
+        }
+      },
+      "zh-Hans": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "此账号已开启二步验证，请填写验证器中的当前验证码后重新连接。"
+        }
+      },
+      "zh-Hant": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "此帳戶已啟用兩步驗證，請填寫驗證器中的目前驗證碼後重新連接。"
+        }
+      },
+      "zh-HK": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "此帳戶已啟用兩步驗證，請填寫驗證器中的目前驗證碼後重新連接。"
+        }
+      }
+    }
+  },
+  "MEGA.CredentialsOrAccess": {
+    "extractionState": "manual",
+    "localizations": {
+      "en": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "Check your MEGA email, password and 2FA code, or your access to this file."
+        }
+      },
+      "zh-Hans": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "请检查 MEGA 邮箱、密码、二步验证码或文件访问权限。"
+        }
+      },
+      "zh-Hant": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "請檢查 MEGA 電郵、密碼、兩步驗證碼或檔案存取權限。"
+        }
+      },
+      "zh-HK": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "請檢查 MEGA 電郵、密碼、兩步驗證碼或檔案存取權限。"
+        }
+      }
+    }
+  },
+  "MEGA.QuotaExceeded": {
+    "extractionState": "manual",
+    "localizations": {
+      "en": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "Your MEGA transfer quota has been reached. Wait for it to reset or check your plan in MEGA."
+        }
+      },
+      "zh-Hans": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "MEGA 传输流量额度已用尽，请等待额度恢复，或前往 MEGA 查看账号套餐。"
+        }
+      },
+      "zh-Hant": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "MEGA 傳輸流量額度已用盡，請等待額度恢復，或前往 MEGA 查看帳戶方案。"
+        }
+      },
+      "zh-HK": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "MEGA 傳輸流量額度已用盡，請等待額度恢復，或前往 MEGA 查看帳戶方案。"
+        }
+      }
+    }
+  },
+  "MEGA.AccountRestricted": {
+    "extractionState": "manual",
+    "localizations": {
+      "en": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "MEGA has restricted this account. Please check your account on the MEGA website."
+        }
+      },
+      "zh-Hans": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "MEGA 限制了此账号，请前往 MEGA 官网检查账号状态。"
+        }
+      },
+      "zh-Hant": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "MEGA 限制了此帳戶，請前往 MEGA 官網檢查帳戶狀態。"
+        }
+      },
+      "zh-HK": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "MEGA 限制了此帳戶，請前往 MEGA 官網檢查帳戶狀態。"
+        }
+      }
+    }
+  },
+  "MEGA.RateLimited": {
+    "extractionState": "manual",
+    "localizations": {
+      "en": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "Too many MEGA requests. Please try again later."
+        }
+      },
+      "zh-Hans": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "MEGA 请求过于频繁，请稍后重试。"
+        }
+      },
+      "zh-Hant": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "MEGA 請求過於頻繁，請稍後重試。"
+        }
+      },
+      "zh-HK": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "MEGA 請求過於頻繁，請稍後重試。"
+        }
+      }
+    }
+  },
+  "MEGA.DecryptionError": {
+    "extractionState": "manual",
+    "localizations": {
+      "en": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "MEGA could not decrypt this file. Please sign in again and retry."
+        }
+      },
+      "zh-Hans": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "MEGA 无法解密此文件，请重新登录后重试。"
+        }
+      },
+      "zh-Hant": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "MEGA 無法解密此檔案，請重新登入後重試。"
+        }
+      },
+      "zh-HK": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "MEGA 無法解密此檔案，請重新登入後重試。"
+        }
+      }
+    }
+  },
+  "MEGA.RequestFailed": {
+    "extractionState": "manual",
+    "localizations": {
+      "en": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "MEGA request failed. Check your connection and try again."
+        }
+      },
+      "zh-Hans": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "MEGA 请求失败，请检查网络后重试。"
+        }
+      },
+      "zh-Hant": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "MEGA 請求失敗，請檢查網絡後重試。"
+        }
+      },
+      "zh-HK": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "MEGA 請求失敗，請檢查網絡後重試。"
+        }
+      }
+    }
+  },
+  "This folder is empty. Add music to this folder in MEGA, then tap Refresh.": {
+    "extractionState": "manual",
+    "localizations": {
+      "en": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "This folder is empty. Add music to this folder in MEGA, then tap Refresh."
+        }
+      },
+      "zh-Hans": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "此文件夹为空。请在 MEGA 中向此文件夹添加音乐，然后点击刷新。"
+        }
+      },
+      "zh-Hant": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "此資料夾是空的。請在 MEGA 中向此資料夾加入音樂，然後點一下重新整理。"
+        }
+      },
+      "zh-HK": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "此資料夾是空的。請在 MEGA 中向此資料夾加入音樂，然後點一下重新整理。"
+        }
+      }
+    }
+  },
   "ConnectionTag.FreeUpTo2TB": {
     "extractionState": "manual",
     "comment": "Free storage quota badge. Actual allocation and eligibility depend on the provider/account.",

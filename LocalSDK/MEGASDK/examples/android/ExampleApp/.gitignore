@@ -1,0 +1,26 @@
+/local.properties
+
+/build/
+/app/build/
+/app/src/main/obj/
+/app/src/main/jniLibs/
+/app/src/main/libs/
+/app/src/main/java/nz/mega/sdk/
+/app/src/main/jni/build-dir
+
+### Android Studio files ###
+*.iml
+.idea/
+
+# User-specific stuff:
+# (covered by .idea/ above)
+
+# Sensitive or high-churn files:
+# (covered by .idea/ above)
+
+# Gradle:
+.gradle
+
+## File-based project format:
+*.ipr
+*.iws

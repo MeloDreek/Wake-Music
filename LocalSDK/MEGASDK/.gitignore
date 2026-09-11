@@ -1,0 +1,20 @@
+# Editor and IDE stuff
+/.artifacts/
+/.downloads/
+.idea
+.zed
+*.user
+*~
+.vs
+*.vscode
+*.autosave
+
+# clangd index
+.cache
+.clangd
+
+# Building stuff
+build-*Debug
+build-*Release
+*.toml
+/CMakeUserPresets.json

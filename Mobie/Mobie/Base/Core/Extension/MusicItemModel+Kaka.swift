@@ -103,6 +103,21 @@ extension MusicItemModel {
         }else if let file = self.smbFile {
             if file.isDirectory() { return KakaImage(named: "folder_icon")! }
             return KakaImage(named: "\(file.fileExtension())_icon") ?? KakaImage(named: "music_place")!
+        }else if self.fileSourceType == .fromMEGADrive {
+            if let megaFile = self.megaFile {
+                let fileExtension = megaFile.fileExtension()
+                if megaFile.isDirectory() {
+                    return KakaImage(named: "folder_icon")!
+                }else if megaFile.isMusic() {
+                    return KakaImage(named: "\(fileExtension)_icon") ?? KakaImage(named: "music_place")!
+                }else if megaFile.isVideo() {
+                    return UIImage(named: "video_place")!
+                }else{
+                    return KakaImage(named: "file_place")!
+                }
+            }else{
+                return KakaImage(named: "file_place")!
+            }
         }else if self.fileSourceType == .fromBoxDrive {
             if let boxFile = self.boxFile {
                 let fileExtension = boxFile.fileExtension()

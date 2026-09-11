@@ -1,0 +1,373 @@
+import groovy.json.JsonSlurperClassic
+
+// Uploads a file to a Gitlab project
+// Requires env.GITLAB_BASE_URL
+String uploadFileToGitLab(String fileName, String projectId) {
+    String link = ""
+    String response = ""
+    withCredentials([string(credentialsId: 'gitlab-api-token', variable: 'TOKEN')]) {
+        response = sh(script: "curl -s --request POST --header 'PRIVATE-TOKEN:\$TOKEN' --form file=@${fileName} ${env.GITLAB_BASE_URL}/api/v4/projects/${projectId}/uploads", returnStdout: true).trim()
+    }
+    link = new JsonSlurperClassic().parseText(response).markdown
+    echo "Logs uploaded to: ${link}"
+    return link
+}
+
+// Downloads the console log from this Jenkins build
+void downloadJenkinsConsoleLog(String fileName) {
+    withCredentials([usernameColonPassword(credentialsId: 'jenkins-ro', variable: 'CREDENTIALS')]) {
+        sh "curl -u \"\${CREDENTIALS}\" ${BUILD_URL}consoleText -o ${fileName}"
+    }
+}
+
+// Downloads the logs of the build, uploads them to the gitlab project
+// And return the URL
+String getLogsUrl(String projectId) {
+    String message = ""
+    String fileName = "build.log"
+    String logUrl = ""
+    downloadJenkinsConsoleLog(fileName)
+    return uploadFileToGitLab(fileName, projectId)
+}
+
+// Post a failure message in MR
+void commentFailedBuild() {
+    logUrl = getLogsUrl(env.PROJECT_ID)
+    addGitLabMRComment(comment: ":red_circle: ${currentBuild.projectName} :penguin: <b>Android</b> FAILURE  :worried:<br/>Build results: [Jenkins [${currentBuild.displayName}]](${currentBuild.absoluteUrl})<br/>Commit: ${env.GIT_COMMIT}<br/>Logs: ${logUrl}" )
+    updateGitlabCommitStatus(name: 'Build Android', state: 'failed')
+}
+
+pipeline {
+    agent none
+    options {
+        buildDiscarder(logRotator(numToKeepStr: '135', daysToKeepStr: '21'))
+        gitLabConnection('GitLabConnectionJenkins')
+    }
+
+    environment {
+        BUILD_OPTIONS = ' '
+        VCPKGPATH = "/opt/vcpkg"
+        VCPKG_BINARY_SOURCES  = 'clear;x-aws,s3://vcpkg-cache/archives/,readwrite'
+        AWS_ACCESS_KEY_ID     = credentials('s4_access_key_id_vcpkg_cache')
+        AWS_SECRET_ACCESS_KEY = credentials('s4_secret_access_key_vcpkg_cache')
+        AWS_ENDPOINT_URL      = "https://s3.g.s4.mega.io"
+    }
+    stages {
+        stage('Update Gitlab commitStatus') {
+        agent any
+            steps {
+                updateGitlabCommitStatus(name: 'Build Android', state: 'running')
+                script{
+                    COMMIT_ID = env.GIT_COMMIT
+                    println GIT_COMMIT
+                }
+            }
+        }
+        stage('Build') {
+            agent { label 'linux && amd64 && android' }
+            stages {
+                stage('clean previous runs'){
+                    steps{
+                        deleteDir()
+                    }
+                }
+                stage('Get build parameters'){
+                    parallel{
+                        stage('Get build options and run parameters'){
+                            steps {
+                                script{
+                                    env.ARCH_TO_BUILD = sh(script: 'echo "$gitlabTriggerPhrase" | grep ARCH_TO_BUILD | awk -F "ARCH_TO_BUILD="  \'{print \$2}\' | cut -d\\" -f2', returnStdout: true).trim()
+                                    if (env.ARCH_TO_BUILD == ""){ 
+                                        env.ARCH_TO_BUILD = "arm64" 
+                                    }
+                                    // Map Jenkins arch -> Android ABI folder name
+                                    env.ANDROID_ABI = sh(script: """
+                                        case "${env.ARCH_TO_BUILD}" in
+                                        arm)   echo "armeabi-v7a" ;;
+                                        arm64) echo "arm64-v8a" ;;
+                                        x86)   echo "x86" ;;
+                                        x64)   echo "x86_64" ;;
+                                        *)     echo "" ;;
+                                        esac
+                                    """, returnStdout: true).trim()
+
+                                    if (!env.ANDROID_ABI) {
+                                        error "Unsupported ARCH_TO_BUILD='${env.ARCH_TO_BUILD}'"
+                                    }
+                                    BUILD_OPTIONS = sh(script: 'echo "$gitlabTriggerPhrase" | grep BUILD_OPTIONS | awk -F "BUILD_OPTIONS="  \'{print \$2}\' | cut -d"\\"" -f2 || :', returnStdout: true).trim()
+                                    println ARCH_TO_BUILD
+                                    println BUILD_OPTIONS
+                                }
+                            }
+                        }
+                        stage('Get MEGAchat branch'){
+                            steps {
+                                script{
+                                    env.MEGACHAT_BRANCH = sh(script: 'echo "$gitlabMergeRequestDescription" | grep MEGACHAT_BRANCH_TO_TEST | awk -F "MEGACHAT_BRANCH_TO_TEST="  \'{print \$2}\' | cut -d" " -f1', returnStdout: true).trim()
+                                    if (MEGACHAT_BRANCH == ""){
+                                        echo "MEGACHAT_BRANCH was not found on description so develop will be used by default"
+                                        env.MEGACHAT_BRANCH = "develop"
+                                    }
+                                    println MEGACHAT_BRANCH
+                                }
+                            }
+                        }
+                        stage('Get Android branch'){
+                            steps {
+                                script{
+                                    env.ANDROID_BRANCH = sh(script: 'echo "$gitlabMergeRequestDescription" | grep ANDROID_BRANCH_TO_TEST | awk -F "ANDROID_BRANCH_TO_TEST="  \'{print \$2}\' | cut -d" " -f1', returnStdout: true).trim()
+                                    if (ANDROID_BRANCH == ""){
+                                        echo "ANDROID_BRANCH was not found on description so develop will be used by default"
+                                        env.ANDROID_BRANCH = "develop"
+                                    }
+                                    println ANDROID_BRANCH
+                                }
+                            }
+                        }
+                    }
+                }
+
+                stage('Build All'){
+                    parallel{
+                        stage('Example App'){
+                            options{
+                                timeout(time: 200, unit: 'MINUTES')
+                            }
+                            environment {
+                                SDK_OUTPUT_DIR = "${WORKSPACE}/output/android/${ARCH_TO_BUILD}"
+                                SDK_JNILIBS_DIR = "${WORKSPACE}/examples/android/ExampleApp/app/src/main/jniLibs/${ANDROID_ABI}"
+                                SDK_EXAMPLE_DIR = "${WORKSPACE}/examples/android/ExampleApp"
+                            }
+                            stages {
+                                stage('Checkout SDK'){
+                                    steps {
+                                        checkout([
+                                            $class: 'GitSCM',
+                                            branches: [[name: "${env.gitlabSourceBranch}"]],
+                                            userRemoteConfigs: [[ url: "${env.GIT_URL_SDK}", credentialsId: "12492eb8-0278-4402-98f0-4412abfb65c1" ]],
+                                            extensions: [
+                                                [$class: "UserIdentity",name: "jenkins", email: "jenkins@jenkins"],
+                                                [$class: 'PreBuildMerge', options: [fastForwardMode: 'FF', mergeRemote: "origin", mergeStrategy: 'DEFAULT', mergeTarget: "${env.gitlabTargetBranch}"]]
+                                                ]
+                                        ])
+                                    }
+                                }
+                                stage('Build Docker'){
+                                    steps{
+                                        dir("dockerfile"){
+                                            sh "docker build -t meganz/sdk-android-mr-build-env:${env.BUILD_NUMBER} -f ./android-cross-build.dockerfile ."
+                                        }
+                                        sh "echo ${ARCH_TO_BUILD}"
+                                        sh "mkdir -p ${env.SDK_OUTPUT_DIR}"
+                                        sh "mkdir -p ${env.SDK_JNILIBS_DIR}"
+                                        sh "mkdir -p ${env.SDK_EXAMPLE_DIR}/app/src/main/java/nz/mega/sdk"
+
+                                    }
+                                }
+                                stage("Build SDK for Example App"){
+                                    steps {
+                                        sh "echo Build SDK for arch $ARCH_TO_BUILD"
+                                        sh "docker run --name sdk-android-builder-$ARCH_TO_BUILD-${env.BUILD_NUMBER} \
+                                        --rm \
+                                        -v ${WORKSPACE}:/mega/sdk \
+                                        -v ${VCPKGPATH}:/mega/vcpkg \
+                                        -v ${env.SDK_OUTPUT_DIR}:/mega/buildAndroid \
+                                        -e ARCH=$ARCH_TO_BUILD \
+                                        -e VCPKG_BINARY_SOURCES \
+                                        -e AWS_ACCESS_KEY_ID \
+                                        -e AWS_SECRET_ACCESS_KEY \
+                                        -e AWS_ENDPOINT_URL \
+                                        meganz/sdk-android-mr-build-env:${env.BUILD_NUMBER}"
+
+                                        sh "cp -fv ${env.SDK_OUTPUT_DIR}/bindings/java/libmega.so ${env.SDK_JNILIBS_DIR}"                    
+                                        sh "cp -fv ${env.SDK_OUTPUT_DIR}/bindings/java/nz/mega/sdk/*.java ${env.SDK_EXAMPLE_DIR}/app/src/main/java/nz/mega/sdk"                    
+
+                                    }
+                                }
+                                stage('Build Example App'){
+                                    environment{
+                                        ANDROID_HOME = "/home/jenkins/android-cmdlinetools/"
+                                        ANDROID_NDK_HOME ="/home/jenkins/android-ndk/"
+                                        NDK_ROOT = "/home/jenkins/android-ndk/"
+                                        VCPKG_ROOT="/opt/vcpkg"
+                                    }
+                                    steps{
+                                        dir("${env.SDK_EXAMPLE_DIR}") {
+                                            script{
+                                                env.PATH="${env.PATH}:${env.ANDROID_HOME}/cmdline-tools/tools/bin/"
+                                            }
+                                            //Build Example App
+                                            sh "mkdir -p ../java/nz/mega/sdk"
+                                            sh "./gradlew --no-daemon --max-workers=2 build"
+                                            sh "rm examples-*.tar.gz || :"
+                                            sh "tar czf examples-${BUILD_ID}.tar.gz -C app/build/outputs apk"
+                                        }
+                                    }
+                                }
+                            }
+                            post{
+                                always{
+                                    sh "docker image rm meganz/sdk-android-mr-build-env:${env.BUILD_NUMBER}"
+                                    archiveArtifacts artifacts: 'examples/android/ExampleApp/examples-*.tar.gz', fingerprint: true
+                                }
+                            }
+                        }
+                        stage('Android app'){
+                            agent { label 'linux && amd64 && android' }
+                            options{
+                                timeout(time: 300, unit: 'MINUTES')
+                            }
+                            environment {
+                                SDK_OUTPUT_DIR = "${WORKSPACE}/output/android/${ARCH_TO_BUILD}"
+                                SDK_JNILIBS_DIR = "${WORKSPACE}/sdk/src/main/jniLibs/${ANDROID_ABI}"
+                                ANDROID_CHAT_DIR =  "${WORKSPACE}/sdk/src/main/jni/megachat/sdk"
+                                ANDROID_SDK_DIR = "${WORKSPACE}/sdk/src/main/jni/mega/sdk"
+                                ANDROID_HOME = "/home/jenkins/android-cmdlinetools/"
+                                ANDROID_NDK_HOME = "/home/jenkins/android-ndk/"
+                                NDK_ROOT = "/home/jenkins/android-ndk/"
+                                VCPKG_ROOT = "/opt/vcpkg"
+                                DEFAULT_GOOGLE_MAPS_API_PATH = "/home/jenkins/android-default_google_maps_api"
+                                USE_PREBUILT_SDK = false
+                                ARTIFACTORY_BASE_URL = "${env.REPOSITORY_URL}"
+                            }
+                            stages {
+                                stage('Checkout SDK, MEGAchat and Android'){
+                                    steps {
+                                        deleteDir()
+                                        //Clone Android
+                                        sh "echo Cloning android branch \"${ANDROID_BRANCH}\""
+                                        checkout([
+                                            $class: 'GitSCM',
+                                            branches: [[name: "${ANDROID_BRANCH}"]],
+                                            userRemoteConfigs: [[ url: "${env.GIT_URL_ANDROID}", credentialsId: "12492eb8-0278-4402-98f0-4412abfb65c1" ]],
+                                            extensions: [
+                                                [$class: "UserIdentity",name: "jenkins", email: "jenkins@jenkins"]
+                                                ]
+                                        ])
+                                        dir("${env.ANDROID_CHAT_DIR}"){
+                                            //Clone MEGAchat branch
+                                            sh "echo Cloning megachat branch \"${MEGACHAT_BRANCH}\""
+                                            checkout([
+                                                $class: 'GitSCM',
+                                                branches: [[name: "${MEGACHAT_BRANCH}"]],
+                                                userRemoteConfigs: [[ url: "${env.GIT_URL_MEGACHAT}", credentialsId: "12492eb8-0278-4402-98f0-4412abfb65c1" ]],
+                                                extensions: [
+                                                    [$class: "UserIdentity",name: "jenkins", email: "jenkins@jenkins"]
+                                                    ]
+                                            ])
+                                            script{
+                                                megachat_sources_workspace = WORKSPACE
+                                            }
+                                        }
+                                        dir("${env.ANDROID_SDK_DIR}"){
+                                            //Clone SDK (with PreBuildMerge)
+                                            checkout([
+                                                $class: 'GitSCM',
+                                                branches: [[name: "origin/${env.gitlabSourceBranch}"]],
+                                                userRemoteConfigs: [[ url: "${env.GIT_URL_SDK}", credentialsId: "12492eb8-0278-4402-98f0-4412abfb65c1" ]],
+                                                extensions: [
+                                                    [$class: "UserIdentity",name: "jenkins", email: "jenkins@jenkins"],
+                                                    [$class: 'PreBuildMerge', options: [fastForwardMode: 'FF', mergeRemote: "origin", mergeStrategy: 'DEFAULT', mergeTarget: "${env.gitlabTargetBranch}"]]
+                                                    ]
+                                            ])
+                                        }
+                                    }
+                                }
+                                stage('Build Docker'){
+                                    //Building sdk with MEGAchat-android-cross-build dockerfile, because it uses webrtc
+                                    //(Needed for Android and unavailable from SDK dockerfile)
+                                    steps{
+                                        dir("${env.ANDROID_CHAT_DIR}/dockerfile"){
+                                            sh "docker build -t meganz/megachat-android-mr-build-env:${env.BUILD_NUMBER} -f ./android-cross-build.dockerfile ."
+                                        }
+                                        sh "echo ${ARCH_TO_BUILD}"
+                                        sh "mkdir -p ${env.SDK_OUTPUT_DIR}"
+                                        sh "mkdir -p ${env.SDK_JNILIBS_DIR}"
+                                        sh "mkdir -p ${WORKSPACE}/sdk/src/main/java/nz/mega/sdk"
+                                        sh "mkdir -p ${WORKSPACE}/sdk/src/main/jni/megachat/webrtc"
+
+                                    }
+                                }
+                                
+                                stage("Build SDK for Android App"){
+                                    steps {
+                                        sh "echo Build SDK for arch $ARCH_TO_BUILD"
+                                        sh "docker run --name megachat-android-builder-$ARCH_TO_BUILD-${env.BUILD_NUMBER} \
+                                        --rm \
+                                        -v ${env.ANDROID_CHAT_DIR}:/mega/MEGAchat \
+                                        -v ${env.ANDROID_SDK_DIR}:/mega/MEGAchat/third-party/mega \
+                                        -v ${VCPKGPATH}:/mega/vcpkg \
+                                        -v ${env.SDK_OUTPUT_DIR}:/mega/build-MEGAchat-mega-android \
+                                        -e ARCH=$ARCH_TO_BUILD \
+                                        -e BUILD_CORES=4 \
+                                        -e VCPKG_BINARY_SOURCES \
+                                        -e AWS_ACCESS_KEY_ID \
+                                        -e AWS_SECRET_ACCESS_KEY \
+                                        -e AWS_ENDPOINT_URL \
+                                        meganz/megachat-android-mr-build-env:${env.BUILD_NUMBER}"
+
+                                        sh """
+                                            cp -fv ${env.SDK_OUTPUT_DIR}/bindings/java/libmega.so ${env.SDK_JNILIBS_DIR}        
+                                            cp -fv ${env.SDK_OUTPUT_DIR}/bindings/java/nz/mega/sdk/*.java ${WORKSPACE}/sdk/src/main/java/nz/mega/sdk                
+                                            cp -fv `find ${env.SDK_OUTPUT_DIR} -name "libwebrtc.jar"` ${WORKSPACE}/sdk/src/main/jni/megachat/webrtc
+                                            cp -r ${DEFAULT_GOOGLE_MAPS_API_PATH}/* app/src/
+                                        """
+                                    }
+                                }
+                                stage('Build Android App'){
+                                    steps{
+                                        script {
+                                            withCredentials([
+                                                    string(credentialsId: 'ARTIFACTORY_USER', variable: 'ARTIFACTORY_USER'),
+                                                    string(credentialsId: 'ARTIFACTORY_ACCESS_TOKEN', variable: 'ARTIFACTORY_ACCESS_TOKEN'),
+                                            ]){
+                                                withEnv([
+                                                    "ARTIFACTORY_USER=${ARTIFACTORY_USER}",
+                                                    "ARTIFACTORY_ACCESS_TOKEN=${ARTIFACTORY_ACCESS_TOKEN}"
+                                                ]){
+                                                    sh "./gradlew --no-daemon --max-workers=4 assembleGmsDebug"
+                                                    sh "./gradlew --no-daemon --max-workers=4 assembleGmsQa"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            post{
+                                always{
+                                    sh "docker image rm meganz/megachat-android-mr-build-env:${env.BUILD_NUMBER}"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            post{
+                always {
+                    deleteDir()
+                }
+                failure {
+                    node('linux') { // We need and agent able to download logs from Jenkins. This one is allowed.
+                        script {
+                            commentFailedBuild()
+                        }
+                    }
+                }
+            }
+        }
+    }
+    post {
+        success {
+            updateGitlabCommitStatus(name: 'Build Android', state: 'success')
+            addGitLabMRComment(comment: ":white_check_mark: ${currentBuild.projectName} :penguin: <b>Android</b> SUCCEEDED :muscle:<br/>Build results: [Jenkins [${currentBuild.displayName}]](${currentBuild.absoluteUrl})<br/>Commit: ${COMMIT_ID}" )
+        }
+        unstable {
+            updateGitlabCommitStatus(name: 'Build Android', state: 'failed')
+            addGitLabMRComment(comment: ":interrobang: ${currentBuild.projectName} :penguin: <b>Android</b> UNSTABLE  :confused:<br/>Build results: [Jenkins [${currentBuild.displayName}]](${currentBuild.absoluteUrl})<br/>Commit: ${COMMIT_ID}" )      
+        }
+        aborted {
+            updateGitlabCommitStatus(name: 'Build Android', state: 'canceled')
+            addGitLabMRComment(comment: ":interrobang: ${currentBuild.projectName} :penguin: <b>Android</b> ABORTED  :confused:<br/>Build results: [Jenkins [${currentBuild.displayName}]](${currentBuild.absoluteUrl})<br/>Commit: ${COMMIT_ID}" )
+        }
+    }
+}

@@ -25,6 +25,7 @@ public struct ServerConfigModel: SmartCodableX, Equatable, Hashable {
         self.onedriveUser = onedriveUser
         self.pcloudUser = pcloudUser
         self.boxUser = boxUser
+        self.megaUser = nil
         self.smbUser = smbUser
     }
     
@@ -62,6 +63,7 @@ public struct ServerConfigModel: SmartCodableX, Equatable, Hashable {
     public var pcloudUser: PCloudDriveUserModel?
     public var smbUser: SMBDriveUserModel?
     public var boxUser: BoxDriveUserModel?
+    public var megaUser: MEGADriveUserModel?
     
     /// 提高查找效率
     public func hash(into hasher: inout Hasher) {
@@ -76,6 +78,7 @@ public struct ServerConfigModel: SmartCodableX, Equatable, Hashable {
         hasher.combine(onedriveUser)
         hasher.combine(pcloudUser)
         hasher.combine(boxUser)
+        hasher.combine(megaUser)
         hasher.combine(smbUser)
     }
     
@@ -84,6 +87,7 @@ public struct ServerConfigModel: SmartCodableX, Equatable, Hashable {
         return lhs.serverType == rhs.serverType &&
         lhs.pcloudUser == rhs.pcloudUser &&
         lhs.boxUser == rhs.boxUser &&
+        lhs.megaUser == rhs.megaUser &&
         lhs.smbUser == rhs.smbUser &&
         lhs.webdavUser?.username ==  rhs.webdavUser?.username &&
         lhs.navUser?.id ==  rhs.navUser?.id &&
@@ -102,6 +106,7 @@ extension ServerConfigModel {
     /// 外显名称
     public func showTitle() -> String {
         if let user = smbUser { return user.title }
+        if megaUser != nil { return "MEGA" }
         if boxUser != nil { return "Box" }
         if pcloudUser != nil { return "pCloud" }
         if self.serverType == .fromWebDav {
@@ -133,6 +138,7 @@ extension ServerConfigModel {
     /// 自定义的名称
     public func customNameStr() -> String? {
         if let user = smbUser { return user.title }
+        if let user = megaUser { return user.email.isEmpty ? "MEGA" : user.email }
         if let user = boxUser { return user.email.isEmpty ? "Box" : user.email }
         if let user = pcloudUser { return user.email.isEmpty ? "pCloud" : user.email }
         if let webdavUser = self.webdavUser {

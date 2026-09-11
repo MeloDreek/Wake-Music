@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C04000000000000000000001 /* MEGASdk in Frameworks */ = {isa = PBXBuildFile; productRef = C04000000000000000000003 /* MEGASdk */; };
+		C04000000000000000000002 /* MEGASdk in Frameworks */ = {isa = PBXBuildFile; productRef = C04000000000000000000004 /* MEGASdk */; };
 		01F75346B3745539580B69EB /* Pods_Mobie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC044DCD42AEE7FFFB8D29DE /* Pods_Mobie.framework */; };
 		22059B832CAE9378006F6E7A /* SocialMediaType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22059B822CAE9378006F6E7A /* SocialMediaType.swift */; };
 		220DDAE22EAA6E9A00F50BB3 /* ConnectListViewController+Connect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220DDAE12EAA6E9A00F50BB3 /* ConnectListViewController+Connect.swift */; };
@@ -618,7 +620,9 @@
 		22C287AE3053C6B700801D66 /* NoneLyriclistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C287AD3053C6B700801D66 /* NoneLyriclistView.swift */; };
 		22C287AF3053C6B700801D66 /* NoneLyriclistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C287AD3053C6B700801D66 /* NoneLyriclistView.swift */; };
 		22C287B130540A4500801D66 /* AuthSMBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C287B030540A4500801D66 /* AuthSMBViewController.swift */; };
+		C04300000000000000000001 /* AuthMEGAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04300000000000000000002 /* AuthMEGAViewController.swift */; };
 		22C287B230540A4500801D66 /* AuthSMBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C287B030540A4500801D66 /* AuthSMBViewController.swift */; };
+		C04300000000000000000003 /* AuthMEGAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04300000000000000000002 /* AuthMEGAViewController.swift */; };
 		22C707712DCB9C1700A1B79A /* MacTabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C707702DCB9C1700A1B79A /* MacTabbarViewController.swift */; };
 		22C707722DCB9C1700A1B79A /* MacTabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C707702DCB9C1700A1B79A /* MacTabbarViewController.swift */; };
 		22C707742DCB9C2100A1B79A /* MacTabbarViewController+Drop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C707732DCB9C2100A1B79A /* MacTabbarViewController+Drop.swift */; };
@@ -699,13 +703,21 @@
 		A76381FF2EDED27C0040A84D /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = A76381FE2EDED27C0040A84D /* Alamofire */; };
 		A76382012EDED2E60040A84D /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = A76382002EDED2E60040A84D /* Alamofire */; };
 		B01000000000000000000001 /* BoxDriveService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01000000000000000000002 /* BoxDriveService.swift */; };
+		C04100000000000000000001 /* MEGADriveService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04100000000000000000002 /* MEGADriveService.swift */; };
 		B01000000000000000000003 /* BoxDriveService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01000000000000000000002 /* BoxDriveService.swift */; };
+		C04100000000000000000003 /* MEGADriveService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04100000000000000000002 /* MEGADriveService.swift */; };
 		B01000000000000000000004 /* BoxDriveFileListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01000000000000000000005 /* BoxDriveFileListController.swift */; };
+		C04100000000000000000004 /* MEGADriveFileListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04100000000000000000005 /* MEGADriveFileListController.swift */; };
 		B01000000000000000000006 /* BoxDriveFileListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01000000000000000000005 /* BoxDriveFileListController.swift */; };
+		C04100000000000000000006 /* MEGADriveFileListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04100000000000000000005 /* MEGADriveFileListController.swift */; };
 		B01000000000000000000007 /* KakaMusicPlayer+Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01000000000000000000008 /* KakaMusicPlayer+Box.swift */; };
+		C04100000000000000000007 /* KakaMusicPlayer+MEGA.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04100000000000000000008 /* KakaMusicPlayer+MEGA.swift */; };
 		B01000000000000000000009 /* KakaMusicPlayer+Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01000000000000000000008 /* KakaMusicPlayer+Box.swift */; };
+		C04100000000000000000009 /* KakaMusicPlayer+MEGA.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04100000000000000000008 /* KakaMusicPlayer+MEGA.swift */; };
 		B01100000000000000000001 /* BoxFileListStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01100000000000000000002 /* BoxFileListStatus.swift */; };
+		C04200000000000000000001 /* MEGAFileListStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04200000000000000000002 /* MEGAFileListStatus.swift */; };
 		B01100000000000000000003 /* BoxFileListStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01100000000000000000002 /* BoxFileListStatus.swift */; };
+		C04200000000000000000003 /* MEGAFileListStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04200000000000000000002 /* MEGAFileListStatus.swift */; };
 		B01200000000000000000001 /* BoxDriveAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01200000000000000000002 /* BoxDriveAPI.swift */; };
 		B01200000000000000000003 /* BoxDriveAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01200000000000000000002 /* BoxDriveAPI.swift */; };
 		C02000000000000000000001 /* SMBDriveService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02000000000000000000002 /* SMBDriveService.swift */; };
@@ -1045,6 +1057,7 @@
 		22C25740302D937200A68C1B /* MusicConfigManager+Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MusicConfigManager+Action.swift"; sourceTree = "<group>"; };
 		22C287AD3053C6B700801D66 /* NoneLyriclistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoneLyriclistView.swift; sourceTree = "<group>"; };
 		22C287B030540A4500801D66 /* AuthSMBViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthSMBViewController.swift; sourceTree = "<group>"; };
+		C04300000000000000000002 /* AuthMEGAViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthMEGAViewController.swift; sourceTree = "<group>"; };
 		22C707702DCB9C1700A1B79A /* MacTabbarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacTabbarViewController.swift; sourceTree = "<group>"; };
 		22C707732DCB9C2100A1B79A /* MacTabbarViewController+Drop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MacTabbarViewController+Drop.swift"; sourceTree = "<group>"; };
 		22C707762DCB9C5500A1B79A /* MacTabbarViewController+Noti.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MacTabbarViewController+Noti.swift"; sourceTree = "<group>"; };
@@ -1081,9 +1094,13 @@
 		529D8BF88D087076D287687A /* Pods-Mobie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mobie.debug.xcconfig"; path = "Target Support Files/Pods-Mobie/Pods-Mobie.debug.xcconfig"; sourceTree = "<group>"; };
 		886CE6607B0E1400F6276768 /* Pods-Mobie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mobie.release.xcconfig"; path = "Target Support Files/Pods-Mobie/Pods-Mobie.release.xcconfig"; sourceTree = "<group>"; };
 		B01000000000000000000002 /* BoxDriveService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxDriveService.swift; sourceTree = "<group>"; };
+		C04100000000000000000002 /* MEGADriveService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MEGADriveService.swift; sourceTree = "<group>"; };
 		B01000000000000000000005 /* BoxDriveFileListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxDriveFileListController.swift; sourceTree = "<group>"; };
+		C04100000000000000000005 /* MEGADriveFileListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MEGADriveFileListController.swift; sourceTree = "<group>"; };
 		B01000000000000000000008 /* KakaMusicPlayer+Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KakaMusicPlayer+Box.swift"; sourceTree = "<group>"; };
+		C04100000000000000000008 /* KakaMusicPlayer+MEGA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KakaMusicPlayer+MEGA.swift"; sourceTree = "<group>"; };
 		B01100000000000000000002 /* BoxFileListStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxFileListStatus.swift; sourceTree = "<group>"; };
+		C04200000000000000000002 /* MEGAFileListStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MEGAFileListStatus.swift; sourceTree = "<group>"; };
 		B01200000000000000000002 /* BoxDriveAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxDriveAPI.swift; sourceTree = "<group>"; };
 		BD30271AF1F6DF33916F8A97 /* Pods-Mobie_Pro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mobie_Pro.release.xcconfig"; path = "Target Support Files/Pods-Mobie_Pro/Pods-Mobie_Pro.release.xcconfig"; sourceTree = "<group>"; };
 		C02000000000000000000002 /* SMBDriveService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMBDriveService.swift; sourceTree = "<group>"; };
@@ -1120,6 +1137,7 @@
 				225F58B72D85B2AB0055BDFF /* StoreKit.framework in Frameworks */,
 				22C287AC30530BC200801D66 /* PCloudSDKSwift in Frameworks */,
 				C03000000000000000000002 /* AMSMB2 in Frameworks */,
+				C04000000000000000000002 /* MEGASdk in Frameworks */,
 				220F662F300283AF00915384 /* RevenueCat in Frameworks */,
 				A76382012EDED2E60040A84D /* Alamofire in Frameworks */,
 				225F58D82D85B5A10055BDFF /* Kingfisher in Frameworks */,
@@ -1171,6 +1189,7 @@
 				223A49932D7FE1BD003B3886 /* Toast in Frameworks */,
 				22C287AA30530BAE00801D66 /* PCloudSDKSwift in Frameworks */,
 				C03000000000000000000001 /* AMSMB2 in Frameworks */,
+				C04000000000000000000001 /* MEGASdk in Frameworks */,
 				22822C7B2DF42B8D00183445 /* PanModal in Frameworks */,
 				223A49A12D7FE709003B3886 /* FilesProvider in Frameworks */,
 				A76381712EDEAA710040A84D /* ZLImageEditor in Frameworks */,
@@ -1245,6 +1264,7 @@
 				226C9C222D200734003A3CE8 /* AuthWebdavViewController.swift */,
 				226DFB6D2D657E0F00E3BE06 /* AuthNavidromeController.swift */,
 				22C287B030540A4500801D66 /* AuthSMBViewController.swift */,
+				C04300000000000000000002 /* AuthMEGAViewController.swift */,
 				228A13BB2CA0633400E2948E /* FreeStreamViewController.swift */,
 				228A13C52CA0633400E2948E /* VideoConverterViewController.swift */,
 				228A13C62CA0633400E2948E /* VideoConverterViewController+Action.swift */,
@@ -1319,6 +1339,7 @@
 				226AF34E2E236738007C44DF /* KakaMusicPlayer+API.swift */,
 				C10D00000000000000000008 /* KakaMusicPlayer+PCloud.swift */,
 				B01000000000000000000008 /* KakaMusicPlayer+Box.swift */,
+				C04100000000000000000008 /* KakaMusicPlayer+MEGA.swift */,
 				C02000000000000000000008 /* KakaMusicPlayer+SMB.swift */,
 				228A14222CA0633400E2948E /* KakaMusicPlayer+Tools.swift */,
 				22CFF8272CADCF2900CF825C /* BaiduDriveError.swift */,
@@ -1332,6 +1353,7 @@
 			children = (
 				C10E00000000000000000002 /* PCloudFileListStatus.swift */,
 				B01100000000000000000002 /* BoxFileListStatus.swift */,
+				C04200000000000000000002 /* MEGAFileListStatus.swift */,
 				C02300000000000000000002 /* SMBFileListStatus.swift */,
 				22B361D32D2174E8009DC9F5 /* LoginGroupModel.swift */,
 				22694D9C2D23ECB400DE036D /* WebDavFileObject+Extension.swift */,
@@ -1362,6 +1384,7 @@
 				225A5D8E2EAFB4EA009DB87E /* DropboxDriveFileListController.swift */,
 				C10D00000000000000000005 /* PCloudDriveFileListController.swift */,
 				B01000000000000000000005 /* BoxDriveFileListController.swift */,
+				C04100000000000000000005 /* MEGADriveFileListController.swift */,
 				C02000000000000000000005 /* SMBDriveFileListController.swift */,
 				2217E0FC2EBC74E000C724F6 /* OneDriveFileListController.swift */,
 				224B43DD2E2D3F88007F3E89 /* Drive115FileListController.swift */,
@@ -1763,6 +1786,7 @@
 				224DAE3B2EAE5961003CFAAC /* DriveUserModel+Extension.swift */,
 				C10D00000000000000000002 /* PCloudDriveService.swift */,
 				B01000000000000000000002 /* BoxDriveService.swift */,
+				C04100000000000000000002 /* MEGADriveService.swift */,
 				C02000000000000000000002 /* SMBDriveService.swift */,
 				C02100000000000000000002 /* SMBHTTPBridge.swift */,
 				C02400000000000000000002 /* SMBProtocol.swift */,
@@ -1985,6 +2009,7 @@
 			);
 			mainGroup = 228A13522CA00F5600E2948E;
 			packageReferences = (
+				C04000000000000000000005 /* XCLocalSwiftPackageReference "../LocalSDK/MEGASDK" */,
 				A76381462EDEA4000040A84D /* XCLocalSwiftPackageReference "../../../本地公开库/DominantColors" */,
 				A76381492EDEA40F0040A84D /* XCLocalSwiftPackageReference "../../../本地公开库/FileProvider" */,
 				A763814C2EDEA4200040A84D /* XCLocalSwiftPackageReference "../../../本地公开库/Kingfisher" */,
@@ -2339,9 +2364,11 @@
 				225A5D902EAFB4EA009DB87E /* DropboxDriveFileListController.swift in Sources */,
 				C10D00000000000000000006 /* PCloudDriveFileListController.swift in Sources */,
 				B01000000000000000000006 /* BoxDriveFileListController.swift in Sources */,
+				C04100000000000000000006 /* MEGADriveFileListController.swift in Sources */,
 				C02000000000000000000006 /* SMBDriveFileListController.swift in Sources */,
 				C10E00000000000000000003 /* PCloudFileListStatus.swift in Sources */,
 				B01100000000000000000003 /* BoxFileListStatus.swift in Sources */,
+				C04200000000000000000003 /* MEGAFileListStatus.swift in Sources */,
 				C02300000000000000000003 /* SMBFileListStatus.swift in Sources */,
 				22C2572F302D723500A68C1B /* AudioMatchCoverFootView.swift in Sources */,
 				225F58322D85B2AB0055BDFF /* DonateViewController.swift in Sources */,
@@ -2419,6 +2446,7 @@
 				226AF3502E236738007C44DF /* KakaMusicPlayer+API.swift in Sources */,
 				C10D00000000000000000009 /* KakaMusicPlayer+PCloud.swift in Sources */,
 				B01000000000000000000009 /* KakaMusicPlayer+Box.swift in Sources */,
+				C04100000000000000000009 /* KakaMusicPlayer+MEGA.swift in Sources */,
 				C02000000000000000000009 /* KakaMusicPlayer+SMB.swift in Sources */,
 				225F585F2D85B2AB0055BDFF /* WebDavFileObject+Extension.swift in Sources */,
 				223198262DD4CD94005F9AF0 /* PlayerEngineViewController.swift in Sources */,
@@ -2427,6 +2455,7 @@
 				22C25741302D937200A68C1B /* MusicConfigManager+Action.swift in Sources */,
 				225F58612D85B2AB0055BDFF /* ProfileViewController.swift in Sources */,
 				22C287B230540A4500801D66 /* AuthSMBViewController.swift in Sources */,
+				C04300000000000000000003 /* AuthMEGAViewController.swift in Sources */,
 				225F58622D85B2AB0055BDFF /* ArtistListViewController.swift in Sources */,
 				225F58632D85B2AB0055BDFF /* AlbumDetialViewController.swift in Sources */,
 				2243D76E2DE8A5E60010F9FB /* MusicPlayerViewController+Animation.swift in Sources */,
@@ -2437,6 +2466,7 @@
 				224DAE3D2EAE5961003CFAAC /* DriveUserModel+Extension.swift in Sources */,
 				C10D00000000000000000003 /* PCloudDriveService.swift in Sources */,
 				B01000000000000000000003 /* BoxDriveService.swift in Sources */,
+				C04100000000000000000003 /* MEGADriveService.swift in Sources */,
 				C02000000000000000000003 /* SMBDriveService.swift in Sources */,
 				C02100000000000000000003 /* SMBHTTPBridge.swift in Sources */,
 				C02400000000000000000003 /* SMBProtocol.swift in Sources */,
@@ -2651,9 +2681,11 @@
 				225A5D8F2EAFB4EA009DB87E /* DropboxDriveFileListController.swift in Sources */,
 				C10D00000000000000000004 /* PCloudDriveFileListController.swift in Sources */,
 				B01000000000000000000004 /* BoxDriveFileListController.swift in Sources */,
+				C04100000000000000000004 /* MEGADriveFileListController.swift in Sources */,
 				C02000000000000000000004 /* SMBDriveFileListController.swift in Sources */,
 				C10E00000000000000000001 /* PCloudFileListStatus.swift in Sources */,
 				B01100000000000000000001 /* BoxFileListStatus.swift in Sources */,
+				C04200000000000000000001 /* MEGAFileListStatus.swift in Sources */,
 				C02300000000000000000001 /* SMBFileListStatus.swift in Sources */,
 				22C25730302D723500A68C1B /* AudioMatchCoverFootView.swift in Sources */,
 				2261E8812CB5267E009506C0 /* DonateViewController.swift in Sources */,
@@ -2731,6 +2763,7 @@
 				226AF34F2E236738007C44DF /* KakaMusicPlayer+API.swift in Sources */,
 				C10D00000000000000000007 /* KakaMusicPlayer+PCloud.swift in Sources */,
 				B01000000000000000000007 /* KakaMusicPlayer+Box.swift in Sources */,
+				C04100000000000000000007 /* KakaMusicPlayer+MEGA.swift in Sources */,
 				C02000000000000000000007 /* KakaMusicPlayer+SMB.swift in Sources */,
 				22694D9D2D23ECB400DE036D /* WebDavFileObject+Extension.swift in Sources */,
 				223198272DD4CD94005F9AF0 /* PlayerEngineViewController.swift in Sources */,
@@ -2739,6 +2772,7 @@
 				22C25742302D937200A68C1B /* MusicConfigManager+Action.swift in Sources */,
 				228A14682CA0633400E2948E /* ProfileViewController.swift in Sources */,
 				22C287B130540A4500801D66 /* AuthSMBViewController.swift in Sources */,
+				C04300000000000000000001 /* AuthMEGAViewController.swift in Sources */,
 				228A143A2CA0633400E2948E /* ArtistListViewController.swift in Sources */,
 				228A142A2CA0633400E2948E /* AlbumDetialViewController.swift in Sources */,
 				2243D76D2DE8A5E60010F9FB /* MusicPlayerViewController+Animation.swift in Sources */,
@@ -2749,6 +2783,7 @@
 				224DAE3C2EAE5961003CFAAC /* DriveUserModel+Extension.swift in Sources */,
 				C10D00000000000000000001 /* PCloudDriveService.swift in Sources */,
 				B01000000000000000000001 /* BoxDriveService.swift in Sources */,
+				C04100000000000000000001 /* MEGADriveService.swift in Sources */,
 				C02000000000000000000001 /* SMBDriveService.swift in Sources */,
 				C02100000000000000000001 /* SMBHTTPBridge.swift in Sources */,
 				C02400000000000000000001 /* SMBProtocol.swift in Sources */,
@@ -3239,6 +3274,10 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
+		C04000000000000000000005 /* XCLocalSwiftPackageReference "../LocalSDK/MEGASDK" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = "../LocalSDK/MEGASDK";
+		};
 		220F66233002838600915384 /* XCLocalSwiftPackageReference "../../../本地公开库/purchases-ios" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = "../../../本地公开库/purchases-ios";
@@ -3409,6 +3448,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		C04000000000000000000003 /* MEGASdk */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C04000000000000000000005 /* XCLocalSwiftPackageReference "../LocalSDK/MEGASDK" */;
+			productName = MEGASdk;
+		};
+		C04000000000000000000004 /* MEGASdk */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C04000000000000000000005 /* XCLocalSwiftPackageReference "../LocalSDK/MEGASDK" */;
+			productName = MEGASdk;
+		};
 		220F66243002838600915384 /* ReceiptParser */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = ReceiptParser;

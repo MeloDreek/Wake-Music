@@ -23,6 +23,7 @@ target 'Mobie' do
   pod 'KakaPhotoBrowser',          :path => './LocalSDK/KakaPhotoBrowser'
   pod 'KakaTaglibKit',              :path => './LocalSDK/KakaTaglibKit'
   pod 'WakeMusicPlayer',            :path => './LocalSDK/WakeMusicPlayer'
+#  pod 'MEGASDK',                    :path => './LocalSDK/MEGASDK'
   
   
 #  pod 'Firebase'#, '~> 12.2.0'
@@ -33,7 +34,6 @@ target 'Mobie' do
   pod 'GoogleSignIn', '~> 9.0.0'
   pod 'SwiftyDropbox', '~> 10.2.4'
   pod 'YandexLoginSDK', '~> 3.0.2'
-#  pod 'MegaSDK', :git => 'https://github.com/meganz/sdk.git', :tag => 'v18.0' # 替换为最新版本号
 
   pod 'JXSegmentedView', '~> 1.4.1'
   pod 'ProgressHUD', '~> 14.1.1'
@@ -59,7 +59,8 @@ target 'Mobie_Pro' do
   pod 'KakaPhotoBrowser',          :path => './LocalSDK/KakaPhotoBrowser'
   pod 'KakaTaglibKit',              :path => './LocalSDK/KakaTaglibKit'
   pod 'WakeMusicPlayer',            :path => './LocalSDK/WakeMusicPlayer'
-  
+#  pod 'MEGASDK',                    :path => './LocalSDK/MEGASDK'
+
   
 #  pod 'Firebase'#, '~> 12.2.0'
 #  pod 'Firebase/AnalyticsWithoutAdIdSupport'#, '~> 12.2.0'
@@ -69,7 +70,6 @@ target 'Mobie_Pro' do
   pod 'GoogleSignIn', '~> 9.0.0'
   pod 'SwiftyDropbox', '~> 10.2.4'
   pod 'YandexLoginSDK', '~> 3.0.2'
-#  pod 'MegaSDK', :git => 'https://github.com/meganz/sdk.git', :tag => 'v18.0' # 替换为最新版本号
   
   pod 'JXSegmentedView', '~> 1.4.1'
   pod 'ProgressHUD', '~> 14.1.1'

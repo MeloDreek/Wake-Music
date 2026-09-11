@@ -1,0 +1,121 @@
+def REBUILD_IMAGE = false
+
+pipeline {
+    agent none
+    options {
+        buildDiscarder(logRotator(numToKeepStr: '135', daysToKeepStr: '21'))
+        gitLabConnection('GitLabConnectionJenkins')
+        ansiColor('xterm')
+    }
+    stages {
+        stage('Update Gitlab commit status') {
+            agent any
+            steps {
+                updateGitlabCommitStatus(name: 'clang format', state: 'running')
+                script{
+                    COMMIT_ID = env.GIT_COMMIT
+                    println GIT_COMMIT
+                }
+            }
+        }
+        stage('Build'){
+            agent { label 'docker' }
+            stages {
+                stage('Checkout'){
+                    steps {
+                        checkout([
+                            $class: 'GitSCM',
+                            branches: [[name: "origin/${env.gitlabSourceBranch}"]],
+                            userRemoteConfigs: [[ url: "${env.GIT_URL_SDK}", credentialsId: "12492eb8-0278-4402-98f0-4412abfb65c1" ]],
+                            extensions: [
+                                [$class: "UserIdentity",name: "jenkins", email: "jenkins@jenkins"],
+                                [$class: 'PreBuildMerge', options: [fastForwardMode: 'FF', mergeRemote: "origin", mergeStrategy: 'DEFAULT', mergeTarget: "${env.gitlabTargetBranch}"]]
+                                ]
+                        ])
+                    }
+                }
+                stage('Get parameters'){
+                    steps {
+                        script{
+                            // flag may be `--rebuild-docker` or empty ``
+                            def flag = sh(script: 'echo "$gitlabTriggerPhrase" | grep -o "\\-\\-rebuild-docker\\$" || :', returnStdout: true).trim()
+                            REBUILD_IMAGE = flag == "--rebuild-docker"
+                            echo "REBUILD_IMAGE set to ${REBUILD_IMAGE}"
+                        }
+                    }
+                }
+                stage('Rebuild docker image') {
+                    when {
+                        beforeAgent true
+                        expression { REBUILD_IMAGE }
+                    }
+                    steps {
+                        dir ("dockerfile") {
+                            sh """
+                                docker build \
+                                    -f clang-format.dockerfile \
+                                    -t ${env.MEGA_INTERNAL_DOCKER_REGISTRY}:8443/clang-format-sdk:24.04_v18 \
+                                    .
+                            """
+                        }
+                        withCredentials([usernamePassword(credentialsId: 'artifactory-jenkins-docker', usernameVariable: 'ART_USER', passwordVariable: 'ART_PASS')]) {
+                            sh """
+                                echo \$ART_PASS | docker login \
+                                                    -u \$ART_USER \
+                                                    --password-stdin \
+                                                    ${env.MEGA_INTERNAL_DOCKER_REGISTRY}:8443
+                                docker push ${env.MEGA_INTERNAL_DOCKER_REGISTRY}:8443/clang-format-sdk:24.04_v18
+                            """
+                        }
+                    }
+                }
+                stage('Clang format'){
+                    agent {
+                        docker {
+                            image "${env.MEGA_INTERNAL_DOCKER_REGISTRY}:8443/clang-format-sdk:24.04_v18"
+                            reuseNode true
+                        }
+                    }
+                    steps {
+                        sh """#!/bin/bash
+                            TARGET_REF="origin/${env.gitlabTargetBranch}"
+                            SOURCE_REF="origin/${env.gitlabSourceBranch}"
+
+                            if ! command -v clang-format-mr-check >/dev/null 2>&1; then
+                                echo "ERROR: clang-format-mr-check not found in Docker image." >&2
+                                echo "This job is configured to run the check only inside the Docker image." >&2
+                                echo "Rebuild/push the image (trigger with --rebuild-docker) and retry." >&2
+                                exit 2
+                            fi
+
+                            clang-format-mr-check "\${TARGET_REF}" "\${SOURCE_REF}"
+                        """
+                    }
+                }
+            }
+            post{
+                always {
+                    deleteDir()
+                }
+            }
+        }
+    }
+    post {
+        success {
+            updateGitlabCommitStatus(name: 'clang format', state: 'success')
+            addGitLabMRComment(comment: ":white_check_mark: ${currentBuild.projectName} :page_with_curl: <b>ClangFormat</b> SUCCEEDED :muscle:<br/>Build results: [Jenkins [${currentBuild.displayName}]](${currentBuild.absoluteUrl})<br/>Commit: ${COMMIT_ID}" )
+        }
+        unstable {
+            updateGitlabCommitStatus(name: 'clang format', state: 'failed')
+            addGitLabMRComment(comment: ":interrobang: ${currentBuild.projectName} :page_with_curl: <b>ClangFormat</b> UNSTABLE  :confused:<br/>Build results: [Jenkins [${currentBuild.displayName}]](${currentBuild.absoluteUrl})<br/>Commit: ${COMMIT_ID}" )      
+        }
+        aborted {
+            updateGitlabCommitStatus(name: 'clang format', state: 'canceled')
+            addGitLabMRComment(comment: ":interrobang: ${currentBuild.projectName} :page_with_curl: <b>ClangFormat</b> ABORTED  :confused:<br/>Build results: [Jenkins [${currentBuild.displayName}]](${currentBuild.absoluteUrl})<br/>Commit: ${COMMIT_ID}" )
+        }
+        failure {
+            updateGitlabCommitStatus(name: 'clang format', state: 'failed')
+            addGitLabMRComment(comment: ":red_circle: ${currentBuild.projectName} :page_with_curl: <b>ClangFormat</b> FAILURE  :worried:<br/>Build results: [Jenkins [${currentBuild.displayName}]](${currentBuild.absoluteUrl})<br/>Commit: ${COMMIT_ID}" )                
+        }
+    }
+}
