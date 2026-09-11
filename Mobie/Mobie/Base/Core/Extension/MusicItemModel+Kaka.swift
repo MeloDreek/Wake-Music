@@ -100,6 +100,9 @@ extension MusicItemModel {
             }else{
                 return KakaImage(named: "file_place")!
             }
+        }else if let file = self.smbFile {
+            if file.isDirectory() { return KakaImage(named: "folder_icon")! }
+            return KakaImage(named: "\(file.fileExtension())_icon") ?? KakaImage(named: "music_place")!
         }else if self.fileSourceType == .fromBoxDrive {
             if let boxFile = self.boxFile {
                 let fileExtension = boxFile.fileExtension()

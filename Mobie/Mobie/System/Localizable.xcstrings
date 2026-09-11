@@ -1,6 +1,576 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+  "Connection Name": {
+    "extractionState": "manual",
+    "comment": "SMB connection, read-only audio access.",
+    "localizations": {
+      "en": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "Connection Name"
+        }
+      },
+      "zh-Hans": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "连接名称"
+        }
+      },
+      "zh-Hant": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "連線名稱"
+        }
+      },
+      "zh-HK": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "連線名稱"
+        }
+      }
+    }
+  },
+  "SMB Server": {
+    "extractionState": "manual",
+    "comment": "SMB connection, read-only audio access.",
+    "localizations": {
+      "en": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "SMB Server"
+        }
+      },
+      "zh-Hans": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "SMB 服务器"
+        }
+      },
+      "zh-Hant": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "SMB 伺服器"
+        }
+      },
+      "zh-HK": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "SMB 伺服器"
+        }
+      }
+    }
+  },
+  "Shared Folder": {
+    "extractionState": "manual",
+    "comment": "SMB connection, read-only audio access.",
+    "localizations": {
+      "en": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "Shared Folder"
+        }
+      },
+      "zh-Hans": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "共享文件夹"
+        }
+      },
+      "zh-Hant": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "共享資料夾"
+        }
+      },
+      "zh-HK": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "共享資料夾"
+        }
+      }
+    }
+  },
+  "Domain (Optional)": {
+    "extractionState": "manual",
+    "comment": "SMB connection, read-only audio access.",
+    "localizations": {
+      "en": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "Domain (Optional)"
+        }
+      },
+      "zh-Hans": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "域（选填）"
+        }
+      },
+      "zh-Hant": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "網域（選填）"
+        }
+      },
+      "zh-HK": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "網域（選填）"
+        }
+      }
+    }
+  },
+  "SMB Connection": {
+    "extractionState": "manual",
+    "comment": "SMB connection, read-only audio access.",
+    "localizations": {
+      "en": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "SMB Connection"
+        }
+      },
+      "zh-Hans": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "SMB 连接"
+        }
+      },
+      "zh-Hant": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "SMB 連線"
+        }
+      },
+      "zh-HK": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "SMB 連線"
+        }
+      }
+    }
+  },
+  "Edit SMB Credentials": {
+    "extractionState": "manual",
+    "comment": "SMB connection, read-only audio access.",
+    "localizations": {
+      "en": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "Edit SMB Credentials"
+        }
+      },
+      "zh-Hans": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "修改 SMB 登录信息"
+        }
+      },
+      "zh-Hant": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "修改 SMB 登入資訊"
+        }
+      },
+      "zh-HK": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "修改 SMB 登入資訊"
+        }
+      }
+    }
+  },
+  "Connect to a Mac, Windows PC, or NAS on your local network. Enter the shared-folder name, not its disk path. Wake Music only browses, plays, and downloads files. Keep the server awake. SMB2/3 is required; guest access is not used. Passwords are saved in Keychain on this device.": {
+    "extractionState": "manual",
+    "comment": "SMB connection, read-only audio access.",
+    "localizations": {
+      "en": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "Connect to a Mac, Windows PC, or NAS on your local network. Enter the shared-folder name, not its disk path. Wake Music only browses, plays, and downloads files. Keep the server awake. SMB2/3 is required; guest access is not used. Passwords are saved in Keychain on this device."
+        }
+      },
+      "zh-Hans": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "连接同一局域网中的 Mac、Windows 电脑或 NAS。填写共享文件夹名称，而不是电脑上的磁盘路径。维克音乐仅浏览、播放和下载文件，请保持服务器唤醒。需要 SMB2/3，不使用访客登录；密码仅保存在本机钥匙串中。"
+        }
+      },
+      "zh-Hant": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "連接同一區域網路中的 Mac、Windows 電腦或 NAS。請填寫共享資料夾名稱，而非電腦上的磁碟路徑。維克音樂僅瀏覽、播放及下載檔案，請保持伺服器喚醒。需要 SMB2/3，不使用訪客登入；密碼僅儲存於本機鑰匙圈。"
+        }
+      },
+      "zh-HK": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "連接同一區域網路中的 Mac、Windows 電腦或 NAS。請填寫共享資料夾名稱，而非電腦上的磁碟路徑。維克音樂僅瀏覽、播放及下載檔案，請保持伺服器喚醒。需要 SMB2/3，不使用訪客登入；密碼僅儲存於本機鑰匙圈。"
+        }
+      }
+    }
+  },
+  "Enter your SMB username and password.": {
+    "extractionState": "manual",
+    "comment": "SMB connection, read-only audio access.",
+    "localizations": {
+      "en": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "Enter your SMB username and password."
+        }
+      },
+      "zh-Hans": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "请输入 SMB 用户名和密码。"
+        }
+      },
+      "zh-Hant": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "請輸入 SMB 使用者名稱及密碼。"
+        }
+      },
+      "zh-HK": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "請輸入 SMB 使用者名稱及密碼。"
+        }
+      }
+    }
+  },
+  "Unable to save SMB credentials in Keychain.": {
+    "extractionState": "manual",
+    "comment": "SMB connection, read-only audio access.",
+    "localizations": {
+      "en": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "Unable to save SMB credentials in Keychain."
+        }
+      },
+      "zh-Hans": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "无法将 SMB 登录信息保存到钥匙串，请重试。"
+        }
+      },
+      "zh-Hant": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "無法將 SMB 登入資訊儲存至鑰匙圈，請重試。"
+        }
+      },
+      "zh-HK": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "無法將 SMB 登入資訊儲存至鑰匙圈，請重試。"
+        }
+      }
+    }
+  },
+  "Invalid SMB file.": {
+    "extractionState": "manual",
+    "comment": "SMB connection, read-only audio access.",
+    "localizations": {
+      "en": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "Invalid SMB file."
+        }
+      },
+      "zh-Hans": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "SMB 文件路径无效。"
+        }
+      },
+      "zh-Hant": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "SMB 檔案路徑無效。"
+        }
+      },
+      "zh-HK": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "SMB 檔案路徑無效。"
+        }
+      }
+    }
+  },
+  "The SMB audio file is empty or unavailable.": {
+    "extractionState": "manual",
+    "comment": "SMB connection, read-only audio access.",
+    "localizations": {
+      "en": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "The SMB audio file is empty or unavailable."
+        }
+      },
+      "zh-Hans": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "此 SMB 音频文件为空或无法访问。"
+        }
+      },
+      "zh-Hant": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "此 SMB 音訊檔案為空或無法存取。"
+        }
+      },
+      "zh-HK": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "此 SMB 音訊檔案為空或無法存取。"
+        }
+      }
+    }
+  },
+  "SMB credentials are missing. Edit the connection and sign in again.": {
+    "extractionState": "manual",
+    "comment": "SMB connection, read-only audio access.",
+    "localizations": {
+      "en": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "SMB credentials are missing. Edit the connection and sign in again."
+        }
+      },
+      "zh-Hans": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "缺少 SMB 登录信息，请修改连接并重新登录。"
+        }
+      },
+      "zh-Hant": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "缺少 SMB 登入資訊，請修改連線並重新登入。"
+        }
+      },
+      "zh-HK": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "缺少 SMB 登入資訊，請修改連線並重新登入。"
+        }
+      }
+    }
+  },
+  "Invalid SMB server address.": {
+    "extractionState": "manual",
+    "comment": "SMB connection, read-only audio access.",
+    "localizations": {
+      "en": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "Invalid SMB server address."
+        }
+      },
+      "zh-Hans": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "SMB 服务器地址无效，请检查地址和端口（默认 445）。"
+        }
+      },
+      "zh-Hant": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "SMB 伺服器位址無效，請檢查位址及連接埠（預設 445）。"
+        }
+      },
+      "zh-HK": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "SMB 伺服器位址無效，請檢查位址及連接埠（預設 445）。"
+        }
+      }
+    }
+  },
+  "SMB access denied. Check the username, password, and shared-folder permissions.": {
+    "extractionState": "manual",
+    "comment": "SMB connection, read-only audio access.",
+    "localizations": {
+      "en": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "SMB access denied. Check the username, password, and shared-folder permissions."
+        }
+      },
+      "zh-Hans": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "SMB 拒绝访问，请检查用户名、密码以及共享文件夹的读取权限。"
+        }
+      },
+      "zh-Hant": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "SMB 拒絕存取，請檢查使用者名稱、密碼及共享資料夾的讀取權限。"
+        }
+      },
+      "zh-HK": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "SMB 拒絕存取，請檢查使用者名稱、密碼及共享資料夾的讀取權限。"
+        }
+      }
+    }
+  },
+  "SMB share or file not found. Enter the shared-folder name, not a path on the Mac.": {
+    "extractionState": "manual",
+    "comment": "SMB connection, read-only audio access.",
+    "localizations": {
+      "en": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "SMB share or file not found. Enter the shared-folder name, not a path on the Mac."
+        }
+      },
+      "zh-Hans": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "找不到 SMB 共享目录或文件。请填写共享名称，而不是 Mac 上的文件路径。"
+        }
+      },
+      "zh-Hant": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "找不到 SMB 共享資料夾或檔案。請填寫共享名稱，而非 Mac 上的檔案路徑。"
+        }
+      },
+      "zh-HK": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "找不到 SMB 共享資料夾或檔案。請填寫共享名稱，而非 Mac 上的檔案路徑。"
+        }
+      }
+    }
+  },
+  "Unable to read from SMB. Keep the server awake, connect to the same network, and check the address and permissions.": {
+    "extractionState": "manual",
+    "comment": "SMB connection, read-only audio access.",
+    "localizations": {
+      "en": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "Unable to read from SMB. Keep the server awake, connect to the same network, and check the address and permissions."
+        }
+      },
+      "zh-Hans": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "无法读取 SMB 文件。请保持服务器唤醒，连接同一局域网，并检查地址及访问权限。"
+        }
+      },
+      "zh-Hant": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "無法讀取 SMB 檔案。請保持伺服器喚醒，連接同一區域網路，並檢查位址及存取權限。"
+        }
+      },
+      "zh-HK": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "無法讀取 SMB 檔案。請保持伺服器喚醒，連接同一區域網路，並檢查位址及存取權限。"
+        }
+      }
+    }
+  },
+  "Too many SMB streams. Please try again later.": {
+    "extractionState": "manual",
+    "comment": "SMB connection, read-only audio access.",
+    "localizations": {
+      "en": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "Too many SMB streams. Please try again later."
+        }
+      },
+      "zh-Hans": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "SMB 读取任务过多，请稍后重试。"
+        }
+      },
+      "zh-Hant": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "SMB 讀取工作過多，請稍後重試。"
+        }
+      },
+      "zh-HK": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "SMB 讀取工作過多，請稍後重試。"
+        }
+      }
+    }
+  },
+  "Enter only the SMB shared-folder name, not a subfolder path.": {
+    "extractionState": "manual",
+    "comment": "SMB connection, read-only audio access.",
+    "localizations": {
+      "en": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "Enter only the SMB shared-folder name, not a subfolder path."
+        }
+      },
+      "zh-Hans": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "请仅填写 SMB 共享文件夹的名称，不要填写子目录路径；地址中的共享名称应与此处一致。"
+        }
+      },
+      "zh-Hant": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "請僅填寫 SMB 共享資料夾名稱，不要填寫子目錄路徑；位址中的共享名稱應與此處一致。"
+        }
+      },
+      "zh-HK": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "請僅填寫 SMB 共享資料夾名稱，不要填寫子目錄路徑；位址中的共享名稱應與此處一致。"
+        }
+      }
+    }
+  },
+  "This shared folder is empty. Add audio files on your server, then tap Refresh.": {
+    "extractionState": "manual",
+    "comment": "SMB connection, read-only audio access.",
+    "localizations": {
+      "en": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "This shared folder is empty. Add audio files on your server, then tap Refresh."
+        }
+      },
+      "zh-Hans": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "此共享文件夹为空。请在服务器上放入音频文件，然后点击“刷新”。"
+        }
+      },
+      "zh-Hant": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "此共享資料夾是空的。請在伺服器上放入音訊檔案，再點選「重新整理」。"
+        }
+      },
+      "zh-HK": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "此共享資料夾是空的。請在伺服器上放入音訊檔案，再點選「重新整理」。"
+        }
+      }
+    }
+  },
     "Please sign in to the same Box account.": {
       "extractionState": "manual",
       "localizations": {

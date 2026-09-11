@@ -67,6 +67,9 @@ extension ConnectConfigManager {
             if let dropboxUser = serverModel.dropboxUser, let _ = subFolder.dropboxFile {
                 subFolder.dropboxFile?.dropboxUser = dropboxUser
             }
+            if let user = serverModel.smbUser, subFolder.smbFile != nil {
+                subFolder.smbFile?.smbUser = user
+            }
             if let user = serverModel.boxUser, subFolder.boxFile != nil {
                 subFolder.boxFile?.boxUser = user
             }
@@ -105,6 +108,9 @@ extension ConnectConfigManager {
             }
             if let dropboxUser = serverModel.dropboxUser, let _ = subMusic.dropboxFile {
                 subMusic.dropboxFile?.dropboxUser = dropboxUser
+            }
+            if let user = serverModel.smbUser, subMusic.smbFile != nil {
+                subMusic.smbFile?.smbUser = user
             }
             if let user = serverModel.boxUser, subMusic.boxFile != nil {
                 subMusic.boxFile?.boxUser = user
@@ -153,6 +159,19 @@ extension ConnectConfigManager {
         
         self.favoriteMusicArray = musicArray
 
+        if let user = serverModel.smbUser {
+            SMBDriveService.shared.unlink(user)
+            self.lastPlaylist = self.lastPlaylist.filter { $0.smbFile?.smbUser != user }
+            let player = KakaMusicPlayer.shared
+            player.musicArray = player.musicArray.filter { $0.smbFile?.smbUser != user }
+            player.tempMusicArray = player.tempMusicArray.filter { $0.smbFile?.smbUser != user }
+            if player.nextPlayMusic?.smbFile?.smbUser == user { player.nextPlayMusic = nil }
+            if player.playingMusic?.smbFile?.smbUser == user {
+                player.stop()
+                player.playingMusic = nil
+                MusicConfigManager.shared.lastPlayModel = nil
+            }
+        }
         if let user = serverModel.boxUser {
             BoxDriveService.shared.unlink(user)
             self.lastPlaylist = self.lastPlaylist.filter { $0.boxFile?.boxUser != user }
@@ -360,6 +379,9 @@ extension ConnectConfigManager {
             if let dropboxFile = subModel.dropboxFile {
                 return dropboxFile.dropboxUser == serverModel?.dropboxUser
             }
+            if let file = subModel.smbFile, let user = serverModel?.smbUser {
+                return file.smbUser == user
+            }
             if let file = subModel.boxFile, let user = serverModel?.boxUser {
                 return file.boxUser == user
             }
@@ -404,6 +426,9 @@ extension ConnectConfigManager {
             
             if let dropboxFile = subModel.dropboxFile {
                 return dropboxFile.dropboxUser == serverModel?.dropboxUser
+            }
+            if let file = subModel.smbFile, let user = serverModel?.smbUser {
+                return file.smbUser == user
             }
             if let file = subModel.boxFile, let user = serverModel?.boxUser {
                 return file.boxUser == user

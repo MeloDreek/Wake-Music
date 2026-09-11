@@ -41,7 +41,26 @@ extension DownloadViewController {
     func handleMusicDownloadURL(_ tempModel: MusicItemModel) {
         var model = tempModel
         
-        if let file = model.boxFile {
+        if let file = model.smbFile {
+            self.isDownloading = true
+            SMBDriveService.shared.fileURL(file) { [weak self] result in
+                guard let self = self else { return }
+                guard DownloadManager.shared.taskArray.contains(model) else {
+                    self.isDownloading = false
+                    self.stopDownloadAction()
+                    return
+                }
+                switch result {
+                case .success(let url):
+                    model.mediaPlayURL = url
+                    self.downloadWithTask(model)
+                case .failure(let error):
+                    self.isDownloading = false
+                    self.stopDownloadAction()
+                    self.view.makeToast(error.errorDescription)
+                }
+            }
+        }else if let file = model.boxFile {
             self.isDownloading = true
             BoxDriveService.shared.fileURL(file) { [weak self] result in
                 guard let self = self else { return }
@@ -136,7 +155,7 @@ extension DownloadViewController {
             folderURL = folderURL.appendingPathComponent(downloadFolderName)
         }
         var targetFilePath = folderURL.appendingPathComponent(model.downloadPathName())
-        if model.pcloudFile != nil || model.boxFile != nil {
+        if model.pcloudFile != nil || model.boxFile != nil || model.smbFile != nil {
             // Different cloud folders can contain identically named songs. Preserve local files.
             let originalURL = targetFilePath
             var suffix = 1
@@ -165,7 +184,7 @@ extension DownloadViewController {
         }
         
         let request = AF.download(downloadURL, headers: headers, to: destination)
-        if model.pcloudFile != nil || model.boxFile != nil { request.validate(statusCode: 200..<300) }
+        if model.pcloudFile != nil || model.boxFile != nil || model.smbFile != nil { request.validate(statusCode: 200..<300) }
         request.downloadProgress { progressValue in
             let progress = progressValue.fractionCompleted
             debugPrint("下载进度 = \(progress)")
@@ -196,7 +215,7 @@ extension DownloadViewController {
                 }
                 break
             case .failure(let error):
-                if model.pcloudFile != nil || model.boxFile != nil, response.fileURL == destinationURL {
+                if model.pcloudFile != nil || model.boxFile != nil || model.smbFile != nil, response.fileURL == destinationURL {
                     // Validation occurs after moving a download; never retain an HTTP error body as music.
                     try? FileManager.default.removeItem(at: destinationURL)
                     self.stopDownloadAction()

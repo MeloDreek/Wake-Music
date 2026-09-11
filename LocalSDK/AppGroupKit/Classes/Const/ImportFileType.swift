@@ -49,7 +49,7 @@ public enum ImportFileType: String, CaseIterable, SmartCaseDefaultable {
     case fromNextcloud = "fromNextcloud"
     
     public func isAvailble() -> Bool {
-        let isAvailble = self == .fromUSB || self == .fromFile || self == .fromFolder || self == .fromVideos || self == .fromApple || self == .fromWebDav || self == .fromWiFi || self == .fromNavidrome || self == .fromBaiduDrive || self == .fromAliyunDrive || self == .from115Drive || self == .fromGoogleDrive || self == .fromDropboxDrive || self == .fromePCloud || self == .fromBoxDrive
+        let isAvailble = self == .fromUSB || self == .fromFile || self == .fromFolder || self == .fromVideos || self == .fromApple || self == .fromWebDav || self == .fromWiFi || self == .fromNavidrome || self == .fromBaiduDrive || self == .fromAliyunDrive || self == .from115Drive || self == .fromGoogleDrive || self == .fromDropboxDrive || self == .fromePCloud || self == .fromBoxDrive || self == .fromSMB
         
         return isAvailble
     }

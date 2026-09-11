@@ -12,7 +12,7 @@ public struct ServerConfigModel: SmartCodableX, Equatable, Hashable {
     
     public init() { }
     
-    public init(serverType: ImportFileType = ImportFileType.fromWebDav, isSelected: Bool = false, webdavUser: WebdavUserModel? = nil, navUser: NavidromeUserModel? = nil, baiduUser: BaiduDriveUserModel? = nil, aliyunUser: AliyunpanUserModel? = nil, drive115User: Drive115UserModel? = nil, googleUser: GoogleDriveUserModel? = nil, dropboxUser: DropboxDriveUserModel? = nil, onedriveUser: OneDriveUserModel? = nil, pcloudUser: PCloudDriveUserModel? = nil, boxUser: BoxDriveUserModel? = nil) {
+    public init(serverType: ImportFileType = ImportFileType.fromWebDav, isSelected: Bool = false, webdavUser: WebdavUserModel? = nil, navUser: NavidromeUserModel? = nil, baiduUser: BaiduDriveUserModel? = nil, aliyunUser: AliyunpanUserModel? = nil, drive115User: Drive115UserModel? = nil, googleUser: GoogleDriveUserModel? = nil, dropboxUser: DropboxDriveUserModel? = nil, onedriveUser: OneDriveUserModel? = nil, pcloudUser: PCloudDriveUserModel? = nil, boxUser: BoxDriveUserModel? = nil, smbUser: SMBDriveUserModel? = nil) {
         self.serverType = serverType
         self.isSelected = isSelected
         self.webdavUser = webdavUser
@@ -25,6 +25,7 @@ public struct ServerConfigModel: SmartCodableX, Equatable, Hashable {
         self.onedriveUser = onedriveUser
         self.pcloudUser = pcloudUser
         self.boxUser = boxUser
+        self.smbUser = smbUser
     }
     
     /// 导入方式的信息
@@ -59,6 +60,7 @@ public struct ServerConfigModel: SmartCodableX, Equatable, Hashable {
     public var onedriveUser: OneDriveUserModel?
 
     public var pcloudUser: PCloudDriveUserModel?
+    public var smbUser: SMBDriveUserModel?
     public var boxUser: BoxDriveUserModel?
     
     /// 提高查找效率
@@ -74,6 +76,7 @@ public struct ServerConfigModel: SmartCodableX, Equatable, Hashable {
         hasher.combine(onedriveUser)
         hasher.combine(pcloudUser)
         hasher.combine(boxUser)
+        hasher.combine(smbUser)
     }
     
     /// 判断两个模型的值是否一致
@@ -81,6 +84,7 @@ public struct ServerConfigModel: SmartCodableX, Equatable, Hashable {
         return lhs.serverType == rhs.serverType &&
         lhs.pcloudUser == rhs.pcloudUser &&
         lhs.boxUser == rhs.boxUser &&
+        lhs.smbUser == rhs.smbUser &&
         lhs.webdavUser?.username ==  rhs.webdavUser?.username &&
         lhs.navUser?.id ==  rhs.navUser?.id &&
         lhs.baiduUser?.uk ==  rhs.baiduUser?.uk &&
@@ -97,6 +101,7 @@ extension ServerConfigModel {
     
     /// 外显名称
     public func showTitle() -> String {
+        if let user = smbUser { return user.title }
         if boxUser != nil { return "Box" }
         if pcloudUser != nil { return "pCloud" }
         if self.serverType == .fromWebDav {
@@ -127,6 +132,7 @@ extension ServerConfigModel {
     
     /// 自定义的名称
     public func customNameStr() -> String? {
+        if let user = smbUser { return user.title }
         if let user = boxUser { return user.email.isEmpty ? "Box" : user.email }
         if let user = pcloudUser { return user.email.isEmpty ? "pCloud" : user.email }
         if let webdavUser = self.webdavUser {
@@ -162,6 +168,7 @@ extension ServerConfigModel {
     
     /// 网络协议
     public func networkProtocol() -> NetworkProtocol? {
+        if smbUser != nil { return .smb }
         if let webdavUser = self.webdavUser {
             return webdavUser.netProtocol
         }
@@ -171,6 +178,7 @@ extension ServerConfigModel {
     
     /// 主机地址
     public func hostURLStr() -> String? {
+        if let user = smbUser { return user.host }
         if let webdavUser = self.webdavUser {
             return webdavUser.hostUrl
         }
@@ -192,6 +200,7 @@ extension ServerConfigModel {
     
     /// 路径
     public func pathStr() -> String? {
+        if let user = smbUser { return user.share }
         if let webdavUser = self.webdavUser {
             return webdavUser.path
         }
@@ -205,6 +214,7 @@ extension ServerConfigModel {
     
     /// 端口
     public func portStr() -> String? {
+        if let user = smbUser { return String(user.port) }
         if let webdavUser = self.webdavUser {
             return webdavUser.port
         }
@@ -214,6 +224,7 @@ extension ServerConfigModel {
     
     /// 用户名
     public func usernameStr() -> String? {
+        if let user = smbUser { return user.username }
         if let webdavUser = self.webdavUser {
             return webdavUser.username
         }

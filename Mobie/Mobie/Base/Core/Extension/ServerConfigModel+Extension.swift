@@ -13,6 +13,7 @@ extension ServerConfigModel {
     
     /// 访问子文件夹的标题
     public func pageTitle() -> String {
+        if let user = smbUser { return user.title + " (" + user.host + ")" }
         if let user = boxUser { return user.email.isEmpty ? "Box" : user.email }
         if let user = pcloudUser { return user.email.isEmpty ? "pCloud" : user.email }
         
@@ -46,6 +47,7 @@ extension ServerConfigModel {
     
     /// 副标题
     func descString() -> String? {
+        if let user = smbUser { return user.title + " (" + user.host + ")" }
         if let user = boxUser { return user.email.isEmpty ? "Box" : user.email }
         if let user = pcloudUser { return user.email.isEmpty ? user.apiHostName : user.email }
         

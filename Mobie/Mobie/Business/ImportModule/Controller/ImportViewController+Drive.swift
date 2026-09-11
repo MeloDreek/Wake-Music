@@ -85,6 +85,8 @@ extension ImportViewController {
             self.importFromDropBoxDrive()
         }
         
+        if itemType == .fromSMB { self.connectSMB() }
+
         if itemType == .fromBoxDrive {
             self.connectBoxDrive()
         }
