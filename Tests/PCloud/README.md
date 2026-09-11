@@ -8,6 +8,7 @@
 
 ```sh
 bash Tests/PCloud/run-model-regressions.sh
+bash Tests/PCloud/run-status-regressions.sh
 ```
 
 直接编译仓库内的 SmartCodable、音频格式枚举和 pCloud 模型，执行 23 项检查。无网络请求，不读取任何真实账号、不初始化 App 或访问音乐库。构建产物保留在临时目录。
@@ -36,3 +37,14 @@ bash Tests/PCloud/run-model-regressions.sh
 - 新 App 文件已加入 Mobie、Mobie_Pro 两个 target；共享模型已加入现有 AppGroupKit Pod 工程。没有执行 `pod update` 或更改依赖版本。
 
 自动模型检查与构建通过不等同于真实账号联调；以上授权、网络与音频验收仍需实测。
+
+## 专属目录限制与空列表提示（2026-09-11）
+
+- 当前 pCloud 应用后台为 `Specific folder only` + `Read only`。真实账号已验证：`Applications/Wake Music` 为空时列表为空；将一首测试 MP3 复制进去后，现有授权可直接列举并播放。网页的 Audio 分类并不是可选的 OAuth 目录。
+- 根目录加载成功但为空时，说明只读访问范围、真实目录路径，以及通过 pCloud 网页或客户端添加音乐后刷新。不要把普通空目录说成授权或网络错误。
+- 空子文件夹提示添加音乐；搜索无结果提示更换搜索词，按钮清除搜索；实际请求失败仍显示原错误和重试。
+- 提示使用可滚动布局，避开安全区域、迷你播放器和键盘，支持动态字体。人工验收覆盖小屏、横屏、大字体、中英文与从右到左语言。
+- 新增三条提示覆盖英语源文案及现有 41 个本地化地区；同时修正已有 `Refresh` 在多种语言中误译为“脸红／冲洗”的问题。
+- `run-status-regressions.sh` 编译真实状态逻辑，检查根目录／子目录／搜索／失败分流、本地化完整性与路径占位符，不访问真实账号。
+- 日后 pCloud 批准扩大访问范围时，需要同步调整 `PCloudFileListEmptyState.appFolderMessage`，不能继续向全盘授权用户展示当前限制说明。
+- 本轮验证：305 项状态与本地化检查通过；最终代码的普通版 / Pro 版 iOS Simulator 构建均通过。独立预览检查了中英文、横屏以及阿拉伯语超大字体布局；后者的 240 pt 可视区对应约 2041 pt 内容高度，布局无歧义。自动化触摸拖动未观察到滚动变化，超大字体的手势滚动仍需人工确认。预览未使用真实账号或改动云端文件；Mac Catalyst 整包未在本轮重新验证。

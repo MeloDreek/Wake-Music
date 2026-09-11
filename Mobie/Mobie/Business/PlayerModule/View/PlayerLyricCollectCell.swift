@@ -332,6 +332,10 @@ class PlayerLyricCollectCell: UICollectionViewCell {
                 wSelf.delegate?.playerBasicCellDidSelectLyric(basicView: wSelf)
             }
         }
+        view.onEngineCallBack = { [weak self] () in
+            guard let wSelf = self else { return }
+            wSelf.delegate?.playerBasicCellDidPlayerEngine(basicView: wSelf)
+        }
         view.onFaqCallBack = { [weak self] () in
             guard let wSelf = self else { return }
             wSelf.delegate?.playerBasicCellDidFAQPage(basicView: wSelf)

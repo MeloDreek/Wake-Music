@@ -229,8 +229,15 @@ extension MiniPlayerLyricView: UITableViewDataSource, UITableViewDelegate {
             emptyCell.backgroundColor = .clear
             emptyCell.contentView.backgroundColor = .clear
             var emptyText = (self.model?.showTitleName() ?? "")
-            if KakaMusicPlayer.shared.isPlaying {
-                emptyText = emptyText + "\r\n" + "No Embedded Lyrics in This Song".localStr()
+            if let model = self.model, KakaMusicPlayer.shared.isPlaying {
+                
+                let isAVPlayerRemote = !model.isLocalFile() && MusicConfigManager.shared.playerEngine == .avPlayer
+
+                if isAVPlayerRemote {
+                    emptyText = emptyText + "\r\n" + "Switch to the All-Format Audio Engine".localStr()
+                }else{
+                    emptyText = emptyText + "\r\n" + "No Embedded Lyrics in This Song".localStr()
+                }
             }
             
             let textFont = UIFontBold(15.ckValue())

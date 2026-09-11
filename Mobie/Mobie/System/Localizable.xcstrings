@@ -1,6 +1,1266 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "Switch to the All-Format Audio Engine": {
+      "extractionState": "manual",
+      "comment": "Remote audio playback: suggest switching engines when embedded lyrics cannot be read. Shared by mini and full lyrics views.",
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "请切换至全格式音频引擎"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "請切換至全格式音訊引擎"
+          }
+        },
+        "zh-HK": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "請切換至全格式音訊引擎"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "全形式対応オーディオエンジンに切り替えてください"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "모든 형식 지원 오디오 엔진으로 전환하세요"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Passez au moteur audio tous formats"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zur Audio-Engine für alle Formate wechseln"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cambia al motor de audio multiformato"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Passa al motore audio multiformato"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mude para o mecanismo de áudio multiformato"
+          }
+        },
+        "pt-PT": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mude para o motor de áudio multiformato"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Schakel over naar de audio-engine voor alle formaten"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Переключитесь на аудиодвижок для всех форматов"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Перейдіть на аудіорушій для всіх форматів"
+          }
+        },
+        "pl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Przełącz na silnik audio obsługujący wszystkie formaty"
+          }
+        },
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Přepněte na zvukový modul pro všechny formáty"
+          }
+        },
+        "sk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Prepnite na zvukový modul pre všetky formáty"
+          }
+        },
+        "sl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Preklopite na zvočni pogon za vse formate"
+          }
+        },
+        "hr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Prijeđite na zvučni pogon za sve formate"
+          }
+        },
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Treci la motorul audio pentru toate formatele"
+          }
+        },
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Válts az összes formátumot támogató hangmotorra"
+          }
+        },
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Μεταβείτε στη μηχανή ήχου όλων των μορφών"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tüm formatları destekleyen ses motoruna geçin"
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "انتقل إلى محرك الصوت الداعم لجميع التنسيقات"
+          }
+        },
+        "he": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "יש לעבור למנוע השמע התומך בכל הפורמטים"
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "सभी फ़ॉर्मैट वाले ऑडियो इंजन पर स्विच करें"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เปลี่ยนไปใช้เอนจินเสียงที่รองรับทุกฟอร์แมต"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Chuyển sang bộ máy âm thanh hỗ trợ mọi định dạng"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Beralih ke mesin audio semua format"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tukar kepada enjin audio semua format"
+          }
+        },
+        "ca": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Canvia al motor d’àudio multiformat"
+          }
+        },
+        "da": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Skift til lydmotoren til alle formater"
+          }
+        },
+        "fi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vaihda kaikkia muotoja tukevaan äänimoottoriin"
+          }
+        },
+        "nb": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bytt til lydmotoren for alle formater"
+          }
+        },
+        "sv": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Byt till ljudmotorn för alla format"
+          }
+        },
+        "en-AU": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Switch to the All-Format Audio Engine"
+          }
+        },
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Switch to the All-Format Audio Engine"
+          }
+        },
+        "en-IN": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Switch to the All-Format Audio Engine"
+          }
+        },
+        "fr-CA": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Passez au moteur audio tous formats"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cambia al motor de audio multiformato"
+          }
+        },
+        "es-US": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cambia al motor de audio multiformato"
+          }
+        }
+      }
+    },
+    "The current engine cannot read embedded artwork or lyrics from remote audio files. Switch to the All-Format Audio Engine to read this metadata while streaming. This is a paid feature.": {
+      "extractionState": "manual",
+      "comment": "Explain remote embedded metadata support and disclose that the all-format engine is a paid feature. Does not promise lyrics when the file has none.",
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "当前播放引擎无法读取远程音频文件内嵌的封面或歌词。切换至全格式音频引擎，即可在在线播放时读取这些音乐元数据。此引擎为付费功能。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "目前的播放引擎無法讀取遠端音訊檔案內嵌的封面或歌詞。切換至全格式音訊引擎，即可在線上播放時讀取這些音樂中繼資料。此引擎為付費功能。"
+          }
+        },
+        "zh-HK": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "目前的播放引擎無法讀取遠端音訊檔案內嵌的封面或歌詞。切換至全格式音訊引擎，即可在串流播放時讀取這些音樂中繼資料。此引擎為付費功能。"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "現在のエンジンでは、リモート音声ファイルに埋め込まれたアートワークや歌詞を読み取れません。全形式対応オーディオエンジンに切り替えると、ストリーミング再生中でもこれらのメタデータを読み取れます。この機能は有料です。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "현재 엔진은 원격 오디오 파일에 내장된 앨범 아트나 가사를 읽을 수 없습니다. 모든 형식 지원 오디오 엔진으로 전환하면 스트리밍 중에도 이 메타데이터를 읽을 수 있습니다. 이 기능은 유료입니다."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Le moteur actuel ne peut pas lire les pochettes ni les paroles intégrées aux fichiers audio distants. Passez au moteur audio tous formats pour lire ces métadonnées pendant la lecture en streaming. Cette fonctionnalité est payante."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Die aktuelle Engine kann eingebettete Cover oder Liedtexte aus entfernten Audiodateien nicht lesen. Wechsle zur Audio-Engine für alle Formate, um diese Metadaten beim Streaming zu lesen. Diese Funktion ist kostenpflichtig."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "El motor actual no puede leer las carátulas ni las letras incrustadas en archivos de audio remotos. Cambia al motor de audio multiformato para leer estos metadatos durante la reproducción en streaming. Esta función es de pago."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Il motore attuale non può leggere le copertine o i testi incorporati nei file audio remoti. Passa al motore audio multiformato per leggere questi metadati durante lo streaming. Questa funzione è a pagamento."
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "O mecanismo atual não consegue ler capas ou letras incorporadas em arquivos de áudio remotos. Mude para o mecanismo de áudio multiformato para ler esses metadados durante o streaming. Este é um recurso pago."
+          }
+        },
+        "pt-PT": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "O motor atual não consegue ler capas ou letras incorporadas em ficheiros de áudio remotos. Mude para o motor de áudio multiformato para ler estes metadados durante a reprodução em streaming. Esta funcionalidade é paga."
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "De huidige engine kan ingesloten albumhoezen of songteksten in externe audiobestanden niet lezen. Schakel over naar de audio-engine voor alle formaten om deze metadata tijdens het streamen te lezen. Dit is een betaalde functie."
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Текущий движок не может читать встроенные обложки или тексты песен из удалённых аудиофайлов. Переключитесь на аудиодвижок для всех форматов, чтобы читать эти метаданные при потоковом воспроизведении. Это платная функция."
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Поточний рушій не може читати вбудовані обкладинки або тексти пісень із віддалених аудіофайлів. Перейдіть на аудіорушій для всіх форматів, щоб читати ці метадані під час потокового відтворення. Це платна функція."
+          }
+        },
+        "pl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Obecny silnik nie może odczytać osadzonych okładek ani tekstów piosenek ze zdalnych plików audio. Przełącz na silnik audio obsługujący wszystkie formaty, aby odczytywać te metadane podczas przesyłania strumieniowego. To funkcja płatna."
+          }
+        },
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aktuální modul nemůže číst vložené obaly ani texty písní ze vzdálených zvukových souborů. Přepněte na zvukový modul pro všechny formáty a čtěte tato metadata při streamování. Jde o placenou funkci."
+          }
+        },
+        "sk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aktuálny modul nedokáže čítať vložené obaly ani texty piesní zo vzdialených zvukových súborov. Prepnite na zvukový modul pre všetky formáty a čítajte tieto metadáta pri streamovaní. Ide o platenú funkciu."
+          }
+        },
+        "sl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Trenutni pogon ne more brati vdelanih naslovnic ali besedil pesmi iz oddaljenih zvočnih datotek. Preklopite na zvočni pogon za vse formate, da boste te metapodatke lahko brali med pretočnim predvajanjem. To je plačljiva funkcija."
+          }
+        },
+        "hr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Trenutačni pogon ne može čitati ugrađene omote ni tekstove pjesama iz udaljenih audiodatoteka. Prijeđite na zvučni pogon za sve formate kako biste čitali te metapodatke tijekom streaminga. Ovo je značajka koja se plaća."
+          }
+        },
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Motorul actual nu poate citi coperțile sau versurile încorporate în fișierele audio la distanță. Treci la motorul audio pentru toate formatele pentru a citi aceste metadate în timpul redării în flux. Această funcție este contra cost."
+          }
+        },
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "A jelenlegi motor nem tudja olvasni a távoli hangfájlokba ágyazott borítóképeket vagy dalszövegeket. Válts az összes formátumot támogató hangmotorra, hogy streamelés közben is olvashasd ezeket a metaadatokat. Ez fizetős funkció."
+          }
+        },
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Η τρέχουσα μηχανή δεν μπορεί να διαβάσει ενσωματωμένα εξώφυλλα ή στίχους από απομακρυσμένα αρχεία ήχου. Μεταβείτε στη μηχανή ήχου όλων των μορφών για να διαβάζετε αυτά τα μεταδεδομένα κατά τη συνεχή ροή. Αυτή η λειτουργία είναι επί πληρωμή."
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mevcut motor, uzak ses dosyalarına gömülü kapak görsellerini veya şarkı sözlerini okuyamaz. Bu meta verileri akış sırasında okuyabilmek için tüm formatları destekleyen ses motoruna geçin. Bu özellik ücretlidir."
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "لا يستطيع المحرك الحالي قراءة صور الأغلفة أو كلمات الأغاني المضمّنة في الملفات الصوتية البعيدة. انتقل إلى محرك الصوت الداعم لجميع التنسيقات لقراءة هذه البيانات الوصفية أثناء البث. هذه ميزة مدفوعة."
+          }
+        },
+        "he": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "המנוע הנוכחי אינו יכול לקרוא תמונות עטיפה או מילות שירים המוטמעות בקובצי שמע מרוחקים. יש לעבור למנוע השמע התומך בכל הפורמטים כדי לקרוא את המטא-נתונים האלה בזמן הזרמה. זו תכונה בתשלום."
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "मौजूदा इंजन दूरस्थ ऑडियो फ़ाइलों में एम्बेड किए गए कवर या गीत के बोल नहीं पढ़ सकता। स्ट्रीमिंग के दौरान यह मेटाडेटा पढ़ने के लिए सभी फ़ॉर्मैट वाले ऑडियो इंजन पर स्विच करें। यह सशुल्क सुविधा है।"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เอนจินปัจจุบันไม่สามารถอ่านภาพปกหรือเนื้อเพลงที่ฝังอยู่ในไฟล์เสียงระยะไกลได้ เปลี่ยนไปใช้เอนจินเสียงที่รองรับทุกฟอร์แมตเพื่ออ่านเมทาดาทาเหล่านี้ขณะสตรีม ฟีเจอร์นี้มีค่าใช้จ่าย"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bộ máy hiện tại không thể đọc ảnh bìa hoặc lời bài hát được nhúng trong tệp âm thanh từ xa. Chuyển sang bộ máy âm thanh hỗ trợ mọi định dạng để đọc siêu dữ liệu này khi phát trực tuyến. Đây là tính năng trả phí."
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mesin saat ini tidak dapat membaca sampul atau lirik yang disematkan dalam file audio jarak jauh. Beralih ke mesin audio semua format untuk membaca metadata ini saat streaming. Ini adalah fitur berbayar."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Enjin semasa tidak dapat membaca kulit album atau lirik yang terbenam dalam fail audio jauh. Tukar kepada enjin audio semua format untuk membaca metadata ini semasa penstriman. Ini ialah ciri berbayar."
+          }
+        },
+        "ca": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "El motor actual no pot llegir les portades ni les lletres incrustades en fitxers d’àudio remots. Canvia al motor d’àudio multiformat per llegir aquestes metadades durant la reproducció en continu. Aquesta funció és de pagament."
+          }
+        },
+        "da": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Den aktuelle motor kan ikke læse indlejrede omslag eller sangtekster fra eksterne lydfiler. Skift til lydmotoren til alle formater for at læse disse metadata under streaming. Dette er en betalingsfunktion."
+          }
+        },
+        "fi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nykyinen moottori ei voi lukea etänä tallennettuihin äänitiedostoihin upotettuja kansikuvia tai sanoituksia. Vaihda kaikkia muotoja tukevaan äänimoottoriin, jotta voit lukea näitä metatietoja suoratoiston aikana. Tämä on maksullinen ominaisuus."
+          }
+        },
+        "nb": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Den nåværende motoren kan ikke lese innebygde omslag eller sangtekster fra eksterne lydfiler. Bytt til lydmotoren for alle formater for å lese disse metadataene under strømming. Dette er en betalt funksjon."
+          }
+        },
+        "sv": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Den nuvarande motorn kan inte läsa inbäddade omslag eller låttexter från fjärrlagrade ljudfiler. Byt till ljudmotorn för alla format för att läsa dessa metadata under strömning. Det här är en betalfunktion."
+          }
+        },
+        "en-AU": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The current engine cannot read embedded artwork or lyrics from remote audio files. Switch to the All-Format Audio Engine to read this metadata while streaming. This is a paid feature."
+          }
+        },
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The current engine cannot read embedded artwork or lyrics from remote audio files. Switch to the All-Format Audio Engine to read this metadata while streaming. This is a paid feature."
+          }
+        },
+        "en-IN": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The current engine cannot read embedded artwork or lyrics from remote audio files. Switch to the All-Format Audio Engine to read this metadata while streaming. This is a paid feature."
+          }
+        },
+        "fr-CA": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Le moteur actuel ne peut pas lire les pochettes ni les paroles intégrées aux fichiers audio distants. Passez au moteur audio tous formats pour lire ces métadonnées pendant la lecture en streaming. Cette fonctionnalité est payante."
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "El motor actual no puede leer las carátulas ni las letras incrustadas en archivos de audio remotos. Cambia al motor de audio multiformato para leer estos metadatos durante la reproducción en streaming. Esta función es de pago."
+          }
+        },
+        "es-US": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "El motor actual no puede leer las carátulas ni las letras incrustadas en archivos de audio remotos. Cambia al motor de audio multiformato para leer estos metadatos durante la reproducción en streaming. Esta función es de pago."
+          }
+        }
+      }
+    },
+    "Connected to pCloud. Wake Music currently has read-only access to this folder:\n%@\n\nIn pCloud, copy or upload music to this folder, then tap Refresh. Music in other folders will not appear here, even if it is listed under Audio.": {
+      "extractionState": "manual",
+      "comment": "Shown only after successfully loading an empty pCloud root. %@ is the literal app folder path; do not translate the path.",
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "已连接 pCloud，但维克音乐目前只能以只读方式访问以下专属目录：\n%@\n\n请在 pCloud 网页或客户端中，将音乐复制或上传到此目录，然后点击“刷新”。其他目录中的音乐不会显示在这里，即使它们出现在 pCloud 的“音频”分类中。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "已連接 pCloud，但維克音樂目前只能以唯讀方式存取以下專屬目錄：\n%@\n\n請在 pCloud 網頁或用戶端中，將音樂複製或上傳至此目錄，然後點選「重新整理」。其他目錄中的音樂不會顯示在這裡，即使它們出現在 pCloud 的「音訊」分類中。"
+          }
+        },
+        "zh-HK": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "已連接 pCloud，但維克音樂目前只能以唯讀方式存取以下專屬目錄：\n%@\n\n請在 pCloud 網頁或應用程式中，將音樂複製或上傳至此目錄，然後按「刷新」。其他目錄中的音樂不會顯示在這裏，即使它們出現在 pCloud 的「音訊」分類中。"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "pCloud に接続しました。現在、Wake Music が読み取り専用でアクセスできるのは次のフォルダのみです：\n%@\n\npCloud のウェブサイトまたはアプリで、このフォルダに音楽をコピーまたはアップロードしてから「更新」をタップしてください。ほかのフォルダの音楽は、pCloud の「オーディオ」に表示されていても、ここには表示されません。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "pCloud에 연결되었습니다. 현재 Wake Music은 다음 폴더에만 읽기 전용으로 접근할 수 있습니다:\n%@\n\npCloud 웹사이트나 앱에서 이 폴더로 음악을 복사하거나 업로드한 후 ‘새로 고침’을 누르세요. 다른 폴더의 음악은 pCloud의 ‘오디오’에 표시되더라도 여기에 표시되지 않습니다."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Connexion à pCloud établie. Wake Music dispose actuellement d’un accès en lecture seule à ce dossier uniquement :\n%@\n\nDans pCloud, copiez ou importez de la musique dans ce dossier, puis touchez Actualiser. La musique située dans d’autres dossiers n’apparaîtra pas ici, même si elle figure dans la catégorie Audio."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mit pCloud verbunden. Wake Music hat derzeit nur Lesezugriff auf diesen Ordner:\n%@\n\nKopiere Musik in pCloud in diesen Ordner oder lade sie dort hoch. Tippe anschließend auf Aktualisieren. Musik aus anderen Ordnern erscheint hier nicht, auch wenn sie unter Audio aufgeführt ist."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Conectado a pCloud. Actualmente, Wake Music solo tiene acceso de lectura a esta carpeta:\n%@\n\nEn pCloud, copia o sube música a esta carpeta y pulsa Actualizar. La música de otras carpetas no aparecerá aquí, aunque figure en la categoría Audio."
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Conectado ao pCloud. No momento, o Wake Music tem acesso somente de leitura a esta pasta:\n%@\n\nNo pCloud, copie ou envie músicas para esta pasta e toque em Atualizar. Músicas de outras pastas não aparecerão aqui, mesmo que estejam na categoria Áudio."
+          }
+        },
+        "pt-PT": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ligado ao pCloud. Atualmente, o Wake Music só tem acesso de leitura a esta pasta:\n%@\n\nNo pCloud, copie ou carregue música para esta pasta e toque em Atualizar. A música de outras pastas não aparecerá aqui, mesmo que conste da categoria Áudio."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Connesso a pCloud. Al momento Wake Music ha accesso in sola lettura esclusivamente a questa cartella:\n%@\n\nIn pCloud, copia o carica la musica in questa cartella, poi tocca Aggiorna. La musica in altre cartelle non apparirà qui, anche se è elencata nella categoria Audio."
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Verbonden met pCloud. Wake Music heeft momenteel alleen leestoegang tot deze map:\n%@\n\nKopieer of upload in pCloud muziek naar deze map en tik op Vernieuwen. Muziek in andere mappen verschijnt hier niet, ook niet als deze onder Audio staat."
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Подключение к pCloud установлено. Сейчас Wake Music имеет доступ только для чтения лишь к этой папке:\n%@\n\nВ pCloud скопируйте или загрузите музыку в эту папку, затем нажмите «Обновить». Музыка из других папок здесь не появится, даже если она отображается в разделе «Аудио»."
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Підключено до pCloud. Наразі Wake Music має доступ лише для читання тільки до цієї папки:\n%@\n\nУ pCloud скопіюйте або завантажте музику до цієї папки, потім натисніть «Оновити». Музика з інших папок тут не з’явиться, навіть якщо вона відображається в розділі «Аудіо»."
+          }
+        },
+        "pl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Połączono z pCloud. Obecnie Wake Music ma dostęp tylko do odczytu wyłącznie do tego folderu:\n%@\n\nW pCloud skopiuj lub prześlij muzykę do tego folderu, a następnie stuknij Odśwież. Muzyka z innych folderów nie pojawi się tutaj, nawet jeśli jest widoczna w kategorii Audio."
+          }
+        },
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Připojeno k pCloud. Wake Music má nyní přístup pouze pro čtení jen k této složce:\n%@\n\nV pCloud zkopírujte nebo nahrajte hudbu do této složky a klepněte na Obnovit. Hudba v jiných složkách se zde nezobrazí, i když je uvedena v kategorii Audio."
+          }
+        },
+        "sk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pripojené k pCloud. Wake Music má momentálne prístup iba na čítanie len k tomuto priečinku:\n%@\n\nV pCloud skopírujte alebo nahrajte hudbu do tohto priečinka a klepnite na Obnoviť. Hudba v iných priečinkoch sa tu nezobrazí, aj keď je uvedená v kategórii Audio."
+          }
+        },
+        "sl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Povezava s pCloud je vzpostavljena. Wake Music ima trenutno dostop samo za branje le do te mape:\n%@\n\nV pCloud kopirajte ali naložite glasbo v to mapo in tapnite Osveži. Glasba v drugih mapah se tukaj ne bo prikazala, tudi če je navedena v kategoriji Zvok."
+          }
+        },
+        "hr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Povezano s pCloudom. Wake Music trenutačno ima pristup samo za čitanje isključivo ovoj mapi:\n%@\n\nU pCloudu kopirajte ili prenesite glazbu u ovu mapu, a zatim dodirnite Osvježi. Glazba iz drugih mapa ovdje se neće prikazati, čak i ako je navedena u kategoriji Audio."
+          }
+        },
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Conectat la pCloud. În prezent, Wake Music are acces numai pentru citire doar la acest dosar:\n%@\n\nÎn pCloud, copiază sau încarcă muzică în acest dosar, apoi atinge Reîmprospătează. Muzica din alte dosare nu va apărea aici, chiar dacă este afișată în categoria Audio."
+          }
+        },
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Csatlakozva a pCloudhoz. A Wake Music jelenleg csak ehhez a mappához fér hozzá, kizárólag olvasásra:\n%@\n\nA pCloudban másolj vagy tölts fel zenét ebbe a mappába, majd koppints a Frissítés gombra. Más mappák zenéi itt nem jelennek meg, akkor sem, ha az Audio kategóriában szerepelnek."
+          }
+        },
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Συνδεθήκατε στο pCloud. Προς το παρόν, το Wake Music έχει πρόσβαση μόνο για ανάγνωση αποκλειστικά σε αυτόν τον φάκελο:\n%@\n\nΣτο pCloud, αντιγράψτε ή ανεβάστε μουσική σε αυτόν τον φάκελο και πατήστε Ανανέωση. Η μουσική σε άλλους φακέλους δεν θα εμφανίζεται εδώ, ακόμη κι αν περιλαμβάνεται στην κατηγορία Ήχος."
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "pCloud’a bağlandı. Wake Music şu anda yalnızca bu klasöre salt okunur erişime sahiptir:\n%@\n\npCloud’da müziklerinizi bu klasöre kopyalayın veya yükleyin, ardından Yenile’ye dokunun. Diğer klasörlerdeki müzikler, Ses kategorisinde listelenseler bile burada görünmez."
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "تم الاتصال بـ pCloud. يستطيع Wake Music حاليًا الوصول للقراءة فقط إلى هذا المجلد دون غيره:\n%@\n\nفي pCloud، انسخ الموسيقى أو ارفعها إلى هذا المجلد، ثم اضغط على «تحديث». لن تظهر هنا الموسيقى الموجودة في مجلدات أخرى، حتى لو كانت مدرجة ضمن فئة الصوت."
+          }
+        },
+        "he": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "החיבור ל-pCloud הושלם. כרגע ל-Wake Music יש גישת קריאה בלבד לתיקייה הזו בלבד:\n%@\n\nב-pCloud, יש להעתיק או להעלות מוזיקה לתיקייה הזו ואז להקיש על רענון. מוזיקה בתיקיות אחרות לא תופיע כאן, גם אם היא מופיעה בקטגוריית השמע."
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "pCloud से कनेक्ट हो गया है। फ़िलहाल Wake Music को केवल इस फ़ोल्डर को पढ़ने की अनुमति है:\n%@\n\npCloud में संगीत को इस फ़ोल्डर में कॉपी या अपलोड करें, फिर रीफ़्रेश पर टैप करें। अन्य फ़ोल्डर का संगीत यहाँ नहीं दिखेगा, भले ही वह ऑडियो श्रेणी में सूचीबद्ध हो।"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เชื่อมต่อกับ pCloud แล้ว ขณะนี้ Wake Music มีสิทธิ์อ่านอย่างเดียวเฉพาะโฟลเดอร์นี้:\n%@\n\nใน pCloud ให้คัดลอกหรืออัปโหลดเพลงลงในโฟลเดอร์นี้ แล้วแตะรีเฟรช เพลงในโฟลเดอร์อื่นจะไม่แสดงที่นี่ แม้ว่าจะอยู่ในหมวดเสียงก็ตาม"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Đã kết nối với pCloud. Hiện tại, Wake Music chỉ có quyền đọc thư mục này:\n%@\n\nTrong pCloud, hãy sao chép hoặc tải nhạc lên thư mục này, rồi nhấn Làm mới. Nhạc trong các thư mục khác sẽ không xuất hiện ở đây, dù được liệt kê trong mục Âm thanh."
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Terhubung ke pCloud. Saat ini Wake Music hanya memiliki akses baca ke folder ini:\n%@\n\nDi pCloud, salin atau unggah musik ke folder ini, lalu ketuk Segarkan. Musik di folder lain tidak akan muncul di sini, meskipun tercantum dalam kategori Audio."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Disambungkan ke pCloud. Pada masa ini, Wake Music hanya mempunyai akses baca sahaja ke folder ini:\n%@\n\nDalam pCloud, salin atau muat naik muzik ke folder ini, kemudian ketik Muat Semula. Muzik dalam folder lain tidak akan dipaparkan di sini, walaupun disenaraikan dalam kategori Audio."
+          }
+        },
+        "ca": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Connectat a pCloud. Actualment, Wake Music només té accés de lectura a aquesta carpeta:\n%@\n\nA pCloud, copia o puja música a aquesta carpeta i toca Actualitza. La música d’altres carpetes no apareixerà aquí, encara que figuri a la categoria Àudio."
+          }
+        },
+        "da": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Forbundet til pCloud. Wake Music har i øjeblikket kun læseadgang til denne mappe:\n%@\n\nKopiér eller upload musik til denne mappe i pCloud, og tryk på Opdater. Musik i andre mapper vises ikke her, selvom den er angivet under Lyd."
+          }
+        },
+        "fi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Yhdistetty pCloudiin. Wake Musicilla on tällä hetkellä vain lukuoikeus ainoastaan tähän kansioon:\n%@\n\nKopioi tai lataa musiikkia tähän kansioon pCloudissa ja napauta Päivitä. Muiden kansioiden musiikki ei näy täällä, vaikka se näkyisi Ääni-luokassa."
+          }
+        },
+        "nb": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Koblet til pCloud. Wake Music har for øyeblikket bare lesetilgang til denne mappen:\n%@\n\nKopier eller last opp musikk til denne mappen i pCloud, og trykk på Oppdater. Musikk i andre mapper vises ikke her, selv om den er oppført under Lyd."
+          }
+        },
+        "sv": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ansluten till pCloud. Wake Music har för närvarande endast läsåtkomst till den här mappen:\n%@\n\nKopiera eller ladda upp musik till den här mappen i pCloud och tryck på Uppdatera. Musik i andra mappar visas inte här, även om den finns i kategorin Ljud."
+          }
+        },
+        "en-AU": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Connected to pCloud. Wake Music currently has read-only access to this folder:\n%@\n\nIn pCloud, copy or upload music to this folder, then tap Refresh. Music in other folders will not appear here, even if it is listed under Audio."
+          }
+        },
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Connected to pCloud. Wake Music currently has read-only access to this folder:\n%@\n\nIn pCloud, copy or upload music to this folder, then tap Refresh. Music in other folders will not appear here, even if it is listed under Audio."
+          }
+        },
+        "en-IN": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Connected to pCloud. Wake Music currently has read-only access to this folder:\n%@\n\nIn pCloud, copy or upload music to this folder, then tap Refresh. Music in other folders will not appear here, even if it is listed under Audio."
+          }
+        },
+        "fr-CA": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Connexion à pCloud établie. Wake Music dispose actuellement d’un accès en lecture seule à ce dossier uniquement :\n%@\n\nDans pCloud, copiez ou importez de la musique dans ce dossier, puis touchez Actualiser. La musique située dans d’autres dossiers n’apparaîtra pas ici, même si elle figure dans la catégorie Audio."
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Conectado a pCloud. Actualmente, Wake Music solo tiene acceso de lectura a esta carpeta:\n%@\n\nEn pCloud, copia o sube música a esta carpeta y pulsa Actualizar. La música de otras carpetas no aparecerá aquí, aunque figure en la categoría Audio."
+          }
+        },
+        "es-US": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Conectado a pCloud. Actualmente, Wake Music solo tiene acceso de lectura a esta carpeta:\n%@\n\nEn pCloud, copia o sube música a esta carpeta y pulsa Actualizar. La música de otras carpetas no aparecerá aquí, aunque figure en la categoría Audio."
+          }
+        }
+      }
+    },
+    "This folder is empty. Add music to this folder in pCloud, then tap Refresh.": {
+      "extractionState": "manual",
+      "comment": "pCloud file browser empty state.",
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "此文件夹为空。请在 pCloud 中将音乐放入此文件夹，然后点击“刷新”。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "此資料夾是空的。請在 pCloud 中將音樂放入此資料夾，然後點選「重新整理」。"
+          }
+        },
+        "zh-HK": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "此資料夾是空的。請在 pCloud 中將音樂放入此資料夾，然後按「刷新」。"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "このフォルダは空です。pCloud でこのフォルダに音楽を追加してから「更新」をタップしてください。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "이 폴더는 비어 있습니다. pCloud에서 이 폴더에 음악을 추가한 후 ‘새로 고침’을 누르세요."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ce dossier est vide. Ajoutez-y de la musique dans pCloud, puis touchez Actualiser."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dieser Ordner ist leer. Füge in pCloud Musik zu diesem Ordner hinzu und tippe auf Aktualisieren."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Esta carpeta está vacía. Añade música a esta carpeta en pCloud y pulsa Actualizar."
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Esta pasta está vazia. Adicione músicas a esta pasta no pCloud e toque em Atualizar."
+          }
+        },
+        "pt-PT": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Esta pasta está vazia. Adicione música a esta pasta no pCloud e toque em Atualizar."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Questa cartella è vuota. Aggiungi musica a questa cartella in pCloud, poi tocca Aggiorna."
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Deze map is leeg. Voeg in pCloud muziek toe aan deze map en tik op Vernieuwen."
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Эта папка пуста. Добавьте в неё музыку в pCloud, затем нажмите «Обновить»."
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ця папка порожня. Додайте до неї музику в pCloud, потім натисніть «Оновити»."
+          }
+        },
+        "pl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ten folder jest pusty. Dodaj do niego muzykę w pCloud, a następnie stuknij Odśwież."
+          }
+        },
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tato složka je prázdná. Přidejte do ní hudbu v pCloud a klepněte na Obnovit."
+          }
+        },
+        "sk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tento priečinok je prázdny. Pridajte doň hudbu v pCloud a klepnite na Obnoviť."
+          }
+        },
+        "sl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ta mapa je prazna. Dodajte glasbo v to mapo v pCloud in tapnite Osveži."
+          }
+        },
+        "hr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ova je mapa prazna. Dodajte glazbu u ovu mapu u pCloudu, a zatim dodirnite Osvježi."
+          }
+        },
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Acest dosar este gol. Adaugă muzică în acest dosar în pCloud, apoi atinge Reîmprospătează."
+          }
+        },
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ez a mappa üres. Adj hozzá zenét a pCloudban, majd koppints a Frissítés gombra."
+          }
+        },
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Αυτός ο φάκελος είναι κενός. Προσθέστε μουσική σε αυτόν τον φάκελο στο pCloud και πατήστε Ανανέωση."
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bu klasör boş. pCloud’da bu klasöre müzik ekleyin, ardından Yenile’ye dokunun."
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "هذا المجلد فارغ. أضف موسيقى إلى هذا المجلد في pCloud، ثم اضغط على «تحديث»."
+          }
+        },
+        "he": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "התיקייה הזו ריקה. יש להוסיף אליה מוזיקה ב-pCloud ואז להקיש על רענון."
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "यह फ़ोल्डर खाली है। pCloud में इस फ़ोल्डर में संगीत जोड़ें, फिर रीफ़्रेश पर टैप करें।"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "โฟลเดอร์นี้ว่างอยู่ เพิ่มเพลงลงในโฟลเดอร์นี้ใน pCloud แล้วแตะรีเฟรช"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Thư mục này trống. Thêm nhạc vào thư mục này trong pCloud, rồi nhấn Làm mới."
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Folder ini kosong. Tambahkan musik ke folder ini di pCloud, lalu ketuk Segarkan."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Folder ini kosong. Tambahkan muzik ke folder ini dalam pCloud, kemudian ketik Muat Semula."
+          }
+        },
+        "ca": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aquesta carpeta és buida. Afegeix-hi música a pCloud i toca Actualitza."
+          }
+        },
+        "da": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Denne mappe er tom. Føj musik til denne mappe i pCloud, og tryk på Opdater."
+          }
+        },
+        "fi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tämä kansio on tyhjä. Lisää musiikkia tähän kansioon pCloudissa ja napauta Päivitä."
+          }
+        },
+        "nb": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Denne mappen er tom. Legg til musikk i denne mappen i pCloud, og trykk på Oppdater."
+          }
+        },
+        "sv": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Den här mappen är tom. Lägg till musik i den här mappen i pCloud och tryck på Uppdatera."
+          }
+        },
+        "en-AU": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "This folder is empty. Add music to this folder in pCloud, then tap Refresh."
+          }
+        },
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "This folder is empty. Add music to this folder in pCloud, then tap Refresh."
+          }
+        },
+        "en-IN": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "This folder is empty. Add music to this folder in pCloud, then tap Refresh."
+          }
+        },
+        "fr-CA": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ce dossier est vide. Ajoutez-y de la musique dans pCloud, puis touchez Actualiser."
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Esta carpeta está vacía. Añade música a esta carpeta en pCloud y pulsa Actualizar."
+          }
+        },
+        "es-US": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Esta carpeta está vacía. Añade música a esta carpeta en pCloud y pulsa Actualizar."
+          }
+        }
+      }
+    },
+    "No matching files in this folder. Try a different search.": {
+      "extractionState": "manual",
+      "comment": "pCloud file browser empty state.",
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "此文件夹中没有匹配的文件，请尝试其他搜索词。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "此資料夾中沒有相符的檔案，請嘗試其他搜尋字詞。"
+          }
+        },
+        "zh-HK": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "此資料夾中沒有相符的檔案，請嘗試其他搜尋字詞。"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "このフォルダに一致するファイルはありません。別の検索語をお試しください。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "이 폴더에 일치하는 파일이 없습니다. 다른 검색어를 사용해 보세요."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aucun fichier correspondant dans ce dossier. Essayez une autre recherche."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Keine passenden Dateien in diesem Ordner. Versuche einen anderen Suchbegriff."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No hay archivos que coincidan en esta carpeta. Prueba con otra búsqueda."
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nenhum arquivo correspondente nesta pasta. Tente outra busca."
+          }
+        },
+        "pt-PT": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Não há ficheiros correspondentes nesta pasta. Experimente outra pesquisa."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nessun file corrispondente in questa cartella. Prova un’altra ricerca."
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Geen overeenkomende bestanden in deze map. Probeer een andere zoekopdracht."
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "В этой папке нет подходящих файлов. Попробуйте другой поисковый запрос."
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "У цій папці немає відповідних файлів. Спробуйте інший пошуковий запит."
+          }
+        },
+        "pl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Brak pasujących plików w tym folderze. Spróbuj innego wyszukiwania."
+          }
+        },
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "V této složce nejsou žádné odpovídající soubory. Zkuste jiné vyhledávání."
+          }
+        },
+        "sk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "V tomto priečinku nie sú žiadne zodpovedajúce súbory. Skúste iné vyhľadávanie."
+          }
+        },
+        "sl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "V tej mapi ni ustreznih datotek. Poskusite z drugim iskanjem."
+          }
+        },
+        "hr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "U ovoj mapi nema odgovarajućih datoteka. Pokušajte s drugim pojmom za pretraživanje."
+          }
+        },
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nu există fișiere corespunzătoare în acest dosar. Încearcă altă căutare."
+          }
+        },
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nincsenek megfelelő fájlok ebben a mappában. Próbálj más keresést."
+          }
+        },
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Δεν υπάρχουν αρχεία που να ταιριάζουν σε αυτόν τον φάκελο. Δοκιμάστε διαφορετική αναζήτηση."
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bu klasörde eşleşen dosya yok. Farklı bir arama deneyin."
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "لا توجد ملفات مطابقة في هذا المجلد. جرّب بحثًا مختلفًا."
+          }
+        },
+        "he": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "אין קבצים תואמים בתיקייה הזו. כדאי לנסות חיפוש אחר."
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "इस फ़ोल्डर में कोई मेल खाती फ़ाइल नहीं मिली। कुछ और खोजकर देखें।"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ไม่พบไฟล์ที่ตรงกันในโฟลเดอร์นี้ ลองใช้คำค้นหาอื่น"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Không có tệp phù hợp trong thư mục này. Hãy thử từ khóa khác."
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tidak ada file yang cocok di folder ini. Coba pencarian lain."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tiada fail yang sepadan dalam folder ini. Cuba carian lain."
+          }
+        },
+        "ca": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No hi ha fitxers coincidents en aquesta carpeta. Prova una altra cerca."
+          }
+        },
+        "da": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ingen matchende filer i denne mappe. Prøv en anden søgning."
+          }
+        },
+        "fi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tässä kansiossa ei ole hakua vastaavia tiedostoja. Kokeile toista hakua."
+          }
+        },
+        "nb": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ingen samsvarende filer i denne mappen. Prøv et annet søk."
+          }
+        },
+        "sv": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Inga matchande filer i den här mappen. Prova en annan sökning."
+          }
+        },
+        "en-AU": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No matching files in this folder. Try a different search."
+          }
+        },
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No matching files in this folder. Try a different search."
+          }
+        },
+        "en-IN": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No matching files in this folder. Try a different search."
+          }
+        },
+        "fr-CA": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aucun fichier correspondant dans ce dossier. Essayez une autre recherche."
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No hay archivos que coincidan en esta carpeta. Prueba con otra búsqueda."
+          }
+        },
+        "es-US": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No hay archivos que coincidan en esta carpeta. Prueba con otra búsqueda."
+          }
+        }
+      }
+    },
     "Please sign in to the same pCloud account." : {
       "extractionState" : "manual",
       "localizations" : {
@@ -99086,253 +100346,253 @@
         }
       }
     },
-    "Refresh" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "مسح"
+    "Refresh": {
+      "extractionState": "manual",
+      "localizations": {
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "刷新"
           }
         },
-        "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Envermellit"
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "重新整理"
           }
         },
-        "cs" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Zrudlý"
+        "zh-HK": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "刷新"
           }
         },
-        "da" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Skyllet"
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "更新"
           }
         },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Gerötet"
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "새로 고침"
           }
         },
-        "el" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ξεπλυθεί"
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Actualiser"
           }
         },
-        "en-AU" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Refresh"
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aktualisieren"
           }
         },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Refresh"
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Actualizar"
           }
         },
-        "en-IN" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Refresh"
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Atualizar"
           }
         },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Enrojecida"
+        "pt-PT": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Atualizar"
           }
         },
-        "es-419" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Enrojecida"
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aggiorna"
           }
         },
-        "es-US" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Enrojecida"
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vernieuwen"
           }
         },
-        "fi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Punaposkinen"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Обновить"
           }
         },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Rincé"
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Оновити"
           }
         },
-        "fr-CA" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Rincé"
+        "pl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Odśwież"
           }
         },
-        "he" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "סמוק"
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Obnovit"
           }
         },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "प्लावित"
+        "sk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Obnoviť"
           }
         },
-        "hr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ispran"
+        "sl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Osveži"
           }
         },
-        "hu" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Kipirult"
+        "hr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Osvježi"
           }
         },
-        "id" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Memerah"
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Reîmprospătează"
           }
         },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Accaldato"
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Frissítés"
           }
         },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "フラッシュ"
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ανανέωση"
           }
         },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "플러시"
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Yenile"
           }
         },
-        "ms" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Memerah"
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "تحديث"
           }
         },
-        "nb" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Spyles"
+        "he": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "רענון"
           }
         },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Gespoeld"
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "रीफ़्रेश"
           }
         },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Opróżniany"
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "รีเฟรช"
           }
         },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Liberado"
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Làm mới"
           }
         },
-        "pt-PT" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Rubor"
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Segarkan"
           }
         },
-        "ro" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Eliminate"
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Muat Semula"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Покраснел"
+        "ca": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Actualitza"
           }
         },
-        "sk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Vyprázdnia"
+        "da": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Opdater"
           }
         },
-        "sl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Osveži"
+        "fi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Päivitä"
           }
         },
-        "sv" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Spolas"
+        "nb": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Oppdater"
           }
         },
-        "th" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ฟลัชชิด"
+        "sv": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Uppdatera"
           }
         },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Temiz -lendi"
+        "en-AU": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Refresh"
           }
         },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Почервонів"
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Refresh"
           }
         },
-        "vi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Đỏ bừng"
+        "en-IN": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Refresh"
           }
         },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "刷新"
+        "fr-CA": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Actualiser"
           }
         },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Refresh"
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Actualizar"
           }
         },
-        "zh-HK" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "刷新"
+        "es-US": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Actualizar"
           }
         }
       }

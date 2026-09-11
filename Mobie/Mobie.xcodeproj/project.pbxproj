@@ -101,9 +101,7 @@
 		224C9BD32DD0F26B000CCA6C /* AppDelegate+Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224C9BD22DD0F26B000CCA6C /* AppDelegate+Action.swift */; };
 		224C9BD42DD0F26B000CCA6C /* AppDelegate+Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224C9BD22DD0F26B000CCA6C /* AppDelegate+Action.swift */; };
 		224DAE3C2EAE5961003CFAAC /* DriveUserModel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224DAE3B2EAE5961003CFAAC /* DriveUserModel+Extension.swift */; };
-		C10D00000000000000000001 /* PCloudDriveService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10D00000000000000000002 /* PCloudDriveService.swift */; };
 		224DAE3D2EAE5961003CFAAC /* DriveUserModel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224DAE3B2EAE5961003CFAAC /* DriveUserModel+Extension.swift */; };
-		C10D00000000000000000003 /* PCloudDriveService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10D00000000000000000002 /* PCloudDriveService.swift */; };
 		2250931B2D705965003BE202 /* NavidromeViewController+Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2250931A2D705965003BE202 /* NavidromeViewController+Request.swift */; };
 		225100722CCA4E8B005AFD62 /* FullScreenNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225100712CCA4E8B005AFD62 /* FullScreenNavController.swift */; };
 		22526E0A2E84F59C00C32DBF /* KSPlayer in Frameworks */ = {isa = PBXBuildFile; productRef = 22526E092E84F59C00C32DBF /* KSPlayer */; };
@@ -162,9 +160,7 @@
 		2259F6E92CA278450041CA38 /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 2259F6E82CA278450041CA38 /* InfoPlist.xcstrings */; };
 		2259F6EB2CA2784E0041CA38 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 2259F6EA2CA2784E0041CA38 /* Localizable.xcstrings */; };
 		225A5D8F2EAFB4EA009DB87E /* DropboxDriveFileListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225A5D8E2EAFB4EA009DB87E /* DropboxDriveFileListController.swift */; };
-		C10D00000000000000000004 /* PCloudDriveFileListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10D00000000000000000005 /* PCloudDriveFileListController.swift */; };
 		225A5D902EAFB4EA009DB87E /* DropboxDriveFileListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225A5D8E2EAFB4EA009DB87E /* DropboxDriveFileListController.swift */; };
-		C10D00000000000000000006 /* PCloudDriveFileListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10D00000000000000000005 /* PCloudDriveFileListController.swift */; };
 		225B41E52E43419600EF07FE /* ResponseDrive115Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225B41E42E43419600EF07FE /* ResponseDrive115Model.swift */; };
 		225B41E62E43419600EF07FE /* ResponseDrive115Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225B41E42E43419600EF07FE /* ResponseDrive115Model.swift */; };
 		225DE65E2CCE640C00F4367E /* PlayerControlFloatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225DE65D2CCE640C00F4367E /* PlayerControlFloatView.swift */; };
@@ -388,9 +384,7 @@
 		226AF34C2E21103F007C44DF /* ConnectNavidromeArtistCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226AF34B2E21103F007C44DF /* ConnectNavidromeArtistCell.swift */; };
 		226AF34D2E21103F007C44DF /* ConnectNavidromeArtistCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226AF34B2E21103F007C44DF /* ConnectNavidromeArtistCell.swift */; };
 		226AF34F2E236738007C44DF /* KakaMusicPlayer+API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226AF34E2E236738007C44DF /* KakaMusicPlayer+API.swift */; };
-		C10D00000000000000000007 /* KakaMusicPlayer+PCloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10D00000000000000000008 /* KakaMusicPlayer+PCloud.swift */; };
 		226AF3502E236738007C44DF /* KakaMusicPlayer+API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226AF34E2E236738007C44DF /* KakaMusicPlayer+API.swift */; };
-		C10D00000000000000000009 /* KakaMusicPlayer+PCloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10D00000000000000000008 /* KakaMusicPlayer+PCloud.swift */; };
 		226C9C212D1FE089003A3CE8 /* CollectionDetialHeadCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226C9C202D1FE089003A3CE8 /* CollectionDetialHeadCell.swift */; };
 		226C9C232D200734003A3CE8 /* AuthWebdavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226C9C222D200734003A3CE8 /* AuthWebdavViewController.swift */; };
 		226DFB6E2D657E0F00E3BE06 /* AuthNavidromeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226DFB6D2D657E0F00E3BE06 /* AuthNavidromeController.swift */; };
@@ -623,6 +617,8 @@
 		22C25742302D937200A68C1B /* MusicConfigManager+Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C25740302D937200A68C1B /* MusicConfigManager+Action.swift */; };
 		22C287AA30530BAE00801D66 /* PCloudSDKSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 22C287A930530BAE00801D66 /* PCloudSDKSwift */; };
 		22C287AC30530BC200801D66 /* PCloudSDKSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 22C287AB30530BC200801D66 /* PCloudSDKSwift */; };
+		22C287AE3053C6B700801D66 /* NoneLyriclistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C287AD3053C6B700801D66 /* NoneLyriclistView.swift */; };
+		22C287AF3053C6B700801D66 /* NoneLyriclistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C287AD3053C6B700801D66 /* NoneLyriclistView.swift */; };
 		22C707712DCB9C1700A1B79A /* MacTabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C707702DCB9C1700A1B79A /* MacTabbarViewController.swift */; };
 		22C707722DCB9C1700A1B79A /* MacTabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C707702DCB9C1700A1B79A /* MacTabbarViewController.swift */; };
 		22C707742DCB9C2100A1B79A /* MacTabbarViewController+Drop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C707732DCB9C2100A1B79A /* MacTabbarViewController+Drop.swift */; };
@@ -702,6 +698,14 @@
 		A763817D2EDEB7770040A84D /* MPVPlayer in Frameworks */ = {isa = PBXBuildFile; productRef = A763817C2EDEB7770040A84D /* MPVPlayer */; };
 		A76381FF2EDED27C0040A84D /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = A76381FE2EDED27C0040A84D /* Alamofire */; };
 		A76382012EDED2E60040A84D /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = A76382002EDED2E60040A84D /* Alamofire */; };
+		C10D00000000000000000001 /* PCloudDriveService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10D00000000000000000002 /* PCloudDriveService.swift */; };
+		C10D00000000000000000003 /* PCloudDriveService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10D00000000000000000002 /* PCloudDriveService.swift */; };
+		C10D00000000000000000004 /* PCloudDriveFileListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10D00000000000000000005 /* PCloudDriveFileListController.swift */; };
+		C10D00000000000000000006 /* PCloudDriveFileListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10D00000000000000000005 /* PCloudDriveFileListController.swift */; };
+		C10D00000000000000000007 /* KakaMusicPlayer+PCloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10D00000000000000000008 /* KakaMusicPlayer+PCloud.swift */; };
+		C10D00000000000000000009 /* KakaMusicPlayer+PCloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10D00000000000000000008 /* KakaMusicPlayer+PCloud.swift */; };
+		C10E00000000000000000001 /* PCloudFileListStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10E00000000000000000002 /* PCloudFileListStatus.swift */; };
+		C10E00000000000000000003 /* PCloudFileListStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10E00000000000000000002 /* PCloudFileListStatus.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -776,7 +780,6 @@
 		224C9BCC2DD0A1ED000CCA6C /* LRCLyricTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LRCLyricTableViewCell.swift; sourceTree = "<group>"; };
 		224C9BD22DD0F26B000CCA6C /* AppDelegate+Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Action.swift"; sourceTree = "<group>"; };
 		224DAE3B2EAE5961003CFAAC /* DriveUserModel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DriveUserModel+Extension.swift"; sourceTree = "<group>"; };
-		C10D00000000000000000002 /* PCloudDriveService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PCloudDriveService.swift"; sourceTree = "<group>"; };
 		2250931A2D705965003BE202 /* NavidromeViewController+Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NavidromeViewController+Request.swift"; sourceTree = "<group>"; };
 		225100712CCA4E8B005AFD62 /* FullScreenNavController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenNavController.swift; sourceTree = "<group>"; };
 		2252C7572F8A132400A8DDE5 /* AliyunDriveFileListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AliyunDriveFileListController.swift; sourceTree = "<group>"; };
@@ -818,7 +821,6 @@
 		2259F6E82CA278450041CA38 /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
 		2259F6EA2CA2784E0041CA38 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		225A5D8E2EAFB4EA009DB87E /* DropboxDriveFileListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropboxDriveFileListController.swift; sourceTree = "<group>"; };
-		C10D00000000000000000005 /* PCloudDriveFileListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCloudDriveFileListController.swift; sourceTree = "<group>"; };
 		225B41E42E43419600EF07FE /* ResponseDrive115Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseDrive115Model.swift; sourceTree = "<group>"; };
 		225DE65D2CCE640C00F4367E /* PlayerControlFloatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerControlFloatView.swift; sourceTree = "<group>"; };
 		225E6BAA2D281FAE00A25B34 /* NavidromeViewController+Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NavidromeViewController+Search.swift"; sourceTree = "<group>"; };
@@ -843,7 +845,6 @@
 		226A28372D00614A0072EA11 /* AppLogoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLogoViewController.swift; sourceTree = "<group>"; };
 		226AF34B2E21103F007C44DF /* ConnectNavidromeArtistCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectNavidromeArtistCell.swift; sourceTree = "<group>"; };
 		226AF34E2E236738007C44DF /* KakaMusicPlayer+API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KakaMusicPlayer+API.swift"; sourceTree = "<group>"; };
-		C10D00000000000000000008 /* KakaMusicPlayer+PCloud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KakaMusicPlayer+PCloud.swift"; sourceTree = "<group>"; };
 		226C9C202D1FE089003A3CE8 /* CollectionDetialHeadCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionDetialHeadCell.swift; sourceTree = "<group>"; };
 		226C9C222D200734003A3CE8 /* AuthWebdavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthWebdavViewController.swift; sourceTree = "<group>"; };
 		226DFB6D2D657E0F00E3BE06 /* AuthNavidromeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthNavidromeController.swift; sourceTree = "<group>"; };
@@ -1013,6 +1014,7 @@
 		22C2573A302D7A1D00A68C1B /* SelectLyricViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectLyricViewController.swift; sourceTree = "<group>"; };
 		22C2573D302D92FC00A68C1B /* GalleryEmptyViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryEmptyViewCell.swift; sourceTree = "<group>"; };
 		22C25740302D937200A68C1B /* MusicConfigManager+Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MusicConfigManager+Action.swift"; sourceTree = "<group>"; };
+		22C287AD3053C6B700801D66 /* NoneLyriclistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoneLyriclistView.swift; sourceTree = "<group>"; };
 		22C707702DCB9C1700A1B79A /* MacTabbarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacTabbarViewController.swift; sourceTree = "<group>"; };
 		22C707732DCB9C2100A1B79A /* MacTabbarViewController+Drop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MacTabbarViewController+Drop.swift"; sourceTree = "<group>"; };
 		22C707762DCB9C5500A1B79A /* MacTabbarViewController+Noti.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MacTabbarViewController+Noti.swift"; sourceTree = "<group>"; };
@@ -1049,6 +1051,10 @@
 		529D8BF88D087076D287687A /* Pods-Mobie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mobie.debug.xcconfig"; path = "Target Support Files/Pods-Mobie/Pods-Mobie.debug.xcconfig"; sourceTree = "<group>"; };
 		886CE6607B0E1400F6276768 /* Pods-Mobie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mobie.release.xcconfig"; path = "Target Support Files/Pods-Mobie/Pods-Mobie.release.xcconfig"; sourceTree = "<group>"; };
 		BD30271AF1F6DF33916F8A97 /* Pods-Mobie_Pro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mobie_Pro.release.xcconfig"; path = "Target Support Files/Pods-Mobie_Pro/Pods-Mobie_Pro.release.xcconfig"; sourceTree = "<group>"; };
+		C10D00000000000000000002 /* PCloudDriveService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCloudDriveService.swift; sourceTree = "<group>"; };
+		C10D00000000000000000005 /* PCloudDriveFileListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCloudDriveFileListController.swift; sourceTree = "<group>"; };
+		C10D00000000000000000008 /* KakaMusicPlayer+PCloud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KakaMusicPlayer+PCloud.swift"; sourceTree = "<group>"; };
+		C10E00000000000000000002 /* PCloudFileListStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCloudFileListStatus.swift; sourceTree = "<group>"; };
 		FBD07F657408F494AEAD6A1B /* Pods-Mobie_Pro.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mobie_Pro.debug.xcconfig"; path = "Target Support Files/Pods-Mobie_Pro/Pods-Mobie_Pro.debug.xcconfig"; sourceTree = "<group>"; };
 		FC044DCD42AEE7FFFB8D29DE /* Pods_Mobie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mobie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -1305,6 +1311,7 @@
 				2252C7572F8A132400A8DDE5 /* AliyunDriveFileListController.swift */,
 				225A5D8E2EAFB4EA009DB87E /* DropboxDriveFileListController.swift */,
 				C10D00000000000000000005 /* PCloudDriveFileListController.swift */,
+				C10E00000000000000000002 /* PCloudFileListStatus.swift */,
 				2217E0FC2EBC74E000C724F6 /* OneDriveFileListController.swift */,
 				224B43DD2E2D3F88007F3E89 /* Drive115FileListController.swift */,
 				222E32F22EABA879000269C7 /* CloudMusicTagViewController.swift */,
@@ -1543,6 +1550,7 @@
 				22FECF302CB7B9A200FBE36B /* AudioTagListView.swift */,
 				22AB3BC62CE5EED00063F284 /* MusicInfoTagView.swift */,
 				22AB3BCC2CE6406B0063F284 /* PlayerLyricsCell.swift */,
+				22C287AD3053C6B700801D66 /* NoneLyriclistView.swift */,
 				22B1AD462DE0668500DEBED0 /* PlayerStyleDefaultTableCell.swift */,
 				22B1AD4C2DE0674200DEBED0 /* PlayerStyleVinylTableCell.swift */,
 				22B1AD492DE0671000DEBED0 /* PlayerStyleTapeTableCell.swift */,
@@ -2248,6 +2256,7 @@
 				225F58202D85B2AB0055BDFF /* WelcomeBaseCollectCell.swift in Sources */,
 				225F58212D85B2AB0055BDFF /* PlayerRingViewController.swift in Sources */,
 				2258ACF42DE5743700F5754B /* PlayControlDefaultView.swift in Sources */,
+				22C287AE3053C6B700801D66 /* NoneLyriclistView.swift in Sources */,
 				225F58232D85B2AB0055BDFF /* MusicViewModel+Genre.swift in Sources */,
 				226AF34D2E21103F007C44DF /* ConnectNavidromeArtistCell.swift in Sources */,
 				225F58242D85B2AB0055BDFF /* EmptyTableViewCell.swift in Sources */,
@@ -2272,6 +2281,7 @@
 				225F58312D85B2AB0055BDFF /* LibraryLyricsViewController.swift in Sources */,
 				225A5D902EAFB4EA009DB87E /* DropboxDriveFileListController.swift in Sources */,
 				C10D00000000000000000006 /* PCloudDriveFileListController.swift in Sources */,
+				C10E00000000000000000003 /* PCloudFileListStatus.swift in Sources */,
 				22C2572F302D723500A68C1B /* AudioMatchCoverFootView.swift in Sources */,
 				225F58322D85B2AB0055BDFF /* DonateViewController.swift in Sources */,
 				225F58332D85B2AB0055BDFF /* NavidromeSearchViewController.swift in Sources */,
@@ -2546,6 +2556,7 @@
 				228A14282CA0633400E2948E /* WelcomeBaseCollectCell.swift in Sources */,
 				224AC8AA2CE4349E00F4F2AF /* PlayerRingViewController.swift in Sources */,
 				2258ACF32DE5743700F5754B /* PlayControlDefaultView.swift in Sources */,
+				22C287AF3053C6B700801D66 /* NoneLyriclistView.swift in Sources */,
 				2257DE862D0BC4FC00BBC0CE /* MusicViewModel+Genre.swift in Sources */,
 				226AF34C2E21103F007C44DF /* ConnectNavidromeArtistCell.swift in Sources */,
 				228A14492CA0633400E2948E /* EmptyTableViewCell.swift in Sources */,
@@ -2570,6 +2581,7 @@
 				22577F6D2D04251A00AD35E7 /* LibraryLyricsViewController.swift in Sources */,
 				225A5D8F2EAFB4EA009DB87E /* DropboxDriveFileListController.swift in Sources */,
 				C10D00000000000000000004 /* PCloudDriveFileListController.swift in Sources */,
+				C10E00000000000000000001 /* PCloudFileListStatus.swift in Sources */,
 				22C25730302D723500A68C1B /* AudioMatchCoverFootView.swift in Sources */,
 				2261E8812CB5267E009506C0 /* DonateViewController.swift in Sources */,
 				227998BB2D773D6300BCE0B9 /* NavidromeSearchViewController.swift in Sources */,

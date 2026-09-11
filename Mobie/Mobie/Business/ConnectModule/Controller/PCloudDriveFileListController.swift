@@ -46,11 +46,10 @@ class PCloudDriveFileListController: SuperViewController {
             make.size.equalTo(loadingView.size.width)
         }
 
-        emptyView.snp.remakeConstraints { make in
-            make.centerX.centerY.equalToSuperview()
-            make.width.equalToSuperview()
-            make.height.greaterThanOrEqualTo(200.ckValue())
-        }
+        let topInset = view.safeAreaInsets.top
+        let bottomInset = max(view.safeAreaInsets.bottom + playingHeight, keyboardBottomInset)
+        emptyView.frame = CGRect(x: 0, y: topInset, width: contentView.bounds.width,
+                                 height: max(0, contentView.bounds.height - topInset - bottomInset))
 
         selectToolBar.frame = CGRectMake(0, self.view.height - 49.ckValue() - kaka_safeAreaInsets().bottom, contentView.width, 49.ckValue())
     }
@@ -85,22 +84,26 @@ class PCloudDriveFileListController: SuperViewController {
     @objc func refreshDataAction() {
         let requestID = UUID()
         loadRequestID = requestID
+        isLoadingFolder = true
         emptyView.isHidden = true
         loadingView.startAnimating()
         PCloudDriveService.shared.listFolder(user: loginModel, folderID: folderID) { [weak self] result in
             guard let self = self, self.loadRequestID == requestID else { return }
+            self.isLoadingFolder = false
             self.stopLoadingAction()
             switch result {
             case .success(let files):
+                self.lastLoadError = nil
                 // Refresh replaces the snapshot; it must not duplicate files or keep deleted entries.
                 self.allfileArray = files
                 self.selectArray.removeAll()
                 self.selectCountItem.title = "0"
-                let query = self.searchController.searchBar.text ?? ""
-                self.sortAllServerFiles(query.isEmpty ? files : files.filter { $0.searchMatcheItem(query) })
+                self.sortAllServerFiles(files)
             case .failure(let error):
+                self.lastLoadError = error
                 self.emptyView.isHidden = false
-                self.emptyView.update(message: error.errorDescription)
+                self.tableView.isHidden = true
+                self.emptyView.update(.failure(error.errorDescription))
                 if error == .tokenExpiredAuthAgain {
                     self.showTwoAlert(message: error.errorDescription, confirm: "OK".localStr()) { [weak self] in
                         guard let self = self else { return }
@@ -121,7 +124,21 @@ class PCloudDriveFileListController: SuperViewController {
     }
 
     // 分组、排序文件列表
-    func sortAllServerFiles(_ files: [MusicItemModel]) {
+    func sortAllServerFiles(_ snapshot: [MusicItemModel]) {
+
+        // Search/cancel/sort must not turn a pending or failed request into a
+        // misleading "Connected" empty-folder message.
+        guard !isLoadingFolder else { return }
+        if let error = lastLoadError {
+            emptyView.isHidden = false
+            tableView.isHidden = true
+            emptyView.update(.failure(error.errorDescription))
+            return
+        }
+
+        // Apply the same active query after refresh, grouping and sorting changes.
+        let query = self.searchController.searchBar.text ?? ""
+        let files = query.isEmpty ? snapshot : snapshot.filter { $0.searchMatcheItem(query) }
 
         let sortType = MusicConfigManager.shared.sortType
 
@@ -173,7 +190,9 @@ class PCloudDriveFileListController: SuperViewController {
         self.stopLoadingAction()
         self.tableView.reloadData()
         self.emptyView.isHidden = !files.isEmpty
-        if files.isEmpty { self.emptyView.update(message: KakaError.emptyData.errorDescription) }
+        if files.isEmpty {
+            self.emptyView.update(.empty(folderID: folderID, query: query))
+        }
     }
 
 
@@ -189,6 +208,9 @@ class PCloudDriveFileListController: SuperViewController {
     private var folderID: UInt64 = 0
     private var folderName: String?
     private var loadRequestID = UUID()
+    private var isLoadingFolder = false
+    private var lastLoadError: KakaError?
+    private var keyboardBottomInset: CGFloat = 0
 
     /// 所有的文件列表
     var allfileArray: [MusicItemModel] = []
@@ -238,10 +260,15 @@ view.refreshControl = self.kaka_header
         return view
     }()
 
-    lazy var emptyView: EmptyStatusView = {
-        let view = EmptyStatusView()
+    lazy var emptyView: PCloudFileListStatusView = {
+        let view = PCloudFileListStatusView()
         view.isHidden = true
-        view.retryButton.addTarget(self, action: #selector(refreshDataAction), for: .touchUpInside)
+        view.actionHandler = { [weak self] action in
+            switch action {
+            case .refresh: self?.refreshDataAction()
+            case .clearSearch: self?.stopSearchAction(true)
+            }
+        }
         return view
     }()
 
@@ -809,8 +836,7 @@ extension PCloudDriveFileListController: UISearchBarDelegate {
     }
 
     func searchWithKey(_ keyword: String) {
-        let searchArray = self.allfileArray.filter { $0.searchMatcheItem(keyword) }
-        self.sortAllServerFiles(searchArray)
+        self.sortAllServerFiles(self.allfileArray)
     }
 
     func configSearchBar() {
@@ -828,10 +854,18 @@ extension PCloudDriveFileListController: UISearchBarDelegate {
         let rect = notify.userInfo?[UIApplication.keyboardFrameEndUserInfoKey] as? CGRect
         let keyboardH = rect?.height ?? 366
 
+        if let rect = rect {
+            let keyboardFrame = view.convert(rect, from: nil)
+            keyboardBottomInset = max(0, view.bounds.maxY - keyboardFrame.minY)
+        }
+        view.setNeedsLayout()
+
         self.tableView.contentInset = UIEdgeInsets(top: kaka_IsMacOS() ? 20 : 0, left: 0, bottom: keyboardH, right: 0)
     }
 
     @objc func keyboardWillHidden(_ notify: Notification) {
+        keyboardBottomInset = 0
+        view.setNeedsLayout()
         self.tableView.contentInset = UIEdgeInsets(top: kaka_IsMacOS() ? 20 : 0, left: 0, bottom: playingHeight, right: 0)
     }
 
