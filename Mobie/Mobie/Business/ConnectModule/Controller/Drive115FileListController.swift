@@ -803,11 +803,6 @@ extension Drive115FileListController: MusicTableViewCellDelegate {
     // 点击cell更多
     func musicTableCell(cell: MusicTableViewCell, model: MusicItemModel, action: MusicActionType) {
         
-        if action == .musictag {
-            let musicTag = CloudMusicTagViewController(model)
-            let navVC = KakaNavigationController(rootViewController: musicTag)
-            self.present(navVC, animated: true)
-        }
         
         if action == .play {
             self.playWithMusic(model)

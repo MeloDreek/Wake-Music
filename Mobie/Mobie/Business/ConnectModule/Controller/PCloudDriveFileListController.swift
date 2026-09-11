@@ -749,11 +749,6 @@ extension PCloudDriveFileListController: MusicTableViewCellDelegate {
             self.playWithMusic(model)
         }
 
-        if action == .musictag {
-            let musicTag = CloudMusicTagViewController(model)
-            let navVC = KakaNavigationController(rootViewController: musicTag)
-            self.present(navVC, animated: true)
-        }
 
         if action == .download {
             self.downloadWithMusic(cell: cell, model: model)

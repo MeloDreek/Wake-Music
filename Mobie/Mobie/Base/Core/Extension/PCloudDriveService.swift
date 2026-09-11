@@ -114,7 +114,7 @@ final class PCloudDriveService {
         }.start()
     }
 
-    /// pCloud links expire. Resolve anew for each playback, download or metadata request.
+    /// pCloud links expire. Resolve anew for each playback or download request.
     func fileURL(_ file: PCloudDriveFileModel, completion: @escaping (Result<URL, KakaError>) -> Void) {
         guard !file.isDirectory(), let user = file.pcloudUser, let credentials = credentials(for: user) else {
             completion(.failure(.tokenExpiredAuthAgain))

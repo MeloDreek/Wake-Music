@@ -28,8 +28,6 @@
 		22196E562D3134CB005B05CD /* LibraryCoverViewController+Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22196E552D3134CB005B05CD /* LibraryCoverViewController+Search.swift */; };
 		222E32F02EAB4821000269C7 /* ConnectListViewController+Access.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222E32EF2EAB4821000269C7 /* ConnectListViewController+Access.swift */; };
 		222E32F12EAB4821000269C7 /* ConnectListViewController+Access.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222E32EF2EAB4821000269C7 /* ConnectListViewController+Access.swift */; };
-		222E32F32EABA879000269C7 /* CloudMusicTagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222E32F22EABA879000269C7 /* CloudMusicTagViewController.swift */; };
-		222E32F42EABA879000269C7 /* CloudMusicTagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222E32F22EABA879000269C7 /* CloudMusicTagViewController.swift */; };
 		223198262DD4CD94005F9AF0 /* PlayerEngineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223198252DD4CD94005F9AF0 /* PlayerEngineViewController.swift */; };
 		223198272DD4CD94005F9AF0 /* PlayerEngineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223198252DD4CD94005F9AF0 /* PlayerEngineViewController.swift */; };
 		2235E0592D19494300ED0231 /* ColorFontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2235E0582D19494300ED0231 /* ColorFontManager.swift */; };
@@ -742,7 +740,6 @@
 		22196E532D3133B0005B05CD /* LibraryLyricsViewController+Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LibraryLyricsViewController+Search.swift"; sourceTree = "<group>"; };
 		22196E552D3134CB005B05CD /* LibraryCoverViewController+Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LibraryCoverViewController+Search.swift"; sourceTree = "<group>"; };
 		222E32EF2EAB4821000269C7 /* ConnectListViewController+Access.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConnectListViewController+Access.swift"; sourceTree = "<group>"; };
-		222E32F22EABA879000269C7 /* CloudMusicTagViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudMusicTagViewController.swift; sourceTree = "<group>"; };
 		223198252DD4CD94005F9AF0 /* PlayerEngineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerEngineViewController.swift; sourceTree = "<group>"; };
 		2235E0582D19494300ED0231 /* ColorFontManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorFontManager.swift; sourceTree = "<group>"; };
 		2237276C2DE3121000A2FC1C /* PlayBackCoverTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayBackCoverTableCell.swift; sourceTree = "<group>"; };
@@ -1314,7 +1311,6 @@
 				C10E00000000000000000002 /* PCloudFileListStatus.swift */,
 				2217E0FC2EBC74E000C724F6 /* OneDriveFileListController.swift */,
 				224B43DD2E2D3F88007F3E89 /* Drive115FileListController.swift */,
-				222E32F22EABA879000269C7 /* CloudMusicTagViewController.swift */,
 				227998BA2D773D6300BCE0B9 /* NavidromeSearchViewController.swift */,
 				22436B172D7443E80004E09D /* NavidromeArtistListController.swift */,
 				22436B192D7446BA0004E09D /* NavidromeArtistDetialController.swift */,
@@ -2341,7 +2337,6 @@
 				22D16A632DDC5D38008A5F8B /* PlayBackgroundStype+Extension.swift in Sources */,
 				225F58522D85B2AB0055BDFF /* SupportTypeViewController.swift in Sources */,
 				224C9BCD2DD0A1ED000CCA6C /* LRCLyricTableViewCell.swift in Sources */,
-				222E32F42EABA879000269C7 /* CloudMusicTagViewController.swift in Sources */,
 				225F58532D85B2AB0055BDFF /* LyricDetialViewController.swift in Sources */,
 				225F58542D85B2AB0055BDFF /* VideoConverterViewController.swift in Sources */,
 				225F58552D85B2AB0055BDFF /* UnsupportViewController.swift in Sources */,
@@ -2641,7 +2636,6 @@
 				22D16A622DDC5D38008A5F8B /* PlayBackgroundStype+Extension.swift in Sources */,
 				2296BCD42CD91A7E00E9166E /* SupportTypeViewController.swift in Sources */,
 				224C9BCE2DD0A1ED000CCA6C /* LRCLyricTableViewCell.swift in Sources */,
-				222E32F32EABA879000269C7 /* CloudMusicTagViewController.swift in Sources */,
 				22577F6B2D04215F00AD35E7 /* LyricDetialViewController.swift in Sources */,
 				228A14572CA0633400E2948E /* VideoConverterViewController.swift in Sources */,
 				2277C6102D165FBF00A50BF3 /* UnsupportViewController.swift in Sources */,

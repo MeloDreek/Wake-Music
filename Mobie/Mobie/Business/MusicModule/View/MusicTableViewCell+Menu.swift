@@ -103,28 +103,12 @@ extension MusicTableViewCell {
     
     func cloudDriveButton() -> UIButton {
         let view = UIButton(type: .custom)
-        view.showsMenuAsPrimaryAction = true
-        view.menu = self.cloudDriveMenu()
         view.size = CGSizeMake(45.ckValue(), 45.ckValue())
-        view.setImage(MusicCellType.cloudDrive.iconImage(), for: .normal)
+        view.setImage(MusicActionType.download.iconImage(), for: .normal)
+        view.accessibilityLabel = MusicActionType.download.titleStr()
+        view.accessibilityIdentifier = "music.cloudDrive.download"
+        view.addTarget(self, action: #selector(downloadButtonClick), for: .touchUpInside)
         return view
-    }
-        
-    private func cloudDriveMenu() -> UIMenu {
-        var actionArray = [UIAction]()
-        let typeArray: [MusicActionType] = [.musictag, .download]
-        
-        for subType in typeArray {
-            let isRed = subType == .download || subType == .deleteItem
-            let subMemu = UIAction(title: subType.titleStr(), image: subType.iconImage(), identifier: nil, discoverabilityTitle: nil, attributes: isRed ? [.destructive] : [], state: .off, handler: { [weak self] _ in
-                guard let wSelf = self, let model = wSelf.musicModel else { return }
-                wSelf.delegate?.musicTableCell(cell: wSelf, model: model, action: subType)
-            })
-            actionArray.append(subMemu)
-        }
-        
-        let menu = UIMenu(title: self.musicModel.showTitleName(), image: UIImage(systemName: "ellipsis"), identifier: nil, options: [], children: actionArray)
-        return menu
     }
     
 }
@@ -325,4 +309,3 @@ extension MusicTableViewCell {
     }
     
 }
-
