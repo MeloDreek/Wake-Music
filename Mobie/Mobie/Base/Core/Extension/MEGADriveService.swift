@@ -26,17 +26,17 @@ final class MEGADriveService {
     func login(email: String, password: String, pin: String, replacing user: MEGADriveUserModel?,
                completion: @escaping (Result<MEGADriveUserModel, KakaError>) -> Void) {
         // MEGA no longer requires a developer app key. No sample application's key is reused.
-        guard let api = MEGASdk(appKey: "", userAgent: "WakeMusic", basePath: nil) else {
+        guard let api = makeClient() else {
             completion(.failure(.custom("MEGA.Unavailable".localStr()))); return
         }
-        run(api, action: { delegate in
+        runLogin(api, action: { delegate in
             if pin.isEmpty { api.login(withEmail: email, password: password, delegate: delegate) }
             else { api.multiFactorAuthLogin(withEmail: email, password: password, pin: pin, delegate: delegate) }
         }) { result in
             switch result {
             case .failure(let error): completion(.failure(error))
             case .success:
-                self.run(api, action: { api.fetchNodes(with: $0) }) { result in
+                self.run(api, stage: "fetchNodes", action: { api.fetchNodes(with: $0) }) { result in
                     if case .failure(let error) = result { api.logout(); completion(.failure(error)); return }
                     guard let rootID = api.rootNode?.base64Handle, let session = api.dumpSession(),
                           let email = api.myEmail else {
@@ -141,6 +141,23 @@ final class MEGADriveService {
         return api.node(forHandle: MEGASdk.handle(forBase64Handle: id))
     }
 
+    private func makeClient() -> MEGASdk? {
+        // v10.19.0 asserts while updating account status if the status DB is absent,
+        // even though the initializer still documents nil as a supported basePath.
+        // Isolate simultaneous login/restore clients to avoid sharing a live SQLite DB.
+        // This is disposable SDK state in the app's private temporary directory;
+        // persistent account sessions remain in Keychain, never UserDefaults.
+        let directory = FileManager.default.temporaryDirectory
+            .appendingPathComponent("MEGASDK", isDirectory: true)
+            .appendingPathComponent(UUID().uuidString, isDirectory: true)
+        do {
+            try FileManager.default.createDirectory(at: directory, withIntermediateDirectories: true)
+            return MEGASdk(appKey: "", userAgent: "WakeMusic", basePath: directory.path)
+        } catch {
+            return nil
+        }
+    }
+
     private func stopClient(_ account: String) {
         guard let api = clients.removeValue(forKey: account) else { return }
         if let delegate = streamDelegates.removeValue(forKey: account) {
@@ -152,9 +169,10 @@ final class MEGADriveService {
     private func client(for user: MEGADriveUserModel, completion: @escaping (Result<MEGASdk, KakaError>) -> Void) {
         if let api = clients[user.userID] { completion(.success(api)); return }
         if restoring[user.userID] != nil { restoring[user.userID]?.append(completion); return }
-        guard let session = loadSession(user.userID), let api = MEGASdk(appKey: "", userAgent: "WakeMusic", basePath: nil) else {
+        guard let session = loadSession(user.userID) else {
             completion(.failure(.tokenExpiredAuthAgain)); return
         }
+        guard let api = makeClient() else { completion(.failure(.custom("MEGA.Unavailable".localStr()))); return }
         let generation = UUID()
         generations[user.userID] = generation
         restoring[user.userID] = [completion]
@@ -164,9 +182,9 @@ final class MEGADriveService {
             let callbacks = self.restoring.removeValue(forKey: user.userID) ?? []
             callbacks.forEach { $0(result) }
         }
-        run(api, action: { api.fastLogin(withSession: session, delegate: $0) }) { result in
+        runLogin(api, action: { api.fastLogin(withSession: session, delegate: $0) }) { result in
             if case .failure(let error) = result { finish(.failure(error)); return }
-            self.run(api, action: { api.fetchNodes(with: $0) }) { result in
+            self.run(api, stage: "fetchNodes", action: { api.fetchNodes(with: $0) }) { result in
                 if case .failure(let error) = result { finish(.failure(error)); return }
                 guard api.rootNode?.base64Handle == user.userID else { finish(.failure(.tokenExpiredAuthAgain)); return }
                 finish(.success(api))
@@ -174,10 +192,28 @@ final class MEGADriveService {
         }
     }
 
-    private func run(_ api: MEGASdk, action: (MEGARequestCompletion) -> Void,
+    private func runLogin(_ api: MEGASdk, action: @escaping (MEGARequestCompletion) -> Void,
+                          completion: @escaping (Result<Void, KakaError>) -> Void) {
+        let proxy: MEGASystemProxy
+        do { proxy = try MEGASystemProxy.current() }
+        catch { completion(.failure(.custom("MEGA.ProxyUnsupported".localStr()))); return }
+        #if DEBUG
+        debugPrint("MEGA network route", proxy.url == nil ? "direct" : "system proxy")
+        #endif
+        // Configuration is asynchronous in the C++ SDK. Apply it before any auth request,
+        // both for password login and for a session restored from Keychain.
+        run(api, stage: "configureProxy", action: {
+            api.wakeSetProxy(url: proxy.url, username: proxy.username, password: proxy.password, delegate: $0)
+        }) { result in
+            if case .failure(let error) = result { completion(.failure(error)); return }
+            self.run(api, stage: "login", action: action, completion: completion)
+        }
+    }
+
+    private func run(_ api: MEGASdk, stage: String, action: (MEGARequestCompletion) -> Void,
                      completion: @escaping (Result<Void, KakaError>) -> Void) {
         let id = UUID()
-        let delegate = MEGARequestCompletion { [weak self] code in
+        let delegate = MEGARequestCompletion(stage: stage) { [weak self] code in
             guard let self, self.requests.removeValue(forKey: id) != nil else { return }
             completion(code == 0 ? .success(()) : .failure(Self.error(code)))
         }
@@ -186,6 +222,9 @@ final class MEGADriveService {
         DispatchQueue.main.asyncAfter(deadline: .now() + 90) { [weak self, weak delegate] in
             guard self?.requests.removeValue(forKey: id) != nil else { return }
             delegate?.completion = nil
+            #if DEBUG
+            debugPrint("MEGA request timed out, stage", stage)
+            #endif
             completion(.failure(.custom("MEGA.Timeout".localStr())))
         }
     }
@@ -227,11 +266,20 @@ final class MEGADriveService {
 
 private final class MEGARequestCompletion: NSObject, MEGARequestDelegate {
     var completion: ((Int) -> Void)?
-    init(_ completion: @escaping (Int) -> Void) { self.completion = completion }
+    private let stage: String
+    init(stage: String, completion: @escaping (Int) -> Void) {
+        self.stage = stage
+        self.completion = completion
+    }
+    func onRequestTemporaryError(_ api: MEGASdk, request: MEGARequest, error: MEGAError) {
+        #if DEBUG
+        debugPrint("MEGA request retry, stage", stage, "type", request.type.rawValue, "code", error.type.rawValue)
+        #endif
+    }
     func onRequestFinish(_ api: MEGASdk, request: MEGARequest, error: MEGAError) {
         let code = error.type.rawValue
         #if DEBUG
-        if code != 0 { debugPrint("MEGA request failed", request.type.rawValue, "code", code) }
+        debugPrint("MEGA request finished, stage", stage, "type", request.type.rawValue, "code", code)
         #endif
         DispatchQueue.main.async {
             let completion = self.completion

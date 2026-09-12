@@ -29,7 +29,7 @@ final class AuthSMBViewController: SuperViewController, UITableViewDataSource, U
                   .username: user?.username ?? "", .password: "", .otherDav: user?.domain ?? ""]
 #if DEBUG
         if user == nil {
-            values = [.title: "My NAS".localStr(), .host: "192.168.1.177", .port: "445",
+            values = [.title: "My NAS".localStr(), .host: "192.168.1.215", .port: "445",
                       .path: "音乐", .username: "wakemusic", .password: "wake", .otherDav: ""]
         }
 #endif
@@ -93,7 +93,7 @@ final class AuthSMBViewController: SuperViewController, UITableViewDataSource, U
         table.keyboardDismissMode = .interactive
         table.contentInsetAdjustmentBehavior = .automatic
         table.contentInset.bottom = kaka_safeAreaInsets().bottom + 20.ckValue()
-        table.tableHeaderView = headView
+//        table.tableHeaderView = headView
         return table
     }()
 

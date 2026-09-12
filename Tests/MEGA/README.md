@@ -16,7 +16,9 @@ For Waketag or another app, add the shared directory as a local Swift package an
 ## Behavior
 
 - Native email/password + optional authenticator-code login. No borrowed API key. The official SDK no longer requires a developer key: https://github.com/meganz/sdk/issues/2706 .
-- Session stored per app bundle/account in device-only Keychain; passwords, 2FA codes and file decryption keys are never added to AppGroupKit models. SDK persistent database caching is disabled for this first implementation.
+- Session stored per app bundle/account in device-only Keychain; passwords, 2FA codes and file decryption keys are never added to AppGroupKit models. Each SDK instance gets its own disposable database directory under the app's private temporary directory. This avoids v10.19.0's `Updating status without status table` assertion with `basePath: nil` and avoids simultaneous clients sharing a live database. Cross-launch database reuse is not enabled.
+- Login and session restoration first apply the current CFNetwork proxy for the MEGA API endpoint. The shared SDK's `wakeSetProxy(url:username:password:delegate:)` bridge exposes the upstream C++ proxy API; it does not embed a proxy address. Static HTTP CONNECT/SOCKS proxies and direct routes are supported. PAC/unsupported configurations fail explicitly instead of silently bypassing the proxy. No system settings or TLS/pinning code are changed.
+- Playback's FFmpeg options explicitly bypass the proxy for loopback HTTP URLs only. KSPlayer's DEBUG helper otherwise exports a global `http_proxy`, which sends the local MEGA/SMB bridge to the proxy. Cloud traffic continues through the SDK's configured route.
 - Browse own cloud-drive root and descendants, search the current folder, favorites, existing download queue and audio playback. No upload/delete/share-link creation API is exposed by the adapter.
 - SDK's HTTP range/decryption server binds loopback only, allows explicitly requested files, disables folder and subtitle serving, and uses bounded buffers. Unlink stops that account's local server and removes its saved session.
 - The Mac sandbox server entitlement is required for the loopback listener; the adapter still binds only to loopback, not the LAN. Both app targets share this entitlement file.
@@ -27,6 +29,17 @@ For Waketag or another app, add the shared directory as a local Swift package an
 
 ## Verification
 
+2026-09-12: diagnosed a direct-connection timeout while the Mac browser used its
+existing proxy. After the proxy bridge and per-instance database initialization,
+the authorized test account logged in and listed its real folders/audio files on
+iPhone 17 Pro Max Simulator (iOS 26.5). Restarting the app restored the Keychain
+session and loaded the same library without entering a password. The loopback
+proxy override then allowed a remote FLAC to play for more than 90 seconds, with
+its embedded title parsed; playback was paused and the account left connected.
+Both simulator app targets built with the final changes; all 40 regression
+assertions passed. This does not verify physical devices, 2FA, quotas, complete
+downloads, seeking or background playback. No account credential is in these tests.
+
 Shared-directory migration: all 2,035 previously tracked SDK files were verified
 byte-for-byte against their Git blobs after moving. Both simulator app targets
 (`Mobie` and `Mobie_Pro`) built successfully using the shared package path, and
@@ -34,6 +47,6 @@ all 23 model / sorting assertions passed. The six binary frameworks were retaine
 
 2026-09-11: both `Mobie` and `Mobie_Pro` built successfully for the iOS simulator. The ordinary app was installed without removing its data. UI inspection was interrupted when the Mac locked, before reaching the login form. The Mac Catalyst SDK targets compiled, but the application build remains blocked by existing IQKeyboardReturnManager usages of unavailable `UIInputSuggestion` / `UITextFormattingViewController` APIs; no unrelated dependency files were changed to hide that failure.
 
-`bash Tests/MEGA/run-regressions.sh` checks identity isolation, supported formats, credential-free synthetic URLs and empty/search/error presentation (14 assertions), plus Apple's filename comparator (9 assertions). Actual login, 2FA, quota handling, seek, background playback, downloads and metadata require a test account and device checks. Do not treat model tests or a successful build as verification of those network behaviors.
+`bash Tests/MEGA/run-regressions.sh` checks identity isolation, supported formats, credential-free synthetic URLs and empty/search/error presentation (14 assertions), Apple's filename comparator (9 assertions), and proxy selection/validation/credentials separation (17 assertions). Actual login, 2FA, quota handling, seek, background playback, downloads and metadata require a test account and device checks. Do not treat model tests or a successful build as verification of those network behaviors.
 
 Before release: finish real-account tests on iOS and Catalyst; review all bundled upstream and transitive dependency license notices for distribution. These notes are not legal advice or release approval.

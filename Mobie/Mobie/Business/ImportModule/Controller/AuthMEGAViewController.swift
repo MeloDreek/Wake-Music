@@ -63,6 +63,11 @@ final class AuthMEGAViewController: UITableViewController {
         eye.addTarget(self, action: #selector(togglePassword), for: .touchUpInside)
         passwordField.rightView = eye
         passwordField.rightViewMode = .always
+        
+        #if DEBUG
+        emailField.text = "MeloDreek@gmail.com"
+        passwordField.text = "rycbip-5vufgy-Sennof"
+        #endif
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int { 2 }

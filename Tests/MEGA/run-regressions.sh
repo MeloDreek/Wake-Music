@@ -24,3 +24,8 @@ xcrun --sdk macosx swiftc -swift-version 5 -parse-as-library \
 xcrun --sdk macosx clang++ -std=c++17 -framework CoreFoundation -I "$task_sdk/src" \
   "$task_root/Tests/MEGA/MEGANaturalSortRegression.cpp" -o "$task_build/mega-sort-regressions"
 "$task_build/mega-sort-regressions"
+xcrun --sdk macosx swiftc -swift-version 5 -parse-as-library \
+  -module-cache-path "$task_build/modules" \
+  "$task_root/Mobie/Mobie/Base/Core/Extension/MEGASystemProxy.swift" \
+  "$task_root/Tests/MEGA/MEGAProxyRegression.swift" -o "$task_build/mega-proxy-regressions"
+"$task_build/mega-proxy-regressions"

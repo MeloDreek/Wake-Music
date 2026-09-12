@@ -704,6 +704,8 @@
 		A76382012EDED2E60040A84D /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = A76382002EDED2E60040A84D /* Alamofire */; };
 		B01000000000000000000001 /* BoxDriveService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01000000000000000000002 /* BoxDriveService.swift */; };
 		C04100000000000000000001 /* MEGADriveService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04100000000000000000002 /* MEGADriveService.swift */; };
+		D66F570949C24DA19E444001 /* MEGASystemProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66F570949C24DA19E444002 /* MEGASystemProxy.swift */; };
+		D66F570949C24DA19E444003 /* MEGASystemProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66F570949C24DA19E444002 /* MEGASystemProxy.swift */; };
 		B01000000000000000000003 /* BoxDriveService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01000000000000000000002 /* BoxDriveService.swift */; };
 		C04100000000000000000003 /* MEGADriveService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04100000000000000000002 /* MEGADriveService.swift */; };
 		B01000000000000000000004 /* BoxDriveFileListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01000000000000000000005 /* BoxDriveFileListController.swift */; };
@@ -1095,6 +1097,7 @@
 		886CE6607B0E1400F6276768 /* Pods-Mobie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mobie.release.xcconfig"; path = "Target Support Files/Pods-Mobie/Pods-Mobie.release.xcconfig"; sourceTree = "<group>"; };
 		B01000000000000000000002 /* BoxDriveService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxDriveService.swift; sourceTree = "<group>"; };
 		C04100000000000000000002 /* MEGADriveService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MEGADriveService.swift; sourceTree = "<group>"; };
+		D66F570949C24DA19E444002 /* MEGASystemProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MEGASystemProxy.swift; sourceTree = "<group>"; };
 		B01000000000000000000005 /* BoxDriveFileListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxDriveFileListController.swift; sourceTree = "<group>"; };
 		C04100000000000000000005 /* MEGADriveFileListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MEGADriveFileListController.swift; sourceTree = "<group>"; };
 		B01000000000000000000008 /* KakaMusicPlayer+Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KakaMusicPlayer+Box.swift"; sourceTree = "<group>"; };
@@ -1787,6 +1790,7 @@
 				C10D00000000000000000002 /* PCloudDriveService.swift */,
 				B01000000000000000000002 /* BoxDriveService.swift */,
 				C04100000000000000000002 /* MEGADriveService.swift */,
+				D66F570949C24DA19E444002 /* MEGASystemProxy.swift */,
 				C02000000000000000000002 /* SMBDriveService.swift */,
 				C02100000000000000000002 /* SMBHTTPBridge.swift */,
 				C02400000000000000000002 /* SMBProtocol.swift */,
@@ -2467,6 +2471,7 @@
 				C10D00000000000000000003 /* PCloudDriveService.swift in Sources */,
 				B01000000000000000000003 /* BoxDriveService.swift in Sources */,
 				C04100000000000000000003 /* MEGADriveService.swift in Sources */,
+				D66F570949C24DA19E444003 /* MEGASystemProxy.swift in Sources */,
 				C02000000000000000000003 /* SMBDriveService.swift in Sources */,
 				C02100000000000000000003 /* SMBHTTPBridge.swift in Sources */,
 				C02400000000000000000003 /* SMBProtocol.swift in Sources */,
@@ -2784,6 +2789,7 @@
 				C10D00000000000000000001 /* PCloudDriveService.swift in Sources */,
 				B01000000000000000000001 /* BoxDriveService.swift in Sources */,
 				C04100000000000000000001 /* MEGADriveService.swift in Sources */,
+				D66F570949C24DA19E444001 /* MEGASystemProxy.swift in Sources */,
 				C02000000000000000000001 /* SMBDriveService.swift in Sources */,
 				C02100000000000000000001 /* SMBHTTPBridge.swift in Sources */,
 				C02400000000000000000001 /* SMBProtocol.swift in Sources */,

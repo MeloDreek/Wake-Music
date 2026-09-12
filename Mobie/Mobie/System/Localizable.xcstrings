@@ -407,6 +407,35 @@
       }
     }
   },
+  "MEGA.ProxyUnsupported": {
+    "extractionState": "manual",
+    "localizations": {
+      "en": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "MEGA cannot use this system proxy configuration. Automatic proxy scripts (PAC) are not supported yet. Use a valid manual HTTP or SOCKS proxy, or a network that can reach MEGA directly."
+        }
+      },
+      "zh-Hans": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "MEGA 无法使用当前系统代理配置，暂不支持自动代理脚本（PAC）。请使用有效的手动 HTTP 或 SOCKS 代理，或可直接访问 MEGA 的网络。"
+        }
+      },
+      "zh-Hant": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "MEGA 無法使用目前的系統代理設定，暫不支援自動代理腳本（PAC）。請使用有效的手動 HTTP 或 SOCKS 代理，或可直接存取 MEGA 的網絡。"
+        }
+      },
+      "zh-HK": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "MEGA 無法使用目前的系統代理設定，暫不支援自動代理腳本（PAC）。請使用有效的手動 HTTP 或 SOCKS 代理，或可直接存取 MEGA 的網絡。"
+        }
+      }
+    }
+  },
   "MEGA.Timeout": {
     "extractionState": "manual",
     "localizations": {

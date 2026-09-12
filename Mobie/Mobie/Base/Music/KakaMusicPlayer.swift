@@ -179,6 +179,14 @@ public class KakaMusicPlayer: NSObject, ObservableObject {
         option.preferredForwardBufferDuration = 30
         option.seekUsePacketCache = true
         option.startPlayRate = self.playbackRate
+
+        // KSPlayer's DEBUG system-proxy helper sets the process-wide http_proxy.
+        // The MEGA/SMB bridge is on this device, not on that proxy's loopback host.
+        // An explicit empty FFmpeg option overrides the environment for this URL only.
+        if ["http", "https"].contains(model.mediaPlayURL.scheme?.lowercased() ?? ""),
+           ["::1", "[::1]", "127.0.0.1", "localhost"].contains(model.mediaPlayURL.host?.lowercased() ?? "") {
+            option.formatContextOptions["http_proxy"] = ""
+        }
         
         if let _ = model.drive115Model {
             let userAgent = HTTPHeader.defaultUserAgent.description
