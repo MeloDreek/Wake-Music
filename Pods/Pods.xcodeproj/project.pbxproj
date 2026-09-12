@@ -270,6 +270,7 @@
 		2F95BC0F6CAA93686663EACE8186887B /* IQKeyboardNotification-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DB678AE3D8B6BEC49F75D62AEEC6647 /* IQKeyboardNotification-dummy.m */; };
 		2F971CB9D067625167B4A77919C233BE /* LoginResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF06FDC4D4C91BD6DAC62C4F5BA08DEF /* LoginResult.swift */; settings = {COMPILER_FLAGS = "-Werror -Wall -Wsign-compare -Wdocumentation-unknown-command -Wdocumentation -Wnewline-eof -Woverriding-method-mismatch -Wsuper-class-method-mismatch"; }; };
 		2FBBF878B9D6446F59CCF706BD7E8285 /* BoxDriveModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 945A5C71CA428555ECCBB81E6CEA096F /* BoxDriveModel.swift */; };
+		CA1300000000000000000001 /* GuangyaDriveModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1300000000000000000002 /* GuangyaDriveModel.swift */; };
 		DA1300000000000000000001 /* YandexDriveModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1300000000000000000002 /* YandexDriveModel.swift */; };
 		C04400000000000000000001 /* MEGADriveModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04400000000000000000002 /* MEGADriveModel.swift */; };
 		305C81DBF90E80BA2D43AE0F06F50192 /* PromisesObjC-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 0588C28CA4A3052C37BD4528B6065C7C /* PromisesObjC-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -3173,6 +3174,7 @@
 		944FAA28BEB42E4C15FEB537D564E17E /* FLAnimatedImage-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "FLAnimatedImage-dummy.m"; sourceTree = "<group>"; };
 		9456CBD02B7AB00C64713ADC25F0FBCA /* flacpicture.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; path = flacpicture.cpp; sourceTree = "<group>"; };
 		945A5C71CA428555ECCBB81E6CEA096F /* BoxDriveModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BoxDriveModel.swift; sourceTree = "<group>"; };
+		CA1300000000000000000002 /* GuangyaDriveModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GuangyaDriveModel.swift; sourceTree = "<group>"; };
 		DA1300000000000000000002 /* YandexDriveModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = YandexDriveModel.swift; sourceTree = "<group>"; };
 		C04400000000000000000002 /* MEGADriveModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MEGADriveModel.swift; sourceTree = "<group>"; };
 		949AA0B73DDAF863D8134848C4432CC7 /* SDFileAttributeHelper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDFileAttributeHelper.h; path = SDWebImage/Private/SDFileAttributeHelper.h; sourceTree = "<group>"; };
@@ -5812,6 +5814,7 @@
 				0CBA9EDFB4A796D48E5203E98EFFFFD9 /* BaiduDriveFileModel.swift */,
 				C8AE6F172DD16B46FF8EA52E33779A0D /* BaiduDriveUserModel.swift */,
 				945A5C71CA428555ECCBB81E6CEA096F /* BoxDriveModel.swift */,
+				CA1300000000000000000002 /* GuangyaDriveModel.swift */,
 				DA1300000000000000000002 /* YandexDriveModel.swift */,
 				C04400000000000000000002 /* MEGADriveModel.swift */,
 				69517A18884CDCD2440E46C8B64B7558 /* Drive115FileModel.swift */,
@@ -10252,6 +10255,7 @@
 				3E29E6A7BBF2F6B6111610BE6F137186 /* BaiduDriveFileModel.swift in Sources */,
 				3E4EA93B9EDC81D90A965322F7A805CC /* BaiduDriveUserModel.swift in Sources */,
 				2FBBF878B9D6446F59CCF706BD7E8285 /* BoxDriveModel.swift in Sources */,
+				CA1300000000000000000001 /* GuangyaDriveModel.swift in Sources */,
 				DA1300000000000000000001 /* YandexDriveModel.swift in Sources */,
 				C04400000000000000000001 /* MEGADriveModel.swift in Sources */,
 				AB760018DE544C5CE12CE6BA4BACC9DB /* CloudRecordTypes.swift in Sources */,

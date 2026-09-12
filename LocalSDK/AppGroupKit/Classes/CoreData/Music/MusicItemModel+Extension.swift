@@ -23,6 +23,7 @@ extension MusicItemModel {
         if let file = smbFile { return file.identity }
         if let file = megaFile { return file.identity }
         if let file = yandexFile { return file.identity }
+        if let file = guangyaFile { return file.identity }
         if let file = boxFile { return file.identity }
         if let file = pcloudFile { return file.identity }
         if self.isLocalFile() {
@@ -69,6 +70,7 @@ extension MusicItemModel {
         if let file = smbFile { return (file.name as NSString).lastPathComponent }
         if let file = megaFile { return (file.name as NSString).lastPathComponent }
         if let file = yandexFile { return (file.name as NSString).lastPathComponent }
+        if let file = guangyaFile { return (file.name as NSString).lastPathComponent }
         if let file = boxFile { return (file.name as NSString).lastPathComponent }
         if let file = pcloudFile { return (file.name as NSString).lastPathComponent }
         if self.isLocalFile() {
@@ -119,6 +121,7 @@ extension MusicItemModel {
         if let file = smbFile { return file.isDirectory() }
         if let file = megaFile { return file.isDirectory() }
         if let file = yandexFile { return file.isDirectory() }
+        if let file = guangyaFile { return file.isDirectory() }
         if let file = boxFile { return file.isDirectory() }
         if let file = pcloudFile { return file.isDirectory() }
         
@@ -162,6 +165,7 @@ extension MusicItemModel {
         if let file = smbFile { return file.isDirectory() ? .folder : (file.isMusic() ? .music : .other) }
         if let file = megaFile { return file.isDirectory() ? .folder : (file.isMusic() ? .music : .other) }
         if let file = yandexFile { return file.isDirectory() ? .folder : (file.isMusic() ? .music : .other) }
+        if let file = guangyaFile { return file.isDirectory() ? .folder : (file.isMusic() ? .music : .other) }
         if let file = boxFile { return file.isDirectory() ? .folder : (file.isMusic() ? .music : .other) }
         if let file = pcloudFile { return file.isDirectory() ? .folder : (file.isMusic() ? .music : .other) }
         if self.isFolder() { return .folder }
@@ -215,7 +219,7 @@ extension MusicItemModel {
     
     /// 是否已收藏
     public func isFlagFavorite() -> Bool {
-        if pcloudFile != nil || megaFile != nil || yandexFile != nil || boxFile != nil || smbFile != nil {
+        if pcloudFile != nil || megaFile != nil || yandexFile != nil || guangyaFile != nil || boxFile != nil || smbFile != nil {
             return ConnectConfigManager.shared.favoriteMusicArray.contains(self)
         }
         if self.isLocalFile() {
@@ -234,6 +238,7 @@ extension MusicItemModel {
         if let file = smbFile { return max(0, file.size) }
         if let file = megaFile { return max(0, file.size) }
         if let file = yandexFile { return max(0, file.size) }
+        if let file = guangyaFile { return max(0, file.size) }
         if let file = boxFile { return max(0, file.size) }
         if let file = pcloudFile { return max(0, file.size) }
         if let navSong = self.navidromeSong {
@@ -273,6 +278,10 @@ extension MusicItemModel {
             return file.isDirectory() || suffix.isEmpty ? "" : "." + suffix
         }
         if let file = yandexFile {
+            let suffix = file.fileExtension()
+            return file.isDirectory() || suffix.isEmpty ? "" : "." + suffix
+        }
+        if let file = guangyaFile {
             let suffix = file.fileExtension()
             return file.isDirectory() || suffix.isEmpty ? "" : "." + suffix
         }
@@ -326,6 +335,7 @@ extension MusicItemModel {
         if let file = smbFile { return file.isDirectory() ? "" : URL.formatFileSize(file.size) }
         if let file = megaFile { return file.isDirectory() ? "" : URL.formatFileSize(file.size) }
         if let file = yandexFile { return file.isDirectory() ? "" : URL.formatFileSize(file.size) }
+        if let file = guangyaFile { return file.isDirectory() ? "" : URL.formatFileSize(file.size) }
         if let file = boxFile { return file.isDirectory() ? "" : URL.formatFileSize(file.size) }
         if let file = pcloudFile { return file.isDirectory() ? "" : URL.formatFileSize(file.size) }
         
@@ -391,6 +401,10 @@ extension MusicItemModel {
             return (title?.isEmpty == false ? title : nil) ?? (file.name as NSString).deletingPathExtension
         }
         if let file = yandexFile {
+            if file.isDirectory() { return file.name }
+            return (title?.isEmpty == false ? title : nil) ?? (file.name as NSString).deletingPathExtension
+        }
+        if let file = guangyaFile {
             if file.isDirectory() { return file.name }
             return (title?.isEmpty == false ? title : nil) ?? (file.name as NSString).deletingPathExtension
         }
@@ -474,6 +488,9 @@ extension MusicItemModel {
         if let file = yandexFile {
             return (file.name + (title ?? "") + (artist ?? "") + (album ?? "")).localizedCaseInsensitiveContains(queryKey)
         }
+        if let file = guangyaFile {
+            return (file.name + (title ?? "") + (artist ?? "") + (album ?? "")).localizedCaseInsensitiveContains(queryKey)
+        }
         if let file = boxFile {
             return (file.name + (title ?? "") + (artist ?? "") + (album ?? "")).localizedCaseInsensitiveContains(queryKey)
         }
@@ -535,6 +552,7 @@ extension MusicItemModel {
         if let file = smbFile { return Date(timeIntervalSince1970: file.createdTime) }
         if let file = megaFile { return Date(timeIntervalSince1970: file.createdTime) }
         if let file = yandexFile { return Date(timeIntervalSince1970: file.createdTime) }
+        if let file = guangyaFile { return Date(timeIntervalSince1970: file.createdTime) }
         if let file = boxFile { return Date(timeIntervalSince1970: file.createdTime) }
         if let file = pcloudFile { return Date(timeIntervalSince1970: file.createdTime) }
         if let webFileModel = self.webFileModel {
@@ -570,6 +588,7 @@ extension MusicItemModel {
         if let file = smbFile { return Date(timeIntervalSince1970: file.modifiedTime) }
         if let file = megaFile { return Date(timeIntervalSince1970: file.modifiedTime) }
         if let file = yandexFile { return Date(timeIntervalSince1970: file.modifiedTime) }
+        if let file = guangyaFile { return Date(timeIntervalSince1970: file.modifiedTime) }
         if let file = boxFile { return Date(timeIntervalSince1970: file.modifiedTime) }
         if let file = pcloudFile { return Date(timeIntervalSince1970: file.modifiedTime) }
         if let webFileModel = self.webFileModel {
@@ -605,6 +624,7 @@ extension MusicItemModel {
         if let file = smbFile { return file.name }
         if let file = megaFile { return file.name }
         if let file = yandexFile { return file.name }
+        if let file = guangyaFile { return file.name }
         if let file = boxFile { return file.name }
         if let file = pcloudFile { return file.name }
         if let webFileModel = self.webFileModel {

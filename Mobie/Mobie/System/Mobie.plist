@@ -92,6 +92,16 @@
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
+			<string>Guangya OAuth</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>wakemusic-guangya</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
 			<string>Box OAuth</string>
 			<key>CFBundleURLSchemes</key>
 			<array>

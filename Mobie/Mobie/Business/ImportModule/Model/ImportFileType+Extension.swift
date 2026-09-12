@@ -56,6 +56,7 @@ extension ImportFileType {
         case .fromDropboxDrive: return ["ConnectionTag.Free2GB".localStr()] + speedTags
         case .fromOneDrive: return ["ConnectionTag.Free5GBShared".localStr()] + speedTags
         case .fromePCloud: return ["ConnectionTag.Unlock10GB".localStr()] + speedTags
+        case .fromGuangyaDrive: return ["Guangya.Free2TB".localStr(), "Guangya.ByXunlei".localStr()] + speedTags
         case .fromYandexDrive: return ["ConnectionTag.Free5GB".localStr()]
         case .fromBoxDrive: return ["ConnectionTag.Free10GB".localStr()] + speedTags
         case .fromMEGADrive: return ["MEGA.Free20GB".localStr(), "MEGA.TransferQuota".localStr()]
@@ -216,7 +217,7 @@ extension ImportFileType {
         case .from123Drive:
             return "123 Drive".localStr()
         case .fromGuangyaDrive:
-            return "光鸭云盘"
+            return "Guangya.Name".localStr()
         case .fromJianguoDrive:
             return "Jianguo Drive".localStr()
         case .fromInfiniCloud:

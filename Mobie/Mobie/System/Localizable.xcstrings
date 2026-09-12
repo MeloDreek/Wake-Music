@@ -1,6 +1,441 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+  "Guangya.Name": {
+    "extractionState": "manual",
+    "localizations": {
+      "en": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "Guangya Drive"
+        }
+      },
+      "zh-Hans": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "光鸭云盘"
+        }
+      },
+      "zh-Hant": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "光鴨雲盤"
+        }
+      },
+      "zh-HK": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "光鴨雲盤"
+        }
+      }
+    }
+  },
+  "Guangya.Free2TB": {
+    "extractionState": "manual",
+    "localizations": {
+      "en": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "2 TB free on signup"
+        }
+      },
+      "zh-Hans": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "注册免费 2 TB"
+        }
+      },
+      "zh-Hant": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "註冊免費 2 TB"
+        }
+      },
+      "zh-HK": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "註冊免費 2 TB"
+        }
+      }
+    }
+  },
+  "Guangya.ByXunlei": {
+    "extractionState": "manual",
+    "localizations": {
+      "en": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "By Xunlei"
+        }
+      },
+      "zh-Hans": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "迅雷旗下"
+        }
+      },
+      "zh-Hant": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "迅雷旗下"
+        }
+      },
+      "zh-HK": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "迅雷旗下"
+        }
+      }
+    }
+  },
+  "Guangya.EmptyFolder": {
+    "extractionState": "manual",
+    "localizations": {
+      "en": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "This folder is empty. Upload music to this folder in Guangya Drive, then tap Refresh."
+        }
+      },
+      "zh-Hans": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "此文件夹为空。请先在光鸭云盘中向此文件夹上传音乐，然后点击刷新。"
+        }
+      },
+      "zh-Hant": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "此資料夾是空的。請先在光鴨雲盤中將音樂上傳至此資料夾，然後點一下重新整理。"
+        }
+      },
+      "zh-HK": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "此資料夾是空的。請先在光鴨雲盤中將音樂上傳至此資料夾，然後點一下重新整理。"
+        }
+      }
+    }
+  },
+  "Guangya.SameAccount": {
+    "extractionState": "manual",
+    "localizations": {
+      "en": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "Please sign in to the same Guangya Drive account to reconnect this library."
+        }
+      },
+      "zh-Hans": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "请登录原来的光鸭云盘账号，重新连接此音乐库。"
+        }
+      },
+      "zh-Hant": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "請登入原本的光鴨雲盤帳號，重新連接此音樂庫。"
+        }
+      },
+      "zh-HK": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "請登入原本的光鴨雲盤帳號，重新連接此音樂庫。"
+        }
+      }
+    }
+  },
+  "Guangya.Storage": {
+    "extractionState": "manual",
+    "localizations": {
+      "en": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "Unable to save Guangya Drive authorization securely. Please try again."
+        }
+      },
+      "zh-Hans": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "无法安全保存光鸭云盘授权，请重试。"
+        }
+      },
+      "zh-Hant": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "無法安全儲存光鴨雲盤授權，請重試。"
+        }
+      },
+      "zh-HK": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "無法安全儲存光鴨雲盤授權，請重試。"
+        }
+      }
+    }
+  },
+  "Guangya.Permission": {
+    "extractionState": "manual",
+    "localizations": {
+      "en": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "Guangya Drive denied access. Please reconnect and confirm your account permissions."
+        }
+      },
+      "zh-Hans": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "光鸭云盘拒绝访问，请重新连接并确认账号权限。"
+        }
+      },
+      "zh-Hant": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "光鴨雲盤拒絕存取，請重新連接並確認帳號權限。"
+        }
+      },
+      "zh-HK": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "光鴨雲盤拒絕存取，請重新連接並確認帳號權限。"
+        }
+      }
+    }
+  },
+  "Guangya.NotFound": {
+    "extractionState": "manual",
+    "localizations": {
+      "en": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "This file or folder was moved or deleted. Refresh the list and try again."
+        }
+      },
+      "zh-Hans": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "此文件或文件夹可能已被移动或删除，请刷新列表后重试。"
+        }
+      },
+      "zh-Hant": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "此檔案或資料夾可能已被移動或刪除，請重新整理列表後再試。"
+        }
+      },
+      "zh-HK": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "此檔案或資料夾可能已被移動或刪除，請重新整理列表後再試。"
+        }
+      }
+    }
+  },
+  "Guangya.RateLimited": {
+    "extractionState": "manual",
+    "localizations": {
+      "en": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "Too many requests to Guangya Drive. Please wait a moment and try again."
+        }
+      },
+      "zh-Hans": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "光鸭云盘请求过于频繁，请稍后重试。"
+        }
+      },
+      "zh-Hant": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "光鴨雲盤請求過於頻繁，請稍後再試。"
+        }
+      },
+      "zh-HK": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "光鴨雲盤請求過於頻繁，請稍後再試。"
+        }
+      }
+    }
+  },
+  "Guangya.ClockSkew": {
+    "extractionState": "manual",
+    "localizations": {
+      "en": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "Guangya Drive rejected the device time. Turn on automatic date and time in system settings, then try again."
+        }
+      },
+      "zh-Hans": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "光鸭云盘检测到设备时间偏差。请在系统设置中开启自动设置日期与时间，然后重试。"
+        }
+      },
+      "zh-Hant": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "光鴨雲盤偵測到裝置時間有誤。請在系統設定中開啟自動設定日期與時間，然後重試。"
+        }
+      },
+      "zh-HK": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "光鴨雲盤偵測到裝置時間有誤。請在系統設定中開啟自動設定日期與時間，然後重試。"
+        }
+      }
+    }
+  },
+  "Guangya.Configuration": {
+    "extractionState": "manual",
+    "localizations": {
+      "en": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "Guangya Drive could not validate the app configuration or request signature. Please contact Wake Music support."
+        }
+      },
+      "zh-Hans": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "光鸭云盘无法验证应用配置或请求签名，请联系维克音乐客服。"
+        }
+      },
+      "zh-Hant": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "光鴨雲盤無法驗證應用程式設定或請求簽章，請聯絡維克音樂客服。"
+        }
+      },
+      "zh-HK": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "光鴨雲盤無法驗證應用程式設定或請求簽章，請聯絡維克音樂客服。"
+        }
+      }
+    }
+  },
+  "Guangya.Membership": {
+    "extractionState": "manual",
+    "localizations": {
+      "en": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "Guangya Drive requires a membership for this resource. A Wake Music upgrade does not unlock Guangya Drive membership."
+        }
+      },
+      "zh-Hans": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "光鸭云盘要求会员才能访问此资源。购买维克音乐高级功能并不能解锁光鸭云盘会员。"
+        }
+      },
+      "zh-Hant": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "光鴨雲盤要求會員才能存取此資源。購買維克音樂進階功能並不能解鎖光鴨雲盤會員。"
+        }
+      },
+      "zh-HK": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "光鴨雲盤要求會員才能存取此資源。購買維克音樂進階功能並不能解鎖光鴨雲盤會員。"
+        }
+      }
+    }
+  },
+  "Guangya.RestrictedFile": {
+    "extractionState": "manual",
+    "localizations": {
+      "en": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "Guangya Drive has restricted this file after its content review. Please check the file in Guangya Drive."
+        }
+      },
+      "zh-Hans": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "光鸭云盘因内容审核限制了此文件，请在光鸭云盘中查看文件状态。"
+        }
+      },
+      "zh-Hant": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "光鴨雲盤因內容審核限制了此檔案，請在光鴨雲盤中查看檔案狀態。"
+        }
+      },
+      "zh-HK": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "光鴨雲盤因內容審核限制了此檔案，請在光鴨雲盤中查看檔案狀態。"
+        }
+      }
+    }
+  },
+  "Guangya.InsecureDownload": {
+    "extractionState": "manual",
+    "localizations": {
+      "en": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "Guangya Drive returned an unsupported download address. Please try again later or contact support."
+        }
+      },
+      "zh-Hans": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "光鸭云盘返回了不支持的下载地址，请稍后重试或联系客服。"
+        }
+      },
+      "zh-Hant": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "光鴨雲盤傳回不支援的下載位址，請稍後再試或聯絡客服。"
+        }
+      },
+      "zh-HK": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "光鴨雲盤傳回不支援的下載位址，請稍後再試或聯絡客服。"
+        }
+      }
+    }
+  },
+  "Guangya.Network": {
+    "extractionState": "manual",
+    "localizations": {
+      "en": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "Could not load data from Guangya Drive. Check your connection and try again."
+        }
+      },
+      "zh-Hans": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "无法加载光鸭云盘数据，请检查网络后重试。"
+        }
+      },
+      "zh-Hant": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "無法載入光鴨雲盤資料，請檢查網路後重試。"
+        }
+      },
+      "zh-HK": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "無法載入光鴨雲盤資料，請檢查網路後重試。"
+        }
+      }
+    }
+  },
   "ConnectionTag.Free5GB": {
     "extractionState": "manual",
     "localizations": {

@@ -87,3 +87,8 @@ public let Box_ClientID = "4t1hcuwcq410dxxq1krq3364og8oudtj"
 public let Box_ClientSecret = "Xh4skrn1UaDQgDfMhGbIbUJQZgtS77Q0"
 public let Box_DevelopToken = "De4B3j1y3kCMYjQk5I0dqshQP2iZdwSq"
 public let Box_RedirectURL = "wakemusic-box://oauth/callback"
+
+// 光鸭云盘
+public let Guangya_ClientID = "aSWjpgxuXCmz2SSn"
+public let Guangya_ProjectID = "356jld6jjlbjvygi5v9"
+public let Guangya_Secret = "123"
