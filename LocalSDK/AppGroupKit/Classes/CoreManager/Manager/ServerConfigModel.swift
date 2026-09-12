@@ -62,6 +62,7 @@ public struct ServerConfigModel: SmartCodableX, Equatable, Hashable {
 
     public var pcloudUser: PCloudDriveUserModel?
     public var smbUser: SMBDriveUserModel?
+    public var yandexUser: YandexDriveUserModel?
     public var boxUser: BoxDriveUserModel?
     public var megaUser: MEGADriveUserModel?
     
@@ -77,6 +78,7 @@ public struct ServerConfigModel: SmartCodableX, Equatable, Hashable {
         hasher.combine(dropboxUser)
         hasher.combine(onedriveUser)
         hasher.combine(pcloudUser)
+        hasher.combine(yandexUser)
         hasher.combine(boxUser)
         hasher.combine(megaUser)
         hasher.combine(smbUser)
@@ -86,6 +88,7 @@ public struct ServerConfigModel: SmartCodableX, Equatable, Hashable {
     public static func == (lhs: ServerConfigModel, rhs: ServerConfigModel) -> Bool {
         return lhs.serverType == rhs.serverType &&
         lhs.pcloudUser == rhs.pcloudUser &&
+        lhs.yandexUser == rhs.yandexUser &&
         lhs.boxUser == rhs.boxUser &&
         lhs.megaUser == rhs.megaUser &&
         lhs.smbUser == rhs.smbUser &&
@@ -107,6 +110,7 @@ extension ServerConfigModel {
     public func showTitle() -> String {
         if let user = smbUser { return user.title }
         if megaUser != nil { return "MEGA" }
+        if yandexUser != nil { return "Yandex Disk" }
         if boxUser != nil { return "Box" }
         if pcloudUser != nil { return "pCloud" }
         if self.serverType == .fromWebDav {
@@ -139,6 +143,7 @@ extension ServerConfigModel {
     public func customNameStr() -> String? {
         if let user = smbUser { return user.title }
         if let user = megaUser { return user.email.isEmpty ? "MEGA" : user.email }
+        if let user = yandexUser { return user.login.isEmpty ? "Yandex Disk" : user.login }
         if let user = boxUser { return user.email.isEmpty ? "Box" : user.email }
         if let user = pcloudUser { return user.email.isEmpty ? "pCloud" : user.email }
         if let webdavUser = self.webdavUser {

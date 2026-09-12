@@ -703,25 +703,35 @@
 		A76381FF2EDED27C0040A84D /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = A76381FE2EDED27C0040A84D /* Alamofire */; };
 		A76382012EDED2E60040A84D /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = A76382002EDED2E60040A84D /* Alamofire */; };
 		B01000000000000000000001 /* BoxDriveService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01000000000000000000002 /* BoxDriveService.swift */; };
+		DA1000000000000000000001 /* YandexDriveService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1000000000000000000002 /* YandexDriveService.swift */; };
 		C04100000000000000000001 /* MEGADriveService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04100000000000000000002 /* MEGADriveService.swift */; };
 		D66F570949C24DA19E444001 /* MEGASystemProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66F570949C24DA19E444002 /* MEGASystemProxy.swift */; };
 		D66F570949C24DA19E444003 /* MEGASystemProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66F570949C24DA19E444002 /* MEGASystemProxy.swift */; };
 		B01000000000000000000003 /* BoxDriveService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01000000000000000000002 /* BoxDriveService.swift */; };
+		DA1000000000000000000003 /* YandexDriveService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1000000000000000000002 /* YandexDriveService.swift */; };
 		C04100000000000000000003 /* MEGADriveService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04100000000000000000002 /* MEGADriveService.swift */; };
 		B01000000000000000000004 /* BoxDriveFileListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01000000000000000000005 /* BoxDriveFileListController.swift */; };
+		DA1000000000000000000004 /* YandexDriveFileListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1000000000000000000005 /* YandexDriveFileListController.swift */; };
 		C04100000000000000000004 /* MEGADriveFileListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04100000000000000000005 /* MEGADriveFileListController.swift */; };
 		B01000000000000000000006 /* BoxDriveFileListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01000000000000000000005 /* BoxDriveFileListController.swift */; };
+		DA1000000000000000000006 /* YandexDriveFileListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1000000000000000000005 /* YandexDriveFileListController.swift */; };
 		C04100000000000000000006 /* MEGADriveFileListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04100000000000000000005 /* MEGADriveFileListController.swift */; };
 		B01000000000000000000007 /* KakaMusicPlayer+Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01000000000000000000008 /* KakaMusicPlayer+Box.swift */; };
+		DA1000000000000000000007 /* KakaMusicPlayer+Yandex.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1000000000000000000008 /* KakaMusicPlayer+Yandex.swift */; };
 		C04100000000000000000007 /* KakaMusicPlayer+MEGA.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04100000000000000000008 /* KakaMusicPlayer+MEGA.swift */; };
 		B01000000000000000000009 /* KakaMusicPlayer+Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01000000000000000000008 /* KakaMusicPlayer+Box.swift */; };
+		DA1000000000000000000009 /* KakaMusicPlayer+Yandex.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1000000000000000000008 /* KakaMusicPlayer+Yandex.swift */; };
 		C04100000000000000000009 /* KakaMusicPlayer+MEGA.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04100000000000000000008 /* KakaMusicPlayer+MEGA.swift */; };
 		B01100000000000000000001 /* BoxFileListStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01100000000000000000002 /* BoxFileListStatus.swift */; };
+		DA1100000000000000000001 /* YandexFileListStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1100000000000000000002 /* YandexFileListStatus.swift */; };
 		C04200000000000000000001 /* MEGAFileListStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04200000000000000000002 /* MEGAFileListStatus.swift */; };
 		B01100000000000000000003 /* BoxFileListStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01100000000000000000002 /* BoxFileListStatus.swift */; };
+		DA1100000000000000000003 /* YandexFileListStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1100000000000000000002 /* YandexFileListStatus.swift */; };
 		C04200000000000000000003 /* MEGAFileListStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04200000000000000000002 /* MEGAFileListStatus.swift */; };
 		B01200000000000000000001 /* BoxDriveAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01200000000000000000002 /* BoxDriveAPI.swift */; };
+		DA1200000000000000000001 /* YandexDriveAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1200000000000000000002 /* YandexDriveAPI.swift */; };
 		B01200000000000000000003 /* BoxDriveAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01200000000000000000002 /* BoxDriveAPI.swift */; };
+		DA1200000000000000000003 /* YandexDriveAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1200000000000000000002 /* YandexDriveAPI.swift */; };
 		C02000000000000000000001 /* SMBDriveService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02000000000000000000002 /* SMBDriveService.swift */; };
 		C02000000000000000000003 /* SMBDriveService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02000000000000000000002 /* SMBDriveService.swift */; };
 		C02000000000000000000004 /* SMBDriveFileListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02000000000000000000005 /* SMBDriveFileListController.swift */; };
@@ -1096,15 +1106,20 @@
 		529D8BF88D087076D287687A /* Pods-Mobie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mobie.debug.xcconfig"; path = "Target Support Files/Pods-Mobie/Pods-Mobie.debug.xcconfig"; sourceTree = "<group>"; };
 		886CE6607B0E1400F6276768 /* Pods-Mobie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mobie.release.xcconfig"; path = "Target Support Files/Pods-Mobie/Pods-Mobie.release.xcconfig"; sourceTree = "<group>"; };
 		B01000000000000000000002 /* BoxDriveService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxDriveService.swift; sourceTree = "<group>"; };
+		DA1000000000000000000002 /* YandexDriveService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YandexDriveService.swift; sourceTree = "<group>"; };
 		C04100000000000000000002 /* MEGADriveService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MEGADriveService.swift; sourceTree = "<group>"; };
 		D66F570949C24DA19E444002 /* MEGASystemProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MEGASystemProxy.swift; sourceTree = "<group>"; };
 		B01000000000000000000005 /* BoxDriveFileListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxDriveFileListController.swift; sourceTree = "<group>"; };
+		DA1000000000000000000005 /* YandexDriveFileListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YandexDriveFileListController.swift; sourceTree = "<group>"; };
 		C04100000000000000000005 /* MEGADriveFileListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MEGADriveFileListController.swift; sourceTree = "<group>"; };
 		B01000000000000000000008 /* KakaMusicPlayer+Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KakaMusicPlayer+Box.swift"; sourceTree = "<group>"; };
+		DA1000000000000000000008 /* KakaMusicPlayer+Yandex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KakaMusicPlayer+Yandex.swift"; sourceTree = "<group>"; };
 		C04100000000000000000008 /* KakaMusicPlayer+MEGA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KakaMusicPlayer+MEGA.swift"; sourceTree = "<group>"; };
 		B01100000000000000000002 /* BoxFileListStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxFileListStatus.swift; sourceTree = "<group>"; };
+		DA1100000000000000000002 /* YandexFileListStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YandexFileListStatus.swift; sourceTree = "<group>"; };
 		C04200000000000000000002 /* MEGAFileListStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MEGAFileListStatus.swift; sourceTree = "<group>"; };
 		B01200000000000000000002 /* BoxDriveAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxDriveAPI.swift; sourceTree = "<group>"; };
+		DA1200000000000000000002 /* YandexDriveAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YandexDriveAPI.swift; sourceTree = "<group>"; };
 		BD30271AF1F6DF33916F8A97 /* Pods-Mobie_Pro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mobie_Pro.release.xcconfig"; path = "Target Support Files/Pods-Mobie_Pro/Pods-Mobie_Pro.release.xcconfig"; sourceTree = "<group>"; };
 		C02000000000000000000002 /* SMBDriveService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMBDriveService.swift; sourceTree = "<group>"; };
 		C02000000000000000000005 /* SMBDriveFileListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMBDriveFileListController.swift; sourceTree = "<group>"; };
@@ -1342,6 +1357,7 @@
 				226AF34E2E236738007C44DF /* KakaMusicPlayer+API.swift */,
 				C10D00000000000000000008 /* KakaMusicPlayer+PCloud.swift */,
 				B01000000000000000000008 /* KakaMusicPlayer+Box.swift */,
+				DA1000000000000000000008 /* KakaMusicPlayer+Yandex.swift */,
 				C04100000000000000000008 /* KakaMusicPlayer+MEGA.swift */,
 				C02000000000000000000008 /* KakaMusicPlayer+SMB.swift */,
 				228A14222CA0633400E2948E /* KakaMusicPlayer+Tools.swift */,
@@ -1356,6 +1372,7 @@
 			children = (
 				C10E00000000000000000002 /* PCloudFileListStatus.swift */,
 				B01100000000000000000002 /* BoxFileListStatus.swift */,
+				DA1100000000000000000002 /* YandexFileListStatus.swift */,
 				C04200000000000000000002 /* MEGAFileListStatus.swift */,
 				C02300000000000000000002 /* SMBFileListStatus.swift */,
 				22B361D32D2174E8009DC9F5 /* LoginGroupModel.swift */,
@@ -1387,6 +1404,7 @@
 				225A5D8E2EAFB4EA009DB87E /* DropboxDriveFileListController.swift */,
 				C10D00000000000000000005 /* PCloudDriveFileListController.swift */,
 				B01000000000000000000005 /* BoxDriveFileListController.swift */,
+				DA1000000000000000000005 /* YandexDriveFileListController.swift */,
 				C04100000000000000000005 /* MEGADriveFileListController.swift */,
 				C02000000000000000000005 /* SMBDriveFileListController.swift */,
 				2217E0FC2EBC74E000C724F6 /* OneDriveFileListController.swift */,
@@ -1789,12 +1807,14 @@
 				224DAE3B2EAE5961003CFAAC /* DriveUserModel+Extension.swift */,
 				C10D00000000000000000002 /* PCloudDriveService.swift */,
 				B01000000000000000000002 /* BoxDriveService.swift */,
+				DA1000000000000000000002 /* YandexDriveService.swift */,
 				C04100000000000000000002 /* MEGADriveService.swift */,
 				D66F570949C24DA19E444002 /* MEGASystemProxy.swift */,
 				C02000000000000000000002 /* SMBDriveService.swift */,
 				C02100000000000000000002 /* SMBHTTPBridge.swift */,
 				C02400000000000000000002 /* SMBProtocol.swift */,
 				B01200000000000000000002 /* BoxDriveAPI.swift */,
+				DA1200000000000000000002 /* YandexDriveAPI.swift */,
 				C09110000000000000000002 /* EmbeddedArtworkReader.swift */,
 			);
 			path = Extension;
@@ -2368,10 +2388,12 @@
 				225A5D902EAFB4EA009DB87E /* DropboxDriveFileListController.swift in Sources */,
 				C10D00000000000000000006 /* PCloudDriveFileListController.swift in Sources */,
 				B01000000000000000000006 /* BoxDriveFileListController.swift in Sources */,
+				DA1000000000000000000006 /* YandexDriveFileListController.swift in Sources */,
 				C04100000000000000000006 /* MEGADriveFileListController.swift in Sources */,
 				C02000000000000000000006 /* SMBDriveFileListController.swift in Sources */,
 				C10E00000000000000000003 /* PCloudFileListStatus.swift in Sources */,
 				B01100000000000000000003 /* BoxFileListStatus.swift in Sources */,
+				DA1100000000000000000003 /* YandexFileListStatus.swift in Sources */,
 				C04200000000000000000003 /* MEGAFileListStatus.swift in Sources */,
 				C02300000000000000000003 /* SMBFileListStatus.swift in Sources */,
 				22C2572F302D723500A68C1B /* AudioMatchCoverFootView.swift in Sources */,
@@ -2450,6 +2472,7 @@
 				226AF3502E236738007C44DF /* KakaMusicPlayer+API.swift in Sources */,
 				C10D00000000000000000009 /* KakaMusicPlayer+PCloud.swift in Sources */,
 				B01000000000000000000009 /* KakaMusicPlayer+Box.swift in Sources */,
+				DA1000000000000000000009 /* KakaMusicPlayer+Yandex.swift in Sources */,
 				C04100000000000000000009 /* KakaMusicPlayer+MEGA.swift in Sources */,
 				C02000000000000000000009 /* KakaMusicPlayer+SMB.swift in Sources */,
 				225F585F2D85B2AB0055BDFF /* WebDavFileObject+Extension.swift in Sources */,
@@ -2470,12 +2493,14 @@
 				224DAE3D2EAE5961003CFAAC /* DriveUserModel+Extension.swift in Sources */,
 				C10D00000000000000000003 /* PCloudDriveService.swift in Sources */,
 				B01000000000000000000003 /* BoxDriveService.swift in Sources */,
+				DA1000000000000000000003 /* YandexDriveService.swift in Sources */,
 				C04100000000000000000003 /* MEGADriveService.swift in Sources */,
 				D66F570949C24DA19E444003 /* MEGASystemProxy.swift in Sources */,
 				C02000000000000000000003 /* SMBDriveService.swift in Sources */,
 				C02100000000000000000003 /* SMBHTTPBridge.swift in Sources */,
 				C02400000000000000000003 /* SMBProtocol.swift in Sources */,
 				B01200000000000000000003 /* BoxDriveAPI.swift in Sources */,
+				DA1200000000000000000003 /* YandexDriveAPI.swift in Sources */,
 				C09110000000000000000003 /* EmbeddedArtworkReader.swift in Sources */,
 				225F58652D85B2AB0055BDFF /* PurchageListViewcell.swift in Sources */,
 				225F58672D85B2AB0055BDFF /* PlayerTimerViewController.swift in Sources */,
@@ -2686,10 +2711,12 @@
 				225A5D8F2EAFB4EA009DB87E /* DropboxDriveFileListController.swift in Sources */,
 				C10D00000000000000000004 /* PCloudDriveFileListController.swift in Sources */,
 				B01000000000000000000004 /* BoxDriveFileListController.swift in Sources */,
+				DA1000000000000000000004 /* YandexDriveFileListController.swift in Sources */,
 				C04100000000000000000004 /* MEGADriveFileListController.swift in Sources */,
 				C02000000000000000000004 /* SMBDriveFileListController.swift in Sources */,
 				C10E00000000000000000001 /* PCloudFileListStatus.swift in Sources */,
 				B01100000000000000000001 /* BoxFileListStatus.swift in Sources */,
+				DA1100000000000000000001 /* YandexFileListStatus.swift in Sources */,
 				C04200000000000000000001 /* MEGAFileListStatus.swift in Sources */,
 				C02300000000000000000001 /* SMBFileListStatus.swift in Sources */,
 				22C25730302D723500A68C1B /* AudioMatchCoverFootView.swift in Sources */,
@@ -2768,6 +2795,7 @@
 				226AF34F2E236738007C44DF /* KakaMusicPlayer+API.swift in Sources */,
 				C10D00000000000000000007 /* KakaMusicPlayer+PCloud.swift in Sources */,
 				B01000000000000000000007 /* KakaMusicPlayer+Box.swift in Sources */,
+				DA1000000000000000000007 /* KakaMusicPlayer+Yandex.swift in Sources */,
 				C04100000000000000000007 /* KakaMusicPlayer+MEGA.swift in Sources */,
 				C02000000000000000000007 /* KakaMusicPlayer+SMB.swift in Sources */,
 				22694D9D2D23ECB400DE036D /* WebDavFileObject+Extension.swift in Sources */,
@@ -2788,12 +2816,14 @@
 				224DAE3C2EAE5961003CFAAC /* DriveUserModel+Extension.swift in Sources */,
 				C10D00000000000000000001 /* PCloudDriveService.swift in Sources */,
 				B01000000000000000000001 /* BoxDriveService.swift in Sources */,
+				DA1000000000000000000001 /* YandexDriveService.swift in Sources */,
 				C04100000000000000000001 /* MEGADriveService.swift in Sources */,
 				D66F570949C24DA19E444001 /* MEGASystemProxy.swift in Sources */,
 				C02000000000000000000001 /* SMBDriveService.swift in Sources */,
 				C02100000000000000000001 /* SMBHTTPBridge.swift in Sources */,
 				C02400000000000000000001 /* SMBProtocol.swift in Sources */,
 				B01200000000000000000001 /* BoxDriveAPI.swift in Sources */,
+				DA1200000000000000000001 /* YandexDriveAPI.swift in Sources */,
 				C09110000000000000000001 /* EmbeddedArtworkReader.swift in Sources */,
 				228A14722CA0633400E2948E /* PurchageListViewcell.swift in Sources */,
 				224AC8A82CE4333200F4F2AF /* PlayerTimerViewController.swift in Sources */,

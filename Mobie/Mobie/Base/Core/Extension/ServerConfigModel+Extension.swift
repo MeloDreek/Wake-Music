@@ -15,6 +15,7 @@ extension ServerConfigModel {
     public func pageTitle() -> String {
         if let user = smbUser { return user.title + " (" + user.host + ")" }
         if let user = megaUser { return user.email.isEmpty ? "MEGA" : user.email }
+        if let user = yandexUser { return user.login.isEmpty ? "Yandex Disk" : user.login }
         if let user = boxUser { return user.email.isEmpty ? "Box" : user.email }
         if let user = pcloudUser { return user.email.isEmpty ? "pCloud" : user.email }
         
@@ -50,6 +51,7 @@ extension ServerConfigModel {
     func descString() -> String? {
         if let user = smbUser { return user.title + " (" + user.host + ")" }
         if let user = megaUser { return user.email.isEmpty ? "MEGA" : user.email }
+        if let user = yandexUser { return user.login.isEmpty ? "Yandex Disk" : user.login }
         if let user = boxUser { return user.email.isEmpty ? "Box" : user.email }
         if let user = pcloudUser { return user.email.isEmpty ? user.apiHostName : user.email }
         

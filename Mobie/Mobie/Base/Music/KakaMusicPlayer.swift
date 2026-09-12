@@ -197,6 +197,9 @@ public class KakaMusicPlayer: NSObject, ObservableObject {
             debugPrint("播放时的header = \(HTTPHeaders.default.dictionary.description)")
         }
         
+        if let file = model.yandexFile {
+            option.appendHeader(YandexDriveService.shared.playbackHeaders(for: file, url: model.mediaPlayURL))
+        }
         if let googleFile = model.googleFile, let googleUser = googleFile.googleUser {
             debugPrint("谷歌配置信息 = \(googleUser.toJSONString() ?? "")")
             option.appendHeader(["Authorization": "Bearer \(googleUser.accessToken)"])
@@ -298,7 +301,7 @@ public class KakaMusicPlayer: NSObject, ObservableObject {
 //        debugPrint("全部文件路径 = \(allFileURLArray)")
 //        debugPrint("全部文件名称 = \(allFileNameArray)")
         
-        if nextPlayMusic.pcloudFile != nil || nextPlayMusic.megaFile != nil || nextPlayMusic.boxFile != nil || nextPlayMusic.smbFile != nil {
+        if nextPlayMusic.pcloudFile != nil || nextPlayMusic.megaFile != nil || nextPlayMusic.yandexFile != nil || nextPlayMusic.boxFile != nil || nextPlayMusic.smbFile != nil {
             if SandboxFileManager.shared.getDownloadPlayURL(nextPlayMusic) != nil { return }
         } else if allFileNameArray.contains(nextPlayMusic.downloadPathName()) { return }
         
@@ -310,7 +313,7 @@ public class KakaMusicPlayer: NSObject, ObservableObject {
             debugPrint("删除最早的一个缓存 = \(firstURL.lastPathComponent)")
         }
         
-        let fileName = (nextPlayMusic.pcloudFile == nil && nextPlayMusic.megaFile == nil && nextPlayMusic.boxFile == nil && nextPlayMusic.smbFile == nil) ? nextPlayMusic.downloadPathName() : nextPlayMusic.filePathName() + nextPlayMusic.addPathExtension()
+        let fileName = (nextPlayMusic.pcloudFile == nil && nextPlayMusic.megaFile == nil && nextPlayMusic.yandexFile == nil && nextPlayMusic.boxFile == nil && nextPlayMusic.smbFile == nil) ? nextPlayMusic.downloadPathName() : nextPlayMusic.filePathName() + nextPlayMusic.addPathExtension()
         let targetFileURL = cacheFolderURL.appendingPathComponent(fileName)
         
         if let file = nextPlayMusic.smbFile {
@@ -327,6 +330,14 @@ public class KakaMusicPlayer: NSObject, ObservableObject {
                       MusicConfigManager.shared.isPreDownload else { return }
                 if case .success(let url) = result {
                     self.download(downloadURL: url, targetFileURL: targetFileURL, model: nextPlayMusic)
+                }
+            }
+        }else if let file = nextPlayMusic.yandexFile {
+            YandexDriveService.shared.fileSource(file) { [weak self] result in
+                guard let self = self, self.nextPlayMusic?.uniqueID() == nextPlayMusic.uniqueID(),
+                      MusicConfigManager.shared.isPreDownload else { return }
+                if case .success(let source) = result {
+                    self.download(downloadURL: source.url, targetFileURL: targetFileURL, model: nextPlayMusic, additionalHeaders: source.headers)
                 }
             }
         }else if let file = nextPlayMusic.boxFile {
@@ -397,7 +408,7 @@ public class KakaMusicPlayer: NSObject, ObservableObject {
         
     }
     
-    func download(downloadURL: URL, targetFileURL: URL, model: MusicItemModel?) {
+    func download(downloadURL: URL, targetFileURL: URL, model: MusicItemModel?, additionalHeaders: [String: String] = [:]) {
         
         let destination: DownloadRequest.Destination = { _, response in
             return (targetFileURL, [.removePreviousFile, .createIntermediateDirectories])
@@ -408,8 +419,15 @@ public class KakaMusicPlayer: NSObject, ObservableObject {
             headers.add(name: "Authorization", value: "Bearer " + googleUser.accessToken)
         }
         
+        additionalHeaders.forEach { headers.update(name: $0.key, value: $0.value) }
         let request = AF.download(downloadURL, headers: headers, to: destination)
-        if model?.pcloudFile != nil || model?.megaFile != nil || model?.boxFile != nil || model?.smbFile != nil { request.validate(statusCode: 200..<300) }
+        if model?.yandexFile != nil {
+            request.redirect(using: Redirector(behavior: .modify { _, redirect, _ in
+                guard let url = redirect.url, YandexDriveAPI.validDownloadURL(url) else { return nil }
+                return redirect
+            }))
+        }
+        if model?.pcloudFile != nil || model?.megaFile != nil || model?.yandexFile != nil || model?.boxFile != nil || model?.smbFile != nil { request.validate(statusCode: 200..<300) }
         request.downloadProgress { progressValue in
             debugPrint("下载进度 = \(progressValue.fractionCompleted)")
           }.responseURL { response in
@@ -418,7 +436,7 @@ public class KakaMusicPlayer: NSObject, ObservableObject {
                 debugPrint("✅下一首歌下载完成 = \(fileURL)")
                 break
             case .failure(let error):
-                if model?.pcloudFile != nil || model?.megaFile != nil || model?.boxFile != nil || model?.smbFile != nil, response.fileURL == targetFileURL {
+                if model?.pcloudFile != nil || model?.megaFile != nil || model?.yandexFile != nil || model?.boxFile != nil || model?.smbFile != nil, response.fileURL == targetFileURL {
                     try? FileManager.default.removeItem(at: targetFileURL)
                 }
                 debugPrint("下载❌ = \(error)")

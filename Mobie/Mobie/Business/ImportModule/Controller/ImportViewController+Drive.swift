@@ -11,7 +11,6 @@ import AppGroupKit
 import GoogleSignIn
 import Alamofire
 import SwiftyDropbox
-//import YandexLoginSDK
 import ProgressHUD
 #if canImport(MSAL)
 import MSAL
@@ -103,7 +102,7 @@ extension ImportViewController {
         }
         
         if itemType == .fromYandexDrive {
-            self.importFromYandexDisk()
+            self.connectYandexDrive()
         }
         
         if !itemType.isAvailble() {
@@ -256,37 +255,4 @@ extension ImportViewController {
 #endif
     }
     
-    // Yandex.disk
-    func importFromYandexDisk() {
-        
-//        
-//        if ConnectConfigManager.shared.connectedModels.filter({ $0.serverType == .fromYandexDrive }).count > 0 {
-//            self.showOneAlert(title: ImportFileType.fromYandexDrive.titleStr(), message: "You can’t sign in to multiple accounts at the same time. Please remove the previously signed-in account.".localStr())
-//            return
-//        }
-//        
-//        YandexLoginSDK.shared.add(observer: self)
-//        
-//        do {
-//            try YandexLoginSDK.shared.authorize(with: self, customValues: [:], authorizationStrategy: .default)
-//        } catch {
-//            debugPrint("Yandex 初始化失败: \(error)")
-//            self.showOneAlert(message: error.localizedDescription)
-//        }
-        
-    }
-    
 }
-
-//extension ImportViewController: YandexLoginSDKObserver {
-//    func didFinishLogin(with result: Result<LoginResult, any Error>) {
-//        switch result {
-//        case .success(let loginResult):
-//            debugPrint("loginResult = \(loginResult)")
-//            break
-//        case .failure(let error):
-//            self.showOneAlert(message: error.localizedDescription)
-//            break
-//        }
-//    }
-//}

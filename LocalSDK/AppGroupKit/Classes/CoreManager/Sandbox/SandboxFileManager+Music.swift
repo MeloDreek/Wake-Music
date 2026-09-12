@@ -52,7 +52,7 @@ extension SandboxFileManager {
     /// 获取已下载的文件路径
     public func getDownloadPlayURL(_ model: MusicItemModel) -> URL? {
         // A display filename is not a unique identifier across cloud folders/accounts.
-        if model.pcloudFile != nil || model.megaFile != nil || model.boxFile != nil || model.smbFile != nil {
+        if model.pcloudFile != nil || model.megaFile != nil || model.yandexFile != nil || model.boxFile != nil || model.smbFile != nil {
             let url = self.preDownloadURL().appendingPathComponent(model.filePathName() + model.addPathExtension())
             return FileManager.default.fileExists(atPath: url.path) ? url : nil
         }

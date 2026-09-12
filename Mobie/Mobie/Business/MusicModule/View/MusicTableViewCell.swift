@@ -214,6 +214,10 @@ class MusicTableViewCell: UITableViewCell {
             let isSupport = AudioExtension.audioSuffixs.contains(megaFile.fileExtension())
             isSupportType = !megaFile.isDirectory() && isSupport
         }
+        if let yandexFile = musicModel.yandexFile {
+            let isSupport = AudioExtension.audioSuffixs.contains(yandexFile.fileExtension())
+            isSupportType = !yandexFile.isDirectory() && isSupport
+        }
         if let boxFile = musicModel.boxFile {
             let isSupport = AudioExtension.audioSuffixs.contains(boxFile.fileExtension())
             isSupportType = !boxFile.isDirectory() && isSupport
@@ -315,6 +319,10 @@ class MusicTableViewCell: UITableViewCell {
             coverImgView.kf.setImage(with: musicModel.coverThumbnailURL(), placeholder: musicModel.musicCoverImage() ?? musicModel.placeImage())
             nameLabel.text = file.name
             self.descLabel.text = file.isDirectory() ? "MEGA" : musicModel.durationTimeStr()
+        }else if let file = musicModel.yandexFile {
+            coverImgView.kf.setImage(with: musicModel.coverThumbnailURL(), placeholder: musicModel.musicCoverImage() ?? musicModel.placeImage())
+            nameLabel.text = file.name
+            self.descLabel.text = file.isDirectory() ? "Yandex Disk" : musicModel.durationTimeStr()
         }else if let file = musicModel.boxFile {
             coverImgView.kf.setImage(with: musicModel.coverThumbnailURL(), placeholder: musicModel.musicCoverImage() ?? musicModel.placeImage())
             nameLabel.text = file.name
@@ -350,9 +358,9 @@ class MusicTableViewCell: UITableViewCell {
     lazy var blurEffectView: UIVisualEffectView = {
         let blurEffect = UIBlurEffect(style: .extraLight)
         let view = UIVisualEffectView(effect: blurEffect)
-#if !DEBUG
+//#if !DEBUG
         view.isHidden = true
-#endif
+//#endif
         view.frame = self.coverImgView.bounds
         view.alpha = 0.58
         view.autoresizingMask = [.flexibleWidth, .flexibleHeight]

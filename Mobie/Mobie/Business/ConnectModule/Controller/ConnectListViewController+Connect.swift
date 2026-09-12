@@ -59,6 +59,9 @@ extension ConnectListViewController {
         if itemType == .fromMEGADrive {
             self.connectMEGADrive()
         }
+        if itemType == .fromYandexDrive {
+            self.connectYandexDrive()
+        }
         if itemType == .fromBoxDrive {
             self.connectBoxDrive()
         }

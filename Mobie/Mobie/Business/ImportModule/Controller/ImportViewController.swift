@@ -70,7 +70,6 @@ class ImportViewController: SuperViewController {
         let model3 = ImportGroupModel(group: .serverGroup, headTitle: "Server".localStr(), itemArray: ImportFileType.serverDriveArray(), footTitle: nil)
         tempArray.append(model3)
         
-        let footArray: [ImportFileType] = [.fromYandexDrive, .fromBoxDrive, .fromePCloud]
         let model4 = ImportGroupModel(group: .driveGroup, headTitle: "Cloud Drive".localStr(), itemArray: ImportFileType.cloudDriveArray(), footTitle: nil)
         tempArray.append(model4)
                 
@@ -236,4 +235,3 @@ extension ImportViewController: MFMailComposeViewControllerDelegate, SFSafariVie
         """
     }
 }
-

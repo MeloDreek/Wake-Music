@@ -56,6 +56,7 @@ extension ImportFileType {
         case .fromDropboxDrive: return ["ConnectionTag.Free2GB".localStr()] + speedTags
         case .fromOneDrive: return ["ConnectionTag.Free5GBShared".localStr()] + speedTags
         case .fromePCloud: return ["ConnectionTag.Unlock10GB".localStr()] + speedTags
+        case .fromYandexDrive: return ["ConnectionTag.Free5GB".localStr()]
         case .fromBoxDrive: return ["ConnectionTag.Free10GB".localStr()] + speedTags
         case .fromMEGADrive: return ["MEGA.Free20GB".localStr(), "MEGA.TransferQuota".localStr()]
         case .fromBaiduDrive:
@@ -194,7 +195,7 @@ extension ImportFileType {
         case .fromDropboxDrive:
             return "Dropbox"
         case .fromYandexDrive:
-            return "Yandex.disk"
+            return "Yandex Disk"
         case .fromBaiduDrive:
             return "Baidu Drive".localStr()
         case .fromAliyunDrive:
@@ -244,9 +245,9 @@ extension ImportFileType {
         let language = PhoneSetManager.formatLanguage()
         
 #if canImport(MSAL)
-        let commonArray: [ImportFileType] = [.fromGoogleDrive, .fromDropboxDrive, .fromOneDrive, .fromePCloud, .fromBoxDrive, .fromMEGADrive]
+        let commonArray: [ImportFileType] = [.fromGoogleDrive, .fromDropboxDrive, .fromOneDrive, .fromePCloud, .fromBoxDrive, .fromMEGADrive, .fromYandexDrive]
 #else
-        let commonArray: [ImportFileType] = [.fromGoogleDrive, .fromDropboxDrive, .fromePCloud, .fromBoxDrive, .fromMEGADrive]
+        let commonArray: [ImportFileType] = [.fromGoogleDrive, .fromDropboxDrive, .fromePCloud, .fromBoxDrive, .fromMEGADrive, .fromYandexDrive]
 #endif
         let chineseArray: [ImportFileType] = [.fromBaiduDrive, .fromAliyunDrive, .from115Drive]
         let russaArray: [ImportFileType] = []

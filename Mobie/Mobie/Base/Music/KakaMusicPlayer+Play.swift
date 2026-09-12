@@ -46,10 +46,10 @@ extension KakaMusicPlayer {
         guard var model = self.playingMusic else { return }
 
         // Re-resolve temporary cloud links after a pause; the previous URL may have expired.
-        let isResumingPCloud = (model.pcloudFile != nil || model.megaFile != nil || model.boxFile != nil || model.smbFile != nil) && self.playerView.playerLayer?.player.playbackState == .paused && self.playerView.playerLayer?.url == model.mediaPlayURL
+        let isResumingPCloud = (model.pcloudFile != nil || model.megaFile != nil || model.yandexFile != nil || model.boxFile != nil || model.smbFile != nil) && self.playerView.playerLayer?.player.playbackState == .paused && self.playerView.playerLayer?.url == model.mediaPlayURL
         let pcloudResumeTime = isResumingPCloud ? self.currentTime : MusicConfigManager.shared.lastPlayTime
         
-        let fileExtension = model.megaFile?.fileExtension() ?? model.smbFile?.fileExtension() ?? model.boxFile?.fileExtension() ?? model.mediaPlayURL.pathExtension.lowercased()
+        let fileExtension = model.megaFile?.fileExtension() ?? model.smbFile?.fileExtension() ?? model.yandexFile?.fileExtension() ?? model.boxFile?.fileExtension() ?? model.mediaPlayURL.pathExtension.lowercased()
         let isPremiumType = AudioExtensionType.premiumExtensions().contains(fileExtension)
         if !UserInfoManager.shared.isVIP() && isPremiumType && (model.fileSourceType != .demoFile) {
             self.currentViewController()?.showOneAlert(message: "The system's built-in AVPlayer can't decode this format. Please switch the Player Engine.".localStr(), confirm: "OK".localStr()) {
@@ -60,7 +60,7 @@ extension KakaMusicPlayer {
             return
         }
         
-        if let playerLayer = self.playerView.playerLayer, model.pcloudFile == nil, model.megaFile == nil, model.boxFile == nil, model.smbFile == nil, playerLayer.player.playbackState == .paused, self.playingMusic?.mediaPlayURL == playerLayer.url {
+        if let playerLayer = self.playerView.playerLayer, model.pcloudFile == nil, model.megaFile == nil, model.yandexFile == nil, model.boxFile == nil, model.smbFile == nil, playerLayer.player.playbackState == .paused, self.playingMusic?.mediaPlayURL == playerLayer.url {
             // 继续播放
             debugPrint("继续播放")
         }else{
@@ -93,6 +93,9 @@ extension KakaMusicPlayer {
                     return
                 }else if model.megaFile != nil {
                     self.handleMEGAStreaming(model, resumeTime: pcloudResumeTime)
+                    return
+                }else if model.yandexFile != nil {
+                    self.handleYandexStreaming(model, resumeTime: pcloudResumeTime)
                     return
                 }else if model.boxFile != nil {
                     self.handleBoxStreaming(model, resumeTime: pcloudResumeTime)
@@ -167,7 +170,7 @@ extension KakaMusicPlayer {
     @MainActor func pause() {
         self.pcloudPlaybackRequestID = UUID()
         self.playerView.pause()
-        if self.playingMusic?.pcloudFile != nil || self.playingMusic?.megaFile != nil || self.playingMusic?.boxFile != nil || self.playingMusic?.smbFile != nil { self.playbackStatus = .paused }
+        if self.playingMusic?.pcloudFile != nil || self.playingMusic?.megaFile != nil || self.playingMusic?.yandexFile != nil || self.playingMusic?.boxFile != nil || self.playingMusic?.smbFile != nil { self.playbackStatus = .paused }
     }
     
     // 停止
@@ -175,7 +178,7 @@ extension KakaMusicPlayer {
         self.pcloudPlaybackRequestID = UUID()
         self.cacheCoverImage = nil
         self.playerView.playerLayer?.stop()
-        if self.playingMusic?.pcloudFile != nil || self.playingMusic?.megaFile != nil || self.playingMusic?.boxFile != nil || self.playingMusic?.smbFile != nil { self.playbackStatus = .paused }
+        if self.playingMusic?.pcloudFile != nil || self.playingMusic?.megaFile != nil || self.playingMusic?.yandexFile != nil || self.playingMusic?.boxFile != nil || self.playingMusic?.smbFile != nil { self.playbackStatus = .paused }
 
         self.currentTime = 0
         self.totalTime = 0

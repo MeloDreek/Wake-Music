@@ -22,6 +22,10 @@ extension ConnectListViewController {
             self.navigationController?.pushViewController(MEGADriveFileListController(loginModel: user), animated: true)
             return
         }
+        if let user = serverModel.yandexUser {
+            self.navigationController?.pushViewController(YandexDriveFileListController(loginModel: user), animated: true)
+            return
+        }
         if let user = serverModel.boxUser {
             self.navigationController?.pushViewController(BoxDriveFileListController(loginModel: user), animated: true)
             return

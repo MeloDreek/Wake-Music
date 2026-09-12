@@ -11,7 +11,6 @@ import KakaObjcKit
 import KakaTaglibKit
 import SwiftyDropbox
 import SmartCodable
-//import YandexLoginSDK
 import AliyunpanSDK
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
@@ -90,6 +89,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
         
         guard let firstURL = URLContexts.first?.url else { return }
+        if YandexDriveService.shared.handleCallback(firstURL) { return }
         debugPrint("跳转回来的URL = \(firstURL)")
         
         // 1️⃣ 处理 Dropbox 授权回调
@@ -97,12 +97,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             self.handleDropboxAuthCallback(URLContexts)
             return
         }
-        
-        // 2️⃣ 处理Yandex.disk授权回调
-//        if YandexLoginSDK.shared.isURLRelatedToSDK(url: firstURL) {
-//            try? YandexLoginSDK.shared.handleOpenURL(firstURL)
-//            return
-//        }
         
         // 3️⃣ 阿里云盘
         if let scheme = firstURL.scheme, scheme.contains(DropBox_ApiKey.lowercased()) {

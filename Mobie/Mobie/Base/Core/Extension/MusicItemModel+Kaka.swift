@@ -118,6 +118,21 @@ extension MusicItemModel {
             }else{
                 return KakaImage(named: "file_place")!
             }
+        }else if self.fileSourceType == .fromYandexDrive {
+            if let yandexFile = self.yandexFile {
+                let fileExtension = yandexFile.fileExtension()
+                if yandexFile.isDirectory() {
+                    return KakaImage(named: "folder_icon")!
+                }else if yandexFile.isMusic() {
+                    return KakaImage(named: "\(fileExtension)_icon") ?? KakaImage(named: "music_place")!
+                }else if yandexFile.isVideo() {
+                    return UIImage(named: "video_place")!
+                }else{
+                    return KakaImage(named: "file_place")!
+                }
+            }else{
+                return KakaImage(named: "file_place")!
+            }
         }else if self.fileSourceType == .fromBoxDrive {
             if let boxFile = self.boxFile {
                 let fileExtension = boxFile.fileExtension()

@@ -73,6 +73,9 @@ extension ConnectConfigManager {
             if let user = serverModel.megaUser, subFolder.megaFile != nil {
                 subFolder.megaFile?.megaUser = user
             }
+            if let user = serverModel.yandexUser, subFolder.yandexFile != nil {
+                subFolder.yandexFile?.yandexUser = user
+            }
             if let user = serverModel.boxUser, subFolder.boxFile != nil {
                 subFolder.boxFile?.boxUser = user
             }
@@ -117,6 +120,9 @@ extension ConnectConfigManager {
             }
             if let user = serverModel.megaUser, subMusic.megaFile != nil {
                 subMusic.megaFile?.megaUser = user
+            }
+            if let user = serverModel.yandexUser, subMusic.yandexFile != nil {
+                subMusic.yandexFile?.yandexUser = user
             }
             if let user = serverModel.boxUser, subMusic.boxFile != nil {
                 subMusic.boxFile?.boxUser = user
@@ -191,6 +197,19 @@ extension ConnectConfigManager {
                 MusicConfigManager.shared.lastPlayModel = nil
             }
         }
+        if let user = serverModel.yandexUser {
+            YandexDriveService.shared.unlink(user)
+            self.lastPlaylist = self.lastPlaylist.filter { $0.yandexFile?.yandexUser != user }
+            let player = KakaMusicPlayer.shared
+            player.musicArray = player.musicArray.filter { $0.yandexFile?.yandexUser != user }
+            player.tempMusicArray = player.tempMusicArray.filter { $0.yandexFile?.yandexUser != user }
+            if player.nextPlayMusic?.yandexFile?.yandexUser == user { player.nextPlayMusic = nil }
+            if player.playingMusic?.yandexFile?.yandexUser == user {
+                player.stop()
+                player.playingMusic = nil
+                MusicConfigManager.shared.lastPlayModel = nil
+            }
+        }
         if let user = serverModel.boxUser {
             BoxDriveService.shared.unlink(user)
             self.lastPlaylist = self.lastPlaylist.filter { $0.boxFile?.boxUser != user }
@@ -229,7 +248,7 @@ extension ConnectConfigManager {
         
         // 首先检查是否已经存在该模型
         var newModel = model
-        if model.pcloudFile != nil || model.megaFile != nil || model.boxFile != nil {
+        if model.pcloudFile != nil || model.megaFile != nil || model.yandexFile != nil || model.boxFile != nil {
             newModel.isFavorite = !tempArray.contains(model)
         } else {
             newModel.isFavorite.toggle()
@@ -283,7 +302,7 @@ extension ConnectConfigManager {
                 if let _ = subModel.dropboxFile {
                     musicSet.insert(subModel)
                 }
-                if subModel.pcloudFile != nil || subModel.megaFile != nil || subModel.boxFile != nil {
+                if subModel.pcloudFile != nil || subModel.megaFile != nil || subModel.yandexFile != nil || subModel.boxFile != nil {
                     musicSet.insert(subModel)
                 }
                 
@@ -404,6 +423,9 @@ extension ConnectConfigManager {
             if let file = subModel.megaFile, let user = serverModel?.megaUser {
                 return file.megaUser == user
             }
+            if let file = subModel.yandexFile, let user = serverModel?.yandexUser {
+                return file.yandexUser == user
+            }
             if let file = subModel.boxFile, let user = serverModel?.boxUser {
                 return file.boxUser == user
             }
@@ -455,6 +477,9 @@ extension ConnectConfigManager {
             if let file = subModel.megaFile, let user = serverModel?.megaUser {
                 return file.megaUser == user
             }
+            if let file = subModel.yandexFile, let user = serverModel?.yandexUser {
+                return file.yandexUser == user
+            }
             if let file = subModel.boxFile, let user = serverModel?.boxUser {
                 return file.boxUser == user
             }
@@ -504,7 +529,7 @@ extension ConnectConfigManager {
             if let _ = subModel.dropboxFile {
                 selectedFolders.insert(subModel, at: 0)
             }
-            if subModel.pcloudFile != nil || subModel.megaFile != nil || subModel.boxFile != nil {
+            if subModel.pcloudFile != nil || subModel.megaFile != nil || subModel.yandexFile != nil || subModel.boxFile != nil {
                 selectedFolders.insert(subModel, at: 0)
             }
             
@@ -554,7 +579,7 @@ extension ConnectConfigManager {
             if let _ = subModel.dropboxFile {
                 selectedMusics.insert(subModel, at: 0)
             }
-            if subModel.pcloudFile != nil || subModel.megaFile != nil || subModel.boxFile != nil {
+            if subModel.pcloudFile != nil || subModel.megaFile != nil || subModel.yandexFile != nil || subModel.boxFile != nil {
                 selectedMusics.insert(subModel, at: 0)
             }
             

@@ -21,7 +21,6 @@ import ProgressHUD
 import GoogleSignIn
 import SwiftyDropbox
 import AliyunpanSDK
-//import YandexLoginSDK
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -100,12 +99,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // pCloud uses per-account clients in PCloudDriveService; no shared SDK client is required.
         
-//        do {
-//            try YandexLoginSDK.shared.activate(with: Yandex_ClientID, authorizationStrategy: .default)
-//            debugPrint("SDK激活成功✅")
-//        } catch {
-//            debugPrint("❌初始化Yandex失败：\(error.localizedDescription)")
-//        }
+        // Yandex Login SDK is activated lazily by YandexDriveService.
                 
         // 开发阶段不自动上传符号表
         FirebaseApp.configure()

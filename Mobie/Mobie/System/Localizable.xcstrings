@@ -1,6 +1,356 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+  "ConnectionTag.Free5GB": {
+    "extractionState": "manual",
+    "localizations": {
+      "en": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "5 GB free"
+        }
+      },
+      "zh-Hans": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "免费 5 GB"
+        }
+      },
+      "zh-Hant": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "免費 5 GB"
+        }
+      },
+      "zh-HK": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "免費 5 GB"
+        }
+      },
+      "ru": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "5 ГБ бесплатно"
+        }
+      }
+    }
+  },
+  "Yandex.EmptyFolder": {
+    "extractionState": "manual",
+    "localizations": {
+      "en": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "This folder is empty. Upload music to this folder in Yandex Disk, then tap Refresh."
+        }
+      },
+      "zh-Hans": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "此文件夹为空。请先在 Yandex Disk 中向此文件夹上传音乐，然后点击刷新。"
+        }
+      },
+      "zh-Hant": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "此資料夾是空的。請先在 Yandex Disk 中將音樂上傳至此資料夾，然後點一下重新整理。"
+        }
+      },
+      "zh-HK": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "此資料夾是空的。請先在 Yandex Disk 中將音樂上傳至此資料夾，然後點一下重新整理。"
+        }
+      },
+      "ru": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "Эта папка пуста. Загрузите в неё музыку в Яндекс Диске, затем нажмите «Обновить»."
+        }
+      }
+    }
+  },
+  "Yandex.AuthorizationFailed": {
+    "extractionState": "manual",
+    "localizations": {
+      "en": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "Could not connect to Yandex. Please try again and allow access to Yandex Disk."
+        }
+      },
+      "zh-Hans": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "无法连接 Yandex。请重试，并允许访问 Yandex Disk。"
+        }
+      },
+      "zh-Hant": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "無法連接 Yandex。請重試，並允許存取 Yandex Disk。"
+        }
+      },
+      "zh-HK": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "無法連接 Yandex。請重試，並允許存取 Yandex Disk。"
+        }
+      },
+      "ru": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "Не удалось подключиться к Яндексу. Повторите попытку и разрешите доступ к Диску."
+        }
+      }
+    }
+  },
+  "Yandex.SameAccount": {
+    "extractionState": "manual",
+    "localizations": {
+      "en": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "Please sign in to the same Yandex account to reconnect this library."
+        }
+      },
+      "zh-Hans": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "请登录原来的 Yandex 账号，重新连接此音乐库。"
+        }
+      },
+      "zh-Hant": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "請登入原本的 Yandex 帳號，重新連接此音樂庫。"
+        }
+      },
+      "zh-HK": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "請登入原本的 Yandex 帳號，重新連接此音樂庫。"
+        }
+      },
+      "ru": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "Чтобы подключить эту медиатеку заново, войдите в тот же аккаунт Яндекса."
+        }
+      }
+    }
+  },
+  "Yandex.PermissionDenied": {
+    "extractionState": "manual",
+    "localizations": {
+      "en": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "Yandex Disk access was denied. Reconnect and allow access to disk information and files. If this persists, check the app's read-only permissions in Yandex OAuth settings."
+        }
+      },
+      "zh-Hans": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "Yandex Disk 拒绝访问。请重新连接，并允许读取网盘信息和文件。若仍失败，请检查 Yandex OAuth 后台的只读权限配置。"
+        }
+      },
+      "zh-Hant": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "Yandex Disk 拒絕存取。請重新連接，並允許讀取網盤資訊和檔案。若仍失敗，請檢查 Yandex OAuth 後台的唯讀權限設定。"
+        }
+      },
+      "zh-HK": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "Yandex Disk 拒絕存取。請重新連接，並允許讀取網盤資訊和檔案。若仍失敗，請檢查 Yandex OAuth 後台的唯讀權限設定。"
+        }
+      },
+      "ru": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "Доступ к Яндекс Диску запрещён. Подключитесь заново и разрешите чтение информации о Диске и файлов. Если ошибка повторяется, проверьте разрешения приложения в Яндекс OAuth."
+        }
+      }
+    }
+  },
+  "Yandex.StorageFailed": {
+    "extractionState": "manual",
+    "localizations": {
+      "en": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "Unable to save Yandex authorization securely. Please try again."
+        }
+      },
+      "zh-Hans": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "无法安全保存 Yandex 授权，请重试。"
+        }
+      },
+      "zh-Hant": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "無法安全儲存 Yandex 授權，請重試。"
+        }
+      },
+      "zh-HK": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "無法安全儲存 Yandex 授權，請重試。"
+        }
+      },
+      "ru": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "Не удалось безопасно сохранить авторизацию Яндекса. Повторите попытку."
+        }
+      }
+    }
+  },
+  "Yandex.FileNotFound": {
+    "extractionState": "manual",
+    "localizations": {
+      "en": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "This file or folder is no longer available. It may have been moved or deleted. Refresh the folder and try again."
+        }
+      },
+      "zh-Hans": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "此文件或文件夹已不可用，可能已被移动或删除。请刷新文件列表后重试。"
+        }
+      },
+      "zh-Hant": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "此檔案或資料夾已無法使用，可能已被移動或刪除。請重新整理檔案列表後再試。"
+        }
+      },
+      "zh-HK": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "此檔案或資料夾已無法使用，可能已被移動或刪除。請重新整理檔案列表後再試。"
+        }
+      },
+      "ru": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "Файл или папка недоступны: возможно, их переместили или удалили. Обновите список и повторите попытку."
+        }
+      }
+    }
+  },
+  "Yandex.RateLimited": {
+    "extractionState": "manual",
+    "localizations": {
+      "en": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "Yandex Disk is receiving too many requests. Please wait a moment and try again."
+        }
+      },
+      "zh-Hans": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "Yandex Disk 请求过于频繁，请稍后重试。"
+        }
+      },
+      "zh-Hant": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "Yandex Disk 請求過於頻繁，請稍後再試。"
+        }
+      },
+      "zh-HK": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "Yandex Disk 請求過於頻繁，請稍後再試。"
+        }
+      },
+      "ru": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "Слишком много запросов к Яндекс Диску. Подождите немного и повторите попытку."
+        }
+      }
+    }
+  },
+  "Yandex.NetworkError": {
+    "extractionState": "manual",
+    "localizations": {
+      "en": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "Could not reach Yandex Disk. Check your connection and try again."
+        }
+      },
+      "zh-Hans": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "无法连接 Yandex Disk，请检查网络后重试。"
+        }
+      },
+      "zh-Hant": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "無法連接 Yandex Disk，請檢查網路後重試。"
+        }
+      },
+      "zh-HK": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "無法連接 Yandex Disk，請檢查網路後重試。"
+        }
+      },
+      "ru": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "Не удалось связаться с Яндекс Диском. Проверьте подключение и повторите попытку."
+        }
+      }
+    }
+  },
+  "Yandex.InvalidResponse": {
+    "extractionState": "manual",
+    "localizations": {
+      "en": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "Yandex Disk returned an unexpected response. Please refresh and try again."
+        }
+      },
+      "zh-Hans": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "Yandex Disk 返回了无法识别的数据，请刷新后重试。"
+        }
+      },
+      "zh-Hant": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "Yandex Disk 傳回無法辨識的資料，請重新整理後再試。"
+        }
+      },
+      "zh-HK": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "Yandex Disk 傳回無法辨識的資料，請重新整理後再試。"
+        }
+      },
+      "ru": {
+        "stringUnit": {
+          "state": "translated",
+          "value": "Яндекс Диск вернул неожиданный ответ. Обновите список и повторите попытку."
+        }
+      }
+    }
+  },
   "MEGA.Free20GB": {
     "extractionState": "manual",
     "localizations": {

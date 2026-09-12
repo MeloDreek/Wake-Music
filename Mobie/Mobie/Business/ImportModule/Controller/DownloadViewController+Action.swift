@@ -79,6 +79,25 @@ extension DownloadViewController {
                     self.view.makeToast(error.errorDescription)
                 }
             }
+        }else if let file = model.yandexFile {
+            self.isDownloading = true
+            YandexDriveService.shared.fileSource(file) { [weak self] result in
+                guard let self = self else { return }
+                guard DownloadManager.shared.taskArray.contains(model) else {
+                    self.isDownloading = false
+                    self.stopDownloadAction()
+                    return
+                }
+                switch result {
+                case .success(let source):
+                    model.mediaPlayURL = source.url
+                    self.downloadWithTask(model, additionalHeaders: source.headers)
+                case .failure(let error):
+                    self.isDownloading = false
+                    self.stopDownloadAction()
+                    self.view.makeToast(error.errorDescription)
+                }
+            }
         }else if let file = model.boxFile {
             self.isDownloading = true
             BoxDriveService.shared.fileURL(file) { [weak self] result in
@@ -165,7 +184,7 @@ extension DownloadViewController {
     }
     
     // 下载歌曲
-    private func downloadWithTask(_ model: MusicItemModel) {
+    private func downloadWithTask(_ model: MusicItemModel, additionalHeaders: [String: String] = [:]) {
         
         let downloadURL = model.mediaPlayURL
                 
@@ -174,7 +193,7 @@ extension DownloadViewController {
             folderURL = folderURL.appendingPathComponent(downloadFolderName)
         }
         var targetFilePath = folderURL.appendingPathComponent(model.downloadPathName())
-        if model.pcloudFile != nil || model.megaFile != nil || model.boxFile != nil || model.smbFile != nil {
+        if model.pcloudFile != nil || model.megaFile != nil || model.yandexFile != nil || model.boxFile != nil || model.smbFile != nil {
             // Different cloud folders can contain identically named songs. Preserve local files.
             let originalURL = targetFilePath
             var suffix = 1
@@ -186,7 +205,7 @@ extension DownloadViewController {
         }
         let destinationURL = targetFilePath
         
-        if (model.pcloudFile == nil && model.megaFile == nil && model.boxFile == nil) {
+        if (model.pcloudFile == nil && model.megaFile == nil && model.yandexFile == nil && model.boxFile == nil) {
             debugPrint("下载地址 = \(downloadURL)， 目标地址 = \(targetFilePath)")
         }
         
@@ -194,7 +213,7 @@ extension DownloadViewController {
         let progressView = CircleProgressView(frame: CGRectMake(0, 0, 30.ckValue(), 30.ckValue()))
         
         let destination: DownloadRequest.Destination = { _, response in
-            return (destinationURL, (model.pcloudFile == nil && model.megaFile == nil && model.boxFile == nil) ? [.removePreviousFile, .createIntermediateDirectories] : [.createIntermediateDirectories])
+            return (destinationURL, (model.pcloudFile == nil && model.megaFile == nil && model.yandexFile == nil && model.boxFile == nil) ? [.removePreviousFile, .createIntermediateDirectories] : [.createIntermediateDirectories])
         }
         
         var headers: HTTPHeaders = HTTPHeaders.default
@@ -202,8 +221,15 @@ extension DownloadViewController {
             headers.add(name: "Authorization", value: "Bearer " + (googleFile.googleUser?.accessToken ?? ""))
         }
         
+        additionalHeaders.forEach { headers.update(name: $0.key, value: $0.value) }
         let request = AF.download(downloadURL, headers: headers, to: destination)
-        if model.pcloudFile != nil || model.megaFile != nil || model.boxFile != nil || model.smbFile != nil { request.validate(statusCode: 200..<300) }
+        if model.yandexFile != nil {
+            request.redirect(using: Redirector(behavior: .modify { _, redirect, _ in
+                guard let url = redirect.url, YandexDriveAPI.validDownloadURL(url) else { return nil }
+                return redirect
+            }))
+        }
+        if model.pcloudFile != nil || model.megaFile != nil || model.yandexFile != nil || model.boxFile != nil || model.smbFile != nil { request.validate(statusCode: 200..<300) }
         request.downloadProgress { progressValue in
             let progress = progressValue.fractionCompleted
             debugPrint("下载进度 = \(progress)")
@@ -234,7 +260,7 @@ extension DownloadViewController {
                 }
                 break
             case .failure(let error):
-                if model.pcloudFile != nil || model.megaFile != nil || model.boxFile != nil || model.smbFile != nil, response.fileURL == destinationURL {
+                if model.pcloudFile != nil || model.megaFile != nil || model.yandexFile != nil || model.boxFile != nil || model.smbFile != nil, response.fileURL == destinationURL {
                     // Validation occurs after moving a download; never retain an HTTP error body as music.
                     try? FileManager.default.removeItem(at: destinationURL)
                     self.stopDownloadAction()
