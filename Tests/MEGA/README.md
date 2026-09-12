@@ -5,11 +5,13 @@
 - Official MEGA SDK v10.19.0: https://github.com/meganz/sdk/releases/tag/v10.19.0
 - Source archive root: `meganz-sdk-8775533`, downloaded from the official GitHub API release endpoint.
 - Downloaded archive SHA-256: `ff31ee1e2c4d8a02155124ff73758bb6230f61a9fbf67fc2cc0a214a7c46ee0b`.
-- Vendored at `LocalSDK/MEGASDK`; its BSD-2-Clause LICENSE is retained.
-- Official binary dependency URLs and SHA-256 values are pinned in `bootstrap-sdk.sh`, copied from the upstream Package.swift. They include device, simulator, Mac Catalyst and macOS slices.
+- Shared local package at `/Users/kaka/Documents/本地公开库/MEGASDK`; its BSD-2-Clause LICENSE is retained. Both app targets reference it using `../../../本地公开库/MEGASDK` relative to `Mobie/`. The SDK is no longer vendored in the app repository.
+- Official binary dependency URLs and SHA-256 values are pinned in the shared SDK's `tools/wake-bootstrap-artifacts.sh`, copied from the upstream Package.swift. They include device, simulator, Mac Catalyst and macOS slices.
 - Local changes: binary target paths point to ignored `.artifacts` (avoids unreliable automatic downloads); public MEGASdk.h exposes HAVE_LIBUV APIs consistently with upstream's unconditional libuv build. The unused `evt-tls` module is excluded, consistent with Apple's upstream `USE_OPENSSL=OFF` configuration (curl keeps its system TLS backend). Apple filename natural sorting uses public CoreFoundation APIs because Xcode does not ship ICU collation headers; numeric ordering has deterministic byte tie-breaking, though punctuation/locale ordering can differ from ICU. No cryptographic or network-verification code was modified.
 
-Run `bash Tests/MEGA/bootstrap-sdk.sh` to download/verify dependencies on another checkout. Set HTTPS_PROXY for this command only if your environment requires its existing proxy. `download-cryptopp.py` is an optional parallel range downloader for the largest archive; it requires the complete official SHA-256 before accepting output. Do not commit `.artifacts` or `.downloads`.
+Run `bash Tests/MEGA/bootstrap-sdk.sh` to download/verify dependencies in the shared SDK. The wrapper and regression script accept `MEGASDK_ROOT` if it is stored elsewhere; also update Xcode's local package reference for a different layout. Set HTTPS_PROXY for this command only if your environment requires its existing proxy. `download-cryptopp.py` is an optional parallel range downloader for the largest archive; it requires the complete official SHA-256 before accepting output. Do not commit `.artifacts` or `.downloads`.
+
+For Waketag or another app, add the shared directory as a local Swift package and link `MEGASdk`. The SDK's `WAKE_INTEGRATION.md` describes setup and the preserved compatibility patches. App-specific login, models and playback integration stay in Wake Music; this migration does not modify Waketag. Back up/version the shared directory separately from this app repository.
 
 ## Behavior
 
@@ -24,6 +26,11 @@ Run `bash Tests/MEGA/bootstrap-sdk.sh` to download/verify dependencies on anothe
 - Login timeout is 90 seconds per SDK request. Very large libraries may need future paginated indexing or a longer fetchNodes flow. This first implementation does not browse incoming shares or public links.
 
 ## Verification
+
+Shared-directory migration: all 2,035 previously tracked SDK files were verified
+byte-for-byte against their Git blobs after moving. Both simulator app targets
+(`Mobie` and `Mobie_Pro`) built successfully using the shared package path, and
+all 23 model / sorting assertions passed. The six binary frameworks were retained.
 
 2026-09-11: both `Mobie` and `Mobie_Pro` built successfully for the iOS simulator. The ordinary app was installed without removing its data. UI inspection was interrupted when the Mac locked, before reaching the login form. The Mac Catalyst SDK targets compiled, but the application build remains blocked by existing IQKeyboardReturnManager usages of unavailable `UIInputSuggestion` / `UITextFormattingViewController` APIs; no unrelated dependency files were changed to hide that failure.
 

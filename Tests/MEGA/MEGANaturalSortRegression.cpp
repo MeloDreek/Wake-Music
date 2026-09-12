@@ -1,4 +1,4 @@
-#include "../../LocalSDK/MEGASDK/src/apple_natural_sort.h"
+#include "apple_natural_sort.h"
 #include <cassert>
 #include <iostream>
 

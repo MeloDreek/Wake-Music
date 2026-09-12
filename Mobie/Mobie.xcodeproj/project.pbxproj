@@ -2009,7 +2009,7 @@
 			);
 			mainGroup = 228A13522CA00F5600E2948E;
 			packageReferences = (
-				C04000000000000000000005 /* XCLocalSwiftPackageReference "../LocalSDK/MEGASDK" */,
+				C04000000000000000000005 /* XCLocalSwiftPackageReference "../../../本地公开库/MEGASDK" */,
 				A76381462EDEA4000040A84D /* XCLocalSwiftPackageReference "../../../本地公开库/DominantColors" */,
 				A76381492EDEA40F0040A84D /* XCLocalSwiftPackageReference "../../../本地公开库/FileProvider" */,
 				A763814C2EDEA4200040A84D /* XCLocalSwiftPackageReference "../../../本地公开库/Kingfisher" */,
@@ -3274,9 +3274,9 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		C04000000000000000000005 /* XCLocalSwiftPackageReference "../LocalSDK/MEGASDK" */ = {
+		C04000000000000000000005 /* XCLocalSwiftPackageReference "../../../本地公开库/MEGASDK" */ = {
 			isa = XCLocalSwiftPackageReference;
-			relativePath = "../LocalSDK/MEGASDK";
+			relativePath = "../../../本地公开库/MEGASDK";
 		};
 		220F66233002838600915384 /* XCLocalSwiftPackageReference "../../../本地公开库/purchases-ios" */ = {
 			isa = XCLocalSwiftPackageReference;
@@ -3450,12 +3450,12 @@
 /* Begin XCSwiftPackageProductDependency section */
 		C04000000000000000000003 /* MEGASdk */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = C04000000000000000000005 /* XCLocalSwiftPackageReference "../LocalSDK/MEGASDK" */;
+			package = C04000000000000000000005 /* XCLocalSwiftPackageReference "../../../本地公开库/MEGASDK" */;
 			productName = MEGASdk;
 		};
 		C04000000000000000000004 /* MEGASdk */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = C04000000000000000000005 /* XCLocalSwiftPackageReference "../LocalSDK/MEGASDK" */;
+			package = C04000000000000000000005 /* XCLocalSwiftPackageReference "../../../本地公开库/MEGASDK" */;
 			productName = MEGASdk;
 		};
 		220F66243002838600915384 /* ReceiptParser */ = {

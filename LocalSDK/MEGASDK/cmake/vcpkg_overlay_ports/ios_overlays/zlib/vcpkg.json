@@ -1,7 +1,0 @@
-{
-  "name": "zlib",
-  "version-string": "system",
-  "description": "A compression library",
-  "homepage": "https://www.zlib.net/",
-  "license": "Zlib"
-}

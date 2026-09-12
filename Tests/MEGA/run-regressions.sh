@@ -1,6 +1,11 @@
 #!/bin/bash
 set -euo pipefail
 task_root="$(cd "$(dirname "$0")/../.." && pwd)"
+task_sdk="${MEGASDK_ROOT:-$task_root/../../本地公开库/MEGASDK}"
+if [ ! -f "$task_sdk/src/apple_natural_sort.h" ]; then
+    echo "Shared MEGASDK not found: $task_sdk. Set MEGASDK_ROOT if it is stored elsewhere." >&2
+    exit 1
+fi
 task_build="$(mktemp -d /private/tmp/wakemusic-mega-tests.XXXXXX)"
 export DEVELOPER_DIR="${DEVELOPER_DIR:-/Applications/Xcode.app/Contents/Developer}"
 task_sources=()
@@ -16,6 +21,6 @@ xcrun --sdk macosx swiftc -swift-version 5 -parse-as-library \
   "$task_root/Mobie/Mobie/Business/ConnectModule/Model/MEGAFileListStatus.swift" \
   "$task_root/Tests/MEGA/MEGARegression.swift" -o "$task_build/mega-regressions"
 "$task_build/mega-regressions"
-xcrun --sdk macosx clang++ -std=c++17 -framework CoreFoundation \
+xcrun --sdk macosx clang++ -std=c++17 -framework CoreFoundation -I "$task_sdk/src" \
   "$task_root/Tests/MEGA/MEGANaturalSortRegression.cpp" -o "$task_build/mega-sort-regressions"
 "$task_build/mega-sort-regressions"

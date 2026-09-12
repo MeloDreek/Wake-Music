@@ -23,7 +23,7 @@ target 'Mobie' do
   pod 'KakaPhotoBrowser',          :path => './LocalSDK/KakaPhotoBrowser'
   pod 'KakaTaglibKit',              :path => './LocalSDK/KakaTaglibKit'
   pod 'WakeMusicPlayer',            :path => './LocalSDK/WakeMusicPlayer'
-#  pod 'MEGASDK',                    :path => './LocalSDK/MEGASDK'
+# MEGASdk is linked via Xcode's local Swift package: ../../本地公开库/MEGASDK
   
   
 #  pod 'Firebase'#, '~> 12.2.0'
@@ -59,7 +59,7 @@ target 'Mobie_Pro' do
   pod 'KakaPhotoBrowser',          :path => './LocalSDK/KakaPhotoBrowser'
   pod 'KakaTaglibKit',              :path => './LocalSDK/KakaTaglibKit'
   pod 'WakeMusicPlayer',            :path => './LocalSDK/WakeMusicPlayer'
-#  pod 'MEGASDK',                    :path => './LocalSDK/MEGASDK'
+# MEGASdk is linked via Xcode's local Swift package: ../../本地公开库/MEGASDK
 
   
 #  pod 'Firebase'#, '~> 12.2.0'
