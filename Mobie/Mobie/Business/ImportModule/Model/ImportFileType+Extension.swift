@@ -138,6 +138,8 @@ extension ImportFileType {
             return Reasource.named("Drive_115")
         case .from123Drive:
             return Reasource.named("Drive_123")
+        case .fromGuangyaDrive:
+            return Reasource.named("Import_guangya")
         case .fromJianguoDrive:
             return Reasource.named("Drive_jianguo")
         case .fromInfiniCloud:
@@ -213,6 +215,8 @@ extension ImportFileType {
             return "115 Drive".localStr()
         case .from123Drive:
             return "123 Drive".localStr()
+        case .fromGuangyaDrive:
+            return "光鸭云盘"
         case .fromJianguoDrive:
             return "Jianguo Drive".localStr()
         case .fromInfiniCloud:
@@ -249,7 +253,7 @@ extension ImportFileType {
 #else
         let commonArray: [ImportFileType] = [.fromGoogleDrive, .fromDropboxDrive, .fromePCloud, .fromBoxDrive, .fromMEGADrive, .fromYandexDrive]
 #endif
-        let chineseArray: [ImportFileType] = [.fromBaiduDrive, .fromAliyunDrive, .from115Drive]
+        let chineseArray: [ImportFileType] = [.fromBaiduDrive, .fromAliyunDrive, .from115Drive, .fromGuangyaDrive]
         let russaArray: [ImportFileType] = []
         
         switch language {

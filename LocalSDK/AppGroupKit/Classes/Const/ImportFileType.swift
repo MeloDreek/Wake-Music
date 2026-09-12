@@ -44,6 +44,7 @@ public enum ImportFileType: String, CaseIterable, SmartCaseDefaultable {
     case fromQuarkDrive = "fromQuarkDrive"
     case from115Drive = "from115Drive"
     case from123Drive = "from123Drive"
+    case fromGuangyaDrive = "fromGuangyaDrive"
     case fromJianguoDrive = "fromJianguoDrive"
     case fromInfiniCloud = "fromInfiniCloud"
     case fromOwnCloud = "fromOwnCloud"
@@ -51,7 +52,7 @@ public enum ImportFileType: String, CaseIterable, SmartCaseDefaultable {
     
     public func isAvailble() -> Bool {
         if self == .fromMEGADrive { return true }
-        let isAvailble = self == .fromUSB || self == .fromFile || self == .fromFolder || self == .fromVideos || self == .fromApple || self == .fromWebDav || self == .fromWiFi || self == .fromNavidrome || self == .fromBaiduDrive || self == .fromAliyunDrive || self == .from115Drive || self == .fromGoogleDrive || self == .fromDropboxDrive || self == .fromePCloud || self == .fromYandexDrive || self == .fromBoxDrive || self == .fromSMB
+        let isAvailble = self == .fromUSB || self == .fromFile || self == .fromFolder || self == .fromVideos || self == .fromApple || self == .fromWebDav || self == .fromWiFi || self == .fromNavidrome || self == .fromBaiduDrive || self == .fromAliyunDrive || self == .from115Drive || self == .fromGoogleDrive || self == .fromDropboxDrive || self == .fromePCloud || self == .fromYandexDrive || self == .fromBoxDrive || self == .fromSMB || self == .fromGuangyaDrive
         
         return isAvailble
     }
