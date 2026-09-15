@@ -59,19 +59,15 @@ class ImportViewController: SuperViewController {
     lazy var dataArray: [ImportGroupModel] = {
         
         var tempArray = [ImportGroupModel]()
-        let model1 = ImportGroupModel(group: .localGroup, headTitle: "Local".localStr(), itemArray: [.fromFile, .fromFolder, .fromVideos, .fromApple], footTitle: nil)
-        tempArray.append(model1)
-        
+        var loclArray: [ImportFileType] = [.fromFile, .fromFolder, .fromVideos]
 #if !targetEnvironment(macCatalyst)
-        let model2 = ImportGroupModel(group: .computerGroup, headTitle: "Computer".localStr(), itemArray: [.fromUSB, .fromWiFi], footTitle: nil)
-        tempArray.append(model2)
+        loclArray.append(contentsOf: [.fromUSB, .fromWiFi])
 #endif
+        let model1 = ImportGroupModel(group: .localGroup, headTitle: "Local".localStr(), itemArray: loclArray, footTitle: nil)
+        tempArray.append(model1)
                 
-        let model3 = ImportGroupModel(group: .serverGroup, headTitle: "Server".localStr(), itemArray: ImportFileType.serverDriveArray(), footTitle: nil)
+        let model3 = ImportGroupModel(group: .serverGroup, headTitle: "Remote".localStr(), itemArray: ImportFileType.serverDriveArray() + ImportFileType.cloudDriveArray(), footTitle: nil)
         tempArray.append(model3)
-        
-        let model4 = ImportGroupModel(group: .driveGroup, headTitle: "Cloud Drive".localStr(), itemArray: ImportFileType.cloudDriveArray(), footTitle: nil)
-        tempArray.append(model4)
                 
         return tempArray
     }()

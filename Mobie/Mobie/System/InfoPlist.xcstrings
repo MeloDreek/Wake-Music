@@ -1,36 +1,6 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-  "NSLocalNetworkUsageDescription": {
-    "extractionState": "manual",
-    "comment": "SMB connection, read-only audio access.",
-    "localizations": {
-      "en": {
-        "stringUnit": {
-          "state": "translated",
-          "value": "Wake Music accesses SMB servers on your local network to browse, play, and download your audio files."
-        }
-      },
-      "zh-Hans": {
-        "stringUnit": {
-          "state": "translated",
-          "value": "维克音乐需要访问局域网中的 SMB 服务器，以浏览、播放和下载你的音频文件。"
-        }
-      },
-      "zh-Hant": {
-        "stringUnit": {
-          "state": "translated",
-          "value": "維克音樂需要存取區域網路中的 SMB 伺服器，以瀏覽、播放及下載你的音訊檔案。"
-        }
-      },
-      "zh-HK": {
-        "stringUnit": {
-          "state": "translated",
-          "value": "維克音樂需要存取區域網路中的 SMB 伺服器，以瀏覽、播放及下載你的音訊檔案。"
-        }
-      }
-    }
-  },
     "☁️ Ensure Cloud Backup" : {
       "localizations" : {
         "ar" : {
@@ -2067,6 +2037,36 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "從文件 App 中讀取音樂文件時需要你嘅權限"
+          }
+        }
+      }
+    },
+    "NSLocalNetworkUsageDescription" : {
+      "comment" : "SMB connection, read-only audio access.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wake Music accesses SMB servers on your local network to browse, play, and download your audio files."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "维克音乐需要访问局域网中的 SMB 服务器，以浏览、播放和下载你的音频文件。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "維克音樂需要存取區域網路中的 SMB 伺服器，以瀏覽、播放及下載你的音訊檔案。"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "維克音樂需要存取區域網路中的 SMB 伺服器，以瀏覽、播放及下載你的音訊檔案。"
           }
         }
       }
