@@ -112,14 +112,6 @@ public class AppLocalManager: SmartCodableX, ObservableObject {
     }
     
     
-    /// 是否已授权Apple Music
-    @SmartPublished
-    public var isGrantedAppleMusic = false {
-        didSet {
-            save()
-        }
-    }
-    
     /// 一次生命周期只提醒一次好评
     @SmartPublished
     public var isGuideFiveStar: Bool = false {

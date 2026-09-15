@@ -11,7 +11,7 @@ extension MusicItemModel {
     /// 是否为本地音乐
     public func isLocalFile() -> Bool {
         switch fileSourceType {
-        case .demoFile, .localFile, .fromFolder, .fromApple, .fromVideos, .fromUSB, .fromWiFi:
+        case .demoFile, .localFile, .fromFolder, .fromVideos, .fromUSB, .fromWiFi:
             return true
         default:
             return false

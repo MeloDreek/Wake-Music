@@ -503,7 +503,6 @@
     },
     "CFBundleDisplayName" : {
       "comment" : "Bundle display name",
-      "extractionState" : "extracted_with_value",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -543,7 +542,7 @@
         },
         "en" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
             "value" : "Wakemusic"
           }
         },
@@ -761,7 +760,6 @@
     },
     "CFBundleName" : {
       "comment" : "Bundle name",
-      "extractionState" : "extracted_with_value",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -801,7 +799,7 @@
         },
         "en" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
             "value" : "Wakemusic"
           }
         },
@@ -1267,267 +1265,8 @@
         }
       }
     },
-    "NSAppleMusicUsageDescription" : {
-      "comment" : "Privacy - Media Library Usage Description",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "يلزم الحصول على إذن لمسح موسيقى Apple Music المحلية وتمكين التشغيل"
-          }
-        },
-        "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Es requereix permís per escanejar la música local d Apple Music i activar la reproducció"
-          }
-        },
-        "cs" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "K prohledání místní hudby Apple Music a spuštění přehrávání je vyžadováno oprávnění"
-          }
-        },
-        "da" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Der kræves tilladelse til at scanne lokal Apple Music og aktivere afspilning"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Der Zugriff ist erforderlich um lokale Apple Music zu scannen und die Wiedergabe zu aktivieren"
-          }
-        },
-        "el" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Απαιτείται άδεια για τη σάρωση της τοπικής μουσικής Apple Music και την ενεργοποίηση της αναπαραγωγής"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Access is required to scan your local Apple Music library and enable playback"
-          }
-        },
-        "en-AU" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Permission is needed to scan local music and enable playback features"
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Access is required to scan your local Apple Music library and enable playback"
-          }
-        },
-        "en-IN" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "We need permission to scan your local songs and play music smoothly"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Se requiere permiso para escanear la música local de Apple Music y activar la reproducción"
-          }
-        },
-        "es-419" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Se requiere permiso para escanear la música local de Apple Music y activar la reproducción"
-          }
-        },
-        "es-US" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Se requiere permiso para escanear la música local de Apple Music y activar la reproducción"
-          }
-        },
-        "fi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Paikallisen Apple Musicin skannaaminen ja toiston aloittaminen edellyttää lupaa"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "L autorisation est requise pour analyser la musique locale d Apple Music et activer la lecture"
-          }
-        },
-        "fr-CA" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "L autorisation est requise pour analyser la musique locale d Apple Music et activer la lecture"
-          }
-        },
-        "he" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "נדרשת הרשאה כדי לסרוק מוזיקה מקומית של Apple Music ולהפעיל את הניגון"
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "स्थानीय Apple Music को स्कैन करने और प्लेबैक सक्षम करने के लिए आपकी अनुमति की आवश्यकता है"
-          }
-        },
-        "hr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Potrebno je dopuštenje za skeniranje lokalne Apple Music glazbe i pokretanje reprodukcije"
-          }
-        },
-        "hu" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Engedély szükséges a helyi Apple Music szkenneléséhez és a lejátszás elindításához"
-          }
-        },
-        "id" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Diperlukan izin untuk memindai musik Apple Music lokal dan mengaktifkan pemutaran"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "È l autorizzazione necessaria per scansionare la musica locale di Apple Music e attivare la riproduzione"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ローカルのApple Musicをスキャンして再生を有効にするには許可が必要です"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "로컬 Apple Music을 스캔하고 재생을 활성화하려면 권한이 필요합니다"
-          }
-        },
-        "ms" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Keizinan diperlukan untuk mengimbas muzik Apple Music tempatan dan membolehkan main balik"
-          }
-        },
-        "nb" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Det kreves tillatelse for å skanne lokal Apple Music og aktivere avspilling"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Toestemming is vereist om lokale Apple Music te scannen en afspelen in te schakelen"
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Wymagana jest zgoda na skanowanie lokalnej muzyki Apple Music i włączenie odtwarzania"
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "É necessária permissão para escanear a música local do Apple Music e ativar a reprodução"
-          }
-        },
-        "pt-PT" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "É necessária permissão para ler a música local do Apple Music e ativar a reprodução"
-          }
-        },
-        "ro" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Este necesară permisiunea pentru a scana muzica locală Apple Music și a activa redarea"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Требуется разрешение для сканирования локальной музыки Apple Music и включения воспроизведения"
-          }
-        },
-        "sk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Na skenovanie miestnej hudby Apple Music a zapnutie prehrávania je potrebné povolenie"
-          }
-        },
-        "sl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Za optično branje lokalne glasbe Apple Music in omogočanje predvajanja je potrebno dovoljenje"
-          }
-        },
-        "sv" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tillstånd krävs for att skanna lokal Apple Music och aktivera uppspelning"
-          }
-        },
-        "th" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "จำเป็นต้องได้รับอนุญาตเพื่อสแกนเพลง Apple Music ในเครื่องและเปิดใช้งานการเล่น"
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Yerel Apple Music parçalarını taramak ve oynatmayı etkinleştirmek için izin gerekiyor"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Потрібен дозвіл для сканування локальної музики Apple Music та ввімкнення відтворення"
-          }
-        },
-        "vi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Cần có quyền để quét nhạc Apple Music cục bộ và bật phát lại"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "扫描 Apple Music 本地音乐并启用播放需要您的权限"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "掃描 Apple Music 本地音樂並啟用播放需要您的權限"
-          }
-        },
-        "zh-HK" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "掃描 Apple Music 本地音樂並啟用播放需要您的權限"
-          }
-        }
-      }
-    },
     "NSCameraUsageDescription" : {
       "comment" : "Privacy - Camera Usage Description",
-      "extractionState" : "extracted_with_value",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -1567,7 +1306,7 @@
         },
         "en" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
             "value" : "You can use your camera to take live music videos and then convert them to music, with your permission."
           }
         },
@@ -1785,7 +1524,6 @@
     },
     "NSFileProviderPresenceUsageDescription" : {
       "comment" : "Privacy - File Provider Presence Usage Description",
-      "extractionState" : "extracted_with_value",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -1825,7 +1563,7 @@
         },
         "en" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
             "value" : "Your permission is required to read music files from the Files app"
           }
         },
@@ -2045,10 +1783,238 @@
       "comment" : "SMB connection, read-only audio access.",
       "extractionState" : "manual",
       "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "يصل Wake Music إلى خوادم SMB في شبكتك المحلية لتصفح ملفاتك الصوتية وتشغيلها وتنزيلها."
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wake Music accedeix als servidors SMB de la xarxa local per explorar, reproduir i baixar els teus fitxers d’àudio."
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wake Music přistupuje k serverům SMB v místní síti pro procházení, přehrávání a stahování vašich zvukových souborů."
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wake Music får adgang til SMB-servere på dit lokale netværk for at gennemse, afspille og hente dine lydfiler."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wake Music greift auf SMB-Server im lokalen Netzwerk zu, um deine Audiodateien zu durchsuchen, abzuspielen und herunterzuladen."
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Το Wake Music αποκτά πρόσβαση σε διακομιστές SMB στο τοπικό δίκτυο για περιήγηση, αναπαραγωγή και λήψη των αρχείων ήχου σας."
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Wake Music accesses SMB servers on your local network to browse, play, and download your audio files."
+          }
+        },
+        "en-AU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wake Music accesses SMB servers on your local network to browse, play, and download your audio files."
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wake Music accesses SMB servers on your local network to browse, play, and download your audio files."
+          }
+        },
+        "en-IN" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wake Music accesses SMB servers on your local network to browse, play, and download your audio files."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wake Music accede a servidores SMB de tu red local para explorar, reproducir y descargar tus archivos de audio."
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wake Music accede a servidores SMB de tu red local para explorar, reproducir y descargar tus archivos de audio."
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wake Music accede a servidores SMB de tu red local para explorar, reproducir y descargar tus archivos de audio."
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wake Music käyttää lähiverkkosi SMB-palvelimia äänitiedostojesi selaamiseen, toistamiseen ja lataamiseen."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wake Music accède aux serveurs SMB de votre réseau local pour parcourir, lire et télécharger vos fichiers audio."
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wake Music accède aux serveurs SMB de votre réseau local pour parcourir, lire et télécharger vos fichiers audio."
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wake Music ניגש לשרתי SMB ברשת המקומית כדי לעיין בקובצי האודיו שלך, לנגן ולהוריד אותם."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wake Music आपकी ऑडियो फ़ाइलें ब्राउज़, प्ले और डाउनलोड करने के लिए स्थानीय नेटवर्क के SMB सर्वर तक पहुँचता है।"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wake Music pristupa SMB poslužiteljima na lokalnoj mreži za pregledavanje, reprodukciju i preuzimanje vaših audiodatoteka."
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A Wake Music a helyi hálózat SMB-szervereit használja hangfájljai böngészéséhez, lejátszásához és letöltéséhez."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wake Music mengakses server SMB di jaringan lokal untuk menelusuri, memutar, dan mengunduh file audio Anda."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wake Music accede ai server SMB della rete locale per sfogliare, riprodurre e scaricare i tuoi file audio."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wake MusicはローカルネットワークのSMBサーバーにアクセスし、音声ファイルの閲覧、再生、ダウンロードを行います。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wake Music은 오디오 파일을 탐색, 재생, 다운로드하기 위해 로컬 네트워크의 SMB 서버에 접근합니다."
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wake Music mengakses pelayan SMB pada rangkaian setempat untuk menyemak imbas, memainkan dan memuat turun fail audio anda."
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wake Music bruker SMB-servere på det lokale nettverket for å bla gjennom, spille av og laste ned lydfilene dine."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wake Music gebruikt SMB-servers op je lokale netwerk om je audiobestanden te bekijken, af te spelen en te downloaden."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wake Music uzyskuje dostęp do serwerów SMB w sieci lokalnej, aby przeglądać, odtwarzać i pobierać Twoje pliki audio."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O Wake Music acessa servidores SMB na sua rede local para navegar, reproduzir e baixar seus arquivos de áudio."
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O Wake Music acede a servidores SMB na sua rede local para explorar, reproduzir e descarregar os seus ficheiros de áudio."
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wake Music accesează servere SMB din rețeaua locală pentru a răsfoi, reda și descărca fișierele tale audio."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wake Music обращается к серверам SMB в локальной сети для просмотра, воспроизведения и загрузки ваших аудиофайлов."
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wake Music pristupuje k serverom SMB v lokálnej sieti na prehliadanie, prehrávanie a sťahovanie vašich zvukových súborov."
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wake Music dostopa do strežnikov SMB v lokalnem omrežju za brskanje, predvajanje in prenos vaših zvočnih datotek."
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wake Music använder SMB-servrar i ditt lokala nätverk för att bläddra bland, spela upp och ladda ned dina ljudfiler."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wake Music เข้าถึงเซิร์ฟเวอร์ SMB บนเครือข่ายภายในเพื่อเรียกดู เล่น และดาวน์โหลดไฟล์เสียงของคุณ"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wake Music, ses dosyalarınızı gözden geçirmek, oynatmak ve indirmek için yerel ağınızdaki SMB sunucularına erişir."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wake Music звертається до серверів SMB у локальній мережі для перегляду, відтворення й завантаження ваших аудіофайлів."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wake Music truy cập máy chủ SMB trên mạng cục bộ để duyệt, phát và tải xuống tệp âm thanh của bạn."
           }
         },
         "zh-Hans" : {
@@ -2073,7 +2039,6 @@
     },
     "NSMicrophoneUsageDescription" : {
       "comment" : "Privacy - Microphone Usage Description",
-      "extractionState" : "extracted_with_value",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -2113,7 +2078,7 @@
         },
         "en" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
             "value" : "You can use your camera to take live music videos and then convert them to music, with your permission."
           }
         },
@@ -2331,7 +2296,6 @@
     },
     "NSPhotoLibraryUsageDescription" : {
       "comment" : "Privacy - Photo Library Usage Description",
-      "extractionState" : "extracted_with_value",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -2371,7 +2335,7 @@
         },
         "en" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
             "value" : "Your album access is required to save song covers"
           }
         },
@@ -2589,7 +2553,6 @@
     },
     "NSUserTrackingUsageDescription" : {
       "comment" : "Privacy - Tracking Usage Description",
-      "extractionState" : "extracted_with_value",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -2629,7 +2592,7 @@
         },
         "en" : {
           "stringUnit" : {
-            "state" : "new",
+            "state" : "translated",
             "value" : "This identifier will be used to verify your ad source, accurately sync your subscription status, and optimize your purchase and customer support experience."
           }
         },

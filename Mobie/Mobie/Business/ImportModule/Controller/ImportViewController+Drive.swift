@@ -32,10 +32,6 @@ extension ImportViewController {
             self.importFromVideos()
         }
         
-        if itemType == .fromApple {
-            self.importFromiTunes()
-        }
-        
         if itemType == .fromUSB {
             self.importFromUSB()
         }

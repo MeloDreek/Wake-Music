@@ -60,10 +60,6 @@ class AudioTagListView: UIView, TagListViewDelegate {
                 self.setBitrateValue(model.bitrate ?? Int(meteData?.bitrate ?? 0))
                 self.setSampleRateValue(model.sampleRate ?? Int(meteData?.sampleRate ?? 0))
                 
-                if model.fileSourceType == .fromApple {
-                    self.listView.addTag(model.mediaPlayURL.pathExtension.uppercased())
-                    self.listView.addTag("Apple Music")
-                }
                 
                 if isDTSAudio && model.fileSourceType != .demoFile {
                     if model.bitrate == nil && model.sampleRate == nil {

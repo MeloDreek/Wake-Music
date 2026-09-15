@@ -60,7 +60,7 @@ class MusicInfoTagView: UIView {
             }
                                 
             // 文件大小
-            if model.fileSourceType != .demoFile && model.fileSourceType != .fromApple {
+            if model.fileSourceType != .demoFile {
                 let fileSizeStr = URL.formatFileSize(model.fileSize())
                 if !fileSizeStr.isEmpty {
                     self.listView.addTag(fileSizeStr)

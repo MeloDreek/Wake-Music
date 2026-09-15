@@ -10,17 +10,9 @@ import KakaFoundation
 import SmartCodable
 import AppGroupKit
 
-/*
- 1、本地（文件、文件夹、视频转音乐）
- 2、计算机（USB、Wi-Fi）
- 3、连接（Webdav、Navidrome、FTP、各大网盘）
- */
-
 enum ImportGroupType: Int {
     case localGroup = 0
-    case computerGroup = 1
-    case serverGroup = 2
-    case driveGroup = 3
+    case remoteGroup = 1
 }
 
 struct ImportGroupModel {
@@ -80,8 +72,6 @@ extension ImportFileType {
             return UIImage(systemName: "doc.on.doc")
         case .fromFolder:
             return UIImage(systemName: "folder")
-        case .fromApple:
-            return UIImage(systemName: "applelogo")
         case .fromVideos:
             if #available(iOS 17.0, *) {
                 return UIImage(systemName: "video.badge.waveform")
@@ -162,8 +152,6 @@ extension ImportFileType {
             return "File".localStr()
         case .fromFolder:
             return "Folder".localStr()
-        case .fromApple:
-            return "Apple Music"
         case .fromVideos:
             return "Video to Music".localStr()
             

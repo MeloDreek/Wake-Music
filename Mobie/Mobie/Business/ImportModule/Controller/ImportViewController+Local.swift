@@ -54,11 +54,6 @@ extension ImportViewController: UIDocumentPickerDelegate {
         self.navigationController?.pushViewController(scanVC, animated: true)
     }
     
-    func importFromiTunes() {
-        let appleVC = AppleMusicListController()
-        self.navigationController?.pushViewController(appleVC, animated: true)
-    }
-    
     // 处理文件选择的回调
     func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
         

@@ -27,4 +27,4 @@ Verified 2026-09-11: Mobie Debug simulator build succeeded. Chinese Connect and 
 - Open Connect with no configured accounts, then open Import; check service tags and the unchanged local-import rows.
 - Scroll through all providers and back to check reuse and row sizing.
 - Check both short Chinese and longer English labels, narrow widths, larger text and dark mode.
-- Localization keys use the `ConnectionTag.` prefix; English and zh-Hans / zh-Hant / zh-HK are supplied. Other languages fall back to English.
+- Localization keys use the `ConnectionTag.` prefix. As of the 2026-09-15 localization cleanup, all 42 project locales are supplied; speed badges remain displayed only in Chinese according to the existing product rule. Run `ruby Tests/ImportLocalization/run-regressions.rb` to check coverage.

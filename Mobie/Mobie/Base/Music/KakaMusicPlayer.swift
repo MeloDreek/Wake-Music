@@ -27,6 +27,12 @@ public class KakaMusicPlayer: NSObject, ObservableObject {
         
         let lastMusic = UserDefaults.standard.dictionary(forKey: "kLastPlayMusic")
         self.playingMusic = MusicConfigManager.shared.lastPlayModel ?? MusicItemModel.deserialize(from: lastMusic)
+        // 旧版本的系统媒体库记录已不可用，不能把它恢复为本地文件或演示曲目。
+        if self.playingMusic?.mediaPlayURL.scheme == "ipod-library" {
+            self.playingMusic = nil
+            MusicConfigManager.shared.lastPlayModel = nil
+            MusicConfigManager.shared.lastPlayTime = 0
+        }
         if self.playingMusic?.fileSourceType == .demoFile {
             self.playingMusic = MusicItemModel.demoMusicModel()
         }
@@ -210,11 +216,7 @@ public class KakaMusicPlayer: NSObject, ObservableObject {
         
 //        KSOptions.audioPlayerType = AudioEnginePlayer.self
         
-        if model.mediaPlayURL.scheme == "ipod-library" {
-            KSOptions.firstPlayerType = KSAVPlayer.self
-            KSOptions.secondPlayerType = KSMEPlayer.self
-            option.playerTypes = [KSAVPlayer.self, KSMEPlayer.self]
-        }else if model.fileSourceType == .demoFile {
+        if model.fileSourceType == .demoFile {
             KSOptions.firstPlayerType = KSMEPlayer.self
             KSOptions.secondPlayerType = KSAVPlayer.self
             option.playerTypes = [KSMEPlayer.self, KSAVPlayer.self]

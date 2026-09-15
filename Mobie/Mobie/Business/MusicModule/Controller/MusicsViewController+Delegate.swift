@@ -358,10 +358,6 @@ extension MusicsViewController: EmptyContentCellDelegate {
             self.importFromVideo()
         }
         
-        if importType == .fromApple {
-            self.importfromApple()
-        }
-        
         if importType == .fromUSB {
             self.scanDocumentFiles()
         }
@@ -452,14 +448,7 @@ extension MusicsViewController: EmptyContentCellDelegate {
         self.present(editAlertVC, animated: true)
     }
     
-    // 扫描Apple Music里的本地音乐
-    func importfromApple() {
-        let appleVC = AppleMusicListController()
-        self.navigationController?.pushViewController(appleVC, animated: true)
-    }
-    
     func showEmbeddedFailed() {
         self.showOneAlert(title: "Embedded Failed".localStr(), message: "This format does not support embedded music metadata. We recommend using common audio formats such as MP3, FLAC, M4A, or WAV.".localStr(), confirm: "OK".localStr())
     }
 }
-

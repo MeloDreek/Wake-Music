@@ -9,7 +9,6 @@ import KakaFoundation
 import SmartCodable
 import Photos
 import CloudKit
-import MediaPlayer
 
 /// 音乐模型
 public struct MusicItemModel: SmartCodableX, Equatable, Hashable, Sendable {
@@ -20,24 +19,6 @@ public struct MusicItemModel: SmartCodableX, Equatable, Hashable, Sendable {
     public init(fileURL: URL, sourceType: ImportFileType) {
         self.fileSourceType = sourceType
         self.mediaPlayURL = fileURL
-    }
-    
-    // 构造Apple Music本地音乐
-    public init(appleMusic: MPMediaItem) {
-        self.fileSourceType = .fromApple
-        self.mediaPlayURL = appleMusic.assetURL!
-        self.title = appleMusic.title
-        self.artist = appleMusic.artist
-        self.album = appleMusic.albumTitle
-        self.genre = appleMusic.genre
-        self.year = appleMusic.releaseDate?.year
-        self.track = appleMusic.albumTrackNumber
-        self.comment = appleMusic.comments
-        self.durationSeconds = Int(appleMusic.playbackDuration)
-        
-        if let coverImage = appleMusic.artwork?.image(at: CGSize(width: 100, height: 100)) {
-            SandboxFileManager.shared.writeMusicthumbnailImage(model: self, image: coverImage)
-        }
     }
     
     // Webdav文件的构造方法

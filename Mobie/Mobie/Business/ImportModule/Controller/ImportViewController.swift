@@ -12,9 +12,8 @@ import SafariServices
 import MessageUI
 
 /*
- 1、本地（文件、文件夹、视频转音乐）
- 2、计算机（USB、Wi-Fi）
- 3、连接（Webdav、Navidrome、网盘）
+ 1、本地（文件、文件夹、视频转音乐、USB、Wi-Fi）
+ 2、远程（服务器、网盘）
  */
 class ImportViewController: SuperViewController {
     override func preSetupSubViews() {
@@ -66,7 +65,7 @@ class ImportViewController: SuperViewController {
         let model1 = ImportGroupModel(group: .localGroup, headTitle: "Local".localStr(), itemArray: loclArray, footTitle: nil)
         tempArray.append(model1)
                 
-        let model3 = ImportGroupModel(group: .serverGroup, headTitle: "Remote".localStr(), itemArray: ImportFileType.serverDriveArray() + ImportFileType.cloudDriveArray(), footTitle: nil)
+        let model3 = ImportGroupModel(group: .remoteGroup, headTitle: "Remote".localStr(), itemArray: ImportFileType.serverDriveArray() + ImportFileType.cloudDriveArray(), footTitle: nil)
         tempArray.append(model3)
                 
         return tempArray

@@ -408,8 +408,6 @@
 		2277C6102D165FBF00A50BF3 /* UnsupportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2277C60F2D165FBF00A50BF3 /* UnsupportViewController.swift */; };
 		227998B32D76F68D00BCE0B9 /* NavidromeSongListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227998B22D76F68D00BCE0B9 /* NavidromeSongListController.swift */; };
 		227998BB2D773D6300BCE0B9 /* NavidromeSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227998BA2D773D6300BCE0B9 /* NavidromeSearchViewController.swift */; };
-		227E2E612DC0B26000EF8E3B /* AppleMusicListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227E2E602DC0B26000EF8E3B /* AppleMusicListController.swift */; };
-		227E2E622DC0B26000EF8E3B /* AppleMusicListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227E2E602DC0B26000EF8E3B /* AppleMusicListController.swift */; };
 		227E2EB32D97DB2700BE9858 /* EmptyDataTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227E2EB22D97DB2700BE9858 /* EmptyDataTableCell.swift */; };
 		227E2EB42D97DB2700BE9858 /* EmptyDataTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227E2EB22D97DB2700BE9858 /* EmptyDataTableCell.swift */; };
 		227FB9E22EAD007500F3181C /* GoogleErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227FB9E12EAD007500F3181C /* GoogleErrorResponse.swift */; };
@@ -926,7 +924,6 @@
 		2277C60F2D165FBF00A50BF3 /* UnsupportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsupportViewController.swift; sourceTree = "<group>"; };
 		227998B22D76F68D00BCE0B9 /* NavidromeSongListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavidromeSongListController.swift; sourceTree = "<group>"; };
 		227998BA2D773D6300BCE0B9 /* NavidromeSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavidromeSearchViewController.swift; sourceTree = "<group>"; };
-		227E2E602DC0B26000EF8E3B /* AppleMusicListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleMusicListController.swift; sourceTree = "<group>"; };
 		227E2EB22D97DB2700BE9858 /* EmptyDataTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyDataTableCell.swift; sourceTree = "<group>"; };
 		227FB9E12EAD007500F3181C /* GoogleErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleErrorResponse.swift; sourceTree = "<group>"; };
 		22814C4F2DD1BEF100565CBC /* MusicPlaylistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlaylistViewController.swift; sourceTree = "<group>"; };
@@ -1539,7 +1536,6 @@
 				22C2573A302D7A1D00A68C1B /* SelectLyricViewController.swift */,
 				22577F6C2D04251A00AD35E7 /* LibraryLyricsViewController.swift */,
 				22196E532D3133B0005B05CD /* LibraryLyricsViewController+Search.swift */,
-				227E2E602DC0B26000EF8E3B /* AppleMusicListController.swift */,
 				22577E652D03E1B200AD35E7 /* GenreTypeViewController.swift */,
 				22577F742D043E3100AD35E7 /* LibraryCoverViewController.swift */,
 				22196E552D3134CB005B05CD /* LibraryCoverViewController+Search.swift */,
@@ -2582,7 +2578,6 @@
 				225F588D2D85B2AB0055BDFF /* AppLogoViewController.swift in Sources */,
 				225F588E2D85B2AB0055BDFF /* SKProduct+Extension.swift in Sources */,
 				225F588F2D85B2AB0055BDFF /* AppStoreKitManager+Price.swift in Sources */,
-				227E2E612DC0B26000EF8E3B /* AppleMusicListController.swift in Sources */,
 				225F58922D85B2AB0055BDFF /* PlayerLyricsCell.swift in Sources */,
 				22948BD7303D8E5000139F6A /* BatchEditSuccessController.swift in Sources */,
 				225F58942D85B2AB0055BDFF /* MusicViewModel+Parse.swift in Sources */,
@@ -2910,7 +2905,6 @@
 				226A28382D00614A0072EA11 /* AppLogoViewController.swift in Sources */,
 				228A14982CA0633400E2948E /* SKProduct+Extension.swift in Sources */,
 				228A149D2CA0633400E2948E /* AppStoreKitManager+Price.swift in Sources */,
-				227E2E622DC0B26000EF8E3B /* AppleMusicListController.swift in Sources */,
 				22AB3BCD2CE6406B0063F284 /* PlayerLyricsCell.swift in Sources */,
 				22948BD6303D8E5000139F6A /* BatchEditSuccessController.swift in Sources */,
 				22697C592CA9879B0030A9E2 /* MusicViewModel+Parse.swift in Sources */,
@@ -2995,7 +2989,6 @@
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.music";
 				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
-				INFOPLIST_KEY_NSAppleMusicUsageDescription = "Access is required to scan your local Apple Music library and enable playback";
 				INFOPLIST_KEY_NSCameraUsageDescription = "You can use your camera to take live music videos and then convert them to music, with your permission.";
 				INFOPLIST_KEY_NSFileProviderPresenceUsageDescription = "Your permission is required to read music files from the Files app";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "You can use your camera to take live music videos and then convert them to music, with your permission.";
@@ -3050,7 +3043,6 @@
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.music";
 				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
-				INFOPLIST_KEY_NSAppleMusicUsageDescription = "Access is required to scan your local Apple Music library and enable playback";
 				INFOPLIST_KEY_NSCameraUsageDescription = "You can use your camera to take live music videos and then convert them to music, with your permission.";
 				INFOPLIST_KEY_NSFileProviderPresenceUsageDescription = "Your permission is required to read music files from the Files app";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "You can use your camera to take live music videos and then convert them to music, with your permission.";
@@ -3223,7 +3215,6 @@
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.music";
 				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
-				INFOPLIST_KEY_NSAppleMusicUsageDescription = "Access is required to scan your local Apple Music library and enable playback";
 				INFOPLIST_KEY_NSCameraUsageDescription = "You can use your camera to take live music videos and then convert them to music, with your permission.";
 				INFOPLIST_KEY_NSFileProviderPresenceUsageDescription = "Your permission is required to read music files from the Files app";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "You can use your camera to take live music videos and then convert them to music, with your permission.";
@@ -3278,7 +3269,6 @@
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.music";
 				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
-				INFOPLIST_KEY_NSAppleMusicUsageDescription = "Access is required to scan your local Apple Music library and enable playback";
 				INFOPLIST_KEY_NSCameraUsageDescription = "You can use your camera to take live music videos and then convert them to music, with your permission.";
 				INFOPLIST_KEY_NSFileProviderPresenceUsageDescription = "Your permission is required to read music files from the Files app";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "You can use your camera to take live music videos and then convert them to music, with your permission.";
