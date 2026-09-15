@@ -816,8 +816,10 @@ extension Drive115FileListController: MusicTableViewCellDelegate {
     
     // 点击播放
     func playWithMusic(_ subModel: MusicItemModel) {
-
-        
+        guard subModel.drive115Model?.isMusic() == true else {
+            view.makeToast("Unsupported Files".localStr())
+            return
+        }
         let isPlaying = KakaMusicPlayer.shared.playingMusic == subModel
 
         if isPlaying {

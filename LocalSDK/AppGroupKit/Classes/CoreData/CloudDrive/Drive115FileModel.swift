@@ -180,8 +180,13 @@ extension Drive115FileModel {
     
     /// 文件扩展名
     public func fileExtension() -> String {
-        let suffix = self.ico
-        return suffix.lowercased()
+        let suffix = ico.trimmingCharacters(in: .whitespacesAndNewlines)
+            .trimmingCharacters(in: CharacterSet(charactersIn: ".")).lowercased()
+        if !suffix.isEmpty { return suffix }
+        // Detail responses can omit ico. Do not infer an extension for folders
+        // whose names happen to end in .dsf / .dff.
+        guard fc == 1 || file_category == 1 else { return "" }
+        return (fileName() as NSString).pathExtension.lowercased()
     }
     
     /// 创建时间
@@ -205,8 +210,17 @@ extension Drive115FileModel {
     
     /// 是否为音乐
     public func isMusic() -> Bool {
+        guard !isDirectory(), !isUnsupportedStreamingAudio else { return false }
         let suffix = self.fileExtension()
         return  AudioExtensionType.allCases.map({ $0.rawValue }).contains(suffix.lowercased())
+    }
+
+    /// 115 download links are unreliable for DSD streaming. This restriction
+    /// belongs to the remote provider, not the local playback engine/formats.
+    public var isUnsupportedStreamingAudio: Bool {
+        guard !isDirectory() else { return false }
+        let filenameSuffix = (fileName() as NSString).pathExtension.lowercased()
+        return [fileExtension(), filenameSuffix].contains { $0 == "dsf" || $0 == "dff" }
     }
     
     /// 是否为视频

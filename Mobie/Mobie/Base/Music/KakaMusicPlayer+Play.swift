@@ -45,6 +45,15 @@ extension KakaMusicPlayer {
         
         guard var model = self.playingMusic else { return }
 
+        // Also reject persisted 115 playlists from before the format policy
+        // changed, before resolving links or reusing a paused streaming URL.
+        if model.drive115Model?.isUnsupportedStreamingAudio == true {
+            self.playerView.resetPlayer()
+            self.playbackStatus = .error
+            self.currentViewController()?.showOneAlert(message: "Unsupported Files".localStr())
+            return
+        }
+
         // Re-resolve temporary cloud links after a pause; the previous URL may have expired.
         let isResumingPCloud = (model.pcloudFile != nil || model.megaFile != nil || model.yandexFile != nil || model.guangyaFile != nil || model.boxFile != nil || model.smbFile != nil) && self.playerView.playerLayer?.player.playbackState == .paused && self.playerView.playerLayer?.url == model.mediaPlayURL
         let pcloudResumeTime = isResumingPCloud ? self.currentTime : MusicConfigManager.shared.lastPlayTime

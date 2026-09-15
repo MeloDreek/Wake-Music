@@ -193,8 +193,7 @@ class MusicTableViewCell: UITableViewCell {
         }
         
         if let drive115Model = musicModel.drive115Model {
-            let isSupport = AudioExtension.audioSuffixs.contains(drive115Model.fileExtension())
-            isSupportType = !drive115Model.isDirectory() && isSupport
+            isSupportType = drive115Model.isMusic()
         }
         
         if let googleFile = musicModel.googleFile {

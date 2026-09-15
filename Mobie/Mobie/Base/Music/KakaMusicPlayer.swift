@@ -277,6 +277,7 @@ public class KakaMusicPlayer: NSObject, ObservableObject {
         if !MusicConfigManager.shared.isPreDownload { return }
         
         guard let nextPlayMusic = (self.getNextPlayMusic() ?? self.nextPlayMusic), !nextPlayMusic.isLocalFile() else { return }
+        guard nextPlayMusic.drive115Model?.isUnsupportedStreamingAudio != true else { return }
         
         self.nextPlayMusic = nextPlayMusic
         
