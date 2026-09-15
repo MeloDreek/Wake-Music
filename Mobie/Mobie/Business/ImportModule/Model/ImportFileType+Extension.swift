@@ -108,7 +108,7 @@ extension ImportFileType {
         case .fromBoxDrive:
             return Reasource.named("Drive_box")
         case .fromMEGADrive:
-            return UIImage(systemName: "m.circle.fill")?.withTintColor(.systemRed, renderingMode: .alwaysOriginal)
+            return Reasource.named("Drive_mega")
         case .fromDropboxDrive:
             return Reasource.named("Drive_dropbox")
         case .fromYandexDrive:
@@ -131,7 +131,7 @@ extension ImportFileType {
         case .from123Drive:
             return Reasource.named("Drive_123")
         case .fromGuangyaDrive:
-            return Reasource.named("Import_guangya")
+            return Reasource.named("Drive_guangya")
         case .fromJianguoDrive:
             return Reasource.named("Drive_jianguo")
         case .fromInfiniCloud:

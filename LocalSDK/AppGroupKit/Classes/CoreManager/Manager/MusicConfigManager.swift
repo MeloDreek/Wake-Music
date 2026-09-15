@@ -27,7 +27,7 @@ public class MusicConfigManager: ObservableObject, SmartCodableX {
     
     /// 分组方式
     @SmartPublished
-    public var groupType = GroupItemType.musictagGroup {
+    public var groupType = GroupItemType.titleGroup {
         didSet {
             save()
         }

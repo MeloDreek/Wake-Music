@@ -311,7 +311,7 @@ class PlayerControlFloatView: UIView {
     }()
     
     lazy var coverImgView: UIImageView = {
-        let view = UIImageView(image: BroadcastsType.fm4.coverImage())
+        let view = UIImageView(image: MusicGenreType.pop.iconImage())
         view.isUserInteractionEnabled = true
         view.contentMode = .scaleAspectFill
         view.layer.masksToBounds = true

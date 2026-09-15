@@ -7,9 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C04000000000000000000001 /* MEGASdk in Frameworks */ = {isa = PBXBuildFile; productRef = C04000000000000000000003 /* MEGASdk */; };
-		C04000000000000000000002 /* MEGASdk in Frameworks */ = {isa = PBXBuildFile; productRef = C04000000000000000000004 /* MEGASdk */; };
 		01F75346B3745539580B69EB /* Pods_Mobie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC044DCD42AEE7FFFB8D29DE /* Pods_Mobie.framework */; };
+		02B57660DD995BBB02E0E76A /* CollectionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132CAFD74F21CC80A0EE1C8C /* CollectionDetailViewController.swift */; };
 		22059B832CAE9378006F6E7A /* SocialMediaType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22059B822CAE9378006F6E7A /* SocialMediaType.swift */; };
 		220DDAE22EAA6E9A00F50BB3 /* ConnectListViewController+Connect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220DDAE12EAA6E9A00F50BB3 /* ConnectListViewController+Connect.swift */; };
 		220DDAE32EAA6E9A00F50BB3 /* ConnectListViewController+Connect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 220DDAE12EAA6E9A00F50BB3 /* ConnectListViewController+Connect.swift */; };
@@ -148,9 +147,7 @@
 		2258ACF32DE5743700F5754B /* PlayControlDefaultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2258ACF22DE5743700F5754B /* PlayControlDefaultView.swift */; };
 		2258ACF42DE5743700F5754B /* PlayControlDefaultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2258ACF22DE5743700F5754B /* PlayControlDefaultView.swift */; };
 		2258ACF62DE5AF6D00F5754B /* PlayBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2258ACF52DE5AF6D00F5754B /* PlayBackgroundView.swift */; };
-		B722076D49924DE6B6E3D9AD /* ArtworkPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7809854B8022201FCA666119 /* ArtworkPalette.swift */; };
 		2258ACF72DE5AF6D00F5754B /* PlayBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2258ACF52DE5AF6D00F5754B /* PlayBackgroundView.swift */; };
-		3ED2E4BD436E66147EF8AE39 /* ArtworkPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7809854B8022201FCA666119 /* ArtworkPalette.swift */; };
 		2258ACF92DE5BBFB00F5754B /* PlayerSubViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2258ACF82DE5BBFB00F5754B /* PlayerSubViewDelegate.swift */; };
 		2258ACFA2DE5BBFB00F5754B /* PlayerSubViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2258ACF82DE5BBFB00F5754B /* PlayerSubViewDelegate.swift */; };
 		2258ACFC2DE5FB0300F5754B /* LyricSetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2258ACFB2DE5FB0300F5754B /* LyricSetViewController.swift */; };
@@ -184,7 +181,6 @@
 		225F57F52D85B2AB0055BDFF /* HomeTabbarViewController+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13F12CA0633400E2948E /* HomeTabbarViewController+UI.swift */; };
 		225F57F62D85B2AB0055BDFF /* NavidromeViewController+Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2250931A2D705965003BE202 /* NavidromeViewController+Request.swift */; };
 		225F57F72D85B2AB0055BDFF /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13DE2CA0633400E2948E /* UserInfoViewController.swift */; };
-		225F57F82D85B2AB0055BDFF /* BroadcastsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13C82CA0633400E2948E /* BroadcastsModel.swift */; };
 		225F57F92D85B2AB0055BDFF /* FreeStreamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13BB2CA0633400E2948E /* FreeStreamViewController.swift */; };
 		225F57FA2D85B2AB0055BDFF /* MusicPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13BC2CA0633400E2948E /* MusicPlayerViewController.swift */; };
 		225F57FB2D85B2AB0055BDFF /* MiniPlayerStyle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225F88C52CD094F70093B359 /* MiniPlayerStyle+Extension.swift */; };
@@ -253,7 +249,6 @@
 		225F58422D85B2AB0055BDFF /* MusicViewModel+Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2254174F2CC2BFDF00F00343 /* MusicViewModel+Album.swift */; };
 		225F58432D85B2AB0055BDFF /* GenreListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2257DE532D0AC7C600BBC0CE /* GenreListViewController.swift */; };
 		225F58442D85B2AB0055BDFF /* ArtistDetialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13A32CA0633400E2948E /* ArtistDetialViewController.swift */; };
-		02B57660DD995BBB02E0E76A /* CollectionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132CAFD74F21CC80A0EE1C8C /* CollectionDetailViewController.swift */; };
 		225F58452D85B2AB0055BDFF /* NavidromeViewController+Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225E6BAA2D281FAE00A25B34 /* NavidromeViewController+Search.swift */; };
 		225F58462D85B2AB0055BDFF /* SelectAvatarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13DC2CA0633400E2948E /* SelectAvatarViewController.swift */; };
 		225F58472D85B2AB0055BDFF /* LibraryCoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22577F742D043E3100AD35E7 /* LibraryCoverViewController.swift */; };
@@ -461,7 +456,6 @@
 		228A14372CA0633400E2948E /* MusicsViewController+Noti.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13A12CA0633400E2948E /* MusicsViewController+Noti.swift */; };
 		228A14382CA0633400E2948E /* MusicsViewController+Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13A22CA0633400E2948E /* MusicsViewController+Search.swift */; };
 		228A14392CA0633400E2948E /* ArtistDetialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13A32CA0633400E2948E /* ArtistDetialViewController.swift */; };
-		870B35FFC850D1C18BA65AAF /* CollectionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132CAFD74F21CC80A0EE1C8C /* CollectionDetailViewController.swift */; };
 		228A143A2CA0633400E2948E /* ArtistListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13A42CA0633400E2948E /* ArtistListViewController.swift */; };
 		228A143F2CA0633400E2948E /* ImportFileType+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13AA2CA0633400E2948E /* ImportFileType+Extension.swift */; };
 		228A14402CA0633400E2948E /* MusicActionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13AB2CA0633400E2948E /* MusicActionType.swift */; };
@@ -482,7 +476,6 @@
 		228A14562CA0633400E2948E /* PurchaseViewController+Pay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13C42CA0633400E2948E /* PurchaseViewController+Pay.swift */; };
 		228A14572CA0633400E2948E /* VideoConverterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13C52CA0633400E2948E /* VideoConverterViewController.swift */; };
 		228A14582CA0633400E2948E /* VideoConverterViewController+Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13C62CA0633400E2948E /* VideoConverterViewController+Action.swift */; };
-		228A14592CA0633400E2948E /* BroadcastsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13C82CA0633400E2948E /* BroadcastsModel.swift */; };
 		228A145A2CA0633400E2948E /* VIPBenefitsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13C92CA0633400E2948E /* VIPBenefitsModel.swift */; };
 		228A145C2CA0633400E2948E /* AudioWaveformView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13CC2CA0633400E2948E /* AudioWaveformView.swift */; };
 		228A145E2CA0633400E2948E /* GuideRatingViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13CE2CA0633400E2948E /* GuideRatingViewCell.swift */; };
@@ -622,9 +615,7 @@
 		22C287AE3053C6B700801D66 /* NoneLyriclistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C287AD3053C6B700801D66 /* NoneLyriclistView.swift */; };
 		22C287AF3053C6B700801D66 /* NoneLyriclistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C287AD3053C6B700801D66 /* NoneLyriclistView.swift */; };
 		22C287B130540A4500801D66 /* AuthSMBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C287B030540A4500801D66 /* AuthSMBViewController.swift */; };
-		C04300000000000000000001 /* AuthMEGAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04300000000000000000002 /* AuthMEGAViewController.swift */; };
 		22C287B230540A4500801D66 /* AuthSMBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C287B030540A4500801D66 /* AuthSMBViewController.swift */; };
-		C04300000000000000000003 /* AuthMEGAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04300000000000000000002 /* AuthMEGAViewController.swift */; };
 		22C707712DCB9C1700A1B79A /* MacTabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C707702DCB9C1700A1B79A /* MacTabbarViewController.swift */; };
 		22C707722DCB9C1700A1B79A /* MacTabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C707702DCB9C1700A1B79A /* MacTabbarViewController.swift */; };
 		22C707742DCB9C2100A1B79A /* MacTabbarViewController+Drop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C707732DCB9C2100A1B79A /* MacTabbarViewController+Drop.swift */; };
@@ -687,7 +678,9 @@
 		22FB96102DEDB004007EA2FD /* MiniPlayerLyricView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FB960E2DEDB004007EA2FD /* MiniPlayerLyricView.swift */; };
 		22FECF2D2CB7AC4400FBE36B /* AudioChannels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FECF2C2CB7AC4400FBE36B /* AudioChannels.swift */; };
 		22FECF312CB7B9A200FBE36B /* AudioTagListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FECF302CB7B9A200FBE36B /* AudioTagListView.swift */; };
+		3ED2E4BD436E66147EF8AE39 /* ArtworkPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7809854B8022201FCA666119 /* ArtworkPalette.swift */; };
 		82D834BFAC8F3A17A778E93D /* Pods_Mobie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC044DCD42AEE7FFFB8D29DE /* Pods_Mobie.framework */; };
+		870B35FFC850D1C18BA65AAF /* CollectionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132CAFD74F21CC80A0EE1C8C /* CollectionDetailViewController.swift */; };
 		9C59B94A22559628B11B9185 /* Pods_Mobie_Pro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2024258CB3388C84E94183D3 /* Pods_Mobie_Pro.framework */; };
 		A76381482EDEA4000040A84D /* DominantColors in Frameworks */ = {isa = PBXBuildFile; productRef = A76381472EDEA4000040A84D /* DominantColors */; };
 		A763814B2EDEA40F0040A84D /* FilesProvider in Frameworks */ = {isa = PBXBuildFile; productRef = A763814A2EDEA40F0040A84D /* FilesProvider */; };
@@ -705,45 +698,16 @@
 		A76381FF2EDED27C0040A84D /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = A76381FE2EDED27C0040A84D /* Alamofire */; };
 		A76382012EDED2E60040A84D /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = A76382002EDED2E60040A84D /* Alamofire */; };
 		B01000000000000000000001 /* BoxDriveService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01000000000000000000002 /* BoxDriveService.swift */; };
-		CA1000000000000000000001 /* GuangyaDriveService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1000000000000000000002 /* GuangyaDriveService.swift */; };
-		DA1000000000000000000001 /* YandexDriveService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1000000000000000000002 /* YandexDriveService.swift */; };
-		C04100000000000000000001 /* MEGADriveService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04100000000000000000002 /* MEGADriveService.swift */; };
-		D66F570949C24DA19E444001 /* MEGASystemProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66F570949C24DA19E444002 /* MEGASystemProxy.swift */; };
-		D66F570949C24DA19E444003 /* MEGASystemProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66F570949C24DA19E444002 /* MEGASystemProxy.swift */; };
 		B01000000000000000000003 /* BoxDriveService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01000000000000000000002 /* BoxDriveService.swift */; };
-		CA1000000000000000000003 /* GuangyaDriveService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1000000000000000000002 /* GuangyaDriveService.swift */; };
-		DA1000000000000000000003 /* YandexDriveService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1000000000000000000002 /* YandexDriveService.swift */; };
-		C04100000000000000000003 /* MEGADriveService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04100000000000000000002 /* MEGADriveService.swift */; };
 		B01000000000000000000004 /* BoxDriveFileListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01000000000000000000005 /* BoxDriveFileListController.swift */; };
-		CA1000000000000000000004 /* GuangyaDriveFileListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1000000000000000000005 /* GuangyaDriveFileListController.swift */; };
-		DA1000000000000000000004 /* YandexDriveFileListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1000000000000000000005 /* YandexDriveFileListController.swift */; };
-		C04100000000000000000004 /* MEGADriveFileListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04100000000000000000005 /* MEGADriveFileListController.swift */; };
 		B01000000000000000000006 /* BoxDriveFileListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01000000000000000000005 /* BoxDriveFileListController.swift */; };
-		CA1000000000000000000006 /* GuangyaDriveFileListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1000000000000000000005 /* GuangyaDriveFileListController.swift */; };
-		DA1000000000000000000006 /* YandexDriveFileListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1000000000000000000005 /* YandexDriveFileListController.swift */; };
-		C04100000000000000000006 /* MEGADriveFileListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04100000000000000000005 /* MEGADriveFileListController.swift */; };
 		B01000000000000000000007 /* KakaMusicPlayer+Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01000000000000000000008 /* KakaMusicPlayer+Box.swift */; };
-		CA1000000000000000000007 /* KakaMusicPlayer+Guangya.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1000000000000000000008 /* KakaMusicPlayer+Guangya.swift */; };
-		DA1000000000000000000007 /* KakaMusicPlayer+Yandex.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1000000000000000000008 /* KakaMusicPlayer+Yandex.swift */; };
-		C04100000000000000000007 /* KakaMusicPlayer+MEGA.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04100000000000000000008 /* KakaMusicPlayer+MEGA.swift */; };
 		B01000000000000000000009 /* KakaMusicPlayer+Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01000000000000000000008 /* KakaMusicPlayer+Box.swift */; };
-		CA1000000000000000000009 /* KakaMusicPlayer+Guangya.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1000000000000000000008 /* KakaMusicPlayer+Guangya.swift */; };
-		DA1000000000000000000009 /* KakaMusicPlayer+Yandex.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1000000000000000000008 /* KakaMusicPlayer+Yandex.swift */; };
-		C04100000000000000000009 /* KakaMusicPlayer+MEGA.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04100000000000000000008 /* KakaMusicPlayer+MEGA.swift */; };
 		B01100000000000000000001 /* BoxFileListStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01100000000000000000002 /* BoxFileListStatus.swift */; };
-		CA1100000000000000000001 /* GuangyaFileListStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1100000000000000000002 /* GuangyaFileListStatus.swift */; };
-		DA1100000000000000000001 /* YandexFileListStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1100000000000000000002 /* YandexFileListStatus.swift */; };
-		C04200000000000000000001 /* MEGAFileListStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04200000000000000000002 /* MEGAFileListStatus.swift */; };
 		B01100000000000000000003 /* BoxFileListStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01100000000000000000002 /* BoxFileListStatus.swift */; };
-		CA1100000000000000000003 /* GuangyaFileListStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1100000000000000000002 /* GuangyaFileListStatus.swift */; };
-		DA1100000000000000000003 /* YandexFileListStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1100000000000000000002 /* YandexFileListStatus.swift */; };
-		C04200000000000000000003 /* MEGAFileListStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04200000000000000000002 /* MEGAFileListStatus.swift */; };
 		B01200000000000000000001 /* BoxDriveAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01200000000000000000002 /* BoxDriveAPI.swift */; };
-		CA1200000000000000000001 /* GuangyaDriveAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1200000000000000000002 /* GuangyaDriveAPI.swift */; };
-		DA1200000000000000000001 /* YandexDriveAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1200000000000000000002 /* YandexDriveAPI.swift */; };
 		B01200000000000000000003 /* BoxDriveAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01200000000000000000002 /* BoxDriveAPI.swift */; };
-		CA1200000000000000000003 /* GuangyaDriveAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1200000000000000000002 /* GuangyaDriveAPI.swift */; };
-		DA1200000000000000000003 /* YandexDriveAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1200000000000000000002 /* YandexDriveAPI.swift */; };
+		B722076D49924DE6B6E3D9AD /* ArtworkPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7809854B8022201FCA666119 /* ArtworkPalette.swift */; };
 		C02000000000000000000001 /* SMBDriveService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02000000000000000000002 /* SMBDriveService.swift */; };
 		C02000000000000000000003 /* SMBDriveService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02000000000000000000002 /* SMBDriveService.swift */; };
 		C02000000000000000000004 /* SMBDriveFileListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02000000000000000000005 /* SMBDriveFileListController.swift */; };
@@ -760,6 +724,18 @@
 		C03000000000000000000002 /* AMSMB2 in Frameworks */ = {isa = PBXBuildFile; productRef = C03000000000000000000004 /* AMSMB2 */; };
 		C03000000000000000000006 /* AMSMB2 in Embed Frameworks */ = {isa = PBXBuildFile; productRef = C03000000000000000000003 /* AMSMB2 */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C03000000000000000000007 /* AMSMB2 in Embed Frameworks */ = {isa = PBXBuildFile; productRef = C03000000000000000000004 /* AMSMB2 */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C04000000000000000000001 /* MEGASdk in Frameworks */ = {isa = PBXBuildFile; productRef = C04000000000000000000003 /* MEGASdk */; };
+		C04000000000000000000002 /* MEGASdk in Frameworks */ = {isa = PBXBuildFile; productRef = C04000000000000000000004 /* MEGASdk */; };
+		C04100000000000000000001 /* MEGADriveService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04100000000000000000002 /* MEGADriveService.swift */; };
+		C04100000000000000000003 /* MEGADriveService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04100000000000000000002 /* MEGADriveService.swift */; };
+		C04100000000000000000004 /* MEGADriveFileListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04100000000000000000005 /* MEGADriveFileListController.swift */; };
+		C04100000000000000000006 /* MEGADriveFileListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04100000000000000000005 /* MEGADriveFileListController.swift */; };
+		C04100000000000000000007 /* KakaMusicPlayer+MEGA.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04100000000000000000008 /* KakaMusicPlayer+MEGA.swift */; };
+		C04100000000000000000009 /* KakaMusicPlayer+MEGA.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04100000000000000000008 /* KakaMusicPlayer+MEGA.swift */; };
+		C04200000000000000000001 /* MEGAFileListStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04200000000000000000002 /* MEGAFileListStatus.swift */; };
+		C04200000000000000000003 /* MEGAFileListStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04200000000000000000002 /* MEGAFileListStatus.swift */; };
+		C04300000000000000000001 /* AuthMEGAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04300000000000000000002 /* AuthMEGAViewController.swift */; };
+		C04300000000000000000003 /* AuthMEGAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04300000000000000000002 /* AuthMEGAViewController.swift */; };
 		C09110000000000000000001 /* EmbeddedArtworkReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09110000000000000000002 /* EmbeddedArtworkReader.swift */; };
 		C09110000000000000000003 /* EmbeddedArtworkReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09110000000000000000002 /* EmbeddedArtworkReader.swift */; };
 		C10D00000000000000000001 /* PCloudDriveService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10D00000000000000000002 /* PCloudDriveService.swift */; };
@@ -770,6 +746,28 @@
 		C10D00000000000000000009 /* KakaMusicPlayer+PCloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10D00000000000000000008 /* KakaMusicPlayer+PCloud.swift */; };
 		C10E00000000000000000001 /* PCloudFileListStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10E00000000000000000002 /* PCloudFileListStatus.swift */; };
 		C10E00000000000000000003 /* PCloudFileListStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10E00000000000000000002 /* PCloudFileListStatus.swift */; };
+		CA1000000000000000000001 /* GuangyaDriveService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1000000000000000000002 /* GuangyaDriveService.swift */; };
+		CA1000000000000000000003 /* GuangyaDriveService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1000000000000000000002 /* GuangyaDriveService.swift */; };
+		CA1000000000000000000004 /* GuangyaDriveFileListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1000000000000000000005 /* GuangyaDriveFileListController.swift */; };
+		CA1000000000000000000006 /* GuangyaDriveFileListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1000000000000000000005 /* GuangyaDriveFileListController.swift */; };
+		CA1000000000000000000007 /* KakaMusicPlayer+Guangya.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1000000000000000000008 /* KakaMusicPlayer+Guangya.swift */; };
+		CA1000000000000000000009 /* KakaMusicPlayer+Guangya.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1000000000000000000008 /* KakaMusicPlayer+Guangya.swift */; };
+		CA1100000000000000000001 /* GuangyaFileListStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1100000000000000000002 /* GuangyaFileListStatus.swift */; };
+		CA1100000000000000000003 /* GuangyaFileListStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1100000000000000000002 /* GuangyaFileListStatus.swift */; };
+		CA1200000000000000000001 /* GuangyaDriveAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1200000000000000000002 /* GuangyaDriveAPI.swift */; };
+		CA1200000000000000000003 /* GuangyaDriveAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1200000000000000000002 /* GuangyaDriveAPI.swift */; };
+		D66F570949C24DA19E444001 /* MEGASystemProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66F570949C24DA19E444002 /* MEGASystemProxy.swift */; };
+		D66F570949C24DA19E444003 /* MEGASystemProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66F570949C24DA19E444002 /* MEGASystemProxy.swift */; };
+		DA1000000000000000000001 /* YandexDriveService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1000000000000000000002 /* YandexDriveService.swift */; };
+		DA1000000000000000000003 /* YandexDriveService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1000000000000000000002 /* YandexDriveService.swift */; };
+		DA1000000000000000000004 /* YandexDriveFileListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1000000000000000000005 /* YandexDriveFileListController.swift */; };
+		DA1000000000000000000006 /* YandexDriveFileListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1000000000000000000005 /* YandexDriveFileListController.swift */; };
+		DA1000000000000000000007 /* KakaMusicPlayer+Yandex.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1000000000000000000008 /* KakaMusicPlayer+Yandex.swift */; };
+		DA1000000000000000000009 /* KakaMusicPlayer+Yandex.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1000000000000000000008 /* KakaMusicPlayer+Yandex.swift */; };
+		DA1100000000000000000001 /* YandexFileListStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1100000000000000000002 /* YandexFileListStatus.swift */; };
+		DA1100000000000000000003 /* YandexFileListStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1100000000000000000002 /* YandexFileListStatus.swift */; };
+		DA1200000000000000000001 /* YandexDriveAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1200000000000000000002 /* YandexDriveAPI.swift */; };
+		DA1200000000000000000003 /* YandexDriveAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1200000000000000000002 /* YandexDriveAPI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -798,6 +796,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		132CAFD74F21CC80A0EE1C8C /* CollectionDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionDetailViewController.swift; sourceTree = "<group>"; };
 		2024258CB3388C84E94183D3 /* Pods_Mobie_Pro.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mobie_Pro.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		22059B822CAE9378006F6E7A /* SocialMediaType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialMediaType.swift; sourceTree = "<group>"; };
 		220DDAE12EAA6E9A00F50BB3 /* ConnectListViewController+Connect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConnectListViewController+Connect.swift"; sourceTree = "<group>"; };
@@ -879,7 +878,6 @@
 		2258ACEF2DE565D400F5754B /* PlayerGroupStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerGroupStyle.swift; sourceTree = "<group>"; };
 		2258ACF22DE5743700F5754B /* PlayControlDefaultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayControlDefaultView.swift; sourceTree = "<group>"; };
 		2258ACF52DE5AF6D00F5754B /* PlayBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayBackgroundView.swift; sourceTree = "<group>"; };
-		7809854B8022201FCA666119 /* ArtworkPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtworkPalette.swift; sourceTree = "<group>"; };
 		2258ACF82DE5BBFB00F5754B /* PlayerSubViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerSubViewDelegate.swift; sourceTree = "<group>"; };
 		2258ACFB2DE5FB0300F5754B /* LyricSetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LyricSetViewController.swift; sourceTree = "<group>"; };
 		2258ACFE2DE5FD0D00F5754B /* LyricSetCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LyricSetCellModel.swift; sourceTree = "<group>"; };
@@ -961,7 +959,6 @@
 		228A13A12CA0633400E2948E /* MusicsViewController+Noti.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MusicsViewController+Noti.swift"; sourceTree = "<group>"; };
 		228A13A22CA0633400E2948E /* MusicsViewController+Search.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MusicsViewController+Search.swift"; sourceTree = "<group>"; };
 		228A13A32CA0633400E2948E /* ArtistDetialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistDetialViewController.swift; sourceTree = "<group>"; };
-		132CAFD74F21CC80A0EE1C8C /* CollectionDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionDetailViewController.swift; sourceTree = "<group>"; };
 		228A13A42CA0633400E2948E /* ArtistListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtistListViewController.swift; sourceTree = "<group>"; };
 		228A13AA2CA0633400E2948E /* ImportFileType+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ImportFileType+Extension.swift"; sourceTree = "<group>"; };
 		228A13AB2CA0633400E2948E /* MusicActionType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicActionType.swift; sourceTree = "<group>"; };
@@ -982,7 +979,6 @@
 		228A13C42CA0633400E2948E /* PurchaseViewController+Pay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PurchaseViewController+Pay.swift"; sourceTree = "<group>"; };
 		228A13C52CA0633400E2948E /* VideoConverterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoConverterViewController.swift; sourceTree = "<group>"; };
 		228A13C62CA0633400E2948E /* VideoConverterViewController+Action.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "VideoConverterViewController+Action.swift"; sourceTree = "<group>"; };
-		228A13C82CA0633400E2948E /* BroadcastsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BroadcastsModel.swift; sourceTree = "<group>"; };
 		228A13C92CA0633400E2948E /* VIPBenefitsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VIPBenefitsModel.swift; sourceTree = "<group>"; };
 		228A13CC2CA0633400E2948E /* AudioWaveformView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioWaveformView.swift; sourceTree = "<group>"; };
 		228A13CE2CA0633400E2948E /* GuideRatingViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuideRatingViewCell.swift; sourceTree = "<group>"; };
@@ -1082,7 +1078,6 @@
 		22C25740302D937200A68C1B /* MusicConfigManager+Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MusicConfigManager+Action.swift"; sourceTree = "<group>"; };
 		22C287AD3053C6B700801D66 /* NoneLyriclistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoneLyriclistView.swift; sourceTree = "<group>"; };
 		22C287B030540A4500801D66 /* AuthSMBViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthSMBViewController.swift; sourceTree = "<group>"; };
-		C04300000000000000000002 /* AuthMEGAViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthMEGAViewController.swift; sourceTree = "<group>"; };
 		22C707702DCB9C1700A1B79A /* MacTabbarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacTabbarViewController.swift; sourceTree = "<group>"; };
 		22C707732DCB9C2100A1B79A /* MacTabbarViewController+Drop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MacTabbarViewController+Drop.swift"; sourceTree = "<group>"; };
 		22C707762DCB9C5500A1B79A /* MacTabbarViewController+Noti.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MacTabbarViewController+Noti.swift"; sourceTree = "<group>"; };
@@ -1117,27 +1112,13 @@
 		22FECF2C2CB7AC4400FBE36B /* AudioChannels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioChannels.swift; sourceTree = "<group>"; };
 		22FECF302CB7B9A200FBE36B /* AudioTagListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioTagListView.swift; sourceTree = "<group>"; };
 		529D8BF88D087076D287687A /* Pods-Mobie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mobie.debug.xcconfig"; path = "Target Support Files/Pods-Mobie/Pods-Mobie.debug.xcconfig"; sourceTree = "<group>"; };
+		7809854B8022201FCA666119 /* ArtworkPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtworkPalette.swift; sourceTree = "<group>"; };
 		886CE6607B0E1400F6276768 /* Pods-Mobie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mobie.release.xcconfig"; path = "Target Support Files/Pods-Mobie/Pods-Mobie.release.xcconfig"; sourceTree = "<group>"; };
 		B01000000000000000000002 /* BoxDriveService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxDriveService.swift; sourceTree = "<group>"; };
-		CA1000000000000000000002 /* GuangyaDriveService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuangyaDriveService.swift; sourceTree = "<group>"; };
-		DA1000000000000000000002 /* YandexDriveService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YandexDriveService.swift; sourceTree = "<group>"; };
-		C04100000000000000000002 /* MEGADriveService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MEGADriveService.swift; sourceTree = "<group>"; };
-		D66F570949C24DA19E444002 /* MEGASystemProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MEGASystemProxy.swift; sourceTree = "<group>"; };
 		B01000000000000000000005 /* BoxDriveFileListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxDriveFileListController.swift; sourceTree = "<group>"; };
-		CA1000000000000000000005 /* GuangyaDriveFileListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuangyaDriveFileListController.swift; sourceTree = "<group>"; };
-		DA1000000000000000000005 /* YandexDriveFileListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YandexDriveFileListController.swift; sourceTree = "<group>"; };
-		C04100000000000000000005 /* MEGADriveFileListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MEGADriveFileListController.swift; sourceTree = "<group>"; };
 		B01000000000000000000008 /* KakaMusicPlayer+Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KakaMusicPlayer+Box.swift"; sourceTree = "<group>"; };
-		CA1000000000000000000008 /* KakaMusicPlayer+Guangya.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KakaMusicPlayer+Guangya.swift"; sourceTree = "<group>"; };
-		DA1000000000000000000008 /* KakaMusicPlayer+Yandex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KakaMusicPlayer+Yandex.swift"; sourceTree = "<group>"; };
-		C04100000000000000000008 /* KakaMusicPlayer+MEGA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KakaMusicPlayer+MEGA.swift"; sourceTree = "<group>"; };
 		B01100000000000000000002 /* BoxFileListStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxFileListStatus.swift; sourceTree = "<group>"; };
-		CA1100000000000000000002 /* GuangyaFileListStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuangyaFileListStatus.swift; sourceTree = "<group>"; };
-		DA1100000000000000000002 /* YandexFileListStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YandexFileListStatus.swift; sourceTree = "<group>"; };
-		C04200000000000000000002 /* MEGAFileListStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MEGAFileListStatus.swift; sourceTree = "<group>"; };
 		B01200000000000000000002 /* BoxDriveAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxDriveAPI.swift; sourceTree = "<group>"; };
-		CA1200000000000000000002 /* GuangyaDriveAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuangyaDriveAPI.swift; sourceTree = "<group>"; };
-		DA1200000000000000000002 /* YandexDriveAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YandexDriveAPI.swift; sourceTree = "<group>"; };
 		BD30271AF1F6DF33916F8A97 /* Pods-Mobie_Pro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mobie_Pro.release.xcconfig"; path = "Target Support Files/Pods-Mobie_Pro/Pods-Mobie_Pro.release.xcconfig"; sourceTree = "<group>"; };
 		C02000000000000000000002 /* SMBDriveService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMBDriveService.swift; sourceTree = "<group>"; };
 		C02000000000000000000005 /* SMBDriveFileListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMBDriveFileListController.swift; sourceTree = "<group>"; };
@@ -1145,11 +1126,27 @@
 		C02100000000000000000002 /* SMBHTTPBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMBHTTPBridge.swift; sourceTree = "<group>"; };
 		C02300000000000000000002 /* SMBFileListStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMBFileListStatus.swift; sourceTree = "<group>"; };
 		C02400000000000000000002 /* SMBProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMBProtocol.swift; sourceTree = "<group>"; };
+		C04100000000000000000002 /* MEGADriveService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MEGADriveService.swift; sourceTree = "<group>"; };
+		C04100000000000000000005 /* MEGADriveFileListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MEGADriveFileListController.swift; sourceTree = "<group>"; };
+		C04100000000000000000008 /* KakaMusicPlayer+MEGA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KakaMusicPlayer+MEGA.swift"; sourceTree = "<group>"; };
+		C04200000000000000000002 /* MEGAFileListStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MEGAFileListStatus.swift; sourceTree = "<group>"; };
+		C04300000000000000000002 /* AuthMEGAViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthMEGAViewController.swift; sourceTree = "<group>"; };
 		C09110000000000000000002 /* EmbeddedArtworkReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmbeddedArtworkReader.swift; sourceTree = "<group>"; };
 		C10D00000000000000000002 /* PCloudDriveService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCloudDriveService.swift; sourceTree = "<group>"; };
 		C10D00000000000000000005 /* PCloudDriveFileListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCloudDriveFileListController.swift; sourceTree = "<group>"; };
 		C10D00000000000000000008 /* KakaMusicPlayer+PCloud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KakaMusicPlayer+PCloud.swift"; sourceTree = "<group>"; };
 		C10E00000000000000000002 /* PCloudFileListStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCloudFileListStatus.swift; sourceTree = "<group>"; };
+		CA1000000000000000000002 /* GuangyaDriveService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuangyaDriveService.swift; sourceTree = "<group>"; };
+		CA1000000000000000000005 /* GuangyaDriveFileListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuangyaDriveFileListController.swift; sourceTree = "<group>"; };
+		CA1000000000000000000008 /* KakaMusicPlayer+Guangya.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KakaMusicPlayer+Guangya.swift"; sourceTree = "<group>"; };
+		CA1100000000000000000002 /* GuangyaFileListStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuangyaFileListStatus.swift; sourceTree = "<group>"; };
+		CA1200000000000000000002 /* GuangyaDriveAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuangyaDriveAPI.swift; sourceTree = "<group>"; };
+		D66F570949C24DA19E444002 /* MEGASystemProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MEGASystemProxy.swift; sourceTree = "<group>"; };
+		DA1000000000000000000002 /* YandexDriveService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YandexDriveService.swift; sourceTree = "<group>"; };
+		DA1000000000000000000005 /* YandexDriveFileListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YandexDriveFileListController.swift; sourceTree = "<group>"; };
+		DA1000000000000000000008 /* KakaMusicPlayer+Yandex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KakaMusicPlayer+Yandex.swift"; sourceTree = "<group>"; };
+		DA1100000000000000000002 /* YandexFileListStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YandexFileListStatus.swift; sourceTree = "<group>"; };
+		DA1200000000000000000002 /* YandexDriveAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YandexDriveAPI.swift; sourceTree = "<group>"; };
 		FBD07F657408F494AEAD6A1B /* Pods-Mobie_Pro.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mobie_Pro.debug.xcconfig"; path = "Target Support Files/Pods-Mobie_Pro/Pods-Mobie_Pro.debug.xcconfig"; sourceTree = "<group>"; };
 		FC044DCD42AEE7FFFB8D29DE /* Pods_Mobie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mobie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -1330,7 +1327,6 @@
 			isa = PBXGroup;
 			children = (
 				228A13AA2CA0633400E2948E /* ImportFileType+Extension.swift */,
-				228A13C82CA0633400E2948E /* BroadcastsModel.swift */,
 				22C25740302D937200A68C1B /* MusicConfigManager+Action.swift */,
 			);
 			path = Model;
@@ -2324,7 +2320,6 @@
 				225F57F52D85B2AB0055BDFF /* HomeTabbarViewController+UI.swift in Sources */,
 				225F57F62D85B2AB0055BDFF /* NavidromeViewController+Request.swift in Sources */,
 				225F57F72D85B2AB0055BDFF /* UserInfoViewController.swift in Sources */,
-				225F57F82D85B2AB0055BDFF /* BroadcastsModel.swift in Sources */,
 				225F57F92D85B2AB0055BDFF /* FreeStreamViewController.swift in Sources */,
 				2266A1512DE7531400F5AEB7 /* LyricFontColorTableCell.swift in Sources */,
 				225F57FA2D85B2AB0055BDFF /* MusicPlayerViewController.swift in Sources */,
@@ -2653,7 +2648,6 @@
 				228A147B2CA0633400E2948E /* HomeTabbarViewController+UI.swift in Sources */,
 				2250931B2D705965003BE202 /* NavidromeViewController+Request.swift in Sources */,
 				228A146C2CA0633400E2948E /* UserInfoViewController.swift in Sources */,
-				228A14592CA0633400E2948E /* BroadcastsModel.swift in Sources */,
 				228A144D2CA0633400E2948E /* FreeStreamViewController.swift in Sources */,
 				2266A1522DE7531400F5AEB7 /* LyricFontColorTableCell.swift in Sources */,
 				228A144E2CA0633400E2948E /* MusicPlayerViewController.swift in Sources */,
@@ -3342,10 +3336,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		C04000000000000000000005 /* XCLocalSwiftPackageReference "../../../本地公开库/MEGASDK" */ = {
-			isa = XCLocalSwiftPackageReference;
-			relativePath = "../../../本地公开库/MEGASDK";
-		};
 		220F66233002838600915384 /* XCLocalSwiftPackageReference "../../../本地公开库/purchases-ios" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = "../../../本地公开库/purchases-ios";
@@ -3421,6 +3411,10 @@
 		A76381FD2EDED27C0040A84D /* XCLocalSwiftPackageReference "../../../本地公开库/Alamofire" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = "../../../本地公开库/Alamofire";
+		};
+		C04000000000000000000005 /* XCLocalSwiftPackageReference "../../../本地公开库/MEGASDK" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = "../../../本地公开库/MEGASDK";
 		};
 /* End XCLocalSwiftPackageReference section */
 
@@ -3516,16 +3510,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		C04000000000000000000003 /* MEGASdk */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = C04000000000000000000005 /* XCLocalSwiftPackageReference "../../../本地公开库/MEGASDK" */;
-			productName = MEGASdk;
-		};
-		C04000000000000000000004 /* MEGASdk */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = C04000000000000000000005 /* XCLocalSwiftPackageReference "../../../本地公开库/MEGASDK" */;
-			productName = MEGASdk;
-		};
 		220F66243002838600915384 /* ReceiptParser */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = ReceiptParser;
@@ -3840,6 +3824,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 22A859793054203F00D3CD47 /* XCLocalSwiftPackageReference "../../../本地公开库/AMSMB2" */;
 			productName = AMSMB2;
+		};
+		C04000000000000000000003 /* MEGASdk */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C04000000000000000000005 /* XCLocalSwiftPackageReference "../../../本地公开库/MEGASDK" */;
+			productName = MEGASdk;
+		};
+		C04000000000000000000004 /* MEGASdk */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C04000000000000000000005 /* XCLocalSwiftPackageReference "../../../本地公开库/MEGASDK" */;
+			productName = MEGASdk;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
