@@ -84,7 +84,7 @@ enum LoginGroupItemType: Int {
         case .httpOption:
             return nil
         case .host:
-            return importType == .fromWebDav ? ("Required".localStr() + " (127.0.0.1)") : "https://example.com"
+            return importType == .fromWebDAV ? ("Required".localStr() + " (127.0.0.1)") : "https://example.com"
         case .path:
             return "Optional".localStr() + " (dav)"
         case .port:
@@ -93,9 +93,9 @@ enum LoginGroupItemType: Int {
             return nil
         
         case .username:
-            return importType == .fromWebDav ? "Optional".localStr() : "Required".localStr()
+            return importType == .fromWebDAV ? "Optional".localStr() : "Required".localStr()
         case .password:
-            return importType == .fromWebDav ? "Optional".localStr() : "Required".localStr()
+            return importType == .fromWebDAV ? "Optional".localStr() : "Required".localStr()
             
         case .otherDav:
             return nil

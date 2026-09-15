@@ -50,7 +50,7 @@ extension ImportFileType {
         let speedTags = showSpeed ? ["ConnectionTag.NoSpeedLimit".localStr()] : []
         switch self {
         case .fromSMB: return ["NAS", "ConnectionTag.Computer".localStr(), "ConnectionTag.LocalNetwork".localStr()]
-        case .fromWebDav: return ["NAS", "ConnectionTag.PrivateCloud".localStr(), "Cloud Drive".localStr()]
+        case .fromWebDAV: return ["NAS", "ConnectionTag.PrivateCloud".localStr(), "Cloud Drive".localStr()]
         case .fromNavidrome: return ["ConnectionTag.MusicServer".localStr(), "NAS", "ConnectionTag.SelfHosted".localStr()]
         case .fromGoogleDrive: return ["ConnectionTag.Free15GBShared".localStr()] + speedTags
         case .fromDropboxDrive: return ["ConnectionTag.Free2GB".localStr()] + speedTags
@@ -95,7 +95,7 @@ extension ImportFileType {
         case .fromUSB:
             return UIImage(systemName: "cable.connector")
             
-        case .fromWebDav:
+        case .fromWebDAV:
             return Reasource.named("Import_webdav")
         case .fromNavidrome:
             return Reasource.named("Import_navidrome")
@@ -172,7 +172,7 @@ extension ImportFileType {
         case .fromWiFi:
             return "WiFi".localStr()
             
-        case .fromWebDav:
+        case .fromWebDAV:
             return "WebDAV"
         case .fromNavidrome:
             return "Navidrome"
@@ -242,7 +242,7 @@ extension ImportFileType {
     
     // 可用的服务器
     static func serverDriveArray() -> [ImportFileType] {
-        return [.fromWebDav, .fromSMB, .fromNavidrome]
+        return [.fromWebDAV, .fromSMB, .fromNavidrome]
     }
     
     // 可用的网盘服务

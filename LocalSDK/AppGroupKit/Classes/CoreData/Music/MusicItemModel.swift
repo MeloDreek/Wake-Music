@@ -42,7 +42,7 @@ public struct MusicItemModel: SmartCodableX, Equatable, Hashable, Sendable {
     
     // Webdav文件的构造方法
     public init(webFileModel: WebdavFileModel) {
-        self.fileSourceType = .fromWebDav
+        self.fileSourceType = .fromWebDAV
         self.mediaPlayURL = webFileModel.mediaPlayURL ?? SandboxFileManager.shared.basePublicFileURL()
         self.webFileModel = webFileModel
     }

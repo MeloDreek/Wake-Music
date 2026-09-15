@@ -12,7 +12,7 @@ public struct ServerConfigModel: SmartCodableX, Equatable, Hashable {
     
     public init() { }
     
-    public init(serverType: ImportFileType = ImportFileType.fromWebDav, isSelected: Bool = false, webdavUser: WebdavUserModel? = nil, navUser: NavidromeUserModel? = nil, baiduUser: BaiduDriveUserModel? = nil, aliyunUser: AliyunpanUserModel? = nil, drive115User: Drive115UserModel? = nil, googleUser: GoogleDriveUserModel? = nil, dropboxUser: DropboxDriveUserModel? = nil, onedriveUser: OneDriveUserModel? = nil, pcloudUser: PCloudDriveUserModel? = nil, boxUser: BoxDriveUserModel? = nil, smbUser: SMBDriveUserModel? = nil) {
+    public init(serverType: ImportFileType = ImportFileType.fromWebDAV, isSelected: Bool = false, webdavUser: WebdavUserModel? = nil, navUser: NavidromeUserModel? = nil, baiduUser: BaiduDriveUserModel? = nil, aliyunUser: AliyunpanUserModel? = nil, drive115User: Drive115UserModel? = nil, googleUser: GoogleDriveUserModel? = nil, dropboxUser: DropboxDriveUserModel? = nil, onedriveUser: OneDriveUserModel? = nil, pcloudUser: PCloudDriveUserModel? = nil, boxUser: BoxDriveUserModel? = nil, smbUser: SMBDriveUserModel? = nil) {
         self.serverType = serverType
         self.isSelected = isSelected
         self.webdavUser = webdavUser
@@ -30,7 +30,7 @@ public struct ServerConfigModel: SmartCodableX, Equatable, Hashable {
     }
     
     /// 导入方式的信息
-    public var serverType = ImportFileType.fromWebDav
+    public var serverType = ImportFileType.fromWebDAV
     
     
     /// 当前选中的服务器
@@ -117,7 +117,7 @@ extension ServerConfigModel {
         if guangyaUser != nil { return "Guangya.Name".localStr() }
         if boxUser != nil { return "Box" }
         if pcloudUser != nil { return "pCloud" }
-        if self.serverType == .fromWebDav {
+        if self.serverType == .fromWebDAV {
             return self.webdavUser?.customName ?? "WebDAV".localStr()
         }else if serverType == .fromNavidrome {
             if let customName = self.navUser?.customName, !customName.isEmpty {

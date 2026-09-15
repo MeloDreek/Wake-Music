@@ -52,8 +52,8 @@ extension ImportViewController {
             return
         }
         
-        if itemType == .fromWebDav {
-            self.importFromWebdav()
+        if itemType == .fromWebDAV {
+            self.importfromWebDAV()
         }
         
         if itemType == .fromNavidrome {
@@ -84,7 +84,9 @@ extension ImportViewController {
             self.importFromDropBoxDrive()
         }
         
-        if itemType == .fromSMB { self.connectSMB() }
+        if itemType == .fromSMB {
+            self.connectSMB()
+        }
 
         if itemType == .fromMEGADrive {
             self.connectMEGADrive()
@@ -121,7 +123,7 @@ extension ImportViewController {
     }
     
     /// Webdav
-    func importFromWebdav() {
+    func importfromWebDAV() {
         let webdavUser = WebdavUserModel(customName: "My WebDAV".localStr(), hostUrl: "", path: nil, port: nil, netProtocol: .http, username: nil, password: nil)
         let webVC = AuthWebdavViewController(webdavUser)
         self.navigationController?.pushViewController(webVC, animated: true)

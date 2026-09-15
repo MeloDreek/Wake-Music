@@ -115,7 +115,7 @@ class LoginTableViewCell: UITableViewCell, UITextFieldDelegate {
     
     func maxTitleWidth() -> CGFloat {
         let titles: [LoginGroupItemType] = [.host, .httpOption, .password, .path, .port, .username, .title]
-        let titleArray = titles.map { $0.titleStr(.fromWebDav) }
+        let titleArray = titles.map { $0.titleStr(.fromWebDAV) }
         
         // 使用 map 提取每个标题的宽度
         let widths = titleArray.map { $0.width(titleFont) }

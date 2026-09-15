@@ -22,8 +22,8 @@ extension ConnectListViewController {
     // 连接新服务器
     func connectNewServer(_ itemType: ImportFileType) {
         
-        if itemType == .fromWebDav {
-            self.importFromWebdav()
+        if itemType == .fromWebDAV {
+            self.importfromWebDAV()
         }
         
         if itemType == .fromNavidrome {
@@ -90,7 +90,7 @@ extension ConnectListViewController {
     }
     
     /// Webdav
-    func importFromWebdav() {
+    func importfromWebDAV() {
         let webdavUser = WebdavUserModel(customName: "My WebDAV".localStr(), hostUrl: "", path: nil, port: nil, netProtocol: .http, username: nil, password: nil)
         let webVC = AuthWebdavViewController(webdavUser)
         self.navigationController?.pushViewController(webVC, animated: true)

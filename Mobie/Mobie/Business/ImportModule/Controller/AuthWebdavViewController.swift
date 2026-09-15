@@ -43,7 +43,7 @@ class AuthWebdavViewController: SuperViewController {
     
     override func preSetupHandleBuness() {
         super.preSetupHandleBuness()
-        self.title = ImportFileType.fromWebDav.titleStr()
+        self.title = ImportFileType.fromWebDAV.titleStr()
         self.navigationItem.largeTitleDisplayMode = .never
         
         if self.isPresent() {
@@ -147,7 +147,7 @@ class AuthWebdavViewController: SuperViewController {
         
         ProgressHUD.dismiss()
         
-        let serverModel = ServerConfigModel(serverType: .fromWebDav, webdavUser: self.loginModel)
+        let serverModel = ServerConfigModel(serverType: .fromWebDAV, webdavUser: self.loginModel)
         ConnectConfigManager.shared.addOrUpdateRemoteServer(serverModel: serverModel)
         
         NotificationCenter.default.post(name: Notification.Name(kLoginThirdServerKey), object: nil)
@@ -233,7 +233,7 @@ extension AuthWebdavViewController: UITableViewDataSource, UITableViewDelegate {
         let itemType = groupModel.itemArray[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "LoginTableViewCell\(itemType.rawValue)", for: indexPath) as! LoginTableViewCell
         cell.delegate = self
-        cell.update(itemType: itemType, model: ServerConfigModel(serverType: .fromWebDav, webdavUser: self.loginModel))
+        cell.update(itemType: itemType, model: ServerConfigModel(serverType: .fromWebDAV, webdavUser: self.loginModel))
         return cell
     }
     

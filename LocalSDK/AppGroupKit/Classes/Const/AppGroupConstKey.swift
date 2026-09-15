@@ -92,3 +92,6 @@ public let Box_RedirectURL = "wakemusic-box://oauth/callback"
 public let Guangya_ClientID = "aSWjpgxuXCmz2SSn"
 public let Guangya_ProjectID = "356jld6jjlbjvygi5v9"
 public let Guangya_Secret = "123"
+
+// 123网盘
+public let Drive123_RedirectURL = "wakemusic-123pan://oauth/callback"

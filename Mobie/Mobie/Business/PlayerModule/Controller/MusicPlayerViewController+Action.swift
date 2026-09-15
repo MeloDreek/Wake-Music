@@ -77,7 +77,7 @@ extension MusicPlayerViewController {
         self.serverModel = nil
         
         if let webdavUser = model.webFileModel?.webdavUser {
-            self.serverModel = ServerConfigModel(serverType: .fromWebDav, webdavUser: webdavUser)
+            self.serverModel = ServerConfigModel(serverType: .fromWebDAV, webdavUser: webdavUser)
         }
         
         if let navUser = model.navidromeSong?.navUser {
