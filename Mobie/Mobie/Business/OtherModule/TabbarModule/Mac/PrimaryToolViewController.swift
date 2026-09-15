@@ -126,6 +126,7 @@ class PrimaryToolViewController: SuperViewController {
     }
     
     @objc func jumpConnectPage() {
+        guard !(splitViewController ?? self).isPresentingImportFlow else { return }
         self.tableView(self.tableView, didSelectRowAt: IndexPath(row: 0, section: 1))
         self.tableView.selectRow(at: IndexPath(row: 0, section: 1), animated: true, scrollPosition: .middle)
     }

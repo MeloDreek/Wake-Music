@@ -227,6 +227,8 @@ final class AuthSMBViewController: SuperViewController, UITableViewDataSource, U
                 case .success(let user):
                     self.values[.password] = ""
                     self.cells[.password]?.textField.text = nil
+                    let server = ServerConfigModel(serverType: .fromSMB, isSelected: true, smbUser: user)
+                    if self.routeImportedServer(server) { return }
                     if let completion = self.completion {
                         completion(user)
                         self.navigationController?.popViewController(animated: true)

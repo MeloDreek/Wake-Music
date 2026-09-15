@@ -188,6 +188,8 @@ extension UIViewController {
         PCloudDriveService.shared.authorize(from: self) { [weak self] result in
             switch result {
             case .success(let user):
+                let server = ServerConfigModel(serverType: .fromePCloud, isSelected: true, pcloudUser: user)
+                if self?.routeImportedServer(server) == true { return }
                 self?.navigationController?.pushViewController(PCloudDriveFileListController(loginModel: user), animated: true)
             case .failure(let error):
                 if error != .youhaveCanceled { self?.showOneAlert(message: error.errorDescription) }

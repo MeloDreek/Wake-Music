@@ -152,6 +152,8 @@ class AuthWebdavViewController: SuperViewController {
         
         NotificationCenter.default.post(name: Notification.Name(kLoginThirdServerKey), object: nil)
 
+        if routeImportedServer(serverModel) { return }
+
         let musicArray = (files ?? []).map { webdavFile in
             let fileModel = webdavFile.convertFileModel(server: self.loginModel)
             return MusicItemModel(webFileModel: fileModel)

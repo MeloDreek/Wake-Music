@@ -170,6 +170,9 @@ extension UIViewController {
         YandexDriveService.shared.authorize(from: self) { [weak self] result in
             switch result {
             case .success(let user):
+                var server = ServerConfigModel(serverType: .fromYandexDrive, isSelected: true)
+                server.yandexUser = user
+                if self?.routeImportedServer(server) == true { return }
                 self?.navigationController?.pushViewController(YandexDriveFileListController(loginModel: user), animated: true)
             case .failure(let error):
                 if error != .youhaveCanceled { self?.showOneAlert(message: error.errorDescription) }

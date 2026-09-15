@@ -1,5 +1,22 @@
 # Remote connection selection tags
 
+## Import authorization navigation regression (2026-09-15)
+
+Run `ruby Tests/Connections/run-navigation-regressions.rb SIMULATOR_UDID` on an already-booted Apple Silicon iOS simulator. The runner compiles an isolated UIKit app with the **actual routing methods extracted from ImportViewController.swift**. Storage, providers, file lists, and the Mac sidebar are inert doubles: it does not sign in, touch Wake Music accounts, or make network requests.
+
+The 38 assertions cover an unloaded Connections tab (using the app's `addChild` setup), duplicate success callbacks, full-screen Import, nested full-screen authorization, stale destination folders, Back returning to Connections, pushed server login, unrelated account reauthorization, a lazily created split-view destination, and ignoring a callback after Import is closed. The split-view case exercises the routing branch on iOS; it is **not** a native Mac Catalyst UI verification. The runner prints the report and retains its temporary build for inspection. Its isolated simulator bundle is `com.wakemusic.tests.import-navigation`.
+
+Manual end-to-end checks with real authorization remain:
+
+- Fresh launch → Music → Import → sign in: Connections is selected and Back from the file list returns there.
+- Connections → existing folder → Import → different provider: only the newly authorized root list remains above Connections.
+- Baidu / 115 modal login; SMB / WebDAV / Navidrome pushed login; MEGA's separately dismissed login; browser-based OAuth providers.
+- Dropbox external-app return: Import handles the account once; legacy tab/sidebar notifications do not switch early.
+- Cancel / failure stays in the authorization/import flow; reauthorization of an existing connection retains its original behavior.
+- Mac Catalyst: first-ever Connections selection, then another import with an existing folder stack.
+
+No provider credentials, OAuth scopes, localization text, or saved account schemas change in this navigation update.
+
 `ImportTableViewCell` is shared by ImportViewController and ConnectListViewController's unconfigured-service list. Connected accounts keep their existing account cell. Local import methods have no tags.
 
 The labels are informational, not buttons. VoiceOver reads the service and its tags as a single button. Semantic colors, leading/trailing constraints, Dynamic Type and wrapping support varying appearances, languages and widths. Measure after laying out the actual content width so a newly dequeued cell does not reserve one line per tag.

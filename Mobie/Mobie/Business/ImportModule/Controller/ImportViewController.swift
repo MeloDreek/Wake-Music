@@ -16,6 +16,17 @@ import MessageUI
  2、远程（服务器、网盘）
  */
 class ImportViewController: SuperViewController {
+    var isAwaitingDropboxAuthorization = false
+    private var isFinishingRemoteAuthorization = false
+    private weak var importHostRootController: UIViewController?
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        // A full-screen authorization page can remove both Import and its
+        // presenter's views from the window. Remember the original scene first.
+        if let root = view.window?.rootViewController { importHostRootController = root }
+    }
+
     override func preSetupSubViews() {
         super.preSetupSubViews()
         self.title = "Import Music".localStr()
@@ -39,17 +50,66 @@ class ImportViewController: SuperViewController {
     
     // 连接了某个服务器
     @objc func selectConnectPageNoti(_ noti: Notification) {
-        guard let serverModel = noti.object as? ServerConfigModel else { return }
-        
-        if let dropboxUser = serverModel.dropboxUser {
-            let googleVC = DropboxDriveFileListController(loginModel: dropboxUser)
-            self.navigationController?.pushViewController(googleVC, animated: true)
-        }
-        
+        guard isAwaitingDropboxAuthorization,
+              let serverModel = noti.object as? ServerConfigModel,
+              serverModel.dropboxUser != nil else { return }
+        isAwaitingDropboxAuthorization = false
+        finishRemoteAuthorization(serverModel)
     }
     
     @objc func dismissItemAction() {
+        isAwaitingDropboxAuthorization = false
         (self.navigationController ?? self).dismiss(animated: true)
+    }
+
+    /// Pass the saved account directly to Connections. A notification alone is lost
+    /// when Connections has never loaded (or has not been created on Mac Catalyst).
+    func finishRemoteAuthorization(_ server: ServerConfigModel) {
+        if !Thread.isMainThread {
+            DispatchQueue.main.async { [weak self] in self?.finishRemoteAuthorization(server) }
+            return
+        }
+        guard !isFinishingRemoteAuthorization else { return }
+        let importNavigation = navigationController ?? self
+        guard let presenter = importNavigation.presentingViewController,
+              let root = viewIfLoaded?.window?.rootViewController
+                ?? presenter.viewIfLoaded?.window?.rootViewController
+                ?? importHostRootController else { return }
+
+        // Resolve this window's destination before dismissing; never use a global
+        // key window, which could belong to another scene.
+        let showConnection: () -> Void
+        if let tabs = root.importDestination(of: HomeTabbarViewController.self),
+           let navigation = tabs.children.compactMap({ $0 as? UINavigationController })
+            .first(where: { $0.viewControllers.first is ConnectListViewController }),
+           let connections = navigation.viewControllers.first as? ConnectListViewController {
+            showConnection = {
+                tabs.selectedViewController = navigation
+                connections.openImportedServer(server)
+            }
+        } else if let split = root.importDestination(of: MacTabbarViewController.self) {
+            showConnection = {
+                split.primaryVC.loadViewIfNeeded()
+                split.primaryVC.jumpConnectPage()
+                let navigation = split.contentDict[PrimaryCellItemType.connect.rawValue]
+                let connections = navigation?.viewControllers.first as? ConnectListViewController
+                connections?.openImportedServer(server)
+            }
+        } else {
+            return
+        }
+
+        isFinishingRemoteAuthorization = true
+        isAwaitingDropboxAuthorization = false
+        view.endEditing(true)
+        let closeImport = { presenter.dismiss(animated: true, completion: showConnection) }
+        // Finish a nested Baidu/115 sheet first. Dismissing two full-screen
+        // presentations simultaneously causes overlapping appearance transitions.
+        if let authorization = importNavigation.presentedViewController {
+            authorization.dismiss(animated: false, completion: closeImport)
+        } else {
+            closeImport()
+        }
     }
     
     
@@ -99,6 +159,58 @@ class ImportViewController: SuperViewController {
         return vm
     }()
     
+}
+
+extension UIViewController {
+    /// The Import callback owns navigation while its modal flow is visible;
+    /// legacy Dropbox notifications must not switch the underlying tab early.
+    var isPresentingImportFlow: Bool {
+        var modal = presentedViewController
+        while let current = modal {
+            if current.importDestination(of: ImportViewController.self) != nil { return true }
+            modal = current.presentedViewController
+        }
+        return false
+    }
+
+    /// Only new connections originating in Import use this route. Account edits
+    /// and reauthorization originating in an existing file list keep their flow.
+    @discardableResult
+    func routeImportedServer(_ server: ServerConfigModel) -> Bool {
+        var controller: UIViewController? = self
+        while let current = controller {
+            if let importer = current as? ImportViewController {
+                importer.finishRemoteAuthorization(server)
+                return true
+            }
+            let navigation = (current as? UINavigationController) ?? current.navigationController
+            if let importer = navigation?.viewControllers
+                .first(where: { $0 is ImportViewController }) as? ImportViewController {
+                importer.finishRemoteAuthorization(server)
+                return true
+            }
+            controller = current.parent ?? current.presentingViewController
+        }
+        return false
+    }
+
+    fileprivate func importDestination<T: UIViewController>(of type: T.Type) -> T? {
+        if let destination = self as? T { return destination }
+        for child in children {
+            if let destination = child.importDestination(of: type) { return destination }
+        }
+        return nil
+    }
+}
+
+extension ConnectListViewController {
+    fileprivate func openImportedServer(_ server: ServerConfigModel) {
+        loadViewIfNeeded()
+        refreshDataAction()
+        // A previous visit may have left a different cloud's folder on this stack.
+        navigationController?.popToRootViewController(animated: false)
+        accessLoginedServer(server)
+    }
 }
 
 extension ImportViewController: UITableViewDataSource, UITableViewDelegate {

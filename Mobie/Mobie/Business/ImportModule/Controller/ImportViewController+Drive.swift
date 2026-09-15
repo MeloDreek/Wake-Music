@@ -131,8 +131,7 @@ extension ImportViewController {
     func importFromBaiduDrive() {
         
         let baiduVC = AuthBaiduViewController { [weak self] serverModel in
-            let fileVC = BaiduDriveFileListController(loginModel: serverModel.baiduUser!)
-            self?.navigationController?.pushViewController(fileVC, animated: true)
+            self?.finishRemoteAuthorization(serverModel)
         } onFailure: { [weak self] error in
             self?.showOneAlert(message: error.errorDescription)
         }
@@ -150,8 +149,7 @@ extension ImportViewController {
             ProgressHUD.dismiss()
             switch result {
             case .success(let aliyunUser):
-                let folderVC = AliyunDriveFileListController(loginModel: aliyunUser)
-                self.navigationController?.pushViewController(folderVC, animated: true)
+                self.finishRemoteAuthorization(ServerConfigModel(serverType: .fromAliyunDrive, aliyunUser: aliyunUser))
                 break
             case .failure(let failure):
                 self.showOneAlert(message: failure.errorDescription)
@@ -163,10 +161,8 @@ extension ImportViewController {
     /// 115网盘
     func importFrom115Drive() {
         
-        let drive115VC = Auth115LifeViewController { model in
-            let fileVC = Drive115FileListController(loginModel: model)
-            fileVC.title = ImportFileType.from115Drive.titleStr()
-            self.navigationController?.pushViewController(fileVC, animated: true)
+        let drive115VC = Auth115LifeViewController { [weak self] model in
+            self?.finishRemoteAuthorization(ServerConfigModel(serverType: .from115Drive, drive115User: model))
         }
 
         let navVC = KakaNavigationController(rootViewController: drive115VC)
@@ -199,8 +195,7 @@ extension ImportViewController {
             
             let serverModel = ServerConfigModel(serverType: .fromGoogleDrive, isSelected: true, googleUser: googleUser)
             ConnectConfigManager.shared.addOrUpdateRemoteServer(serverModel: serverModel) { [weak self] () in
-                let googleVC = GoogleDriveFileListController(loginModel: googleUser)
-                self?.navigationController?.pushViewController(googleVC, animated: true)
+                self?.finishRemoteAuthorization(serverModel)
             }
         }
     }
@@ -214,6 +209,7 @@ extension ImportViewController {
         }
         
         let scopeRequest = ScopeRequest(scopeType: .user, scopes: DropBox_Scopes, includeGrantedScopes: false)
+        isAwaitingDropboxAuthorization = true
         
         DropboxClientsManager.authorizeFromControllerV2(UIApplication.shared, controller: self, loadingStatusDelegate: nil, openURL: { url in
             UIApplication.shared.open(url)
@@ -245,8 +241,7 @@ extension ImportViewController {
                 
                 let serverModel = ServerConfigModel(serverType: .fromOneDrive, isSelected: true, onedriveUser: onedriveUser)
                 ConnectConfigManager.shared.addOrUpdateRemoteServer(serverModel: serverModel) { [weak self] () in
-                    let googleVC = OneDriveFileListController(loginModel: onedriveUser)
-                    self?.navigationController?.pushViewController(googleVC, animated: true)
+                    self?.finishRemoteAuthorization(serverModel)
                 }
                                 
             }

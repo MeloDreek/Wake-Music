@@ -76,6 +76,7 @@ extension HomeTabbarViewController {
     
     // 前往连接页面
     @objc func selectConnectPageNoti(_ noti: Notification) {
+        guard !isPresentingImportFlow else { return }
         
         guard let index = self.children.firstIndex(where: {
             guard let nav = $0 as? KakaNavigationController else { return false }

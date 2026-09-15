@@ -307,6 +307,9 @@ extension UIViewController {
     func connectMEGADrive() {
         MEGADriveService.shared.authorize(from: self) { [weak self] result in
             if case .success(let user) = result {
+                var server = ServerConfigModel(serverType: .fromMEGADrive, isSelected: true)
+                server.megaUser = user
+                if self?.routeImportedServer(server) == true { return }
                 self?.navigationController?.pushViewController(MEGADriveFileListController(loginModel: user), animated: true)
             }
         }

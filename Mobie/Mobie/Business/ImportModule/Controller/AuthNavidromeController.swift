@@ -247,6 +247,7 @@ extension AuthNavidromeController: UITableViewDataSource, UITableViewDelegate, L
                 
                 NotificationCenter.default.post(name: Notification.Name(kLoginThirdServerKey), object: nil)
                 
+                if self?.routeImportedServer(newServerModel) == true { return }
                 self?.onLoginBlock?(navModel)
                 self?.cancelButtonClick()
                 break
@@ -273,4 +274,3 @@ extension AuthNavidromeController: UITableViewDataSource, UITableViewDelegate, L
 
     
 }
-

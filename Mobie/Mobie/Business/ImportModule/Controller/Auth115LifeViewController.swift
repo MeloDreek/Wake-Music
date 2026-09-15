@@ -302,6 +302,10 @@ class Auth115LifeViewController: SuperViewController {
                         
                         let serverModel = ServerConfigModel(serverType: .from115Drive, drive115User: userModel)
                         ConnectConfigManager.shared.addOrUpdateRemoteServer(serverModel: serverModel) {
+                            if self.routeImportedServer(serverModel) {
+                                NotificationCenter.default.post(name: Notification.Name(kLoginThirdServerKey), object: nil)
+                                return
+                            }
                             self.onSuccess(userModel)
                             NotificationCenter.default.post(name: Notification.Name(kLoginThirdServerKey), object: nil)
                             self.cancelButtonClick()

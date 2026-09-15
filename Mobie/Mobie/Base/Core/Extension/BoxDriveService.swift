@@ -148,6 +148,8 @@ extension UIViewController {
         BoxDriveService.shared.authorize(from: self) { [weak self] result in
             switch result {
             case .success(let user):
+                let server = ServerConfigModel(serverType: .fromBoxDrive, isSelected: true, boxUser: user)
+                if self?.routeImportedServer(server) == true { return }
                 self?.navigationController?.pushViewController(BoxDriveFileListController(loginModel: user), animated: true)
             case .failure(let error):
                 if error != .youhaveCanceled { self?.showOneAlert(message: error.errorDescription) }

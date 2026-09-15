@@ -43,21 +43,22 @@ extension ImportFileType {
         switch self {
         case .fromSMB: return ["NAS", "ConnectionTag.Computer".localStr(), "ConnectionTag.LocalNetwork".localStr()]
         case .fromWebDAV: return ["NAS", "ConnectionTag.PrivateCloud".localStr(), "Cloud Drive".localStr()]
-        case .fromNavidrome: return ["ConnectionTag.MusicServer".localStr(), "NAS", "ConnectionTag.SelfHosted".localStr()]
+        case .fromNavidrome: return ["NAS", "ConnectionTag.MusicServer".localStr(), "ConnectionTag.SelfHosted".localStr()]
         case .fromGoogleDrive: return ["ConnectionTag.Free15GBShared".localStr()] + speedTags
         case .fromDropboxDrive: return ["ConnectionTag.Free2GB".localStr()] + speedTags
         case .fromOneDrive: return ["ConnectionTag.Free5GBShared".localStr()] + speedTags
         case .fromePCloud: return ["ConnectionTag.Unlock10GB".localStr()] + speedTags
-        case .fromGuangyaDrive: return ["Guangya.Free2TB".localStr(), "Guangya.ByXunlei".localStr()] + speedTags
         case .fromYandexDrive: return ["ConnectionTag.Free5GB".localStr()]
         case .fromBoxDrive: return ["ConnectionTag.Free10GB".localStr()] + speedTags
         case .fromMEGADrive: return ["MEGA.Free20GB".localStr(), "MEGA.TransferQuota".localStr()]
+            
         case .fromBaiduDrive:
             return ["ConnectionTag.FreeUpTo2TB".localStr()] + (showSpeed ? ["ConnectionTag.PartialStreaming".localStr()] : [])
         case .fromAliyunDrive:
-            return ["ConnectionTag.Free100GB".localStr()]
+            return ["ConnectionTag.Free100GB".localStr()] + (showSpeed ? ["ConnectionTag.PartialStreaming".localStr()] : [])
         case .from115Drive:
             return ["ConnectionTag.Free15GB".localStr()]
+        case .fromGuangyaDrive: return ["Guangya.Free2TB".localStr()] + (showSpeed ? ["Guangya.ByXunlei".localStr()] : []) + speedTags
         default: return []
         }
     }

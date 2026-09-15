@@ -178,6 +178,10 @@ class AuthBaiduViewController: SuperViewController, WKNavigationDelegate {
                 // 1️⃣添加服务器
                 let serverModel = ServerConfigModel(serverType: .fromBaiduDrive, baiduUser: model)
                 ConnectConfigManager.shared.addOrUpdateRemoteServer(serverModel: serverModel) {
+                    if self.routeImportedServer(serverModel) {
+                        NotificationCenter.default.post(name: Notification.Name(kLoginThirdServerKey), object: nil)
+                        return
+                    }
                     self.onSuccess(serverModel)
                     NotificationCenter.default.post(name: Notification.Name(kLoginThirdServerKey), object: nil)
                     self.cancelButtonClick()

@@ -116,8 +116,6 @@ class MusicsViewController: SuperViewController {
                 self?.kaka_header.endRefreshing()
             }
         }
-
-
                 
     }
     
