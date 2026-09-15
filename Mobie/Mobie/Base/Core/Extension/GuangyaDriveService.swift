@@ -13,9 +13,8 @@ final class GuangyaDriveService: NSObject, ASWebAuthenticationPresentationContex
     private var authorizationWindow: UIWindow?
     private var isAuthorizing = false
     private let keychainService = (Bundle.main.bundleIdentifier ?? "Wakemusic") + ".guangya.oauth"
-    private static let redirectURI = "wakemusic-guangya://oauth/callback"
     private lazy var api = GuangyaDriveAPI(clientID: Guangya_ClientID, projectID: Guangya_ProjectID, secret: Guangya_Secret,
-                                          deviceID: deviceID, redirectURI: Self.redirectURI,
+                                          deviceID: deviceID, redirectURI: Guangya_RedirectURL,
                                           load: { [weak self] in self?.loadToken($0) },
                                           save: { [weak self] in self?.storeToken($1, accountID: $0) ?? false },
                                           remove: { [weak self] in self?.removeToken($0) })
@@ -32,7 +31,7 @@ final class GuangyaDriveService: NSObject, ASWebAuthenticationPresentationContex
     func authorize(from controller: UIViewController, replacing account: GuangyaDriveUserModel? = nil,
                    completion: @escaping (Result<GuangyaDriveUserModel, KakaError>) -> Void) {
         guard !isAuthorizing, let window = controller.view.window,
-              let scheme = URL(string: Self.redirectURI)?.scheme,
+              let scheme = URL(string: Guangya_RedirectURL)?.scheme,
               scheme != "https", scheme != "http" else { completion(.failure(.youhaveCanceled)); return }
         guard let pkce = GuangyaPKCE() else { completion(.failure(.custom("Guangya.Configuration".localStr()))); return }
         let state = pkce.state

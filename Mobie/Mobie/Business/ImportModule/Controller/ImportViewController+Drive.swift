@@ -91,9 +91,11 @@ extension ImportViewController {
         if itemType == .fromMEGADrive {
             self.connectMEGADrive()
         }
+        
         if itemType == .fromGuangyaDrive {
             self.connectGuangyaDrive()
         }
+        
         if itemType == .fromBoxDrive {
             self.connectBoxDrive()
         }
