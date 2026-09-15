@@ -10,7 +10,6 @@ import KakaUIKit
 import AppGroupKit
 import Combine
 import KakaTaglibKit
-import DominantColors
 
 class PlayBackgroundView: UIView {
     
@@ -67,7 +66,14 @@ class PlayBackgroundView: UIView {
     }
     
     func playingMusicChanged() {
-        guard let model = KakaMusicPlayer.shared.playingMusic else { return }
+        let request = UUID()
+        artworkRequest = request
+        backImgView.kf.cancelDownloadTask()
+        guard let model = KakaMusicPlayer.shared.playingMusic else {
+            backImgView.image = nil
+            gradientView.setArtwork(nil)
+            return
+        }
                 
         let playbackModel = MusicConfigManager.shared.playbackModel
         let backType = playbackModel.backgroundType
@@ -75,24 +81,26 @@ class PlayBackgroundView: UIView {
         
         switch backType {
         case .defaultType:
-            let coverImage: UIImage = model.playbackCoverImage()
-            self.backImgView.kf.setImage(with: model.coverThumbnailURL(), placeholder: coverImage)
-            
-            self.updateCoverGradientColor(coverImage)
+            let coverImage: UIImage = model.coverArt ?? model.musicCoverImage() ?? model.placeImage()
+            let hasArtwork = model.coverArt != nil || FileManager.default.fileExists(atPath: model.coverThumbnailURL().path)
+            if backConfig == .coverAssetColor { gradientView.setArtwork(hasArtwork ? coverImage : nil) }
+            self.backImgView.kf.setImage(with: model.coverThumbnailURL(), placeholder: coverImage) { [weak self] result in
+                guard let self, self.artworkRequest == request, backConfig == .coverAssetColor else { return }
+                if case .success(let value) = result { self.gradientView.setArtwork(value.image) }
+            }
             break
         case .systemType:
             let backImage = playbackModel.backgroundImage() ?? model.placeImage()
             self.backImgView.image = backImage
             
             let coverImage: UIImage = backImage
-            self.updateCoverGradientColor(coverImage)
+            if backConfig == .coverAssetColor { self.updateCoverGradientColor(coverImage) }
             break
         case .customType:
             let backImage = playbackModel.backgroundImage() ?? model.placeImage()
             self.backImgView.image = backImage
             
-            let coverImage: UIImage = model.playbackCoverImage()
-            self.updateCoverGradientColor(coverImage)
+            if backConfig == .coverAssetColor { self.updateCoverGradientColor(backImage) }
             break
         }
         
@@ -119,20 +127,13 @@ class PlayBackgroundView: UIView {
     
     // 提取背景图的主色调
     func updateCoverGradientColor(_ backImage: UIImage) {
-        guard let cgImage = backImage.cgImage, let cgColors = try? DominantColors.dominantColors(image: cgImage, quality: .fair, algorithm: .CIE76, maxCount: 2, sorting: .frequency), cgColors.count > 0 else {
-            let newColors: [CGColor] = [UIColor.hexColor("#FF00FF").cgColor, bottomColor.cgColor]
-            self.gradientView.gradientColors = newColors
-            return
-        }
-        
-        let newColors: [CGColor] = [cgColors[0], bottomColor.cgColor]
-        self.gradientView.gradientColors = newColors
+        gradientView.setArtwork(backImage)
     }
     
     // MARK:  GET && SET
     var cancellables = Set<AnyCancellable>()
     
-    let bottomColor = UIColor.rgb(33, 33, 55)
+    private var artworkRequest = UUID()
     
     // MARK:  懒加载
     
@@ -161,11 +162,9 @@ class PlayBackgroundView: UIView {
     }()
     
     // 主色调
-    lazy var gradientView: KakaGradientView = {
-        let view = KakaGradientView(frame: self.bounds)
+    lazy var gradientView: ArtworkBackgroundView = {
+        let view = ArtworkBackgroundView(frame: self.bounds)
         view.isHidden = MusicConfigManager.shared.playbackModel.backgroundConfig != .coverAssetColor
-        view.startPoint = CGPoint(x: 0, y: 0)
-        view.endPoint = CGPoint(x: 0, y: 1) // 水平渐变
         return view
     }()
     

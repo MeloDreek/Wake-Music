@@ -13,68 +13,80 @@ import AppGroupKit
 extension MusicTableViewCell {
     
     func autoTagButton() -> UIButton {
+        LocalMusicAccessory.autoTagButton { [weak self] action in
+            guard let self, let model = self.musicModel else { return }
+            self.delegate?.musicTableCell(cell: self, model: model, action: action)
+        }
+    }
+
+    func localButton() -> UIButton {
+        guard let model = musicModel else { return UIButton(type: .custom) }
+        return LocalMusicAccessory.localButton(model: model) { [weak self] action in
+            guard let self, let model = self.musicModel else { return }
+            self.delegate?.musicTableCell(cell: self, model: model, action: action)
+        }
+    }
+}
+
+/// Shared by local music rows and the compact collection-detail rows.
+enum LocalMusicAccessory {
+    static func button(model: MusicItemModel, action: @escaping (MusicActionType) -> Void) -> UIButton {
+        model.isFullMusicTag() ? localButton(model: model, action: action) : autoTagButton(action: action)
+    }
+
+    static func autoTagButton(action: @escaping (MusicActionType) -> Void) -> UIButton {
         let view = UIButton(type: .custom)
         view.size = CGSizeMake(50.ckValue(), 50.ckValue())
         view.setImage(Reasource.systemNamed("touchid", color: appMainColor), for: .normal)
-        view.addTarget(self, action: #selector(autoTagButtonClick), for: .touchUpInside)
+        view.accessibilityLabel = MusicActionType.audioFinger.titleStr()
+        view.addAction(UIAction { _ in action(.audioFinger) }, for: .touchUpInside)
         return view
     }
-    
-    @objc private func autoTagButtonClick() {
-        guard let model = self.musicModel else { return }
-        self.delegate?.musicTableCell(cell: self, model: model, action: .audioFinger)
-    }
-    
-    func localButton() -> UIButton {
+
+    static func localButton(model: MusicItemModel, action: @escaping (MusicActionType) -> Void) -> UIButton {
         let view = UIButton(type: .custom)
         view.showsMenuAsPrimaryAction = true
-        view.menu = self.localMenu()
+        view.menu = localMenu(model: model, action: action)
         view.size = CGSizeMake(45.ckValue(), 45.ckValue())
         view.setImage(MusicCellType.local.iconImage(), for: .normal)
+        view.accessibilityLabel = "More".localStr()
         return view
     }
     
-    private func localMenu() -> UIMenu {
-        
-        guard let model = self.musicModel else { return UIMenu() }
+    static func localMenu(model: MusicItemModel, action: @escaping (MusicActionType) -> Void) -> UIMenu {
         
         // 音频指纹识别
-        let audioFingerAction = UIAction(title: MusicActionType.audioFinger.titleStr(), image: MusicActionType.audioFinger.iconImage()) { [weak self] _ in
-            guard let wSelf = self, let model = wSelf.musicModel else { return }
-            wSelf.delegate?.musicTableCell(cell: wSelf, model: model, action: .musictag)
+        let audioFingerAction = UIAction(title: MusicActionType.audioFinger.titleStr(), image: MusicActionType.audioFinger.iconImage()) { _ in
+            action(.musictag)
         }
         
         let musictagMenu = UIMenu(title: "", options: .displayInline, children: [audioFingerAction])
         
         // 喜欢
         let likeType = model.isFlagFavorite() ? MusicActionType.removeFavirote : MusicActionType.addFavirote
-        let likeItem = UIAction(title: likeType.titleStr(), image: likeType.iconImage()) { [weak self] (_) in
-            guard let wSelf = self, let model = wSelf.musicModel else { return }
-            wSelf.delegate?.musicTableCell(cell: wSelf, model: model, action: .addFavirote)
+        let likeItem = UIAction(title: likeType.titleStr(), image: likeType.iconImage()) { _ in
+            action(.addFavirote)
         }
         
         // 移动到其他歌单
-        let playlistAction = UIAction(title: MusicActionType.addPlaylist.titleStr(), image: MusicActionType.addPlaylist.iconImage()) { [weak self] _ in
-            guard let wSelf = self, let model = wSelf.musicModel else { return }
-            wSelf.delegate?.musicTableCell(cell: wSelf, model: model, action: .addPlaylist)
+        let playlistAction = UIAction(title: MusicActionType.addPlaylist.titleStr(), image: MusicActionType.addPlaylist.iconImage()) { _ in
+            action(.addPlaylist)
         }
         
         let otherMenu = UIMenu(title: "", options: .displayInline, children: [likeItem, playlistAction])
         
         // 在Finder中显示
-        let finderAction = UIAction(title: MusicActionType.showInFinder.titleStr(), image: MusicActionType.showInFinder.iconImage()) { [weak self] (_) in
-            guard let wSelf = self, let model = wSelf.musicModel else { return }
-            wSelf.delegate?.musicTableCell(cell: wSelf, model: model, action: .showInFinder)
+        let finderAction = UIAction(title: MusicActionType.showInFinder.titleStr(), image: MusicActionType.showInFinder.iconImage()) { _ in
+            action(.showInFinder)
         }
         // 删除
-        let deleteAction = UIAction(title: MusicActionType.deleteItem.titleStr(), image: MusicActionType.deleteItem.iconImage(), attributes: .destructive) { [weak self] (_) in
-            guard let wSelf = self, let model = wSelf.musicModel else { return }
-            wSelf.delegate?.musicTableCell(cell: wSelf, model: model, action: .deleteItem)
+        let deleteAction = UIAction(title: MusicActionType.deleteItem.titleStr(), image: MusicActionType.deleteItem.iconImage(), attributes: .destructive) { _ in
+            action(.deleteItem)
         }
         
         let deleteMenu = UIMenu(title: "", options: .displayInline, children: kaka_IsMacOS() ? [finderAction, deleteAction] : [deleteAction])
         
-        let menu = UIMenu(title: self.musicModel.mediaPlayURL.lastPathComponent, image: UIImage(systemName: "ellipsis"), identifier: nil, options: [], children: [musictagMenu, otherMenu, deleteMenu])
+        let menu = UIMenu(title: model.mediaPlayURL.lastPathComponent, image: UIImage(systemName: "ellipsis"), identifier: nil, options: [], children: [musictagMenu, otherMenu, deleteMenu])
         
         return menu
     }

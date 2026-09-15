@@ -35,17 +35,19 @@ class GenreListViewController: SuperViewController {
                         
         // 文件信息有变化
         NotificationCenter.default.addObserver(self, selector: #selector(refreshDataAction), name: Notification.Name(kLocalMusicChangedKey), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(refreshDataAction), name: .librarySnapshotDidChange, object: viewModel)
         
     }
     
     @objc func refreshDataAction() {
-        self.viewModel.refreshGenreDataAction(self.viewModel.allMusicArray)
-                
-        DispatchQueue.main.asyncAfter(wallDeadline: .now() + 0.5) { [weak self] () in
-            self?.dataArray = self?.viewModel.genreArray ?? []
-            self?.collectionView.reloadData()
-            self?.kaka_header.endRefreshing()
+        guard Thread.isMainThread else {
+            DispatchQueue.main.async { [weak self] in self?.refreshDataAction() }
+            return
         }
+        viewModel.refreshGenreDataAction(viewModel.allMusicArray)
+        dataArray = viewModel.genreArray
+        collectionView.reloadData()
+        kaka_header.endRefreshing()
     }
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
@@ -65,9 +67,7 @@ class GenreListViewController: SuperViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        #if targetEnvironment(macCatalyst)
-        self.collectionView.reloadData()
-        #endif
+        refreshDataAction()
     }
     
     // MARK:  GET && SET
@@ -92,7 +92,7 @@ class GenreListViewController: SuperViewController {
     
     var isNoneMusic: Bool {
         get {
-            let dataArray = self.viewModel.genreArray
+            let dataArray = self.dataArray
             return dataArray.count == 0
         }
     }
@@ -185,6 +185,7 @@ extension GenreListViewController: UICollectionViewDataSource, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard dataArray.indices.contains(indexPath.row) else { return }
         
         if isNoneMusic {
             return

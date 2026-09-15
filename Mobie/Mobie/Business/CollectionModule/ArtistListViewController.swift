@@ -34,17 +34,19 @@ class ArtistListViewController: SuperViewController {
                         
         // 文件信息有变化
         NotificationCenter.default.addObserver(self, selector: #selector(refreshDataAction), name: Notification.Name(kLocalMusicChangedKey), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(refreshDataAction), name: .librarySnapshotDidChange, object: viewModel)
         
     }
     
     @objc func refreshDataAction() {
-        self.viewModel.refreshSingerDataAction(self.viewModel.allMusicArray)
-                
-        DispatchQueue.main.asyncAfter(wallDeadline: .now() + 0.5) { [weak self] () in
-            self?.dataArray = self?.viewModel.singerArray ?? []
-            self?.collectionView.reloadData()
-            self?.kaka_header.endRefreshing()
+        guard Thread.isMainThread else {
+            DispatchQueue.main.async { [weak self] in self?.refreshDataAction() }
+            return
         }
+        viewModel.refreshSingerDataAction(viewModel.allMusicArray)
+        dataArray = viewModel.singerArray
+        collectionView.reloadData()
+        kaka_header.endRefreshing()
     }
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
@@ -64,9 +66,7 @@ class ArtistListViewController: SuperViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        #if targetEnvironment(macCatalyst)
-        self.collectionView.reloadData()
-        #endif
+        refreshDataAction()
     }
     
     // MARK:  GET && SET
@@ -92,7 +92,7 @@ class ArtistListViewController: SuperViewController {
     var isNoneMusic: Bool {
         get {
 #warning("模拟mock数据")
-            let dataArray = self.viewModel.singerArray
+            let dataArray = self.dataArray
             return dataArray.count == 0
 //            return false
         }
@@ -198,6 +198,7 @@ extension ArtistListViewController: UICollectionViewDataSource, UICollectionView
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard dataArray.indices.contains(indexPath.row) else { return }
         
         if isNoneMusic {
             return

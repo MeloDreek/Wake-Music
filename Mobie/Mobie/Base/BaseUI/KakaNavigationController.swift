@@ -99,6 +99,7 @@ extension KakaNavigationController {
         return self.topViewController?.preferredStatusBarUpdateAnimation ?? .none
     }
 
-}
+    override var childForStatusBarStyle: UIViewController? { topViewController }
 
+}
 

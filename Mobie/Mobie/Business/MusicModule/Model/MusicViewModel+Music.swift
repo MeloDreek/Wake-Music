@@ -96,9 +96,9 @@ extension MusicViewModel {
                     }
                 }
                 
-                self.allMusicArray = tempSortArray
-                
                 DispatchQueue.main.async {
+                    self.allMusicArray = tempSortArray
+                    NotificationCenter.default.post(name: .librarySnapshotDidChange, object: self)
                     completion?(tempSortArray)
                 }
             }
@@ -195,9 +195,9 @@ extension MusicViewModel {
                 }
             }
             
-            self.allMusicArray = tempSortArray
-            
             DispatchQueue.main.async {
+                self.allMusicArray = tempSortArray
+                NotificationCenter.default.post(name: .librarySnapshotDidChange, object: self)
                 completion?(modelArray)
             }
         }
@@ -406,4 +406,3 @@ extension MusicViewModel {
     }
     
 }
-

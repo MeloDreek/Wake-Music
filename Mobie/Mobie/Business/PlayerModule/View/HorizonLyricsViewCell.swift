@@ -10,12 +10,12 @@ import KakaUIKit
 import AppGroupKit
 import Combine
 import MorphingLabel
-import DominantColors
 import KakaTaglibKit
 
 
 /// 横向大歌词
 class HorizonLyricsViewCell: UICollectionViewCell {
+    private var paletteRequest = UUID()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -309,7 +309,7 @@ extension HorizonLyricsViewCell {
         
         switch backType {
         case .defaultType:
-            let coverImage: UIImage = model.playbackCoverImage()
+            let coverImage: UIImage = model.musicCoverImage() ?? model.placeImage()
             
             self.updateCoverGradientColor(coverImage)
             break
@@ -319,8 +319,8 @@ extension HorizonLyricsViewCell {
             let coverImage: UIImage = backImage
             self.updateCoverGradientColor(coverImage)
             break
-        case .customType:            
-            let coverImage: UIImage = model.playbackCoverImage()
+        case .customType:
+            let coverImage: UIImage = playbackModel.backgroundImage() ?? model.placeImage()
             
             self.updateCoverGradientColor(coverImage)
             break
@@ -330,15 +330,15 @@ extension HorizonLyricsViewCell {
     
     // 提取背景图的主色调
     func updateCoverGradientColor(_ backImage: UIImage) {
-        guard let cgImage = backImage.cgImage, let cgColors = try? DominantColors.dominantColors(image: cgImage, quality: .fair, algorithm: .CIE76, maxCount: 2, sorting: .frequency), let mainColor = cgColors.first else {
-            self.rippleView1.rippleColor = UIColor.systemOrange
-            self.rippleView2.rippleColor = UIColor.systemOrange
-            return
+        let request = UUID()
+        paletteRequest = request
+        ArtworkPaletteProvider.shared.palette(for: backImage) { [weak self] palette in
+            guard let self, self.paletteRequest == request else { return }
+            self.rippleView1.rippleColor = palette.primary
+            self.rippleView2.rippleColor = palette.secondary
         }
-        
-        self.rippleView1.rippleColor = UIColor(cgColor: mainColor)
-        self.rippleView2.rippleColor = UIColor(cgColor: mainColor)
     }
+
     
     // 更新播放时间
     public func updatePlayTime(_ millisecond: TimeInterval) {
