@@ -83,8 +83,15 @@ end
 
 
 post_install do |installer|
+  # CocoaPods generates quoted umbrella-header imports that Xcode 27's module
+  # verifier rejects. These are app dependencies, not independently distributed
+  # frameworks; keep normal module compilation, but skip this packaging check.
+  installer.pods_project.build_configurations.each do |config|
+    config.build_settings['ENABLE_MODULE_VERIFIER'] = 'NO'
+  end
   installer.pods_project.targets.each do |target|
     target.build_configurations.each do |config|
+      config.build_settings['ENABLE_MODULE_VERIFIER'] = 'NO'
       # 为 iOS 目标设置最低部署版本
       if target.platform_name == :ios
         config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '15.0'

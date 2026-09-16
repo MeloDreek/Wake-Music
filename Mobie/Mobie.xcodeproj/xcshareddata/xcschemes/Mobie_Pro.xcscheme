@@ -16,7 +16,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "225F57DD2D85B2AB0055BDFF"
-               BuildableName = "Wakemusic.app"
+               BuildableName = "WakemusicPro.app"
                BlueprintName = "Mobie_Pro"
                ReferencedContainer = "container:Mobie.xcodeproj">
             </BuildableReference>
@@ -45,7 +45,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "225F57DD2D85B2AB0055BDFF"
-            BuildableName = "Wakemusic.app"
+            BuildableName = "WakemusicPro.app"
             BlueprintName = "Mobie_Pro"
             ReferencedContainer = "container:Mobie.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "225F57DD2D85B2AB0055BDFF"
-            BuildableName = "Wakemusic.app"
+            BuildableName = "WakemusicPro.app"
             BlueprintName = "Mobie_Pro"
             ReferencedContainer = "container:Mobie.xcodeproj">
          </BuildableReference>
