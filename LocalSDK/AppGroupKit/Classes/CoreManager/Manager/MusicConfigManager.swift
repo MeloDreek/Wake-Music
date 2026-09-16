@@ -112,14 +112,6 @@ public class MusicConfigManager: ObservableObject, SmartCodableX {
         }
     }
     
-    /// 真假随机
-    @SmartPublished
-    public var randomType = RandomSortType.trueRandom {
-        didSet {
-            save()
-        }
-    }
-    
     /// 转码格式
     @SmartPublished
     public var navFormats = NavidromeTargetFormat.raw {
@@ -280,4 +272,3 @@ extension MusicConfigManager {
     }
     
 }
-

@@ -102,21 +102,6 @@ public enum NavidromeTargetFormat: String, SmartCaseDefaultable {
     }
 }
 
-/// 真假随机
-public enum RandomSortType: Int, SmartCaseDefaultable {
-    case trueRandom = 0     // 真随机
-    case falseRandom = 1    // 假随机
-    
-    public func formatStr() -> String {
-        switch self {
-        case .trueRandom:
-            return "Random (may repeat)".localStr()
-        case .falseRandom:
-            return "Shuffle (no repeats)".localStr()
-        }
-    }
-}
-
 public enum MiniLyricAnimation: Int, SmartCaseDefaultable {
     case normal = 0
     case anvil = 1

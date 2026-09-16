@@ -24,20 +24,7 @@ extension MusicPlayerViewController {
             return
         }
         
-        if kaka_IsiPhone() {
-            let playlistView = MusicPlaylistView(frame: self.view.bounds)
-            self.view.addSubview(playlistView)
-        }else{
-            let playlistVC = MusicPlaylistViewController()
-            playlistVC.preferredContentSize = CGSize(width: 400.ckValue(), height: 580.ckValue())
-            playlistVC.modalPresentationStyle = .popover
-            let popVC = playlistVC.popoverPresentationController
-            popVC?.backgroundColor = UIColor.clear
-            popVC?.permittedArrowDirections = .any
-            popVC?.sourceRect = sender.bounds
-            popVC?.sourceView = sender
-            self.present(playlistVC, animated: true)
-        }
+        setPlaylistVisible(!isShowingPlaylist)
 
     }
     

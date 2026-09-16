@@ -198,6 +198,11 @@ class PlayControlDefaultView: UIView, UIGestureRecognizerDelegate {
     }
     
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        var touchedView = touch.view
+        while let view = touchedView, view !== self {
+            if view is UIControl { return false }
+            touchedView = view.superview
+        }
         // 如果点击的目标 View 是 sliderView 或其子视图，拦截父视图的手势
         if let touchView = touch.view, touchView.isDescendant(of: sliderView) {
             return false
@@ -324,7 +329,8 @@ class PlayControlDefaultView: UIView, UIGestureRecognizerDelegate {
         view.frame.size = airplayButton.frame.size
         view.contentMode = .scaleAspectFit
         view.addTarget(self, action: #selector(playlistButtonClick(_:)), for: .touchUpInside)
-        view.setImage(Reasource.systemNamed("list.triangle", color: .lightGray, config: otherBtnConfig), for: .normal)
+        view.tintColor = .white
+        view.setImage(Reasource.systemNamed("list.triangle", color: .white, config: otherBtnConfig), for: .normal)
         return view
     }()
     
@@ -452,7 +458,8 @@ class PlayControlDefaultView: UIView, UIGestureRecognizerDelegate {
         view.size = playlistButton.size
         view.showsMenuAsPrimaryAction = true
         view.menu = self.moreMenu()
-        view.setImage(Reasource.systemNamed("ellipsis.circle", color: .lightGray, config: otherBtnConfig), for: .normal)
+        view.tintColor = .white
+        view.setImage(Reasource.systemNamed("ellipsis.circle", color: .white, config: otherBtnConfig), for: .normal)
         return view
     }()
     

@@ -41,7 +41,6 @@ enum PlayConfigItemType {
     case lyricStyle
     case lastTimeCache
     case showMissTags
-    case randomSort
         
     case transcoding
     case targetFormat
@@ -70,8 +69,6 @@ enum PlayConfigItemType {
             return "Remember Last Position".localStr()
         case .showMissTags:
             return "Show Missing Tags".localStr()
-        case .randomSort:
-            return "Shuffle".localStr()
         
                         
         case .transcoding:

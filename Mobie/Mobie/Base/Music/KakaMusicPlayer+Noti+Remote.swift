@@ -389,35 +389,25 @@ extension KakaMusicPlayer {
         
         // 排序变化了
         MusicConfigManager.shared.$orderType
+            .removeDuplicates()
             .receive(on: DispatchQueue.main)
             .sink { [weak self] sortType in
                 self?.playlistSortTypeChanged()
             }.store(in: &cancellables)
         
-        // 真假随机
-        MusicConfigManager.shared.$randomType
-            .receive(on: DispatchQueue.main)
-            .sink { [weak self] sortType in
-                self?.playlistSortTypeChanged()
-            }.store(in: &cancellables)
     }
     
     // 排序方式变了
     @objc func playlistSortTypeChanged() {
         let sortType = MusicConfigManager.shared.orderType
-        let isRealRandom = MusicConfigManager.shared.randomType == .trueRandom
-        
-        let tempArray = self.musicArray.compactMap { $0 }
-        
         self.nextPlayMusic = nil
+        self.pendingShuffleRound = nil
         if sortType == .random {
-            if isRealRandom {
-                self.musicArray = self.tempMusicArray.isEmpty ? tempArray : self.tempMusicArray
-            }else{
-                self.musicArray = tempArray.shuffled()
-            }
+            // Count the current song as the first item of this round, not a future repeat.
+            self.musicArray = PlaybackQueue.shuffledRound(self.musicArray,
+                current: self.playingMusic?.uniqueID(), keepingCurrentFirst: true, id: { $0.uniqueID() })
         }else{
-            self.musicArray = self.tempMusicArray.isEmpty ? tempArray : self.tempMusicArray
+            self.musicArray = self.tempMusicArray.isEmpty ? self.musicArray : self.tempMusicArray
         }
     }
     

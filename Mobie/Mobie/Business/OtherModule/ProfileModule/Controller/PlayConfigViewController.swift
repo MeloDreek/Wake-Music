@@ -42,13 +42,6 @@ class PlayConfigViewController: SuperViewController {
                 self?.playerConfigUIChanged()
             }.store(in: &cancellables)
         
-        // 随机模式
-        MusicConfigManager.shared.$randomType
-            .receive(on: DispatchQueue.main)
-            .sink { [weak self] engine in
-                self?.playerConfigUIChanged()
-            }.store(in: &cancellables)
-        
         // 最大比特率
         MusicConfigManager.shared.$navMaxBitRate
             .receive(on: DispatchQueue.main)
@@ -83,7 +76,7 @@ class PlayConfigViewController: SuperViewController {
     
     lazy var dataArray: [PlayConfigGroupModel] = {
         let model1 = PlayConfigGroupModel(group: .playerGroup, headTitle: nil, itemArray: [.playerStyle, .playerBack, .playAnimation, .miniStyle, .enableSide], footTitle: nil)
-        let model2 = PlayConfigGroupModel(group: .otherGroup, headTitle: nil, itemArray: [.lyricStyle, .showExtension, .lastTimeCache, .showMissTags, .randomSort], footTitle: nil)
+        let model2 = PlayConfigGroupModel(group: .otherGroup, headTitle: nil, itemArray: [.lyricStyle, .showExtension, .lastTimeCache, .showMissTags], footTitle: nil)
         let model3 = PlayConfigGroupModel(group: .naviGroup, headTitle: "When playing Navidrome's music".localStr(), itemArray: [.transcoding, .targetFormat, .targetMaxBitRate], footTitle: nil)
         return [model1, model2, model3]
     }()
@@ -224,12 +217,6 @@ class PlayConfigTableCell: UITableViewCell {
             case .showMissTags:
                 self.accessoryType = .none
                 self.accessoryView = self.misstagSwitchView
-                break
-                
-            case .randomSort:
-                self.accessoryType = .none
-                self.accessoryView = self.shuffleView()
-                self.selectionStyle = .default
                 break
                 
             case .lastTimeCache:
@@ -435,35 +422,6 @@ class PlayConfigTableCell: UITableViewCell {
             actionArray1.append(action)
         }
         let normalMenu = UIMenu(title: PlayConfigItemType.targetFormat.titleStr(), options: .displayInline, children: actionArray1)
-        return normalMenu
-    }
-    
-    // 随机播放
-    func shuffleView() -> UIView {
-        let selectType = MusicConfigManager.shared.randomType
-        
-        let view = UIMenuAccessView(frame: CGRectMake(0, 0, 100.ckValue(), 50.ckValue()))
-        view.menu = self.shuffleMenu()
-        view.color = UIColor.secondaryLabel
-        view.timeLabel.text = selectType.formatStr()
-        view.contentHorizontalAlignment = .trailing
-        view.showsMenuAsPrimaryAction = true
-        return view
-    }
-    func shuffleMenu() -> UIMenu {
-        
-        let normalArray: [RandomSortType] = [.trueRandom, .falseRandom]
-        var actionArray1 = [UIAction]()
-        let selectType = MusicConfigManager.shared.randomType
-
-        for subType in normalArray {
-            let action = UIAction(title: subType.formatStr(), image: nil, state: selectType == subType ? .on : .off, handler: { _ in
-                MusicConfigManager.shared.randomType = subType
-            })
-
-            actionArray1.append(action)
-        }
-        let normalMenu = UIMenu(title: "Shuffle".localStr(), options: .displayInline, children: actionArray1)
         return normalMenu
     }
     

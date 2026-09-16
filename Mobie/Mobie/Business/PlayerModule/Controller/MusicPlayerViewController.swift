@@ -56,7 +56,6 @@ class MusicPlayerViewController: SuperViewController {
         }
         resizeButton.frame =  CGRectMake(resizeLeft, 10, btnSize, btnSize)
         
-        self.refreshUIViewAction()
 #else
         contentView.frame = CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height)
         backView.frame = contentView.bounds
@@ -73,6 +72,10 @@ class MusicPlayerViewController: SuperViewController {
         playDefaultControl.frame = CGRectMake(isRTL && isFullScreen ? contentView.width / 2 : 0, contentView.height - controlHeight, controlWidth, controlHeight)
         playTapeControl.frame = CGRectMake(isRTL && isFullScreen ? contentView.width / 2 : 0, contentView.height - controlHeight, controlWidth, controlHeight)
 //        playVinylControl.frame = CGRectMake(isRTL && isFullScreen ? contentView.width / 2 : 0, contentView.height - controlHeight, controlWidth, controlHeight)
+        if lastPlayerLayoutSize != contentView.bounds.size {
+            lastPlayerLayoutSize = contentView.bounds.size
+            refreshUIViewAction()
+        }
         
     }
     
@@ -260,6 +263,9 @@ class MusicPlayerViewController: SuperViewController {
     var cancellables = Set<AnyCancellable>()
     
     var serverModel: ServerConfigModel?
+    var isShowingPlaylist = false
+    var returnToLyricsAfterQueue = false
+    private var lastPlayerLayoutSize: CGSize = .zero
         
     lazy var dataArray: [PlayerGroupStyle] = {
         return [PlayerGroupStyle]()
@@ -312,6 +318,7 @@ class MusicPlayerViewController: SuperViewController {
         view.register(PlayerVinylCollectCell.self, forCellWithReuseIdentifier: "PlayerVinylCollectCell")
         view.register(PlayerLyricCollectCell.self, forCellWithReuseIdentifier: "PlayerLyricCollectCell")
         view.register(HorizonLyricsViewCell.self, forCellWithReuseIdentifier: "HorizonLyricsViewCell")
+        view.register(PlayerQueueCollectCell.self, forCellWithReuseIdentifier: "PlayerQueueCollectCell")
         return view
     }()
     
@@ -375,7 +382,26 @@ class MusicPlayerViewController: SuperViewController {
 extension MusicPlayerViewController: PanModalPresentable {
     
     var panScrollable: UIScrollView? {
-        return self.collectionView
+        // The queue owns its scrolling/reordering; PanModal must not pin its content offset.
+        return isShowingPlaylist ? nil : collectionView
+    }
+
+    // Never infer the player's height from the number of tracks in the queue.
+    var shortForm: PanModalHeight { .maxHeight }
+    var longForm: PanModalHeight { .maxHeight }
+
+    func shouldRespond(to panModalGestureRecognizer: UIPanGestureRecognizer) -> Bool {
+        guard isShowingPlaylist else { return true }
+        guard let cell = collectionView.visibleCells.first(where: { $0 is PlayerQueueCollectCell }) as? PlayerQueueCollectCell else {
+            return false
+        }
+        let table = cell.tableView
+        guard !table.hasActiveDrag, !table.hasActiveDrop else { return false }
+        // Reserve the queue and transport for their own gestures. Dismiss from the header.
+        // Evaluate the gesture's origin, so crossing the boundary cannot strand the sheet.
+        let point = panModalGestureRecognizer.location(in: cell)
+        let translation = panModalGestureRecognizer.translation(in: cell)
+        return point.y - translation.y < table.frame.minY
     }
 
     var orientation: PanModalOrientation {
@@ -391,7 +417,7 @@ extension MusicPlayerViewController: PanModalPresentable {
     }
 
     var allowsExtendedPanScrolling: Bool {
-        return true
+        return !isShowingPlaylist
     }
     
     var shouldRoundTopCorners: Bool {
@@ -404,7 +430,7 @@ extension MusicPlayerViewController: PanModalPresentable {
     }
 
     var anchorModalToLongForm: Bool {
-        return false
+        return true
     }
         
     var transitionAnimationOptions: UIView.AnimationOptions {

@@ -18,7 +18,7 @@ extension KakaMusicPlayer {
     @MainActor
     public func startPlayMusic(musics: [MusicItemModel], itemIndex: Int) {
         
-        if musics.count <= itemIndex { return }
+        guard musics.indices.contains(itemIndex) else { return }
         
         if self.isPlaying {
             self.playerView.resetPlayer()
@@ -27,9 +27,11 @@ extension KakaMusicPlayer {
         
         self.musicArray = musics
         self.tempMusicArray = musics
+        self.nextPlayMusic = nil
         
         let model = musics[itemIndex]
         self.playingMusic = model
+        self.playlistSortTypeChanged()
         
         self.play()
     }
@@ -243,48 +245,25 @@ extension KakaMusicPlayer {
     
     // 播放下一首
     @MainActor @objc func playNextItem() {
-        
-        
-        if let nextPlayMusic = self.nextPlayMusic {
-            if self.isPlaying {
-                self.playerView.resetPlayer()
-            }
-            
-            MusicConfigManager.shared.lastPlayTime = 0
-            
-            self.playingMusic = nextPlayMusic
-            self.play()
-        }else{
-            var index = 0
-            
-            if self.musicArray.count <= 1 {
-                self.replaySingleItem()
-                return
-            }
-            
-            let orderType = MusicConfigManager.shared.orderType
-            let isRealRandom = MusicConfigManager.shared.randomType == .trueRandom
-            
-            if isRealRandom && orderType == .random {
-                // 真随机
-                index = Int.random(in: 0..<self.musicArray.count)
-            }else{
-                // 按顺序
-                index = self.musicArray.firstIndex(where: { $0 == self.playingMusic }) ?? 0
-                index = index + 1
-            }
-                
-            
-            if (index >= self.musicArray.count) || (index < 0) {
-                index = 0
-            }
-            
-            self.playAtIndex(index)
+        guard !musicArray.isEmpty else { return }
+        if musicArray.count == 1 {
+            playAtIndex(0)
+            return
         }
+        // Use the same decision as pre-download, whether or not pre-download is enabled.
+        guard let next = getNextPlayMusic() else { return }
+        if MusicConfigManager.shared.orderType == .random, let round = preparedShuffleMusic() {
+            musicArray = round
+            pendingShuffleRound = nil
+        }
+        guard let index = musicArray.firstIndex(where: { $0.uniqueID() == next.uniqueID() }) else { return }
+        playAtIndex(index)
     }
     
     // 播放某首歌
     @MainActor func playAtIndex(_ index: Int) {
+        self.nextPlayMusic = nil
+        self.pendingShuffleRound = nil
                 
         var model: MusicItemModel?
         if index >= 0 && (index < musicArray.count) {

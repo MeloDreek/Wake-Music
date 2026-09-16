@@ -100,15 +100,15 @@ class MusicPlaylistView: UIView {
         KakaMusicPlayer.shared.$playingMusic
             .receive(on: DispatchQueue.main)
             .sink { [weak self] model in
-                self?.perform(#selector(self?.playingMusicChanged), with: nil, afterDelay: 0.1)
+                self?.playingMusicChanged()
             }.store(in: &cancellables)
         
         // 播放列表
-        KakaMusicPlayer.shared.$musicArray
+        KakaMusicPlayer.shared.$queueItems
             .receive(on: DispatchQueue.main)
             .sink { [weak self] models in
                 self?.musicArray = models
-                self?.perform(#selector(self?.playingMusicChanged), with: nil, afterDelay: 0.1)
+                self?.playingMusicChanged()
             }.store(in: &cancellables)
         
         if kaka_IsiPhone() {
@@ -121,16 +121,12 @@ class MusicPlaylistView: UIView {
     
     // 当前音乐模型变化了
     @objc func playingMusicChanged() {
+        self.titleLabel.text = "Playlist".localStr() + " (\(musicArray.count))"
                         
         self.tableView.reloadData()
-        DispatchQueue.main.asyncAfter(wallDeadline: .now() + 0.1) {
-            if let index = self.musicArray.firstIndex(where: { $0 == KakaMusicPlayer.shared.playingMusic }) {
-                // 确保索引在有效范围内
-                if index >= 0 && index < self.musicArray.count {
-                    let indexPath = IndexPath(row: index, section: 0)
-                    self.tableView.scrollToRow(at: indexPath, at: .middle, animated: true)
-                }
-            }
+        if !tableView.isDragging, !tableView.isDecelerating,
+           let index = musicArray.firstIndex(where: { $0 == KakaMusicPlayer.shared.playingMusic }) {
+            tableView.scrollToRow(at: IndexPath(row: index, section: 0), at: .middle, animated: false)
         }
     }
     
@@ -336,7 +332,9 @@ extension MusicPlaylistView: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        KakaMusicPlayer.shared.playAtIndex(indexPath.row)
+        guard musicArray.indices.contains(indexPath.row),
+              let index = KakaMusicPlayer.shared.musicArray.firstIndex(where: { $0.uniqueID() == musicArray[indexPath.row].uniqueID() }) else { return }
+        KakaMusicPlayer.shared.playAtIndex(index)
         self.dismissAction()
     }
     

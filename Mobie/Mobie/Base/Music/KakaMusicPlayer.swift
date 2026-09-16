@@ -50,6 +50,8 @@ public class KakaMusicPlayer: NSObject, ObservableObject {
     
     // 下一首歌曲
     var nextPlayMusic: MusicItemModel?
+    // Prepared once at a round boundary; preview/pre-download must not draw again.
+    var pendingShuffleRound: [String]?
     
     /// 是否为失败后的重试
     public var isRetry: Bool = false
@@ -58,30 +60,45 @@ public class KakaMusicPlayer: NSObject, ObservableObject {
     public var isDecodingError: Bool = false
     
     /// 正在播放的音乐列表
-    @Published var musicArray: [MusicItemModel] = []
-    {
-        didSet {
-            debugPrint("播放列表 = \(self.musicArray.count)")
-            let old = oldValue
-            // 用 uniqueID 去重
-            let deduped = self.removeDuplicate(musicArray)
-
-            if deduped != old {
-                // 只在真正变化时更新一次，防止 didSet 无限调用
-                if deduped != musicArray {
-                    self.musicArray = deduped
-                }
+    @Published private(set) var queueItems: [MusicItemModel] = []
+    var musicArray: [MusicItemModel] {
+        get { queueItems }
+        set {
+            let items = removeDuplicate(newValue)
+            if items.map({ $0.uniqueID() }) != queueItems.map({ $0.uniqueID() }) {
+                nextPlayMusic = nil
+                pendingShuffleRound = nil
             }
+            // Normalize BEFORE publishing. A didSet correction publishes a duplicate snapshot
+            // and can skip correction entirely when the normalized list equals the old list.
+            queueItems = items
         }
     }
     
     func removeDuplicate(_ list: [MusicItemModel]) -> [MusicItemModel] {
-        var seen = Set<String>()
-        return list.filter { seen.insert($0.uniqueID()).inserted }
+        PlaybackQueue.unique(list, id: { $0.uniqueID() })
     }
     
     // 播放列表最初的排序
-    var tempMusicArray: [MusicItemModel] = []
+    private var originalQueue: [MusicItemModel] = []
+    var tempMusicArray: [MusicItemModel] {
+        get { originalQueue }
+        set { originalQueue = removeDuplicate(newValue) }
+    }
+
+    /// A drag is committed only against the exact queue/current song it started with.
+    @MainActor
+    func moveQueuedMusic(id: String, destination: Int, expectedIDs: [String], currentID: String?) -> Bool {
+        guard MusicConfigManager.shared.orderType == .normal,
+              PlaybackQueue.matchesSnapshot(musicArray, current: playingMusic?.uniqueID(),
+                  expectedIDs: expectedIDs, expectedCurrent: currentID, id: { $0.uniqueID() }),
+              let reordered = PlaybackQueue.moving(musicArray, current: currentID, source: id,
+                  destination: destination, id: { $0.uniqueID() }) else { return false }
+        nextPlayMusic = nil
+        tempMusicArray = reordered
+        musicArray = reordered
+        return true
+    }
     
     /// Invalidates pending pCloud/Box link requests on play/pause/stop.
     var pcloudPlaybackRequestID = UUID()
@@ -93,6 +110,10 @@ public class KakaMusicPlayer: NSObject, ObservableObject {
     /// 正在播放中的音乐
     @Published var playingMusic: MusicItemModel? {
         didSet {
+            if oldValue?.uniqueID() != playingMusic?.uniqueID() {
+                nextPlayMusic = nil
+                pendingShuffleRound = nil
+            }
             if oldValue?.uniqueID() != playingMusic?.uniqueID() || oldValue?.mediaPlayURL != playingMusic?.mediaPlayURL {
                 remoteMetadataTask?.cancel()
                 remoteMetadataTask = nil
@@ -242,43 +263,38 @@ public class KakaMusicPlayer: NSObject, ObservableObject {
     }
     
     /// 获取下一首歌
-    private func getNextPlayMusic() -> MusicItemModel? {
-        
-        var model: MusicItemModel?
-        let orderType = MusicConfigManager.shared.orderType
-        let isRealRandom = MusicConfigManager.shared.randomType == .trueRandom
-        
-        switch orderType {
-        case .normal, .random:
-            if isRealRandom && orderType == .random {
-                model = self.musicArray.randomElement()
-            }else{
-                if let index = self.musicArray.firstIndex(where: { $0 == self.playingMusic }) {
-                    let nextIndex = index + 1
-                    // 确保 nextIndex 没有越界
-                    if nextIndex < self.musicArray.count {
-                        model = self.musicArray[nextIndex]
-                    } else {
-                        model = self.musicArray.first
-                    }
-                }
+    func getNextPlayMusic() -> MusicItemModel? {
+        let nextID = PlaybackQueue.nextID(in: musicArray.map { $0.uniqueID() },
+            current: playingMusic?.uniqueID(), shuffle: MusicConfigManager.shared.orderType == .random,
+            pendingRound: &pendingShuffleRound)
+        return musicArray.first { $0.uniqueID() == nextID }
+    }
+
+    func preparedShuffleMusic() -> [MusicItemModel]? {
+        guard let pendingShuffleRound else { return nil }
+        // Store identities, not stale model/temporary-URL snapshots captured by pre-download.
+        let models = Dictionary(uniqueKeysWithValues: musicArray.map { ($0.uniqueID(), $0) })
+        return pendingShuffleRound.compactMap { models[$0] }
+    }
+
+    /// Show the actual prepared next round when the current round is exhausted.
+    func upcomingQueueMusic() -> [MusicItemModel] {
+        if MusicConfigManager.shared.orderType == .random {
+            _ = getNextPlayMusic()
+            if let round = preparedShuffleMusic() {
+                return round.filter { $0.uniqueID() != playingMusic?.uniqueID() }
             }
-            break
-        case .single:
-            model = nil
-            break
         }
-        
-        return model
+        return PlaybackQueue.upcoming(musicArray, current: playingMusic?.uniqueID(), id: { $0.uniqueID() })
     }
     
     // 预先下载下一首歌
     @MainActor
     @objc func prepareNextMusic() {
         
-        if !MusicConfigManager.shared.isPreDownload { return }
+        if !MusicConfigManager.shared.isPreDownload || MusicConfigManager.shared.orderType == .single { return }
         
-        guard let nextPlayMusic = (self.getNextPlayMusic() ?? self.nextPlayMusic), !nextPlayMusic.isLocalFile() else { return }
+        guard let nextPlayMusic = self.getNextPlayMusic(), !nextPlayMusic.isLocalFile() else { return }
         guard nextPlayMusic.drive115Model?.isUnsupportedStreamingAudio != true else { return }
         
         self.nextPlayMusic = nextPlayMusic

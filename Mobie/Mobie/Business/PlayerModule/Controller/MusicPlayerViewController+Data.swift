@@ -43,6 +43,10 @@ extension MusicPlayerViewController: UICollectionViewDataSource, UICollectionVie
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HorizonLyricsViewCell", for: indexPath) as! HorizonLyricsViewCell
             cell.delegate = self
             return cell
+        case .playlist:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PlayerQueueCollectCell", for: indexPath) as! PlayerQueueCollectCell
+            cell.onClose = { [weak self] in self?.setPlaylistVisible(false) }
+            return cell
         }
     }
     
@@ -55,6 +59,7 @@ extension MusicPlayerViewController: UICollectionViewDataSource, UICollectionVie
         }
         
         let itemType = dataArray[indexPath.section]
+        guard itemType != .playlist else { return }
         let isShowBigLyric = itemType == .basic || itemType == .tape || itemType == .vinyl
         
         self.lyricCollectionCellClick(isShowBigLyric)
@@ -74,6 +79,7 @@ extension MusicPlayerViewController: UICollectionViewDataSource, UICollectionVie
     }
     
     func lyricCollectionCellClick(_ isShowBigLyric: Bool) {
+        if isShowingPlaylist { setPlaylistVisible(false) }
         
         guard let playingMusic = KakaMusicPlayer.shared.playingMusic else { return }
         let status = KakaMusicPlayer.shared.playbackStatus

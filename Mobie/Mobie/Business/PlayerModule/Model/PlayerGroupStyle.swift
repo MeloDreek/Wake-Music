@@ -14,4 +14,5 @@ enum PlayerGroupStyle: Int {
     
     case listLyric
     case bigLyrics
+    case playlist
 }

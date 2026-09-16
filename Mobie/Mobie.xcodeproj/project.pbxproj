@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FD00ACDE888B441591ABD001 /* PlaybackQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD00ACDE888B441591ABD000 /* PlaybackQueue.swift */; };
+		FD00ACDE888B441591ABD002 /* PlaybackQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD00ACDE888B441591ABD000 /* PlaybackQueue.swift */; };
+		FD00ACDE888B441591ABD011 /* PlayerQueueCollectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD00ACDE888B441591ABD010 /* PlayerQueueCollectCell.swift */; };
+		FD00ACDE888B441591ABD012 /* PlayerQueueCollectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD00ACDE888B441591ABD010 /* PlayerQueueCollectCell.swift */; };
 		01F75346B3745539580B69EB /* Pods_Mobie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC044DCD42AEE7FFFB8D29DE /* Pods_Mobie.framework */; };
 		02B57660DD995BBB02E0E76A /* CollectionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132CAFD74F21CC80A0EE1C8C /* CollectionDetailViewController.swift */; };
 		22059B832CAE9378006F6E7A /* SocialMediaType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22059B822CAE9378006F6E7A /* SocialMediaType.swift */; };
@@ -807,6 +811,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		FD00ACDE888B441591ABD000 /* PlaybackQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackQueue.swift; sourceTree = "<group>"; };
+		FD00ACDE888B441591ABD010 /* PlayerQueueCollectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerQueueCollectCell.swift; sourceTree = "<group>"; };
 		132CAFD74F21CC80A0EE1C8C /* CollectionDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionDetailViewController.swift; sourceTree = "<group>"; };
 		2024258CB3388C84E94183D3 /* Pods_Mobie_Pro.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mobie_Pro.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		22059B822CAE9378006F6E7A /* SocialMediaType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialMediaType.swift; sourceTree = "<group>"; };
@@ -1383,6 +1389,7 @@
 			children = (
 				228A141F2CA0633400E2948E /* AnalyticsManager.swift */,
 				228A14202CA0633400E2948E /* KakaMusicPlayer.swift */,
+				FD00ACDE888B441591ABD000 /* PlaybackQueue.swift */,
 				228A14232CA0633400E2948E /* KakaMusicPlayer+Play.swift */,
 				2268AE5C2CA12BC800340316 /* KakaMusicPlayer+Delegate.swift */,
 				228A14212CA0633400E2948E /* KakaMusicPlayer+Noti+Remote.swift */,
@@ -1666,6 +1673,7 @@
 			isa = PBXGroup;
 			children = (
 				22569AC22DE464000038E914 /* PlayerBasicCollectCell.swift */,
+				FD00ACDE888B441591ABD010 /* PlayerQueueCollectCell.swift */,
 				22569AC52DE4644C0038E914 /* PlayerTapeCollectCell.swift */,
 				22569AC82DE464830038E914 /* PlayerVinylCollectCell.swift */,
 				22569ACB2DE464A30038E914 /* PlayerLyricCollectCell.swift */,
@@ -2563,6 +2571,8 @@
 				225F58752D85B2AB0055BDFF /* LibraryLyricsViewController+Search.swift in Sources */,
 				225F58762D85B2AB0055BDFF /* AlbumCollectionCell.swift in Sources */,
 				225F58772D85B2AB0055BDFF /* KakaMusicPlayer.swift in Sources */,
+				FD00ACDE888B441591ABD001 /* PlaybackQueue.swift in Sources */,
+				FD00ACDE888B441591ABD011 /* PlayerQueueCollectCell.swift in Sources */,
 				225F58782D85B2AB0055BDFF /* PlayerControlToolBarView.swift in Sources */,
 				225F58792D85B2AB0055BDFF /* PlayAnimationController.swift in Sources */,
 				225F587A2D85B2AB0055BDFF /* KakaMusicPlayer+Tools.swift in Sources */,
@@ -2897,6 +2907,8 @@
 				22196E542D3133B0005B05CD /* LibraryLyricsViewController+Search.swift in Sources */,
 				228A14462CA0633400E2948E /* AlbumCollectionCell.swift in Sources */,
 				228A14A02CA0633400E2948E /* KakaMusicPlayer.swift in Sources */,
+				FD00ACDE888B441591ABD002 /* PlaybackQueue.swift in Sources */,
+				FD00ACDE888B441591ABD012 /* PlayerQueueCollectCell.swift in Sources */,
 				228A147C2CA0633400E2948E /* PlayerControlToolBarView.swift in Sources */,
 				226FF2F22CCA8B8E00514BE4 /* PlayAnimationController.swift in Sources */,
 				228A14A22CA0633400E2948E /* KakaMusicPlayer+Tools.swift in Sources */,

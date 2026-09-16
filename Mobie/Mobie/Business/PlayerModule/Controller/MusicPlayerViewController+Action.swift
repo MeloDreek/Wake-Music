@@ -99,7 +99,13 @@ extension MusicPlayerViewController {
         let isShowBigLyric = OrientationManager.shared.isShowBigLyric
         let style = MusicConfigManager.shared.playerStyle
         
-        if isShowBigLyric && !kaka_IsMacOS() {
+        if isShowingPlaylist {
+            // Keep the queue above the existing left-hand transport in split layouts.
+            self.dataArray = isFullScreen ? [.playlist, .listLyric] : [.playlist]
+            self.flowLayout.itemSize = CGSizeMake(contentView.width / (isFullScreen ? 2 : 1), contentView.height)
+            self.playDefaultControl.isHidden = false
+            self.playTapeControl.isHidden = true
+        } else if isShowBigLyric && !kaka_IsMacOS() {
             self.dataArray = [.bigLyrics]
             self.flowLayout.itemSize = CGSizeMake(contentView.width, contentView.height)
             
@@ -128,10 +134,32 @@ extension MusicPlayerViewController {
         }
         
         self.collectionView.reloadData()
+        if isShowingPlaylist { self.collectionView.contentOffset = .zero }
+        let queueButton = self.playDefaultControl.playlistButton
+        queueButton.tintColor = .white
+        queueButton.backgroundColor = isShowingPlaylist ? UIColor.white.withAlphaComponent(0.18) : .clear
+        queueButton.layer.cornerRadius = queueButton.bounds.height / 2
+        queueButton.accessibilityLabel = "Queue.Title".localStr()
+        queueButton.accessibilityTraits = isShowingPlaylist ? [.button, .selected] : .button
+        queueButton.setImage(UIImage(systemName: isShowingPlaylist ? "list.bullet" : "list.triangle", withConfiguration: UIImage.SymbolConfiguration(pointSize: 21, weight: .medium)), for: .normal)
         
 #if !targetEnvironment(macCatalyst)
         self.panModalSetNeedsLayoutUpdate()
 #endif
+    }
+
+    func setPlaylistVisible(_ visible: Bool) {
+        guard visible != isShowingPlaylist else { return }
+        if visible {
+            returnToLyricsAfterQueue = !OrientationManager.shared.isLandscape &&
+                abs(collectionView.contentOffset.x - flowLayout.itemSize.width) < 10
+        }
+        isShowingPlaylist = visible
+        refreshUIViewAction()
+        collectionView.layoutIfNeeded()
+        if !visible {
+            collectionView.contentOffset = CGPoint(x: returnToLyricsAfterQueue && !OrientationManager.shared.isLandscape && dataArray.contains(.listLyric) ? flowLayout.itemSize.width : 0, y: 0)
+        }
     }
     
     // 睡眠计时器
