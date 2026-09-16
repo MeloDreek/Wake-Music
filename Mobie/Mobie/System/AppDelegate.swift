@@ -10,7 +10,7 @@ import KakaUIKit
 import RevenueCat
 import FirebaseCore
 import FirebaseCrashlytics
-#if canImport(IQKeyboardManagerSwift) && canImport(IQKeyboardToolbarManager)
+#if os(iOS) && !targetEnvironment(macCatalyst) && canImport(IQKeyboardManagerSwift) && canImport(IQKeyboardToolbarManager)
 import IQKeyboardManagerSwift
 import IQKeyboardToolbarManager
 #endif
@@ -81,7 +81,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         ProgressHUD.mediaSize = 100.ckValue()
         ProgressHUD.marginSize = 50.ckValue()
         
-#if canImport(IQKeyboardManagerSwift) && canImport(IQKeyboardToolbarManager)
+#if os(iOS) && !targetEnvironment(macCatalyst) && canImport(IQKeyboardManagerSwift) && canImport(IQKeyboardToolbarManager)
         IQKeyboardManager.shared.isEnabled = true
         IQKeyboardToolbarManager.shared.isEnabled = true
 #endif

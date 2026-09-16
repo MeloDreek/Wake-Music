@@ -1,6 +1,7 @@
 #source 'https://github.com/CocoaPods/Specs.git'
 #source 'https://gitee.com/mirrors/CocoaPods-Specs.git'
 source 'https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git'
+require_relative 'scripts/ios_only_keyboard_pods'
 
 
 workspace 'Wake Music.xcworkspace'
@@ -41,6 +42,12 @@ target 'Mobie' do
   pod 'IQKeyboardManagerSwift', '~> 8.0.3'
 #  pod 'MSAL', '~> 2.4.1'
   
+end
+
+# Run after CocoaPods writes both the Pods and application projects. Reapplied on
+# every pod install; no editing vendored IQ source or manual commenting required.
+post_integrate do |_installer|
+  IOSOnlyKeyboardPods.apply(__dir__)
 end
 
 
