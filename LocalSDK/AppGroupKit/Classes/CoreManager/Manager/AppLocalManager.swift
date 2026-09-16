@@ -15,6 +15,16 @@ public enum AppearanceStyle: Int, SmartCaseDefaultable {
     case dark = 2
 }
 
+/// Stable raw values are persisted across versions. Unimplemented modes fall
+/// back to Classic at launch until their module is available.
+public enum AppHomeMode: Int, SmartCaseDefaultable {
+    case classic = 0
+    case navidrome = 1
+    case emby = 2
+    case jellyfin = 3
+    case plex = 4
+}
+
 // 1. 扩展你的 BookmarkError，让它支持精准的错误携带
 public enum BookmarkError: Error {
     case partialOrTotalFailure(
@@ -54,6 +64,17 @@ public class AppLocalManager: SmartCodableX, ObservableObject {
     }
     
     static public var shared = AppLocalManager.read() ?? AppLocalManager()
+
+    @SmartPublished
+    public var homeMode: AppHomeMode = .classic {
+        didSet { save() }
+    }
+
+    /// A reference to the saved connection, never a password or access token.
+    @SmartPublished
+    public var musicServerAccountID: String? {
+        didSet { save() }
+    }
             
     /// 是否创建了本地通知
     @SmartPublished

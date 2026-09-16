@@ -15,6 +15,7 @@ import ProgressHUD
 
 /// 登录Navidrome
 class AuthNavidromeController: SuperViewController {
+    private var loginTask: Task<Void, Never>?
     init(_ model: NavidromeUserModel) {
         super.init(nibName: nil, bundle: nil)
         
@@ -56,6 +57,15 @@ class AuthNavidromeController: SuperViewController {
         self.navigationItem.rightBarButtonItem = connectItem
         
     }
+
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        if isMovingFromParent || isBeingDismissed || navigationController?.isBeingDismissed == true {
+            loginTask?.cancel()
+            loginTask = nil
+            ProgressHUD.dismiss()
+        }
+    }
     
     @objc func questionBtnClick() {
         let searchStr = String(format: SearchEngineType.defaultEngine().searchUrl(), "Navidrome")
@@ -76,7 +86,8 @@ class AuthNavidromeController: SuperViewController {
     
     
     lazy var dataArray: [LoginGroupModel] = {
-        let model1 = LoginGroupModel(group: .serverGroup, headTitle: "Server".localStr(), itemArray: [.title, .host, .serverType], footTitle: nil)
+        // The new server dashboard always uses bounded requests, regardless of library size.
+        let model1 = LoginGroupModel(group: .serverGroup, headTitle: "Server".localStr(), itemArray: [.title, .host], footTitle: nil)
         let model2 = LoginGroupModel(group: .loginGroup, headTitle: "Account".localStr(), itemArray: [.username, .password], footTitle: nil)
         let model3 = LoginGroupModel(group: .buttonGroup, headTitle: nil, itemArray: [.cusButton], footTitle: nil)
         return [model1, model2, model3]
@@ -174,7 +185,7 @@ extension AuthNavidromeController: UITableViewDataSource, UITableViewDelegate, L
     
     func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
         let groupModel = dataArray[section]
-        return groupModel.group == .serverGroup ? "If your server has more than 10,000 songs, turning this off will show only Artists and Songs. Turning it on may require more requests and memory, and can cause severe performance issues that cannot be resolved.".localStr() : nil
+        return groupModel.footTitle
     }
     
     func loginViewCellDidEndEditing(cell: LoginTableViewCell, itemType: LoginGroupItemType, content: String) {
@@ -185,7 +196,6 @@ extension AuthNavidromeController: UITableViewDataSource, UITableViewDelegate, L
             break
         case .host:
             let hostStr = content.trimmingCharacters(in: CharacterSet(charactersIn: "/"))
-            debugPrint("hostStr1 = \(hostStr)")
             self.loginModel.hostUrl = hostStr
             break
         case .username:
@@ -208,6 +218,8 @@ extension AuthNavidromeController: UITableViewDataSource, UITableViewDelegate, L
     
     // 登录
     func doneButtonClick() {
+        guard loginTask == nil else { return }
+        guard requireRemoteConnectionAccess() else { return }
         
         if self.loginModel.customName.removeSpace().count < 1 {
             self.tableView.cellForRow(at: IndexPath(row: 0, section: 0))?.kaka_playShakeAnim()
@@ -232,41 +244,30 @@ extension AuthNavidromeController: UITableViewDataSource, UITableViewDelegate, L
         ProgressHUD.animate("Processing...".localStr())
         
         let hostStr = self.loginModel.hostUrl.trimmingCharacters(in: CharacterSet(charactersIn: "/"))
-        debugPrint("hostStr2 = \(hostStr)")
         self.loginModel.hostUrl = hostStr
         self.tableView.reloadData()
-        
-        let isLargeServer = self.loginModel.isLargeServer
-        APIManager.shared.loginNavidrome(serverUrl: self.loginModel.hostUrl, isLargeServer: isLargeServer, username: self.loginModel.username, password: self.loginModel.password) { [weak self] result in
-            ProgressHUD.dismiss()
-            switch result {
-            case .success(let model):
-                                
-                var navModel = model
-                navModel.customName = self?.loginModel.customName ?? "My Navidrome".localStr()
-                
+        let session = MusicServerSession(user: loginModel)
+        loginTask = Task { [weak self] in
+            do {
+                let navModel = try await session.authenticate()
+                try Task.checkCancellation()
+                guard let self else { return }
+                self.loginTask = nil
+                ProgressHUD.dismiss()
                 let newServerModel = ServerConfigModel(serverType: .fromNavidrome, navUser: navModel)
                 ConnectConfigManager.shared.addOrUpdateRemoteServer(serverModel: newServerModel)
-                
                 NotificationCenter.default.post(name: Notification.Name(kLoginThirdServerKey), object: nil)
-                
-                if self?.routeImportedServer(newServerModel) == true { return }
-                self?.onLoginBlock?(navModel)
-                self?.cancelButtonClick()
-                break
-            case .failure(let error):
-                self?.showOneAlert(message: error.errorDescription)
-//                var navModel = self!.loginModel
-//                navModel.customName = self?.loginModel.customName ?? "My Navidrome".localStr()
-//                
-//                let newServerModel = ServerConfigModel(serverType: .fromNavidrome, navUser: navModel)
-//                ConnectConfigManager.shared.addOrUpdateRemoteServer(serverModel: newServerModel)
-//                
-//                NotificationCenter.default.post(name: Notification.Name(kLoginThirdServerKey), object: nil)
-//                
-//                self?.onLoginBlock?(navModel)
-//                self?.cancelButtonClick()
-                break
+                if self.routeImportedServer(newServerModel) { return }
+                if let onLoginBlock = self.onLoginBlock {
+                    onLoginBlock(navModel)
+                    self.cancelButtonClick()
+                } else {
+                    AppModeCoordinator.enterNavidrome(navModel, from: self)
+                }
+            } catch {
+                self?.loginTask = nil
+                ProgressHUD.dismiss()
+                if !(error is CancellationError) { self?.showOneAlert(message: error.localizedDescription) }
             }
         }
 

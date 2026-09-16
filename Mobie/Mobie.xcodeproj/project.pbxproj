@@ -7,6 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D01700000000000000000018 /* MusicServerHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01700000000000000000008 /* MusicServerHistory.swift */; };
+		D01700000000000000000028 /* MusicServerHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01700000000000000000008 /* MusicServerHistory.swift */; };
+		D01700000000000000000011 /* AppModeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01700000000000000000001 /* AppModeCoordinator.swift */; };
+		D01700000000000000000012 /* MusicServerRootControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01700000000000000000002 /* MusicServerRootControllers.swift */; };
+		D01700000000000000000013 /* MusicServerHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01700000000000000000003 /* MusicServerHomeViewController.swift */; };
+		D01700000000000000000014 /* MusicServerCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01700000000000000000004 /* MusicServerCells.swift */; };
+		D01700000000000000000015 /* MusicServerBrowseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01700000000000000000005 /* MusicServerBrowseViewController.swift */; };
+		D01700000000000000000016 /* MusicServerSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01700000000000000000006 /* MusicServerSession.swift */; };
+		D01700000000000000000017 /* MusicServerWire.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01700000000000000000007 /* MusicServerWire.swift */; };
+		D01700000000000000000021 /* AppModeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01700000000000000000001 /* AppModeCoordinator.swift */; };
+		D01700000000000000000022 /* MusicServerRootControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01700000000000000000002 /* MusicServerRootControllers.swift */; };
+		D01700000000000000000023 /* MusicServerHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01700000000000000000003 /* MusicServerHomeViewController.swift */; };
+		D01700000000000000000024 /* MusicServerCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01700000000000000000004 /* MusicServerCells.swift */; };
+		D01700000000000000000025 /* MusicServerBrowseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01700000000000000000005 /* MusicServerBrowseViewController.swift */; };
+		D01700000000000000000026 /* MusicServerSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01700000000000000000006 /* MusicServerSession.swift */; };
+		D01700000000000000000027 /* MusicServerWire.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01700000000000000000007 /* MusicServerWire.swift */; };
 		FD00ACDE888B441591ABD001 /* PlaybackQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD00ACDE888B441591ABD000 /* PlaybackQueue.swift */; };
 		FD00ACDE888B441591ABD002 /* PlaybackQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD00ACDE888B441591ABD000 /* PlaybackQueue.swift */; };
 		FD00ACDE888B441591ABD011 /* PlayerQueueCollectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD00ACDE888B441591ABD010 /* PlayerQueueCollectCell.swift */; };
@@ -813,6 +829,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		D01700000000000000000008 /* MusicServerHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data/MusicServerHistory.swift; sourceTree = "<group>"; };
+		D01700000000000000000001 /* AppModeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation/AppModeCoordinator.swift; sourceTree = "<group>"; };
+		D01700000000000000000002 /* MusicServerRootControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation/MusicServerRootControllers.swift; sourceTree = "<group>"; };
+		D01700000000000000000003 /* MusicServerHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UI/MusicServerHomeViewController.swift; sourceTree = "<group>"; };
+		D01700000000000000000004 /* MusicServerCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UI/MusicServerCells.swift; sourceTree = "<group>"; };
+		D01700000000000000000005 /* MusicServerBrowseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UI/MusicServerBrowseViewController.swift; sourceTree = "<group>"; };
+		D01700000000000000000006 /* MusicServerSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data/MusicServerSession.swift; sourceTree = "<group>"; };
+		D01700000000000000000007 /* MusicServerWire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data/MusicServerWire.swift; sourceTree = "<group>"; };
 		FD00ACDE888B441591ABD000 /* PlaybackQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackQueue.swift; sourceTree = "<group>"; };
 		FD00ACDE888B441591ABD010 /* PlayerQueueCollectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerQueueCollectCell.swift; sourceTree = "<group>"; };
 		FD00ACDE888B441591ABD020 /* PlayerMoreConfigCollectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerMoreConfigCollectCell.swift; sourceTree = "<group>"; };
@@ -1272,6 +1296,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D01700000000000000000030 /* MusicServerModule */ = {
+			isa = PBXGroup;
+			children = (
+				D01700000000000000000001 /* AppModeCoordinator.swift */,
+				D01700000000000000000002 /* MusicServerRootControllers.swift */,
+				D01700000000000000000003 /* MusicServerHomeViewController.swift */,
+				D01700000000000000000004 /* MusicServerCells.swift */,
+				D01700000000000000000005 /* MusicServerBrowseViewController.swift */,
+				D01700000000000000000006 /* MusicServerSession.swift */,
+				D01700000000000000000007 /* MusicServerWire.swift */,
+				D01700000000000000000008 /* MusicServerHistory.swift */,
+			);
+			path = MusicServerModule;
+			sourceTree = "<group>";
+		};
 		22577F732D04258000AD35E7 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
@@ -1800,6 +1839,7 @@
 		228A14002CA0633400E2948E /* Business */ = {
 			isa = PBXGroup;
 			children = (
+				D01700000000000000000030 /* MusicServerModule */,
 				228A13BA2CA0633400E2948E /* MusicModule */,
 				2257DE502D0AA0A200BBC0CE /* CollectionModule */,
 				2257DE4B2D0A9ECE00BBC0CE /* ImportModule */,
@@ -2372,6 +2412,14 @@
 				225F580D2D85B2AB0055BDFF /* ConfigInfoKey.swift in Sources */,
 				22B1AD4B2DE0671000DEBED0 /* PlayerStyleTapeTableCell.swift in Sources */,
 				225F580E2D85B2AB0055BDFF /* NavidromeSection.swift in Sources */,
+				D01700000000000000000011 /* AppModeCoordinator.swift in Sources */,
+				D01700000000000000000012 /* MusicServerRootControllers.swift in Sources */,
+				D01700000000000000000013 /* MusicServerHomeViewController.swift in Sources */,
+				D01700000000000000000014 /* MusicServerCells.swift in Sources */,
+				D01700000000000000000015 /* MusicServerBrowseViewController.swift in Sources */,
+				D01700000000000000000016 /* MusicServerSession.swift in Sources */,
+				D01700000000000000000017 /* MusicServerWire.swift in Sources */,
+				D01700000000000000000018 /* MusicServerHistory.swift in Sources */,
 				22637C7C2D9BD36200D258BF /* CacheGroupModel.swift in Sources */,
 				224C9BD42DD0F26B000CCA6C /* AppDelegate+Action.swift in Sources */,
 				225F580F2D85B2AB0055BDFF /* MusicsViewController+Files.swift in Sources */,
@@ -2709,6 +2757,14 @@
 				228A14902CA0633400E2948E /* ConfigInfoKey.swift in Sources */,
 				22B1AD4A2DE0671000DEBED0 /* PlayerStyleTapeTableCell.swift in Sources */,
 				22436B142D72F0360004E09D /* NavidromeSection.swift in Sources */,
+				D01700000000000000000021 /* AppModeCoordinator.swift in Sources */,
+				D01700000000000000000022 /* MusicServerRootControllers.swift in Sources */,
+				D01700000000000000000023 /* MusicServerHomeViewController.swift in Sources */,
+				D01700000000000000000024 /* MusicServerCells.swift in Sources */,
+				D01700000000000000000025 /* MusicServerBrowseViewController.swift in Sources */,
+				D01700000000000000000026 /* MusicServerSession.swift in Sources */,
+				D01700000000000000000027 /* MusicServerWire.swift in Sources */,
+				D01700000000000000000028 /* MusicServerHistory.swift in Sources */,
 				22637C7B2D9BD36200D258BF /* CacheGroupModel.swift in Sources */,
 				224C9BD32DD0F26B000CCA6C /* AppDelegate+Action.swift in Sources */,
 				228A14362CA0633400E2948E /* MusicsViewController+Files.swift in Sources */,

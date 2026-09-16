@@ -79,9 +79,8 @@ extension WelcomeViewController {
         
         self.setupPlayerStyle(true)
         
-        let homeVC = kaka_IsMacOS() ? MacTabbarViewController(style: .doubleColumn) : HomeTabbarViewController()
-        let scene = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate
-        scene?.window?.rootViewController = homeVC
+        let scene = view.window?.windowScene?.delegate as? SceneDelegate
+        scene?.window?.rootViewController = scene?.modeCoordinator?.restoredRootController()
         scene?.window?.makeKeyAndVisible()
         
     }

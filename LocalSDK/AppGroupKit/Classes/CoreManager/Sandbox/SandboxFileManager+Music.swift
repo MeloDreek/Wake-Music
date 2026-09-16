@@ -15,6 +15,9 @@ extension MusicItemModel {
     /// Stable source/account key, independent of the human-readable filename and tags.
     public func preDownloadIdentity() -> String {
         var parts = [fileSourceType.rawValue, uniqueID()]
+        // Keep pre-download markers compatible with older versions. Account
+        // identity was already included below before queue IDs became scoped.
+        if let song = navidromeSong { parts[1] = "navidrome-\(song.id)" }
         if let file = webFileModel, let user = file.webdavUser {
             parts += [user.hostUrl, user.port ?? "", user.username ?? "", file.filePath]
         }

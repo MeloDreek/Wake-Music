@@ -229,7 +229,10 @@ public struct MusicItemModel: SmartCodableX, Equatable, Hashable, Sendable {
         if let file = pcloudFile { return file.identity }
         
         if let filePath = self.webFileModel?.filePath { return "webdav-\(filePath)" }
-        if let id = self.navidromeSong?.id { return "navidrome-\(id)" }
+        if let song = self.navidromeSong {
+            if let user = song.navUser { return "navidrome-\(user.accountIdentity)-\(song.id)" }
+            return "navidrome-\(song.id)"
+        }
         if let id = self.googleFile?.id { return "google-\(id)" }
         if let id = self.dropboxFile?.id { return "dropbox-\(id)" }
         if let id = self.onedriveFile?.id { return "onedrive-\(id)" }

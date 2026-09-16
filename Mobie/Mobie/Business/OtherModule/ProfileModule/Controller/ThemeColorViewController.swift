@@ -165,10 +165,8 @@ extension ThemeColorViewController: UICollectionViewDataSource, UICollectionView
     }
     
     @objc func dismissAnimation() {
-        let homeVC = kaka_IsMacOS() ? MacTabbarViewController(style: .doubleColumn) : HomeTabbarViewController()
-        let scene = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate
-        scene?.window?.rootViewController = homeVC
-        scene?.window?.makeKeyAndVisible()
+        let scene = view.window?.windowScene?.delegate as? SceneDelegate
+        scene?.modeCoordinator?.reloadCurrentMode()
         
     }
     

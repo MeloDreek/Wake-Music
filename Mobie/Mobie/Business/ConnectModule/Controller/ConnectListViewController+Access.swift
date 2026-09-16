@@ -46,8 +46,8 @@ extension ConnectListViewController {
         
         // 0️⃣Navidrome
         if let navUser = serverModel.navUser {
-            let navVC = NavidromeViewController(navUser: navUser)
-            self.navigationController?.pushViewController(navVC, animated: true)
+            AppModeCoordinator.enterNavidrome(navUser, from: self)
+            return
         }
         
         // 1️⃣WebDav

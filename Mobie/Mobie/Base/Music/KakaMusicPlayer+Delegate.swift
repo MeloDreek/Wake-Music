@@ -54,6 +54,9 @@ extension KakaMusicPlayer: @preconcurrency PlayerControllerDelegate {
         self.totalTime = totalTime
         self.currentTime = currentTime
         self.lastUpdateTime = currentTime
+        if currentTime >= 2, let model = self.playingMusic {
+            MusicServerHistory.recordPlayback(model)
+        }
         
 //        debugPrint("currentTime = \(currentTime), totalTime = \(totalTime)")
         

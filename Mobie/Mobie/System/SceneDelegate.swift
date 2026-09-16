@@ -16,6 +16,7 @@ import AliyunpanSDK
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
+    var modeCoordinator: AppModeCoordinator?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
@@ -24,6 +25,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 
         self.window = UIWindow(windowScene: windowScene)
         self.window?.backgroundColor = UIColor.systemBackground
+        if let window { self.modeCoordinator = AppModeCoordinator(window: window) }
         
 #if targetEnvironment(macCatalyst)
         if let titlebar = windowScene.titlebar {
@@ -36,8 +38,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let loginVC = WelcomeViewController()
             self.window?.rootViewController = loginVC
         }else{
-            let homeVC = kaka_IsMacOS() ? MacTabbarViewController(style: .doubleColumn) : HomeTabbarViewController()
-            self.window?.rootViewController = homeVC
+            self.window?.rootViewController = modeCoordinator?.restoredRootController()
         }
         
         self.window?.makeKeyAndVisible()

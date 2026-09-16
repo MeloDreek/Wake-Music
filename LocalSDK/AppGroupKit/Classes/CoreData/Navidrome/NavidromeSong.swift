@@ -124,31 +124,32 @@ public struct NavidromeSong: SmartCodableX {
         
         let maxBitRate = MusicConfigManager.shared.navMaxBitRate
         let format = MusicConfigManager.shared.navFormats.rawValue
-        let streamUrl = navUser.hostUrl + "/rest/stream" + navUser.subsonicParams() + "&id=\(self.id)" + "&maxBitRate=\(maxBitRate.rawValue)" + "&format=\(format)"
-        
-//        debugPrint("播放地址 = \(streamUrl)")
-        
-        return URL(string: streamUrl)
+        return navUser.subsonicURL(endpoint: "/rest/stream", parameters: [
+            URLQueryItem(name: "id", value: id),
+            URLQueryItem(name: "maxBitRate", value: String(maxBitRate.rawValue)),
+            URLQueryItem(name: "format", value: format)
+        ])
     }
     
     /// 下载地址
     public func downloadResURL() -> URL? {
         guard let navUser = self.navUser else { return nil }
         
-        let streamUrl = navUser.hostUrl + "/rest/stream" + navUser.subsonicParams() + "&id=\(self.id)" + "&maxBitRate=0" + "&format=raw"
-        
-        debugPrint("下载地址 = \(streamUrl)")
-        
-        return URL(string: streamUrl)
+        return navUser.subsonicURL(endpoint: "/rest/stream", parameters: [
+            URLQueryItem(name: "id", value: id),
+            URLQueryItem(name: "maxBitRate", value: "0"),
+            URLQueryItem(name: "format", value: "raw")
+        ])
     }
     
     /// 封面地址
     public func coverImgURL() -> URL? {
         guard let navUser = self.navUser else { return nil }
         
-        let urlStr = navUser.hostUrl + API.Subsonic.coverArt + navUser.subsonicParams() + "&id=\(self.id)" + "&size=\(100.ckValue())"
-        
-        return URL(string: urlStr ?? "")
+        return navUser.subsonicURL(endpoint: API.Subsonic.coverArt, parameters: [
+            URLQueryItem(name: "id", value: coverArt.isEmpty ? id : coverArt),
+            URLQueryItem(name: "size", value: "300")
+        ])
     }
     
 }

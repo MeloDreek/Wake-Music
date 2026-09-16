@@ -34,20 +34,7 @@ extension MacTabbarViewController {
         self.toolbarView.musicModel = playingMusic
         self.toolbarView.playStatus = KakaMusicPlayer.shared.playbackStatus
         
-        if let playingMusic = playingMusic, !playingMusic.isLocalFile() {
-            var sortedArray = ConnectConfigManager.shared.lastPlaylist.sorted(by: { element1, element2 in
-                return element1.sortAnotherModel(model2: element2, sortType: MusicConfigManager.shared.sortType)
-            })
-            
-            if !UserInfoManager.shared.isVIP() {
-                let demoMusic = MusicItemModel.demoMusicModel()
-                self.toolbarView.musicModel = demoMusic
-                sortedArray = [demoMusic]
-            }
-            
-            KakaMusicPlayer.shared.musicArray = sortedArray
-            KakaMusicPlayer.shared.tempMusicArray = sortedArray
-        }
+        KakaMusicPlayer.shared.restoreRemoteQueueIfNeeded()
         
     }
     
@@ -73,6 +60,5 @@ extension MacTabbarViewController {
         scene?.window?.makeKeyAndVisible()
     }
 }
-
 
 

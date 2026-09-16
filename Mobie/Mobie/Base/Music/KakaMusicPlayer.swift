@@ -78,6 +78,16 @@ public class KakaMusicPlayer: NSObject, ObservableObject {
     func removeDuplicate(_ list: [MusicItemModel]) -> [MusicItemModel] {
         PlaybackQueue.unique(list, id: { $0.uniqueID() })
     }
+
+    /// Restore once at cold launch; entering another shell or foregrounding a
+    /// second window must not replace/re-sort an active playback queue.
+    func restoreRemoteQueueIfNeeded() {
+        guard musicArray.isEmpty, let current = playingMusic, !current.isLocalFile() else { return }
+        let saved = ConnectConfigManager.shared.lastPlaylist
+        let items = saved.contains(where: { $0.uniqueID() == current.uniqueID() }) ? saved : [current]
+        musicArray = items
+        tempMusicArray = items
+    }
     
     // 播放列表最初的排序
     private var originalQueue: [MusicItemModel] = []

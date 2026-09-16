@@ -37,7 +37,7 @@ extension MacTabbarViewController: DocumentFolderWatcherDelegate {
         
         self.toolbarView.isHidden = !isToolBar
 
-        if allCount == 0 {
+        if allCount == 0 && KakaMusicPlayer.shared.playingMusic == nil {
             let demoModel = MusicItemModel.demoMusicModel()
             KakaMusicPlayer.shared.playingMusic = demoModel
             KakaMusicPlayer.shared.musicArray = [demoModel]
@@ -118,4 +118,3 @@ extension MacTabbarViewController: PlayingControlViewDelegate, UIPopoverPresenta
     }
     
 }
-

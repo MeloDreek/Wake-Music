@@ -49,11 +49,10 @@ class DocumentFolderWatcher {
             }
         }
 
-        folderSource?.setCancelHandler { [weak self] in
-            guard let self = self else { return }
-            close(self.folderDescriptor)
-            self.folderDescriptor = -1
-        }
+        // The old root can deallocate before cancellation is delivered. Capture
+        // this descriptor, not self/a mutable descriptor from a later watch.
+        let watchedDescriptor = folderDescriptor
+        folderSource?.setCancelHandler { close(watchedDescriptor) }
 
         folderSource?.resume()
         
@@ -65,6 +64,7 @@ class DocumentFolderWatcher {
     func stopWatching() {
         folderSource?.cancel()
         folderSource = nil
+        folderDescriptor = -1
     }
 
     /// 文件夹变化处理
