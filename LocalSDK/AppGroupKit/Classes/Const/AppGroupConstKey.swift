@@ -82,6 +82,13 @@ public let Aliyun_Scopes = "user:base,file:all:read"
 public let pCloud_AppID = "A7jNL6xFoK4"
 public let pCloud_RedirectURL = "pclsdk-w-a7jnl6xfok4"
 
+// 115: client-side authorization is a consciously accepted product trade-off.
+// A shipped application cannot keep this application secret confidential.
+public let Drive115_ClientID = "100196055"
+public let Drive115_ClientSecret = "03c66caf7a8ee03769a6258060bc3d6c"
+// Intercepted by WKNavigationDelegate; no callback endpoint is deployed.
+public let Drive115_RedirectURL = "https://passlockapp.com/oauth/115/callback"
+
 // BOX
 public let Box_ClientID = "4t1hcuwcq410dxxq1krq3364og8oudtj"
 public let Box_ClientSecret = "Xh4skrn1UaDQgDfMhGbIbUJQZgtS77Q0"

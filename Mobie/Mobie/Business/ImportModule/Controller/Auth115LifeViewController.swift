@@ -69,390 +69,379 @@ struct Response115_LoginData: SmartCodableX {
 }
 
 
-// 手机扫码授权PKCE模式
+/// Default: official web authorization. QR / PKCE remains available in the same sheet.
 class Auth115LifeViewController: SuperViewController {
-    
+    private enum Mode { case web, qr }
+    private var mode = Mode.web
+    private var attempt = UUID()
+    private var request: DataRequest?
+    private var pollWork: DispatchWorkItem?
+    private var webState: String?
+    private var isExchanging = false
+    private var didFinish = false
+    private var pkceModel: Response115_LoginData?
+    private var code_verifier: String?
+    private let onSuccess: (Drive115UserModel) -> Void
+
     init(onSuccess: @escaping (Drive115UserModel) -> Void) {
         self.onSuccess = onSuccess
         super.init(nibName: nil, bundle: nil)
     }
+    required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
 
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    deinit {
+        request?.cancel()
+        pollWork?.cancel()
     }
-    
+
     override func preSetupSubViews() {
         super.preSetupSubViews()
-        contentView.addSubview(qrcodeImgView)
-        contentView.addSubview(loadingView)
-        contentView.addSubview(refreshButton)
-        contentView.addSubview(messageLabel)
-        contentView.addSubview(saveButton)
+        [webView, qrcodeImgView, refreshButton, messageLabel, saveButton, loadingView].forEach { contentView.addSubview($0) }
     }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        loadingView.frame = CGRectMake((contentView.width - loadingView.width) / 2, (contentView.height - loadingView.height) / 2, loadingView.width, loadingView.height)
 
-        qrcodeImgView.snp.remakeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.centerY.equalToSuperview().offset(kaka_IsMacOS() ? -30.ckValue() : -contentView.height * 0.15)
-            make.size.equalTo(qrcodeImgView.size)
-        }
-        
-        refreshButton.snp.remakeConstraints { make in
-            make.edges.equalTo(qrcodeImgView)
-        }
-        
-        messageLabel.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.top.equalTo(qrcodeImgView.snp.bottom).offset(40.ckValue())
-            make.leading.equalTo(20.ckValue())
-            make.height.greaterThanOrEqualTo(0)
-        }
-        
-        saveButton.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.top.equalTo(messageLabel.snp.bottom).offset(35.ckValue())
-            make.width.equalTo(qrcodeImgView.snp.width).multipliedBy(1.2)
-            make.height.equalTo(50.ckValue())
-        }
-        
-    }
-    
     override func preSetupHandleBuness() {
         super.preSetupHandleBuness()
-        
-        self.title = ImportFileType.from115Drive.titleStr()
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelButtonClick))
-        self.refreshAuthQrCode()
-        
-        // 监听网络变化
-        NotificationCenter.default.addObserver(self, selector: #selector(reachabilityChanged(note:)), name: .reachabilitySwiftChanged, object: reachability)
-        
-        try? self.reachability.startNotifier()
-        
+        title = ImportFileType.from115Drive.titleStr()
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelButtonClick))
+        startWebLogin()
     }
-    
-    // 网络状态变化了
-    @objc func reachabilityChanged(note: Notification) {
-        guard let reachability = note.object as? ReachabilitySwift else { return }
-        
-        debugPrint("当前网络授权状况 = \(reachability.connection.description)")
-        
-        self.netConnect = reachability.connection
-        
-        if self.netConnect == .unavailable {
-            self.showTwoAlert(message: "Network access is disabled. Enable it for the best experience.".localStr(), confirm: "Settings".localStr(), cancle: "Cancel".localStr()) {
-                guard let vURL = URL(string: UIApplication.openSettingsURLString) else { return }
-                UIApplication.shared.open(vURL)
-            }
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        webView.frame = contentView.bounds
+        let width = min(280, max(100, contentView.bounds.width - 48), contentView.bounds.height * 0.43)
+        qrcodeImgView.frame = CGRect(x: (contentView.bounds.width - width) / 2, y: max(view.safeAreaInsets.top + 24, contentView.bounds.height * 0.10), width: width, height: width)
+        refreshButton.frame = qrcodeImgView.frame
+        messageLabel.frame = CGRect(x: 24, y: qrcodeImgView.frame.maxY + 24, width: contentView.bounds.width - 48, height: 80)
+        saveButton.frame = CGRect(x: (contentView.bounds.width - width) / 2, y: messageLabel.frame.maxY + 16, width: width, height: 48)
+        loadingView.center = CGPoint(x: contentView.bounds.midX, y: contentView.bounds.midY)
+    }
+
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        // Interactive sheet dismissal must not leave QR polling or token requests alive.
+        if isBeingDismissed || navigationController?.isBeingDismissed == true || isMovingFromParent {
+            stopAuthorization()
         }
     }
-    
-    // 1️⃣刷新授权二维码
+
+    @objc override func cancelButtonClick() {
+        stopAuthorization()
+        super.cancelButtonClick()
+    }
+
+    private func stopAuthorization() {
+        attempt = UUID()
+        request?.cancel()
+        request = nil
+        pollWork?.cancel()
+        pollWork = nil
+        webView.stopLoading()
+        webState = nil
+        isExchanging = false
+        pkceModel = nil
+        code_verifier = nil
+        loadingView.stopAnimating()
+    }
+
+    private func setMode(_ newMode: Mode) {
+        stopAuthorization()
+        mode = newMode
+        didFinish = false
+        webView.isHidden = newMode != .web
+        [qrcodeImgView, refreshButton, messageLabel, saveButton].forEach { $0.isHidden = true }
+        let title = (newMode == .web ? "Scan QR Code" : "Sign In").localStr()
+        let button = UIBarButtonItem(title: title, style: .plain, target: self, action: #selector(switchLoginMode))
+        button.image = UIImage(systemName: newMode == .web ? "qrcode" : "globe")
+        button.accessibilityLabel = title
+        navigationItem.rightBarButtonItem = button
+    }
+
+    @objc private func switchLoginMode() {
+        if mode == .web { refreshAuthQrCode() } else { startWebLogin() }
+    }
+
+    private func startWebLogin() {
+        setMode(.web)
+        let state = generateRandomString(length: 48)
+        webState = state
+        guard let url = Drive115WebOAuth.authorizationURL(clientID: Drive115_ClientID, redirectURI: Drive115_RedirectURL, state: state) else {
+            failAuthorization()
+            return
+        }
+        loadingView.startAnimating()
+        webView.load(URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 30))
+    }
+
+    private func failAuthorization(code: Int? = nil) {
+        guard !didFinish else { return }
+        stopAuthorization()
+        let message = "Authentication Failed".localStr() + (code.map { " (\($0))" } ?? "")
+        // Do not show raw HTTP responses, request URLs, codes, secrets or tokens.
+        showTwoAlert(message: message, confirm: "Retry".localStr(), cancle: "Cancel".localStr()) { [weak self] in
+            guard let self else { return }
+            if self.mode == .web { self.startWebLogin() } else { self.refreshAuthQrCode() }
+        }
+    }
+
+    // QR fallback uses the original official PKCE endpoints, with cancellable polling.
     @objc func refreshAuthQrCode() {
-        let url = "https://passportapi.115.com/open/authDeviceCode"
-        
-        let headers: HTTPHeaders = ["Content-Type": "application/x-www-form-urlencoded"]
-        
+        setMode(.qr)
+        let id = attempt
+        messageLabel.text = "Please use the Cloud Storage app to scan this QR code to log in".localStr()
+        loadingView.startAnimating()
         let parameters: Parameters = [
-            "client_id": client_id,
-            "code_challenge": self.generatePKCE(),
+            "client_id": Drive115_ClientID,
+            "code_challenge": generatePKCE(),
             "code_challenge_method": "sha256"
         ]
-        
-        debugPrint("1️⃣open/authDeviceCode参数 = \(parameters)")
-        
-        self.isPolling = false
-        self.messageLabel.text = self.message
-        self.messageLabel.isHidden = true
-        self.saveButton.isHidden = true
-        self.qrcodeImgView.isHidden = true
-        self.refreshButton.isHidden = true
-        self.loadingView.startAnimating()
-        
-        AF.request(url, method: .post, parameters: parameters, headers: headers).responseString { response in
-            self.loadingView.stopAnimating()
-            self.messageLabel.isHidden = false
-            self.saveButton.isHidden = kaka_IsMacOS()
-            self.qrcodeImgView.isHidden = false
-
-            switch response.result {
-            case .success(let responseString):
-                
-                debugPrint("1️⃣open/authDeviceCode/返回 = \(responseString)")
-
-                guard let response = Response115_LoginModel.deserialize(from: responseString)  else {
-                    self.showOneAlert(message: responseString)
+        request = AF.request("https://passportapi.115.com/open/authDeviceCode", method: .post,
+                             parameters: parameters, encoding: URLEncoding.httpBody)
+            .redirect(using: Redirector(behavior: .doNotFollow))
+            .validate(statusCode: 200..<300).responseData { [weak self] result in
+                guard let self, self.attempt == id, self.mode == .qr else { return }
+                guard let bytes = result.data, result.error == nil,
+                      let response = Response115_LoginModel.deserialize(from: String(data: bytes, encoding: .utf8)),
+                      let qr = response.data, !qr.uid.isEmpty, !qr.qrcode.isEmpty else {
+                    self.failAuthorization()
                     return
                 }
-                
-                self.pkceModel = response.data
-                let logoImage = ImportFileType.from115Drive.iconImage()
-                self.qrcodeImgView.image = self.pkceModel?.qrcode.generateQRCode(logoImage)
-                
-                self.refreshQrCodeStatus()
-                                
-                break
-            case .failure(let error):
-                debugPrint("Request failed with error: \(error)")
-                self.showOneAlert(message: error.localizedDescription) {
-                    self.cancelButtonClick()
-                }
+                self.pkceModel = qr
+                self.qrcodeImgView.image = qr.qrcode.generateQRCode(ImportFileType.from115Drive.iconImage())
+                self.qrcodeImgView.isHidden = false
+                self.messageLabel.isHidden = false
+                self.saveButton.isHidden = kaka_IsMacOS()
+                self.loadingView.stopAnimating()
+                self.pollQRCode(id: id)
             }
-        }
     }
-    
-    // 2️⃣轮询二维码状态
-    @objc func refreshQrCodeStatus() {
-                
-        guard let pkceModel = self.pkceModel else { return }
-        
-        let url = "https://qrcodeapi.115.com/get/status/"
-                
-        let parameters: Parameters = [
-            "uid": pkceModel.uid,
-            "time": pkceModel.time,
-            "sign": pkceModel.sign
-        ]
-        
-        debugPrint("2️⃣get/status/参数 = \(parameters)")
-        
-        AF.request(url, method: .get, parameters: parameters).responseString { response in
-            self.loadingView.stopAnimating()
 
-            switch response.result {
-            case .success(let responseString):
-                debugPrint("2️⃣get/status/返回 = \(responseString)")
-                guard let response = Response115_LoginModel.deserialize(from: responseString)  else {
-                    self.showOneAlert(message: responseString)
+    private func schedulePoll(id: UUID) {
+        pollWork?.cancel()
+        let work = DispatchWorkItem { [weak self] in self?.pollQRCode(id: id) }
+        pollWork = work
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: work)
+    }
+
+    private func pollQRCode(id: UUID) {
+        guard attempt == id, mode == .qr, !isExchanging, let qr = pkceModel else { return }
+        let parameters: Parameters = ["uid": qr.uid, "time": qr.time, "sign": qr.sign]
+        request = AF.request("https://qrcodeapi.115.com/get/status/", parameters: parameters,
+                             requestModifier: { $0.timeoutInterval = 30 })
+            .redirect(using: Redirector(behavior: .doNotFollow))
+            .validate(statusCode: 200..<300).responseData { [weak self] result in
+                guard let self, self.attempt == id, self.mode == .qr else { return }
+                guard result.error == nil, let bytes = result.data,
+                      let response = Response115_LoginModel.deserialize(from: String(data: bytes, encoding: .utf8)) else {
+                    self.schedulePoll(id: id)
                     return
                 }
-                
-                if response.state == 0 {
-                    // 二维码无效，结束轮询，显示重新刷新二维码按按钮
-                    self.messageLabel.text = response.message ?? self.message
+                if response.state == 0 || response.data?.status == -1 || response.data?.status == -2 {
                     self.refreshButton.isHidden = false
                     return
                 }
-                
-                if response.state == 1 && !self.isPolling {
-                    self.isPolling = true
-                    self.refreshQrCodeStatus()
-                }
-                
-                if response.data?.status == -2 {
-                    // -2：已取消登录，请刷新重试
-                    self.showOneAlert(message: response.data?.msg ?? "", confirm: "OK".localStr()) {
-                        self.refreshAuthQrCode()
-                    }
-                    return
-                }
-                
-                if response.data?.status == 1 {
-                    // 1.扫码成功，等待确认
-                    self.messageLabel.text = response.data?.msg ?? self.message
-                }
-                
                 if response.data?.status == 2 {
-                    // 2.确认登录/授权，结束轮询
-                    self.get115DriveToken()
+                    guard let verifier = self.code_verifier else { self.failAuthorization(); return }
+                    self.exchangeToken(url: "https://passportapi.115.com/open/deviceCodeToToken/",
+                                       parameters: ["uid": qr.uid, "code_verifier": verifier], id: id)
+                } else {
+                    self.schedulePoll(id: id)
                 }
-                
-            case .failure(let error):
-                self.perform(#selector(self.refreshQrCodeStatus), with: nil, afterDelay: 2)
-                debugPrint("Request failed with error1: \(error)")
-                break
             }
-        }
     }
-    
-    /// 3️⃣用设备码换取 access_token
-    func get115DriveToken() {
-        let url = "https://passportapi.115.com/open/deviceCodeToToken/"
-        
-        let headers: HTTPHeaders = ["Content-Type": "application/x-www-form-urlencoded"]
-        
-        let parameters: Parameters = [
-            "uid": self.pkceModel?.uid ?? "",
-            "code_verifier": self.code_verifier ?? ""
-        ]
-        
-        debugPrint("3️⃣open/deviceCodeToToken/参数 = \(parameters)")
-        
-        AF.request(url, method: .post, parameters: parameters, headers: headers).responseString { response in
 
-            switch response.result {
-            case .success(let responseString):
-                
-                debugPrint("3️⃣open/deviceCodeToToken返回 = \(responseString)")
-
-                guard let response = Response115_LoginModel.deserialize(from: responseString)  else {
-                    self.showOneAlert(message: responseString)
+    private func exchangeToken(url: String, parameters: Parameters, id: UUID) {
+        guard attempt == id, !isExchanging, !didFinish else { return }
+        isExchanging = true
+        pollWork?.cancel()
+        loadingView.startAnimating()
+        request = AF.request(url, method: .post, parameters: parameters, encoding: URLEncoding.httpBody,
+                             requestModifier: { $0.timeoutInterval = 30 })
+            .redirect(using: Redirector(behavior: .doNotFollow))
+            .validate(statusCode: 200..<300).responseData { [weak self] result in
+                guard let self, self.attempt == id, !self.didFinish else { return }
+                guard result.error == nil, let bytes = result.data,
+                      let response = Response115_LoginModel.deserialize(from: String(data: bytes, encoding: .utf8)) else {
+                    self.failAuthorization()
                     return
                 }
-                
-                if response.code == 0 {
-                    self.get115UserInfo(access_token: response.data?.access_token ?? "") { model in
-                        var userModel = model
-                        userModel.access_token = response.data?.access_token ?? ""
-                        userModel.refresh_token = response.data?.refresh_token ?? ""
-                        userModel.expires_in = response.data?.expires_in ?? 0
-                        
-                        let serverModel = ServerConfigModel(serverType: .from115Drive, drive115User: userModel)
-                        ConnectConfigManager.shared.addOrUpdateRemoteServer(serverModel: serverModel) {
-                            if self.routeImportedServer(serverModel) {
-                                NotificationCenter.default.post(name: Notification.Name(kLoginThirdServerKey), object: nil)
-                                return
-                            }
-                            self.onSuccess(userModel)
-                            NotificationCenter.default.post(name: Notification.Name(kLoginThirdServerKey), object: nil)
-                            self.cancelButtonClick()
-                        }
-                        
-                    }
-                }else{
-                    self.showOneAlert(message: response.message ?? "", confirm: "OK".localStr()) {
-                        self.cancelButtonClick()
-                    }
-                }
-                                                
-                break
-            case .failure(let error):
-                debugPrint("Request failed with error2: \(error)")
-                self.showOneAlert(message: error.localizedDescription)
-            }
-        }
-    }
-    
-    /// 4️⃣获取用户信息
-    func get115UserInfo(access_token: String, completion: ((Drive115UserModel)->Void)? = nil) {
-        
-        let url = "https://proapi.115.com/open/user/info"
-        let headers: HTTPHeaders = ["Authorization": "Bearer \(access_token)"]
-        
-        AF.request(url, method: .get, headers: headers).responseData { response in
-            switch response.result {
-            case .success(let data):
-                
-                debugPrint("4️⃣open/user/info返回 = \(String(data: data, encoding: .utf8) ?? "")")
-
-                guard let dict = try? JSONSerialization.jsonObject(with: data) as? [String: Any], let state = dict["state"] as? Bool, state, let dataJson = dict["data"] as? [String: Any], let userModel = Drive115UserModel.deserialize(from: dataJson) else {
-                    let errorMsg = String(data: data, encoding: .utf8) ?? ""
-                    self.showOneAlert(message: errorMsg) {
-                        self.cancelButtonClick()
-                    }
+                guard response.code == 0, let token = response.data,
+                      let access = token.access_token, !access.isEmpty,
+                      let refresh = token.refresh_token, !refresh.isEmpty else {
+                    self.failAuthorization(code: response.code)
                     return
                 }
-                                
-                completion?(userModel)
-                
-                break
-            case .failure(let afError):
-                debugPrint("afError = \(afError.localizedDescription)")
-                self.showOneAlert(message: afError.localizedDescription) {
+                self.fetchUser(token: token, id: id)
+            }
+    }
+
+    private func fetchUser(token: Response115_LoginData, id: UUID) {
+        guard attempt == id, let access = token.access_token else { return }
+        request = AF.request("https://proapi.115.com/open/user/info",
+                             headers: ["Authorization": "Bearer \(access)"],
+                             requestModifier: { $0.timeoutInterval = 30 })
+            .redirect(using: Redirector(behavior: .doNotFollow))
+            .validate(statusCode: 200..<300).responseData { [weak self] result in
+                guard let self, self.attempt == id, !self.didFinish else { return }
+                guard result.error == nil, let bytes = result.data,
+                      let json = try? JSONSerialization.jsonObject(with: bytes) as? [String: Any],
+                      (json["state"] as? NSNumber)?.boolValue == true,
+                      let data = json["data"] as? [String: Any],
+                      var user = Drive115UserModel.deserialize(from: data), !user.user_id.isEmpty else {
+                    self.failAuthorization()
+                    return
+                }
+                user.access_token = token.access_token ?? ""
+                user.refresh_token = token.refresh_token ?? ""
+                user.expires_in = token.expires_in ?? 0
+                self.didFinish = true
+                self.loadingView.stopAnimating()
+                let server = ServerConfigModel(serverType: .from115Drive, drive115User: user)
+                ConnectConfigManager.shared.addOrUpdateRemoteServer(serverModel: server) { [weak self] in
+                    guard let self, self.attempt == id else { return }
+                    self.stopAuthorization()
+                    if self.routeImportedServer(server) {
+                        NotificationCenter.default.post(name: Notification.Name(kLoginThirdServerKey), object: nil)
+                        return
+                    }
+                    self.onSuccess(user)
+                    NotificationCenter.default.post(name: Notification.Name(kLoginThirdServerKey), object: nil)
                     self.cancelButtonClick()
                 }
-                break
             }
-        }
     }
-    
-    /*
-     4️⃣open/user/info返回 = {\"state\":true,\"message\":\"\",\"code\":0,\"data\":{\"user_id\":102561708,\"user_name\":\"102561708\",\"user_face_s\":\"https:\\/\\/avatars.115.com\\/01\\/gb6zzt_s.jpg\",\"user_face_m\":\"https:\\/\\/avatars.115.com\\/01\\/gb6zzt_m.jpg\",\"user_face_l\":\"https:\\/\\/avatars.115.com\\/01\\/gb6zzt_l.jpg\",\"rt_space_info\":{\"all_total\":{\"size\":16106127360,\"size_format\":\"15GB\"},\"all_remain\":{\"size\":13215197196,\"size_format\":\"12.31GB\"},\"all_use\":{\"size\":2890930164,\"size_format\":\"2.69GB\"}},\"vip_info\":{\"expire\":0,\"level_name\":\"\\u539f\\u77f3\\u4f1a\\u5458\",\"tp_rights\":{\"is_tp_rights\":0,\"tp_rights_time\":0}}}}
-     */
-    
-    // MARK:  GET && SET
-    let client_id = "100196055"
-    
-    /// 授权的二维码信息
-    var pkceModel: Response115_LoginData?
-    
-    /// 上一步计算 code_challenge 的原值 code_verifier
-    var code_verifier: String?
-    
-    /// 默认文案
-    let message = "Please use the Cloud Storage app to scan this QR code to log in".localStr()
-    
-    /// 正在轮询
-    var isPolling: Bool = false
-    
-    private let onSuccess: (Drive115UserModel) -> Void
-    
-    var netConnect: ReachabilitySwift.Connection = .unavailable
-    
-    lazy var reachability: ReachabilitySwift = {
-        return try! ReachabilitySwift()
+
+    private lazy var webView: WKWebView = {
+        let config = WKWebViewConfiguration()
+        config.websiteDataStore = .nonPersistent()
+        let web = WKWebView(frame: .zero, configuration: config)
+        web.navigationDelegate = self
+        web.uiDelegate = self
+        web.allowsBackForwardNavigationGestures = true
+        return web
     }()
-    
-    var appMainColor: UIColor {
-        get {
-            if ColorFontManager.shared.accentTyle == .color0 {
-                return ColorFontManager.shared.defaultType.color()
-            }else{
-                return ColorFontManager.shared.accentTyle.color()
+    private lazy var loadingView = NVActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 28, height: 28), type: .lineScalePulseOutRapid, color: .label)
+    private let qrcodeImgView: UIImageView = {
+        let image = UIImageView()
+        image.contentMode = .scaleAspectFit
+        return image
+    }()
+    private lazy var refreshButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.backgroundColor = UIColor.black.withAlphaComponent(0.5)
+        button.setImage(UIImage(systemName: "arrow.clockwise"), for: .normal)
+        button.tintColor = .white
+        button.accessibilityLabel = "Retry".localStr()
+        button.addTarget(self, action: #selector(refreshAuthQrCode), for: .touchUpInside)
+        return button
+    }()
+    private let messageLabel: UILabel = {
+        let label = UILabel()
+        label.numberOfLines = 0
+        label.textAlignment = .center
+        label.font = .preferredFont(forTextStyle: .body)
+        return label
+    }()
+    private lazy var saveButton: UIButton = {
+        let button = UIButton(type: .system)
+        var config = UIButton.Configuration.filled()
+        config.title = "Save QR Code".localStr()
+        button.configuration = config
+        button.addTarget(self, action: #selector(saveButtonClick), for: .touchUpInside)
+        return button
+    }()
+}
+
+extension Auth115LifeViewController: WKNavigationDelegate, WKUIDelegate {
+    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction,
+                 decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+        guard mode == .web, !didFinish, let url = navigationAction.request.url else { decisionHandler(.cancel); return }
+        if url.absoluteString == "about:blank", navigationAction.targetFrame?.isMainFrame == false {
+            decisionHandler(.allow)
+            return
+        }
+        if Drive115WebOAuth.isCallbackHost(url, redirectURI: Drive115_RedirectURL) {
+            // Cancel BEFORE requesting the company's URL, even on malformed callbacks.
+            decisionHandler(.cancel)
+            guard navigationAction.targetFrame?.isMainFrame != false, !isExchanging else { return }
+            guard let state = webState,
+                  let code = Drive115WebOAuth.authorizationCode(url, redirectURI: Drive115_RedirectURL, expectedState: state) else {
+                failAuthorization()
+                return
             }
+            webState = nil // Consume exactly once.
+            exchangeToken(url: "https://passportapi.115.com/open/authCodeToToken", parameters: [
+                "client_id": Drive115_ClientID, "client_secret": Drive115_ClientSecret,
+                "code": code, "redirect_uri": Drive115_RedirectURL, "grant_type": "authorization_code"
+            ], id: attempt)
+            return
         }
+        guard url.scheme == "https", let host = url.host?.lowercased(),
+              host == "115.com" || host.hasSuffix(".115.com") else {
+            decisionHandler(.cancel)
+            return
+        }
+        decisionHandler(.allow)
     }
-    
-    // MARK:  懒加载
-    lazy var loadingView: NVActivityIndicatorView = {
-        let valueSize = 25.ckValue()
-        let frame = CGRectMake(0, 0, valueSize, valueSize)
-        let view = NVActivityIndicatorView(frame: frame, type: .lineScalePulseOutRapid, color: appMainColor)
-        return view
-    }()
-    
-    lazy var qrcodeImgView: UIImageView = {
-        var qrcodeWidth = min(contentView.width, contentView.height) * 0.65
-        switch kaka_osType() {
-        case .iOS: qrcodeWidth = min(contentView.width, contentView.height) * 0.65
-        case .macOS: qrcodeWidth = 300.ckValue()
-        case .iPadOS: qrcodeWidth = 200.ckValue()
-        }
-        
-        let view = UIImageView(frame: CGRectMake(0, 0, qrcodeWidth, qrcodeWidth))
-        view.contentMode = .scaleAspectFill
-        view.layer.masksToBounds = true
-        return view
-    }()
-    
-    lazy var refreshButton: UIButton = {
-        let view = UIButton(type: .custom)
-        view.isHidden = true
-        view.backgroundColor = UIColor.black.withAlphaComponent(0.5)
-        view.setImage(Reasource.systemNamed("arrow.clockwise", color: .white), for: .normal)
-        view.addTarget(self, action: #selector(refreshAuthQrCode), for: .touchUpInside)
-        return view
-    }()
-    
-    lazy var messageLabel: UILabel = {
-        let view = UILabel()
-        view.text = self.message
-        view.numberOfLines = 0
-        view.font = UIFontLight(16.ckValue())
-        view.textAlignment = .center
-        view.textColor = .label
-        return view
-    }()
-    
-    lazy var saveButton: UIButton = {
-        let isDark = AppLocalManager.shared.appearanceStyle == .dark || self.overrideUserInterfaceStyle == .dark
-        let tintColor = (ColorFontManager.shared.accentTyle == .color0 && isDark) ? UIColor.deAccent : UIColor.white
-        
-        let view = UIButton(type: .custom)
-        view.isHidden = kaka_IsMacOS()
-        view.layer.masksToBounds = true
-        view.layer.cornerRadius = 5.ckValue()
-        view.setTitle("Save QR Code".localStr(), for: .normal)
-        view.setTitleColor(tintColor, for: .normal)
-        view.backgroundColor = appMainColor
-        view.titleLabel?.font = UIFontBold(16.ckValue())
-        view.addTarget(self, action: #selector(saveButtonClick), for: .touchUpInside)
-        return view
-    }()
-    
+
+    func webView(_ webView: WKWebView, createWebViewWith configuration: WKWebViewConfiguration,
+                 for navigationAction: WKNavigationAction, windowFeatures: WKWindowFeatures) -> WKWebView? {
+        // Keep target=_blank inside the same delegate-controlled authorization view.
+        if navigationAction.targetFrame == nil, let url = navigationAction.request.url,
+           url.scheme == "https" { webView.load(navigationAction.request) }
+        return nil
+    }
+
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        if !isExchanging { loadingView.stopAnimating() }
+    }
+    func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
+        handleWebError(error)
+    }
+    func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
+        handleWebError(error)
+    }
+    private func handleWebError(_ error: Error) {
+        let error = error as NSError
+        guard mode == .web, !isExchanging, !didFinish, webState != nil,
+              error.code != NSURLErrorCancelled,
+              !(error.domain == "WebKitErrorDomain" && error.code == 102) else { return }
+        failAuthorization()
+    }
+}
+
+/// Pure URL validation for the in-app HTTPS callback. Does not contain secrets.
+enum Drive115WebOAuth {
+    static func authorizationURL(clientID: String, redirectURI: String, state: String) -> URL? {
+        guard !clientID.isEmpty, !state.isEmpty,
+              let redirect = URL(string: redirectURI), redirect.scheme == "https", redirect.host != nil else { return nil }
+        var url = URLComponents(string: "https://passportapi.115.com/open/authorize")!
+        url.queryItems = [URLQueryItem(name: "client_id", value: clientID),
+                          URLQueryItem(name: "redirect_uri", value: redirectURI),
+                          URLQueryItem(name: "response_type", value: "code"),
+                          URLQueryItem(name: "state", value: state)]
+        return url.url
+    }
+
+    static func isCallbackHost(_ url: URL, redirectURI: String) -> Bool {
+        guard let host = URL(string: redirectURI)?.host?.lowercased() else { return false }
+        return url.host?.lowercased() == host
+    }
+
+    static func authorizationCode(_ url: URL, redirectURI: String, expectedState: String) -> String? {
+        guard !expectedState.isEmpty, let expected = URL(string: redirectURI),
+              isCallbackHost(url, redirectURI: redirectURI), url.scheme == "https",
+              (url.port ?? 443) == (expected.port ?? 443),
+              url.path == expected.path, url.user == nil, url.password == nil,
+              url.fragment == nil, let query = URLComponents(url: url, resolvingAgainstBaseURL: false)?.queryItems else { return nil }
+        let states = query.filter { $0.name == "state" }
+        let codes = query.filter { $0.name == "code" }
+        guard !query.contains(where: { $0.name == "error" }),
+              states.count == 1, states[0].value == expectedState,
+              codes.count == 1, let code = codes[0].value,
+              !code.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else { return nil }
+        return code
+    }
 }
 
 extension Auth115LifeViewController {
@@ -514,8 +503,7 @@ extension Auth115LifeViewController {
         let verifierData = codeVerifier.data(using: .utf8)!
         let challengeData = sha256(data: verifierData)
         let code_challenge = base64UrlEncode(data: challengeData)
-        
-        debugPrint("codeVerifier = \(codeVerifier), 长度 = \(codeVerifier.count)")
+
         self.code_verifier = codeVerifier
         
         return code_challenge
@@ -560,131 +548,3 @@ extension Auth115LifeViewController {
     }
     
 }
-
-
-
-
-//class Auth115LifeViewController: SuperViewController {
-//    
-//    init(onSuccess: @escaping (Drive115UserModel) -> Void) {
-//        self.onSuccess = onSuccess
-//        super.init(nibName: nil, bundle: nil)
-//    }
-//    
-//    @MainActor public required init?(coder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
-//    
-//    override func preSetupSubViews() {
-//        super.preSetupSubViews()
-//        
-//        contentView.addSubview(webView)
-//        contentView.addSubview(loadingView)
-//    }
-//    
-//    override func viewDidLayoutSubviews() {
-//        super.viewDidLayoutSubviews()
-//        
-//        let navbarHeight = self.navigationController?.navigationBar.height ?? 44
-//        webView.frame = CGRectMake(0, navbarHeight, contentView.width, contentView.height)
-//        loadingView.frame = CGRectMake((contentView.width - loadingView.width) / 2, (contentView.height - loadingView.height) / 2, loadingView.width, loadingView.height)
-//    }
-//    
-//    override func preSetupHandleBuness() {
-//        super.preSetupHandleBuness()
-//        
-//        self.title = ImportFileType.from115Drive.titleStr()
-//        self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelButtonClick))
-//        self.refreshAuthQrCode()
-//    }
-//    
-//    
-//    
-//    func refreshAuthQrCode() {
-//        let url = "https://passportapi.115.com/open/authorize"
-//        
-//        let parameters: Parameters = [
-//            "client_id": client_id,
-//            "redirect_uri": Self.drive115RedirectURI,
-//            "response_type": "code",
-//            "state": Date().convertString()
-//        ]
-//        
-//        self.loadingView.startAnimating()
-//        AF.request(url, method: .get, parameters: parameters).responseString { response in
-//            switch response.result {
-//            case .success(let htmlString):
-//                self.webView.loadHTMLString(htmlString, baseURL: URL(string: "https://open.115.com/"))
-//            case .failure(let error):
-//                debugPrint("Request failed with error: \(error)")
-//                self.view.makeToast(error.localizedDescription)
-//                self.loadingView.stopAnimating()
-//            }
-//        }
-//    }
-//    
-//    // MARK:  GET && SET
-//    let client_id = "100196055"
-//    
-//    static let drive115RedirectURI = "passlockapp.com"
-//    
-//    
-//    private let onSuccess: (Drive115UserModel) -> Void
-// 
-//    // MARK:  懒加载
-//    lazy var webView: WKWebView = {
-//        let config = WKWebViewConfiguration()
-//        let pagePreferences = WKWebpagePreferences()
-//        pagePreferences.allowsContentJavaScript = true
-//        config.defaultWebpagePreferences = pagePreferences
-//        
-//        let view = WKWebView(frame: contentView.bounds, configuration: config)
-//        view.navigationDelegate = self
-//        
-//        return view
-//    }()
-//    
-//    
-//    lazy var loadingView: NVActivityIndicatorView = {
-//        let valueSize = 25.ckValue()
-//        let frame = CGRectMake(0, 0, valueSize, valueSize)
-//        let view = NVActivityIndicatorView(frame: frame, type: .lineScalePulseOutRapid, color: appMainColor)
-//        return view
-//    }()
-//}
-//
-//extension Auth115LifeViewController: WKNavigationDelegate {
-//    // MARK: - WKNavigationDelegate
-//    
-//    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-//        self.loadingView.stopAnimating()
-//    }
-//    
-//    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction,
-//                 decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
-//
-//        debugPrint("⏭️URL = \(navigationAction.request.url?.absoluteString ?? "❌")")
-//        self.loadingView.stopAnimating()
-//        
-//        guard let url = navigationAction.request.url else {
-//            decisionHandler(.allow)
-//            return
-//        }
-//        
-//        if url.absoluteString == "https://115.com/agreement.html" || url.absoluteString == "https://115.com/privacy.html" {
-//            UIApplication.shared.open(url, options: [:], completionHandler: nil)
-//        }
-//
-//        decisionHandler(.allow)
-//    }
-//
-//}
-
-
-/*
- "⏭️URL = about:blank"
- "⏭️URL = https://passportapi.115.com/bridge_assets.html?cb_key=iframe_cb_key__1752559245514_0&_t1752559245514"
- "⏭️URL = https://115.com/?cid=0&offset=0&mode=wangpan"
- "⏭️URL = http://m.115.com/"
- "⏭️URL = https://m.115.com/"
- */
