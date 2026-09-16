@@ -210,7 +210,9 @@ extension Drive115FileModel {
     
     /// 是否为音乐
     public func isMusic() -> Bool {
-        guard !isDirectory(), !isUnsupportedStreamingAudio else { return false }
+        guard !isDirectory() else { return false }
+        // File classification is independent of the provider's streaming support.
+        if isUnsupportedStreamingAudio { return true }
         let suffix = self.fileExtension()
         return  AudioExtensionType.allCases.map({ $0.rawValue }).contains(suffix.lowercased())
     }

@@ -34,17 +34,17 @@ enum Drive115FormatRegression {
 
         for (name, icon) in [("song.dsf", "dsf"), ("song.DFF", "DFF"),
                              ("song.DSF", ""), ("song.dff", " .DFF "),
-                             ("song.DSF", "mp3"), ("song", "dsf")] {
+                             ("song.DSF", "mp3"), ("song", "dsf"), ("song.dff", "bin")] {
             let model = file(name, icon: icon)
             check(!model.isDirectory(), "DSD files are not folders")
             check(model.isUnsupportedStreamingAudio, "Block 115 DSD: \(name), \(icon)")
-            check(!model.isMusic(), "Exclude unsupported DSD from playlists and music group")
+            check(model.isMusic(), "DSD stays in the music group despite streaming restriction")
         }
         var detail = Drive115FileModel()
         detail.file_category = 1
         detail.file_name = "详情.DFF"
         check(detail.fileExtension() == "dff", "Detail responses without ico use file_name")
-        check(detail.isUnsupportedStreamingAudio && !detail.isMusic(), "Detail response is blocked")
+        check(detail.isUnsupportedStreamingAudio && detail.isMusic(), "Detail response stays music but cannot stream")
 
         for suffix in ["mp3", "flac", "wav", "aac", "m4a", "dsd"] {
             let model = file("song.\(suffix.uppercased())", icon: suffix)

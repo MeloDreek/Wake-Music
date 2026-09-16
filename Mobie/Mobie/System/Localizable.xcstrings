@@ -4770,6 +4770,257 @@
         }
       }
     },
+    "115 Drive does not support streaming DSF or DFF files. Download them to your device to play them." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "لا يدعم 115 Drive تشغيل ملفات DSF أو DFF عبر الإنترنت. نزّلها إلى جهازك لتشغيلها."
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "115 Drive no permet reproduir fitxers DSF o DFF en línia. Descarrega’ls al dispositiu per reproduir-los."
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "115 Drive nepodporuje streamování souborů DSF ani DFF. Pro přehrávání je stáhněte do zařízení."
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "115 Drive understøtter ikke streaming af DSF- eller DFF-filer. Download dem til din enhed for at afspille dem."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "115 Drive unterstützt kein Streaming von DSF- oder DFF-Dateien. Lade sie zum Abspielen auf dein Gerät herunter."
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Το 115 Drive δεν υποστηρίζει αναπαραγωγή αρχείων DSF ή DFF μέσω ροής. Κατεβάστε τα στη συσκευή σας για αναπαραγωγή."
+          }
+        },
+        "en-AU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "115 Drive does not support streaming DSF or DFF files. Download them to your device to play them."
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "115 Drive does not support streaming DSF or DFF files. Download them to your device to play them."
+          }
+        },
+        "en-IN" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "115 Drive does not support streaming DSF or DFF files. Download them to your device to play them."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "115 Drive no admite la reproducción en línea de archivos DSF o DFF. Descárgalos en tu dispositivo para reproducirlos."
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "115 Drive no admite la reproducción en línea de archivos DSF o DFF. Descárgalos en tu dispositivo para reproducirlos."
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "115 Drive no admite la reproducción en línea de archivos DSF o DFF. Descárgalos en tu dispositivo para reproducirlos."
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "115 Drive ei tue DSF- tai DFF-tiedostojen suoratoistoa. Lataa ne laitteellesi toistoa varten."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "115 Drive ne permet pas la lecture en streaming des fichiers DSF ou DFF. Téléchargez-les sur votre appareil pour les lire."
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "115 Drive ne permet pas la lecture en streaming des fichiers DSF ou DFF. Téléchargez-les sur votre appareil pour les lire."
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "115 Drive אינו תומך בהזרמת קובצי DSF או DFF. יש להוריד אותם למכשיר כדי לנגן אותם."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "115 Drive में DSF या DFF फ़ाइलों की ऑनलाइन स्ट्रीमिंग समर्थित नहीं है। उन्हें चलाने के लिए अपने डिवाइस पर डाउनलोड करें।"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "115 Drive ne podržava mrežnu reprodukciju DSF ili DFF datoteka. Preuzmite ih na uređaj za reprodukciju."
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A 115 Drive nem támogatja a DSF- és DFF-fájlok streamelését. A lejátszáshoz töltse le őket az eszközére."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "115 Drive tidak mendukung streaming file DSF atau DFF. Unduh ke perangkat Anda untuk memutarnya."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "115 Drive non supporta lo streaming dei file DSF o DFF. Scaricali sul dispositivo per riprodurli."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "115 DriveはDSF・DFF形式のストリーミング再生に対応していません。端末にダウンロードして再生してください。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "115 Drive는 DSF 또는 DFF 파일의 스트리밍 재생을 지원하지 않습니다. 기기에 다운로드한 후 재생하세요."
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "115 Drive tidak menyokong penstriman fail DSF atau DFF. Muat turun fail ke peranti anda untuk memainkannya."
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "115 Drive støtter ikke strømming av DSF- eller DFF-filer. Last dem ned til enheten din for å spille dem av."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "115 Drive ondersteunt het streamen van DSF- of DFF-bestanden niet. Download ze naar je apparaat om ze af te spelen."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "115 Drive nie obsługuje strumieniowania plików DSF ani DFF. Pobierz je na urządzenie, aby je odtworzyć."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O 115 Drive não permite reproduzir arquivos DSF ou DFF por streaming. Baixe-os no seu dispositivo para reproduzi-los."
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O 115 Drive não permite reproduzir ficheiros DSF ou DFF em streaming. Descarregue-os para o seu dispositivo para os reproduzir."
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "115 Drive nu acceptă redarea în flux a fișierelor DSF sau DFF. Descărcați-le pe dispozitiv pentru a le reda."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "115 Drive не поддерживает потоковое воспроизведение файлов DSF и DFF. Скачайте их на устройство для воспроизведения."
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "115 Drive nepodporuje streamovanie súborov DSF ani DFF. Na prehrávanie si ich stiahnite do zariadenia."
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "115 Drive ne podpira pretočnega predvajanja datotek DSF ali DFF. Za predvajanje jih prenesite v napravo."
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "115 Drive stöder inte strömning av DSF- eller DFF-filer. Ladda ner dem till din enhet för att spela upp dem."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "115 Drive ไม่รองรับการสตรีมไฟล์ DSF หรือ DFF โปรดดาวน์โหลดลงในอุปกรณ์เพื่อเล่น"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "115 Drive, DSF veya DFF dosyalarının çevrimiçi oynatılmasını desteklemiyor. Oynatmak için dosyaları cihazınıza indirin."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "115 Drive не підтримує потокове відтворення файлів DSF або DFF. Завантажте їх на пристрій для відтворення."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "115 Drive không hỗ trợ phát trực tuyến tệp DSF hoặc DFF. Hãy tải về thiết bị để phát."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "115网盘不支持在线播放 DSF 和 DFF 格式的音频，请下载到本地后播放。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "115網盤不支援線上播放 DSF 和 DFF 格式的音訊，請下載到本機後播放。"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "115網盤不支援串流播放 DSF 和 DFF 格式的音訊，請下載到裝置後播放。"
+          }
+        }
+      }
+    },
     "115 Drive" : {
       "extractionState" : "manual",
       "localizations" : {

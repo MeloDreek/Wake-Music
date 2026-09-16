@@ -6,6 +6,8 @@
 //
 import KakaUIKit
 import KakaFoundation
+import AppGroupKit
+import Toast
 
 /// 定义具体的按钮行为配置
 public struct AlertActionConfig {
@@ -21,6 +23,20 @@ public enum AlertActionType {
 }
 
 extension UIViewController {
+    /// Keep 115 DSD files browsable; enqueue only after the user's confirmation.
+    func show115StreamingDownloadAlert(for model: MusicItemModel) {
+        let alert = UIAlertController(
+            title: "Reminder".localStr(),
+            message: "115 Drive does not support streaming DSF or DFF files. Download them to your device to play them.".localStr(),
+            preferredStyle: .alert
+        )
+        alert.addAction(UIAlertAction(title: "Cancel".localStr(), style: .cancel))
+        alert.addAction(UIAlertAction(title: "Download".localStr(), style: .default) { [weak self] _ in
+            DownloadManager.shared.addMusicModel([model])
+            self?.view.makeToast("Added to Downloads".localStr())
+        })
+        present(alert, animated: true)
+    }
     
     
     public func isPresent() -> Bool {
@@ -83,4 +99,3 @@ extension UIViewController {
         self.present(alertController, animated: true, completion: nil)
     }
 }
-

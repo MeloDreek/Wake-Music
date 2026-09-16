@@ -50,7 +50,7 @@ extension KakaMusicPlayer {
         if model.drive115Model?.isUnsupportedStreamingAudio == true {
             self.playerView.resetPlayer()
             self.playbackStatus = .error
-            self.currentViewController()?.showOneAlert(message: "Unsupported Files".localStr())
+            self.currentViewController()?.show115StreamingDownloadAlert(for: model)
             return
         }
 

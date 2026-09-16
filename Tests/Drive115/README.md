@@ -23,9 +23,19 @@ ruby Tests/Drive115/run-web-authorization-regressions.rb
 
 31 项纯 URL 校验和请求/取消/日志源码接入检查覆盖回调伪造、重复参数、state 不匹配、授权码重复消费等情况。测试不访问真实账号；真实登录与令牌兑换仍须在模拟器中完成。
 
+### 40140133 凭据配置修正
+
+2026-09-16 根据官方接入流程及授权错误码核对：AppID、AppKey、AppSecret 是不同字段；`40140133` 表示 `client_secret` 验证失败，而非回调域名错误。原实现将 AppKey 误用于 `client_secret`。
+
+- 用户已在 AppGroupConstKey 中分别填写 `Drive115_ClientID`、`Drive115_AppKey`、`Drive115_AppSecret`，并将令牌兑换调用改为 `Drive115_AppSecret`；保留用户的凭据值。
+- 网页授权和扫码设备码请求均使用 `Drive115_ClientID`。授权码兑换的 POST body 使用 `Drive115_AppSecret`；当前两种登录流程不需要 AppKey，不能把它替代 AppSecret。
+- 后台“应用域名”填写 `passlockapp.com`，不是完整 URL。代码仍使用完整的 `https://passlockapp.com/oauth/115/callback`，授权请求与令牌兑换必须一致。
+- 增加 5 项源码接入检查，约束密钥字段选择、旧字段移除、回调一致和二维码 ClientID。检查不读取或输出真实凭据；编译通过不代表真实令牌兑换已经成功。
+- 本轮验证：31 项 URL 校验、5 项凭据接入检查、36 项格式校验与 5 项格式策略接入检查通过；Xcode 27 下普通版及 Pro 的 arm64 模拟器 Debug 构建通过。普通版已安装到当前 iPhone 17 Pro Max（iOS 26.5），真实网页登录结果等待用户确认。
+
 ## DSF / DFF 限制
 
-使用 `Drive115FileModel.isUnsupportedStreamingAudio` 统一识别 115 远程 DSF / DFF。音乐分组、曲目按钮和播放列表使用同一 `isMusic()` 判断；旧播放队列及下一首预加载另外设置守卫。沿用已有 `Unsupported Files` 本地化。
+使用 `Drive115FileModel.isUnsupportedStreamingAudio` 统一识别 115 远程 DSF / DFF，但 `isMusic()` 仍返回 true：列表保留音乐分组及音频格式占位图。点击播放先显示本地化下载提示，取消不改变播放状态，下载直接加入现有下载队列（默认本地目录）。在线播放队列排除 DSF / DFF，旧播放队列使用同一提示，下一首预加载保留守卫。
 
 扩展名兼容大小写、API `ico` 字段带点/空白以及详情响应缺少 `ico`；文件名的 DSF / DFF 后缀也会校验。名称带 `.dsf` 的文件夹仍能正常浏览。本地与其他提供方的通用 DSF / DFF 格式列表未改动。底层下载接口保持原样，不扩大为所有来源的下载限制。
 
@@ -33,4 +43,4 @@ ruby Tests/Drive115/run-web-authorization-regressions.rb
 ruby Tests/Drive115/run-format-regressions.rb
 ```
 
-脚本编译实际 `Drive115FileModel.swift` 与实际音视频格式枚举，仅为无关的 UI/持久化依赖提供替身；不读取账号、真实文件或访问网络。36 项模型断言和 5 项源码接入检查通过。接入检查是源码约束，不等同于真实 115 账号的端到端测试。
+脚本编译实际 `Drive115FileModel.swift` 与实际音视频格式枚举，仅为无关的 UI/持久化依赖提供替身；不读取账号、真实文件或访问网络。包含 39 项模型断言、格式策略/弹窗/队列/封面源码接入检查，以及 41 种语言翻译检查。接入检查是源码约束，不等同于真实 115 账号的端到端测试。

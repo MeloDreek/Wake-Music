@@ -370,8 +370,10 @@ extension Auth115LifeViewController: WKNavigationDelegate, WKUIDelegate {
                 return
             }
             webState = nil // Consume exactly once.
+            // The authorization-code endpoint requires AppSecret, NOT AppKey.
+            // Keep the secret in the POST body; the browser only receives ClientID.
             exchangeToken(url: "https://passportapi.115.com/open/authCodeToToken", parameters: [
-                "client_id": Drive115_ClientID, "client_secret": Drive115_ClientSecret,
+                "client_id": Drive115_ClientID, "client_secret": Drive115_AppSecret,
                 "code": code, "redirect_uri": Drive115_RedirectURL, "grant_type": "authorization_code"
             ], id: attempt)
             return
