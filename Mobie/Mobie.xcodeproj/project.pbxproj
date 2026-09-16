@@ -708,6 +708,8 @@
 		B01200000000000000000003 /* BoxDriveAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01200000000000000000002 /* BoxDriveAPI.swift */; };
 		B722076D49924DE6B6E3D9AD /* ArtworkPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7809854B8022201FCA666119 /* ArtworkPalette.swift */; };
 		C02000000000000000000001 /* SMBDriveService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02000000000000000000002 /* SMBDriveService.swift */; };
+		AD83AA7A4F144287924ABEF1 /* SMBDiscovery.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD83AA7A4F144287924ABEF2 /* SMBDiscovery.swift */; };
+		AD83AA7A4F144287924ABEF3 /* SMBDiscovery.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD83AA7A4F144287924ABEF2 /* SMBDiscovery.swift */; };
 		C02000000000000000000003 /* SMBDriveService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02000000000000000000002 /* SMBDriveService.swift */; };
 		C02000000000000000000004 /* SMBDriveFileListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02000000000000000000005 /* SMBDriveFileListController.swift */; };
 		C02000000000000000000006 /* SMBDriveFileListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02000000000000000000005 /* SMBDriveFileListController.swift */; };
@@ -1130,6 +1132,7 @@
 		B01200000000000000000002 /* BoxDriveAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxDriveAPI.swift; sourceTree = "<group>"; };
 		BD30271AF1F6DF33916F8A97 /* Pods-Mobie_Pro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mobie_Pro.release.xcconfig"; path = "Target Support Files/Pods-Mobie_Pro/Pods-Mobie_Pro.release.xcconfig"; sourceTree = "<group>"; };
 		C02000000000000000000002 /* SMBDriveService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMBDriveService.swift; sourceTree = "<group>"; };
+		AD83AA7A4F144287924ABEF2 /* SMBDiscovery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMBDiscovery.swift; sourceTree = "<group>"; };
 		C02000000000000000000005 /* SMBDriveFileListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMBDriveFileListController.swift; sourceTree = "<group>"; };
 		C02000000000000000000008 /* KakaMusicPlayer+SMB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KakaMusicPlayer+SMB.swift"; sourceTree = "<group>"; };
 		C02100000000000000000002 /* SMBHTTPBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMBHTTPBridge.swift; sourceTree = "<group>"; };
@@ -1848,6 +1851,7 @@
 				C04100000000000000000002 /* MEGADriveService.swift */,
 				D66F570949C24DA19E444002 /* MEGASystemProxy.swift */,
 				C02000000000000000000002 /* SMBDriveService.swift */,
+				AD83AA7A4F144287924ABEF2 /* SMBDiscovery.swift */,
 				C02100000000000000000002 /* SMBHTTPBridge.swift */,
 				C02400000000000000000002 /* SMBProtocol.swift */,
 				B01200000000000000000002 /* BoxDriveAPI.swift */,
@@ -2527,6 +2531,7 @@
 				C04100000000000000000003 /* MEGADriveService.swift in Sources */,
 				D66F570949C24DA19E444003 /* MEGASystemProxy.swift in Sources */,
 				C02000000000000000000003 /* SMBDriveService.swift in Sources */,
+				AD83AA7A4F144287924ABEF3 /* SMBDiscovery.swift in Sources */,
 				C02100000000000000000003 /* SMBHTTPBridge.swift in Sources */,
 				C02400000000000000000003 /* SMBProtocol.swift in Sources */,
 				B01200000000000000000003 /* BoxDriveAPI.swift in Sources */,
@@ -2860,6 +2865,7 @@
 				C04100000000000000000001 /* MEGADriveService.swift in Sources */,
 				D66F570949C24DA19E444001 /* MEGASystemProxy.swift in Sources */,
 				C02000000000000000000001 /* SMBDriveService.swift in Sources */,
+				AD83AA7A4F144287924ABEF1 /* SMBDiscovery.swift in Sources */,
 				C02100000000000000000001 /* SMBHTTPBridge.swift in Sources */,
 				C02400000000000000000001 /* SMBProtocol.swift in Sources */,
 				B01200000000000000000001 /* BoxDriveAPI.swift in Sources */,

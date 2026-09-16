@@ -57,6 +57,21 @@ enum SMBRegression {
         second.id = "Elsewhere/曲目.wav"
         check(second.identity != file.identity, "same names do not collide")
         check(!file.identity.contains("/"), "safe cache key")
+        let updated = user.updatingEndpoint(host: "my-mac.local", port: 1445)
+        check(updated.identity == user.identity, "IP to hostname preserves Keychain identity")
+        check(updated.host == "my-mac.local" && updated.port == 1445, "endpoint actually changes")
+        check(updated.share == user.share && updated.username == user.username, "endpoint edit preserves share/account")
+        check(updated.updatingEndpoint(host: "renamed-mac.local", port: 445).identity == user.identity,
+              "repeated endpoint edits keep original identity")
+        var movedFile = file
+        movedFile.smbUser = updated
+        check(movedFile.identity == file.identity && movedFile.mediaPlayURL() == file.mediaPlayURL(),
+              "endpoint edits preserve favorites, artwork keys and playlist URLs")
+        let decoded = SMBDriveUserModel.deserialize(from: updated.toJSONString())
+        check(decoded?.identity == user.identity && decoded?.host == "my-mac.local", "stable identity survives persistence")
+        let legacy = SMBDriveUserModel.deserialize(from: ["host": user.host, "port": user.port,
+            "share": user.share, "username": user.username, "domain": user.domain, "name": user.name])
+        check(legacy?.identity == user.identity && legacy?.connectionID == "", "legacy JSON needs no migration")
 
         let content = Data((0..<(1024 * 1024)).map { UInt8($0 % 251) })
         var largestRead = 0

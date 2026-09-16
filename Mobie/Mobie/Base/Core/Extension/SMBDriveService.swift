@@ -80,7 +80,14 @@ final class SMBDriveService {
         }
     }
 
-    private func connect(_ user: SMBDriveUserModel, password: String? = nil) async throws -> SMB2Manager {
+    @MainActor
+    private func connect(_ requestedUser: SMBDriveUserModel, password: String? = nil) async throws -> SMB2Manager {
+        // Old playlist/file models can still carry an earlier IP address. Only a verified,
+        // explicitly edited connection with the same identity may replace that endpoint.
+        let user = password == nil
+            ? (ConnectConfigManager.shared.connectedModels.compactMap(\.smbUser)
+                .first { $0.identity == requestedUser.identity } ?? requestedUser)
+            : requestedUser
         guard let password = password ?? loadPassword(user), !password.isEmpty else {
             throw SMBFailure.message("SMB credentials are missing. Edit the connection and sign in again.")
         }

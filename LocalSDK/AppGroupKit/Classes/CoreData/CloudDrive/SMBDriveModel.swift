@@ -11,10 +11,21 @@ public struct SMBDriveUserModel: SmartCodableX, Hashable, Sendable {
     public var username = ""
     public var domain = ""
     public var name = ""
+    /// Filled only when editing an endpoint. Legacy accounts retain their original hash.
+    public var connectionID = ""
     public var identity: String {
+        if !connectionID.isEmpty { return connectionID }
         let parts = [host.lowercased(), String(port), share, domain, username]
         let data = (try? JSONEncoder().encode(parts)) ?? Data()
         return SHA256.hash(data: data).map { String(format: "%02x", $0) }.joined()
+    }
+    /// Changing an address must not orphan Keychain credentials, favorites or artwork.
+    public func updatingEndpoint(host: String, port: Int) -> Self {
+        var updated = self
+        updated.connectionID = identity
+        updated.host = host
+        updated.port = port
+        return updated
     }
     public static func == (lhs: Self, rhs: Self) -> Bool { lhs.identity == rhs.identity }
     public func hash(into hasher: inout Hasher) { hasher.combine(identity) }
