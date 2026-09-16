@@ -264,6 +264,7 @@ class MusicPlayerViewController: SuperViewController {
     
     var serverModel: ServerConfigModel?
     var isShowingPlaylist = false
+    var isShowingMoreConfig = false
     var returnToLyricsAfterQueue = false
     private var lastPlayerLayoutSize: CGSize = .zero
         
@@ -319,6 +320,7 @@ class MusicPlayerViewController: SuperViewController {
         view.register(PlayerLyricCollectCell.self, forCellWithReuseIdentifier: "PlayerLyricCollectCell")
         view.register(HorizonLyricsViewCell.self, forCellWithReuseIdentifier: "HorizonLyricsViewCell")
         view.register(PlayerQueueCollectCell.self, forCellWithReuseIdentifier: "PlayerQueueCollectCell")
+        view.register(PlayerMoreConfigCollectCell.self, forCellWithReuseIdentifier: "PlayerMoreConfigCollectCell")
         return view
     }()
     
@@ -383,7 +385,7 @@ extension MusicPlayerViewController: PanModalPresentable {
     
     var panScrollable: UIScrollView? {
         // The queue owns its scrolling/reordering; PanModal must not pin its content offset.
-        return isShowingPlaylist ? nil : collectionView
+        return (isShowingPlaylist || isShowingMoreConfig) ? nil : collectionView
     }
 
     // Never infer the player's height from the number of tracks in the queue.
@@ -391,6 +393,12 @@ extension MusicPlayerViewController: PanModalPresentable {
     var longForm: PanModalHeight { .maxHeight }
 
     func shouldRespond(to panModalGestureRecognizer: UIPanGestureRecognizer) -> Bool {
+        if isShowingMoreConfig {
+            guard let cell = collectionView.visibleCells.first(where: { $0 is PlayerMoreConfigCollectCell }) as? PlayerMoreConfigCollectCell else { return false }
+            let point = panModalGestureRecognizer.location(in: cell)
+            let translation = panModalGestureRecognizer.translation(in: cell)
+            return point.y - translation.y < cell.tableView.frame.minY
+        }
         guard isShowingPlaylist else { return true }
         guard let cell = collectionView.visibleCells.first(where: { $0 is PlayerQueueCollectCell }) as? PlayerQueueCollectCell else {
             return false
@@ -417,7 +425,7 @@ extension MusicPlayerViewController: PanModalPresentable {
     }
 
     var allowsExtendedPanScrolling: Bool {
-        return !isShowingPlaylist
+        return !isShowingPlaylist && !isShowingMoreConfig
     }
     
     var shouldRoundTopCorners: Bool {

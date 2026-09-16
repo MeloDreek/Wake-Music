@@ -62,7 +62,7 @@ public struct PlayBackgroundModel: SmartCodableX {
     public var backgroundName: String?
     
     /// 背景偏好设置
-    public var backgroundConfig = PlayBackgroundEffect.gaussianBlur
+    public var backgroundConfig = PlayBackgroundEffect.coverAssetColor
     
     /// 是否显示半透明遮罩
     public var isShowAlphaMask: Bool = false

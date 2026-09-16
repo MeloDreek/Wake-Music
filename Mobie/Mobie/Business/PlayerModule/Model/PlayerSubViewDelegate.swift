@@ -15,6 +15,7 @@ protocol PlayerSubViewDelegate: AnyObject {
     
     // 点击播放列表按钮
     func controlViewDidPlaylistBtn(controlView: UIView, playlistBtn: UIButton)
+    func controlViewDidMoreBtn(controlView: UIView)
     
     // 点击歌词自定义按钮
     func controlViewDidLyricSetBtn(controlView: UIView, lyricSetBtn: UIButton)

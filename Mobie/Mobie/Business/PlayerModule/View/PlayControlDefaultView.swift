@@ -168,13 +168,6 @@ class PlayControlDefaultView: UIView, UIGestureRecognizerDelegate {
                 self?.updateSleepTime(sleepTime)
             }.store(in: &cancellables)
         
-        // 歌词字体设置
-        MusicConfigManager.shared.$lyricConfig
-            .receive(on: DispatchQueue.main)
-            .sink { [weak self] lyricConfig in
-                self?.updateLyricConfig()
-            }.store(in: &cancellables)
-        
         // 设备朝向变化了
         OrientationManager.shared.$isLandscape
             .receive(on: DispatchQueue.main)
@@ -213,11 +206,6 @@ class PlayControlDefaultView: UIView, UIGestureRecognizerDelegate {
     
     @objc func clickTapAction() {
         self.delegate?.controlViewDidBottomControl(controlView: self)
-    }
-    
-    func updateLyricConfig() {
-        
-        self.moreButton.menu = self.moreMenu()
     }
     
     // 播放状态
@@ -456,8 +444,8 @@ class PlayControlDefaultView: UIView, UIGestureRecognizerDelegate {
     lazy var moreButton: UIButton = {
         let view = UIButton(type: .custom)
         view.size = playlistButton.size
-        view.showsMenuAsPrimaryAction = true
-        view.menu = self.moreMenu()
+        view.addTarget(self, action: #selector(moreButtonClick(_:)), for: .touchUpInside)
+        view.accessibilityLabel = "More".localStr()
         view.tintColor = .white
         view.setImage(Reasource.systemNamed("ellipsis.circle", color: .white, config: otherBtnConfig), for: .normal)
         return view
@@ -488,7 +476,6 @@ class PlayControlDefaultView: UIView, UIGestureRecognizerDelegate {
         let likeAction = UIAction(title: likeType.titleStr(), image: likeImage, attributes: isLocal ? [] : [.disabled], state: .off,) { [weak self] _ in
             guard let wSelf = self else { return }
             wSelf.delegate?.playerSubViewDidClickFavorite(baseView: wSelf)
-            wSelf.moreButton.menu = wSelf.moreMenu()
         }
         
         let musictagMenu = UIMenu(title: "", options: .displayInline, children: [audioFingerAction, musictagAction, likeAction])
@@ -515,18 +502,16 @@ class PlayControlDefaultView: UIView, UIGestureRecognizerDelegate {
 //        })
         
         let isShowAudioTag = AppLocalManager.shared.isShowAudioTag
-        let showTagAction = UIAction(title: "Show Audio Information".localStr(), image: isShowAudioTag ? nil : UIImage(systemName: "tag.slash"), identifier: nil, discoverabilityTitle: nil, attributes: [], state: isShowAudioTag ? .on : .off, handler: { [weak self] _ in
+        let showTagAction = UIAction(title: "Show Audio Information".localStr(), image: isShowAudioTag ? nil : UIImage(systemName: "tag.slash"), identifier: PlayerMoreActionID.showAudioInformation, discoverabilityTitle: nil, attributes: [], state: isShowAudioTag ? .on : .off, handler: { [weak self] _ in
             AppLocalManager.shared.isShowAudioTag = !AppLocalManager.shared.isShowAudioTag
-            self?.moreButton.menu = self?.moreMenu()
         })
 
         let isShowMiniLyric = MusicConfigManager.shared.lyricConfig.isShowMiniLyric
-        let showMiniLyric = UIAction(title: "Mini Lyrics".localStr(), image: isShowMiniLyric ? nil : UIImage(systemName: "text.badge.checkmark"), identifier: nil, discoverabilityTitle: nil, attributes: [], state: isShowMiniLyric ? .on : .off, handler: { [weak self] _ in
+        let showMiniLyric = UIAction(title: "Mini Lyrics".localStr(), image: isShowMiniLyric ? nil : UIImage(systemName: "text.badge.checkmark"), identifier: PlayerMoreActionID.showMiniLyrics, discoverabilityTitle: nil, attributes: [], state: isShowMiniLyric ? .on : .off, handler: { [weak self] _ in
             var lyricConfig = MusicConfigManager.shared.lyricConfig
             lyricConfig.isShowMiniLyric = !lyricConfig.isShowMiniLyric
             
             MusicConfigManager.shared.lyricConfig = lyricConfig
-            self?.moreButton.menu = self?.moreMenu()
         })
         
         let playStylegMenu = UIMenu(title: "", options: .displayInline, children: [engineAction, playerAction, playbackAction, showTagAction, showMiniLyric])
@@ -557,7 +542,6 @@ class PlayControlDefaultView: UIView, UIGestureRecognizerDelegate {
                 
                 if let baiduFile = KakaMusicPlayer.shared.playingMusic?.baiduFileModel, FileManager.default.fileExists(atPath: baiduFile.m3uCacheURL().path) {
                     appKeyWindow?.makeToast("This feature is unavailable due to partner restrictions.".localStr())
-                    self?.moreButton.menu = self?.moreMenu()
                     return
                 }
                 
@@ -568,7 +552,6 @@ class PlayControlDefaultView: UIView, UIGestureRecognizerDelegate {
                 
                 KakaMusicPlayer.shared.play()
                 
-                self?.moreButton.menu = self?.moreMenu()
             })
             
             actionArray.append(subMenu)
@@ -693,6 +676,10 @@ extension PlayControlDefaultView {
     // 播放列表
     @objc func playlistButtonClick(_ sender: UIButton) {
         self.delegate?.controlViewDidPlaylistBtn(controlView: self, playlistBtn: sender)
+    }
+
+    @objc func moreButtonClick(_ sender: UIButton) {
+        delegate?.controlViewDidMoreBtn(controlView: self)
     }
     
     // 下载

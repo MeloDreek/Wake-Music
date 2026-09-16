@@ -122,7 +122,8 @@ class ImportViewController: SuperViewController {
 #if !targetEnvironment(macCatalyst)
         loclArray.append(contentsOf: [.fromUSB, .fromWiFi])
 #endif
-        let model1 = ImportGroupModel(group: .localGroup, headTitle: "Local".localStr(), itemArray: loclArray, footTitle: nil)
+        let localFooter = String(format: "Locally imported songs appear in %@ and %@.".localStr(), KakaTabbarType.musics.formatStr(), KakaTabbarType.collection.formatStr())
+        let model1 = ImportGroupModel(group: .localGroup, headTitle: "Local".localStr(), itemArray: loclArray, footTitle: localFooter)
         tempArray.append(model1)
                 
         let model3 = ImportGroupModel(group: .remoteGroup, headTitle: "Remote".localStr(), itemArray: ImportFileType.serverDriveArray() + ImportFileType.cloudDriveArray(), footTitle: nil)
@@ -267,7 +268,21 @@ extension ImportViewController: UITableViewDataSource, UITableViewDelegate {
             }
             return footView
         }else{
-            return nil
+            guard let text = dataArray[section].footTitle, !text.isEmpty else { return nil }
+            let footer = UITableViewHeaderFooterView()
+            footer.isUserInteractionEnabled = false
+            let label = UILabel()
+            label.text = text
+            label.font = .preferredFont(forTextStyle: .footnote)
+            label.adjustsFontForContentSizeCategory = true
+            label.textColor = .secondaryLabel
+            label.numberOfLines = 0
+            footer.contentView.addSubview(label)
+            label.snp.makeConstraints { make in
+                make.leading.trailing.equalTo(footer.contentView.layoutMarginsGuide)
+                make.top.bottom.equalToSuperview().inset(10.ckValue())
+            }
+            return footer
         }
         
     }

@@ -1,6 +1,264 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "Locally imported songs appear in %@ and %@." : {
+      "comment" : "Import footer: placeholders are the localized Music and Library tab names.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تظهر الأغاني المستوردة محليًا في %@ و%@."
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Les cançons importades localment apareixen a %@ i %@."
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Místně importované skladby se zobrazí v sekcích %@ a %@."
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lokalt importerede sange vises i %@ og %@."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lokal importierte Titel erscheinen unter %@ und %@."
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Τα τραγούδια που εισάγονται τοπικά εμφανίζονται στις ενότητες %@ και %@."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Locally imported songs appear in %@ and %@."
+          }
+        },
+        "en-AU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Locally imported songs appear in %@ and %@."
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Locally imported songs appear in %@ and %@."
+          }
+        },
+        "en-IN" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Locally imported songs appear in %@ and %@."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Las canciones importadas localmente aparecen en %@ y %@."
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Las canciones importadas localmente aparecen en %@ y %@."
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Las canciones importadas localmente aparecen en %@ y %@."
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Paikallisesti tuodut kappaleet näkyvät osioissa %@ ja %@."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Les morceaux importés localement apparaissent dans %@ et %@."
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Les morceaux importés localement apparaissent dans %@ et %@."
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "שירים שיובאו באופן מקומי יופיעו ב־%@ וב־%@."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "स्थानीय रूप से इम्पोर्ट किए गए गाने %@ और %@ में दिखाई देंगे।"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lokalno uvezene pjesme prikazuju se u odjeljcima %@ i %@."
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A helyileg importált dalok a(z) %@ és %@ oldalon jelennek meg."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lagu yang diimpor secara lokal muncul di %@ dan %@."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "I brani importati localmente appaiono in %@ e %@."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ローカルから読み込んだ曲は「%@」と「%@」に表示されます。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "로컬에서 가져온 노래는 %@ 및 %@에 표시됩니다."
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lagu yang diimport secara setempat muncul dalam %@ dan %@."
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lokalt importerte sanger vises i %@ og %@."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lokaal geïmporteerde nummers verschijnen in %@ en %@."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Utwory zaimportowane lokalnie pojawią się w sekcjach %@ i %@."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "As músicas importadas localmente aparecem em %@ e %@."
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "As músicas importadas localmente aparecem em %@ e %@."
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Melodiile importate local apar în %@ și %@."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Локально импортированные песни появятся в разделах «%@» и «%@»."
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lokálne importované skladby sa zobrazia v sekciách %@ a %@."
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lokalno uvožene skladbe so prikazane v razdelkih %@ in %@."
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lokalt importerade låtar visas i %@ och %@."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "เพลงที่นำเข้าจากอุปกรณ์จะปรากฏใน %@ และ %@"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Yerel olarak içe aktarılan şarkılar %@ ve %@ bölümlerinde görünür."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Локально імпортовані пісні з’являться в розділах «%@» і «%@»."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Các bài hát được nhập từ thiết bị sẽ xuất hiện trong %@ và %@."
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "本機匯入的歌曲將顯示於「%@」和「%@」頁面。"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "本地导入的歌曲将出现在“%@”和“%@”页面。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "本機匯入的歌曲將顯示於「%@」和「%@」頁面。"
+          }
+        }
+      }
+    },
     "Queue.Title" : {
       "extractionState" : "manual",
       "localizations" : {

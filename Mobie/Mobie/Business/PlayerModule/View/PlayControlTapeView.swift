@@ -13,7 +13,7 @@ import KSPlayer
 import WakeMusicPlayer
 
 
-class PlayControlTapeView: UIView {
+class PlayControlTapeView: UIView, UIGestureRecognizerDelegate {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -161,7 +161,17 @@ class PlayControlTapeView: UIView {
             }.store(in: &cancellables)
         
         let clickTap = UITapGestureRecognizer(target: self, action: #selector(clickTapAction))
+        clickTap.delegate = self
         self.addGestureRecognizer(clickTap)
+    }
+
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        var touched = touch.view
+        while let view = touched, view !== self {
+            if view is UIControl { return false }
+            touched = view.superview
+        }
+        return true
     }
     
     @objc func clickTapAction() {
@@ -279,9 +289,8 @@ class PlayControlTapeView: UIView {
         view.frame.size = playButton.frame.size
         view.setBackgroundImage(UIImage(named: "tape_black_normal"), for: .normal)
         view.setBackgroundImage(UIImage(named: "tape_black_highted"), for: .highlighted)
-        view.showsMenuAsPrimaryAction = true
-        view.menu = self.moreMenu()
-        view.addTarget(self, action: #selector(moreButtonClick(_:)), for: .touchDown)
+        view.addTarget(self, action: #selector(moreButtonClick(_:)), for: .touchUpInside)
+        view.accessibilityLabel = "More".localStr()
         return view
     }()
     lazy var moreIconView: UIImageView = {
@@ -348,7 +357,6 @@ class PlayControlTapeView: UIView {
         let likeAction = UIAction(title: likeType.titleStr(), image: likeImage, attributes: isLocal ? [] : [.disabled], state: .off,) { [weak self] _ in
             guard let wSelf = self else { return }
             wSelf.delegate?.playerSubViewDidClickFavorite(baseView: wSelf)
-            wSelf.moreButton.menu = wSelf.moreMenu()
         }
         
         let musictagMenu = UIMenu(title: "", options: .displayInline, children: [audioFingerAction, musictagAction, likeAction])
@@ -377,7 +385,6 @@ class PlayControlTapeView: UIView {
         let isShowAudioTag = AppLocalManager.shared.isShowAudioTag
         let showTagAction = UIAction(title: "Show Audio Information".localStr(), image: isShowAudioTag ? nil : UIImage(systemName: "tag.slash"), identifier: nil, discoverabilityTitle: nil, attributes: [], state: isShowAudioTag ? .on : .off, handler: { [weak self] _ in
             AppLocalManager.shared.isShowAudioTag = !AppLocalManager.shared.isShowAudioTag
-            self?.moreButton.menu = self?.moreMenu()
         })
         
         let playStylegMenu = UIMenu(title: "", options: .displayInline, children: [engineAction, playerAction, playbackAction, showTagAction])
@@ -408,7 +415,6 @@ class PlayControlTapeView: UIView {
                 
                 if let baiduFile = KakaMusicPlayer.shared.playingMusic?.baiduFileModel, FileManager.default.fileExists(atPath: baiduFile.m3uCacheURL().path) {
                     appKeyWindow?.makeToast("This feature is unavailable due to partner restrictions.".localStr())
-                    self?.moreButton.menu = self?.moreMenu()
                     return
                 }
                 
@@ -419,7 +425,6 @@ class PlayControlTapeView: UIView {
                 
                 KakaMusicPlayer.shared.play()
                 
-                self?.moreButton.menu = self?.moreMenu()
             })
             
             actionArray.append(subMenu)
@@ -469,6 +474,7 @@ extension PlayControlTapeView {
     @objc func moreButtonClick(_ sender: UIButton) {
         let clickURL = URL(fileURLWithPath: Reasource.fullFilePath("tape_click.wav"))
         self.wakePlayer.play(url: clickURL)
+        delegate?.controlViewDidMoreBtn(controlView: self)
     }
     
     // 上一首
@@ -568,4 +574,3 @@ extension PlayControlTapeView {
     }
     
 }
-

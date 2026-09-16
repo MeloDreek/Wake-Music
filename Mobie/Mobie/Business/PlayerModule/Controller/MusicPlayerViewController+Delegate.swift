@@ -169,6 +169,10 @@ extension MusicPlayerViewController: PlayerSubViewDelegate {
     func controlViewDidPlaylistBtn(controlView: UIView, playlistBtn: UIButton) {
         self.playlistButtonClick(playlistBtn)
     }
+
+    func controlViewDidMoreBtn(controlView: UIView) {
+        setMoreConfigVisible(!isShowingMoreConfig)
+    }
     
     // 歌词设置
     func playerBasicCellDidLyricSettings(basicView: UIView) {

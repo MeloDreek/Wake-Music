@@ -88,8 +88,7 @@ extension MusicPlayerViewController {
             self.serverModel = ServerConfigModel(serverType: model.fileSourceType, baiduUser: baiduUser)
         }
         
-        self.playDefaultControl.moreButton.menu = self.playTapeControl.moreMenu()
-        self.playTapeControl.moreButton.menu = self.playTapeControl.moreMenu()
+        (collectionView.visibleCells.first { $0 is PlayerMoreConfigCollectCell } as? PlayerMoreConfigCollectCell)?.refresh()
     }
     
     // 布局变化了
@@ -99,12 +98,13 @@ extension MusicPlayerViewController {
         let isShowBigLyric = OrientationManager.shared.isShowBigLyric
         let style = MusicConfigManager.shared.playerStyle
         
-        if isShowingPlaylist {
+        if isShowingPlaylist || isShowingMoreConfig {
             // Keep the queue above the existing left-hand transport in split layouts.
-            self.dataArray = isFullScreen ? [.playlist, .listLyric] : [.playlist]
+            let page: PlayerGroupStyle = isShowingMoreConfig ? .moreConfig : .playlist
+            self.dataArray = isFullScreen ? [page, .listLyric] : [page]
             self.flowLayout.itemSize = CGSizeMake(contentView.width / (isFullScreen ? 2 : 1), contentView.height)
-            self.playDefaultControl.isHidden = false
-            self.playTapeControl.isHidden = true
+            self.playDefaultControl.isHidden = style.isTapeStyle()
+            self.playTapeControl.isHidden = !style.isTapeStyle()
         } else if isShowBigLyric && !kaka_IsMacOS() {
             self.dataArray = [.bigLyrics]
             self.flowLayout.itemSize = CGSizeMake(contentView.width, contentView.height)
@@ -134,7 +134,7 @@ extension MusicPlayerViewController {
         }
         
         self.collectionView.reloadData()
-        if isShowingPlaylist { self.collectionView.contentOffset = .zero }
+        if isShowingPlaylist || isShowingMoreConfig { self.collectionView.contentOffset = .zero }
         let queueButton = self.playDefaultControl.playlistButton
         queueButton.tintColor = .white
         queueButton.backgroundColor = isShowingPlaylist ? UIColor.white.withAlphaComponent(0.18) : .clear
@@ -142,6 +142,13 @@ extension MusicPlayerViewController {
         queueButton.accessibilityLabel = "Queue.Title".localStr()
         queueButton.accessibilityTraits = isShowingPlaylist ? [.button, .selected] : .button
         queueButton.setImage(UIImage(systemName: isShowingPlaylist ? "list.bullet" : "list.triangle", withConfiguration: UIImage.SymbolConfiguration(pointSize: 21, weight: .medium)), for: .normal)
+        let moreButton = playDefaultControl.moreButton
+        moreButton.backgroundColor = isShowingMoreConfig ? UIColor.white.withAlphaComponent(0.18) : .clear
+        moreButton.layer.cornerRadius = moreButton.bounds.height / 2
+        moreButton.accessibilityTraits = isShowingMoreConfig ? [.button, .selected] : .button
+        playTapeControl.playlistButton.accessibilityLabel = "Queue.Title".localStr()
+        playTapeControl.playlistButton.accessibilityTraits = isShowingPlaylist ? [.button, .selected] : .button
+        playTapeControl.moreButton.accessibilityTraits = isShowingMoreConfig ? [.button, .selected] : .button
         
 #if !targetEnvironment(macCatalyst)
         self.panModalSetNeedsLayoutUpdate()
@@ -150,14 +157,24 @@ extension MusicPlayerViewController {
 
     func setPlaylistVisible(_ visible: Bool) {
         guard visible != isShowingPlaylist else { return }
-        if visible {
+        setAuxiliaryPage(visible ? .playlist : nil)
+    }
+
+    func setMoreConfigVisible(_ visible: Bool) {
+        guard visible != isShowingMoreConfig else { return }
+        setAuxiliaryPage(visible ? .moreConfig : nil)
+    }
+
+    private func setAuxiliaryPage(_ page: PlayerGroupStyle?) {
+        if page != nil && !isShowingPlaylist && !isShowingMoreConfig {
             returnToLyricsAfterQueue = !OrientationManager.shared.isLandscape &&
                 abs(collectionView.contentOffset.x - flowLayout.itemSize.width) < 10
         }
-        isShowingPlaylist = visible
+        isShowingPlaylist = page == .playlist
+        isShowingMoreConfig = page == .moreConfig
         refreshUIViewAction()
         collectionView.layoutIfNeeded()
-        if !visible {
+        if page == nil {
             collectionView.contentOffset = CGPoint(x: returnToLyricsAfterQueue && !OrientationManager.shared.isLandscape && dataArray.contains(.listLyric) ? flowLayout.itemSize.width : 0, y: 0)
         }
     }
