@@ -63,6 +63,7 @@ public struct ServerConfigModel: SmartCodableX, Equatable, Hashable {
     public var pcloudUser: PCloudDriveUserModel?
     public var smbUser: SMBDriveUserModel?
     public var yandexUser: YandexDriveUserModel?
+    public var pan123User: Pan123DriveUserModel?
     public var guangyaUser: GuangyaDriveUserModel?
     public var boxUser: BoxDriveUserModel?
     public var megaUser: MEGADriveUserModel?
@@ -80,6 +81,7 @@ public struct ServerConfigModel: SmartCodableX, Equatable, Hashable {
         hasher.combine(onedriveUser)
         hasher.combine(pcloudUser)
         hasher.combine(yandexUser)
+        hasher.combine(pan123User)
         hasher.combine(guangyaUser)
         hasher.combine(boxUser)
         hasher.combine(megaUser)
@@ -91,6 +93,7 @@ public struct ServerConfigModel: SmartCodableX, Equatable, Hashable {
         return lhs.serverType == rhs.serverType &&
         lhs.pcloudUser == rhs.pcloudUser &&
         lhs.yandexUser == rhs.yandexUser &&
+        lhs.pan123User == rhs.pan123User &&
         lhs.guangyaUser == rhs.guangyaUser &&
         lhs.boxUser == rhs.boxUser &&
         lhs.megaUser == rhs.megaUser &&
@@ -114,6 +117,7 @@ extension ServerConfigModel {
         if let user = smbUser { return user.title }
         if megaUser != nil { return "MEGA" }
         if yandexUser != nil { return "Yandex Disk" }
+        if pan123User != nil { return "Pan123.Name".localStr() }
         if guangyaUser != nil { return "Guangya.Name".localStr() }
         if boxUser != nil { return "Box" }
         if pcloudUser != nil { return "pCloud" }
@@ -148,6 +152,7 @@ extension ServerConfigModel {
         if let user = smbUser { return user.title }
         if let user = megaUser { return user.email.isEmpty ? "MEGA" : user.email }
         if let user = yandexUser { return user.login.isEmpty ? "Yandex Disk" : user.login }
+        if let user = pan123User { return user.name.isEmpty ? "Pan123.Name".localStr() : user.name }
         if let user = guangyaUser { return user.name.isEmpty ? "Guangya.Name".localStr() : user.name }
         if let user = boxUser { return user.email.isEmpty ? "Box" : user.email }
         if let user = pcloudUser { return user.email.isEmpty ? "pCloud" : user.email }

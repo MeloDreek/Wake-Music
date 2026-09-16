@@ -56,8 +56,10 @@ extension ImportFileType {
             return ["ConnectionTag.FreeUpTo2TB".localStr()] + (showSpeed ? ["ConnectionTag.PartialStreaming".localStr()] : [])
         case .fromAliyunDrive:
             return ["ConnectionTag.Free100GB".localStr()] + (showSpeed ? ["ConnectionTag.PartialStreaming".localStr()] : [])
+        case .from123Drive:
+            return ["ConnectionTag.FreeUpTo2TB".localStr(), "Pan123.TransferQuota".localStr()] + speedTags
         case .from115Drive:
-            return ["ConnectionTag.Free15GB".localStr()]
+            return ["ConnectionTag.Free15GB".localStr(), "ConnectionTag.UpTo5PB".localStr()]
         case .fromGuangyaDrive: return ["Guangya.Free2TB".localStr()] + (showSpeed ? ["Guangya.ByXunlei".localStr()] : []) + speedTags
         default: return []
         }
@@ -243,7 +245,7 @@ extension ImportFileType {
 #else
         let commonArray: [ImportFileType] = [.fromGoogleDrive, .fromDropboxDrive, .fromePCloud, .fromBoxDrive, .fromMEGADrive, .fromYandexDrive]
 #endif
-        let chineseArray: [ImportFileType] = [.fromBaiduDrive, .fromAliyunDrive, .from115Drive, .fromGuangyaDrive]
+        let chineseArray: [ImportFileType] = [.fromBaiduDrive, .fromAliyunDrive, .from115Drive, .from123Drive, .fromGuangyaDrive]
         let russaArray: [ImportFileType] = []
         
         switch language {

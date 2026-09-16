@@ -217,6 +217,10 @@ class MusicTableViewCell: UITableViewCell {
             let isSupport = AudioExtension.audioSuffixs.contains(yandexFile.fileExtension())
             isSupportType = !yandexFile.isDirectory() && isSupport
         }
+        if let pan123File = musicModel.pan123File {
+            let isSupport = AudioExtension.audioSuffixs.contains(pan123File.fileExtension())
+            isSupportType = !pan123File.isDirectory() && isSupport
+        }
         if let guangyaFile = musicModel.guangyaFile {
             let isSupport = AudioExtension.audioSuffixs.contains(guangyaFile.fileExtension())
             isSupportType = !guangyaFile.isDirectory() && isSupport
@@ -326,6 +330,10 @@ class MusicTableViewCell: UITableViewCell {
             coverImgView.kf.setImage(with: musicModel.coverThumbnailURL(), placeholder: musicModel.musicCoverImage() ?? musicModel.placeImage())
             nameLabel.text = file.name
             self.descLabel.text = file.isDirectory() ? "Yandex Disk" : musicModel.durationTimeStr()
+        }else if let file = musicModel.pan123File {
+            coverImgView.kf.setImage(with: musicModel.coverThumbnailURL(), placeholder: musicModel.musicCoverImage() ?? musicModel.placeImage())
+            nameLabel.text = file.name
+            self.descLabel.text = file.isDirectory() ? "Pan123.Name".localStr() : musicModel.durationTimeStr()
         }else if let file = musicModel.guangyaFile {
             coverImgView.kf.setImage(with: musicModel.coverThumbnailURL(), placeholder: musicModel.musicCoverImage() ?? musicModel.placeImage())
             nameLabel.text = file.name

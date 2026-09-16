@@ -89,6 +89,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
         
         guard let firstURL = URLContexts.first?.url else { return }
+        if Pan123DriveService.isCallback(firstURL) { return }
         if GuangyaDriveService.isCallback(firstURL) { return }
         if YandexDriveService.shared.handleCallback(firstURL) { return }
         debugPrint("跳转回来的URL = \(firstURL)")

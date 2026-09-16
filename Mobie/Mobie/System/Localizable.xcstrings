@@ -5021,6 +5021,3347 @@
         }
       }
     },
+    "Pan123.Name" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive"
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive"
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive"
+          }
+        },
+        "en-AU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive"
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive"
+          }
+        },
+        "en-IN" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive"
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive"
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive"
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive"
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive"
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive"
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123網盤"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123网盘"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 雲端硬碟"
+          }
+        }
+      }
+    },
+    "Pan123.Network" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "فشل طلب 123 Drive. يرجى التحقق من اتصالك وأذونات الحساب."
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La sol·licitud a 123 Drive ha fallat. Comprova la connexió i els permisos del compte."
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Požadavek 123 Drive selhal. Zkontrolujte připojení a oprávnění účtu."
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive-anmodningen mislykkedes. Kontrollér din forbindelse og kontoens tilladelser."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Die 123 Drive-Anfrage ist fehlgeschlagen. Bitte überprüfe deine Verbindung und die Kontoberechtigungen."
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Το αίτημα 123 Drive απέτυχε. Ελέγξτε τη σύνδεσή σας και τα δικαιώματα του λογαριασμού."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Could not load data from 123 Drive. Check your connection and try again."
+          }
+        },
+        "en-AU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive request failed. Please check your connection and account permissions."
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive request failed. Please check your connection and account permissions."
+          }
+        },
+        "en-IN" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive request failed. Please check your connection and account permissions."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La solicitud a 123 Drive ha fallado. Comprueba tu conexión y los permisos de la cuenta."
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La solicitud a 123 Drive ha fallado. Comprueba tu conexión y los permisos de la cuenta."
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La solicitud a 123 Drive ha fallado. Comprueba tu conexión y los permisos de la cuenta."
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive-pyyntö epäonnistui. Tarkista yhteys ja tilin käyttöoikeudet."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La requête 123 Drive a échoué. Vérifiez votre connexion et les autorisations du compte."
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La requête 123 Drive a échoué. Vérifiez votre connexion et les autorisations du compte."
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "הבקשה ל-123 Drive נכשלה. יש לבדוק את החיבור ואת הרשאות החשבון."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive अनुरोध विफल रहा। कृपया अपना कनेक्शन और खाते की अनुमतियाँ जाँचें।"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zahtjev za 123 Drive nije uspio. Provjerite vezu i dopuštenja računa."
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A 123 Drive-kérés sikertelen. Ellenőrizd a kapcsolatot és a fiók jogosultságait."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Permintaan 123 Drive gagal. Periksa koneksi dan izin akun Anda."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La richiesta a 123 Drive non è riuscita. Controlla la connessione e le autorizzazioni dell’account."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Driveへのリクエストに失敗しました。接続とアカウントのアクセス権を確認してください。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive 요청에 실패했습니다. 연결 상태와 계정 권한을 확인해 주세요."
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Permintaan 123 Drive gagal. Sila semak sambungan dan kebenaran akaun anda."
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive-forespørselen mislyktes. Kontroller tilkoblingen og kontotillatelsene."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Het 123 Drive-verzoek is mislukt. Controleer je verbinding en accountmachtigingen."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Żądanie 123 Drive nie powiodło się. Sprawdź połączenie i uprawnienia konta."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A solicitação ao 123 Drive falhou. Verifique sua conexão e as permissões da conta."
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O pedido ao 123 Drive falhou. Verifique a ligação e as permissões da conta."
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Solicitarea 123 Drive a eșuat. Verifică conexiunea și permisiunile contului."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Запрос к 123 Drive не выполнен. Проверьте подключение и разрешения учётной записи."
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Požiadavka 123 Drive zlyhala. Skontrolujte pripojenie a oprávnenia účtu."
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zahteva 123 Drive ni uspela. Preverite povezavo in dovoljenja računa."
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive-begäran misslyckades. Kontrollera anslutningen och kontots behörigheter."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "คำขอ 123 Drive ล้มเหลว โปรดตรวจสอบการเชื่อมต่อและสิทธิ์ของบัญชี"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive isteği başarısız oldu. Lütfen bağlantınızı ve hesap izinlerini kontrol edin."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Запит до 123 Drive не виконано. Перевірте з’єднання та дозволи облікового запису."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Yêu cầu 123 Drive không thành công. Vui lòng kiểm tra kết nối và quyền của tài khoản."
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "無法載入123網盤資料，請檢查網路後重試。"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法加载123网盘数据，请检查网络后重试。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "無法載入123 雲端硬碟資料，請檢查網路後重試。"
+          }
+        }
+      }
+    },
+    "Pan123.NotFound" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تم نقل الملف أو المجلد أو حذفه. حدّث القائمة وأعد المحاولة."
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "S’ha mogut o eliminat el fitxer o la carpeta. Actualitza la llista i torna-ho a provar."
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Soubor nebo složka byly přesunuty či smazány. Obnovte seznam a zkuste to znovu."
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Filen eller mappen er flyttet eller slettet. Opdater listen, og prøv igen."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Datei oder Ordner wurde verschoben oder gelöscht. Liste aktualisieren und erneut versuchen."
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Το αρχείο ή ο φάκελος μετακινήθηκε ή διαγράφηκε. Ανανεώστε τη λίστα και δοκιμάστε ξανά."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This file or folder was moved or deleted. Refresh the list and try again."
+          }
+        },
+        "en-AU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This file or folder was moved or deleted. Refresh the list and try again."
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This file or folder was moved or deleted. Refresh the list and try again."
+          }
+        },
+        "en-IN" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This file or folder was moved or deleted. Refresh the list and try again."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Se movió o eliminó el archivo o la carpeta. Actualiza la lista e inténtalo de nuevo."
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Se movió o eliminó el archivo o la carpeta. Actualiza la lista e inténtalo de nuevo."
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Se movió o eliminó el archivo o la carpeta. Actualiza la lista e inténtalo de nuevo."
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tiedosto tai kansio siirrettiin tai poistettiin. Päivitä luettelo ja yritä uudelleen."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ce fichier ou dossier a été déplacé ou supprimé. Actualisez la liste et réessayez."
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ce fichier ou dossier a été déplacé ou supprimé. Actualisez la liste et réessayez."
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "הקובץ או התיקייה הועברו או נמחקו. יש לרענן את הרשימה ולנסות שוב."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "फ़ाइल या फ़ोल्डर हटाया या स्थानांतरित किया गया है। सूची रीफ़्रेश कर फिर प्रयास करें।"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Datoteka ili mapa premještena je ili izbrisana. Osvježite popis i pokušajte ponovno."
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A fájlt vagy mappát áthelyezték vagy törölték. Frissítse a listát, és próbálja újra."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "File atau folder telah dipindahkan atau dihapus. Segarkan daftar dan coba lagi."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Il file o la cartella è stato spostato o eliminato. Aggiorna l’elenco e riprova."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ファイルまたはフォルダが移動・削除されました。一覧を更新して再試行してください。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "파일 또는 폴더가 이동되거나 삭제되었습니다. 목록을 새로 고친 후 다시 시도하세요."
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fail atau folder telah dipindahkan atau dipadam. Muat semula senarai dan cuba lagi."
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Filen eller mappen er flyttet eller slettet. Oppdater listen og prøv igjen."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Het bestand of de map is verplaatst of verwijderd. Vernieuw de lijst en probeer opnieuw."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Plik lub folder przeniesiono albo usunięto. Odśwież listę i spróbuj ponownie."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O arquivo ou pasta foi movido ou excluído. Atualize a lista e tente novamente."
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O ficheiro ou pasta foi movido ou eliminado. Atualize a lista e tente novamente."
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fișierul sau dosarul a fost mutat ori șters. Reîmprospătează lista și reîncearcă."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Файл или папка перемещены либо удалены. Обновите список и повторите попытку."
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Súbor alebo priečinok bol presunutý či odstránený. Obnovte zoznam a skúste znova."
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Datoteka ali mapa je premaknjena ali izbrisana. Osvežite seznam in poskusite znova."
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Filen eller mappen har flyttats eller raderats. Uppdatera listan och försök igen."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ไฟล์หรือโฟลเดอร์ถูกย้ายหรือลบแล้ว รีเฟรชรายการแล้วลองอีกครั้ง"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dosya veya klasör taşınmış ya da silinmiş. Listeyi yenileyip yeniden deneyin."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Файл або папку переміщено чи видалено. Оновіть список і повторіть спробу."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tệp hoặc thư mục đã bị di chuyển hoặc xóa. Làm mới danh sách rồi thử lại."
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "此檔案或資料夾可能已被移動或刪除，請重新整理列表後再試。"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "此文件或文件夹可能已被移动或删除，请刷新列表后重试。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "此檔案或資料夾可能已被移動或刪除，請重新整理列表後再試。"
+          }
+        }
+      }
+    },
+    "Pan123.Permission" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "رفض 123 Drive الوصول. أعد الاتصال وتحقق من أذونات حسابك."
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive ha denegat l’accés. Torna a connectar-te i comprova els permisos."
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive odmítl přístup. Připojte se znovu a ověřte oprávnění účtu."
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive nægtede adgang. Tilslut igen, og kontroller kontotilladelserne."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive hat den Zugriff verweigert. Erneut verbinden und Kontoberechtigungen prüfen."
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Το 123 Drive αρνήθηκε την πρόσβαση. Συνδεθείτε ξανά και ελέγξτε τα δικαιώματα."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive denied access. Please reconnect and confirm your account permissions."
+          }
+        },
+        "en-AU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive denied access. Please reconnect and confirm your account permissions."
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive denied access. Please reconnect and confirm your account permissions."
+          }
+        },
+        "en-IN" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive denied access. Please reconnect and confirm your account permissions."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive denegó el acceso. Reconecta y confirma los permisos de tu cuenta."
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive denegó el acceso. Reconecta y confirma los permisos de tu cuenta."
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive denegó el acceso. Reconecta y confirma los permisos de tu cuenta."
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive esti pääsyn. Yhdistä uudelleen ja tarkista tilin oikeudet."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive a refusé l’accès. Reconnectez-vous et vérifiez les autorisations du compte."
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive a refusé l’accès. Reconnectez-vous et vérifiez les autorisations du compte."
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive דחה את הגישה. יש להתחבר מחדש ולבדוק הרשאות חשבון."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive ने पहुँच अस्वीकार की। फिर कनेक्ट करें और खाते की अनुमतियाँ जाँचें।"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive odbio je pristup. Ponovno se povežite i provjerite dopuštenja računa."
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A 123 Drive megtagadta a hozzáférést. Csatlakozzon újra, és ellenőrizze a fiókjogosultságokat."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive menolak akses. Hubungkan ulang dan periksa izin akun."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive ha negato l’accesso. Riconnettiti e verifica i permessi dell’account."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Driveへのアクセスが拒否されました。再接続してアカウントの権限を確認してください。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive 접근이 거부되었습니다. 다시 연결하고 계정 권한을 확인하세요."
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive menolak akses. Sambung semula dan semak kebenaran akaun."
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive avviste tilgangen. Koble til igjen og kontroller kontotillatelser."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive heeft toegang geweigerd. Verbind opnieuw en controleer accountmachtigingen."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive odmówił dostępu. Połącz ponownie i sprawdź uprawnienia konta."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O 123 Drive negou o acesso. Reconecte e confirme as permissões da conta."
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O 123 Drive negou o acesso. Volte a ligar e confirme as permissões da conta."
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive a refuzat accesul. Reconectează-te și verifică permisiunile contului."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive отказал в доступе. Подключитесь заново и проверьте права аккаунта."
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive zamietol prístup. Pripojte sa znova a overte oprávnenia účtu."
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive je zavrnil dostop. Znova se povežite in preverite dovoljenja računa."
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive nekade åtkomst. Anslut igen och kontrollera kontobehörigheter."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive ปฏิเสธการเข้าถึง เชื่อมต่อใหม่และตรวจสอบสิทธิ์บัญชี"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive erişimi reddetti. Yeniden bağlanıp hesap izinlerini kontrol edin."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive відмовив у доступі. Підключіться знову й перевірте дозволи облікового запису."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive từ chối truy cập. Kết nối lại và kiểm tra quyền tài khoản."
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123網盤拒絕存取，請重新連接並確認帳號權限。"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123网盘拒绝访问，请重新连接并确认账号权限。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 雲端硬碟拒絕存取，請重新連接並確認帳號權限。"
+          }
+        }
+      }
+    },
+    "Pan123.RateLimited" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "طلبات كثيرة إلى 123 Drive. انتظر قليلًا ثم أعد المحاولة."
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Massa peticions a 123 Drive. Espera un moment i torna-ho a provar."
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Příliš mnoho požadavků na 123 Drive. Chvíli počkejte a zkuste to znovu."
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "For mange 123 Drive-anmodninger. Vent lidt, og prøv igen."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zu viele Anfragen an 123 Drive. Kurz warten und erneut versuchen."
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Πάρα πολλά αιτήματα στο 123 Drive. Περιμένετε λίγο και δοκιμάστε ξανά."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Too many requests to 123 Drive. Please wait a moment and try again."
+          }
+        },
+        "en-AU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Too many requests to 123 Drive. Please wait a moment and try again."
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Too many requests to 123 Drive. Please wait a moment and try again."
+          }
+        },
+        "en-IN" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Too many requests to 123 Drive. Please wait a moment and try again."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Demasiadas solicitudes a 123 Drive. Espera un momento y vuelve a intentarlo."
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Demasiadas solicitudes a 123 Drive. Espera un momento y vuelve a intentarlo."
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Demasiadas solicitudes a 123 Drive. Espera un momento y vuelve a intentarlo."
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Liikaa 123 Drive -pyyntöjä. Odota hetki ja yritä uudelleen."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Trop de requêtes vers 123 Drive. Patientez puis réessayez."
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Trop de requêtes vers 123 Drive. Patientez puis réessayez."
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "יותר מדי בקשות אל 123 Drive. יש להמתין מעט ולנסות שוב."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive पर बहुत अधिक अनुरोध। थोड़ी देर बाद फिर प्रयास करें।"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Previše zahtjeva za 123 Drive. Pričekajte pa pokušajte ponovno."
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Túl sok 123 Drive-kérés. Várjon egy kicsit, majd próbálja újra."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Terlalu banyak permintaan 123 Drive. Tunggu sebentar lalu coba lagi."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Troppe richieste a 123 Drive. Attendi e riprova."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Driveへのリクエストが多すぎます。しばらく待ってから再試行してください。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive 요청이 너무 많습니다. 잠시 후 다시 시도하세요."
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Terlalu banyak permintaan 123 Drive. Tunggu sebentar dan cuba lagi."
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "For mange 123 Drive-forespørsler. Vent litt og prøv igjen."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Te veel verzoeken aan 123 Drive. Wacht even en probeer opnieuw."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zbyt wiele żądań do 123 Drive. Poczekaj chwilę i spróbuj ponownie."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Muitas solicitações ao 123 Drive. Aguarde um pouco e tente novamente."
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Demasiados pedidos ao 123 Drive. Aguarde um pouco e tente novamente."
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prea multe cereri către 123 Drive. Așteaptă puțin și reîncearcă."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Слишком много запросов к 123 Drive. Подождите и повторите попытку."
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Príliš veľa požiadaviek na 123 Drive. Chvíľu počkajte a skúste znova."
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Preveč zahtev za 123 Drive. Počakajte in poskusite znova."
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "För många 123 Drive-förfrågningar. Vänta lite och försök igen."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ส่งคำขอไปยัง 123 Drive มากเกินไป รอสักครู่แล้วลองอีกครั้ง"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive’a çok fazla istek gönderildi. Biraz bekleyip yeniden deneyin."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Забагато запитів до 123 Drive. Зачекайте й повторіть спробу."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Quá nhiều yêu cầu tới 123 Drive. Chờ một lát rồi thử lại."
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123網盤請求過於頻繁，請稍後再試。"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123网盘请求过于频繁，请稍后重试。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 雲端硬碟請求過於頻繁，請稍後再試。"
+          }
+        }
+      }
+    },
+    "Pan123.RestrictedFile" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "قيّد 123 Drive هذا الملف بعد مراجعة محتواه. تحقّق من الملف في 123 Drive."
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive ha restringit el fitxer després de revisar-ne el contingut. Comprova’l a 123 Drive."
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive omezil soubor po kontrole obsahu. Zkontrolujte jej v 123 Drive."
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive begrænsede filen efter indholdskontrol. Kontroller filen i 123 Drive."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive hat die Datei nach Inhaltsprüfung eingeschränkt. Datei in 123 Drive prüfen."
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Το 123 Drive περιόρισε το αρχείο μετά τον έλεγχο περιεχομένου. Ελέγξτε το στο 123 Drive."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive has restricted this file after its content review. Please check the file in 123 Drive."
+          }
+        },
+        "en-AU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive has restricted this file after its content review. Please check the file in 123 Drive."
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive has restricted this file after its content review. Please check the file in 123 Drive."
+          }
+        },
+        "en-IN" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive has restricted this file after its content review. Please check the file in 123 Drive."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive restringió el archivo tras revisar su contenido. Revísalo en 123 Drive."
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive restringió el archivo tras revisar su contenido. Revísalo en 123 Drive."
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive restringió el archivo tras revisar su contenido. Revísalo en 123 Drive."
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive rajoitti tiedostoa sisällöntarkistuksessa. Tarkista tiedosto 123 Drivessa."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive a restreint ce fichier après examen du contenu. Vérifiez-le dans 123 Drive."
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive a restreint ce fichier après examen du contenu. Vérifiez-le dans 123 Drive."
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive הגביל את הקובץ לאחר בדיקת תוכן. יש לבדוק אותו ב-123 Drive."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "सामग्री की समीक्षा के बाद 123 Drive ने फ़ाइल प्रतिबंधित की। उसे 123 Drive में जाँचें।"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive ograničio je datoteku nakon pregleda sadržaja. Provjerite je u 123 Driveu."
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A 123 Drive tartalomellenőrzés után korlátozta a fájlt. Ellenőrizze a 123 Drive-ban."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive membatasi file setelah peninjauan konten. Periksa file di 123 Drive."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive ha limitato il file dopo la revisione del contenuto. Verificalo in 123 Drive."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Driveのコンテンツ審査でファイルが制限されました。123 Driveで確認してください。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "콘텐츠 검토 후 123 Drive가 파일을 제한했습니다. 123 Drive에서 파일을 확인하세요."
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive menyekat fail selepas semakan kandungan. Semak fail dalam 123 Drive."
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive begrenset filen etter innholdskontroll. Kontroller den i 123 Drive."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive heeft dit bestand beperkt na inhoudscontrole. Controleer het in 123 Drive."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive ograniczył plik po przeglądzie treści. Sprawdź go w 123 Drive."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O 123 Drive restringiu o arquivo após revisar o conteúdo. Confira-o no 123 Drive."
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O 123 Drive restringiu o ficheiro após rever o conteúdo. Verifique-o no 123 Drive."
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive a restricționat fișierul după verificarea conținutului. Verifică-l în 123 Drive."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive ограничил файл после проверки содержимого. Проверьте его в 123 Drive."
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive obmedzil súbor po kontrole obsahu. Skontrolujte ho v 123 Drive."
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive je omejil datoteko po pregledu vsebine. Preverite jo v 123 Drive."
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive begränsade filen efter innehållsgranskning. Kontrollera den i 123 Drive."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive จำกัดไฟล์หลังตรวจสอบเนื้อหา โปรดตรวจสอบไฟล์ใน 123 Drive"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive içerik incelemesi sonrası dosyayı kısıtladı. Dosyayı 123 Drive’da kontrol edin."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive обмежив файл після перевірки вмісту. Перевірте його в 123 Drive."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive hạn chế tệp sau khi xét duyệt nội dung. Kiểm tra tệp trong 123 Drive."
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123網盤因內容審核限制了此檔案，請在123網盤中查看檔案狀態。"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123网盘因内容审核限制了此文件，请在123网盘中查看文件状态。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 雲端硬碟因內容審核限制了此檔案，請在123 雲端硬碟中查看檔案狀態。"
+          }
+        }
+      }
+    },
+    "Pan123.SameAccount" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "يرجى تسجيل الدخول إلى حساب 123 Drive نفسه."
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inicia la sessió amb el mateix compte de 123 Drive."
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Přihlaste se ke stejnému účtu 123 Drive."
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Log ind på den samme 123 Drive-konto."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bitte melde dich mit demselben 123 Drive-Konto an."
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Συνδεθείτε στον ίδιο λογαριασμό 123 Drive."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Please sign in to the same 123 Drive account to reconnect this library."
+          }
+        },
+        "en-AU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Please sign in to the same 123 Drive account."
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Please sign in to the same 123 Drive account."
+          }
+        },
+        "en-IN" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Please sign in to the same 123 Drive account."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inicia sesión en la misma cuenta de 123 Drive."
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inicia sesión en la misma cuenta de 123 Drive."
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inicia sesión en la misma cuenta de 123 Drive."
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kirjaudu samalle 123 Drive-tilille."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Connectez-vous au même compte 123 Drive."
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Connectez-vous au même compte 123 Drive."
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "יש להתחבר לאותו חשבון 123 Drive."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "कृपया उसी 123 Drive खाते में साइन इन करें।"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prijavite se na isti 123 Drive račun."
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jelentkezz be ugyanabba a 123 Drive-fiókba."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Silakan masuk ke akun 123 Drive yang sama."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Accedi allo stesso account 123 Drive."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "同じ123 Driveアカウントでサインインしてください。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "동일한 123 Drive 계정으로 로그인해 주세요."
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sila log masuk ke akaun 123 Drive yang sama."
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Logg inn på den samme 123 Drive-kontoen."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Log in met hetzelfde 123 Drive-account."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zaloguj się na to samo konto 123 Drive."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Entre na mesma conta do 123 Drive."
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inicie sessão na mesma conta do 123 Drive."
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Conectează-te la același cont 123 Drive."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Войдите в ту же учётную запись 123 Drive."
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prihláste sa do rovnakého účtu 123 Drive."
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prijavite se v isti račun 123 Drive."
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Logga in på samma 123 Drive-konto."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "โปรดลงชื่อเข้าใช้บัญชี 123 Drive เดิม"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lütfen aynı 123 Drive hesabında oturum açın."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Увійдіть до того самого облікового запису 123 Drive."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vui lòng đăng nhập vào cùng tài khoản 123 Drive."
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "請登入原本的123網盤帳號，重新連接此音樂庫。"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "请登录原来的123网盘账号，重新连接此音乐库。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "請登入原本的123 雲端硬碟帳號，重新連接此音樂庫。"
+          }
+        }
+      }
+    },
+    "Pan123.Storage" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تعذر حفظ تفويض 123 Drive. يرجى المحاولة مرة أخرى."
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No s’ha pogut desar l’autorització de 123 Drive. Torna-ho a provar."
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Autorizaci 123 Drive se nepodařilo uložit. Zkuste to znovu."
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive-godkendelsen kunne ikke gemmes. Prøv igen."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Die 123 Drive-Autorisierung konnte nicht gespeichert werden. Bitte versuche es erneut."
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Δεν ήταν δυνατή η αποθήκευση της εξουσιοδότησης 123 Drive. Δοκιμάστε ξανά."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unable to save 123 Drive authorization securely. Please try again."
+          }
+        },
+        "en-AU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unable to save 123 Drive authorization. Please try again."
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unable to save 123 Drive authorization. Please try again."
+          }
+        },
+        "en-IN" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unable to save 123 Drive authorization. Please try again."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se ha podido guardar la autorización de 123 Drive. Inténtalo de nuevo."
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se ha podido guardar la autorización de 123 Drive. Inténtalo de nuevo."
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se ha podido guardar la autorización de 123 Drive. Inténtalo de nuevo."
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive-valtuutusta ei voitu tallentaa. Yritä uudelleen."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossible d’enregistrer l’autorisation 123 Drive. Veuillez réessayer."
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossible d’enregistrer l’autorisation 123 Drive. Veuillez réessayer."
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "לא ניתן לשמור את ההרשאה ל-123 Drive. יש לנסות שוב."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive की अनुमति सहेजी नहीं जा सकी। कृपया फिर से कोशिश करें।"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nije moguće spremiti autorizaciju za 123 Drive. Pokušajte ponovno."
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A 123 Drive-engedélyezést nem sikerült menteni. Próbáld újra."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tidak dapat menyimpan otorisasi 123 Drive. Silakan coba lagi."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossibile salvare l’autorizzazione 123 Drive. Riprova."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Driveの認証情報を保存できませんでした。もう一度お試しください。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive 인증 정보를 저장할 수 없습니다. 다시 시도해 주세요."
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tidak dapat menyimpan kebenaran 123 Drive. Sila cuba lagi."
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kunne ikke lagre 123 Drive-godkjenningen. Prøv igjen."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "De 123 Drive-autorisatie kan niet worden opgeslagen. Probeer het opnieuw."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nie można zapisać autoryzacji 123 Drive. Spróbuj ponownie."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Não foi possível salvar a autorização do 123 Drive. Tente novamente."
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Não foi possível guardar a autorização do 123 Drive. Tente novamente."
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nu s-a putut salva autorizarea 123 Drive. Încearcă din nou."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не удалось сохранить авторизацию 123 Drive. Попробуйте ещё раз."
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Autorizáciu 123 Drive sa nepodarilo uložiť. Skúste to znova."
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pooblastila za 123 Drive ni bilo mogoče shraniti. Poskusite znova."
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Det gick inte att spara 123 Drive-auktoriseringen. Försök igen."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ไม่สามารถบันทึกการอนุญาต 123 Drive ได้ โปรดลองอีกครั้ง"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive yetkilendirmesi kaydedilemedi. Lütfen tekrar deneyin."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не вдалося зберегти авторизацію 123 Drive. Спробуйте ще раз."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Không thể lưu ủy quyền 123 Drive. Vui lòng thử lại."
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "無法安全儲存123網盤授權，請重試。"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无法安全保存123网盘授权，请重试。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "無法安全儲存123 雲端硬碟授權，請重試。"
+          }
+        }
+      }
+    },
+    "Pan123.EmptyFolder" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "هذا المجلد فارغ. أضف موسيقى إلى هذا المجلد في 123 Drive، ثم اضغط على «تحديث»."
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aquesta carpeta és buida. Afegeix-hi música a 123 Drive i toca Actualitza."
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tato složka je prázdná. Přidejte do ní hudbu v 123 Drive a klepněte na Obnovit."
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Denne mappe er tom. Føj musik til denne mappe i 123 Drive, og tryk på Opdater."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dieser Ordner ist leer. Füge in 123 Drive Musik zu diesem Ordner hinzu und tippe auf Aktualisieren."
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Αυτός ο φάκελος είναι κενός. Προσθέστε μουσική σε αυτόν τον φάκελο στο 123 Drive και πατήστε Ανανέωση."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This folder is empty. Upload music to this folder in 123 Drive, then tap Refresh."
+          }
+        },
+        "en-AU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This folder is empty. Add music to this folder in 123 Drive, then tap Refresh."
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This folder is empty. Add music to this folder in 123 Drive, then tap Refresh."
+          }
+        },
+        "en-IN" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This folder is empty. Add music to this folder in 123 Drive, then tap Refresh."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Esta carpeta está vacía. Añade música a esta carpeta en 123 Drive y pulsa Actualizar."
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Esta carpeta está vacía. Añade música a esta carpeta en 123 Drive y pulsa Actualizar."
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Esta carpeta está vacía. Añade música a esta carpeta en 123 Drive y pulsa Actualizar."
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tämä kansio on tyhjä. Lisää musiikkia tähän kansioon 123 Driveissa ja napauta Päivitä."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ce dossier est vide. Ajoutez-y de la musique dans 123 Drive, puis touchez Actualiser."
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ce dossier est vide. Ajoutez-y de la musique dans 123 Drive, puis touchez Actualiser."
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "התיקייה הזו ריקה. יש להוסיף אליה מוזיקה ב-123 Drive ואז להקיש על רענון."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "यह फ़ोल्डर खाली है। 123 Drive में इस फ़ोल्डर में संगीत जोड़ें, फिर रीफ़्रेश पर टैप करें।"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ova je mapa prazna. Dodajte glazbu u ovu mapu u 123 Driveu, a zatim dodirnite Osvježi."
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ez a mappa üres. Adj hozzá zenét a 123 Driveban, majd koppints a Frissítés gombra."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Folder ini kosong. Tambahkan musik ke folder ini di 123 Drive, lalu ketuk Segarkan."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Questa cartella è vuota. Aggiungi musica a questa cartella in 123 Drive, poi tocca Aggiorna."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "このフォルダは空です。123 Drive でこのフォルダに音楽を追加してから「更新」をタップしてください。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "이 폴더는 비어 있습니다. 123 Drive에서 이 폴더에 음악을 추가한 후 ‘새로 고침’을 누르세요."
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Folder ini kosong. Tambahkan muzik ke folder ini dalam 123 Drive, kemudian ketik Muat Semula."
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Denne mappen er tom. Legg til musikk i denne mappen i 123 Drive, og trykk på Oppdater."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Deze map is leeg. Voeg in 123 Drive muziek toe aan deze map en tik op Vernieuwen."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ten folder jest pusty. Dodaj do niego muzykę w 123 Drive, a następnie stuknij Odśwież."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Esta pasta está vazia. Adicione músicas a esta pasta no 123 Drive e toque em Atualizar."
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Esta pasta está vazia. Adicione música a esta pasta no 123 Drive e toque em Atualizar."
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Acest dosar este gol. Adaugă muzică în acest dosar în 123 Drive, apoi atinge Reîmprospătează."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Эта папка пуста. Добавьте в неё музыку в 123 Drive, затем нажмите «Обновить»."
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tento priečinok je prázdny. Pridajte doň hudbu v 123 Drive a klepnite na Obnoviť."
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ta mapa je prazna. Dodajte glasbo v to mapo v 123 Drive in tapnite Osveži."
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Den här mappen är tom. Lägg till musik i den här mappen i 123 Drive och tryck på Uppdatera."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "โฟลเดอร์นี้ว่างอยู่ เพิ่มเพลงลงในโฟลเดอร์นี้ใน 123 Drive แล้วแตะรีเฟรช"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bu klasör boş. 123 Drive’da bu klasöre müzik ekleyin, ardından Yenile’ye dokunun."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ця папка порожня. Додайте до неї музику в 123 Drive, потім натисніть «Оновити»."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Thư mục này trống. Thêm nhạc vào thư mục này trong 123 Drive, rồi nhấn Làm mới."
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "此資料夾是空的。請先在123網盤中將音樂上傳至此資料夾，然後點一下重新整理。"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "此文件夹为空。请先在123网盘中向此文件夹上传音乐，然后点击刷新。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "此資料夾是空的。請先在123 雲端硬碟中將音樂上傳至此資料夾，然後點一下重新整理。"
+          }
+        }
+      }
+    },
+    "Pan123.InsecureDownload" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "أعاد 123 Drive عنوان تنزيل غير مدعوم. حاول لاحقًا أو تواصل مع الدعم."
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive ha retornat una adreça de baixada no compatible. Prova-ho més tard o contacta amb el suport."
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive vrátil nepodporovanou adresu stahování. Zkuste to později nebo kontaktujte podporu."
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive returnerede en ikke-understøttet downloadadresse. Prøv senere, eller kontakt support."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive hat eine nicht unterstützte Downloadadresse geliefert. Später versuchen oder Support kontaktieren."
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Το 123 Drive επέστρεψε μη υποστηριζόμενη διεύθυνση λήψης. Δοκιμάστε αργότερα ή επικοινωνήστε με την υποστήριξη."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive returned an unsupported download address. Please try again later or contact support."
+          }
+        },
+        "en-AU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive returned an unsupported download address. Please try again later or contact support."
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive returned an unsupported download address. Please try again later or contact support."
+          }
+        },
+        "en-IN" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive returned an unsupported download address. Please try again later or contact support."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive devolvió una dirección de descarga no compatible. Reintenta más tarde o contacta con soporte."
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive devolvió una dirección de descarga no compatible. Reintenta más tarde o contacta con soporte."
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive devolvió una dirección de descarga no compatible. Reintenta más tarde o contacta con soporte."
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive palautti latausosoitteen, jota ei tueta. Yritä myöhemmin tai ota yhteys tukeen."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive a renvoyé une adresse de téléchargement non prise en charge. Réessayez plus tard ou contactez l’assistance."
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive a renvoyé une adresse de téléchargement non prise en charge. Réessayez plus tard ou contactez l’assistance."
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive החזיר כתובת הורדה לא נתמכת. יש לנסות מאוחר יותר או לפנות לתמיכה."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive से असमर्थित डाउनलोड पता मिला। बाद में प्रयास करें या सहायता से संपर्क करें।"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive vratio je nepodržanu adresu za preuzimanje. Pokušajte kasnije ili kontaktirajte podršku."
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A 123 Drive nem támogatott letöltési címet adott. Próbálja később, vagy keresse az ügyfélszolgálatot."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive mengembalikan alamat unduhan yang tidak didukung. Coba nanti atau hubungi dukungan."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive ha restituito un indirizzo di download non supportato. Riprova più tardi o contatta l’assistenza."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Driveから未対応のダウンロードURLが返されました。後で再試行するかサポートへお問い合わせください。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive가 지원되지 않는 다운로드 주소를 반환했습니다. 나중에 다시 시도하거나 지원팀에 문의하세요."
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive mengembalikan alamat muat turun yang tidak disokong. Cuba kemudian atau hubungi sokongan."
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive returnerte en nedlastingsadresse som ikke støttes. Prøv senere eller kontakt støtte."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive gaf een niet-ondersteund downloadadres. Probeer later of neem contact op met support."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive zwrócił nieobsługiwany adres pobierania. Spróbuj później lub skontaktuj się z pomocą."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O 123 Drive retornou um endereço de download incompatível. Tente mais tarde ou contate o suporte."
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O 123 Drive devolveu um endereço de descarga não suportado. Tente mais tarde ou contacte o suporte."
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive a returnat o adresă de descărcare neacceptată. Reîncearcă mai târziu sau contactează asistența."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive вернул неподдерживаемый адрес загрузки. Повторите позже или обратитесь в поддержку."
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive vrátil nepodporovanú adresu sťahovania. Skúste neskôr alebo kontaktujte podporu."
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive je vrnil nepodprt naslov za prenos. Poskusite pozneje ali kontaktirajte podporo."
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive returnerade en nedladdningsadress som inte stöds. Försök senare eller kontakta support."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive ส่งที่อยู่ดาวน์โหลดที่ไม่รองรับ ลองภายหลังหรือติดต่อฝ่ายสนับสนุน"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive desteklenmeyen indirme adresi verdi. Daha sonra deneyin veya desteğe başvurun."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive повернув непідтримувану адресу завантаження. Спробуйте пізніше або зверніться до підтримки."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive trả về địa chỉ tải xuống không được hỗ trợ. Thử lại sau hoặc liên hệ hỗ trợ."
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123網盤傳回不支援的下載位址，請稍後再試或聯絡客服。"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123网盘返回了不支持的下载地址，请稍后重试或联系客服。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 雲端硬碟傳回不支援的下載位址，請稍後再試或聯絡客服。"
+          }
+        }
+      }
+    },
+    "Pan123.TransferQuota" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تُطبّق حصة نقل البيانات"
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Quota de transferència"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Platí limit přenosu"
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Overførselskvote gælder"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Übertragungskontingent gilt"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ισχύει όριο μεταφοράς"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Transfer quota applies"
+          }
+        },
+        "en-AU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Transfer quota applies"
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Transfer quota applies"
+          }
+        },
+        "en-IN" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Transfer quota applies"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Se aplica cuota de transferencia"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Se aplica cuota de transferencia"
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Se aplica cuota de transferencia"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Siirtokiintiö käytössä"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Quota de transfert applicable"
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Quota de transfert applicable"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "חלה מכסת העברה"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ट्रांसफ़र कोटा लागू"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vrijedi kvota prijenosa"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Adatforgalmi keret érvényes"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kuota transfer berlaku"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Si applica una quota di trasferimento"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "転送容量制限あり"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "전송 할당량 적용"
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kuota pemindahan terpakai"
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Overføringskvote gjelder"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Overdrachtsquotum van toepassing"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Obowiązuje limit transferu"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sujeito à cota de transferência"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sujeito a quota de transferência"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Se aplică o cotă de transfer"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Действует квота передачи"
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Platí limit prenosu"
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Velja kvota prenosa"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Överföringskvot gäller"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "มีโควตาการถ่ายโอน"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aktarım kotası uygulanır"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Діє квота передавання"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Áp dụng hạn mức truyền tải"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "設有傳輸流量額度"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "有传输流量额度"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "設有傳輸流量額度"
+          }
+        }
+      }
+    },
+    "Pan123.Quota" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "بلغت حصة نقل 123 Drive. انتظر تجددها أو تحقّق من خطتك في 123 Drive."
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Has esgotat la quota de transferència 123 Drive. Espera que es renovi o revisa el pla a 123 Drive."
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vyčerpali jste limit přenosu 123 Drive. Počkejte na obnovení nebo zkontrolujte tarif v 123 Drive."
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Din 123 Drive-overførselskvote er opbrugt. Vent på nulstilling, eller kontroller din plan i 123 Drive."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive-Übertragungskontingent aufgebraucht. Auf Erneuerung warten oder Tarif in 123 Drive prüfen."
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Εξαντλήθηκε το όριο μεταφοράς 123 Drive. Περιμένετε να ανανεωθεί ή ελέγξτε το πρόγραμμά σας στο 123 Drive."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your 123 Drive transfer quota has been reached. Wait for it to reset or check your plan in 123 Drive."
+          }
+        },
+        "en-AU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your 123 Drive transfer quota has been reached. Wait for it to reset or check your plan in 123 Drive."
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your 123 Drive transfer quota has been reached. Wait for it to reset or check your plan in 123 Drive."
+          }
+        },
+        "en-IN" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your 123 Drive transfer quota has been reached. Wait for it to reset or check your plan in 123 Drive."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Agotaste tu cuota de transferencia 123 Drive. Espera a que se restablezca o revisa tu plan en 123 Drive."
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Agotaste tu cuota de transferencia 123 Drive. Espera a que se restablezca o revisa tu plan en 123 Drive."
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Agotaste tu cuota de transferencia 123 Drive. Espera a que se restablezca o revisa tu plan en 123 Drive."
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive-siirtokiintiö on käytetty. Odota sen nollautumista tai tarkista tilauksesi 123 Drivessa."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Votre quota de transfert 123 Drive est épuisé. Attendez son renouvellement ou vérifiez votre forfait dans 123 Drive."
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Votre quota de transfert 123 Drive est épuisé. Attendez son renouvellement ou vérifiez votre forfait dans 123 Drive."
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "מכסת ההעברה של 123 Drive מוצתה. יש להמתין לחידושה או לבדוק את המסלול ב-123 Drive."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive ट्रांसफ़र कोटा पूरा हो गया है। रीसेट होने की प्रतीक्षा करें या 123 Drive में अपना प्लान जाँचें।"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive kvota prijenosa je potrošena. Pričekajte obnovu ili provjerite paket u 123 Drive-i."
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A 123 Drive adatforgalmi kerete elfogyott. Várja meg a megújulást, vagy ellenőrizze csomagját a 123 Drive-ban."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kuota transfer 123 Drive habis. Tunggu hingga direset atau periksa paket Anda di 123 Drive."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Quota di trasferimento 123 Drive esaurita. Attendi il ripristino o verifica il piano in 123 Drive."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Driveの転送容量上限に達しました。リセットを待つか、123 Driveでプランを確認してください。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive 전송 할당량을 모두 사용했습니다. 초기화를 기다리거나 123 Drive에서 요금제를 확인하세요."
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kuota pemindahan 123 Drive telah habis. Tunggu penetapan semula atau semak pelan dalam 123 Drive."
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive-overføringskvoten er brukt opp. Vent til den fornyes eller kontroller planen i 123 Drive."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Je 123 Drive-overdrachtsquotum is bereikt. Wacht op de reset of controleer je abonnement in 123 Drive."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wyczerpano limit transferu 123 Drive. Poczekaj na odnowienie lub sprawdź plan w 123 Drive."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sua cota de transferência 123 Drive acabou. Aguarde a renovação ou confira seu plano no 123 Drive."
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A sua quota de transferência 123 Drive esgotou-se. Aguarde a reposição ou verifique o plano no 123 Drive."
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cota de transfer 123 Drive a fost epuizată. Așteaptă reînnoirea sau verifică planul în 123 Drive."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Квота передачи 123 Drive исчерпана. Дождитесь её обновления или проверьте тариф в 123 Drive."
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Limit prenosu 123 Drive je vyčerpaný. Počkajte na obnovenie alebo skontrolujte plán v 123 Drive."
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kvota prenosa 123 Drive je porabljena. Počakajte na obnovitev ali preverite paket v 123 Drive."
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Din 123 Drive-överföringskvot är förbrukad. Vänta på återställning eller kontrollera ditt abonnemang i 123 Drive."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ใช้โควตาการถ่ายโอน 123 Drive ครบแล้ว รอรีเซ็ตหรือตรวจสอบแผนบริการใน 123 Drive"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive aktarım kotanız doldu. Yenilenmesini bekleyin veya 123 Drive’daki planınızı kontrol edin."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Квоту передавання 123 Drive вичерпано. Дочекайтеся її оновлення або перевірте тариф у 123 Drive."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Đã hết hạn mức truyền tải 123 Drive. Chờ đặt lại hoặc kiểm tra gói của bạn trong 123 Drive."
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive 傳輸流量額度已用盡，請等待額度恢復，或前往 123 Drive 查看帳戶方案。"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive 传输流量额度已用尽，请等待额度恢复，或前往 123 Drive 查看账号套餐。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive 傳輸流量額度已用盡，請等待額度恢復，或前往 123 Drive 查看帳戶方案。"
+          }
+        }
+      }
+    },
+    "Pan123.Configuration" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تعذّر الاتصال بـ 123 Drive. أعد المحاولة واسمح بالوصول إلى 123 Drive."
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No s’ha pogut connectar a 123 Drive. Torna-ho a provar i permet l’accés a 123 Drive."
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nelze se připojit k 123 Driveu. Zkuste to znovu a povolte přístup k 123 Drive."
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kunne ikke oprette forbindelse til 123 Drive. Prøv igen, og tillad adgang til 123 Drive."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Verbindung mit 123 Drive fehlgeschlagen. Erneut versuchen und Zugriff auf 123 Drive erlauben."
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Αδυναμία σύνδεσης στο 123 Drive. Δοκιμάστε ξανά και επιτρέψτε την πρόσβαση στο 123 Drive."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive could not validate the app configuration. Please contact Wake Music support."
+          }
+        },
+        "en-AU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Could not connect to 123 Drive. Please try again and allow access to 123 Drive."
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Could not connect to 123 Drive. Please try again and allow access to 123 Drive."
+          }
+        },
+        "en-IN" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Could not connect to 123 Drive. Please try again and allow access to 123 Drive."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se pudo conectar a 123 Drive. Inténtalo de nuevo y permite el acceso a 123 Drive."
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se pudo conectar a 123 Drive. Inténtalo de nuevo y permite el acceso a 123 Drive."
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se pudo conectar a 123 Drive. Inténtalo de nuevo y permite el acceso a 123 Drive."
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive-yhteys epäonnistui. Yritä uudelleen ja salli 123 Drivein käyttö."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Connexion à 123 Drive impossible. Réessayez et autorisez l’accès à 123 Drive."
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Connexion à 123 Drive impossible. Réessayez et autorisez l’accès à 123 Drive."
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "לא ניתן להתחבר ל-123 Drive. יש לנסות שוב ולאפשר גישה ל-123 Drive."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive से कनेक्ट नहीं हो सका। फिर प्रयास करें और 123 Drive की पहुँच दें।"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nije moguće povezati se s 123 Driveom. Pokušajte ponovno i dopustite pristup 123 Driveu."
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nem sikerült csatlakozni a 123 Drivehez. Próbálja újra, és engedélyezze a 123 Drive elérését."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tidak dapat terhubung ke 123 Drive. Coba lagi dan izinkan akses ke 123 Drive."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossibile connettersi a 123 Drive. Riprova e consenti l’accesso a 123 Drive."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Driveに接続できませんでした。再試行して123 Driveへのアクセスを許可してください。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive에 연결하지 못했습니다. 다시 시도하고 123 Drive 접근을 허용하세요."
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tidak dapat menyambung ke 123 Drive. Cuba lagi dan benarkan akses ke 123 Drive."
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kunne ikke koble til 123 Drive. Prøv igjen og tillat tilgang til 123 Drive."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kan niet verbinden met 123 Drive. Probeer opnieuw en sta toegang tot 123 Drive toe."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nie można połączyć z 123 Drive. Spróbuj ponownie i zezwól na dostęp do 123 Drive."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Não foi possível conectar ao 123 Drive. Tente novamente e permita acesso ao 123 Drive."
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Não foi possível ligar ao 123 Drive. Tente novamente e permita o acesso ao 123 Drive."
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Conectarea la 123 Drive a eșuat. Reîncearcă și permite accesul la 123 Drive."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не удалось подключиться к Яндексу. Повторите попытку и разрешите доступ к Диску."
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nedá sa pripojiť k 123 Driveu. Skúste znova a povoľte prístup k 123 Drive."
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Povezava z 123 Driveom ni uspela. Poskusite znova in dovolite dostop do 123 Drive."
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kunde inte ansluta till 123 Drive. Försök igen och tillåt åtkomst till 123 Drive."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "เชื่อมต่อ 123 Drive ไม่สำเร็จ ลองอีกครั้งและอนุญาตให้เข้าถึง 123 Drive"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123 Drive’e bağlanılamadı. Yeniden deneyin ve 123 Drive erişimine izin verin."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не вдалося підключитися до 123 Drive. Спробуйте знову й дозвольте доступ до 123 Drive."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Không thể kết nối 123 Drive. Thử lại và cho phép truy cập 123 Drive."
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123網盤無法驗證應用程式設定，請聯絡維克音樂客服。"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123网盘无法验证应用配置，请联系维克音乐客服。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "123網盤無法驗證應用程式設定，請聯絡維克音樂客服。"
+          }
+        }
+      }
+    },
     "115 Drive" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -32187,6 +35528,264 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "免費10GB"
+          }
+        }
+      }
+    },
+    "ConnectionTag.UpTo5PB": {
+      "comment": "115 Lifetime VIP storage entitlement, not the free allocation. Approximate binary-unit conversion used by the provider.",
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "حتى 5 PB ≈ 5.24 مليون GB (VIP مدى الحياة)"
+          }
+        },
+        "ca": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fins a 5 PB ≈ 5,24 milions de GB (VIP de per vida)"
+          }
+        },
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Až 5 PB ≈ 5,24 milionu GB (doživotní VIP)"
+          }
+        },
+        "da": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Op til 5 PB ≈ 5,24 mio. GB (livstids-VIP)"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bis zu 5 PB ≈ 5,24 Mio. GB (lebenslanges VIP)"
+          }
+        },
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Έως 5 PB ≈ 5,24 εκατ. GB (ισόβιο VIP)"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Up to 5 PB ≈ 5.24 million GB (Lifetime VIP)"
+          }
+        },
+        "en-AU": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Up to 5 PB ≈ 5.24 million GB (Lifetime VIP)"
+          }
+        },
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Up to 5 PB ≈ 5.24 million GB (Lifetime VIP)"
+          }
+        },
+        "en-IN": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Up to 5 PB ≈ 5.24 million GB (Lifetime VIP)"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hasta 5 PB ≈ 5,24 millones de GB (VIP vitalicio)"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hasta 5 PB ≈ 5.24 millones de GB (VIP vitalicio)"
+          }
+        },
+        "es-US": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hasta 5 PB ≈ 5.24 millones de GB (VIP vitalicio)"
+          }
+        },
+        "fi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Jopa 5 PB ≈ 5,24 milj. GB (elinikäinen VIP)"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Jusqu’à 5 Po ≈ 5,24 millions de Go (VIP à vie)"
+          }
+        },
+        "fr-CA": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Jusqu’à 5 Po ≈ 5,24 millions de Go (VIP à vie)"
+          }
+        },
+        "he": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "עד 5 PB ≈ 5.24 מיליון GB (VIP לכל החיים)"
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "5 PB तक ≈ 52.4 लाख GB (आजीवन VIP)"
+          }
+        },
+        "hr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Do 5 PB ≈ 5,24 milijuna GB (doživotni VIP)"
+          }
+        },
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Akár 5 PB ≈ 5,24 millió GB (élethosszig tartó VIP)"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hingga 5 PB ≈ 5,24 juta GB (VIP Seumur Hidup)"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fino a 5 PB ≈ 5,24 milioni di GB (VIP a vita)"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "最大5 PB ≈ 524万GB（永久VIP）"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "최대 5 PB ≈ 524만 GB (평생 VIP)"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sehingga 5 PB ≈ 5.24 juta GB (VIP Seumur Hidup)"
+          }
+        },
+        "nb": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Opptil 5 PB ≈ 5,24 mill. GB (livstids-VIP)"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tot 5 PB ≈ 5,24 miljoen GB (levenslang VIP)"
+          }
+        },
+        "pl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Do 5 PB ≈ 5,24 mln GB (dożywotnie VIP)"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Até 5 PB ≈ 5,24 milhões de GB (VIP vitalício)"
+          }
+        },
+        "pt-PT": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Até 5 PB ≈ 5,24 milhões de GB (VIP vitalício)"
+          }
+        },
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Până la 5 PB ≈ 5,24 milioane GB (VIP pe viață)"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "До 5 ПБ ≈ 5,24 млн ГБ (пожизненный VIP)"
+          }
+        },
+        "sk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Až 5 PB ≈ 5,24 milióna GB (doživotné VIP)"
+          }
+        },
+        "sl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Do 5 PB ≈ 5,24 milijona GB (doživljenjski VIP)"
+          }
+        },
+        "sv": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Upp till 5 PB ≈ 5,24 miljoner GB (livstids-VIP)"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "สูงสุด 5 PB ≈ 5.24 ล้าน GB (VIP ตลอดชีพ)"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "5 PB’a kadar ≈ 5,24 milyon GB (ömür boyu VIP)"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "До 5 ПБ ≈ 5,24 млн ГБ (довічний VIP)"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tối đa 5 PB ≈ 5,24 triệu GB (VIP trọn đời)"
+          }
+        },
+        "zh-HK": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "最高5PB≈524萬GB（長期VIP）"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "最高5PB≈524万GB（长期VIP）"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "最高5PB≈524萬GB（長期VIP）"
           }
         }
       }

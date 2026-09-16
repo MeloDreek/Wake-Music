@@ -16,6 +16,7 @@ extension ServerConfigModel {
         if let user = smbUser { return user.title + " (" + user.host + ")" }
         if let user = megaUser { return user.email.isEmpty ? "MEGA" : user.email }
         if let user = yandexUser { return user.login.isEmpty ? "Yandex Disk" : user.login }
+        if let user = pan123User { return user.name.isEmpty ? "Pan123.Name".localStr() : user.name }
         if let user = guangyaUser { return user.name.isEmpty ? "Guangya.Name".localStr() : user.name }
         if let user = boxUser { return user.email.isEmpty ? "Box" : user.email }
         if let user = pcloudUser { return user.email.isEmpty ? "pCloud" : user.email }
@@ -50,19 +51,30 @@ extension ServerConfigModel {
     
     /// 副标题
     func descString() -> String? {
-        if let user = smbUser { return user.title + " (" + user.host + ")" }
-        if let user = megaUser { return user.email.isEmpty ? "MEGA" : user.email }
-        if let user = yandexUser { return user.login.isEmpty ? "Yandex Disk" : user.login }
+        // Only display returned profile fields; never derive contact details from IDs/tokens.
+        func details(_ values: String?...) -> String? {
+            var parts: [String] = []
+            for value in values {
+                guard let value = value?.trimmingCharacters(in: .whitespacesAndNewlines), !value.isEmpty,
+                      !parts.contains(where: { $0.caseInsensitiveCompare(value) == .orderedSame }) else { continue }
+                parts.append(value)
+            }
+            return parts.isEmpty ? nil : parts.joined(separator: " · ")
+        }
+        if let user = smbUser { return details(user.host, user.username) }
+        if let user = megaUser { return details(user.name, user.email) ?? "MEGA" }
+        if let user = yandexUser { return details(user.name, user.login) ?? "Yandex Disk" }
+        if let user = pan123User { return details(user.name, user.email, user.phone) ?? "Pan123.Name".localStr() }
         if let user = guangyaUser { return user.name.isEmpty ? "Guangya.Name".localStr() : user.name }
-        if let user = boxUser { return user.email.isEmpty ? "Box" : user.email }
+        if let user = boxUser { return details(user.name, user.email) ?? "Box" }
         if let user = pcloudUser { return user.email.isEmpty ? user.apiHostName : user.email }
         
         if let webdavUser = self.webdavUser {
-            return webdavUser.baseServerURL(false)?.absoluteString
+            return details(webdavUser.baseServerURL(false)?.absoluteString, webdavUser.username)
         }
         
         if let navUser = self.navUser {
-            return navUser.hostUrl
+            return details(navUser.hostUrl, navUser.username)
         }
         
         if let baiduUser = self.baiduUser {
@@ -78,15 +90,15 @@ extension ServerConfigModel {
         }
         
         if let googleUser = self.googleUser {
-            return googleUser.email ?? googleUser.nickName
+            return details(googleUser.nickName, googleUser.email)
         }
         
         if let dropboxUser = self.dropboxUser {
-            return (dropboxUser.account?.email ?? dropboxUser.account?.name) ?? dropboxUser.userID
+            return details(dropboxUser.account?.name, dropboxUser.account?.email) ?? dropboxUser.userID
         }
         
         if let onedriveUser = self.onedriveUser {
-            return (onedriveUser.account?.username ?? onedriveUser.account?.nickName) ?? onedriveUser.account?.msalID
+            return details(onedriveUser.account?.nickName, onedriveUser.account?.username) ?? onedriveUser.account?.msalID
         }
         
         return nil

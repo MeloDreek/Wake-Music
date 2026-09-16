@@ -91,6 +91,11 @@ public struct MusicItemModel: SmartCodableX, Equatable, Hashable, Sendable {
         self.mediaPlayURL = yandexFile.mediaPlayURL()
         self.yandexFile = yandexFile
     }
+    public init(pan123File: Pan123DriveFileModel) {
+        self.fileSourceType = .from123Drive
+        self.mediaPlayURL = pan123File.mediaPlayURL()
+        self.pan123File = pan123File
+    }
     public init(guangyaFile: GuangyaDriveFileModel) {
         self.fileSourceType = .fromGuangyaDrive
         self.mediaPlayURL = guangyaFile.mediaPlayURL()
@@ -151,6 +156,7 @@ public struct MusicItemModel: SmartCodableX, Equatable, Hashable, Sendable {
     
     public var smbFile: SMBDriveFileModel?
     public var yandexFile: YandexDriveFileModel?
+    public var pan123File: Pan123DriveFileModel?
     public var guangyaFile: GuangyaDriveFileModel?
     public var boxFile: BoxDriveFileModel?
     public var megaFile: MEGADriveFileModel?
@@ -217,6 +223,7 @@ public struct MusicItemModel: SmartCodableX, Equatable, Hashable, Sendable {
         if let file = smbFile { return file.identity }
         if let file = megaFile { return file.identity }
         if let file = yandexFile { return file.identity }
+        if let file = pan123File { return file.identity }
         if let file = guangyaFile { return file.identity }
         if let file = boxFile { return file.identity }
         if let file = pcloudFile { return file.identity }

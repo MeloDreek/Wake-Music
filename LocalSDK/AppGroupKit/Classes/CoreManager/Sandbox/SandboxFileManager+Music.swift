@@ -8,6 +8,95 @@
 import KakaFoundation
 import KakaUIKit
 import KakaTaglibKit
+import CryptoKit
+import Darwin
+
+extension MusicItemModel {
+    /// Stable source/account key, independent of the human-readable filename and tags.
+    public func preDownloadIdentity() -> String {
+        var parts = [fileSourceType.rawValue, uniqueID()]
+        if let file = webFileModel, let user = file.webdavUser {
+            parts += [user.hostUrl, user.port ?? "", user.username ?? "", file.filePath]
+        }
+        if let user = navidromeSong?.navUser { parts += [user.hostUrl, user.id, user.username] }
+        if let file = aliFileModel { parts += [file.aliyunUser?.aliUser?.user_id ?? "", file.drive_id, file.file_id] }
+        if let user = googleFile?.googleUser { parts += [user.userID ?? ""] }
+        if let user = dropboxFile?.dropboxUser { parts += [user.userID ?? ""] }
+        if let user = onedriveFile?.onedriveUser { parts += [user.account?.msalID ?? ""] }
+        if let user = drive115Model?.drive115User { parts += [user.user_id] }
+        if let user = baiduFileModel?.baiduUser { parts += [String(user.uk)] }
+        return SHA256.hash(data: Data(parts.joined(separator: "\u{0}").utf8))
+            .map { String(format: "%02x", $0) }.joined()
+    }
+}
+
+/// A source marker travels with the file when renamed/moved; no stale filename index
+/// can accidentally select another song after cache eviction or a filename collision.
+public enum PreDownloadedAudioFile {
+    private static let attribute = "com.wakemusic.predownload.source"
+    private static let lock = NSLock()
+
+    public static func sourceIdentity(at url: URL) -> String? {
+        let size = getxattr(url.path, attribute, nil, 0, 0, 0)
+        guard size > 0, size <= 256 else { return nil }
+        var data = Data(count: size)
+        let count = data.withUnsafeMutableBytes { getxattr(url.path, attribute, $0.baseAddress, size, 0, 0) }
+        guard count == size else { return nil }
+        return String(data: data, encoding: .utf8)
+    }
+
+    public static func filename(title: String?, artist: String?, originalName: String) -> String {
+        let title = title?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+        let artist = artist?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+        let original = (originalName as NSString).lastPathComponent
+        let ext = (original as NSString).pathExtension
+        let stem = !title.isEmpty && !artist.isEmpty ? title + "-" + artist : (original as NSString).deletingPathExtension
+        return safeComponent(stem) + (ext.isEmpty ? "" : "." + safeComponent(ext, maxBytes: 20))
+    }
+
+    private static func safeComponent(_ value: String, maxBytes: Int = 210) -> String {
+        let illegal = CharacterSet(charactersIn: "/\\:*?\"<>|").union(.controlCharacters)
+        var result = value.components(separatedBy: illegal).joined(separator: "_")
+            .trimmingCharacters(in: CharacterSet.whitespacesAndNewlines.union(CharacterSet(charactersIn: ".")))
+        while result.utf8.count > maxBytes { result.removeLast() }
+        return result.isEmpty ? "Audio" : result
+    }
+
+    /// Called after HTTP completion and local TagLib parsing, never on a partial file.
+    public static func store(_ downloadedURL: URL, in folder: URL, title: String?, artist: String?,
+                             originalName: String, identity: String) throws -> URL {
+        lock.lock()
+        defer { lock.unlock() }
+        let fm = FileManager.default
+        try fm.createDirectory(at: folder, withIntermediateDirectories: true)
+        let existing = try fm.contentsOfDirectory(at: folder, includingPropertiesForKeys: nil, options: .skipsHiddenFiles)
+        if let cached = existing.first(where: { sourceIdentity(at: $0) == identity }) {
+            if downloadedURL != cached { try fm.removeItem(at: downloadedURL) }
+            return cached
+        }
+        let marker = Data(identity.utf8)
+        let status = marker.withUnsafeBytes { setxattr(downloadedURL.path, attribute, $0.baseAddress, marker.count, 0, 0) }
+        guard status == 0 else { throw NSError(domain: NSPOSIXErrorDomain, code: Int(errno)) }
+        let name = filename(title: title, artist: artist, originalName: originalName)
+        let ext = (name as NSString).pathExtension
+        let stem = (name as NSString).deletingPathExtension
+        var number = 1
+        while true {
+            let suffix = number == 1 ? "" : " \(number)"
+            let candidate = folder.appendingPathComponent(stem + suffix + (ext.isEmpty ? "" : "." + ext))
+            if !fm.fileExists(atPath: candidate.path) {
+                do {
+                    // moveItem never overwrites an existing destination, including races.
+                    try fm.moveItem(at: downloadedURL, to: candidate)
+                    return candidate
+                } catch {
+                    guard fm.fileExists(atPath: candidate.path) else { throw error }
+                }
+            }
+            number += 1
+        }
+    }
+}
 
 extension SandboxFileManager {
     
@@ -51,24 +140,35 @@ extension SandboxFileManager {
     
     /// 获取已下载的文件路径
     public func getDownloadPlayURL(_ model: MusicItemModel) -> URL? {
+        let cachedFiles = self.preDownloadURL().readLocalSubFiles()
+        let identity = model.preDownloadIdentity()
+        if let cached = cachedFiles.first(where: { PreDownloadedAudioFile.sourceIdentity(at: $0) == identity }) {
+            return cached
+        }
+        let publicFiles = self.getAllSubFiles(self.basePublicFileURL())
+        if let cached = publicFiles.first(where: { PreDownloadedAudioFile.sourceIdentity(at: $0) == identity }) {
+            return cached
+        }
         // A display filename is not a unique identifier across cloud folders/accounts.
-        if model.pcloudFile != nil || model.megaFile != nil || model.yandexFile != nil || model.guangyaFile != nil || model.boxFile != nil || model.smbFile != nil {
+        if model.pcloudFile != nil || model.megaFile != nil || model.yandexFile != nil || model.guangyaFile != nil || model.pan123File != nil || model.boxFile != nil || model.smbFile != nil {
             let url = self.preDownloadURL().appendingPathComponent(model.filePathName() + model.addPathExtension())
             return FileManager.default.fileExists(atPath: url.path) ? url : nil
         }
         
-        let baseFolderURL = self.basePublicFileURL()
-        let allFileURLArray1 = self.preDownloadURL().readLocalSubFiles()
-        let allFileURLArray2 = self.getAllSubFiles(baseFolderURL)
+        let allFileURLArray1 = cachedFiles
+        let allFileURLArray2 = publicFiles
         
         let allFileURLArray = allFileURLArray1 + allFileURLArray2
-        let allFileNameArray = allFileURLArray.map { $0.lastPathComponent }
+        // Legacy untagged downloads retain their old lookup behavior. A renamed cache
+        // belonging to a different source must never be selected just by its name.
+        let legacyFiles = allFileURLArray.filter { PreDownloadedAudioFile.sourceIdentity(at: $0) == nil }
+        let allFileNameArray = legacyFiles.map { $0.lastPathComponent }
         
 //        debugPrint("所有缓存的路径 = \(allFileNameArray)")
 //        debugPrint("当前要播放的音乐 = \(model.downloadPathName())")
         
         if let index = allFileNameArray.firstIndex(where: { $0 == model.downloadPathName() }) {
-            let cacheURL = allFileURLArray[index]
+            let cacheURL = legacyFiles[index]
             return FileManager.default.fileExists(atPath: cacheURL.path) ? cacheURL : nil
         }else{
             return nil

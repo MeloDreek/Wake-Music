@@ -68,12 +68,12 @@ final class CollectionDetialHeadCell: UITableViewCell {
         for subview in [coverImgView, labels, actions] { subview.translatesAutoresizingMaskIntoConstraints = false; contentView.addSubview(subview) }
         let coverWidth = coverImgView.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.70)
         coverWidth.priority = .defaultHigh
-        let playWidth = playButton.widthAnchor.constraint(equalToConstant: 160)
+        let playWidth = playButton.widthAnchor.constraint(equalToConstant: 180)
         playWidth.priority = .defaultHigh
         NSLayoutConstraint.activate([
             coverImgView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             coverImgView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 24),
-            coverWidth, coverImgView.widthAnchor.constraint(lessThanOrEqualToConstant: 340),
+            coverWidth, coverImgView.widthAnchor.constraint(lessThanOrEqualToConstant: 280),
             coverImgView.heightAnchor.constraint(equalTo: coverImgView.widthAnchor),
             labels.topAnchor.constraint(equalTo: coverImgView.bottomAnchor, constant: 26),
             labels.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 24),

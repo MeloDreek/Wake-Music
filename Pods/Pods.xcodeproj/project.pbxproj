@@ -1125,6 +1125,7 @@
 		C945CB4EC42271D435BF23E7749BE6BF /* IQKeyboardConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4761558B27276E42F479B7263FA28D36 /* IQKeyboardConstants.swift */; };
 		C9CB10A480D824DBBBFA7DC23B788C4A /* GIDEMMErrorHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = FDB4D20D019B8C7E2BB9B57D36C3C25D /* GIDEMMErrorHandler.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		CA1300000000000000000001 /* GuangyaDriveModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1300000000000000000002 /* GuangyaDriveModel.swift */; };
+		CB1300000000000000000001 /* Pan123DriveModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB1300000000000000000002 /* Pan123DriveModel.swift */; };
 		CA51649350345BD9E1C7793FBA74D040 /* asfproperties.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 22AD995CA3D5CFA05F36EF2338C84EB7 /* asfproperties.cpp */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
 		CAB051EBDF10B012495D72441F51D831 /* SDWebImageFLPlugin.h in Headers */ = {isa = PBXBuildFile; fileRef = 372891D9525C89C9244F745ECD09198B /* SDWebImageFLPlugin.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CAB387931300EAC6256463E414D9956C /* s3mfile.h in Headers */ = {isa = PBXBuildFile; fileRef = D3581616BD9862378FB78958C72B374C /* s3mfile.h */; settings = {ATTRIBUTES = (Private, ); }; };
@@ -3492,6 +3493,7 @@
 		C9FD42296AFA756DE0B6256EF3794F55 /* FBLPromisePrivate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBLPromisePrivate.h; path = Sources/FBLPromises/include/FBLPromisePrivate.h; sourceTree = "<group>"; };
 		CA0A7D91CF9D20F52AF4DE46D7FEC1CA /* JXSegmentedTitleAttributeCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JXSegmentedTitleAttributeCell.swift; path = Sources/AttributeTitle/JXSegmentedTitleAttributeCell.swift; sourceTree = "<group>"; };
 		CA1300000000000000000002 /* GuangyaDriveModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GuangyaDriveModel.swift; sourceTree = "<group>"; };
+		CB1300000000000000000002 /* Pan123DriveModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Pan123DriveModel.swift; sourceTree = "<group>"; };
 		CA5D49F36AF78B3E85C33C00FE10D3DD /* GIDSignInStrings.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GIDSignInStrings.m; path = GoogleSignIn/Sources/GIDSignInStrings.m; sourceTree = "<group>"; };
 		CA672D29E91F083433A186DBC4022E66 /* tbytevectorlist.cpp */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.cpp; path = tbytevectorlist.cpp; sourceTree = "<group>"; };
 		CA6803353222625BC87333AFB5AB085B /* IQKeyboardToolbar-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "IQKeyboardToolbar-Info.plist"; sourceTree = "<group>"; };
@@ -5792,6 +5794,7 @@
 				C8AE6F172DD16B46FF8EA52E33779A0D /* BaiduDriveUserModel.swift */,
 				945A5C71CA428555ECCBB81E6CEA096F /* BoxDriveModel.swift */,
 				CA1300000000000000000002 /* GuangyaDriveModel.swift */,
+				CB1300000000000000000002 /* Pan123DriveModel.swift */,
 				DA1300000000000000000002 /* YandexDriveModel.swift */,
 				C04400000000000000000002 /* MEGADriveModel.swift */,
 				69517A18884CDCD2440E46C8B64B7558 /* Drive115FileModel.swift */,
@@ -10191,6 +10194,7 @@
 				3E4EA93B9EDC81D90A965322F7A805CC /* BaiduDriveUserModel.swift in Sources */,
 				2FBBF878B9D6446F59CCF706BD7E8285 /* BoxDriveModel.swift in Sources */,
 				CA1300000000000000000001 /* GuangyaDriveModel.swift in Sources */,
+				CB1300000000000000000001 /* Pan123DriveModel.swift in Sources */,
 				DA1300000000000000000001 /* YandexDriveModel.swift in Sources */,
 				C04400000000000000000001 /* MEGADriveModel.swift in Sources */,
 				AB760018DE544C5CE12CE6BA4BACC9DB /* CloudRecordTypes.swift in Sources */,

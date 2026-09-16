@@ -133,6 +133,21 @@ extension MusicItemModel {
             }else{
                 return KakaImage(named: "file_place")!
             }
+        }else if self.fileSourceType == .from123Drive {
+            if let pan123File = self.pan123File {
+                let fileExtension = pan123File.fileExtension()
+                if pan123File.isDirectory() {
+                    return KakaImage(named: "folder_icon")!
+                }else if pan123File.isMusic() {
+                    return KakaImage(named: "\(fileExtension)_icon") ?? KakaImage(named: "music_place")!
+                }else if pan123File.isVideo() {
+                    return UIImage(named: "video_place")!
+                }else{
+                    return KakaImage(named: "file_place")!
+                }
+            }else{
+                return KakaImage(named: "file_place")!
+            }
         }else if self.fileSourceType == .fromGuangyaDrive {
             if let guangyaFile = self.guangyaFile {
                 let fileExtension = guangyaFile.fileExtension()

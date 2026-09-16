@@ -23,13 +23,8 @@ public final class SandboxFileManager: @unchecked Sendable {
         self.favoriteArray = self.getFavorites()
         debugPrint("Document路径 = \(self.basePublicFileURL())")
         
-        // 删除可能下载失败的文件
-        let subURLs = self.preDownloadURL().readLocalSubFiles()
-        let smallURLs = subURLs.filter { $0.fileSize < 5 * 1024 * 1024 } // 删除5MB以下的
-        for i in 0..<smallURLs.count {
-            let subURL = smallURLs[i]
-            try? FileManager.default.removeItem(at: subURL)
-        }
+        // Completed downloads are published atomically. Small audio files are valid;
+        // file size alone must not be used to discard a finished cached song.
     }
     
     // 存储位置

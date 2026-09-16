@@ -21,7 +21,7 @@ public let AppBundleID = "com.OfflineMusic.www"
 // 量江湖的key
 public let LiangjianghuKey = "Pl45uU41UU9UjI6zes7yx1WqG6PyQzgj3BI4P0M0"
 
-// 百度网盘配置
+// 百度网盘
 public let BaiduDriveAppKey = "ZYJ2Gq1u2F0WmxjVyZbo1g1VpGOPmInJ"
 public let BaiduDriveRedirectURL = "oob"
 public var BaiduDriveAuthURL: String {
@@ -36,8 +36,7 @@ public var BaiduDriveAuthURL: String {
     }
 }
 
-
-// 谷歌网盘的配置
+// 谷歌网盘
 public let Google_Client_ID = "749270844204-1dejm1lm56j8c92brmb1qbq363hklpfb.apps.googleusercontent.com"
 public let Google_Client_Secret = "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"
 public let Google_Scopes = [
@@ -101,4 +100,9 @@ public let Guangya_Secret = "123"
 public let Guangya_RedirectURL = "wakemusic-guangya://oauth/callback"
 
 // 123网盘
-public let Drive123_RedirectURL = "wakemusic-123pan://oauth/callback"
+public let Drive123_ClientID = Bundle.main.bundleIdentifier == "com.OfflineMusic.www.pro"
+    ? "ckncp48kfbhskhbuk7bn3auxu5t6aupn" : "mek2mw6br8m2nk5zcmnmrkhjnmdetcb2"
+public let Drive123_Secret = Bundle.main.bundleIdentifier == "com.OfflineMusic.www.pro"
+    ? "pbhseekkhuyracf7y4a5m3rx57r4kc3m" : "re7r84kzferam3wcwwj5hww3bu38m72x"
+public let Drive123_RedirectURL = Bundle.main.bundleIdentifier == "com.OfflineMusic.www.pro"
+    ? "wakemusicpro-123pan://oauth/callback" : "wakemusic-123pan://oauth/callback"
