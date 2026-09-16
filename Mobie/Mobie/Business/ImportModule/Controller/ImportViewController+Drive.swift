@@ -22,32 +22,31 @@ extension ImportViewController {
     func connectNewServer(_ itemType: ImportFileType) {
         if itemType == .fromFile {
             self.importFromFiles()
+            return
         }
         
         if itemType == .fromFolder {
             self.importFromFolder()
+            return
         }
         
         if itemType == .fromVideos {
             self.importFromVideos()
+            return
         }
         
         if itemType == .fromUSB {
             self.importFromUSB()
+            return
         }
         
         if itemType == .fromWiFi {
             self.importFromWiFi()
-        }
-        
-#warning("非会员只能连接一家远程服务")
-        if ConnectConfigManager.shared.connectedModels.count >= 1 && !UserInfoManager.shared.isVIP() {
-            self.showTwoAlert(message: "You've successfully connected a cloud service! Upgrade to Premium to unlock multi-cloud aggregation and connect unlimited cloud services (WebDAV, Navidrome, and drives) seamlessly.".localStr(), confirm: "Unlock Premium".localStr()) {
-                self.vipCenterClick()
-            }
             return
         }
         
+        guard requireRemoteConnectionAccess() else { return }
+
         if itemType == .fromWebDAV {
             self.importfromWebDAV()
         }

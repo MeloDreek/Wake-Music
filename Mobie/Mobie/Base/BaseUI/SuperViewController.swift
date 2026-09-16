@@ -132,6 +132,38 @@ public class SuperViewController: UIViewController {
     @objc func vipCenterClick() {
         AppStoreKitManager.presentPurcharseVC(self)
     }
+
+    /// Saved accounts remain intact; an active entitlement is required to connect.
+    @discardableResult
+    func requireRemoteConnectionAccess() -> Bool {
+        guard UserInfoManager.shared.isVIP() else {
+            Self.showRemoteConnectionPaywall(on: self)
+            return false
+        }
+        return true
+    }
+
+    static func showRemoteConnectionPaywall(on controller: UIViewController) {
+        AppStoreKitManager.presentPurcharseVC(controller)
+    }
+
+    func connectionFeedbackFooter(feedbackAction: Selector) -> UIView {
+        let footer = UITableViewHeaderFooterView()
+        let button = UIButton(type: .system)
+        button.setAttributedTitle(NSAttributedString(string: "Don't see your connection method? Tell us!".localStr(), attributes: [.font: UIFontLight(13.ckValue()), .foregroundColor: UIColor.systemBlue, .underlineStyle: 1]), for: .normal)
+        button.titleLabel?.numberOfLines = 0
+        button.titleLabel?.textAlignment = .center
+        button.addTarget(self, action: feedbackAction, for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        footer.contentView.addSubview(button)
+        NSLayoutConstraint.activate([
+            button.leadingAnchor.constraint(equalTo: footer.contentView.layoutMarginsGuide.leadingAnchor),
+            button.trailingAnchor.constraint(equalTo: footer.contentView.layoutMarginsGuide.trailingAnchor),
+            button.topAnchor.constraint(equalTo: footer.contentView.topAnchor, constant: 15),
+            button.bottomAnchor.constraint(equalTo: footer.contentView.bottomAnchor, constant: -24)
+        ])
+        return footer
+    }
     
     
     // MARK:  懒加载 

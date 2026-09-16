@@ -256,7 +256,7 @@ extension ConnectListViewController: UITableViewDataSource, UITableViewDelegate 
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         let sumCount = connectArray.count == 0 ? self.avalibleArray.count : self.connectArray.count
         if sumCount - 1 == section && connectArray.isEmpty {
-            return 120.ckValue()
+            return UITableView.automaticDimension
         }else{
             return UITableView.automaticDimension
         }
@@ -265,20 +265,7 @@ extension ConnectListViewController: UITableViewDataSource, UITableViewDelegate 
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         let sumCount = connectArray.count == 0 ? self.avalibleArray.count : self.connectArray.count
         if sumCount - 1 == section && connectArray.isEmpty {
-            let attbuteStr = NSAttributedString(string: "Don't see your connection method? Tell us!".localStr(), attributes: [.font: UIFontLight(13.ckValue()), .foregroundColor: UIColor.systemBlue, .underlineStyle: 1])
-            
-            let footView = UITableViewHeaderFooterView()
-            let footButton = UIButton()
-            footButton.addTarget(self, action: #selector(handleWithEmail), for: .touchUpInside)
-            footButton.setAttributedTitle(attbuteStr, for: .normal)
-            footView.contentView.addSubview(footButton)
-            footButton.snp.makeConstraints { make in
-                make.leading.equalToSuperview().offset(10.ckValue())
-                make.top.equalTo(15.ckValue())
-                make.centerX.equalToSuperview()
-                make.height.greaterThanOrEqualTo(0)
-            }
-            return footView
+            return connectionFeedbackFooter(feedbackAction: #selector(handleWithEmail))
         }else{
             return nil
         }
@@ -286,19 +273,11 @@ extension ConnectListViewController: UITableViewDataSource, UITableViewDelegate 
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        if !UserInfoManager.shared.isVIP() {
-            return false
-        }
-        
         return connectArray.count == 0 ? false : true
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         if connectArray.count == 0 {
-            return nil
-        }
-        
-        if !UserInfoManager.shared.isVIP() {
             return nil
         }
         
@@ -326,12 +305,13 @@ extension ConnectListViewController: UITableViewDataSource, UITableViewDelegate 
         editAction.image = Reasource.systemNamed("square.and.pencil", color: .white)
         editAction.backgroundColor = UIColor.systemBlue
                 
-        let actions = subServer.serverType == .fromNavidrome ? [deleteAction, editAction] : [deleteAction]
+        let actions = subServer.serverType == .fromNavidrome && UserInfoManager.shared.isVIP() ? [deleteAction, editAction] : [deleteAction]
         return UISwipeActionsConfiguration(actions: actions)
     }
     
     // 编辑配置Nav配置
     func configNavidromeClick(_ navUser: NavidromeUserModel?) {
+        guard requireRemoteConnectionAccess() else { return }
         
         guard let navUser = navUser else { return }
         

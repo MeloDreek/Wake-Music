@@ -294,7 +294,7 @@ class PlayControlTapeView: UIView, UIGestureRecognizerDelegate {
         return view
     }()
     lazy var moreIconView: UIImageView = {
-        let view = UIImageView(image: UIImage(named: "player_tape_more"))
+        let view = UIImageView(image: UIImage(named: "player_tape_more")?.withTintColor(.lightGray))
         view.frame = playIconView.bounds
         view.contentMode = .scaleAspectFit
         return view
@@ -310,7 +310,7 @@ class PlayControlTapeView: UIView, UIGestureRecognizerDelegate {
         return view
     }()
     lazy var listIconView: UIImageView = {
-        let view = UIImageView(image: UIImage(named: "player_tape_list"))
+        let view = UIImageView(image: UIImage(named: "player_tape_list")?.withTintColor(.lightGray))
         view.frame = playIconView.bounds
         view.contentMode = .scaleAspectFit
         return view

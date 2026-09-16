@@ -233,7 +233,7 @@ extension ImportFileType {
     
     // 可用的服务器
     static func serverDriveArray() -> [ImportFileType] {
-        return [.fromWebDAV, .fromSMB, .fromNavidrome]
+        return [.fromWebDAV, .fromNavidrome, .fromSMB]
     }
     
     // 可用的网盘服务

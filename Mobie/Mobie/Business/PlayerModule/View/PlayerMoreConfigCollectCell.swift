@@ -69,7 +69,6 @@ final class PlayerMoreConfigCollectCell: UICollectionViewCell, UITableViewDataSo
     }
 
     private func layoutSongHeader() {
-//        let width = tableView.bounds.width
         let width = songHeader.contentView.width
         guard width > 0 else { return }
         let compact = bounds.height < 500

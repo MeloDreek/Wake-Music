@@ -47,6 +47,19 @@ extension KakaMusicPlayer {
         
         guard var model = self.playingMusic else { return }
 
+        // History and restored queues must not bypass the connection paywall.
+        // Already downloaded files remain available without a new connection.
+        if !model.isLocalFile(),
+           !UserInfoManager.shared.isVIP(),
+           SandboxFileManager.shared.getDownloadPlayURL(model) == nil {
+            self.playerView.resetPlayer()
+            self.playbackStatus = .error
+            if let controller = self.currentViewController() {
+                SuperViewController.showRemoteConnectionPaywall(on: controller)
+            }
+            return
+        }
+
         // Also reject persisted 115 playlists from before the format policy
         // changed, before resolving links or reusing a paused streaming URL.
         if model.drive115Model?.isUnsupportedStreamingAudio == true {

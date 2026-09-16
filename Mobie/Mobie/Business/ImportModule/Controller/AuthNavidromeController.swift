@@ -19,7 +19,10 @@ class AuthNavidromeController: SuperViewController {
         super.init(nibName: nil, bundle: nil)
         
 #if DEBUG
-        let navModel = NavidromeUserModel(id: "", customName: "音海的Navidrome", hostUrl: "https://yinhai.aiinyue.com/", isAdmin: false, subsonicSalt: "", subsonicToken: "", lastFMApiKey: "", token: "", isLargeServer: true, username: "wake", password: "wake")
+//        let navModel = NavidromeUserModel(id: "", customName: "音海的Navidrome", hostUrl: "https://yinhai.aiinyue.com/", isAdmin: false, subsonicSalt: "", subsonicToken: "", lastFMApiKey: "", token: "", isLargeServer: true, username: "wake", password: "wake")
+//        self.loginModel = navModel
+        
+        let navModel = NavidromeUserModel(id: "", customName: "白告的Navidrome", hostUrl: "https://baigao.serect.top:14533/", isAdmin: false, subsonicSalt: "", subsonicToken: "", lastFMApiKey: "", token: "", isLargeServer: true, username: "serect", password: "Dx19861119@")
         self.loginModel = navModel
 #else
         self.loginModel = model

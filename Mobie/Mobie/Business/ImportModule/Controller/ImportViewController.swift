@@ -245,7 +245,7 @@ extension ImportViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         if dataArray.count - 1 == section {
-            return 120.ckValue()
+            return UITableView.automaticDimension
         }else{
             return UITableView.automaticDimension
         }
@@ -253,20 +253,7 @@ extension ImportViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         if dataArray.count - 1 == section {
-            let attbuteStr = NSAttributedString(string: "Don't see your connection method? Tell us!".localStr(), attributes: [.font: UIFontLight(13.ckValue()), .foregroundColor: UIColor.systemBlue, .underlineStyle: 1])
-            
-            let footView = UITableViewHeaderFooterView()
-            let footButton = UIButton()
-            footButton.addTarget(self, action: #selector(handleWithEmail), for: .touchUpInside)
-            footButton.setAttributedTitle(attbuteStr, for: .normal)
-            footView.contentView.addSubview(footButton)
-            footButton.snp.makeConstraints { make in
-                make.leading.equalToSuperview().offset(10.ckValue())
-                make.top.equalTo(15.ckValue())
-                make.centerX.equalToSuperview()
-                make.height.greaterThanOrEqualTo(0)
-            }
-            return footView
+            return connectionFeedbackFooter(feedbackAction: #selector(handleWithEmail))
         }else{
             guard let text = dataArray[section].footTitle, !text.isEmpty else { return nil }
             let footer = UITableViewHeaderFooterView()

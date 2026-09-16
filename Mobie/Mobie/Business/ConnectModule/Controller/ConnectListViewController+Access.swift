@@ -14,6 +14,7 @@ import Alamofire
 extension ConnectListViewController {
     // 登录已连接的服务器
     func accessLoginedServer(_ serverModel: ServerConfigModel) {
+        guard requireRemoteConnectionAccess() else { return }
         if let user = serverModel.smbUser {
             self.navigationController?.pushViewController(SMBDriveFileListController(loginModel: user), animated: true)
             return

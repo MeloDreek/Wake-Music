@@ -21,6 +21,7 @@ extension ConnectListViewController {
     
     // 连接新服务器
     func connectNewServer(_ itemType: ImportFileType) {
+        guard requireRemoteConnectionAccess() else { return }
         
         if itemType == .fromWebDAV {
             self.importfromWebDAV()

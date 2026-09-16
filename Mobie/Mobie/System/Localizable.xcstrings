@@ -1,6 +1,257 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "Connect to your remote music limitlessly, saving local storage. E.g., WebDAV, Navidrome, and more" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "اتصل بموسيقاك عن بُعد بلا حدود دون استهلاك مساحة التخزين المحلية. مثل WebDAV وNavidrome والمزيد"
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Connecta't a la teva música remota sense límits i sense ocupar espai local. Com WebDAV, Navidrome, etc."
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Připojte se ke vzdálené hudbě bez omezení a bez využití místního úložiště. Např. WebDAV, Navidrome atd."
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Forbind ubegrænset til din fjernmusik uden at bruge lokal lagerplads. F.eks. WebDAV, Navidrome osv."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unbegrenzter Zugriff auf Ihre Remote-Musik, ohne lokalen Speicherplatz zu belegen. Z. B. WebDAV, Navidrome etc."
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Συνδεθείτε στην απομακρυσμένη μουσική σας χωρίς περιορισμούς, χωρίς να καταλαμβάνεται τοπικός χώρος. Π.χ. WebDAV, Navidrome κ.ά."
+          }
+        },
+        "en-AU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Connect to your remote music limitlessly, saving local storage. E.g., WebDAV, Navidrome, and more"
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Connect to your remote music limitlessly, saving local storage. E.g., WebDAV, Navidrome, and more"
+          }
+        },
+        "en-IN" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Connect to your remote music limitlessly, saving local storage. E.g., WebDAV, Navidrome, and more"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Conéctate a tu música remota sin límites y sin ocupar espacio local. P. ej., WebDAV, Navidrome, etc."
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Conéctate a tu música remota sin límites, sin usar espacio de almacenamiento local. Ej. WebDAV, Navidrome y más"
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Conéctate a tu música remota sin límites, sin usar espacio de almacenamiento local. Ej. WebDAV, Navidrome y más"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Yhdistä etämusiikkiisi ilman rajoituksia ja paikallisen tallennustilan käyttöä. Esim. WebDAV, Navidrome jne."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Connectez-vous à votre musique distante sans limite et sans occuper d'espace local. Ex. WebDAV, Navidrome..."
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Connectez-vous à votre musique distante sans limite et sans occuper d'espace local. Ex. WebDAV, Navidrome..."
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "התחבר למוזיקה מרחוק ללא הגבלה, מבלי לתפוס שטח אחסון מקומי. כגון WebDAV, Navidrome ועוד"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "बिना किसी सीमा के अपने रिमोट म्यूजिक से जुड़ें, बिना लोकल स्टोरेज इस्तेमाल किए। जैसे WebDAV, Navidrome आदि"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Povežite se s udaljenom glazbom bez ograničenja, bez zauzimanja lokalnog prostora. Npr. WebDAV, Navidrome itd."
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Csatlakozz korlátlanul a távoli zenéidhez anélkül, hogy helyi tárhelyet használnál. Pl. WebDAV, Navidrome stb."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Terhubung ke musik jarak jauh tanpa batas, tanpa memakan ruang penyimpanan lokal. Spt. WebDAV, Navidrome, dll."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Connettiti alla tua musica da remoto senza limiti e senza occupare spazio locale. Es. WebDAV, Navidrome e altro"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ローカル容量を消費せず、リモートの音源に制限なく接続。WebDAVやNavidromeなどに対応"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "로컬 저장 공간을 차지하지 않고 원격 음악에 제한 없이 연결하세요. WebDAV, Navidrome 등"
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sambung ke muzik jauh anda tanpa had, tanpa menggunakan ruang storan tempatan. Cth. WebDAV, Navidrome, dll."
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Koble til fjernmusikk uten begrensninger, uten å bruke lokal lagringsplass. F.eks. WebDAV, Navidrome osv."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Onbeperkt verbinden met je muziek op afstand, zonder lokale opslagruimte te gebruiken. Zp. WebDAV, Navidrome, etc."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Łącz się z muzyką zdalną bez ograniczeń, nie zajmując pamięci lokalnej. Np. WebDAV, Navidrome i więcej"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Conecte-se à sua música remota sem limites, sem ocupar espaço de armazenamento local. Ex.: WebDAV, Navidrome e mais"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ligue-se à sua música remota sem limites, sem ocupar espaço de armazenamento local. Ex.: WebDAV, Navidrome e mais"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Conectează-te la muzica de la distanță fără limite, fără a ocupa spațiu local. De ex. WebDAV, Navidrome etc."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Неограниченное подключение к удаленной музыке без использования локальной памяти. Например, WebDAV, Navidrome и др."
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pripojte sa k vzdialenej hudbe bez obmedzení a bez využitia miestneho úložiska. Napr. WebDAV, Navidrome atď."
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Povežite se z oddaljeno glasbo brez omejitev in brez porabe lokalnega prostora. Npr. WebDAV, Navidrome itd."
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Anslut till din fjärrmusik utan begränsningar, utan att ta upp lokalt lagringsutrymme. T.ex. WebDAV, Navidrome osv."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "เชื่อมต่อเพลงทางไกลของคุณได้อย่างไม่จำกัด โดยไม่กินพื้นที่จัดเก็บในเครื่อง เช่น WebDAV, Navidrome ฯลฯ"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Yerel depolama alanını kaplamadan uzak müziğinize sınırsızca bağlanın. Örn. WebDAV, Navidrome ve daha fazlası"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Безлімітне підключення до віддаленої музики без використання локальної пам'яті. Наприклад, WebDAV, Navidrome тощо"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kết nối không giới hạn với nhạc từ xa, không chiếm dung lượng lưu trữ cục bộ. Như WebDAV, Navidrome, v.v."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无限制地连接您的远程音乐，无须占用本地磁盘空间。如WebDAV（网盘）和Navidrome等等"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "無限制連接您的遠端音樂，無須佔用本機儲存空間。如 WebDAV、Navidrome 等"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "無限制連接您的遠端音樂，無須占用本機儲存空間。如 WebDAV、Navidrome 等"
+          }
+        }
+      }
+    },
     "Locally imported songs appear in %@ and %@." : {
       "comment" : "Import footer: placeholders are the localized Music and Library tab names.",
       "extractionState" : "manual",
@@ -35562,257 +35813,6 @@
         }
       }
     },
-    "Connect to your remote music limitlessly, saving local storage. E.g., WebDAV, Navidrome, and more" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "اتصل بموسيقاك عن بُعد بلا حدود دون استهلاك مساحة التخزين المحلية. مثل WebDAV وNavidrome والمزيد"
-          }
-        },
-        "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Connecta't a la teva música remota sense límits i sense ocupar espai local. Com WebDAV, Navidrome, etc."
-          }
-        },
-        "cs" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Připojte se ke vzdálené hudbě bez omezení a bez využití místního úložiště. Např. WebDAV, Navidrome atd."
-          }
-        },
-        "da" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Forbind ubegrænset til din fjernmusik uden at bruge lokal lagerplads. F.eks. WebDAV, Navidrome osv."
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Unbegrenzter Zugriff auf Ihre Remote-Musik, ohne lokalen Speicherplatz zu belegen. Z. B. WebDAV, Navidrome etc."
-          }
-        },
-        "el" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Συνδεθείτε στην απομακρυσμένη μουσική σας χωρίς περιορισμούς, χωρίς να καταλαμβάνεται τοπικός χώρος. Π.χ. WebDAV, Navidrome κ.ά."
-          }
-        },
-        "en-AU" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Connect to your remote music limitlessly, saving local storage. E.g., WebDAV, Navidrome, and more"
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Connect to your remote music limitlessly, saving local storage. E.g., WebDAV, Navidrome, and more"
-          }
-        },
-        "en-IN" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Connect to your remote music limitlessly, saving local storage. E.g., WebDAV, Navidrome, and more"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Conéctate a tu música remota sin límites y sin ocupar espacio local. P. ej., WebDAV, Navidrome, etc."
-          }
-        },
-        "es-419" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Conéctate a tu música remota sin límites, sin usar espacio de almacenamiento local. Ej. WebDAV, Navidrome y más"
-          }
-        },
-        "es-US" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Conéctate a tu música remota sin límites, sin usar espacio de almacenamiento local. Ej. WebDAV, Navidrome y más"
-          }
-        },
-        "fi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Yhdistä etämusiikkiisi ilman rajoituksia ja paikallisen tallennustilan käyttöä. Esim. WebDAV, Navidrome jne."
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Connectez-vous à votre musique distante sans limite et sans occuper d'espace local. Ex. WebDAV, Navidrome..."
-          }
-        },
-        "fr-CA" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Connectez-vous à votre musique distante sans limite et sans occuper d'espace local. Ex. WebDAV, Navidrome..."
-          }
-        },
-        "he" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "התחבר למוזיקה מרחוק ללא הגבלה, מבלי לתפוס שטח אחסון מקומי. כגון WebDAV, Navidrome ועוד"
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "बिना किसी सीमा के अपने रिमोट म्यूजिक से जुड़ें, बिना लोकल स्टोरेज इस्तेमाल किए। जैसे WebDAV, Navidrome आदि"
-          }
-        },
-        "hr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Povežite se s udaljenom glazbom bez ograničenja, bez zauzimanja lokalnog prostora. Npr. WebDAV, Navidrome itd."
-          }
-        },
-        "hu" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Csatlakozz korlátlanul a távoli zenéidhez anélkül, hogy helyi tárhelyet használnál. Pl. WebDAV, Navidrome stb."
-          }
-        },
-        "id" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Terhubung ke musik jarak jauh tanpa batas, tanpa memakan ruang penyimpanan lokal. Spt. WebDAV, Navidrome, dll."
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Connettiti alla tua musica da remoto senza limiti e senza occupare spazio locale. Es. WebDAV, Navidrome e altro"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ローカル容量を消費せず、リモートの音源に制限なく接続。WebDAVやNavidromeなどに対応"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "로컬 저장 공간을 차지하지 않고 원격 음악에 제한 없이 연결하세요. WebDAV, Navidrome 등"
-          }
-        },
-        "ms" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sambung ke muzik jauh anda tanpa had, tanpa menggunakan ruang storan tempatan. Cth. WebDAV, Navidrome, dll."
-          }
-        },
-        "nb" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Koble til fjernmusikk uten begrensninger, uten å bruke lokal lagringsplass. F.eks. WebDAV, Navidrome osv."
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Onbeperkt verbinden met je muziek op afstand, zonder lokale opslagruimte te gebruiken. Zp. WebDAV, Navidrome, etc."
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Łącz się z muzyką zdalną bez ograniczeń, nie zajmując pamięci lokalnej. Np. WebDAV, Navidrome i więcej"
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Conecte-se à sua música remota sem limites, sem ocupar espaço de armazenamento local. Ex.: WebDAV, Navidrome e mais"
-          }
-        },
-        "pt-PT" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ligue-se à sua música remota sem limites, sem ocupar espaço de armazenamento local. Ex.: WebDAV, Navidrome e mais"
-          }
-        },
-        "ro" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Conectează-te la muzica de la distanță fără limite, fără a ocupa spațiu local. De ex. WebDAV, Navidrome etc."
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Неограниченное подключение к удаленной музыке без использования локальной памяти. Например, WebDAV, Navidrome и др."
-          }
-        },
-        "sk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Pripojte sa k vzdialenej hudbe bez obmedzení a bez využitia miestneho úložiska. Napr. WebDAV, Navidrome atď."
-          }
-        },
-        "sl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Povežite se z oddaljeno glasbo brez omejitev in brez porabe lokalnega prostora. Npr. WebDAV, Navidrome itd."
-          }
-        },
-        "sv" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Anslut till din fjärrmusik utan begränsningar, utan att ta upp lokalt lagringsutrymme. T.ex. WebDAV, Navidrome osv."
-          }
-        },
-        "th" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "เชื่อมต่อเพลงทางไกลของคุณได้อย่างไม่จำกัด โดยไม่กินพื้นที่จัดเก็บในเครื่อง เช่น WebDAV, Navidrome ฯลฯ"
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Yerel depolama alanını kaplamadan uzak müziğinize sınırsızca bağlanın. Örn. WebDAV, Navidrome ve daha fazlası"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Безлімітне підключення до віддаленої музики без використання локальної пам'яті. Наприклад, WebDAV, Navidrome тощо"
-          }
-        },
-        "vi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Kết nối không giới hạn với nhạc từ xa, không chiếm dung lượng lưu trữ cục bộ. Như WebDAV, Navidrome, v.v."
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "无限制地连接您的远程音乐，无须占用本地磁盘空间。如WebDAV（网盘）和Navidrome等等"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "無限制連接您的遠端音樂，無須佔用本機儲存空間。如 WebDAV、Navidrome 等"
-          }
-        },
-        "zh-HK" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "無限制連接您的遠端音樂，無須占用本機儲存空間。如 WebDAV、Navidrome 等"
-          }
-        }
-      }
-    },
     "Connect Your Car and TV" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -64333,257 +64333,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "支援音訊指紋識別的格式："
-          }
-        }
-      }
-    },
-    "Free tier limited to 1 account. Upgrade to VIP for unlimited links to WebDAV, Navidrome, Google Drive, Dropbox, and more—with new services added constantly." : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "الحساب المجاني يقتصر على سحابة واحدة. رقِّ VIP لربط غير محدود بـ WebDAV وNavidrome وGoogle Drive وDropbox والمزيد قادم!"
-          }
-        },
-        "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "El compte gratuït està limitat a 1 núvol. Actualitza a VIP per enllaçar WebDAV, Navidrome, Google Drive, Dropbox i més sense límits."
-          }
-        },
-        "cs" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Bezplatný účet je omezen na 1 cloud. S VIP získáte neomezené připojení pro WebDAV, Navidrome, Google Drive, Dropbox a další."
-          }
-        },
-        "da" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Gratis begrænset til 1 konto. Opgrader til VIP for ubegrænset link til WebDAV, Navidrome, Google Drive, Dropbox og mere."
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Kostenlos: max. 1 Account. Holen Sie sich VIP für unbegrenzte Links zu WebDAV, Navidrome, Google Drive, Dropbox und mehr."
-          }
-        },
-        "el" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Δωρεάν έκδοση: 1 λογαριασμός. VIP για απεριόριστη σύνδεση σε WebDAV, Navidrome, Google Drive, Dropbox και άλλα."
-          }
-        },
-        "en-AU" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Free tier limited to 1 account. Upgrade to VIP for unlimited links to WebDAV, Navidrome, Google Drive, Dropbox, and more—with new services added constantly."
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Free tier limited to 1 account. Upgrade to VIP for unlimited links to WebDAV, Navidrome, Google Drive, Dropbox, and more—with new services added constantly."
-          }
-        },
-        "en-IN" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Free tier limited to 1 account. Upgrade to VIP for unlimited links to WebDAV, Navidrome, Google Drive, Dropbox, and more—with new services added constantly."
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Cuenta gratis limitada a 1 nube. Hazte VIP para conectar WebDAV, Navidrome, Google Drive, Dropbox y más sin límites."
-          }
-        },
-        "es-419" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Cuenta gratis limitada a 1 nube. Hazte VIP para conectar WebDAV, Navidrome, Google Drive, Dropbox y más sin límites."
-          }
-        },
-        "es-US" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Cuenta gratis limitada a 1 nube. Hazte VIP para conectar WebDAV, Navidrome, Google Drive, Dropbox y más sin límites."
-          }
-        },
-        "fi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ilmaisversio rajoittuu 1 tiliin. VIP tarjoaa rajattomat yhteydet WebDAV-, Navidrome-, Google Drive- ja Dropbox-palveluihin."
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Compte gratuit limité à 1 cloud. Passez à VIP pour l'accès illimité à WebDAV, Navidrome, Google Drive, Dropbox, etc."
-          }
-        },
-        "fr-CA" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Compte gratuit limité à 1 cloud. Passez à VIP pour l'accès illimité à WebDAV, Navidrome, Google Drive, Dropbox, etc."
-          }
-        },
-        "he" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "החשבון החינמי מוגבל לכונן אחד. שדרג ל-VIP לחיבור ללא הגבלה של WebDAV, Navidrome, Google Drive, Dropbox ועוד."
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "फ्री यूजर केवल 1 अकाउंट जोड़ सकते हैं। VIP में पाएं WebDAV, Navidrome, Google Drive, Dropbox का अनलिमिटेड सपोर्ट।"
-          }
-        },
-        "hr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Besplatni korisnici: 1 račun. Nadogradite na VIP za neograničeno povezivanje na WebDAV, Navidrome, Google Drive, Dropbox i više."
-          }
-        },
-        "hu" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Az ingyenes fiók 1 cloudra korlátozott. VIP-pal korlátlan WebDAV, Navidrome, Google Drive, Dropbox elérés várja."
-          }
-        },
-        "id" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Akun gratis terbatas 1 cloud. Upgrade VIP untuk akses tanpa batas ke WebDAV, Navidrome, Google Drive, Dropbox, dll."
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Account gratuito limitato a 1 cloud. Passa a VIP per collegamenti illimitati a WebDAV, Navidrome, Google Drive, Dropbox."
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "無料版は1アカウント限定。VIPならWebDAV、Navidrome、Google Drive、Dropbox等を無制限に接続可能。さらに拡大中！"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "무료 버전은 1개 계정 제한. VIP로 업그레이드하고 WebDAV, Navidrome, Google Drive, Dropbox 등을 무제한 연결해 보세요!"
-          }
-        },
-        "ms" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Akun gratis terbatas 1 cloud. Upgrade VIP untuk akses tanpa batas ke WebDAV, Navidrome, Google Drive, Dropbox, dll."
-          }
-        },
-        "nb" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Gratisversjon begrenset til 1 konto. Oppgrader til VIP for ubegrenset link til WebDAV, Navidrome, Google Drive, Dropbox osv."
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Gratis limiet: 1 account. Upgrade naar VIP voor onbeperkte links naar WebDAV, Navidrome, Google Drive, Dropbox en meer."
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Darmowe konto: max 1 dysk. Przejdź na VIP, by bez limitu łączyć WebDAV, Navidrome, Google Drive, Dropbox i inne."
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Conta gratuita limitada a 1 nuvem. Com VIP, conecte WebDAV, Navidrome, Google Drive, Dropbox e mais sem limites."
-          }
-        },
-        "pt-PT" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Conta gratuita limitada a 1 nuvem. Com VIP, vincule WebDAV, Navidrome, Google Drive, Dropbox e mais sem limites."
-          }
-        },
-        "ro" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Cont gratuit limitat la 1 cont. Treci la VIP pentru conexiuni nelimitate la WebDAV, Navidrome, Google Drive, Dropbox."
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Бесплатно: 1 аккаунт. VIP снимает лимиты на подключение WebDAV, Navidrome, Google Drive, Dropbox и других облаков."
-          }
-        },
-        "sk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Bezplatný účet: 1 cloud. S VIP získate neobmedzené pripojenie pre WebDAV, Navidrome, Google Drive, Dropbox a ďalšie."
-          }
-        },
-        "sl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Brezplačna stopnja je omejena na 1 račun. Nadgradite na VIP za neomejene povezave do WebDAV, Navidrome, Google Drive, Dropbox in drugih – z nenehnim dodajanjem novih storitev."
-          }
-        },
-        "sv" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Gratiskonto begränsat till 1 moln. Uppgradera till VIP för obegränsad länk till WebDAV, Navidrome, Google Drive, Dropbox."
-          }
-        },
-        "th" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "บัญชีฟรีเชื่อมต่อได้เพียง 1 บัญชี อัปเกรดเป็น VIP เพื่อลิงก์ WebDAV, Navidrome, Google Drive, Dropbox ได้ไม่จำกัด และพร้อมขยายระบบต่อเนื่อง!"
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ücretsiz hesap 1 bulutla sınırlıdır. WebDAV, Navidrome, Google Drive, Dropbox ve daha fazlasına sınırsız bağlamak için VIP'ye geçin."
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Безкоштовно: 1 акаунт. VIP знімає ліміти на підключення WebDAV, Navidrome, Google Drive, Dropbox та інших хмар."
-          }
-        },
-        "vi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tài khoản miễn phí giới hạn 1 kết nối. Lên VIP để mở khóa vô hạn WebDAV, Navidrome, Google Drive, Dropbox và hơn thế nữa."
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "免费用户仅限连接 1 个账户。升级 VIP 即可无限挂载 WebDAV、Navidrome、百度网盘、115网盘、Google Drive等多路云端。更多原生网盘持续扩容中。"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "免費用戶僅限連接 1 個帳戶。升級 VIP 即可無限掛載 WebDAV、Navidrome、Google Drive、Dropbox 等多路雲端。更多原生網盤持續擴容中。"
-          }
-        },
-        "zh-HK" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "免費用戶僅限連接 1 個帳戶。升級 VIP 即可無限掛載 WebDAV、Navidrome、Google Drive、Dropbox 等多路雲端。更多原生網盤持續擴容中。"
           }
         }
       }
@@ -169854,257 +169603,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "您獲得了一次終身限時優惠！"
-          }
-        }
-      }
-    },
-    "You've successfully connected a cloud service! Upgrade to Premium to unlock multi-cloud aggregation and connect unlimited cloud services (WebDAV, Navidrome, and drives) seamlessly." : {
-      "extractionState" : "pasted",
-      "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "لقد قمت بربط خدمة سحابية بنجاح! اشترك في النسخة المميزة لفتح ميزة دمج السحابات المتعددة وربط عدد غير محدود من الخدمات (WebDAV وNavidrome والشبكات التخزينية) بكل سلاسة."
-          }
-        },
-        "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Heu connectat correctament un servei al núvol! Actualitzeu a Premium per sbloccar l'agregació multinúvol i connectar serveis il·limitats (WebDAV, Navidrome i unitats) sense problemes."
-          }
-        },
-        "cs" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Úspěšně jste připojili cloudovou službu! Přejděte na Premium, odemkněte agregaci více cloudů a připojte neomezené množství cloudových služeb (WebDAV, Navidrome a disky)."
-          }
-        },
-        "da" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Du har oprettet forbindelse til en cloudtjeneste! Opgrader til Premium for at låse op for multicloud-samling og tilslutte ubegrænsede cloudtjenester (WebDAV, Navidrome og drev)."
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Du hast erfolgreich einen Cloud-Dienst verbunden! Upgrade auf Premium, um die Multi-Cloud-Aggregation freizuschalten und unbegrenzt Cloud-Dienste (WebDAV, Navidrome und Netzwerkspeicher) zu verbinden."
-          }
-        },
-        "el" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Συνδέσατε επιτυχώς μια υπηρεσία cloud! Αναβαθμίστε σε Premium για να ξεκλειδώσετε τη συγκέντρωση πολλαπλών cloud και να συνδέσετε απεριόριστες υπηρεσίες (WebDAV, Navidrome και δίσκους)."
-          }
-        },
-        "en-AU" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "You've successfully connected a cloud service! Upgrade to Premium to unlock multi-cloud aggregation and connect unlimited cloud services (WebDAV, Navidrome, and drives) seamlessly."
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "You've successfully connected a cloud service! Upgrade to Premium to unlock multi-cloud aggregation and connect unlimited cloud services (WebDAV, Navidrome, and drives) seamlessly."
-          }
-        },
-        "en-IN" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "You've successfully connected a cloud service! Upgrade to Premium to unlock multi-cloud aggregation and connect unlimited cloud services (WebDAV, Navidrome, and drives) seamlessly."
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "¡Has conectado correctamente un servicio en la nube! Pásate a Premium para desbloquear la agregación multinube y conectar servicios ilimitados (WebDAV, Navidrome y discos) sin restricciones."
-          }
-        },
-        "es-419" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "¡Has conectado correctamente un servicio en la nube! Pásate a Premium para desbloquear la agregación multinube y conectar servicios ilimitados (WebDAV, Navidrome y discos) sin restricciones."
-          }
-        },
-        "es-US" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "¡Has conectado correctamente un servicio en la nube! Pásate a Premium para desbloquear la agregación multinube y conectar servicios ilimitados (WebDAV, Navidrome y discos) sin restricciones."
-          }
-        },
-        "fi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Pilvipalvelu on yhdistetty onnistuneesti! Päivitä Premium-versioon avataksesi monipilvi-integraation ja yhdistääksesi rajoitettuja pilvipalveluita (WebDAV, Navidrome ja asemat)."
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Vous avez connecté un service cloud avec succès ! Passez à la version Premium pour débloquer l'agrégation multi-cloud et connecter un nombre illimité de services (WebDAV, Navidrome et disques)."
-          }
-        },
-        "fr-CA" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Vous avez connecté un service cloud avec succès ! Passez à la version Premium pour débloquer l'agrégation multi-cloud et connecter un nombre illimité de services (WebDAV, Navidrome et disques)."
-          }
-        },
-        "he" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "חיברת שירות ענן בהצלחה! שדרג לפרימיום כדי לפתוח שילוב מרובה עננים ולחבר שירותי ענן ללא הגבלה (WebDAV, Navidrome וכוננים) בצורה חלקה."
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "आपने सफलतापूर्वक एक क्लाउड सेवा कनेक्ट कर ली है! मल्टी-क्लाउड एग्रीगेशन को अनलॉक करने और असीमित क्लाउड सेवाओं (WebDAV, Navidrome और ड्राइव) को जोड़ने के लिए प्रीमियम में अपग्रेड करें।"
-          }
-        },
-        "hr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Uspješno ste povezali oblačnu uslugu! Nadogradite na Premium kako biste otključali agregaciju više oblaka i neograničeno povezali WebDAV, Navidrome i mrežne pogone."
-          }
-        },
-        "hu" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sikeresen csatlakoztatott egy felhőszolgáltatást! Váltson Premiumra a többfelhős aggregáció feloldásához, valamint korlátlan felhőszolgáltatás (WebDAV, Navidrome és meghajtók) összekapcsolásához."
-          }
-        },
-        "id" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Anda berhasil menghubungkan satu layanan cloud! Upgrade ke Premium untuk membuka agregasi multi-cloud dan menghubungkan layanan cloud (WebDAV, Navidrome, dan drive) tanpa batas."
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Hai collegato correttamente un servizio cloud! Passa a Premium per sbloccare l'aggregazione multi-cloud e connettere servizi cloud illimitati (WebDAV, Navidrome e drive) senza limiti."
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "クラウドサービスの接続に成功しました！プレミアムにアップグレードすれば、「マルチクラウド統合」機能が解放され、WebDAV、Navidrome、各種ネット网盤を無制限に接続して、あなただけの究极のオーディオセンターを構築できます。"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "클라우드 서비스 연결에 성공했습니다! 프리미엄으로 업그레이드하면 '멀티 클라우드 통합' 기능이 활성화되어 WebDAV, Navidrome 및 다양한 클라우드 스토리지를 제한 없이 연결하고 나만의 오디오 센터를 구축할 수 있습니다."
-          }
-        },
-        "ms" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Anda telah berjaya menyambungkan perkhidmatan awan! Naik taraf ke Premium untuk membuka agregasi berbilang awan dan menyambung perkhidmatan awan (WebDAV, Navidrome dan pemacu) tanpa had."
-          }
-        },
-        "nb" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Du har koblet til en skyprosess! Oppgrader til Premium for å låse opp multicloud-samling og koble til ubegrensede skytjenester (WebDAV, Navidrome og stasjoner) sømløst."
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Je hebt succesvol een cloudservice verbonden! Upgrade naar Premium om multicloud-aggregatie te ontgrendelen and onbeperkt cloudservices (WebDAV, Navidrome en drives) te verbinden."
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Pomyślnie połączono z usługa chmurową! Przejdź na Premium, aby odblokować agregację wielu chmur i bez ograniczeń podłączać usługi (WebDAV, Navidrome i dyski sieciowe)."
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Você conectou um serviço de nuvem com sucesso! Mude para o Premium para desbloquear a agregação multi-nuvem e conectar serviços em nuvem (WebDAV, Navidrome e discos) ilimitados."
-          }
-        },
-        "pt-PT" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ligou com sucesso um serviço de nuvem! Mude para o Premium para desbloquear a agregação multi-nuvem e ligar serviços em nuvem (WebDAV, Navidrome e discos) ilimitados."
-          }
-        },
-        "ro" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Te-ai conectat cu succes la un serviciu cloud! Treci la Premium pentru a debloca agregarea multi-cloud și a conecta servicii cloud nelimitate (WebDAV, Navidrome și diskovi)."
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Облачный сервис успешно подключен! Перейдите на Premium, чтобы разблокировать «Мультиоблачное объединение» и без ограничений подключать любые сервисы (WebDAV, Navidrome и сетевые диски)."
-          }
-        },
-        "sk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Úspešne ste pripojili cloudovú službu! Prejdite na Premium, odomknite agregáciu viacerých cloudov a pripojte neobmedzené množstvo cloudových služieb (WebDAV, Navidrome a disky)."
-          }
-        },
-        "sl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Uspešno ste povezali oblačno storitev! Nadgradite na Premium za odklepanje združevanja več oblakov in neomejeno povezovanje oblačnih storitev (WebDAV, Navidrome in pogonov)."
-          }
-        },
-        "sv" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Du har anslutit till en molntjänst! Uppgradera till Premium för att låsa upp multicloud-samling och ansluta obegränsade molntjänster (WebDAV, Navidrome och hårddiskar)."
-          }
-        },
-        "th" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "คุณได้เชื่อมต่อบริการคลาวด์สำเร็จแล้ว! อัปเกร드เป็น Premium เพื่อปลดล็อกการรวมหลายคลาวด์ และเชื่อมต่อบริการคลาวด์ (WebDAV, Navidrome และไดรฟ์) ได้อย่างไม่จำกัดและราบรื่น"
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Bir bulut servisine başarıyla bağlandınız! Çoklu bulut entegrasyonunu açmak ve sınırsız bulut servisini (WebDAV, Navidrome ve sürücüler) sorunsuz bağlamak için Premium'a yükseltin."
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Хмарний сервіс успішно підключено! Перейдіть на Premium, щоб розблокирувати мультихмарне об'єднання та без обмежень підключати будь-які сервіси (WebDAV, Navidrome та диски)."
-          }
-        },
-        "vi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Bạn đã kết nối thành công một dịch vụ đám mây! Nâng cấp lên Premium để mở khóa tính năng \"tích hợp đa đám mây\", kết nối không giới hạn WebDAV, Navidrome và các ổ đĩa mạng."
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "您已成功连接一个云服务！升级到高级版，即可解锁“多云聚合”功能，无限制连接 WebDAV、Navidrome 及第三方网盘，打造您的专属全媒体音乐中心。"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "您已成功連接一個雲端服務！升級到高級版，即可解鎖「多雲聚合」功能，無限制連接 WebDAV、Navidrome 及第三方雲端硬碟，打造您的專屬全媒體音樂中心。"
-          }
-        },
-        "zh-HK" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "您已成功連接一個雲端服務！升級到高級版，即可解鎖「多雲聚合」功能，無限制連接 WebDAV、Navidrome 及第三方網盤，打造您的專屬全媒體音樂中心。"
           }
         }
       }
