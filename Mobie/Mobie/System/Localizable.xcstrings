@@ -1,6 +1,263 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "Upgrade to Premium at the lowest price currently available to unlock all remote features, plus upcoming Apple Watch and native CarPlay support." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "قم بالترقية إلى Premium بأقل سعر متاح حاليًا لفتح جميع الميزات البعيدة، بالإضافة إلى الدعم المرتقب لـ Apple Watch وCarPlay الأصلي."
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Passa a Premium al preu més baix disponible actualment per desbloquejar totes les funcions remotes i el proper suport per a Apple Watch i CarPlay natiu."
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Přejděte na Premium za aktuálně nejnižší dostupnou cenu a odemkněte všechny vzdálené funkce i připravovanou podporu Apple Watch a nativního CarPlay."
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Opgrader til Premium til den laveste pris, der er tilgængelig lige nu, og lås op for alle fjernfunktioner samt kommende understøttelse af Apple Watch og indbygget CarPlay."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hol dir Premium zum aktuell niedrigsten verfügbaren Preis und schalte alle Fernzugriffsfunktionen sowie die kommende Unterstützung für Apple Watch und natives CarPlay frei."
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Αναβαθμίστε σε Premium στη χαμηλότερη διαθέσιμη τιμή αυτήν τη στιγμή για να ξεκλειδώσετε όλες τις απομακρυσμένες λειτουργίες και την επερχόμενη υποστήριξη για Apple Watch και εγγενές CarPlay."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Upgrade to Premium at the lowest price currently available to unlock all remote features, plus upcoming Apple Watch and native CarPlay support."
+          }
+        },
+        "en-AU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Upgrade to Premium at the lowest price currently available to unlock all remote features, plus upcoming Apple Watch and native CarPlay support."
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Upgrade to Premium at the lowest price currently available to unlock all remote features, plus upcoming Apple Watch and native CarPlay support."
+          }
+        },
+        "en-IN" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Upgrade to Premium at the lowest price currently available to unlock all remote features, plus upcoming Apple Watch and native CarPlay support."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pásate a Premium al precio más bajo disponible actualmente para desbloquear todas las funciones remotas y la próxima compatibilidad con Apple Watch y CarPlay nativo."
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pásate a Premium al precio más bajo disponible actualmente para desbloquear todas las funciones remotas y la próxima compatibilidad con Apple Watch y CarPlay nativo."
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pásate a Premium al precio más bajo disponible actualmente para desbloquear todas las funciones remotas y la próxima compatibilidad con Apple Watch y CarPlay nativo."
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Päivitä Premiumiin alhaisimpaan tällä hetkellä saatavilla olevaan hintaan ja avaa kaikki etätoiminnot sekä tuleva Apple Watch- ja natiivi CarPlay-tuki."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Passez à Premium au prix le plus bas actuellement disponible pour débloquer toutes les fonctionnalités à distance, ainsi que la prise en charge à venir de l’Apple Watch et de CarPlay natif."
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Passez à Premium au prix le plus bas actuellement disponible pour débloquer toutes les fonctionnalités à distance, ainsi que la prise en charge à venir de l’Apple Watch et de CarPlay natif."
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "שדרגו ל-Premium במחיר הנמוך ביותר הזמין כעת כדי לפתוח את כל התכונות המרוחקות, לצד תמיכה עתידית ב-Apple Watch וב-CarPlay מובנה."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "अभी उपलब्ध सबसे कम कीमत पर Premium में अपग्रेड करके सभी रिमोट सुविधाएँ और जल्द आने वाला Apple Watch व नेटिव CarPlay सपोर्ट अनलॉक करें।"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nadogradite na Premium po trenutačno najnižoj dostupnoj cijeni i otključajte sve udaljene značajke te nadolazeću podršku za Apple Watch i izvorni CarPlay."
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Váltson Premiumra a jelenleg elérhető legalacsonyabb áron, és oldja fel az összes távoli funkciót, valamint a hamarosan érkező Apple Watch- és natív CarPlay-támogatást."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Upgrade ke Premium dengan harga terendah yang tersedia saat ini untuk membuka semua fitur jarak jauh, serta dukungan Apple Watch dan CarPlay native yang akan datang."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Passa a Premium al prezzo più basso attualmente disponibile per sbloccare tutte le funzionalità remote e il supporto in arrivo per Apple Watch e CarPlay nativo."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "現在利用可能な最安価格でPremiumにアップグレードすると、すべてのリモート機能と、今後追加予定のApple WatchおよびネイティブCarPlayサポートをご利用いただけます。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "현재 이용 가능한 최저 가격으로 Premium으로 업그레이드하여 모든 원격 기능과 곧 출시될 Apple Watch 및 네이티브 CarPlay 지원을 이용하세요."
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Naik taraf ke Premium pada harga terendah yang tersedia sekarang untuk membuka semua ciri jauh serta sokongan Apple Watch dan CarPlay natif yang akan datang."
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Oppgrader til Premium til den laveste prisen som er tilgjengelig nå, og lås opp alle fjernfunksjoner samt kommende støtte for Apple Watch og innebygd CarPlay."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Upgrade naar Premium voor de laagste prijs die momenteel beschikbaar is en ontgrendel alle functies voor externe toegang, plus de aankomende ondersteuning voor Apple Watch en native CarPlay."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Przejdź na Premium w najniższej obecnie dostępnej cenie, aby odblokować wszystkie funkcje zdalne oraz nadchodzącą obsługę Apple Watch i natywnego CarPlay."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Assine o Premium pelo menor preço disponível no momento para desbloquear todos os recursos remotos e o futuro suporte ao Apple Watch e ao CarPlay nativo."
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Adira ao Premium pelo preço mais baixo atualmente disponível para desbloquear todas as funcionalidades remotas e o futuro suporte para Apple Watch e CarPlay nativo."
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Treci la Premium la cel mai mic preț disponibil în prezent pentru a debloca toate funcțiile la distanță, plus viitorul suport pentru Apple Watch și CarPlay nativ."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Перейдите на Premium по самой низкой доступной сейчас цене, чтобы открыть все функции удалённого доступа, а также предстоящую поддержку Apple Watch и нативного CarPlay."
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prejdite na Premium za aktuálne najnižšiu dostupnú cenu a odomknite všetky vzdialené funkcie aj pripravovanú podporu Apple Watch a natívneho CarPlay."
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nadgradite na Premium po trenutno najnižji razpoložljivi ceni in odklenite vse oddaljene funkcije ter prihajajočo podporo za Apple Watch in izvorni CarPlay."
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Uppgradera till Premium till det lägsta priset som är tillgängligt just nu och lås upp alla fjärrfunktioner samt kommande stöd för Apple Watch och inbyggt CarPlay."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "อัปเกรดเป็น Premium ในราคาต่ำสุดที่มีให้ในขณะนี้ เพื่อปลดล็อกฟีเจอร์ระยะไกลทั้งหมด พร้อมการรองรับ Apple Watch และ CarPlay แบบเนทีฟที่กำลังจะเปิดตัว"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tüm uzaktan erişim özelliklerinin ve yakında sunulacak Apple Watch ile yerel CarPlay desteğinin kilidini açmak için şu anda sunulan en düşük fiyatla Premium’a yükseltin."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Перейдіть на Premium за найнижчою доступною зараз ціною, щоб розблокувати всі функції віддаленого доступу, а також майбутню підтримку Apple Watch і нативного CarPlay."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nâng cấp lên Premium với mức giá thấp nhất hiện có để mở khóa tất cả tính năng từ xa cùng hỗ trợ Apple Watch và CarPlay gốc sắp ra mắt."
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "以目前最低的價格升級至進階版，解鎖所有遠端功能，以及即將推出的 Apple Watch 和原生 CarPlay 支援。"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "以当前最低的价格升级到高级版，解锁所有远程功能，以及即将上线的 Apple Watch 和原生 CarPlay 支持。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "以目前最低的價格升級至進階版，解鎖所有遠端功能，以及即將推出的 Apple Watch 和原生 CarPlay 支援。"
+          }
+        }
+      }
+    },
     "Connect to your remote music limitlessly, saving local storage. E.g., WebDAV, Navidrome, and more" : {
       "extractionState" : "manual",
       "localizations" : {
