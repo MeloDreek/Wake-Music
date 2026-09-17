@@ -837,9 +837,7 @@ extension YandexDriveFileListController: UISearchBarDelegate {
     func configSearchBar() {
         self.navigationItem.searchController = self.searchController
         self.navigationItem.hidesSearchBarWhenScrolling = false
-        if #available(iOS 16.0, *) {
-            self.navigationItem.preferredSearchBarPlacement = kaka_IsMacOS() ? .automatic : .stacked
-        }
+        self.navigationItem.preferredSearchBarPlacement = kaka_IsMacOS() ? .automatic : .stacked
 
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIApplication.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHidden(_:)), name: UIApplication.keyboardDidHideNotification, object: nil)

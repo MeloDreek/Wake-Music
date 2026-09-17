@@ -38,16 +38,9 @@ extension URL {
         var fileCount = 1
         
         if handleType == .copy {
-            if #available(iOS 16.0, *) {
-                while FileManager.default.fileExists(atPath: targetURL.appending(path: "\(fileName).\(self.pathExtension)").path(percentEncoded: false)) {
-                    fileName = "\(baseFileName) (\(fileCount))"
-                    fileCount += 1
-                }
-            } else {
-                while FileManager.default.fileExists(atPath: targetURL.appendingPathComponent("\(fileName).\(self.pathExtension)").path) {
-                    fileName = "\(baseFileName) (\(fileCount))"
-                    fileCount += 1
-                }
+            while FileManager.default.fileExists(atPath: targetURL.appending(path: "\(fileName).\(self.pathExtension)").path(percentEncoded: false)) {
+                fileName = "\(baseFileName) (\(fileCount))"
+                fileCount += 1
             }
         }
         

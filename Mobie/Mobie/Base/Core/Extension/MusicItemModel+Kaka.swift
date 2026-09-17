@@ -270,12 +270,7 @@ extension MusicItemModel {
     public func coverThumbnailURL() -> URL {
         
         let fileName = self.filePathName() + ".jpg"
-        var cacheCoverURL: URL
-        if #available(iOS 16.0, *) {
-            cacheCoverURL = SandboxFileManager.shared.coverPathURL().appending(path: fileName, directoryHint: .notDirectory)
-        } else {
-            cacheCoverURL = SandboxFileManager.shared.coverPathURL().appendingPathComponent(fileName)
-        }
+        let cacheCoverURL = SandboxFileManager.shared.coverPathURL().appending(path: fileName, directoryHint: .notDirectory)
         
         if FileManager.default.fileExists(atPath: cacheCoverURL.path) { return cacheCoverURL }
         if let navSong = self.navidromeSong {

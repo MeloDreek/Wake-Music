@@ -256,28 +256,21 @@ extension MusicPlayerViewController {
 #if !targetEnvironment(macCatalyst)
         let isLandscape = OrientationManager.shared.isLandscape
 
-        if #available(iOS 16.0, *) {
-            guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene else { return }
-            
-            let targetScape = isLandscape ? UIInterfaceOrientationMask.portrait : UIInterfaceOrientationMask.landscape
-            windowScene.requestGeometryUpdate(.iOS(interfaceOrientations: targetScape)) { error in
-                debugPrint("切换失败: \(error.localizedDescription)")
-                self.view.makeToast(error.localizedDescription)
-                if !kaka_IsiPad() {
-                    OrientationManager.shared.forceUpdate(to: false)
-                    OrientationManager.shared.isShowBigLyric = false
-                }
+        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene else { return }
+
+        let targetScape = isLandscape ? UIInterfaceOrientationMask.portrait : UIInterfaceOrientationMask.landscape
+        windowScene.requestGeometryUpdate(.iOS(interfaceOrientations: targetScape)) { error in
+            debugPrint("切换失败: \(error.localizedDescription)")
+            self.view.makeToast(error.localizedDescription)
+            if !kaka_IsiPad() {
+                OrientationManager.shared.forceUpdate(to: false)
+                OrientationManager.shared.isShowBigLyric = false
             }
-            
-            self.setNeedsUpdateOfSupportedInterfaceOrientations()
-            self.navigationController?.setNeedsUpdateOfSupportedInterfaceOrientations()
-                        
-        } else {
-            let targetOrientation = isLandscape ? UIInterfaceOrientation.portrait : UIInterfaceOrientation.landscapeRight
-            UIDevice.current.setValue(targetOrientation.rawValue, forKey: "orientation")
-            UIViewController.attemptRotationToDeviceOrientation()
-            UINavigationController.attemptRotationToDeviceOrientation()
         }
+
+        self.setNeedsUpdateOfSupportedInterfaceOrientations()
+        self.navigationController?.setNeedsUpdateOfSupportedInterfaceOrientations()
+
 #endif
     }
     

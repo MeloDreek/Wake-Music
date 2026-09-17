@@ -67,7 +67,7 @@ final class MusicServerHomeViewController: SuperViewController {
         super.viewDidLoad()
         navigationItem.title = session.user.customName.isEmpty ? "Navidrome" : session.user.customName
         navigationItem.largeTitleDisplayMode = .always
-        let exit = UIBarButtonItem(image: UIImage(systemName: "rectangle.portrait.and.arrow.forward"), style: .plain, target: self, action: #selector(exitTapped))
+        let exit = UIBarButtonItem(image: AppModeCoordinator.exitImage, style: .plain, target: self, action: #selector(exitTapped))
         exit.accessibilityLabel = "Back to Classic Mode".localStr()
         navigationItem.leftBarButtonItem = exit
         view.backgroundColor = .systemGroupedBackground

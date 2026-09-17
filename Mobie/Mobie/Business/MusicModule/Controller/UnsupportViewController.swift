@@ -86,11 +86,7 @@ extension UnsupportViewController: UITableViewDataSource, UITableViewDelegate {
         cellConfig.text = subURL.lastPathComponent
         cellConfig.secondaryTextProperties.numberOfLines = 2
         cellConfig.secondaryTextProperties.lineBreakMode = .byTruncatingMiddle
-        if #available(iOS 16.0, *) {
-            cellConfig.secondaryText = subURL.path(percentEncoded: false)
-        } else {
-            cellConfig.secondaryText = subURL.path
-        }
+        cellConfig.secondaryText = subURL.path(percentEncoded: false)
         cellConfig.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 20, leading: 15, bottom: 20, trailing: 15)
         cell.accessoryType = .disclosureIndicator
         cell.contentConfiguration = cellConfig

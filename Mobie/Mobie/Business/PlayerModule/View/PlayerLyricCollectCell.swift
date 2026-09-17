@@ -360,7 +360,13 @@ class PlayerLyricCollectCell: UICollectionViewCell {
     lazy var rotateButton: UIButton = {
         let view = UIButton(type: .custom)
         view.isHidden = true
-        view.setImage(Reasource.systemNamed("rectangle.portrait.rotate", color: .white), for: .normal)
+        let symbol: String
+        if #available(iOS 17.0, *) {
+            symbol = "rectangle.portrait.rotate"
+        } else {
+            symbol = "rotate.right"
+        }
+        view.setImage(Reasource.systemNamed(symbol, color: .white), for: .normal)
         view.addTarget(self, action: #selector(changeDeviceOrientation), for: .touchUpInside)
         return view
     }()

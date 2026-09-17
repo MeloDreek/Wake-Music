@@ -16,9 +16,7 @@ extension NavidromeViewController: UISearchBarDelegate {
         self.navigationItem.searchController = self.searchController
         self.searchController.naviController = self.navigationController
         self.navigationItem.hidesSearchBarWhenScrolling = false
-        if #available(iOS 16.0, *) {
-            self.navigationItem.preferredSearchBarPlacement = kaka_IsMacOS() ? .automatic : .stacked
-        }
+        self.navigationItem.preferredSearchBarPlacement = kaka_IsMacOS() ? .automatic : .stacked
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIApplication.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHidden(_:)), name: UIApplication.keyboardDidHideNotification, object: nil)
@@ -27,9 +25,7 @@ extension NavidromeViewController: UISearchBarDelegate {
     func disableSearchBar() {
         self.navigationItem.searchController = nil
         self.navigationItem.hidesSearchBarWhenScrolling = true
-        if #available(iOS 16.0, *) {
-            self.navigationItem.preferredSearchBarPlacement = kaka_IsMacOS() ? .automatic : .stacked
-        }
+        self.navigationItem.preferredSearchBarPlacement = kaka_IsMacOS() ? .automatic : .stacked
         
         NotificationCenter.default.removeObserver(self, name: UIApplication.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.removeObserver(self, name: UIApplication.keyboardDidHideNotification, object: nil)
@@ -96,4 +92,3 @@ extension NavidromeViewController: UISearchBarDelegate {
     }
     
 }
-

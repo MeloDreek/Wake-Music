@@ -142,11 +142,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     // 清除消息红点
     func removePushNotiBadge() {
-        if #available(iOS 16.0, *) {
-            UNUserNotificationCenter.current().setBadgeCount(0)
-        } else {
-            UIApplication.shared.applicationIconBadgeNumber = 0
-        }
+        UNUserNotificationCenter.current().setBadgeCount(0)
     }
 
 }

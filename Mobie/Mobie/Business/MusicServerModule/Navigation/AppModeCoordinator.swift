@@ -13,6 +13,19 @@ final class AppModeCoordinator {
 
     init(window: UIWindow) { self.window = window }
 
+    /// Navigation bars reconfigure SF Symbols and can discard UIImage orientation.
+    /// Bake a left-pointing glyph into a template, then let UIKit mirror it for RTL.
+    static let exitImage: UIImage? = {
+        let configuration = UIImage.SymbolConfiguration(pointSize: 20, weight: .regular)
+        guard let symbol = UIImage(systemName: "rectangle.portrait.and.arrow.right", withConfiguration: configuration) else { return nil }
+        let image = UIGraphicsImageRenderer(size: symbol.size).image { context in
+            context.cgContext.translateBy(x: symbol.size.width, y: 0)
+            context.cgContext.scaleBy(x: -1, y: 1)
+            symbol.draw(in: CGRect(origin: .zero, size: symbol.size))
+        }
+        return image.withRenderingMode(.alwaysTemplate).imageFlippedForRightToLeftLayoutDirection()
+    }()
+
     func restoredRootController() -> UIViewController {
         let settings = AppLocalManager.shared
         if settings.homeMode == .navidrome,
@@ -79,7 +92,13 @@ final class AppModeCoordinator {
         isSwitching = true
         let oldRoot = window.rootViewController
         let replace = { [weak self, weak window] in
-            guard let self, let window else { return }
+            guard let self else { return }
+            // Root construction can start indefinitely repeating layer animations.
+            // A CATransaction completion enclosing it may therefore never fire.
+            // Gate only the root replacement, never the lifetime of those animations.
+            defer { self.isSwitching = false }
+            guard let window else { return }
+            window.layer.removeAnimation(forKey: "musicServerModeTransition")
             let animated = !kaka_IsMacOS() && !UIAccessibility.isReduceMotionEnabled
             if animated {
                 let rtl = window.effectiveUserInterfaceLayoutDirection == .rightToLeft
@@ -88,15 +107,11 @@ final class AppModeCoordinator {
                 transition.subtype = returning != rtl ? .fromLeft : .fromRight
                 transition.duration = 0.35
                 transition.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
-                CATransaction.begin()
-                CATransaction.setCompletionBlock { [weak self] in self?.isSwitching = false }
                 window.layer.add(transition, forKey: "musicServerModeTransition")
             }
             self.retireClassicRoot(oldRoot)
             window.rootViewController = root
             window.makeKeyAndVisible()
-            if animated { CATransaction.commit() }
-            else { self.isSwitching = false }
         }
         if oldRoot?.presentedViewController != nil {
             oldRoot?.dismiss(animated: false, completion: replace)

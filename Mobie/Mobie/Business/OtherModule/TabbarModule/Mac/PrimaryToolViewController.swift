@@ -118,11 +118,7 @@ class PrimaryToolViewController: SuperViewController {
         self.taskCount = taskArray.count
         self.tableView.reloadData()
         
-        if #available(iOS 16.0, *) {
-            UNUserNotificationCenter.current().setBadgeCount(taskArray.count)
-        } else {
-            UIApplication.shared.applicationIconBadgeNumber = taskArray.count
-        }
+        UNUserNotificationCenter.current().setBadgeCount(taskArray.count)
     }
     
     @objc func jumpConnectPage() {

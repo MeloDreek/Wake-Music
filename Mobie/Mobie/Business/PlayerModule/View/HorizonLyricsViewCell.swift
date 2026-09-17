@@ -233,7 +233,13 @@ class HorizonLyricsViewCell: UICollectionViewCell {
     // 退出旋转
     lazy var rotateButton: UIButton = {
         let view = UIButton(type: .custom)
-        view.setImage(Reasource.systemNamed("rectangle.landscape.rotate", color: .white), for: .normal)
+        let symbol: String
+        if #available(iOS 17.0, *) {
+            symbol = "rectangle.landscape.rotate"
+        } else {
+            symbol = "rotate.left"
+        }
+        view.setImage(Reasource.systemNamed(symbol, color: .white), for: .normal)
         view.addTarget(self, action: #selector(rotateButtonClick), for: .touchUpInside)
         return view
     }()

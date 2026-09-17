@@ -104,29 +104,24 @@ class WiFiServerViewController: SuperViewController {
     // 设置横竖屏
     func changeDeviceOrientation() {
         
-        if #available(iOS 16.0, *) {
-            guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene else { return }
+        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene else { return }
 
 #if targetEnvironment(macCatalyst)
-            if let titleBar = windowScene.titlebar,
-               let sizes = windowScene.sizeRestrictions {
-                titleBar.titleVisibility = .hidden
-                titleBar.toolbar = nil
-                sizes.minimumSize = windowScene.screen.bounds.size
-                sizes.maximumSize = windowScene.screen.bounds.size
-            }
-#else
-            self.setNeedsUpdateOfSupportedInterfaceOrientations()
-            self.navigationController?.setNeedsUpdateOfSupportedInterfaceOrientations()
-            windowScene.requestGeometryUpdate(.iOS(interfaceOrientations: .landscapeRight)) { error in
-                debugPrint("切换失败 = \(error.localizedDescription)")
-            }
-#endif
-            
-        } else {
-            UIDevice.current.setValue(UIInterfaceOrientation.landscapeRight.rawValue, forKey: "orientation")
-            UINavigationController.attemptRotationToDeviceOrientation()
+        if let titleBar = windowScene.titlebar,
+           let sizes = windowScene.sizeRestrictions {
+            titleBar.titleVisibility = .hidden
+            titleBar.toolbar = nil
+            sizes.minimumSize = windowScene.screen.bounds.size
+            sizes.maximumSize = windowScene.screen.bounds.size
         }
+#else
+        self.setNeedsUpdateOfSupportedInterfaceOrientations()
+        self.navigationController?.setNeedsUpdateOfSupportedInterfaceOrientations()
+        windowScene.requestGeometryUpdate(.iOS(interfaceOrientations: .landscapeRight)) { error in
+            debugPrint("切换失败 = \(error.localizedDescription)")
+        }
+#endif
+
         
     }
     
@@ -583,26 +578,21 @@ class KakaAVPlayerViewController: AVPlayerViewController {
         debugPrint("### KakaAVPlayerViewController ###")
         
         
-        if #available(iOS 16.0, *) {
-            guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene else { return }
-            
+        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene else { return }
+
 #if targetEnvironment(macCatalyst)
 //            if let titleBar = windowScene.titlebar,
 //               let sizes = windowScene.sizeRestrictions {
 //                titleBar.titleVisibility = .visible
 //            }
 #else
-            self.setNeedsUpdateOfSupportedInterfaceOrientations()
-            self.navigationController?.setNeedsUpdateOfSupportedInterfaceOrientations()
-            windowScene.requestGeometryUpdate(.iOS(interfaceOrientations: .portrait)) { error in
-                debugPrint("切换失败 = \(error.localizedDescription)")
-            }
-#endif
-            
-        } else {
-            UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation")
-            UINavigationController.attemptRotationToDeviceOrientation()
+        self.setNeedsUpdateOfSupportedInterfaceOrientations()
+        self.navigationController?.setNeedsUpdateOfSupportedInterfaceOrientations()
+        windowScene.requestGeometryUpdate(.iOS(interfaceOrientations: .portrait)) { error in
+            debugPrint("切换失败 = \(error.localizedDescription)")
         }
+#endif
+
         
     }
     

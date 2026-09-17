@@ -282,7 +282,7 @@ view.refreshControl = self.kaka_header
         let refreshAction = UIAction(title: "Refresh".localStr(), image: UIImage(systemName: "arrow.clockwise")) { [weak self] _ in
             self?.refreshDataAction()
         }
-        let loginAction = UIAction(title: "Edit SMB Credentials".localStr(), image: UIImage(systemName: "person.crop.circle.badge.key")) { [weak self] _ in
+        let loginAction = UIAction(title: "Edit SMB Credentials".localStr(), image: UIImage(systemName: "person.badge.key")) { [weak self] _ in
             guard let self else { return }
             self.navigationController?.pushViewController(AuthSMBViewController(user: self.loginModel) { [weak self] user in
                 self?.loginModel = user
@@ -830,9 +830,7 @@ extension SMBDriveFileListController: UISearchBarDelegate {
     func configSearchBar() {
         self.navigationItem.searchController = self.searchController
         self.navigationItem.hidesSearchBarWhenScrolling = false
-        if #available(iOS 16.0, *) {
-            self.navigationItem.preferredSearchBarPlacement = kaka_IsMacOS() ? .automatic : .stacked
-        }
+        self.navigationItem.preferredSearchBarPlacement = kaka_IsMacOS() ? .automatic : .stacked
 
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIApplication.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHidden(_:)), name: UIApplication.keyboardDidHideNotification, object: nil)

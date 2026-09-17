@@ -327,11 +327,9 @@ class PlayerControlToolBarView: UIToolbar {
     
     func setupAppearance() {
 #if !compiler(>=6.0)
-        if #available(iOS 15.0, *) {
-            let scrollEdgeAppearance = UIToolbarAppearance(idiom: UIDevice.current.userInterfaceIdiom)
-            scrollEdgeAppearance.configureWithTransparentBackground() // 底层透明，但内容穿透
-            self.scrollEdgeAppearance = scrollEdgeAppearance
-        }
+        let scrollEdgeAppearance = UIToolbarAppearance(idiom: UIDevice.current.userInterfaceIdiom)
+        scrollEdgeAppearance.configureWithTransparentBackground() // 底层透明，但内容穿透
+        self.scrollEdgeAppearance = scrollEdgeAppearance
         
         let compactAppearance = UIToolbarAppearance(idiom: UIDevice.current.userInterfaceIdiom)
         compactAppearance.configureWithTransparentBackground() // 不透明，纯色

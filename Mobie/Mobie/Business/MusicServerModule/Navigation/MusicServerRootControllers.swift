@@ -144,7 +144,7 @@ private final class MusicServerSidebarController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Music Server".localStr()
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "arrow.backward"), style: .plain, target: self, action: #selector(exitMode))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: AppModeCoordinator.exitImage, style: .plain, target: self, action: #selector(exitMode))
         navigationItem.leftBarButtonItem?.accessibilityLabel = "Back to Classic Mode".localStr()
         tableView.selectRow(at: IndexPath(row: 0, section: 0), animated: false, scrollPosition: .none)
     }

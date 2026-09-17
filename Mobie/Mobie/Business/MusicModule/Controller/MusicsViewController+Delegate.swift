@@ -308,11 +308,7 @@ extension MusicsViewController: MusicTableViewCellDelegate {
     // 引导好评
     @objc func guideFiveStarRating() {
         guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene else { return }
-        if #available(iOS 16.0, *) {
-            AppStore.requestReview(in: windowScene)
-        } else {
-            SKStoreReviewController.requestReview(in: windowScene)
-        }
+        AppStore.requestReview(in: windowScene)
     }
 }
 

@@ -496,11 +496,7 @@ class CacheConfigTableCell: UITableViewCell {
             case .cachePath:
                 cellConfig.secondaryTextProperties.numberOfLines = 1
                 cellConfig.secondaryTextProperties.lineBreakMode = .byTruncatingMiddle
-                if #available(iOS 16.0, *) {
-                    cellConfig.secondaryText = SandboxFileManager.shared.preDownloadURL().path(percentEncoded: false)
-                } else {
-                    cellConfig.secondaryText = SandboxFileManager.shared.preDownloadURL().path
-                }
+                cellConfig.secondaryText = SandboxFileManager.shared.preDownloadURL().path(percentEncoded: false)
                 self.accessoryType = .none
                 self.accessoryView = nil
             }

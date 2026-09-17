@@ -264,12 +264,7 @@ extension MusicTagEditor {
         
         targetStr = targetStr.appending("/\(Date.uniqueNanosecondTimestamp()).\(audioType.suffixName())")
 
-        var audioOutputURL: URL
-        if #available(iOS 16.0, *) {
-            audioOutputURL = URL(filePath: targetStr, directoryHint: .notDirectory, relativeTo: nil)
-        } else {
-            audioOutputURL = URL(fileURLWithPath: targetStr, isDirectory: false)
-        }
+        let audioOutputURL = URL(filePath: targetStr, directoryHint: .notDirectory, relativeTo: nil)
         
         // 如果文件已经存在，删除它
         if FileManager.default.fileExists(atPath: audioOutputURL.path) {
@@ -294,4 +289,3 @@ extension MusicTagEditor {
  1、根据艺术家名称获取MBID: https://musicbrainz.org/ws/2/release/?query=artist:周杰伦AND七里香&fmt=json
  2、根据MBID再获取专辑封面：https://coverartarchive.org/release/bf546753-256b-43cb-9310-e78d5b341075
  */
-

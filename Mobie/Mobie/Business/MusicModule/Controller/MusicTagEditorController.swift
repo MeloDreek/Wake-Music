@@ -760,12 +760,7 @@ extension MusicTagEditorController {
     
     // 点击文件地址
     func clickFilePathAction() {
-        var filePath: String?
-        if #available(iOS 16.0, *) {
-            filePath = self.editModel?.mediaPlayURL.path(percentEncoded: false)
-        }else{
-            filePath = self.editModel?.mediaPlayURL.path
-        }
+        let filePath = self.editModel?.mediaPlayURL.path(percentEncoded: false)
         
         guard let filePath = filePath else { return }
 #if targetEnvironment(macCatalyst)
@@ -814,11 +809,7 @@ extension MusicTagEditorController {
         AppLocalManager.shared.isGuideFiveStar = true
         
         guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene else { return }
-        if #available(iOS 16.0, *) {
-            AppStore.requestReview(in: windowScene)
-        } else {
-            SKStoreReviewController.requestReview(in: windowScene)
-        }
+        AppStore.requestReview(in: windowScene)
 #endif
     }
     
@@ -1024,11 +1015,7 @@ class MeteDataDetialViewCell: UITableViewCell {
             self.accessoryType = .none
             break
         case .filePath:
-            if #available(iOS 16.0, *) {
-                cellConfig.secondaryText = model?.mediaPlayURL.path(percentEncoded: false)
-            }else{
-                cellConfig.secondaryText = model?.mediaPlayURL.path
-            }
+            cellConfig.secondaryText = model?.mediaPlayURL.path(percentEncoded: false)
             self.accessoryView = nil
             self.accessoryType = kaka_IsMacOS() ? .disclosureIndicator : .none
             break
@@ -1270,5 +1257,3 @@ class MusicTagHeadCell: UITableViewCell {
         return view
     }()
 }
-
-

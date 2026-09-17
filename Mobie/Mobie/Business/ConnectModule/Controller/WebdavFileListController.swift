@@ -798,20 +798,15 @@ extension WebdavFileListController {
         
         if kaka_IsMacOS() { return }
         
-        if #available(iOS 16.0, *) {
-            guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene else { return }
+        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene else { return }
 
-            self.setNeedsUpdateOfSupportedInterfaceOrientations()
-            self.navigationController?.setNeedsUpdateOfSupportedInterfaceOrientations()
-            windowScene.requestGeometryUpdate(.iOS(interfaceOrientations: .landscapeRight)) { error in
-                debugPrint("切换失败 = \(error.localizedDescription)")
-            }
-            
-        } else {
-            UIDevice.current.setValue(UIInterfaceOrientation.landscapeRight.rawValue, forKey: "orientation")
-            UINavigationController.attemptRotationToDeviceOrientation()
+        self.setNeedsUpdateOfSupportedInterfaceOrientations()
+        self.navigationController?.setNeedsUpdateOfSupportedInterfaceOrientations()
+        windowScene.requestGeometryUpdate(.iOS(interfaceOrientations: .landscapeRight)) { error in
+            debugPrint("切换失败 = \(error.localizedDescription)")
         }
         
+
     }
 }
 
@@ -915,9 +910,7 @@ extension WebdavFileListController: UISearchBarDelegate {
     func configSearchBar() {
         self.navigationItem.searchController = self.searchController
         self.navigationItem.hidesSearchBarWhenScrolling = false
-        if #available(iOS 16.0, *) {
-            self.navigationItem.preferredSearchBarPlacement = kaka_IsMacOS() ? .automatic : .stacked
-        }
+        self.navigationItem.preferredSearchBarPlacement = kaka_IsMacOS() ? .automatic : .stacked
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIApplication.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHidden(_:)), name: UIApplication.keyboardDidHideNotification, object: nil)

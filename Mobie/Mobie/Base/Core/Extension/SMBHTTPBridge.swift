@@ -88,7 +88,13 @@ final class SMBHTTPBridge {
         connections[id] = (connection, nil)
         connection.stateUpdateHandler = { [weak self] state in
             if case .failed = state { connection.cancel() }
-            if case .cancelled = state { Task { @MainActor in self?.connections.removeValue(forKey: id) } }
+            if case .cancelled = state {
+                Task { @MainActor in
+                    // Do not return NWConnection as Task.Success: its Sendable
+                    // conformance is iOS 17+, but cleanup must also work on iOS 16.
+                    _ = self?.connections.removeValue(forKey: id)
+                }
+            }
         }
         connection.start(queue: .main)
         receiveHeaders(connection, id: id, buffer: Data())

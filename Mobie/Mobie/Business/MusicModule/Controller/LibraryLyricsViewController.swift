@@ -27,11 +27,7 @@ enum MusicTopMode: Int {
     func iconImage(_ color: UIColor = appMainColor) -> UIImage? {
         switch self {
         case .coverLibrary:
-            if #available(iOS 16.0, *) {
-                return Reasource.systemNamed("photo.stack", color: color)
-            }else{
-                return Reasource.systemNamed("photo.on.rectangle", color: color)
-            }
+            return Reasource.systemNamed("photo.stack", color: color)
         case .lyricLibrary:
             return Reasource.systemNamed("text.quote", color: color)
         }
@@ -516,4 +512,3 @@ class LocalLyricsyHeadCell: UITableViewCell {
     }()
     
 }
-

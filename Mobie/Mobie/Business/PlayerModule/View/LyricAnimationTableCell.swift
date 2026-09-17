@@ -210,10 +210,7 @@ class SelectLyricAnimationCell: UICollectionViewCell {
     }()
     
     lazy var randomIconView: UIImageView = {
-        var name = "shuffle"
-        if #available(iOS 14.2, *) {
-            name = "shuffle.circle.fill"
-        }
+        let name = "shuffle.circle.fill"
         
         let config = UIImage.SymbolConfiguration(pointSize: 15.ckValue(), weight: .medium)
         let image = Reasource.systemNamed(name, color: .label, config: config).flippedImage()

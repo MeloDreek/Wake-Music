@@ -13,22 +13,13 @@ extension PlaybackOrderType {
     public func iconImage(color: UIColor, config: UIImage.SymbolConfiguration?) -> UIImage? {
         switch self {
         case .normal:
-            var name = "repeat"
-            if #available(iOS 14.2, *) {
-                name = kaka_IsMacOS() ? "repeat.circle.fill" : "repeat"
-            }
+            let name = kaka_IsMacOS() ? "repeat.circle.fill" : "repeat"
             return Reasource.systemNamed(name, color: color, config: config).flippedImage()
         case .random:
-            var name = "shuffle"
-            if #available(iOS 14.2, *) {
-                name = kaka_IsMacOS() ? "shuffle.circle.fill" : "shuffle"
-            }
+            let name = kaka_IsMacOS() ? "shuffle.circle.fill" : "shuffle"
             return Reasource.systemNamed(name, color: color, config: config).flippedImage()
         case .single:
-            var name = "repeat.1"
-            if #available(iOS 14.2, *) {
-                name = kaka_IsMacOS() ? "repeat.1.circle.fill" : "repeat.1"
-            }
+            let name = kaka_IsMacOS() ? "repeat.1.circle.fill" : "repeat.1"
             return Reasource.systemNamed(name, color: color, config: config).flippedImage()
         }
     }

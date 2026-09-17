@@ -67,11 +67,7 @@ extension HomeTabbarViewController {
         
         self.tabBar.items?[2].badgeValue = taskArray.isEmpty ? nil : "\(taskArray.count)"
         
-        if #available(iOS 16.0, *) {
-            UNUserNotificationCenter.current().setBadgeCount(taskArray.count)
-        } else {
-            UIApplication.shared.applicationIconBadgeNumber = taskArray.count
-        }
+        UNUserNotificationCenter.current().setBadgeCount(taskArray.count)
     }
     
     // 前往连接页面

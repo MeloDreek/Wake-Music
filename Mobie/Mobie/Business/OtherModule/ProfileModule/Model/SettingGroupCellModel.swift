@@ -108,11 +108,7 @@ enum SettingCellItemType {
         case .applogo:
             return Reasource.systemNamed("square.on.square", color: appMainColor)
         case .appTintColor:
-            if #available(iOS 16.0, *) {
-                return Reasource.systemNamed("swatchpalette", color: appMainColor)
-            }else{
-                return Reasource.systemNamed("paintpalette", color: appMainColor)
-            }
+            return Reasource.systemNamed("swatchpalette", color: appMainColor)
         case .appearance:
             return Reasource.systemNamed("moon.circle.fill", color: appMainColor)
         

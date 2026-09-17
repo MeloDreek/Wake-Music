@@ -34,11 +34,7 @@ extension AppearanceStyle {
     func iconImage() -> UIImage? {
         switch self {
         case .auto:
-            if #available(iOS 16.0, *) {
-                return UIImage(systemName: "moonphase.last.quarter")
-            }else{
-                return UIImage(systemName: "moon.circle.fill")
-            }
+            return UIImage(systemName: "moonphase.last.quarter")
         case .light:
             return UIImage(systemName: "sun.max.fill")
         case .dark:

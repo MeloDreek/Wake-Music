@@ -941,11 +941,7 @@ extension AudioMatchTagViewController {
         AppLocalManager.shared.isGuideFiveStar = true
         
         guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene else { return }
-        if #available(iOS 16.0, *) {
-            AppStore.requestReview(in: windowScene)
-        } else {
-            SKStoreReviewController.requestReview(in: windowScene)
-        }
+        AppStore.requestReview(in: windowScene)
 #endif
     }
     
@@ -1038,4 +1034,3 @@ extension AudioMatchTagViewController: MFMailComposeViewControllerDelegate, SFSa
         """
     }
 }
-

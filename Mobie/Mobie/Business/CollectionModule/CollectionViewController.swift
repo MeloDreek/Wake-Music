@@ -235,9 +235,7 @@ extension CollectionViewController: UISearchBarDelegate {
     func configSearchBar() {
         self.navigationItem.searchController = self.searchController
         self.navigationItem.hidesSearchBarWhenScrolling = false
-        if #available(iOS 16.0, *) {
-            self.navigationItem.preferredSearchBarPlacement = kaka_IsMacOS() ? .automatic : .stacked
-        }
+        self.navigationItem.preferredSearchBarPlacement = kaka_IsMacOS() ? .automatic : .stacked
     }
     
     func stopSearchAction(_ animation: Bool) {

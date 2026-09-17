@@ -680,12 +680,7 @@ class CoverGalleryHeadCell: UITableViewCell {
     }
     
     lazy var starImgView: UIImageView = {
-        var image: UIImage
-        if #available(iOS 16.0, *) {
-            image = Reasource.systemNamed("photo.stack")
-        }else{
-            image = Reasource.systemNamed("photo.on.rectangle")
-        }
+        let image = Reasource.systemNamed("photo.stack")
         let view = UIImageView(image: image)
         view.contentMode = .scaleAspectFit
         return view
