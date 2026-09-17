@@ -126,7 +126,7 @@ public class AppLocalManager: SmartCodableX, ObservableObject {
     
     /// 显示音频标签
     @SmartPublished
-    public var isShowAudioTag: Bool = kaka_IsMacOS() {
+    public var isShowAudioTag: Bool = true {
         didSet {
             save()
         }

@@ -9,6 +9,9 @@ import Kingfisher
 final class PlayerQueueCollectCell: UICollectionViewCell, UITableViewDataSource, UITableViewDelegate,
                                     UITableViewDragDelegate, UITableViewDropDelegate {
     var onClose: (() -> Void)?
+    var bottomReservedHeight: CGFloat = 76 {
+        didSet { if oldValue != bottomReservedHeight { setNeedsLayout() } }
+    }
     let tableView = UITableView(frame: .zero, style: .plain)
     private let artwork = UIImageView()
     private let songTitle = UILabel()
@@ -98,7 +101,7 @@ final class PlayerQueueCollectCell: UICollectionViewCell, UITableViewDataSource,
         heading.frame = rect(margin, modes.frame.maxY + (compact ? 10 : 20), width - margin * 2, 29)
         hint.isHidden = compact
         hint.frame = CGRect(x: margin, y: heading.frame.maxY + 3, width: width - margin * 2, height: compact ? 0 : 32)
-        let bottom = OrientationManager.shared.playerControlHeight + 8
+        let bottom = bottomReservedHeight + 8
         let tableTop = hint.frame.maxY + 8
         // Keep the scroll indicator at the page edge; inset row content, not the table.
         tableView.frame = CGRect(x: 0, y: tableTop, width: width, height: max(0, bounds.height - bottom - tableTop))

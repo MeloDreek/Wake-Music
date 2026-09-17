@@ -36,6 +36,7 @@ class MusicPlayerViewController: SuperViewController {
         contentView.addSubview(nameLabel)
         contentView.addSubview(playDefaultControl)
         contentView.addSubview(playTapeControl)
+        contentView.addSubview(auxiliaryBottomBar)
 //        contentView.addSubview(playVinylControl)
     }
                 
@@ -71,6 +72,7 @@ class MusicPlayerViewController: SuperViewController {
                 
         playDefaultControl.frame = CGRectMake(isRTL && isFullScreen ? contentView.width / 2 : 0, contentView.height - controlHeight, controlWidth, controlHeight)
         playTapeControl.frame = CGRectMake(isRTL && isFullScreen ? contentView.width / 2 : 0, contentView.height - controlHeight, controlWidth, controlHeight)
+        layoutAuxiliaryControls()
 //        playVinylControl.frame = CGRectMake(isRTL && isFullScreen ? contentView.width / 2 : 0, contentView.height - controlHeight, controlWidth, controlHeight)
         if lastPlayerLayoutSize != contentView.bounds.size {
             lastPlayerLayoutSize = contentView.bounds.size
@@ -208,11 +210,10 @@ class MusicPlayerViewController: SuperViewController {
                 
                 self.lastPressTime = Date()
                 
-                if !self.playDefaultControl.isHidden {
+                // Space/Return remain available while the transport is collapsed.
+                if !MusicConfigManager.shared.playerStyle.isTapeStyle() {
                     self.playDefaultControl.playButtonClick(self.playDefaultControl.playButton)
-                }
-                
-                if !self.playTapeControl.isHidden {
+                } else {
                     self.playTapeControl.playButtonClick(self.playTapeControl.playButton)
                 }
                 
@@ -337,6 +338,37 @@ class MusicPlayerViewController: SuperViewController {
         return layout
     }()
     
+    var auxiliaryBottomReservedHeight: CGFloat {
+        PlayerBottomBar.reservedHeight(safeBottom: view.safeAreaInsets.bottom)
+    }
+
+    func layoutAuxiliaryControls() {
+        let split = OrientationManager.shared.isLandscape
+        let rtl = UIView.userInterfaceLayoutDirection(for: view.semanticContentAttribute) == .rightToLeft
+        let width = contentView.bounds.width / (split ? 2 : 1)
+        auxiliaryBottomBar.frame = CGRect(x: rtl && split ? width : 0,
+                                         y: contentView.bounds.height - auxiliaryBottomReservedHeight,
+                                         width: width, height: 64)
+        for cell in collectionView.visibleCells {
+            (cell as? PlayerQueueCollectCell)?.bottomReservedHeight = auxiliaryBottomReservedHeight
+            (cell as? PlayerMoreConfigCollectCell)?.bottomReservedHeight = auxiliaryBottomReservedHeight
+        }
+    }
+
+    lazy var auxiliaryBottomBar: PlayerBottomBar = {
+        let bar = PlayerBottomBar()
+        bar.isHidden = true
+        bar.onPlaylist = { [weak self] in
+            guard let self else { return }
+            self.setPlaylistVisible(!self.isShowingPlaylist)
+        }
+        bar.onMore = { [weak self] in
+            guard let self else { return }
+            self.setMoreConfigVisible(!self.isShowingMoreConfig)
+        }
+        return bar
+    }()
+
     lazy var playDefaultControl: PlayControlDefaultView = {
         let isFullScreen = OrientationManager.shared.isLandscape
         let controlWidth = contentView.width / (isFullScreen ? 2 : 1)

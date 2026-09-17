@@ -145,6 +145,8 @@
 		2258ACF02DE565D400F5754B /* PlayerGroupStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2258ACEF2DE565D400F5754B /* PlayerGroupStyle.swift */; };
 		2258ACF12DE565D400F5754B /* PlayerGroupStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2258ACEF2DE565D400F5754B /* PlayerGroupStyle.swift */; };
 		2258ACF32DE5743700F5754B /* PlayControlDefaultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2258ACF22DE5743700F5754B /* PlayControlDefaultView.swift */; };
+		C0DE09170000000000000022 /* PlayerBottomBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DE09170000000000000021 /* PlayerBottomBar.swift */; };
+		C0DE09170000000000000023 /* PlayerBottomBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DE09170000000000000021 /* PlayerBottomBar.swift */; };
 		2258ACF42DE5743700F5754B /* PlayControlDefaultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2258ACF22DE5743700F5754B /* PlayControlDefaultView.swift */; };
 		2258ACF62DE5AF6D00F5754B /* PlayBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2258ACF52DE5AF6D00F5754B /* PlayBackgroundView.swift */; };
 		2258ACF72DE5AF6D00F5754B /* PlayBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2258ACF52DE5AF6D00F5754B /* PlayBackgroundView.swift */; };
@@ -914,6 +916,7 @@
 		2258ACEC2DE5649B00F5754B /* MusicPlayerViewController+Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MusicPlayerViewController+Data.swift"; sourceTree = "<group>"; };
 		2258ACEF2DE565D400F5754B /* PlayerGroupStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerGroupStyle.swift; sourceTree = "<group>"; };
 		2258ACF22DE5743700F5754B /* PlayControlDefaultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayControlDefaultView.swift; sourceTree = "<group>"; };
+		C0DE09170000000000000021 /* PlayerBottomBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerBottomBar.swift; sourceTree = "<group>"; };
 		2258ACF52DE5AF6D00F5754B /* PlayBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayBackgroundView.swift; sourceTree = "<group>"; };
 		2258ACF82DE5BBFB00F5754B /* PlayerSubViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerSubViewDelegate.swift; sourceTree = "<group>"; };
 		2258ACFB2DE5FB0300F5754B /* LyricSetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LyricSetViewController.swift; sourceTree = "<group>"; };
@@ -1718,6 +1721,7 @@
 				2242A1FE2DEEA2410081D23D /* TapePlayerView.swift */,
 				22FB960E2DEDB004007EA2FD /* MiniPlayerLyricView.swift */,
 				2258ACF22DE5743700F5754B /* PlayControlDefaultView.swift */,
+				C0DE09170000000000000021 /* PlayerBottomBar.swift */,
 				22FB96082DED5007007EA2FD /* PlayControlTapeView.swift */,
 				22FB960B2DED507B007EA2FD /* PlayControlVinylView.swift */,
 				2258ACF52DE5AF6D00F5754B /* PlayBackgroundView.swift */,
@@ -2496,6 +2500,7 @@
 				225F58202D85B2AB0055BDFF /* WelcomeBaseCollectCell.swift in Sources */,
 				225F58212D85B2AB0055BDFF /* PlayerRingViewController.swift in Sources */,
 				2258ACF42DE5743700F5754B /* PlayControlDefaultView.swift in Sources */,
+				C0DE09170000000000000022 /* PlayerBottomBar.swift in Sources */,
 				22C287AE3053C6B700801D66 /* NoneLyriclistView.swift in Sources */,
 				225F58232D85B2AB0055BDFF /* MusicViewModel+Genre.swift in Sources */,
 				226AF34D2E21103F007C44DF /* ConnectNavidromeArtistCell.swift in Sources */,
@@ -2843,6 +2848,7 @@
 				228A14282CA0633400E2948E /* WelcomeBaseCollectCell.swift in Sources */,
 				224AC8AA2CE4349E00F4F2AF /* PlayerRingViewController.swift in Sources */,
 				2258ACF32DE5743700F5754B /* PlayControlDefaultView.swift in Sources */,
+				C0DE09170000000000000023 /* PlayerBottomBar.swift in Sources */,
 				22C287AF3053C6B700801D66 /* NoneLyriclistView.swift in Sources */,
 				2257DE862D0BC4FC00BBC0CE /* MusicViewModel+Genre.swift in Sources */,
 				226AF34C2E21103F007C44DF /* ConnectNavidromeArtistCell.swift in Sources */,

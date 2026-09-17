@@ -99,12 +99,12 @@ extension MusicPlayerViewController {
         let style = MusicConfigManager.shared.playerStyle
         
         if isShowingPlaylist || isShowingMoreConfig {
-            // Keep the queue above the existing left-hand transport in split layouts.
+            // Auxiliary pages keep only the shared navigation footer, not the transport.
             let page: PlayerGroupStyle = isShowingMoreConfig ? .moreConfig : .playlist
             self.dataArray = isFullScreen ? [page, .listLyric] : [page]
             self.flowLayout.itemSize = CGSizeMake(contentView.width / (isFullScreen ? 2 : 1), contentView.height)
-            self.playDefaultControl.isHidden = style.isTapeStyle()
-            self.playTapeControl.isHidden = !style.isTapeStyle()
+            self.playDefaultControl.isHidden = true
+            self.playTapeControl.isHidden = true
         } else if isShowBigLyric && !kaka_IsMacOS() {
             self.dataArray = [.bigLyrics]
             self.flowLayout.itemSize = CGSizeMake(contentView.width, contentView.height)
@@ -135,17 +135,10 @@ extension MusicPlayerViewController {
         
         self.collectionView.reloadData()
         if isShowingPlaylist || isShowingMoreConfig { self.collectionView.contentOffset = .zero }
-        let queueButton = self.playDefaultControl.playlistButton
-        queueButton.tintColor = .white
-        queueButton.backgroundColor = isShowingPlaylist ? UIColor.white.withAlphaComponent(0.18) : .clear
-        queueButton.layer.cornerRadius = queueButton.bounds.height / 2
-        queueButton.accessibilityLabel = "Queue.Title".localStr()
-        queueButton.accessibilityTraits = isShowingPlaylist ? [.button, .selected] : .button
-        queueButton.setImage(UIImage(systemName: isShowingPlaylist ? "list.bullet" : "list.triangle", withConfiguration: UIImage.SymbolConfiguration(pointSize: 21, weight: .medium)), for: .normal)
-        let moreButton = playDefaultControl.moreButton
-        moreButton.backgroundColor = isShowingMoreConfig ? UIColor.white.withAlphaComponent(0.18) : .clear
-        moreButton.layer.cornerRadius = moreButton.bounds.height / 2
-        moreButton.accessibilityTraits = isShowingMoreConfig ? [.button, .selected] : .button
+        auxiliaryBottomBar.isHidden = !isShowingPlaylist && !isShowingMoreConfig
+        auxiliaryBottomBar.updateSelection(queue: isShowingPlaylist, more: isShowingMoreConfig)
+        playDefaultControl.bottomBar.updateSelection(queue: false, more: false)
+        layoutAuxiliaryControls()
         playTapeControl.playlistButton.accessibilityLabel = "Queue.Title".localStr()
         playTapeControl.playlistButton.accessibilityTraits = isShowingPlaylist ? [.button, .selected] : .button
         playTapeControl.moreButton.accessibilityTraits = isShowingMoreConfig ? [.button, .selected] : .button

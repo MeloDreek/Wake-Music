@@ -40,9 +40,7 @@ class PlayControlDefaultView: UIView, UIGestureRecognizerDelegate {
         self.addSubview(lastButton)
         self.addSubview(loadingView)
         
-        self.addSubview(airplayButton)
-        self.addSubview(moreButton)
-        self.addSubview(playlistButton)
+        self.addSubview(bottomBar)
         
     }
     
@@ -108,25 +106,11 @@ class PlayControlDefaultView: UIView, UIGestureRecognizerDelegate {
         )
 
         
-        airplayButton.frame = CGRect(
-            x: playButton.frame.midX - airplayButton.width / 2,
+        bottomBar.frame = CGRect(
+            x: 0,
             y: playButton.frame.maxY + (kaka_IsMacOS() ? 0 : 10.ckValue()),
-            width: airplayButton.width,
-            height: airplayButton.height
-        )
-        
-        playlistButton.frame = CGRectMake(
-            lastButton.center.x - airplayButton.frame.width / 2,
-            airplayButton.center.y - airplayButton.frame.height / 2,
-            airplayButton.frame.width,
-            airplayButton.frame.height
-        )
-
-        moreButton.frame = CGRectMake(
-            nextButton.center.x - airplayButton.frame.width / 2,
-            airplayButton.center.y - airplayButton.frame.height / 2,
-            airplayButton.frame.width,
-            airplayButton.frame.height
+            width: bounds.width,
+            height: 44
         )
         
         let loadingSize = playSize * 0.6
@@ -305,22 +289,21 @@ class PlayControlDefaultView: UIView, UIGestureRecognizerDelegate {
     
     // MARK:  懒加载
     
-    lazy var airplayButton: AVRoutePickerView = {
-        let view = AVRoutePickerView(frame: CGRect(x: 0, y: 0, width: 40.ckValue(), height: 40.ckValue()))
-        view.activeTintColor = .white
-        view.tintColor = .white
+    lazy var bottomBar: PlayerBottomBar = {
+        let view = PlayerBottomBar()
+        view.onPlaylist = { [weak self] in
+            guard let self else { return }
+            self.playlistButtonClick(self.playlistButton)
+        }
+        view.onMore = { [weak self] in
+            guard let self else { return }
+            self.moreButtonClick(self.moreButton)
+        }
         return view
     }()
-    
-    lazy var playlistButton: UIButton = {
-        let view = UIButton(type: .custom)
-        view.frame.size = airplayButton.frame.size
-        view.contentMode = .scaleAspectFit
-        view.addTarget(self, action: #selector(playlistButtonClick(_:)), for: .touchUpInside)
-        view.tintColor = .white
-        view.setImage(Reasource.systemNamed("list.triangle", color: .white, config: otherBtnConfig), for: .normal)
-        return view
-    }()
+    var airplayButton: AVRoutePickerView { bottomBar.airplayButton }
+    var playlistButton: UIButton { bottomBar.playlistButton }
+    var moreButton: UIButton { bottomBar.moreButton }
     
     lazy var loadingView: NVActivityIndicatorView = {
         let view = NVActivityIndicatorView(frame: CGRectMake(0, 0, playSize * 0.6, playSize * 0.6), type: .circleStrokeSpin, color: .white)
@@ -438,16 +421,6 @@ class PlayControlDefaultView: UIView, UIGestureRecognizerDelegate {
         view.textColor = currentTimeLabel.textColor
         view.text = "00:00"
         view.textAlignment = .right
-        return view
-    }()
-    
-    lazy var moreButton: UIButton = {
-        let view = UIButton(type: .custom)
-        view.size = playlistButton.size
-        view.addTarget(self, action: #selector(moreButtonClick(_:)), for: .touchUpInside)
-        view.accessibilityLabel = "More".localStr()
-        view.tintColor = .white
-        view.setImage(Reasource.systemNamed("ellipsis.circle", color: .white, config: otherBtnConfig), for: .normal)
         return view
     }()
     

@@ -12,6 +12,9 @@ enum PlayerMoreActionID {
 /// Inline settings list, sharing action handlers without presenting a popup menu.
 final class PlayerMoreConfigCollectCell: UICollectionViewCell, UITableViewDataSource, UITableViewDelegate {
     var actionsProvider: (() -> UIMenu?)?
+    var bottomReservedHeight: CGFloat = 76 {
+        didSet { if oldValue != bottomReservedHeight { setNeedsLayout() } }
+    }
     let tableView = UITableView(frame: .zero, style: .insetGrouped)
     private let songHeader = UITableViewHeaderFooterView()
     private let artwork = UIImageView()
@@ -64,7 +67,7 @@ final class PlayerMoreConfigCollectCell: UICollectionViewCell, UITableViewDataSo
         let compact = bounds.height < 500
         let top: CGFloat = compact ? 24 : (kaka_IsMacOS() ? 32 : max(safeAreaInsets.top, kStatusBarHeight) + 32)
         tableView.frame = CGRect(x: 0, y: top, width: bounds.width,
-            height: max(0, bounds.height - OrientationManager.shared.playerControlHeight - 12 - top))
+            height: max(0, bounds.height - bottomReservedHeight - 12 - top))
         layoutSongHeader()
     }
 

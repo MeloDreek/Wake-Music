@@ -45,10 +45,12 @@ extension MusicPlayerViewController: UICollectionViewDataSource, UICollectionVie
             return cell
         case .playlist:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PlayerQueueCollectCell", for: indexPath) as! PlayerQueueCollectCell
+            cell.bottomReservedHeight = auxiliaryBottomReservedHeight
             cell.onClose = { [weak self] in self?.setPlaylistVisible(false) }
             return cell
         case .moreConfig:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PlayerMoreConfigCollectCell", for: indexPath) as! PlayerMoreConfigCollectCell
+            cell.bottomReservedHeight = auxiliaryBottomReservedHeight
             cell.actionsProvider = { [weak self] in self?.playDefaultControl.moreMenu() }
             cell.refresh()
             return cell
