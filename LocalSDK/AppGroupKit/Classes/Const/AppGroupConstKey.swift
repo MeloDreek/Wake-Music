@@ -101,7 +101,7 @@ public let Guangya_Secret = Bundle.main.bundleIdentifier == "com.OfflineMusic.ww
 public let Guangya_RedirectURL = Bundle.main.bundleIdentifier == "com.OfflineMusic.www.pro" ? "wakemusic-pro-guangya://oauth/callback" : "wakemusic-guangya://oauth/callback"
 
 
-// 123网盘
+// 123云盘
 public let Drive123_ClientID = Bundle.main.bundleIdentifier == "com.OfflineMusic.www.pro"
     ? "ckncp48kfbhskhbuk7bn3auxu5t6aupn" : "mek2mw6br8m2nk5zcmnmrkhjnmdetcb2"
 public let Drive123_Secret = Bundle.main.bundleIdentifier == "com.OfflineMusic.www.pro"

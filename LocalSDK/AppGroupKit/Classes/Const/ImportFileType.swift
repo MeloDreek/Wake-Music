@@ -73,5 +73,5 @@ public enum ImportFileType: String, CaseIterable, SmartCaseDefaultable {
 }
 
 /*
- Google Drive、OneDrive、Dropbox、Yandex Disk、Box、pCloud、MEGA、InfiniCloud、Kakao Cloud、Never Cloud、百度网盘、阿里云盘、115网盘、123网盘、移动云盘、天翼云盘、腾讯微云
+ Google Drive、OneDrive、Dropbox、Yandex Disk、Box、pCloud、MEGA、InfiniCloud、Kakao Cloud、Never Cloud、百度网盘、阿里云盘、115网盘、123云盘、移动云盘、天翼云盘、腾讯微云
  */

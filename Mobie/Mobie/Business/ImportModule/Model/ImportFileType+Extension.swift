@@ -57,7 +57,7 @@ extension ImportFileType {
         case .fromAliyunDrive:
             return ["ConnectionTag.Free100GB".localStr()] + (showSpeed ? ["ConnectionTag.PartialStreaming".localStr()] : [])
         case .from123Drive:
-            return ["ConnectionTag.FreeUpTo2TB".localStr(), "Pan123.TransferQuota".localStr()] + speedTags
+            return ["ConnectionTag.FreeUpTo2TB".localStr(), "ConnectionTag.CDNAcceleration".localStr()] + speedTags
         case .from115Drive:
             return ["ConnectionTag.Free15GB".localStr(), "ConnectionTag.UpTo5PB".localStr()]
         case .fromGuangyaDrive: return ["Guangya.Free2TB".localStr()] + (showSpeed ? ["Guangya.ByXunlei".localStr()] : []) + speedTags

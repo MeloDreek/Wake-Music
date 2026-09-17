@@ -14,7 +14,7 @@ import NVActivityIndicatorView
 /// Pan123 文件浏览，沿用现有网盘的排序、选择和下载交互。
 class Pan123DriveFileListController: SuperViewController {
 
-    /// Pan123网盘文件列表
+    /// Pan123云盘文件列表
     /// - Parameters:
     ///   - loginModel: 服务器配置
     init(loginModel: Pan123DriveUserModel, folderID: String = "0", folderName: String? = nil, parentPath: [String] = []) {
