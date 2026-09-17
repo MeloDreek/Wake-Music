@@ -222,17 +222,15 @@
 		<string>wechat</string>
 		<string>cydia</string>
 	</array>
-	<key>NSLocalNetworkUsageDescription</key>
-	<string>Wake Music accesses SMB servers on your local network to browse, play, and download your audio files.</string>
-	<key>NSBonjourServices</key>
-	<array>
-		<string>_smb._tcp</string>
-	</array>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>NSBonjourServices</key>
+	<array>
+		<string>_smb._tcp</string>
+	</array>
 	<key>PHPhotoLibraryPreventAutomaticLimitedAccessAlert</key>
 	<true/>
 	<key>REVERSED_CLIENT_ID</key>

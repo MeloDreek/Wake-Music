@@ -86,7 +86,7 @@ final class AppModeCoordinator {
                 let transition = CATransition()
                 transition.type = CATransitionType(rawValue: "cube")
                 transition.subtype = returning != rtl ? .fromLeft : .fromRight
-//                transition.duration = 0.35
+                transition.duration = 0.35
                 transition.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
                 CATransaction.begin()
                 CATransaction.setCompletionBlock { [weak self] in self?.isSwitching = false }
