@@ -154,14 +154,8 @@ extension ThemeColorViewController: UICollectionViewDataSource, UICollectionView
         self.view.isUserInteractionEnabled = false
         AppLocalManager.shared.isFirstLaunch = false
 
-        let ani: CATransition = CATransition()
-        ani.type = CATransitionType(rawValue: "cube")
-        ani.subtype = CATransitionSubtype.fromRight
-        ani.duration = 0.35
-        ani.isRemovedOnCompletion = true
-        appKeyWindow?.layer.add(ani, forKey: nil)
-        
-        self.perform(#selector(dismissAnimation), with: nil, afterDelay: ani.duration - 0.1)
+        // The scene coordinator owns root transitions (and disables them on macOS).
+        dismissAnimation()
     }
     
     @objc func dismissAnimation() {

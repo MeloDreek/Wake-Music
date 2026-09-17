@@ -1,6 +1,28 @@
 import Foundation
 import CryptoKit
 
+enum MusicServerSearchKind: Int, CaseIterable {
+    case songs, artists, albums
+
+    var responseKey: String {
+        switch self {
+        case .songs: return "song"
+        case .artists: return "artist"
+        case .albums: return "album"
+        }
+    }
+
+    /// Explicit zero counts prevent fetching the other two categories on every page.
+    func parameters(query: String, offset: Int, limit: Int) -> [URLQueryItem] {
+        var items = [URLQueryItem(name: "query", value: query.trimmingCharacters(in: .whitespacesAndNewlines))]
+        for kind in Self.allCases {
+            items.append(.init(name: kind.responseKey + "Count", value: String(kind == self ? min(max(limit, 1), MusicServerWire.maximumPageSize) : 0)))
+            items.append(.init(name: kind.responseKey + "Offset", value: String(kind == self ? max(0, offset) : 0)))
+        }
+        return items
+    }
+}
+
 /// A cancelled refresh must not join a cancelled login, and an older login's teardown must
 /// never clear its replacement. Shared by the real client and deterministic concurrency tests.
 @MainActor

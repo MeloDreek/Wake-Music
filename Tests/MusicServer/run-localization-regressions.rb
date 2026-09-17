@@ -11,6 +11,7 @@ expected_locales = %w[
 ].sort
 
 new_keys = [
+  'Search songs, artists, or albums.', 'No search results. Try another keyword.',
   'Classic Mode', 'Back to Classic Mode', 'Home', 'Search', 'This section is coming soon.', 'Music Server',
   'Server Overview', 'Recently Played', 'See All', 'Albums', 'Artists', 'Radio Stations', 'Discover Music',
   'Play something to start your listening history.', 'Your favorite songs will appear here.',

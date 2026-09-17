@@ -39,6 +39,22 @@ enum MusicServerDataRegression {
         let empty = try JSONDecoder().decode(MusicServerRecord.self, from: Data(#"{"id":"3","playDate":"0001-01-01T00:00:00Z"}"#.utf8))
         expect(!empty.hasBeenPlayed && empty.songCount == nil && empty.albumCount == nil, "Empty history and unknown counts preserved")
         expect(MusicServerWire.maximumPageSize == 100, "Hard page limit enforced")
+        for kind in MusicServerSearchKind.allCases {
+            let parameters = kind.parameters(query: "  周杰伦 + & café  ", offset: 40, limit: 40)
+            let values = Dictionary(uniqueKeysWithValues: parameters.map { ($0.name, $0.value!) })
+            expect(values["query"] == "周杰伦 + & café", "Search trims surrounding whitespace only")
+            expect(values[kind.responseKey + "Count"] == "40", "Selected category page size")
+            expect(values[kind.responseKey + "Offset"] == "40", "Independent category cursor")
+            for other in MusicServerSearchKind.allCases where other != kind {
+                expect(values[other.responseKey + "Count"] == "0", "Other categories explicitly disabled")
+                expect(values[other.responseKey + "Offset"] == "0", "Other category cursors reset")
+            }
+            let searchURL = MusicServerWire.url(base: base, path: "/rest/search3", query: parameters)!
+            expect(searchURL.absoluteString.contains("%2B"), "Search literal plus encoded safely")
+        }
+        let clamped = MusicServerSearchKind.songs.parameters(query: "x", offset: -1, limit: 1000)
+        expect(clamped.first(where: { $0.name == "songCount" })?.value == "100", "Search hard limit")
+        expect(clamped.first(where: { $0.name == "songOffset" })?.value == "0", "Search nonnegative offset")
         count += try await testAuthenticationCancellation()
         print("MusicServer data regressions: \(count) checks passed")
     }

@@ -32,6 +32,7 @@ final class MusicServerBrowseViewController: SuperViewController {
         navigationItem.largeTitleDisplayMode = .never
         view.backgroundColor = .systemGroupedBackground
         tableView.backgroundColor = .systemGroupedBackground
+        tableView.keyboardDismissMode = .onDrag
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 72
         tableView.dataSource = self
@@ -63,6 +64,12 @@ final class MusicServerBrowseViewController: SuperViewController {
         }
     }
 
+    func cancelPendingRequests() {
+        generation = UUID()
+        request?.cancel()
+        request = nil
+    }
+
     @objc private func refresh() {
         request?.cancel()
         generation = UUID()
@@ -85,6 +92,8 @@ final class MusicServerBrowseViewController: SuperViewController {
         let route = route
         request = Task { [weak self] in
             do {
+                _ = try await session.authenticate()
+                try Task.checkCancellation()
                 let page = try await session.page(route, offset: offset, limit: 40)
                 guard !Task.isCancelled, let self, self.generation == requestGeneration else { return }
                 var known = Set(self.items.map(Self.stableKey))
@@ -123,6 +132,7 @@ final class MusicServerBrowseViewController: SuperViewController {
 
     private var emptyMessage: String {
         switch route {
+        case .search: return "No search results. Try another keyword.".localStr()
         case .recent: return "Play something to start your listening history.".localStr()
         case .favorites: return "Your favorite songs will appear here.".localStr()
         case .playlists: return "Your playlists will appear here.".localStr()

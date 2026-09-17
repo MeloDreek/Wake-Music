@@ -4,6 +4,7 @@ import AppGroupKit
 enum MusicServerRoute: Hashable {
     case songs, artists, albums, radios, recent, favorites, playlists, random
     case playlist(id: String), album(id: String), artist(id: String)
+    case search(query: String, kind: MusicServerSearchKind)
 }
 
 struct MusicServerOverview {
@@ -206,6 +207,19 @@ final class MusicServerSession {
         guard authenticated else { throw MusicServerError.expiredSession }
         let start = max(0, offset)
         let size = min(max(1, limit), MusicServerWire.maximumPageSize)
+        if case .search(let query, let kind) = route {
+            // Empty queries stay local; never turn clearing the search field into a library scan.
+            guard !query.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
+                return MusicServerPage(items: [], total: 0, hasMore: false, nextOffset: 0)
+            }
+            let response = try await subsonic("search3", query: kind.parameters(query: query, offset: start, limit: size))
+            let matches = try records(response, container: "searchResult3", key: kind.responseKey)
+            guard matches.count <= size else { throw MusicServerError.responseTooLarge }
+            let category: MusicServerRoute = kind == .artists ? .artists : kind == .albums ? .albums : .songs
+            return MusicServerPage(items: matches.filter { !$0.id.isEmpty }.map { item($0, route: category) },
+                                   total: matches.count < size ? start + matches.count : nil,
+                                   hasMore: matches.count == size, nextOffset: start + matches.count)
+        }
         if route == .recent { return try await recentPage(offset: start, limit: size) }
         if route == .random {
             let response = try await subsonic("getRandomSongs", query: [.init(name: "size", value: String(size))])
@@ -230,7 +244,7 @@ final class MusicServerSession {
             // Playlist IDs originate from the server. Encode each path segment before appending.
             guard !id.isEmpty, !id.contains("/"), !id.contains("?"), !id.contains("#"), id != ".", id != ".." else { throw MusicServerError.invalidResponse }
             path = "/api/playlist/\(id)/tracks"; sort = "id"
-        case .random: throw MusicServerError.unsupported
+        case .random, .search: throw MusicServerError.unsupported
         }
         query.append(.init(name: "_sort", value: sort))
         query.append(.init(name: "_order", value: route == .recent || route == .favorites ? "DESC" : "ASC"))

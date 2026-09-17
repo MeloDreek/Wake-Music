@@ -51,7 +51,7 @@ final class AppModeCoordinator {
         guard !isSwitching else { return }
         AppLocalManager.shared.homeMode = .classic
         // Keep the saved account itself; Exit is not Logout.
-        replaceRoot(makeClassicRoot())
+        replaceRoot(makeClassicRoot(), returning: true)
     }
 
     func reloadCurrentMode() {
@@ -74,16 +74,29 @@ final class AppModeCoordinator {
         return MusicServerTabBarController(session: session, onExit: exit)
     }
 
-    private func replaceRoot(_ root: UIViewController) {
+    private func replaceRoot(_ root: UIViewController, returning: Bool = false) {
         guard let window else { return }
         isSwitching = true
         let oldRoot = window.rootViewController
         let replace = { [weak self, weak window] in
             guard let self, let window else { return }
+            let animated = !kaka_IsMacOS() && !UIAccessibility.isReduceMotionEnabled
+            if animated {
+                let rtl = window.effectiveUserInterfaceLayoutDirection == .rightToLeft
+                let transition = CATransition()
+                transition.type = CATransitionType(rawValue: "cube")
+                transition.subtype = returning != rtl ? .fromLeft : .fromRight
+//                transition.duration = 0.35
+                transition.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
+                CATransaction.begin()
+                CATransaction.setCompletionBlock { [weak self] in self?.isSwitching = false }
+                window.layer.add(transition, forKey: "musicServerModeTransition")
+            }
             self.retireClassicRoot(oldRoot)
             window.rootViewController = root
             window.makeKeyAndVisible()
-            self.isSwitching = false
+            if animated { CATransaction.commit() }
+            else { self.isSwitching = false }
         }
         if oldRoot?.presentedViewController != nil {
             oldRoot?.dismiss(animated: false, completion: replace)
@@ -111,6 +124,8 @@ final class AppModeCoordinator {
 
     private func cancelServerRequests(in controller: UIViewController) {
         (controller as? MusicServerHomeViewController)?.cancelPendingRequests()
+        (controller as? MusicServerSearchViewController)?.cancelPendingRequests()
+        (controller as? MusicServerBrowseViewController)?.cancelPendingRequests()
         for child in controller.children { cancelServerRequests(in: child) }
     }
 }

@@ -3,8 +3,7 @@ import KakaUIKit
 import KakaFoundation
 import AppGroupKit
 
-/// Shared navigation content. Library/Search intentionally remain placeholders
-/// in this first phase; they do not fall back into the old full-library screens.
+/// Every destination shares the same account-scoped session and playback engine.
 @MainActor
 private enum MusicServerDestination: Int, CaseIterable {
     case home, library, search, profile
@@ -31,7 +30,8 @@ private enum MusicServerDestination: Int, CaseIterable {
         switch self {
         case .home: return MusicServerHomeViewController(session: session, onExit: onExit)
         case .profile: return ProfileViewController()
-        case .library, .search: return MusicServerPlaceholderController(title: title, symbol: symbol)
+        case .library: return MusicServerLibraryViewController(session: session)
+        case .search: return MusicServerSearchViewController(session: session)
         }
     }
 }
@@ -144,7 +144,7 @@ private final class MusicServerSidebarController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Music Server".localStr()
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "rectangle.portrait.and.arrow.right"), style: .plain, target: self, action: #selector(exitMode))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "arrow.backward"), style: .plain, target: self, action: #selector(exitMode))
         navigationItem.leftBarButtonItem?.accessibilityLabel = "Back to Classic Mode".localStr()
         tableView.selectRow(at: IndexPath(row: 0, section: 0), animated: false, scrollPosition: .none)
     }
@@ -165,43 +165,6 @@ private final class MusicServerSidebarController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         onSelect(MusicServerDestination.allCases[indexPath.row])
-    }
-}
-
-@MainActor
-private final class MusicServerPlaceholderController: UIViewController {
-    private let symbol: String
-    init(title: String, symbol: String) {
-        self.symbol = symbol
-        super.init(nibName: nil, bundle: nil)
-        self.title = title
-    }
-    required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .systemGroupedBackground
-        let image = UIImageView(image: UIImage(systemName: symbol, withConfiguration: UIImage.SymbolConfiguration(pointSize: 44, weight: .regular)))
-        image.contentMode = .scaleAspectFit
-        image.tintColor = .tertiaryLabel
-        let label = UILabel()
-        label.text = "This section is coming soon.".localStr()
-        label.font = .preferredFont(forTextStyle: .body)
-        label.textColor = .secondaryLabel
-        label.numberOfLines = 0
-        label.textAlignment = .center
-        let stack = UIStackView(arrangedSubviews: [image, label])
-        stack.axis = .vertical
-        stack.spacing = 20
-        stack.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(stack)
-        NSLayoutConstraint.activate([
-            image.heightAnchor.constraint(equalToConstant: 56),
-            stack.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            stack.centerYAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerYAnchor),
-            stack.leadingAnchor.constraint(greaterThanOrEqualTo: view.layoutMarginsGuide.leadingAnchor),
-            stack.trailingAnchor.constraint(lessThanOrEqualTo: view.layoutMarginsGuide.trailingAnchor)
-        ])
     }
 }
 
