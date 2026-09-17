@@ -421,11 +421,7 @@ extension PlayerLyricCollectCell: UITableViewDataSource, UITableViewDelegate, UI
 
             playTime = playTime / 1000.0
             
-            if KakaMusicPlayer.shared.isPlaying {
-                KakaMusicPlayer.shared.seek(time: playTime)
-            }else{
-                KakaMusicPlayer.shared.play()
-            }
+            KakaMusicPlayer.shared.seek(time: playTime, resumePlayback: true)
             
             self.middleIndexPath = nil
             self.tableView.reloadData()

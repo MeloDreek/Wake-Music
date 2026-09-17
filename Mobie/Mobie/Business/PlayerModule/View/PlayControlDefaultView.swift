@@ -194,12 +194,9 @@ class PlayControlDefaultView: UIView, UIGestureRecognizerDelegate {
     
     // 播放状态
     func updatePlayStatus(_ playStatus: KSPlayerState) {
-        
-        if self.isHidden { return }
-        
         guard let playingModel = KakaMusicPlayer.shared.playingMusic else { return }
         
-        self.playButton.isSelected = KakaMusicPlayer.shared.isPlaying
+        self.playButton.isSelected = playStatus.isPlaying
         
         switch playStatus {
         case .initialized:
@@ -319,6 +316,8 @@ class PlayControlDefaultView: UIView, UIGestureRecognizerDelegate {
         view.addTarget(self, action: #selector(playButtonClick(_:)), for: .touchUpInside)
         view.setImage(Reasource.systemNamed("play.fill", color: .white, config: playBtnConfig), for: .normal)
         view.setImage(Reasource.systemNamed("pause.fill", color: .white, config: playBtnConfig), for: .selected)
+        // UIButton otherwise falls back to the normal (play) image while pressed.
+        view.setImage(view.image(for: .selected), for: [.selected, .highlighted])
         return view
     }()
     
@@ -372,12 +371,7 @@ class PlayControlDefaultView: UIView, UIGestureRecognizerDelegate {
                 
                 debugPrint("松手 Seek 目标时间 = \(seekTime)")
                 
-                if KakaMusicPlayer.shared.isPlaying {
-                    KakaMusicPlayer.shared.seek(time: seekTime)
-                } else {
-                    KakaMusicPlayer.shared.seek(time: seekTime)
-                    KakaMusicPlayer.shared.play()
-                }
+                KakaMusicPlayer.shared.seek(time: seekTime, resumePlayback: true)
             }
             .store(in: &cancellables)
             
@@ -546,21 +540,7 @@ extension PlayControlDefaultView {
     
     // 播放暂停
     @objc func playButtonClick(_ sender: UIButton) {
-        
-        var isLocal = false
-        if let model = KakaMusicPlayer.shared.playingMusic {
-            isLocal = model.isLocalFile()
-        }
-        
-        if isLocal {
-            sender.isSelected = !sender.isSelected
-        }
-        
-        if KakaMusicPlayer.shared.isPlaying {
-            KakaMusicPlayer.shared.pause()
-        }else{
-            KakaMusicPlayer.shared.play()
-        }
+        KakaMusicPlayer.shared.togglePlayback()
     }
     
     // 上一首

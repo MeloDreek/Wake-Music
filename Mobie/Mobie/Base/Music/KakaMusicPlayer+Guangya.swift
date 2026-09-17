@@ -6,13 +6,13 @@ extension KakaMusicPlayer {
     @MainActor
     func handleGuangyaStreaming(_ model: MusicItemModel, resumeTime: TimeInterval) {
         guard let file = model.guangyaFile else { return }
-        let requestID = pcloudPlaybackRequestID
+        let requestID = playbackRequestID
         // Stop the previous track while resolving a different Guangya track.
         playerView.resetPlayer()
         playbackStatus = .buffering
 
         GuangyaDriveService.shared.fileURL(file) { [weak self] result in
-            guard let self = self, self.pcloudPlaybackRequestID == requestID,
+            guard let self = self, self.playbackRequestID == requestID,
                   self.playingMusic?.uniqueID() == model.uniqueID() else { return }
             switch result {
             case .success(let url):

@@ -20,9 +20,7 @@ extension KakaMusicPlayer {
         
         guard musics.indices.contains(itemIndex) else { return }
         
-        if self.isPlaying {
-            self.playerView.resetPlayer()
-        }
+        retirePlayback()
         MusicConfigManager.shared.lastPlayTime = 0
         
         self.musicArray = musics
@@ -39,11 +37,36 @@ extension KakaMusicPlayer {
 }
 
 extension KakaMusicPlayer {
-    
-    
+    @MainActor func acceptsPlaybackRequest(_ requestID: UUID, model: MusicItemModel) -> Bool {
+        wantsPlayback && playbackRequestID == requestID && playingMusic?.uniqueID() == model.uniqueID()
+    }
+
+    /// Detach and silence even paused/buffering engines before changing song identity.
+    @MainActor func retirePlayback() {
+        playbackRequestID = UUID()
+        seekRequestID = UUID()
+        pendingSeekTime = nil
+        isSeeking = false
+        wantsPlayback = false
+        let layer = playerView.playerLayer
+        layer?.delegate = nil
+        layer?.player.delegate = nil
+        layer?.player.playbackVolume = 0
+        layer?.pause()
+        playerView.resetPlayer()
+    }
+
+    @MainActor func togglePlayback() {
+        if wantsPlayback && playbackStatus != .paused && playbackStatus != .error && playbackStatus != .playedToTheEnd {
+            pause()
+        } else {
+            play()
+        }
+    }
+
     // 播放
     @MainActor func play() {
-        self.pcloudPlaybackRequestID = UUID()
+        self.playbackRequestID = UUID()
         
         guard var model = self.playingMusic else { return }
 
@@ -52,7 +75,7 @@ extension KakaMusicPlayer {
         if !model.isLocalFile(),
            !UserInfoManager.shared.isVIP(),
            SandboxFileManager.shared.getDownloadPlayURL(model) == nil {
-            self.playerView.resetPlayer()
+            retirePlayback()
             self.playbackStatus = .error
             if let controller = self.currentViewController() {
                 SuperViewController.showRemoteConnectionPaywall(on: controller)
@@ -63,7 +86,7 @@ extension KakaMusicPlayer {
         // Also reject persisted 115 playlists from before the format policy
         // changed, before resolving links or reusing a paused streaming URL.
         if model.drive115Model?.isUnsupportedStreamingAudio == true {
-            self.playerView.resetPlayer()
+            retirePlayback()
             self.playbackStatus = .error
             self.currentViewController()?.show115StreamingDownloadAlert(for: model)
             return
@@ -76,6 +99,8 @@ extension KakaMusicPlayer {
         let fileExtension = model.megaFile?.fileExtension() ?? model.smbFile?.fileExtension() ?? model.yandexFile?.fileExtension() ?? model.guangyaFile?.fileExtension() ?? model.pan123File?.fileExtension() ?? model.boxFile?.fileExtension() ?? model.mediaPlayURL.pathExtension.lowercased()
         let isPremiumType = AudioExtensionType.premiumExtensions().contains(fileExtension)
         if !UserInfoManager.shared.isVIP() && isPremiumType && (model.fileSourceType != .demoFile) {
+            retirePlayback()
+            playbackStatus = .error
             self.currentViewController()?.showOneAlert(message: "The system's built-in AVPlayer can't decode this format. Please switch the Player Engine.".localStr(), confirm: "OK".localStr()) {
                 let navVC = KakaNavigationController(rootViewController: PlayerEngineViewController())
                 navVC.modalPresentationStyle = kaka_IsiPad() ? .fullScreen : .automatic
@@ -84,11 +109,20 @@ extension KakaMusicPlayer {
             return
         }
         
+        wantsPlayback = true
+        // FFmpeg changes paused -> seeking immediately. Do not mistake an in-flight
+        // seek for a new song and destroy the engine (and its requested position).
+        if isSeeking, let layer = playerView.playerLayer, layer.url == model.mediaPlayURL {
+            playbackStatus = .buffering
+            return
+        }
         if let playerLayer = self.playerView.playerLayer, model.pcloudFile == nil, model.megaFile == nil, model.yandexFile == nil, model.guangyaFile == nil, model.pan123File == nil, model.boxFile == nil, model.smbFile == nil, playerLayer.player.playbackState == .paused, self.playingMusic?.mediaPlayURL == playerLayer.url {
             // 继续播放
             debugPrint("继续播放")
         }else{
             // 开始播放
+            retirePlayback()
+            wantsPlayback = true
             self.currentTime = 0
             self.playbackStatus = .buffering
             self.totalTime = TimeInterval(model.durationSeconds)
@@ -175,7 +209,7 @@ extension KakaMusicPlayer {
         
         self.playbackRate = MusicConfigManager.shared.playRate
         
-        self.playerView.play()
+        if !isSeeking { self.playerView.play() }
         
         self.setupRemoteTransportControls()
         self.updateNowPlayingInfo(musicModel: model)
@@ -184,12 +218,13 @@ extension KakaMusicPlayer {
     
     // 继续播放
     @MainActor func continueToPlay(_ model: MusicItemModel) {
+        guard wantsPlayback, playingMusic?.uniqueID() == model.uniqueID() else { return }
         
         self.setupLocalNotification(model)
         
         self.playbackRate = MusicConfigManager.shared.playRate
 //        self.playerView.set(url: model.mediaPlayURL, options: self.audioOption(model))
-        self.playerView.play()
+        if !isSeeking { self.playerView.play() }
         
         self.setupRemoteTransportControls()
         self.updateNowPlayingInfo(musicModel: model)
@@ -198,32 +233,60 @@ extension KakaMusicPlayer {
 
     // 暂停
     @MainActor func pause() {
-        self.pcloudPlaybackRequestID = UUID()
+        self.playbackRequestID = UUID()
+        self.seekRequestID = UUID()
+        self.isSeeking = false
+        self.wantsPlayback = false
         self.playerView.pause()
-        if self.playingMusic?.pcloudFile != nil || self.playingMusic?.megaFile != nil || self.playingMusic?.yandexFile != nil || self.playingMusic?.guangyaFile != nil || self.playingMusic?.pan123File != nil || self.playingMusic?.boxFile != nil || self.playingMusic?.smbFile != nil { self.playbackStatus = .paused }
+        self.playbackStatus = .paused
+        updatePlaybackState()
     }
     
     // 停止
     @MainActor func stop() {
-        self.pcloudPlaybackRequestID = UUID()
+        retirePlayback()
         self.cacheCoverImage = nil
-        self.playerView.playerLayer?.stop()
-        if self.playingMusic?.pcloudFile != nil || self.playingMusic?.megaFile != nil || self.playingMusic?.yandexFile != nil || self.playingMusic?.guangyaFile != nil || self.playingMusic?.pan123File != nil || self.playingMusic?.boxFile != nil || self.playingMusic?.smbFile != nil { self.playbackStatus = .paused }
+        self.playbackStatus = .paused
+        updatePlaybackState()
 
         self.currentTime = 0
         self.totalTime = 0
     }
     
     // 拖动播放进度
-    @MainActor func seek(time: TimeInterval) {
-        
+    @MainActor func seek(time: TimeInterval, resumePlayback: Bool = false) {
+        guard time.isFinite, time >= 0, let layer = playerView.playerLayer else { return }
+        // UI scrubbing requests seek-and-resume as one operation; never seek then
+        // call play(), which may re-resolve the URL while the engine is seeking.
+        if resumePlayback {
+            playbackRequestID = UUID()
+            wantsPlayback = true
+        }
+        seekRequestID = UUID()
+        let requestID = seekRequestID
         self.lastUpdateTime = 0
-        self.playbackStatus = .buffering
+        self.playbackStatus = wantsPlayback ? .buffering : .paused
         self.currentTime = time
-        
-        self.lastUpdateTime = 0
-        self.playerView.slider(value: time, event: .touchUpInside)
-        
+        guard layer.player.isReadyToPlay else {
+            pendingSeekTime = time
+            if resumePlayback { layer.play() }
+            return
+        }
+        pendingSeekTime = nil
+        isSeeking = true
+        layer.seek(time: time, autoPlay: false) { [weak self, weak layer] finished in
+            guard let self, let layer, self.playerView.playerLayer === layer,
+                  self.seekRequestID == requestID else { return }
+            self.isSeeking = false
+            if finished && self.wantsPlayback {
+                layer.play()
+            } else if !self.wantsPlayback {
+                layer.pause()
+                self.playbackStatus = .paused
+            } else {
+                self.playbackStatus = .error
+            }
+        }
     }
     
     
@@ -231,9 +294,7 @@ extension KakaMusicPlayer {
     @MainActor @objc func replaySingleItem() {
         guard let musicModel = self.playingMusic else { return }
         
-        if self.isPlaying {
-            self.playerView.resetPlayer()
-        }
+        retirePlayback()
         MusicConfigManager.shared.lastPlayTime = 0
         
         self.playingMusic = musicModel
@@ -285,11 +346,8 @@ extension KakaMusicPlayer {
             model = self.musicArray.first
         }
         
+        retirePlayback()
         self.playingMusic = model
-        
-        if self.isPlaying {
-            self.playerView.resetPlayer()
-        }
         
         MusicConfigManager.shared.lastPlayTime = 0
         

@@ -73,11 +73,7 @@ extension KakaMusicPlayer {
                 return .noSuchContent
             }
             
-            if self.isPlaying {
-                self.pause()
-            }else{
-                self.play()
-            }
+            self.togglePlayback()
             
             self.performSelector(onMainThread: #selector(updatePlaybackState), with: nil, waitUntilDone: false)
             
@@ -418,7 +414,7 @@ extension KakaMusicPlayer {
             return
         }
         
-        self.playerView.resetPlayer()
+        self.retirePlayback()
         
         MusicConfigManager.shared.lastPlayTime = 0
         self.playingMusic = playingMusic

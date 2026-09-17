@@ -218,9 +218,7 @@ class PlayerControlFloatView: UIView {
         didSet {
                                                 
 //            debugPrint("播放状态 = \(playStatus)")
-            if self.isHidden { return }
-            
-            self.playButton.isSelected = KakaMusicPlayer.shared.isPlaying
+            self.playButton.isSelected = playStatus.isPlaying
             
             switch playStatus {
             case .initialized, .buffering, .preparing:
@@ -338,6 +336,7 @@ class PlayerControlFloatView: UIView {
         view.addTarget(self, action: #selector(playButtonClick(_:)), for: .touchUpInside)
         view.setImage(Reasource.systemNamed("play.fill", color: btnColor, config: playBtnConfig), for: .normal)
         view.setImage(Reasource.systemNamed("pause.fill", color: btnColor, config: playBtnConfig), for: .selected)
+        view.setImage(view.image(for: .selected), for: [.selected, .highlighted])
         return view
     }()
     
@@ -380,11 +379,7 @@ class PlayerControlFloatView: UIView {
             return
         }
         
-        if KakaMusicPlayer.shared.isPlaying {
-            KakaMusicPlayer.shared.pause()
-        }else{
-            KakaMusicPlayer.shared.play()
-        }
+        KakaMusicPlayer.shared.togglePlayback()
     }
     
     @objc func playLastButtonClick(_ sender: UIButton) {

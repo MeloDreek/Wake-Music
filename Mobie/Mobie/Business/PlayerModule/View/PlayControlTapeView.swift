@@ -452,22 +452,9 @@ extension PlayControlTapeView {
         }
         
         let clickURL = URL(fileURLWithPath: Reasource.fullFilePath("tape_click.wav"))
-        self.wakePlayer.play(url: clickURL) {
-            var isLocal = false
-            if let model = KakaMusicPlayer.shared.playingMusic {
-                isLocal = model.isLocalFile()
-            }
-            
-            if isLocal {
-                sender.isSelected = !sender.isSelected
-            }
-            
-            if KakaMusicPlayer.shared.isPlaying {
-                KakaMusicPlayer.shared.pause()
-            }else{
-                KakaMusicPlayer.shared.play()
-            }
-        }
+        self.wakePlayer.play(url: clickURL)
+        // The sound effect must not defer a transport command until after another tap.
+        KakaMusicPlayer.shared.togglePlayback()
     }
     
     // 更多按钮
@@ -521,17 +508,11 @@ extension PlayControlTapeView {
     
     // 播放状态
     func updatePlayStatus(_ playStatus: KSPlayerState) {
-        
-        if self.isHidden { return }
-        
         guard let playingModel = KakaMusicPlayer.shared.playingMusic else { return }
 
         let isLocal = playingModel.isLocalFile()
-        if !isLocal {
-            self.playButton.isSelected = KakaMusicPlayer.shared.isPlaying
-        }
-        
-        self.pauseIconView.isSelected = KakaMusicPlayer.shared.isPlaying
+        self.playButton.isSelected = playStatus.isPlaying
+        self.pauseIconView.isSelected = playStatus.isPlaying
         
         switch playStatus {
         case .initialized:

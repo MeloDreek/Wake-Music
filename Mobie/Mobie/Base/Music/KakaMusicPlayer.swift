@@ -114,8 +114,12 @@ public class KakaMusicPlayer: NSObject, ObservableObject {
         return true
     }
     
-    /// Invalidates pending pCloud/Box link requests on play/pause/stop.
-    var pcloudPlaybackRequestID = UUID()
+    /// Invalidates ALL provider callbacks on play/pause/stop, including replaying the same song.
+    var playbackRequestID = UUID()
+    var wantsPlayback = false
+    var seekRequestID = UUID()
+    var pendingSeekTime: TimeInterval?
+    var isSeeking = false
 
     var remoteMetadataTask: Task<Void, Never>?
     var remoteMetadataGeneration = UUID()
@@ -179,7 +183,7 @@ public class KakaMusicPlayer: NSObject, ObservableObject {
     /// 是否正在播放
     @MainActor var isPlaying: Bool {
         get {
-            return self.playerView.playerLayer?.player.isPlaying ?? false
+            return wantsPlayback && (self.playerView.playerLayer?.player.isPlaying ?? false)
         }
     }
     
@@ -214,7 +218,8 @@ public class KakaMusicPlayer: NSObject, ObservableObject {
         
         let option = KSOptions.init()
         option.isAutoPlay = true // 一设置url就会播放
-        option.isSeekedAutoPlay = true
+        // Resuming after a seek is owned by our request gate, not an old SDK callback.
+        option.isSeekedAutoPlay = false
         option.isAccurateSeek = false
         option.isSecondOpen = true
         option.registerRemoteControll = false

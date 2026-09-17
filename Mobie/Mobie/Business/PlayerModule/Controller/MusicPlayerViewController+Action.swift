@@ -138,6 +138,9 @@ extension MusicPlayerViewController {
         auxiliaryBottomBar.isHidden = !isShowingPlaylist && !isShowingMoreConfig
         auxiliaryBottomBar.updateSelection(queue: isShowingPlaylist, more: isShowingMoreConfig)
         playDefaultControl.bottomBar.updateSelection(queue: false, more: false)
+        // Hidden transport views still subscribe, and are reconciled when presented again.
+        playDefaultControl.updatePlayStatus(KakaMusicPlayer.shared.playbackStatus)
+        playTapeControl.updatePlayStatus(KakaMusicPlayer.shared.playbackStatus)
         layoutAuxiliaryControls()
         playTapeControl.playlistButton.accessibilityLabel = "Queue.Title".localStr()
         playTapeControl.playlistButton.accessibilityTraits = isShowingPlaylist ? [.button, .selected] : .button

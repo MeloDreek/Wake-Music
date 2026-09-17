@@ -81,19 +81,34 @@ extension KakaMusicPlayer: @preconcurrency PlayerControllerDelegate {
     
     @MainActor public func playerController(state: KSPlayer.KSPlayerState) {
         debugPrint("播放状态 = \(state)")
+        // A late readiness/buffering/end callback must never undo a user's pause.
+        guard wantsPlayback else {
+            if playerView.playerLayer?.player.isPlaying == true { playerView.pause() }
+            playbackStatus = .paused
+            return
+        }
         
         self.playbackStatus = state
         
         if state == .playedToTheEnd {
             self.currentTime = 0
-            if MusicConfigManager.shared.orderType == .single {
-                self.perform(#selector(replaySingleItem), with: nil, afterDelay: 0.0)
-            }else{
-                self.perform(#selector(playNextItem), with: nil, afterDelay: 0.0)
+            let requestID = playbackRequestID
+            DispatchQueue.main.async { [weak self] in
+                guard let self, self.wantsPlayback, self.playbackRequestID == requestID else { return }
+                if MusicConfigManager.shared.orderType == .single {
+                    self.replaySingleItem()
+                } else {
+                    self.playNextItem()
+                }
             }
         }
         
         if state == .readyToPlay {
+            if let time = pendingSeekTime {
+                // Cancel SDK auto-start before seeking; completion decides whether to resume.
+                playerView.pause()
+                seek(time: time)
+            }
             self.isRetry = false
             
             if self.isDecodingError && UserInfoManager.shared.isVIP() {
@@ -125,8 +140,9 @@ extension KakaMusicPlayer: @preconcurrency PlayerControllerDelegate {
     }
     
     // 失败处理
-    public func playerController(finish error: (any Error)?) {
-        guard let error = error, let playingModel = self.playingMusic else { return }
+    @MainActor public func playerController(finish error: (any Error)?) {
+        guard wantsPlayback, let error = error, let playingModel = self.playingMusic else { return }
+        let requestID = playbackRequestID
         
         if self.isRetry {
             let message = error.localizedDescription
@@ -167,8 +183,9 @@ extension KakaMusicPlayer: @preconcurrency PlayerControllerDelegate {
             else{
                 debugPrint("播放失败 = \(error):\(self.playingMusic!.mediaPlayURL)")
                 DispatchQueue.main.asyncAfter(wallDeadline: .now() + 0.1) { [weak self] () in
-                    self?.isRetry = true
-                    self?.play()
+                    guard let self, self.acceptsPlaybackRequest(requestID, model: playingModel) else { return }
+                    self.isRetry = true
+                    self.play()
             }
         }
     }
@@ -415,7 +432,10 @@ extension KakaMusicPlayer {
             KakaMusicPlayer.shared.playingMusic = playingMusic
             self.fetchLrcLyricContent()
         }else{
+            let generation = remoteMetadataGeneration
             ConnectConfigManager.shared.addOrUpdateRemotePlaylist(musics: [playingMusic]) {
+                guard self.remoteMetadataGeneration == generation,
+                      self.playingMusic?.uniqueID() == playingMusic.uniqueID() else { return }
                 KakaMusicPlayer.shared.playingMusic = playingMusic
             }
         }
@@ -449,6 +469,8 @@ extension KakaMusicPlayer {
             AF.download(lyricFileURL, to: destination).downloadProgress { progressValue in
                 debugPrint("下载歌词进度 = \(progressValue.fractionCompleted)")
               }.responseURL { response in
+                guard self.playingMusic?.uniqueID() == model.uniqueID(),
+                      self.playingMusic?.mediaPlayURL == model.mediaPlayURL else { return }
                 switch response.result {
                 case .success(let fileURL):
                     if let lyricStr = fileURL.readLRCContentStr() {

@@ -321,7 +321,7 @@ extension WelcomeTapeBtnView {
     
     // 播放状态
     func updatePlayStatus(_ playStatus: KSPlayerState) {
-        let isPlaying = KakaMusicPlayer.shared.isPlaying
+        let isPlaying = playStatus.isPlaying
         self.playButton.isSelected = isPlaying
         self.pauseIconView.isSelected = isPlaying
     }

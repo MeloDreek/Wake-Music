@@ -270,6 +270,7 @@ class PlayerControlToolBarView: UIToolbar {
         
         playButton.setBackgroundImage(Reasource.systemNamed("play.circle.fill", color: appMainColor, config: playBtnConfig), for: .normal)
         playButton.setBackgroundImage(Reasource.systemNamed("pause.circle.fill", color: appMainColor, config: playBtnConfig), for: .selected)
+        playButton.setBackgroundImage(playButton.backgroundImage(for: .selected), for: [.selected, .highlighted])
         
         lastButton.setImage(Reasource.systemNamed("backward.end", color: appMainColor, config: otherBtnConfig).flippedImage(), for: .normal)
         nextButton.setImage(Reasource.systemNamed("forward.end", color: appMainColor, config: otherBtnConfig).flippedImage(), for: .normal)
@@ -300,11 +301,7 @@ class PlayerControlToolBarView: UIToolbar {
             return
         }
         
-        if KakaMusicPlayer.shared.isPlaying {
-            KakaMusicPlayer.shared.pause()
-        }else{
-            KakaMusicPlayer.shared.play()
-        }
+        KakaMusicPlayer.shared.togglePlayback()
         
     }
     
@@ -381,9 +378,7 @@ class PlayerControlToolBarView: UIToolbar {
     var playStatus = KSPlayerState.preparing {
         didSet {
             
-            if self.isHidden { return }
-                                    
-            self.playButton.isSelected = KakaMusicPlayer.shared.isPlaying
+            self.playButton.isSelected = playStatus.isPlaying
                         
             switch playStatus {
             case .initialized, .buffering, .preparing:
@@ -587,11 +582,7 @@ class PlayerControlToolBarView: UIToolbar {
         }
         
         let playTime = KakaMusicPlayer.shared.playerView.totalTime * progress
-        if KakaMusicPlayer.shared.isPlaying {
-            KakaMusicPlayer.shared.seek(time: playTime)
-        } else {
-            KakaMusicPlayer.shared.play()
-        }
+        KakaMusicPlayer.shared.seek(time: playTime, resumePlayback: true)
     }
     
     private(set) lazy var playButton: UIButton = {

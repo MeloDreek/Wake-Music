@@ -67,6 +67,7 @@ extension KakaMusicPlayer {
     
     /// 获取百度文件的m3u8缓存URL，如果是百度不支持的格式，那就使用下载URL去播放
     @MainActor func handleBaiduStreaming(_ model: MusicItemModel) {
+        let requestID = playbackRequestID
         guard let baiduFile = model.baiduFileModel, let baiduUser = baiduFile.baiduUser else {
             debugPrint("暂无token信息")
             self.playbackStatus = .error
@@ -76,6 +77,7 @@ extension KakaMusicPlayer {
         if baiduUser.isPremium() {
             debugPrint("网盘会员播放源文件")
             self.fetchBaiduDownloadURL(accessToken: baiduUser.access_token, fileModel: baiduFile) { downloadResult in
+                guard self.acceptsPlaybackRequest(requestID, model: model) else { return }
                 switch downloadResult {
                 case .success(let downloadURL):
                     self.playingMusic?.mediaPlayURL = downloadURL
@@ -94,6 +96,7 @@ extension KakaMusicPlayer {
         
         // 百度网盘没有m3u8缓存文件时
         self.fetchBaiduMediaPlayURL(accessToken: baiduUser.access_token, fileModel: baiduFile) { playResult in
+            guard self.acceptsPlaybackRequest(requestID, model: model) else { return }
             switch playResult {
             case .success(let m3uURL):
                 self.playingMusic?.mediaPlayURL = m3uURL
@@ -110,6 +113,7 @@ extension KakaMusicPlayer {
                         
                         KakaCacheTools.clearWebViewCache(displayName: "baidu")
                         let baiduVC = AuthBaiduViewController { serverModel in
+                            guard self.acceptsPlaybackRequest(requestID, model: model) else { return }
                             // 1️⃣更新播放列表
                             var newArray = [MusicItemModel]()
                             for index in 0..<self.musicArray.count {
@@ -149,6 +153,7 @@ extension KakaMusicPlayer {
                 }
                 
                 self.fetchBaiduDownloadURL(accessToken: baiduUser.access_token, fileModel: baiduFile) { downloadResult in
+                    guard self.acceptsPlaybackRequest(requestID, model: model) else { return }
                     switch downloadResult {
                     case .success(let downloadURL):
                         self.playingMusic?.mediaPlayURL = downloadURL
@@ -281,6 +286,7 @@ extension KakaMusicPlayer {
     
     // 处理阿里云盘的播放
     @MainActor func handleAliyunpanStreaming(_ model: MusicItemModel) {
+        let requestID = playbackRequestID
         guard let aliFileModel = model.aliFileModel else {
             debugPrint("暂无token信息")
             self.playbackStatus = .error
@@ -288,6 +294,7 @@ extension KakaMusicPlayer {
         }
         
         self.fetchAliyunDownloadURL(fileModel: aliFileModel) { result in
+            guard self.acceptsPlaybackRequest(requestID, model: model) else { return }
             switch result {
             case .success(let downloadURL):
                 self.playingMusic?.mediaPlayURL = downloadURL
@@ -304,6 +311,7 @@ extension KakaMusicPlayer {
                     self.currentViewController()?.showOneAlert(message: KakaError.tokenExpiredAuthAgain.errorDescription, confirm: "OK".localStr()) {
                         
                         self.authorizedAliyunpan { result in
+                            guard self.acceptsPlaybackRequest(requestID, model: model) else { return }
                             switch result {
                             case .success(let userModel):
                                 // 1️⃣更新播放列表
@@ -495,6 +503,7 @@ extension KakaMusicPlayer {
     
     // 处理115网盘的播放，暂不支持点播
     @MainActor func handle115DriveStreaming(_ model: MusicItemModel) {
+        let requestID = playbackRequestID
         guard let drive115Model = model.drive115Model else {
             debugPrint("暂无token信息")
             self.playbackStatus = .error
@@ -502,6 +511,7 @@ extension KakaMusicPlayer {
         }
         
         self.fetch115DownloadPlayURL(file115: drive115Model) { result in
+            guard self.acceptsPlaybackRequest(requestID, model: model) else { return }
             switch result {
             case .success(let downloadURL):
                 self.playingMusic?.mediaPlayURL = downloadURL
@@ -521,6 +531,7 @@ extension KakaMusicPlayer {
                 if failure == .tokenExpiredAuthAgain {
                     self.currentViewController()?.showOneAlert(message: KakaError.tokenExpiredAuthAgain.errorDescription, confirm: "OK".localStr()) {
                         let drive115VC = Auth115LifeViewController { userModel in
+                            guard self.acceptsPlaybackRequest(requestID, model: model) else { return }
                             // 1️⃣更新播放列表
                             var newArray = [MusicItemModel]()
                             for index in 0..<self.musicArray.count {
@@ -925,6 +936,7 @@ extension KakaMusicPlayer {
     
     // 处理Google网盘的播放，自动刷新token
     @MainActor func handleGoogleStreaming(_ model: MusicItemModel) {
+        let requestID = playbackRequestID
         guard let googleFile = model.googleFile, let googleUser = googleFile.googleUser else {
             debugPrint("暂无token信息")
             self.playbackStatus = .error
@@ -944,12 +956,13 @@ extension KakaMusicPlayer {
             let originalGoogleUser = googleUser
 
             currentUser.refreshTokensIfNeeded { user, error in
-                guard let user = user, error == nil else {
-                    KakaMusicPlayer.shared.playbackStatus = .error
-                    return
-                }
-
                 Task { @MainActor in
+                    guard self.acceptsPlaybackRequest(requestID, model: model) else { return }
+                    guard let user = user, error == nil else {
+                        KakaMusicPlayer.shared.playbackStatus = .error
+                        return
+                    }
+
                     var updatedUser = originalGoogleUser
                     updatedUser.accessToken = user.accessToken.tokenString
                     updatedUser.expiresTime = user.accessToken.expirationDate?.timeIntervalSince1970 ?? 0
@@ -970,6 +983,7 @@ extension KakaMusicPlayer {
 
                     var newModel = originalModel
                     newModel.googleFile?.googleUser = updatedUser
+                    self.playingMusic?.googleFile?.googleUser = updatedUser
 
                     KakaMusicPlayer.shared.playerView.set(url: newModel.mediaPlayURL, options: KakaMusicPlayer.shared.audioOption(newModel))
                     KakaMusicPlayer.shared.continueToPlay(newModel)
@@ -1093,6 +1107,7 @@ extension KakaMusicPlayer {
     
     // 处理Dropbox网盘的播放，自动刷新token
     @MainActor func handleDropboxStreaming(_ model: MusicItemModel) {
+        let requestID = playbackRequestID
         
         guard let client = DropboxClientsManager.authorizedClient else {
             debugPrint("Dropbox授权失效了")
@@ -1107,6 +1122,7 @@ extension KakaMusicPlayer {
         }
         
         client.accessTokenProvider.refreshAccessTokenIfNecessary { refreshResult in
+            guard self.acceptsPlaybackRequest(requestID, model: model) else { return }
             switch refreshResult {
             case .success(let tokenModel):
                 debugPrint("刷新了Dropbox的Token")
@@ -1134,6 +1150,7 @@ extension KakaMusicPlayer {
                 
                 // 获取新的播放地址
                 self.fetchDropboxDownloadPlayURL(dropboxFile: dropboxFile) { result in
+                    guard self.acceptsPlaybackRequest(requestID, model: model) else { return }
                     switch result {
                     case .success(let downloadURL):
                         self.playingMusic?.mediaPlayURL = downloadURL
@@ -1164,6 +1181,7 @@ extension KakaMusicPlayer {
                 debugPrint("不需要刷新Dropbox，直接播放")
                 
                 self.fetchDropboxDownloadPlayURL(dropboxFile: dropboxFile) { result in
+                    guard self.acceptsPlaybackRequest(requestID, model: model) else { return }
                     switch result {
                     case .success(let downloadURL):
                         self.playingMusic?.mediaPlayURL = downloadURL
@@ -1377,6 +1395,7 @@ extension KakaMusicPlayer {
     
     // 处理OneDrive网盘的播放，自动刷新token
     @MainActor func handleOneDriveStreaming(_ model: MusicItemModel) {
+        let requestID = playbackRequestID
 
         guard let onedriveFile = model.onedriveFile else {
             self.playbackStatus = .error
@@ -1385,6 +1404,7 @@ extension KakaMusicPlayer {
         
         // 获取下载地址
         self.fetchOneDriveFileDetail(onedriveFile: onedriveFile) { urlResult in
+            guard self.acceptsPlaybackRequest(requestID, model: model) else { return }
             
             switch urlResult {
             case .success(let playURL):
