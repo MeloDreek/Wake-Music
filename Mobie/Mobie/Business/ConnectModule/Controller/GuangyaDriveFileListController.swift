@@ -10,6 +10,7 @@ import KakaUIKit
 import AppGroupKit
 import Combine
 import NVActivityIndicatorView
+import SafariServices
 
 /// Guangya 文件浏览，沿用现有网盘的排序、选择和下载交互。
 class GuangyaDriveFileListController: SuperViewController {
@@ -103,7 +104,7 @@ class GuangyaDriveFileListController: SuperViewController {
                 self.lastLoadError = error
                 self.emptyView.isHidden = false
                 self.tableView.isHidden = true
-                self.emptyView.update(.failure(error.errorDescription))
+                self.emptyView.update(self.status(for: error))
                 if error == .tokenExpiredAuthAgain {
                     self.showTwoAlert(message: error.errorDescription, confirm: "OK".localStr()) { [weak self] in
                         guard let self = self else { return }
@@ -132,7 +133,7 @@ class GuangyaDriveFileListController: SuperViewController {
         if let error = lastLoadError {
             emptyView.isHidden = false
             tableView.isHidden = true
-            emptyView.update(.failure(error.errorDescription))
+            emptyView.update(status(for: error))
             return
         }
 
@@ -269,8 +270,17 @@ view.refreshControl = self.kaka_header
             case .clearSearch: self?.stopSearchAction(true)
             }
         }
+        view.membershipHandler = { [weak self] in
+            guard let self, self.presentedViewController == nil,
+                  let url = URL(string: "https://www.guangyapan.com/#/vip-center") else { return }
+            self.present(SFSafariViewController(url: url), animated: true)
+        }
         return view
     }()
+
+    private func status(for error: KakaError) -> GuangyaFileListEmptyState {
+        error == GuangyaDriveService.membershipError ? .membershipRequired : .failure(error.errorDescription)
+    }
 
     func cancelItem() -> UIBarButtonItem {
         let item = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(stopEditBarClick))

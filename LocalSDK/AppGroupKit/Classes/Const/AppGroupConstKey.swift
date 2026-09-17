@@ -87,6 +87,7 @@ public let Drive115_AppKey = "03c66caf7a8ee03769a6258060bc3d6c"
 public let Drive115_AppSecret = "29d2dd418ebf19635f6f9a249780e1ce78431a865be0bbd97655f68c10b8d6f8"
 public let Drive115_RedirectURL = "https://passlockapp.com/oauth/115/callback"
 
+
 // BOX
 public let Box_ClientID = "4t1hcuwcq410dxxq1krq3364og8oudtj"
 public let Box_ClientSecret = "Xh4skrn1UaDQgDfMhGbIbUJQZgtS77Q0"
@@ -94,10 +95,11 @@ public let Box_DevelopToken = "De4B3j1y3kCMYjQk5I0dqshQP2iZdwSq"
 public let Box_RedirectURL = "wakemusic-box://oauth/callback"
 
 // 光鸭云盘
-public let Guangya_ClientID = "aSWjpgxuXCmz2SSn"
+public let Guangya_ClientID = Bundle.main.bundleIdentifier == "com.OfflineMusic.www.pro" ? "aqqXVPh3OLNAuh2B" : "aqqXI_h3OLNAuh1_"
 public let Guangya_ProjectID = "356jld6jjlbjvygi5v9"
-public let Guangya_Secret = "123"
-public let Guangya_RedirectURL = "wakemusic-guangya://oauth/callback"
+public let Guangya_Secret = Bundle.main.bundleIdentifier == "com.OfflineMusic.www.pro" ? "aeb601ccf5e7c5920d730029d886939c999b1f5e3fcadcd57f2a9061f0e7e53d" : "362a70d50432fe30ea3306d6163079a353cfd7a10325ba007e110d86ea0d63a3"
+public let Guangya_RedirectURL = Bundle.main.bundleIdentifier == "com.OfflineMusic.www.pro" ? "wakemusic-pro-guangya://oauth/callback" : "wakemusic-guangya://oauth/callback"
+
 
 // 123网盘
 public let Drive123_ClientID = Bundle.main.bundleIdentifier == "com.OfflineMusic.www.pro"

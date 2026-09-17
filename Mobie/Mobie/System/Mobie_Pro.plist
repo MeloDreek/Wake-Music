@@ -105,7 +105,7 @@
 			<string>Guangya OAuth</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>wakemusic-guangya</string>
+				<string>wakemusic-pro-guangya</string>
 			</array>
 		</dict>
 		<dict>

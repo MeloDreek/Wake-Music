@@ -29,11 +29,11 @@ enum GuangyaRegression {
     static let rotated = #"{"token_type":"Bearer","access_token":"rotated-access","refresh_token":"rotated-refresh","expires_in":1200,"sub":"user-a"}"#
     static let empty = #"{"msg":"success[0]","data":{"total":0,"list":[]}}"#
     @MainActor final class Store { var tokens = ["user-a": fresh]; var saves = 0; var failSave = false }
-    static func client(_ store: Store) -> GuangyaDriveAPI {
+    static func client(_ store: Store, redirectURI: String = "wakemusic-guangya://oauth/callback") -> GuangyaDriveAPI {
         let config = URLSessionConfiguration.ephemeral
         config.protocolClasses = [GuangyaStub.self]
         return GuangyaDriveAPI(clientID: "test-client", projectID: "test-project", secret: "test-secret", deviceID: "test-device",
-                               redirectURI: "wakemusic-guangya://oauth/callback", configuration: config,
+                               redirectURI: redirectURI, configuration: config,
                                now: { Date(timeIntervalSince1970: 1000) }, throttle: false,
                                load: { store.tokens[$0] }, save: { id, token in
             store.saves += 1
@@ -83,6 +83,13 @@ enum GuangyaRegression {
             check(api.authorizationCode(from: URL(string: callback)!, state: pkce.state) == nil, "Reject malformed or mismatched callback")
         }
         check(api.authorizationWasDenied(URL(string: "wakemusic-guangya://oauth/callback?error=access_denied&state=independent-state")!, state: pkce.state), "User denial is distinct")
+        let pro = client(Store(), redirectURI: "wakemusic-pro-guangya://oauth/callback")
+        let proQuery = URLComponents(url: pro.authorizationURL(pkce)!, resolvingAgainstBaseURL: false)!.queryItems!
+        check(proQuery.first { $0.name == "redirect_uri" }?.value == "wakemusic-pro-guangya://oauth/callback", "Pro uses its registered callback")
+        let proCallback = URL(string: "wakemusic-pro-guangya://oauth/callback?code=pro-code&state=independent-state")!
+        check(pro.authorizationCode(from: proCallback, state: pkce.state) == "pro-code", "Pro callback accepted by Pro client")
+        check(api.authorizationCode(from: proCallback, state: pkce.state) == nil, "Ordinary client rejects Pro callback")
+        check(pro.authorizationCode(from: URL(string: "wakemusic-guangya://oauth/callback?code=ordinary-code&state=independent-state")!, state: pkce.state) == nil, "Pro client rejects old ordinary callback")
         GuangyaStub.handler = { request in
             check(request.url?.host == "openapi-account.guangyapan.com" && request.httpMethod == "POST", "OAuth server and JSON POST")
             check(request.value(forHTTPHeaderField: "x-project-id") == "test-project", "Project ID header")
@@ -126,14 +133,30 @@ enum GuangyaRegression {
         check(try await list(api).get().count == 3 && pages == ["0", "1"], "Zero-based complete pagination")
         GuangyaStub.handler = { _ in .init(body: empty) }
         check(try await list(api).get().isEmpty, "Omitted code defaults to success, empty root is valid")
+        let relaunched = client(store)
+        check(try await list(relaunched).get().isEmpty, "A new API instance restores persisted credentials without an in-memory login session")
         var calls = 0
         GuangyaStub.handler = { _ in calls += 1; return .init(body: page([1], total: 3)) }
         check(failure(await list(api)) == .invalidResponse && calls == 2, "Repeated pages are bounded")
         check(GuangyaFileListEmptyState.empty(folderID: "", query: "") == .folder, "Empty-folder guidance")
         check(GuangyaFileListEmptyState.empty(folderID: "", query: "a") == .search, "Search guidance")
+        check(GuangyaFileListEmptyState.membershipRequired.showsMembershipButton, "Show the membership link only for membership refusal")
+        check(GuangyaFileListEmptyState.membershipRequired.isFailure && GuangyaFileListEmptyState.membershipRequired.action == .refresh, "Membership refusal keeps Retry as the primary action")
+        check(GuangyaFileListEmptyState.membershipRequired.message { $0 } == "Guangya.Membership", "Membership message stays localized")
+        for state in [GuangyaFileListEmptyState.folder, .search, .failure("Network error")] {
+            check(!state.showsMembershipButton, "Never promote membership for empty folders, search, or unrelated errors")
+        }
         for (code, expected) in [(111, GuangyaDriveError.permission), (113, .clockSkew), (116, .signature), (120, .configuration), (146, .notFound), (149, .notFound), (164, .membership), (167, .restrictedFile), (430, .membership)] {
             check(GuangyaDriveAPI.businessError(status: 200, data: Data("{\"code\":\(code),\"data\":null}".utf8)) == expected, "Business failure despite HTTP 200")
         }
+        calls = 0
+        GuangyaStub.handler = { request in
+            calls += 1
+            check(request.url?.path == "/openapi/v1/file/get_file_list", "Membership refusal does not trigger token refresh")
+            return .init(body: #"{"code":430,"data":null}"#)
+        }
+        check(failure(await list(api)) == .membership && calls == 1, "Actual production code 430 remains a membership error, not expired authorization")
+        check(store.tokens["user-a"] == fresh && store.saves == 0, "Membership refusal preserves the valid stored credential")
         check(GuangyaDriveAPI.businessError(status: 200, data: Data(#"{"code":"bad","data":{}}"#.utf8)) == .invalidResponse, "Malformed status isn't success")
         GuangyaStub.handler = { _ in .init(status: 429, headers: ["Retry-After": "15"]) }
         check(failure(await list(api)) == .rateLimited, "Respect excessive Retry-After without retry storm")

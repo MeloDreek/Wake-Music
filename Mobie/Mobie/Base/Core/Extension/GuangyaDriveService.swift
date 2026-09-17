@@ -26,13 +26,22 @@ final class GuangyaDriveService: NSObject, ASWebAuthenticationPresentationContex
         return value
     }
     // ASWebAuthenticationSession consumes live callbacks. Suppress stale callbacks before general URL logging.
-    static func isCallback(_ url: URL) -> Bool { url.scheme?.lowercased() == "wakemusic-guangya" }
+    static func isCallback(_ url: URL) -> Bool {
+        // Suppress both app variants, including stale callbacks from the old test
+        // setup, before SceneDelegate can log a URL containing an authorization code.
+        ["wakemusic-guangya", "wakemusic-pro-guangya"].contains(url.scheme?.lowercased() ?? "")
+    }
 
     func authorize(from controller: UIViewController, replacing account: GuangyaDriveUserModel? = nil,
                    completion: @escaping (Result<GuangyaDriveUserModel, KakaError>) -> Void) {
-        guard !isAuthorizing, let window = controller.view.window,
-              let scheme = URL(string: Guangya_RedirectURL)?.scheme,
-              scheme != "https", scheme != "http" else { completion(.failure(.youhaveCanceled)); return }
+        guard !isAuthorizing, let window = controller.view.window else { completion(.failure(.youhaveCanceled)); return }
+        let registeredSchemes = (Bundle.main.object(forInfoDictionaryKey: "CFBundleURLTypes") as? [[String: Any]] ?? [])
+            .flatMap { $0["CFBundleURLSchemes"] as? [String] ?? [] }
+            .map { $0.lowercased() }
+        guard let scheme = URL(string: Guangya_RedirectURL)?.scheme?.lowercased(),
+              scheme != "https", scheme != "http", registeredSchemes.contains(scheme) else {
+            completion(.failure(.custom("Guangya.Configuration".localStr()))); return
+        }
         guard let pkce = GuangyaPKCE() else { completion(.failure(.custom("Guangya.Configuration".localStr()))); return }
         let state = pkce.state
         guard let url = api.authorizationURL(pkce) else { completion(.failure(.custom("Guangya.Configuration".localStr()))); return }
@@ -129,12 +138,14 @@ final class GuangyaDriveService: NSObject, ASWebAuthenticationPresentationContex
         case .rateLimited: return .custom("Guangya.RateLimited".localStr())
         case .clockSkew: return .custom("Guangya.ClockSkew".localStr())
         case .signature, .configuration: return .custom("Guangya.Configuration".localStr())
-        case .membership: return .custom("Guangya.Membership".localStr())
+        case .membership: return Self.membershipError
         case .restrictedFile: return .custom("Guangya.RestrictedFile".localStr())
         case .insecureDownload: return .custom("Guangya.InsecureDownload".localStr())
         case .invalidResponse, .network: return .custom("Guangya.Network".localStr())
         }
     }
+
+    static var membershipError: KakaError { .custom("Guangya.Membership".localStr()) }
 
     private func query(_ accountID: String) -> [String: Any] {
         [kSecClass as String: kSecClassGenericPassword, kSecAttrService as String: keychainService,
@@ -145,9 +156,18 @@ final class GuangyaDriveService: NSObject, ASWebAuthenticationPresentationContex
         query[kSecReturnData as String] = true
         query[kSecMatchLimit as String] = kSecMatchLimitOne
         var result: CFTypeRef?
-        guard SecItemCopyMatching(query as CFDictionary, &result) == errSecSuccess,
-              let data = result as? Data else { return nil }
-        return try? JSONDecoder().decode(GuangyaOAuthToken.self, from: data)
+        let status = SecItemCopyMatching(query as CFDictionary, &result)
+        guard status == errSecSuccess, let data = result as? Data else {
+            #if DEBUG
+            print("[Guangya] Keychain read status=\(status)")
+            #endif
+            return nil
+        }
+        let token = try? JSONDecoder().decode(GuangyaOAuthToken.self, from: data)
+        #if DEBUG
+        print("[Guangya] Keychain read decoded=\(token != nil)")
+        #endif
+        return token
     }
     private func storeToken(_ token: GuangyaOAuthToken, accountID: String) -> Bool {
         guard let data = try? JSONEncoder().encode(token) else { return false }

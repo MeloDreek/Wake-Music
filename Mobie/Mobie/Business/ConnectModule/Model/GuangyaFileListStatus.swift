@@ -5,6 +5,7 @@ enum GuangyaFileListEmptyState: Equatable {
     case folder
     case search
     case failure(String)
+    case membershipRequired
 
     enum Action { case refresh, clearSearch }
 
@@ -18,11 +19,20 @@ enum GuangyaFileListEmptyState: Equatable {
 
     var action: Action { self == .search ? .clearSearch : .refresh }
 
+    var showsMembershipButton: Bool { self == .membershipRequired }
+    var isFailure: Bool {
+        switch self {
+        case .failure, .membershipRequired: return true
+        case .folder, .search: return false
+        }
+    }
+
     func message(localize: (String) -> String) -> String {
         switch self {
         case .folder: return localize(Self.folderMessage)
         case .search: return localize(Self.searchMessage)
         case .failure(let message): return message
+        case .membershipRequired: return localize("Guangya.Membership")
         }
     }
 }
@@ -36,11 +46,13 @@ import KakaUIKit
 /// Scrolls on compact screens and with large text, instead of clipping the guidance.
 final class GuangyaFileListStatusView: UIScrollView {
     var actionHandler: ((GuangyaFileListEmptyState.Action) -> Void)?
+    var membershipHandler: (() -> Void)?
     private var state = GuangyaFileListEmptyState.folder
     private let iconView = UIImageView()
     private let headingLabel = UILabel()
     private let messageLabel = UILabel()
     private let actionButton = UIButton(type: .system)
+    private let membershipButton = UIButton(type: .system)
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -50,7 +62,7 @@ final class GuangyaFileListStatusView: UIScrollView {
         let container = UIView()
         container.translatesAutoresizingMaskIntoConstraints = false
         addSubview(container)
-        let stack = UIStackView(arrangedSubviews: [iconView, headingLabel, messageLabel, actionButton])
+        let stack = UIStackView(arrangedSubviews: [iconView, headingLabel, messageLabel, actionButton, membershipButton])
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .vertical
         stack.alignment = .fill
@@ -99,6 +111,23 @@ final class GuangyaFileListStatusView: UIScrollView {
         actionButton.layer.cornerRadius = 8
         actionButton.accessibilityIdentifier = "guangya.folderStatus.action"
         actionButton.addTarget(self, action: #selector(actionTapped), for: .touchUpInside)
+
+        var membershipConfiguration = UIButton.Configuration.plain()
+        membershipConfiguration.title = "Guangya.ViewMembership".localStr()
+        membershipConfiguration.baseForegroundColor = .systemBlue
+        membershipConfiguration.contentInsets = NSDirectionalEdgeInsets(top: 12, leading: 16, bottom: 12, trailing: 16)
+        membershipConfiguration.titleTextAttributesTransformer = UIConfigurationTextAttributesTransformer { attributes in
+            var attributes = attributes
+            attributes.font = .preferredFont(forTextStyle: .body)
+            return attributes
+        }
+        membershipButton.configuration = membershipConfiguration
+        membershipButton.titleLabel?.numberOfLines = 0
+        membershipButton.titleLabel?.textAlignment = .center
+        membershipButton.titleLabel?.adjustsFontForContentSizeCategory = true
+        membershipButton.accessibilityIdentifier = "guangya.folderStatus.membership"
+        membershipButton.isHidden = true
+        membershipButton.addTarget(self, action: #selector(membershipTapped), for: .touchUpInside)
     }
 
     required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
@@ -109,20 +138,25 @@ final class GuangyaFileListStatusView: UIScrollView {
         switch state {
         case .folder: symbol = "folder"
         case .search: symbol = "magnifyingglass"
-        case .failure: symbol = "exclamationmark.triangle"
+        case .failure, .membershipRequired: symbol = "exclamationmark.triangle"
         }
         iconView.image = UIImage(systemName: symbol)
-        if case .failure = state { iconView.tintColor = .systemOrange }
+        if state.isFailure { iconView.tintColor = .systemOrange }
         else { iconView.tintColor = .secondaryLabel }
         headingLabel.text = state == .search ? "Search".localStr() : "Guangya.Name".localStr()
         messageLabel.text = state.message { $0.localStr() }
         let buttonTitle: String
-        if case .failure = state { buttonTitle = "Retry".localStr() }
+        if state.isFailure { buttonTitle = "Retry".localStr() }
         else { buttonTitle = state.action == .clearSearch ? "Cancel".localStr() : "Refresh".localStr() }
         actionButton.setTitle(buttonTitle, for: .normal)
+        membershipButton.isHidden = !state.showsMembershipButton
         setContentOffset(.zero, animated: false)
     }
 
     @objc private func actionTapped() { actionHandler?(state.action) }
+    @objc private func membershipTapped() {
+        guard state.showsMembershipButton else { return }
+        membershipHandler?()
+    }
 }
 #endif

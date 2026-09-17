@@ -151,6 +151,9 @@ final class GuangyaDriveAPI {
 
     private func accessToken(_ accountID: String, rejected: String? = nil, completion: @escaping TokenResult) {
         guard let stored = load(accountID), stored.userID == accountID else { completion(.failure(.authorization)); return }
+        #if DEBUG
+        print("[Guangya] Token needsRefresh=\(stored.expiresAt.timeIntervalSince(now()) <= 60) rejected=\(rejected != nil)")
+        #endif
         if refreshing[accountID] != nil { refreshing[accountID]?.append(completion); return }
         if stored.expiresAt.timeIntervalSince(now()) > 60 && stored.accessToken != rejected {
             completion(.success(stored)); return
@@ -283,6 +286,7 @@ final class GuangyaDriveAPI {
                 switch result {
                 case .failure(let error): completion(.failure(error))
                 case .success(let (response, data)):
+                    Self.diagnose(endpoint, response: response, data: data)
                     if response.statusCode == 429 {
                         let delay = TimeInterval(response.value(forHTTPHeaderField: "Retry-After") ?? "1") ?? 1
                         guard attempt < 2, delay <= 10 else { completion(.failure(.rateLimited)); return }
@@ -339,6 +343,7 @@ final class GuangyaDriveAPI {
         request.setValue(deviceID, forHTTPHeaderField: "x-device-id")
         send(request) { result in
             completion(result.flatMap { response, data in
+                Self.diagnose("token/" + (values["grant_type"] ?? "unknown"), response: response, data: data)
                 guard response.statusCode == 200 else {
                     if response.statusCode == 429 { return .failure(.rateLimited) }
                     return .failure([400, 401].contains(response.statusCode) ? .authorization : .network)
@@ -359,6 +364,18 @@ final class GuangyaDriveAPI {
                 completion(.success((response, data)))
             }
         }.resume()
+    }
+
+    /// Only protocol status codes are logged, never URLs, bodies, account IDs,
+    /// authorization headers, tokens, signing secrets, or error descriptions.
+    private static func diagnose(_ endpoint: String, response: HTTPURLResponse, data: Data) {
+        #if DEBUG
+        let object = (try? JSONSerialization.jsonObject(with: data)) as? [String: Any]
+        let raw = object?["code"] ?? object?["error"]
+        let value = raw.map { String(describing: $0) } ?? "none"
+        let code = value.range(of: "^[A-Za-z0-9_.-]{1,64}$", options: .regularExpression) != nil ? value : "unrecognized"
+        print("[Guangya] \(endpoint) HTTP=\(response.statusCode) code=\(code)")
+        #endif
     }
 }
 
