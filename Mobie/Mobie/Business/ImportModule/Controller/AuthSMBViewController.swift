@@ -229,7 +229,12 @@ final class AuthSMBViewController: SuperViewController, UITableViewDataSource, U
             config.text = device.name
             config.secondaryText = "\(device.host):\(device.port)"
             config.image = UIImage(systemName: "externaldrive.connected.to.line.below")
-            cell.accessoryType = values[.host] == device.host && values[.port] == String(device.port) ? .checkmark : .none
+            let selected = values[.host] == device.host && values[.port] == String(device.port)
+            let indicator = UIImageView(image: UIImage(systemName: selected ? "checkmark.circle.fill" : "circle", withConfiguration: UIImage.SymbolConfiguration(pointSize: 20, weight: .light)))
+            indicator.tintColor = selected ? appMainColor : .secondaryLabel
+            indicator.sizeToFit()
+            cell.accessoryView = indicator
+            if selected { cell.accessibilityTraits.insert(.selected) }
         } else {
             switch discovery.state {
             case .searching:
@@ -245,7 +250,8 @@ final class AuthSMBViewController: SuperViewController, UITableViewDataSource, U
             case .browsing:
                 config.text = (discovery.devices.isEmpty ? "No SMB devices found. Tap to search again." : "Search Again").localStr()
             }
-            config.textProperties.color = .secondaryLabel
+            config.textProperties.alignment = .center
+            config.textProperties.color = appMainColor
         }
         cell.contentConfiguration = config
         cell.accessibilityTraits.insert(.button)
@@ -271,11 +277,13 @@ final class AuthSMBViewController: SuperViewController, UITableViewDataSource, U
         }
         for item: LoginGroupItemType in [.host, .port, .title] { cells[item]?.textField.text = values[item] }
         tableView.reloadSections(IndexSet(integer: 0), with: .none)
-        tableView.scrollToRow(at: IndexPath(row: 0, section: 1), at: .top, animated: true)
     }
 
     func loginViewCellDidEndEditing(cell: LoginTableViewCell, itemType: LoginGroupItemType, content: String) {
         values[itemType] = content
+        if itemType == .host || itemType == .port {
+            tableView.reloadSections(IndexSet(integer: 0), with: .none)
+        }
     }
     func loginViewCellDidEndEditing(cell: LoginTableViewCell, itemType: LoginGroupItemType, isEnable: Bool) {}
     func loginViewCellDidNetProtocol(cell: LoginTableViewCell, netProtocol: NetworkProtocol) {}
@@ -302,6 +310,7 @@ final class AuthSMBViewController: SuperViewController, UITableViewDataSource, U
     @objc private func connect() {
         guard !connecting else { return }
         view.endEditing(true)
+        guard requireRemoteConnectionAccess() else { return }
         do {
             let text = fieldOrder.map { (values[$0] ?? "").trimmingCharacters(in: .whitespacesAndNewlines) }
             var user = try SMBAddress.parse(server: text[1], port: text[2], share: text[3])

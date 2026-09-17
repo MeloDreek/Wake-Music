@@ -45,7 +45,12 @@ extension ImportViewController {
             return
         }
         
-        guard requireRemoteConnectionAccess() else { return }
+        // Server forms remain browsable; their Connect actions enforce access.
+        let formServices: [ImportFileType] = [.fromSMB, .fromWebDAV, .fromNavidrome]
+        let defersAccessCheck = formServices.contains(itemType)
+        if !defersAccessCheck {
+            guard requireRemoteConnectionAccess() else { return }
+        }
 
         if itemType == .fromWebDAV {
             self.importfromWebDAV()

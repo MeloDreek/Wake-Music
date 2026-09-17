@@ -30,6 +30,7 @@ struct PlayConfigGroupModel {
 }
 
 enum PlayConfigItemType {
+    case preDownload
     
     case playerStyle
     case playerBack
@@ -48,6 +49,8 @@ enum PlayConfigItemType {
             
     func titleStr() -> String {
         switch self {
+        case .preDownload:
+            return "Pre-download".localStr()
             
         case .playerStyle:
             return "Player Style".localStr()

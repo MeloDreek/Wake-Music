@@ -75,7 +75,7 @@ class PlayConfigViewController: SuperViewController {
     var cancellables = Set<AnyCancellable>()
     
     lazy var dataArray: [PlayConfigGroupModel] = {
-        let model1 = PlayConfigGroupModel(group: .playerGroup, headTitle: nil, itemArray: [.playerStyle, .playerBack, .playAnimation, .miniStyle, .enableSide], footTitle: nil)
+        let model1 = PlayConfigGroupModel(group: .playerGroup, headTitle: nil, itemArray: [.preDownload, .playerStyle, .playerBack, .playAnimation, .miniStyle, .enableSide], footTitle: nil)
         let model2 = PlayConfigGroupModel(group: .otherGroup, headTitle: nil, itemArray: [.lyricStyle, .showExtension, .lastTimeCache, .showMissTags], footTitle: nil)
         let model3 = PlayConfigGroupModel(group: .naviGroup, headTitle: "When playing Navidrome's music".localStr(), itemArray: [.transcoding, .targetFormat, .targetMaxBitRate], footTitle: nil)
         return [model1, model2, model3]
@@ -193,6 +193,13 @@ class PlayConfigTableCell: UITableViewCell {
             cellConfig.text = itemType.titleStr()
             
             switch itemType {
+            case .preDownload:
+                self.accessoryType = .none
+                self.accessoryView = self.preDownloadSwitch
+                self.preDownloadSwitch.isOn = MusicConfigManager.shared.isPreDownload
+                self.selectionStyle = .none
+                cellConfig.secondaryText = "Download.PreDownloadHelp".localStr()
+                cellConfig.secondaryTextProperties.numberOfLines = 0
                 
             case .playerStyle, .playerBack, .playAnimation:
                 self.accessoryType = .disclosureIndicator
@@ -255,6 +262,19 @@ class PlayConfigTableCell: UITableViewCell {
         }
     }
     
+    private lazy var preDownloadSwitch: UISwitch = {
+        let toggle = UISwitch()
+        toggle.onTintColor = appMainColor
+        toggle.addTarget(self, action: #selector(preDownloadChanged(_:)), for: .valueChanged)
+        return toggle
+    }()
+
+    @objc private func preDownloadChanged(_ sender: UISwitch) {
+        MusicConfigManager.shared.isPreDownload = sender.isOn
+        if sender.isOn { KakaMusicPlayer.shared.prepareNextMusic() }
+        else { DownloadManager.shared.cancelPreDownload() }
+    }
+
     lazy var misstagSwitchView: UISwitch = {
         let view = UISwitch(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
         view.isOn = MusicConfigManager.shared.isShowMissTag

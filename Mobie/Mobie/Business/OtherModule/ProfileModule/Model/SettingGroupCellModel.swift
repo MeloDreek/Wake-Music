@@ -39,7 +39,6 @@ enum SettingCellItemType {
     
     case selectPlayer
     case playConfig
-    case cacheConfig
     case applogo
     case appTintColor
     case appearance
@@ -64,8 +63,6 @@ enum SettingCellItemType {
             return "Playback Engine".localStr()
         case .playConfig:
             return "Preferences".localStr()
-        case .cacheConfig:
-            return "Playback Cache".localStr()
         case .applogo:
             return "App Logo"
         case .appTintColor:
@@ -103,8 +100,6 @@ enum SettingCellItemType {
             return Reasource.systemNamed("play.rectangle", color: appMainColor)
         case .playConfig:
             return Reasource.systemNamed("slider.vertical.3", color: appMainColor)
-        case .cacheConfig:
-            return Reasource.systemNamed("square.and.arrow.down", color: appMainColor)
         case .applogo:
             return Reasource.systemNamed("square.on.square", color: appMainColor)
         case .appTintColor:

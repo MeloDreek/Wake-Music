@@ -36,10 +36,61 @@ extension MusicItemModel {
 /// A source marker travels with the file when renamed/moved; no stale filename index
 /// can accidentally select another song after cache eviction or a filename collision.
 public enum PreDownloadedAudioFile {
+    /// Move only completed audio files. Never overwrite, evict, or delete failed sources.
+    /// No one-shot flag: a failed move is retried on the next launch.
+    public static func migrateLegacyFiles(from source: URL, to destination: URL, extensions: Set<String>,
+                                          didMove: ((URL, URL) -> Void)? = nil) -> [URL] {
+        lock.lock()
+        defer { lock.unlock() }
+        guard source.standardizedFileURL != destination.standardizedFileURL else { return [] }
+        let fm = FileManager.default
+        guard let files = try? fm.contentsOfDirectory(at: source, includingPropertiesForKeys: [.isRegularFileKey, .isSymbolicLinkKey, .fileSizeKey], options: .skipsHiddenFiles),
+              (try? fm.createDirectory(at: destination, withIntermediateDirectories: true)) != nil else { return [] }
+        var moved: [URL] = []
+        for file in files {
+            guard extensions.contains(file.pathExtension.lowercased()),
+                  let values = try? file.resourceValues(forKeys: [.isRegularFileKey, .isSymbolicLinkKey, .fileSizeKey]),
+                  values.isRegularFile == true, values.isSymbolicLink != true, (values.fileSize ?? 0) > 0 else { continue }
+            if sourceIdentity(at: file) == nil {
+                // Preserve old lookup names even when a home-folder collision requires renaming.
+                let name = Data(file.lastPathComponent.utf8)
+                let status = name.withUnsafeBytes { setxattr(file.path, legacyAttribute, $0.baseAddress, name.count, 0, 0) }
+                if status != 0 { continue }
+            }
+            var number = 1
+            while true {
+                let name = number == 1 ? file.lastPathComponent :
+                    file.deletingPathExtension().lastPathComponent + " \(number)." + file.pathExtension
+                let target = destination.appendingPathComponent(name)
+                if !fm.fileExists(atPath: target.path) {
+                    do {
+                        try fm.moveItem(at: file, to: target)
+                        moved.append(target)
+                        didMove?(file, target)
+                        break
+                    } catch {
+                        if !fm.fileExists(atPath: target.path) { break }
+                    }
+                }
+                number += 1
+            }
+        }
+        return moved
+    }
+
     private static let attribute = "com.wakemusic.predownload.source"
+    private static let legacyAttribute = "com.wakemusic.predownload.legacyName"
     private static let lock = NSLock()
 
     public static func sourceIdentity(at url: URL) -> String? {
+        readAttribute(attribute, at: url)
+    }
+
+    public static func legacyFilename(at url: URL) -> String? {
+        readAttribute(legacyAttribute, at: url)
+    }
+
+    private static func readAttribute(_ attribute: String, at url: URL) -> String? {
         let size = getxattr(url.path, attribute, nil, 0, 0, 0)
         guard size > 0, size <= 256 else { return nil }
         var data = Data(count: size)
@@ -152,10 +203,18 @@ extension SandboxFileManager {
         if let cached = publicFiles.first(where: { PreDownloadedAudioFile.sourceIdentity(at: $0) == identity }) {
             return cached
         }
+        let legacyName = (model.pcloudFile != nil || model.megaFile != nil || model.yandexFile != nil ||
+                          model.guangyaFile != nil || model.pan123File != nil || model.boxFile != nil || model.smbFile != nil)
+            ? model.filePathName() + model.addPathExtension() : model.downloadPathName()
+        if let migrated = publicFiles.first(where: { PreDownloadedAudioFile.legacyFilename(at: $0) == legacyName }) {
+            return migrated
+        }
         // A display filename is not a unique identifier across cloud folders/accounts.
         if model.pcloudFile != nil || model.megaFile != nil || model.yandexFile != nil || model.guangyaFile != nil || model.pan123File != nil || model.boxFile != nil || model.smbFile != nil {
             let url = self.preDownloadURL().appendingPathComponent(model.filePathName() + model.addPathExtension())
-            return FileManager.default.fileExists(atPath: url.path) ? url : nil
+            if FileManager.default.fileExists(atPath: url.path) { return url }
+            let migrated = self.basePublicFileURL().appendingPathComponent(url.lastPathComponent)
+            return PreDownloadedAudioFile.sourceIdentity(at: migrated) == nil && FileManager.default.fileExists(atPath: migrated.path) ? migrated : nil
         }
         
         let allFileURLArray1 = cachedFiles

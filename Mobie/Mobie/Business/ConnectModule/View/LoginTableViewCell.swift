@@ -66,7 +66,7 @@ class LoginTableViewCell: UITableViewCell, UITextFieldDelegate {
             self.textField.text = model.customNameStr()
             self.accessoryView = self.textField
         case .httpOption:
-            let index = self.networkProtocols.firstIndex { model.networkProtocol()?.rawValue.lowercased() == $0 }
+            let index = self.networkProtocols.firstIndex { model.networkProtocol()?.rawValue.uppercased() == $0 }
             self.segmengControl.selectedSegmentIndex = index ?? 0
             self.accessoryView = self.segmengControl
         case .host:
@@ -191,10 +191,19 @@ class LoginTableViewCell: UITableViewCell, UITextFieldDelegate {
         self.delegate?.loginViewCellDidEndEditing(cell: self, itemType: self.itemType, content: content)
     }
 
+    /// Only the WebDAV form opts into endpoint normalization after a paste.
+    var onHostPaste: ((String) -> Void)?
+
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         // 如果你想实时监听文本的变化，可以在这里做处理
-        let newText = (textField.text! as NSString).replacingCharacters(in: range, with: string)
+        let newText = ((textField.text ?? "") as NSString).replacingCharacters(in: range, with: string)
         self.delegate?.loginViewCellDidEndEditing(cell: self, itemType: self.itemType, content: newText)
+        if itemType == .host, string.count > 1 {
+            DispatchQueue.main.async { [weak self, weak textField] in
+                guard textField?.text == newText else { return }
+                self?.onHostPaste?(newText)
+            }
+        }
         return true
     }
     

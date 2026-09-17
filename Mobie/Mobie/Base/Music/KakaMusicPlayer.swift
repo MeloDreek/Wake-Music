@@ -20,8 +20,6 @@ import Alamofire
 public class KakaMusicPlayer: NSObject, ObservableObject {
     
     static let shared = KakaMusicPlayer()
-    private var activePreDownloads = Set<String>()
-    private static let preDownloadFileQueue = DispatchQueue(label: "com.wakemusic.predownload.files", qos: .utility)
     
     override init() {
         
@@ -49,7 +47,13 @@ public class KakaMusicPlayer: NSObject, ObservableObject {
     }
     
     // 下一首歌曲
-    var nextPlayMusic: MusicItemModel?
+    var nextPlayMusic: MusicItemModel? {
+        didSet {
+            if oldValue?.preDownloadIdentity() != nextPlayMusic?.preDownloadIdentity() {
+                DownloadManager.shared.cancelPreDownload()
+            }
+        }
+    }
     // Prepared once at a round boundary; preview/pre-download must not draw again.
     var pendingShuffleRound: [String]?
     
@@ -298,232 +302,19 @@ public class KakaMusicPlayer: NSObject, ObservableObject {
         return PlaybackQueue.upcoming(musicArray, current: playingMusic?.uniqueID(), id: { $0.uniqueID() })
     }
     
-    // 预先下载下一首歌
+    // Pre-download uses the same cancellable executor as the manual queue.
     @MainActor
     @objc func prepareNextMusic() {
-        
-        if !MusicConfigManager.shared.isPreDownload || MusicConfigManager.shared.orderType == .single { return }
-        
-        guard let nextPlayMusic = self.getNextPlayMusic(), !nextPlayMusic.isLocalFile() else { return }
-        guard nextPlayMusic.drive115Model?.isUnsupportedStreamingAudio != true else { return }
-        
-        self.nextPlayMusic = nextPlayMusic
-        
-        let cacheFolderURL = SandboxFileManager.shared.preDownloadURL()
-        
-        let cachedFileURLArray = cacheFolderURL.readLocalSubFiles().sorted { fileURL1, fileURL2 in
-            // 获取文件属性
-            let attributes1 = try? FileManager.default.attributesOfItem(atPath: fileURL1.path)
-            let attributes2 = try? FileManager.default.attributesOfItem(atPath: fileURL2.path)
-
-            // 提取创建时间
-            let creationDate1 = attributes1?[.creationDate] as? Date ?? Date.distantPast
-            let creationDate2 = attributes2?[.creationDate] as? Date ?? Date.distantPast
-
-            // 根据创建时间排序
-            return creationDate1 < creationDate2
-        }
-        
-        if SandboxFileManager.shared.getDownloadPlayURL(nextPlayMusic) != nil { return }
-        if activePreDownloads.contains(nextPlayMusic.preDownloadIdentity()) { return }
-        
-        let cachedMB = Double(cacheFolderURL.totalFileSize()) / 1024.0 / 1024.0
-        let maxCacheMB = Double(MusicConfigManager.shared.preDownloadSize.rawValue) * 1000.0
-        debugPrint("预加载下一首歌：已缓存 = \(cachedMB) MB, 最大缓存 = \(maxCacheMB) MB")
-        if cachedMB > maxCacheMB, let firstURL = cachedFileURLArray.first {
-            try? FileManager.default.removeItem(at: firstURL)
-            debugPrint("删除最早的一个缓存 = \(firstURL.lastPathComponent)")
-        }
-        
-        let fileName = nextPlayMusic.downloadPathName()
-        let targetFileURL = cacheFolderURL.appendingPathComponent(fileName)
-        
-        if let file = nextPlayMusic.smbFile {
-            SMBDriveService.shared.fileURL(file) { [weak self] result in
-                guard let self = self, self.nextPlayMusic?.uniqueID() == nextPlayMusic.uniqueID(),
-                      MusicConfigManager.shared.isPreDownload else { return }
-                if case .success(let url) = result {
-                    self.download(downloadURL: url, targetFileURL: targetFileURL, model: nextPlayMusic)
-                }
-            }
-        }else if let file = nextPlayMusic.megaFile {
-            MEGADriveService.shared.fileURL(file) { [weak self] result in
-                guard let self = self, self.nextPlayMusic?.uniqueID() == nextPlayMusic.uniqueID(),
-                      MusicConfigManager.shared.isPreDownload else { return }
-                if case .success(let url) = result {
-                    self.download(downloadURL: url, targetFileURL: targetFileURL, model: nextPlayMusic)
-                }
-            }
-        }else if let file = nextPlayMusic.yandexFile {
-            YandexDriveService.shared.fileSource(file) { [weak self] result in
-                guard let self = self, self.nextPlayMusic?.uniqueID() == nextPlayMusic.uniqueID(),
-                      MusicConfigManager.shared.isPreDownload else { return }
-                if case .success(let source) = result {
-                    self.download(downloadURL: source.url, targetFileURL: targetFileURL, model: nextPlayMusic, additionalHeaders: source.headers)
-                }
-            }
-        }else if let file = nextPlayMusic.pan123File {
-            Pan123DriveService.shared.fileURL(file) { [weak self] result in
-                guard let self = self, self.nextPlayMusic?.uniqueID() == nextPlayMusic.uniqueID(),
-                      MusicConfigManager.shared.isPreDownload else { return }
-                if case .success(let url) = result {
-                    self.download(downloadURL: url, targetFileURL: targetFileURL, model: nextPlayMusic)
-                }
-            }
-        }else if let file = nextPlayMusic.guangyaFile {
-            GuangyaDriveService.shared.fileURL(file) { [weak self] result in
-                guard let self = self, self.nextPlayMusic?.uniqueID() == nextPlayMusic.uniqueID(),
-                      MusicConfigManager.shared.isPreDownload else { return }
-                if case .success(let url) = result {
-                    self.download(downloadURL: url, targetFileURL: targetFileURL, model: nextPlayMusic)
-                }
-            }
-        }else if let file = nextPlayMusic.boxFile {
-            BoxDriveService.shared.fileURL(file) { [weak self] result in
-                guard let self = self, self.nextPlayMusic?.uniqueID() == nextPlayMusic.uniqueID(),
-                      MusicConfigManager.shared.isPreDownload else { return }
-                if case .success(let url) = result {
-                    self.download(downloadURL: url, targetFileURL: targetFileURL, model: nextPlayMusic)
-                }
-            }
-        }else if let file = nextPlayMusic.pcloudFile {
-            PCloudDriveService.shared.fileURL(file) { [weak self] result in
-                guard let self = self, self.nextPlayMusic?.uniqueID() == nextPlayMusic.uniqueID(),
-                      MusicConfigManager.shared.isPreDownload else { return }
-                if case .success(let url) = result {
-                    self.download(downloadURL: url, targetFileURL: targetFileURL, model: nextPlayMusic)
-                }
-            }
-        }else if let baiduFile = nextPlayMusic.baiduFileModel, let accessToken = baiduFile.baiduUser?.access_token {
-            // 1️⃣ 预下载百度网盘文件
-            self.fetchBaiduDownloadURL(accessToken: accessToken, fileModel: baiduFile) { result in
-                switch result {
-                case .success(let downloadURL):
-                    self.download(downloadURL: downloadURL, targetFileURL: targetFileURL, model: nextPlayMusic)
-                case .failure(let failure):
-                    debugPrint("下载百度文件 = \(failure)")
-                    break
-                }
-            }
-        }else if let aliFileModel = nextPlayMusic.aliFileModel {
-            // 2️⃣ 预下载阿里云盘文件
-            self.fetchAliyunDownloadURL(fileModel: aliFileModel) { result in
-                switch result {
-                case .success(let downloadURL):
-                    self.download(downloadURL: downloadURL, targetFileURL: targetFileURL, model: nextPlayMusic)
-                case .failure(let failure):
-                    debugPrint("下载阿里云文件 = \(failure)")
-                    break
-                }
-            }
-        }else if let drive115 = nextPlayMusic.drive115Model {
-            // 2️⃣ 预下载115网盘文件
-            self.fetch115DownloadPlayURL(file115: drive115) { result in
-                switch result {
-                case .success(let downloadURL):
-                    self.download(downloadURL: downloadURL, targetFileURL: targetFileURL, model: nextPlayMusic)
-                case .failure(let failure):
-                    debugPrint("下载115文件 = \(failure)")
-                    break
-                }
-            }
-        }else if let dropboxFile = nextPlayMusic.dropboxFile {
-            // 3️⃣ 预下载Dropbox的网盘文件
-            self.fetchDropboxDownloadPlayURL(dropboxFile: dropboxFile) { result in
-                switch result {
-                case .success(let downloadURL):
-                    self.download(downloadURL: downloadURL, targetFileURL: targetFileURL, model: nextPlayMusic)
-                case .failure(let failure):
-                    debugPrint("预下载Dropbox文件 = \(failure)")
-                    break
-                }
-            }
-        }
-        else{
-            // webdav、nav、谷歌网盘、OneDrive
-            self.download(downloadURL: nextPlayMusic.mediaPlayURL, targetFileURL: targetFileURL, model: nextPlayMusic)
-        }
-        
-    }
-    
-    func download(downloadURL: URL, targetFileURL: URL, model: MusicItemModel?, additionalHeaders: [String: String] = [:]) {
-        guard Thread.isMainThread else {
-            DispatchQueue.main.async {
-                self.download(downloadURL: downloadURL, targetFileURL: targetFileURL, model: model, additionalHeaders: additionalHeaders)
-            }
+        guard MusicConfigManager.shared.isPreDownload, MusicConfigManager.shared.orderType != .single,
+              let next = getNextPlayMusic(), !next.isLocalFile(),
+              next.drive115Model?.isUnsupportedStreamingAudio != true else {
+            nextPlayMusic = nil
+            DownloadManager.shared.cancelPreDownload()
             return
         }
-        guard let model = model, MusicConfigManager.shared.isPreDownload,
-              nextPlayMusic?.preDownloadIdentity() == model.preDownloadIdentity(),
-              SandboxFileManager.shared.getDownloadPlayURL(model) == nil else { return }
-        let identity = model.preDownloadIdentity()
-        guard activePreDownloads.insert(identity).inserted else { return }
-        // Keep partial files outside the visible cache and preserve the format for TagLib.
-        let stagingURL = FileManager.default.temporaryDirectory
-            .appendingPathComponent("predownload-" + UUID().uuidString)
-            .appendingPathExtension(targetFileURL.pathExtension)
-        let destination: DownloadRequest.Destination = { _, response in
-            return (stagingURL, [.createIntermediateDirectories])
-        }
-        
-        var headers: HTTPHeaders = HTTPHeaders.default
-        if let googleFile = model.googleFile, let googleUser = googleFile.googleUser {
-            headers.add(name: "Authorization", value: "Bearer " + googleUser.accessToken)
-        }
-        
-        additionalHeaders.forEach { headers.update(name: $0.key, value: $0.value) }
-        let request = AF.download(downloadURL, headers: headers, to: destination)
-        if model.yandexFile != nil {
-            request.redirect(using: Redirector(behavior: .modify { _, redirect, _ in
-                guard let url = redirect.url, YandexDriveAPI.validDownloadURL(url) else { return nil }
-                return redirect
-            }))
-        }
-        if model.pan123File != nil {
-            request.redirect(using: Redirector(behavior: .modify { _, redirect, _ in
-                guard let url = redirect.url, Pan123DriveAPI.validDownloadURL(url) else { return nil }
-                return redirect
-            }))
-        }
-        if model.guangyaFile != nil {
-            request.redirect(using: Redirector(behavior: .modify { _, redirect, _ in
-                guard let url = redirect.url, GuangyaDriveAPI.validDownloadURL(url) else { return nil }
-                return redirect
-            }))
-        }
-        request.validate(statusCode: 200..<300)
-        request.downloadProgress { progressValue in
-            debugPrint("下载进度 = \(progressValue.fractionCompleted)")
-          }.responseURL { response in
-            switch response.result {
-            case .success(let fileURL):
-                Self.preDownloadFileQueue.async {
-                    defer {
-                        try? FileManager.default.removeItem(at: stagingURL)
-                        DispatchQueue.main.async { self.activePreDownloads.remove(identity) }
-                    }
-                    do {
-                        let attributes = try FileManager.default.attributesOfItem(atPath: fileURL.path)
-                        guard (attributes[.size] as? NSNumber)?.int64Value ?? 0 > 0 else {
-                            throw CocoaError(.fileReadCorruptFile)
-                        }
-                        let metadata = TaglibMetadataParser.readMetadata(withFileURL: fileURL, read: .basic)
-                        _ = try PreDownloadedAudioFile.store(fileURL, in: targetFileURL.deletingLastPathComponent(),
-                                                            title: metadata?.title, artist: metadata?.artist,
-                                                            originalName: model.downloadPathName(), identity: identity)
-                    } catch {
-                        DispatchQueue.main.async { appKeyWindow?.makeToast(error.localizedDescription) }
-                    }
-                }
-            case .failure(let error):
-                self.activePreDownloads.remove(identity)
-                try? FileManager.default.removeItem(at: stagingURL)
-                appKeyWindow?.makeToast(error.localizedDescription)
-                break
-            }
-        }
+        nextPlayMusic = next
+        DownloadManager.shared.preDownload(next)
     }
-    
 }
 
 extension KakaMusicPlayer {

@@ -134,7 +134,7 @@ class ProfileViewController: SuperViewController {
             let itemArray1: [SettingCellItemType] = UserInfoManager.shared.isVIP() ? [.loginAccount] : [.loginAccount]
             let model1 = SettingGroupCellModel(group: .accountGroup, headTitle: "Account".localStr(), itemArray: itemArray1, footTitle: nil)
             
-            let itemArray2: [SettingCellItemType] = kaka_IsMacOS() ? [.selectPlayer, .playConfig, .cacheConfig, .appTintColor] : [.selectPlayer, .playConfig, .cacheConfig, .applogo, .appTintColor, .appearance]
+            let itemArray2: [SettingCellItemType] = kaka_IsMacOS() ? [.selectPlayer, .playConfig, .appTintColor] : [.selectPlayer, .playConfig, .applogo, .appTintColor, .appearance]
             
             let model3 = SettingGroupCellModel(group: .safetyGroup, headTitle: "Settings".localStr().lowercased(), itemArray: itemArray2, footTitle: nil)
                         
@@ -342,10 +342,6 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate, UIP
             self.present(KakaNavigationController(rootViewController: guideVC), animated: true)
         }
         
-        if item == .cacheConfig {
-            let cacheVC = PlayCacheViewController()
-            self.navigationController?.pushViewController(cacheVC, animated: true)
-        }
         
         
         if item == .selectPlayer {
@@ -456,4 +452,3 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate, UIP
 
     
 }
-

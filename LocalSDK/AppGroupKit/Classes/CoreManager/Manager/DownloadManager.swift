@@ -15,6 +15,7 @@ public class DownloadManager: ObservableObject, SmartCodableX {
     }
     
     static public var shared = DownloadManager.read() ?? DownloadManager()
+    static public let didEnqueue = Notification.Name("com.wakemusic.download.enqueued")
 
     /// 下载任务
     @SmartPublished
@@ -26,10 +27,14 @@ public class DownloadManager: ObservableObject, SmartCodableX {
         
     /// 添加到下载池
     public func addMusicModel(_ models: [MusicItemModel]) {
+        guard Thread.isMainThread else {
+            DispatchQueue.main.async { self.addMusicModel(models) }
+            return
+        }
         var tempArray = self.taskArray
         
         for model in models {
-            if let index = tempArray.firstIndex(where: { $0 == model }) {
+            if let index = tempArray.firstIndex(where: { $0.preDownloadIdentity() == model.preDownloadIdentity() }) {
                 tempArray.remove(at: index)
                 tempArray.insert(model, at: 0)
             } else {
@@ -38,6 +43,7 @@ public class DownloadManager: ObservableObject, SmartCodableX {
         }
         
         self.taskArray = tempArray
+        NotificationCenter.default.post(name: Self.didEnqueue, object: models.map { $0.preDownloadIdentity() })
         
     }
     
@@ -45,9 +51,7 @@ public class DownloadManager: ObservableObject, SmartCodableX {
     public func removeFromDownloads(_ model: MusicItemModel) -> [MusicItemModel] {
         var tempArray = self.taskArray
         
-        if let index = tempArray.firstIndex(where: { $0 == model }) {
-            tempArray.remove(at: index)
-        }
+        tempArray.removeAll { $0.preDownloadIdentity() == model.preDownloadIdentity() }
         
         self.taskArray = tempArray
         return tempArray
@@ -85,4 +89,3 @@ extension DownloadManager {
     }
     
 }
-

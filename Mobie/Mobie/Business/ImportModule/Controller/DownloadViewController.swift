@@ -25,6 +25,13 @@ class DownloadViewController: SuperViewController {
     override func preSetupHandleBuness() {
         super.preSetupHandleBuness()
         self.title = "Download".localStr()
+        DownloadManager.shared.activateDownloads()
+        DownloadManager.shared.downloadUpdates
+            .throttle(for: .milliseconds(250), scheduler: DispatchQueue.main, latest: true)
+            .sink { [weak self] in
+                self?.updateRightBarItem()
+                self?.tableView.reloadData()
+            }.store(in: &cancellables)
         
         DownloadManager.shared.$taskArray.receive(on: DispatchQueue.main)
             .sink { [weak self] tasks in
@@ -61,11 +68,11 @@ class DownloadViewController: SuperViewController {
             self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(dismissItemAction))
         }
         
-        self.navigationItem.rightBarButtonItem = self.isDownloadAll ? self.stopDownloadItem : self.downloadBarItem
+        self.navigationItem.rightBarButtonItem = DownloadManager.shared.downloadsRunning ? self.stopDownloadItem : self.downloadBarItem
     }
     
     @objc func stopDownloadAction() {
-        self.isDownloadAll = false
+        DownloadManager.shared.pauseDownloads()
         self.updateRightBarItem()
     }
     
@@ -120,11 +127,6 @@ class DownloadViewController: SuperViewController {
     
     // MARK:  GET && SET
     
-    // 是否正在下载
-    var isDownloading: Bool = false
-    
-    // 是否在下载全部
-    var isDownloadAll: Bool = false
     
     var cancellables = Set<AnyCancellable>()
     
@@ -216,6 +218,17 @@ extension DownloadViewController: UITableViewDataSource, UITableViewDelegate, Em
         let cell = tableView.dequeueReusableCell(withIdentifier: "MusicTableViewCell", for: indexPath) as! MusicTableViewCell
         let model = dataArray[indexPath.row]
         cell.update(musicModel: model, cellType: .download)
+        cell.delegate = self
+        if let progress = DownloadManager.shared.downloadProgress(for: model) {
+            let indicator = CircleProgressView(frame: CGRect(x: 0, y: 0, width: 30.ckValue(), height: 30.ckValue()))
+            indicator.progress = progress
+            cell.accessoryView = indicator
+        } else if let error = DownloadManager.shared.downloadError(for: model) {
+            let indicator = UIImageView(image: UIImage(systemName: "exclamationmark.circle"))
+            indicator.tintColor = .systemOrange
+            indicator.accessibilityLabel = error
+            cell.accessoryView = indicator
+        }
 #warning("模拟mock数据")
 //        #if DEBUG
 //        cell.loadingBgView.isHidden = true
@@ -241,16 +254,19 @@ extension DownloadViewController: UITableViewDataSource, UITableViewDelegate, Em
 //        return
 //        #endif
         
-        guard self.dataArray.count > 0 else {
+        guard self.dataArray.indices.contains(indexPath.row) else {
             return
         }
         
-        self.isDownloadAll = false
-        if self.isDownloading { return }
-            
         let model = dataArray[indexPath.row]
-        
-        self.handleMusicDownloadURL(model)
+        guard requireRemoteConnectionAccess() else { return }
+        if let error = DownloadManager.shared.downloadError(for: model) {
+            showTwoAlert(message: error, confirm: "Retry".localStr()) {
+                DownloadManager.shared.prioritizeDownload(model)
+            }
+        } else {
+            DownloadManager.shared.prioritizeDownload(model)
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -278,12 +294,16 @@ extension DownloadViewController: UITableViewDataSource, UITableViewDelegate, Em
         if dataArray.count == 0 { return nil }
         
         let deleteAction = UIContextualAction(style: .normal, title: nil) { [weak self] action, view, finish in
-            guard let wSelf = self else { return }
+            guard let wSelf = self, wSelf.dataArray.indices.contains(indexPath.row) else {
+                finish(false)
+                return
+            }
+            // The automatic queue may finish/remove rows while this alert is open.
+            let selectedModel = wSelf.dataArray[indexPath.row]
             
             let alertController = UIAlertController(title: "Reminder".localStr(), message: "Are you sure to delete it?".localStr(), preferredStyle: .alert)
             let action1 = UIAlertAction(title: "Delete".localStr(), style: .destructive) { (sender) in
-                let model = wSelf.dataArray[indexPath.row]
-                self?.deleteDownloadItem(model)
+                self?.deleteDownloadItem(selectedModel)
                 finish(true)
             }
             let action2 = UIAlertAction(title: "Delete All".localStr(), style: .destructive) { (sender) in
@@ -293,7 +313,7 @@ extension DownloadViewController: UITableViewDataSource, UITableViewDelegate, Em
                 self?.stopDownloadAction()
                 finish(true)
             }
-            let action3 = UIAlertAction(title: "Cancel".localStr(), style: .cancel)
+            let action3 = UIAlertAction(title: "Cancel".localStr(), style: .cancel) { _ in finish(false) }
             
             alertController.addAction(action1)
             alertController.addAction(action2)
@@ -337,4 +357,3 @@ extension DownloadViewController: UITableViewDataSource, UITableViewDelegate, Em
     }
     
 }
-

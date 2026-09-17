@@ -84,12 +84,11 @@ class AuthNavidromeController: SuperViewController {
     
     var onLoginBlock: ((NavidromeUserModel)->Void)?
     
-    
     lazy var dataArray: [LoginGroupModel] = {
         // The new server dashboard always uses bounded requests, regardless of library size.
         let model1 = LoginGroupModel(group: .serverGroup, headTitle: "Server".localStr(), itemArray: [.title, .host], footTitle: nil)
         let model2 = LoginGroupModel(group: .loginGroup, headTitle: "Account".localStr(), itemArray: [.username, .password], footTitle: nil)
-        let model3 = LoginGroupModel(group: .buttonGroup, headTitle: nil, itemArray: [.cusButton], footTitle: nil)
+        let model3 = LoginGroupModel(group: .buttonGroup, headTitle: nil, itemArray: [.cusButton], footTitle: "Navidrome.ConnectionHelp".localStr())
         return [model1, model2, model3]
     }()
     

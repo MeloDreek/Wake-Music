@@ -21,7 +21,7 @@ class AuthWebdavViewController: SuperViewController {
 #if DEBUG
 //        let webdavUser = WebdavUserModel(customName: "123的WebDav", hostUrl: "webdav.123pan.cn", path: "webdav", port: nil, netProtocol: .https, username: "19927730016", password: "1wpyy8t1000dc04313u4kok3c402c3s2")
         let webdavUser = WebdavUserModel(customName: "卡卡西的夸克网盘", hostUrl: "118.89.62.59", path: nil, port: "5050", netProtocol: .http, username: "482q5yeAVo", password: "T76euwBcDq")
-        self.loginModel = webdavUser
+        self.loginModel = model.hostUrl.isEmpty ? webdavUser : model
 #else
         self.loginModel = model
 #endif
@@ -68,7 +68,13 @@ class AuthWebdavViewController: SuperViewController {
     }
     
     @objc func doneButtonClick() {
+        guard !connecting else { return }
         self.view.endEditing(true)
+        guard requireRemoteConnectionAccess() else { return }
+        guard normalizeAddress() else {
+            showOneAlert(message: "WebDAV.InvalidAddress".localStr())
+            return
+        }
         
         if self.loginModel.customName.removeSpace().count == 0 {
             self.tableView.cellForRow(at: IndexPath(row: 0, section: 0))?.kaka_playShakeAnim()
@@ -85,18 +91,11 @@ class AuthWebdavViewController: SuperViewController {
         
     func handleWithWebDav() {
         guard let webdavProvider = self.loginModel.webdavProvider() else {
-            
-            self.tryCount += 1
-            if self.tryCount >= 3 {
-                self.view.makeToast("Failed to initialize the WebDAV service.".localStr())
-            }else{
-                self.doneButtonClick()
-            }
-            
+            self.showOneAlert(message: "Failed to initialize the WebDAV service.".localStr())
             return
         }
-        
-        self.tryCount = 0
+        connecting = true
+        tableView.isUserInteractionEnabled = false
         
         self.webdavProvider = webdavProvider
         ProgressHUD.animate("Processing...".localStr())
@@ -104,6 +103,12 @@ class AuthWebdavViewController: SuperViewController {
         self.webdavProvider?.contentsOfDirectory(path: self.loginModel.path ?? "/") { [weak self] files, error in
             DispatchQueue.main.async {
                 guard let wSelf = self else { return }
+                wSelf.connecting = false
+                wSelf.tableView.isUserInteractionEnabled = true
+                guard wSelf.viewIfLoaded?.window != nil else {
+                    ProgressHUD.dismiss()
+                    return
+                }
                 
                 guard let error = error else {
                     
@@ -170,7 +175,40 @@ class AuthWebdavViewController: SuperViewController {
     
 //    var isShowPurchage: Bool = false
     
-    var tryCount: Int = 0
+    private var connecting = false
+
+    @discardableResult
+    private func normalizeAddress() -> Bool {
+        guard let address = WebDAVAddress.parse(loginModel.hostUrl, defaultScheme: loginModel.netProtocol.rawValue) else { return false }
+        let port = address.port ?? (address.replacesEndpoint ? nil : loginModel.port)
+        if let port, !port.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+            guard let number = Int(port.trimmingCharacters(in: .whitespacesAndNewlines)),
+                  (1...65535).contains(number) else { return false }
+            loginModel.port = String(number)
+        } else {
+            loginModel.port = nil
+        }
+        loginModel.hostUrl = address.host
+        loginModel.netProtocol = address.scheme == "https" ? .https : .http
+        if let path = address.path {
+            loginModel.path = path
+        } else if address.replacesEndpoint {
+            loginModel.path = "/"
+        }
+        if let path = loginModel.path, !path.isEmpty, !path.hasPrefix("/") {
+            loginModel.path = "/" + path
+        }
+        // Update in place; reloading the host cell would dismiss the keyboard.
+        for cell in tableView.visibleCells.compactMap({ $0 as? LoginTableViewCell })
+            where [.httpOption, .host, .port, .path].contains(cell.itemType) {
+            cell.update(itemType: cell.itemType, model: ServerConfigModel(serverType: .fromWebDAV, webdavUser: loginModel))
+        }
+        return true
+    }
+
+    @objc private func hostEditingEnded() {
+        _ = normalizeAddress()
+    }
     
     var onLoginBlock: ((ServerConfigModel)->Void)?
         
@@ -178,7 +216,7 @@ class AuthWebdavViewController: SuperViewController {
         let model1 = LoginGroupModel(group: .titleGroup, headTitle: nil, itemArray: [.title], footTitle: nil)
         let model2 = LoginGroupModel(group: .serverGroup, headTitle: "Server".localStr(), itemArray: [.httpOption, .host, .port, .path], footTitle: nil)
         let model3 = LoginGroupModel(group: .loginGroup, headTitle: "Account".localStr(), itemArray: [.username, .password], footTitle: nil)
-        let model4 = LoginGroupModel(group: .buttonGroup, headTitle: nil, itemArray: [.cusButton], footTitle: nil)
+        let model4 = LoginGroupModel(group: .buttonGroup, headTitle: nil, itemArray: [.cusButton], footTitle: "WebDAV.ConnectionHelp".localStr())
         return [model1, model2, model3, model4]
     }()
     
@@ -236,6 +274,13 @@ extension AuthWebdavViewController: UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "LoginTableViewCell\(itemType.rawValue)", for: indexPath) as! LoginTableViewCell
         cell.delegate = self
         cell.update(itemType: itemType, model: ServerConfigModel(serverType: .fromWebDAV, webdavUser: self.loginModel))
+        if itemType == .host {
+            cell.textField.autocapitalizationType = .none
+            cell.textField.autocorrectionType = .no
+            cell.onHostPaste = { [weak self] _ in _ = self?.normalizeAddress() }
+            cell.textField.removeTarget(self, action: #selector(hostEditingEnded), for: .editingDidEnd)
+            cell.textField.addTarget(self, action: #selector(hostEditingEnded), for: .editingDidEnd)
+        }
         return cell
     }
     
@@ -260,6 +305,10 @@ extension AuthWebdavViewController: UITableViewDataSource, UITableViewDelegate {
         let groupModel = dataArray[section]
         return groupModel.headTitle
     }
+
+    func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        dataArray[section].footTitle
+    }
     
 }
 
@@ -270,8 +319,6 @@ extension AuthWebdavViewController: LoginTableViewCellDelegate {
     }
     
     func loginViewCellDidEndEditing(cell: LoginTableViewCell, itemType: LoginGroupItemType, content: String) {
-        
-        self.tryCount = 0
         
         switch itemType {
         case .title:

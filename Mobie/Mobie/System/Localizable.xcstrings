@@ -1,6 +1,1291 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "Download.Completed": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "اكتمل التنزيل"
+          }
+        },
+        "ca": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Descàrrega completada"
+          }
+        },
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stahování dokončeno"
+          }
+        },
+        "da": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Download fuldført"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Download abgeschlossen"
+          }
+        },
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Η λήψη ολοκληρώθηκε"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Download Complete"
+          }
+        },
+        "en-AU": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Download Complete"
+          }
+        },
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Download Complete"
+          }
+        },
+        "en-IN": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Download Complete"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Descarga completada"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Descarga completada"
+          }
+        },
+        "es-US": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Descarga completada"
+          }
+        },
+        "fi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lataus valmis"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Téléchargement terminé"
+          }
+        },
+        "fr-CA": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Téléchargement terminé"
+          }
+        },
+        "he": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ההורדה הושלמה"
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "डाउनलोड पूरा हुआ"
+          }
+        },
+        "hr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Preuzimanje dovršeno"
+          }
+        },
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Letöltés kész"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Unduhan Selesai"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Download completato"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ダウンロード完了"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "다운로드 완료"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Muat Turun Selesai"
+          }
+        },
+        "nb": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nedlasting fullført"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Download voltooid"
+          }
+        },
+        "pl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pobieranie zakończone"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Download concluído"
+          }
+        },
+        "pt-PT": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Transferência concluída"
+          }
+        },
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Descărcare finalizată"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Загрузка завершена"
+          }
+        },
+        "sk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sťahovanie dokončené"
+          }
+        },
+        "sl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Prenos končan"
+          }
+        },
+        "sv": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nedladdning klar"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ดาวน์โหลดเสร็จแล้ว"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "İndirme tamamlandı"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Завантаження завершено"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tải xuống hoàn tất"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "下载完成"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "下載完成"
+          }
+        },
+        "zh-HK": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "下載完成"
+          }
+        }
+      }
+    },
+    "Download.PreDownloadHelp": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "تنزيل الأغنية التالية تلقائيًا إلى مجلد الموسيقى الرئيسي للاستماع دون اتصال. يستهلك بيانات الشبكة ومساحة الجهاز."
+          }
+        },
+        "ca": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Descarrega automàticament la cançó següent a la carpeta principal de Música per escoltar-la sense connexió. Consumeix dades i espai al dispositiu."
+          }
+        },
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Automaticky stáhne další skladbu do hlavní složky Hudba pro poslech offline. Využívá síťová data a úložiště zařízení."
+          }
+        },
+        "da": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Download automatisk næste sang til hovedmappen Musik til offlineafspilning. Bruger netværksdata og lagerplads på enheden."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lädt den nächsten Titel automatisch in den Musik-Hauptordner zum Offline-Hören. Verbraucht Datenvolumen und Gerätespeicher."
+          }
+        },
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Αυτόματη λήψη του επόμενου τραγουδιού στον κύριο φάκελο Μουσικής για ακρόαση εκτός σύνδεσης. Χρησιμοποιεί δεδομένα και χώρο αποθήκευσης."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Automatically download the next song to the Music home folder for offline listening. Uses network data and device storage."
+          }
+        },
+        "en-AU": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Automatically download the next song to the Music home folder for offline listening. Uses network data and device storage."
+          }
+        },
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Automatically download the next song to the Music home folder for offline listening. Uses network data and device storage."
+          }
+        },
+        "en-IN": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Automatically download the next song to the Music home folder for offline listening. Uses network data and device storage."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Descarga automáticamente la siguiente canción en la carpeta principal de Música para escucharla sin conexión. Consume datos y almacenamiento del dispositivo."
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Descarga automáticamente la siguiente canción en la carpeta principal de Música para escucharla sin conexión. Consume datos y almacenamiento del dispositivo."
+          }
+        },
+        "es-US": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Descarga automáticamente la siguiente canción en la carpeta principal de Música para escucharla sin conexión. Consume datos y almacenamiento del dispositivo."
+          }
+        },
+        "fi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lataa seuraavan kappaleen automaattisesti Musiikki-pääkansioon offline-kuuntelua varten. Käyttää verkkodataa ja laitteen tallennustilaa."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Télécharge automatiquement le titre suivant dans le dossier principal Musique pour l’écoute hors ligne. Utilise des données réseau et du stockage sur l’appareil."
+          }
+        },
+        "fr-CA": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Télécharge automatiquement le titre suivant dans le dossier principal Musique pour l’écoute hors ligne. Utilise des données réseau et du stockage sur l’appareil."
+          }
+        },
+        "he": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "הורדה אוטומטית של השיר הבא לתיקיית המוזיקה הראשית להאזנה ללא חיבור. משתמשת בנתוני רשת ובאחסון המכשיר."
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ऑफ़लाइन सुनने के लिए अगला गीत अपने-आप संगीत के मुख्य फ़ोल्डर में डाउनलोड करें। नेटवर्क डेटा और डिवाइस स्टोरेज का उपयोग होता है।"
+          }
+        },
+        "hr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Automatski preuzima sljedeću pjesmu u glavnu mapu Glazba za slušanje izvan mreže. Koristi mrežne podatke i pohranu uređaja."
+          }
+        },
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Automatikusan letölti a következő dalt a Zene főmappájába offline hallgatáshoz. Hálózati adatot és tárhelyet használ."
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Unduh lagu berikutnya secara otomatis ke folder utama Musik untuk didengarkan offline. Menggunakan data jaringan dan penyimpanan perangkat."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Scarica automaticamente il brano successivo nella cartella principale Musica per l’ascolto offline. Usa dati di rete e spazio sul dispositivo."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "次の曲をミュージックのホームフォルダに自動ダウンロードし、オフラインで再生できます。通信量とデバイスの空き容量を使用します。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "다음 곡을 음악 홈 폴더에 자동 다운로드하여 오프라인으로 감상합니다. 네트워크 데이터와 기기 저장 공간을 사용합니다."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Muat turun lagu seterusnya secara automatik ke folder utama Muzik untuk didengar luar talian. Menggunakan data rangkaian dan storan peranti."
+          }
+        },
+        "nb": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Last automatisk ned neste sang til hovedmappen Musikk for frakoblet lytting. Bruker nettverksdata og lagringsplass på enheten."
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Download automatisch het volgende nummer naar de hoofdmap Muziek om offline te luisteren. Gebruikt netwerkdata en opslagruimte op het apparaat."
+          }
+        },
+        "pl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Automatycznie pobiera następny utwór do głównego folderu Muzyka do słuchania offline. Zużywa transfer danych i pamięć urządzenia."
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Baixa automaticamente a próxima música para a pasta principal Música para ouvir offline. Usa dados de rede e armazenamento do dispositivo."
+          }
+        },
+        "pt-PT": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Transfere automaticamente a próxima música para a pasta principal Música para ouvir offline. Usa dados de rede e armazenamento do dispositivo."
+          }
+        },
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Descarcă automat următoarea melodie în dosarul principal Muzică pentru ascultare offline. Folosește date de rețea și spațiul dispozitivului."
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Автоматически загружает следующую песню в главную папку музыки для прослушивания офлайн. Использует трафик и память устройства."
+          }
+        },
+        "sk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Automaticky stiahne ďalšiu skladbu do hlavného priečinka Hudba na počúvanie offline. Využíva sieťové dáta a úložisko zariadenia."
+          }
+        },
+        "sl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Samodejno prenese naslednjo skladbo v glavno mapo Glasba za poslušanje brez povezave. Uporablja omrežne podatke in prostor naprave."
+          }
+        },
+        "sv": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ladda automatiskt ner nästa låt till huvudmappen Musik för offlinelyssning. Använder nätverksdata och enhetens lagringsutrymme."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ดาวน์โหลดเพลงถัดไปลงโฟลเดอร์หลักของเพลงโดยอัตโนมัติเพื่อฟังออฟไลน์ ใช้ข้อมูลเครือข่ายและพื้นที่จัดเก็บในอุปกรณ์"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Çevrimdışı dinlemek için sonraki şarkıyı Müzik ana klasörüne otomatik indirir. Ağ verisi ve cihaz depolama alanı kullanır."
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Автоматично завантажує наступну пісню до головної папки музики для прослуховування офлайн. Використовує мережеві дані та пам’ять пристрою."
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tự động tải bài tiếp theo vào thư mục chính của Nhạc để nghe ngoại tuyến. Sử dụng dữ liệu mạng và bộ nhớ thiết bị."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "自动将下一首歌曲下载到音乐首页根目录，方便离线播放。会使用网络流量和设备存储空间。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "自動將下一首歌曲下載至音樂首頁根目錄，方便離線播放。會使用網路流量及裝置儲存空間。"
+          }
+        },
+        "zh-HK": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "自動將下一首歌曲下載至音樂首頁根目錄，方便離線播放。會使用網路流量及裝置儲存空間。"
+          }
+        }
+      }
+    },
+    "WebDAV.ConnectionHelp": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "فعّل WebDAV على NAS، ثم الصق عنوانه لملء البروتوكول والمضيف والمنفذ والمجلد. استخدم حسابًا بصلاحية القراءة. اترك المنفذ فارغًا للقيمة الافتراضية. خارج الشبكة المحلية يلزم إعداد وصول آمن."
+          }
+        },
+        "ca": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Activa WebDAV al NAS i enganxa’n l’URL per omplir protocol, servidor, port i carpeta. Cal un compte amb accés de lectura. Deixa el port buit per usar el predeterminat. Fora de la xarxa local cal configurar accés remot segur."
+          }
+        },
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zapněte WebDAV na NAS a vložte jeho URL pro vyplnění protokolu, hostitele, portu a složky. Použijte účet s právem čtení. Prázdný port použije výchozí hodnotu. Mimo místní síť nastavte bezpečný vzdálený přístup."
+          }
+        },
+        "da": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aktivér WebDAV på din NAS, og indsæt URL’en for at udfylde protokol, vært, port og mappe. Brug en konto med læseadgang. Tom port bruger standardværdien. Uden for lokalnettet kræves sikker fjernadgang."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aktiviere WebDAV auf deinem NAS und füge dessen URL ein, um Protokoll, Host, Port und Ordner auszufüllen. Nutze ein Konto mit Leserechten. Ein leerer Port nutzt den Standard. Außerhalb des Heimnetzes ist ein sicherer Fernzugang nötig."
+          }
+        },
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ενεργοποιήστε το WebDAV στο NAS και επικολλήστε το URL για πρωτόκολλο, διακομιστή, θύρα και φάκελο. Χρησιμοποιήστε λογαριασμό με δικαίωμα ανάγνωσης. Κενή θύρα σημαίνει προεπιλογή. Εκτός τοπικού δικτύου απαιτείται ασφαλής απομακρυσμένη πρόσβαση."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Enable WebDAV on your NAS first. Paste its WebDAV URL to fill the protocol, host, port, and folder. Use an account with read access; leave the port blank for the default. On the same Wi-Fi, use the local address; away from home, use your configured secure remote address."
+          }
+        },
+        "en-AU": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Enable WebDAV on your NAS first. Paste its WebDAV URL to fill the protocol, host, port, and folder. Use an account with read access; leave the port blank for the default. On the same Wi-Fi, use the local address; away from home, use your configured secure remote address."
+          }
+        },
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Enable WebDAV on your NAS first. Paste its WebDAV URL to fill the protocol, host, port, and folder. Use an account with read access; leave the port blank for the default. On the same Wi-Fi, use the local address; away from home, use your configured secure remote address."
+          }
+        },
+        "en-IN": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Enable WebDAV on your NAS first. Paste its WebDAV URL to fill the protocol, host, port, and folder. Use an account with read access; leave the port blank for the default. On the same Wi-Fi, use the local address; away from home, use your configured secure remote address."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Activa WebDAV en tu NAS y pega su URL para rellenar protocolo, servidor, puerto y carpeta. Usa una cuenta con permiso de lectura. Deja el puerto vacío para usar el predeterminado. Fuera de la red local necesitas acceso remoto seguro."
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Activa WebDAV en tu NAS y pega su URL para rellenar protocolo, servidor, puerto y carpeta. Usa una cuenta con permiso de lectura. Deja el puerto vacío para usar el predeterminado. Fuera de la red local necesitas acceso remoto seguro."
+          }
+        },
+        "es-US": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Activa WebDAV en tu NAS y pega su URL para rellenar protocolo, servidor, puerto y carpeta. Usa una cuenta con permiso de lectura. Deja el puerto vacío para usar el predeterminado. Fuera de la red local necesitas acceso remoto seguro."
+          }
+        },
+        "fi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ota WebDAV käyttöön NASissa ja liitä sen URL täyttääksesi protokollan, palvelimen, portin ja kansion. Käytä lukutiliä. Tyhjä portti käyttää oletusta. Lähiverkon ulkopuolella tarvitaan turvallinen etäyhteys."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Activez WebDAV sur votre NAS, puis collez son URL pour remplir protocole, hôte, port et dossier. Utilisez un compte avec accès en lecture. Un port vide utilise la valeur par défaut. Hors du réseau local, configurez un accès distant sécurisé."
+          }
+        },
+        "fr-CA": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Activez WebDAV sur votre NAS, puis collez son URL pour remplir protocole, hôte, port et dossier. Utilisez un compte avec accès en lecture. Un port vide utilise la valeur par défaut. Hors du réseau local, configurez un accès distant sécurisé."
+          }
+        },
+        "he": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "יש להפעיל WebDAV ב-NAS ולהדביק את ה-URL למילוי הפרוטוקול, השרת, היציאה והתיקייה. השתמשו בחשבון עם הרשאת קריאה. יציאה ריקה משתמשת בברירת המחדל. מחוץ לרשת המקומית נדרשת גישה מרחוק מאובטחת."
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "NAS पर WebDAV चालू करें और प्रोटोकॉल, होस्ट, पोर्ट व फ़ोल्डर भरने के लिए उसका URL पेस्ट करें। पढ़ने की अनुमति वाला खाता उपयोग करें। डिफ़ॉल्ट पोर्ट के लिए इसे खाली छोड़ें। स्थानीय नेटवर्क से बाहर सुरक्षित रिमोट एक्सेस सेट करें।"
+          }
+        },
+        "hr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Omogućite WebDAV na NAS-u i zalijepite URL za protokol, poslužitelj, priključak i mapu. Koristite račun s pravom čitanja. Prazan priključak koristi zadani. Izvan lokalne mreže potreban je siguran udaljeni pristup."
+          }
+        },
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kapcsold be a WebDAV-ot a NAS-on, és illeszd be az URL-t a protokoll, gép, port és mappa kitöltéséhez. Olvasási jogosultságú fiókot használj. Üres port esetén az alapérték érvényes. Távolról biztonságos hozzáférést kell beállítani."
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aktifkan WebDAV di NAS, lalu tempel URL-nya untuk mengisi protokol, host, port, dan folder. Gunakan akun dengan izin baca. Kosongkan port untuk nilai bawaan. Di luar jaringan lokal, siapkan akses jarak jauh yang aman."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Attiva WebDAV sul NAS e incolla il suo URL per compilare protocollo, host, porta e cartella. Usa un account con accesso in lettura. La porta vuota usa il valore predefinito. Fuori dalla rete locale serve un accesso remoto sicuro."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "NASでWebDAVを有効にし、そのURLを貼り付けると、プロトコル・ホスト・ポート・フォルダを自動入力できます。読み取り権限のあるアカウントを使用してください。ポートは空欄で既定値になります。宅外では安全なリモートアクセスの設定が必要です。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "NAS에서 WebDAV를 켜고 URL을 붙여넣으면 프로토콜, 호스트, 포트, 폴더가 자동 입력됩니다. 읽기 권한이 있는 계정을 사용하세요. 포트를 비우면 기본값을 사용합니다. 외부에서는 안전한 원격 접속을 설정해야 합니다."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aktifkan WebDAV pada NAS dan tampal URL untuk mengisi protokol, hos, port dan folder. Gunakan akaun dengan akses baca. Kosongkan port untuk nilai lalai. Di luar rangkaian setempat, sediakan akses jauh yang selamat."
+          }
+        },
+        "nb": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aktiver WebDAV på NAS-en og lim inn URL-en for å fylle ut protokoll, vert, port og mappe. Bruk en konto med lesetilgang. Tom port bruker standardverdien. Utenfor lokalnettet kreves sikker fjerntilgang."
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Schakel WebDAV op je NAS in en plak de URL om protocol, host, poort en map in te vullen. Gebruik een account met leesrechten. Een lege poort gebruikt de standaardwaarde. Buiten je lokale netwerk is veilige toegang op afstand nodig."
+          }
+        },
+        "pl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Włącz WebDAV na NAS i wklej URL, aby uzupełnić protokół, host, port i folder. Użyj konta z prawem odczytu. Pusty port oznacza domyślny. Poza siecią lokalną skonfiguruj bezpieczny dostęp zdalny."
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ative o WebDAV no NAS e cole o URL para preencher protocolo, servidor, porta e pasta. Use uma conta com permissão de leitura. Deixe a porta vazia para usar o padrão. Fora da rede local, configure acesso remoto seguro."
+          }
+        },
+        "pt-PT": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ative o WebDAV no NAS e cole o URL para preencher protocolo, servidor, porta e pasta. Use uma conta com permissão de leitura. Deixe a porta vazia para usar o padrão. Fora da rede local, configure acesso remoto seguro."
+          }
+        },
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Activează WebDAV pe NAS și lipește URL-ul pentru protocol, gazdă, port și dosar. Folosește un cont cu drept de citire. Portul gol folosește valoarea implicită. În afara rețelei locale, configurează acces la distanță securizat."
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Включите WebDAV на NAS и вставьте его URL для заполнения протокола, хоста, порта и папки. Нужна учётная запись с правом чтения. Пустой порт означает стандартный. Вне локальной сети настройте безопасный удалённый доступ."
+          }
+        },
+        "sk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zapnite WebDAV na NAS a vložte URL na vyplnenie protokolu, hostiteľa, portu a priečinka. Použite účet s právom čítania. Prázdny port použije predvolený. Mimo lokálnej siete nastavte bezpečný vzdialený prístup."
+          }
+        },
+        "sl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Omogočite WebDAV na NAS in prilepite URL za protokol, gostitelja, vrata in mapo. Uporabite račun s pravico branja. Prazna vrata uporabijo privzeto vrednost. Zunaj lokalnega omrežja nastavite varen oddaljeni dostop."
+          }
+        },
+        "sv": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aktivera WebDAV på din NAS och klistra in URL:en för protokoll, värd, port och mapp. Använd ett konto med läsbehörighet. Tom port använder standardvärdet. Utanför det lokala nätverket krävs säker fjärråtkomst."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เปิด WebDAV บน NAS แล้ววาง URL เพื่อกรอกโปรโตคอล โฮสต์ พอร์ต และโฟลเดอร์ ใช้บัญชีที่มีสิทธิ์อ่าน เว้นพอร์ตว่างเพื่อใช้ค่าเริ่มต้น หากอยู่นอกเครือข่ายท้องถิ่น ต้องตั้งค่าการเข้าถึงระยะไกลที่ปลอดภัย"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "NAS üzerinde WebDAV’ı açın ve protokol, sunucu, bağlantı noktası ve klasör için URL’yi yapıştırın. Okuma izni olan bir hesap kullanın. Boş bağlantı noktası varsayılanı kullanır. Yerel ağ dışında güvenli uzaktan erişim ayarlayın."
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Увімкніть WebDAV на NAS і вставте URL для заповнення протоколу, хоста, порту та папки. Використовуйте обліковий запис із правом читання. Порожній порт означає стандартний. Поза локальною мережею налаштуйте безпечний віддалений доступ."
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bật WebDAV trên NAS rồi dán URL để điền giao thức, máy chủ, cổng và thư mục. Dùng tài khoản có quyền đọc. Để trống cổng để dùng mặc định. Ngoài mạng nội bộ, cần thiết lập truy cập từ xa an toàn."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "请先在 NAS 上开启 WebDAV 服务。粘贴 WebDAV 地址可自动填写协议、主机、端口和文件夹；使用有读取权限的账号，端口留空则使用默认值。同一 Wi-Fi 下可用局域网地址，外出访问需先配置安全的远程地址。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "請先在 NAS 上開啟 WebDAV 服務。貼上 WebDAV 位址可自動填入協定、主機、連接埠及資料夾；使用有讀取權限的帳號，連接埠留空則使用預設值。同一 Wi-Fi 下可用區域網路位址，外出存取需先設定安全的遠端位址。"
+          }
+        },
+        "zh-HK": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "請先在 NAS 上開啟 WebDAV 服務。貼上 WebDAV 位址可自動填入協定、主機、連接埠及資料夾；使用有讀取權限的帳號，連接埠留空則使用預設值。同一 Wi-Fi 下可用區域網路位址，外出存取需先設定安全的遠端位址。"
+          }
+        }
+      }
+    },
+    "Navidrome.ConnectionHelp": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "أدخل عنوان خادم Navidrome أو Subsonic المتوافق وحساب الموسيقى، وليس مسار مجلد مشترك. اطلب التفاصيل من المسؤول؛ قد يختلف الحساب عن حساب NAS. يلزم إعداد الوصول عن بُعد."
+          }
+        },
+        "ca": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Introdueix l’URL i el compte d’un servidor Navidrome o compatible amb Subsonic, no una carpeta compartida. Demana’ls a l’administrador; el compte pot ser diferent del NAS. Cal configurar l’accés remot."
+          }
+        },
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zadejte URL a účet hudebního serveru Navidrome nebo kompatibilního se Subsonic, ne sdílenou složku. Údaje získáte od správce; účet se může lišit od NAS. Vzdálený přístup vyžaduje nastavení."
+          }
+        },
+        "da": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Indtast URL og musikkonto til en Navidrome- eller Subsonic-kompatibel server, ikke en delt mappe. Spørg administratoren; kontoen kan være forskellig fra NAS-kontoen. Fjernadgang skal konfigureres."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gib URL und Musikkonto eines Navidrome- oder Subsonic-kompatiblen Servers ein, keinen Freigabeordner. Frage den Administrator; das Konto kann vom NAS-Konto abweichen. Fernzugriff muss eingerichtet werden."
+          }
+        },
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Εισαγάγετε URL και λογαριασμό μουσικού διακομιστή Navidrome ή συμβατού με Subsonic, όχι κοινόχρηστο φάκελο. Ρωτήστε τον διαχειριστή· ο λογαριασμός μπορεί να διαφέρει από του NAS. Ρυθμίστε χωριστά την απομακρυσμένη πρόσβαση."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Connect to a Navidrome or compatible Subsonic music server, not a shared folder. Enter its server URL (including any port and path) and music-server account. Ask the administrator for these details. Your NAS login may be different; remote access must be configured separately."
+          }
+        },
+        "en-AU": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Connect to a Navidrome or compatible Subsonic music server, not a shared folder. Enter its server URL (including any port and path) and music-server account. Ask the administrator for these details. Your NAS login may be different; remote access must be configured separately."
+          }
+        },
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Connect to a Navidrome or compatible Subsonic music server, not a shared folder. Enter its server URL (including any port and path) and music-server account. Ask the administrator for these details. Your NAS login may be different; remote access must be configured separately."
+          }
+        },
+        "en-IN": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Connect to a Navidrome or compatible Subsonic music server, not a shared folder. Enter its server URL (including any port and path) and music-server account. Ask the administrator for these details. Your NAS login may be different; remote access must be configured separately."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Introduce la URL y la cuenta de un servidor musical Navidrome o compatible con Subsonic, no una carpeta compartida. Pídelas al administrador; la cuenta puede ser distinta de la del NAS. Configura el acceso remoto por separado."
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Introduce la URL y la cuenta de un servidor musical Navidrome o compatible con Subsonic, no una carpeta compartida. Pídelas al administrador; la cuenta puede ser distinta de la del NAS. Configura el acceso remoto por separado."
+          }
+        },
+        "es-US": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Introduce la URL y la cuenta de un servidor musical Navidrome o compatible con Subsonic, no una carpeta compartida. Pídelas al administrador; la cuenta puede ser distinta de la del NAS. Configura el acceso remoto por separado."
+          }
+        },
+        "fi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Anna Navidrome- tai Subsonic-yhteensopivan musiikkipalvelimen URL ja tili, ei jaettua kansiota. Kysy tiedot ylläpitäjältä; tili voi erota NAS-tilistä. Etäkäyttö on määritettävä erikseen."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Saisissez l’URL et le compte d’un serveur musical Navidrome ou compatible Subsonic, pas un dossier partagé. Demandez-les à l’administrateur ; le compte peut différer de celui du NAS. L’accès distant doit être configuré séparément."
+          }
+        },
+        "fr-CA": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Saisissez l’URL et le compte d’un serveur musical Navidrome ou compatible Subsonic, pas un dossier partagé. Demandez-les à l’administrateur ; le compte peut différer de celui du NAS. L’accès distant doit être configuré séparément."
+          }
+        },
+        "he": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "הזינו URL וחשבון של שרת מוזיקה Navidrome או תואם Subsonic, ולא תיקייה משותפת. בקשו פרטים מהמנהל; החשבון עשוי להיות שונה מחשבון ה-NAS. יש להגדיר גישה מרחוק בנפרד."
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Navidrome या Subsonic-संगत संगीत सर्वर का URL और खाता भरें, साझा फ़ोल्डर नहीं। विवरण व्यवस्थापक से लें; NAS का खाता अलग हो सकता है। रिमोट एक्सेस अलग से सेट करना होगा।"
+          }
+        },
+        "hr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Unesite URL i račun glazbenog poslužitelja Navidrome ili kompatibilnog sa Subsonicom, ne dijeljenu mapu. Pitajte administratora; račun se može razlikovati od NAS računa. Udaljeni pristup postavite zasebno."
+          }
+        },
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Navidrome- vagy Subsonic-kompatibilis zeneszerver URL-jét és fiókját add meg, ne megosztott mappát. Kérdezd a rendszergazdát; a fiók eltérhet a NAS-fióktól. A távoli hozzáférést külön kell beállítani."
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Masukkan URL dan akun server musik Navidrome atau yang kompatibel dengan Subsonic, bukan folder bersama. Minta detail kepada administrator; akun NAS bisa berbeda. Akses jarak jauh perlu diatur terpisah."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Inserisci URL e account di un server musicale Navidrome o compatibile con Subsonic, non una cartella condivisa. Chiedili all’amministratore; l’account può essere diverso da quello del NAS. Configura separatamente l’accesso remoto."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "共有フォルダではなく、NavidromeまたはSubsonic互換の音楽サーバーのURLとアカウントを入力します。不明な場合は管理者に確認してください。NASのログイン情報とは異なる場合があります。宅外アクセスは別途設定が必要です。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "공유 폴더가 아닌 Navidrome 또는 Subsonic 호환 음악 서버의 URL과 계정을 입력하세요. 관리자에게 정보를 요청하세요. NAS 계정과 다를 수 있으며 외부 접속은 별도 설정이 필요합니다."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Masukkan URL dan akaun pelayan muzik Navidrome atau serasi Subsonic, bukan folder kongsi. Minta butiran daripada pentadbir; akaun NAS mungkin berbeza. Akses jauh perlu dikonfigurasi berasingan."
+          }
+        },
+        "nb": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Angi URL og musikkonto for en Navidrome- eller Subsonic-kompatibel server, ikke en delt mappe. Spør administratoren; kontoen kan være ulik NAS-kontoen. Fjerntilgang må konfigureres separat."
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Voer de URL en het account van een Navidrome- of Subsonic-compatibele muziekserver in, geen gedeelde map. Vraag de beheerder om details; het NAS-account kan anders zijn. Stel externe toegang apart in."
+          }
+        },
+        "pl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Wpisz URL i konto serwera muzycznego Navidrome lub zgodnego z Subsonic, nie folder współdzielony. Zapytaj administratora; konto NAS może być inne. Dostęp zdalny wymaga osobnej konfiguracji."
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Insira o URL e a conta de um servidor de música Navidrome ou compatível com Subsonic, não uma pasta partilhada. Peça os dados ao administrador; a conta do NAS pode ser diferente. Configure o acesso remoto separadamente."
+          }
+        },
+        "pt-PT": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Insira o URL e a conta de um servidor de música Navidrome ou compatível com Subsonic, não uma pasta partilhada. Peça os dados ao administrador; a conta do NAS pode ser diferente. Configure o acesso remoto separadamente."
+          }
+        },
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Introdu URL-ul și contul unui server muzical Navidrome sau compatibil Subsonic, nu un dosar partajat. Cere detalii administratorului; contul NAS poate fi diferit. Accesul la distanță se configurează separat."
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Введите URL и аккаунт музыкального сервера Navidrome или совместимого с Subsonic, а не общую папку. Уточните данные у администратора: аккаунт NAS может отличаться. Удалённый доступ настраивается отдельно."
+          }
+        },
+        "sk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zadajte URL a účet hudobného servera Navidrome alebo kompatibilného so Subsonic, nie zdieľaný priečinok. Údaje získate od správcu; účet NAS môže byť iný. Vzdialený prístup nastavte osobitne."
+          }
+        },
+        "sl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vnesite URL in račun glasbenega strežnika Navidrome ali združljivega s Subsonic, ne skupne mape. Podatke dobite pri skrbniku; račun NAS je lahko drugačen. Oddaljeni dostop nastavite posebej."
+          }
+        },
+        "sv": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ange URL och musikkonto för en Navidrome- eller Subsonic-kompatibel server, inte en delad mapp. Fråga administratören; kontot kan skilja sig från NAS-kontot. Fjärråtkomst måste konfigureras separat."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "กรอก URL และบัญชีของเซิร์ฟเวอร์เพลง Navidrome หรือที่รองรับ Subsonic ไม่ใช่โฟลเดอร์ที่แชร์ สอบถามผู้ดูแลระบบ บัญชีอาจต่างจาก NAS และต้องตั้งค่าการเข้าถึงระยะไกลแยกต่างหาก"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Paylaşılan klasör değil, Navidrome veya Subsonic uyumlu müzik sunucusunun URL’sini ve hesabını girin. Bilgileri yöneticiden isteyin; NAS hesabı farklı olabilir. Uzaktan erişim ayrıca ayarlanmalıdır."
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Введіть URL та обліковий запис музичного сервера Navidrome або сумісного із Subsonic, а не спільну папку. Запитайте адміністратора: обліковий запис NAS може відрізнятися. Віддалений доступ налаштовується окремо."
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nhập URL và tài khoản máy chủ nhạc Navidrome hoặc tương thích Subsonic, không phải thư mục chia sẻ. Hỏi quản trị viên để biết thông tin; tài khoản NAS có thể khác. Cần thiết lập riêng truy cập từ xa."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "用于连接 Navidrome 或兼容 Subsonic 的音乐服务器，不是 NAS 共享文件夹。填写服务器地址（含端口、路径）和音乐服账号；不清楚时请向管理员索取。音乐服账号不一定是 NAS 登录账号，外出访问需另行配置。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "用於連接 Navidrome 或相容 Subsonic 的音樂伺服器，不是 NAS 共用資料夾。填入伺服器位址（含連接埠、路徑）及音樂伺服器帳號；不清楚時請向管理員索取。帳號不一定是 NAS 登入帳號，外出存取需另行設定。"
+          }
+        },
+        "zh-HK": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "用於連接 Navidrome 或相容 Subsonic 的音樂伺服器，不是 NAS 共用資料夾。填入伺服器位址（含連接埠、路徑）及音樂伺服器帳號；不清楚時請向管理員索取。帳號不一定是 NAS 登入帳號，外出存取需另行設定。"
+          }
+        }
+      }
+    },
+    "WebDAV.InvalidAddress": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "أدخل عنوان HTTP أو HTTPS صالحًا ومنفذًا بين 1 و65535 أو اتركه فارغًا. أدخل بيانات الدخول في حقول الحساب. لا تُدعم معاملات الاستعلام أو الأجزاء."
+          }
+        },
+        "ca": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Introdueix una adreça HTTP o HTTPS vàlida i un port entre 1 i 65535, o deixa’l buit. Escriu les credencials als camps del compte. No s’admeten paràmetres ni fragments."
+          }
+        },
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zadejte platnou adresu HTTP nebo HTTPS a port 1–65535, nebo jej nechte prázdný. Přihlašovací údaje patří do polí účtu. Parametry dotazu a fragmenty nejsou podporovány."
+          }
+        },
+        "da": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Angiv en gyldig HTTP- eller HTTPS-adresse og port 1–65535, eller lad porten stå tom. Brug kontofelterne til login. Forespørgselsparametre og fragmenter understøttes ikke."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gib eine gültige HTTP- oder HTTPS-Adresse und einen Port von 1 bis 65535 ein, oder lasse den Port leer. Zugangsdaten gehören in die Kontofelder. Abfrageparameter und Fragmente werden nicht unterstützt."
+          }
+        },
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Εισαγάγετε έγκυρη διεύθυνση HTTP ή HTTPS και θύρα 1–65535 ή αφήστε τη κενή. Βάλτε τα διαπιστευτήρια στα πεδία λογαριασμού. Δεν υποστηρίζονται παράμετροι ερωτήματος ή τμήματα."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Enter a valid HTTP or HTTPS server address and a port from 1 to 65535, or leave the port blank. Enter credentials in the account fields. Query strings and fragments are not supported."
+          }
+        },
+        "en-AU": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Enter a valid HTTP or HTTPS server address and a port from 1 to 65535, or leave the port blank. Enter credentials in the account fields. Query strings and fragments are not supported."
+          }
+        },
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Enter a valid HTTP or HTTPS server address and a port from 1 to 65535, or leave the port blank. Enter credentials in the account fields. Query strings and fragments are not supported."
+          }
+        },
+        "en-IN": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Enter a valid HTTP or HTTPS server address and a port from 1 to 65535, or leave the port blank. Enter credentials in the account fields. Query strings and fragments are not supported."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Introduce una dirección HTTP o HTTPS válida y un puerto entre 1 y 65535, o déjalo vacío. Usa los campos de cuenta para las credenciales. No se admiten parámetros de consulta ni fragmentos."
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Introduce una dirección HTTP o HTTPS válida y un puerto entre 1 y 65535, o déjalo vacío. Usa los campos de cuenta para las credenciales. No se admiten parámetros de consulta ni fragmentos."
+          }
+        },
+        "es-US": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Introduce una dirección HTTP o HTTPS válida y un puerto entre 1 y 65535, o déjalo vacío. Usa los campos de cuenta para las credenciales. No se admiten parámetros de consulta ni fragmentos."
+          }
+        },
+        "fi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Anna kelvollinen HTTP- tai HTTPS-osoite ja portti 1–65535 tai jätä portti tyhjäksi. Kirjoita tunnukset tilikenttiin. Kyselyparametreja ja fragmentteja ei tueta."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Saisissez une adresse HTTP ou HTTPS valide et un port de 1 à 65535, ou laissez-le vide. Utilisez les champs du compte pour les identifiants. Les paramètres de requête et fragments ne sont pas pris en charge."
+          }
+        },
+        "fr-CA": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Saisissez une adresse HTTP ou HTTPS valide et un port de 1 à 65535, ou laissez-le vide. Utilisez les champs du compte pour les identifiants. Les paramètres de requête et fragments ne sont pas pris en charge."
+          }
+        },
+        "he": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "הזינו כתובת HTTP או HTTPS תקינה ויציאה בין 1 ל-65535, או השאירו אותה ריקה. פרטי ההתחברות שייכים לשדות החשבון. פרמטרי שאילתה ומקטעים אינם נתמכים."
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "मान्य HTTP या HTTPS पता और 1–65535 का पोर्ट भरें या पोर्ट खाली छोड़ें। लॉगिन विवरण खाता फ़ील्ड में भरें। क्वेरी पैरामीटर और फ़्रैगमेंट समर्थित नहीं हैं।"
+          }
+        },
+        "hr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Unesite valjanu HTTP ili HTTPS adresu i priključak 1–65535 ili ga ostavite praznim. Vjerodajnice unesite u polja računa. Parametri upita i fragmenti nisu podržani."
+          }
+        },
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Érvényes HTTP- vagy HTTPS-címet és 1–65535 közötti portot adj meg, vagy hagyd üresen. A belépési adatokat a fiókmezőkbe írd. Lekérdezési paraméterek és töredékek nem támogatottak."
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Masukkan alamat HTTP atau HTTPS yang valid dan port 1–65535, atau kosongkan port. Isi kredensial di kolom akun. Parameter kueri dan fragmen tidak didukung."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Inserisci un indirizzo HTTP o HTTPS valido e una porta da 1 a 65535, oppure lasciala vuota. Usa i campi account per le credenziali. Parametri di query e frammenti non sono supportati."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "有効なHTTPまたはHTTPSアドレスと1〜65535のポートを入力するか、ポートを空欄にしてください。認証情報はアカウント欄に入力します。クエリやフラグメントは使用できません。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "유효한 HTTP 또는 HTTPS 주소와 1–65535 포트를 입력하거나 포트를 비워 두세요. 인증 정보는 계정 입력란에 입력하세요. 쿼리 매개변수와 프래그먼트는 지원하지 않습니다."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Masukkan alamat HTTP atau HTTPS yang sah dan port 1–65535, atau kosongkan port. Isi kelayakan dalam medan akaun. Parameter pertanyaan dan fragmen tidak disokong."
+          }
+        },
+        "nb": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Angi en gyldig HTTP- eller HTTPS-adresse og port 1–65535, eller la porten stå tom. Skriv inn påloggingsdata i kontofeltene. Spørringsparametere og fragmenter støttes ikke."
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Voer een geldig HTTP- of HTTPS-adres en poort 1–65535 in, of laat de poort leeg. Gebruik de accountvelden voor inloggegevens. Queryparameters en fragmenten worden niet ondersteund."
+          }
+        },
+        "pl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Wpisz poprawny adres HTTP lub HTTPS i port 1–65535 albo pozostaw port pusty. Dane logowania wpisz w polach konta. Parametry zapytania i fragmenty nie są obsługiwane."
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Insira um endereço HTTP ou HTTPS válido e uma porta de 1 a 65535, ou deixe-a vazia. Use os campos da conta para as credenciais. Parâmetros de consulta e fragmentos não são suportados."
+          }
+        },
+        "pt-PT": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Insira um endereço HTTP ou HTTPS válido e uma porta de 1 a 65535, ou deixe-a vazia. Use os campos da conta para as credenciais. Parâmetros de consulta e fragmentos não são suportados."
+          }
+        },
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Introdu o adresă HTTP sau HTTPS validă și un port 1–65535, sau lasă portul gol. Introdu datele de autentificare în câmpurile contului. Parametrii de interogare și fragmentele nu sunt acceptate."
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Введите корректный HTTP- или HTTPS-адрес и порт 1–65535 либо оставьте порт пустым. Данные входа укажите в полях аккаунта. Параметры запроса и фрагменты не поддерживаются."
+          }
+        },
+        "sk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zadajte platnú adresu HTTP alebo HTTPS a port 1–65535 alebo ho nechajte prázdny. Prihlasovacie údaje patria do polí účtu. Parametre dopytu a fragmenty nie sú podporované."
+          }
+        },
+        "sl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vnesite veljaven naslov HTTP ali HTTPS in vrata 1–65535 ali jih pustite prazna. Poverilnice vnesite v polja računa. Parametri poizvedbe in fragmenti niso podprti."
+          }
+        },
+        "sv": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ange en giltig HTTP- eller HTTPS-adress och port 1–65535, eller lämna porten tom. Skriv in inloggningsuppgifter i kontofälten. Frågeparametrar och fragment stöds inte."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "กรอกที่อยู่ HTTP หรือ HTTPS ที่ถูกต้องและพอร์ต 1–65535 หรือเว้นพอร์ตว่าง กรอกข้อมูลเข้าสู่ระบบในช่องบัญชี ไม่รองรับพารามิเตอร์คำค้นหรือส่วนย่อยของ URL"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Geçerli bir HTTP veya HTTPS adresi ve 1–65535 arasında bağlantı noktası girin ya da boş bırakın. Kimlik bilgilerini hesap alanlarına yazın. Sorgu parametreleri ve parçalar desteklenmez."
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Введіть коректну HTTP- або HTTPS-адресу та порт 1–65535 або залиште порт порожнім. Дані входу вкажіть у полях облікового запису. Параметри запиту та фрагменти не підтримуються."
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nhập địa chỉ HTTP hoặc HTTPS hợp lệ và cổng 1–65535, hoặc để trống cổng. Nhập thông tin đăng nhập vào các ô tài khoản. Không hỗ trợ tham số truy vấn và đoạn URL."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "请输入有效的 HTTP 或 HTTPS 地址；端口为 1–65535，也可留空使用默认值。账号密码请填在账户栏，不支持带查询参数或片段的地址。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "請輸入有效的 HTTP 或 HTTPS 位址；連接埠為 1–65535，也可留空使用預設值。帳號密碼請填在帳戶欄，不支援含查詢參數或片段的位址。"
+          }
+        },
+        "zh-HK": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "請輸入有效的 HTTP 或 HTTPS 位址；連接埠為 1–65535，也可留空使用預設值。帳號密碼請填在帳戶欄，不支援含查詢參數或片段的位址。"
+          }
+        }
+      }
+    },
     "%@ mins" : {
       "extractionState" : "manual",
       "localizations" : {

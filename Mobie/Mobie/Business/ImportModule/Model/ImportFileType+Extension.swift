@@ -245,7 +245,7 @@ extension ImportFileType {
 #else
         let commonArray: [ImportFileType] = [.fromGoogleDrive, .fromDropboxDrive, .fromePCloud, .fromBoxDrive, .fromMEGADrive, .fromYandexDrive]
 #endif
-        let chineseArray: [ImportFileType] = [.fromBaiduDrive, .fromAliyunDrive, .from115Drive, .from123Drive, .fromGuangyaDrive]
+        let chineseArray: [ImportFileType] = [.from123Drive, .fromBaiduDrive, .fromAliyunDrive, .from115Drive, .fromGuangyaDrive]
         let russaArray: [ImportFileType] = []
         
         switch language {
