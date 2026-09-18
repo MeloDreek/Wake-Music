@@ -92,36 +92,6 @@ class HomeTabbarViewController: UITabBarController {
         }
     }
     
-    @objc func setupDiscountTimer() {
-        if !DiscountIAPManager.shared.isShowDiscount() {
-            return
-        }
-        
-        if UserInfoManager.shared.isVIP() {
-            return
-        }
-        
-        self.timer.startTimer(seconds: 0.01, repeats: true, callSoon: true) { [weak self] vTime in
-            guard let wSelf = self else { return }
-            guard let lastDiscountTime = DiscountIAPManager.shared.lastDiscountTime else {
-                DiscountIAPManager.markDiscountStarted()
-                return
-            }
-            
-            let nowDate = Date()
-            
-            var leftTime = nowDate.timeIntervalSince1970 - lastDiscountTime
-            leftTime = wSelf.maxDiscountTime - leftTime
-            
-            if leftTime < 0 {
-                vTime.stopTimer()
-            }
-            
-            NotificationCenter.default.post(name: Notification.Name(kDiscountLeftTimeKey), object: nil, userInfo: ["leftTime": leftTime])
-            
-        }
-    }
-    
     override func viewWillTransition(to size: CGSize, with coordinator: any UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
         coordinator.animate { context in
@@ -159,16 +129,7 @@ class HomeTabbarViewController: UITabBarController {
     
     var cancellables = Set<AnyCancellable>()
 
-    
-    // 默认倒计时3小时
-    let maxDiscountTime: Double = DiscountIAPManager.shared.maxDiscountTime
-    
     // MARK:  懒加载
-    
-    lazy var timer: KakaTimer = {
-        let timer = KakaTimer()
-        return timer
-    }()
     
     lazy var fileWatcher: DocumentFolderWatcher = {
         let baseFileURL = SandboxFileManager.shared.basePublicFileURL()

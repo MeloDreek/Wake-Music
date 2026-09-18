@@ -18,7 +18,7 @@ protocol WelcomePaywallCellDelegate: AnyObject {
     // 恢复购买
     func welcomePurchaseDidRestore(cell: WelcomePaywallViewCell)
     
-    // 查看全部权益
+    // 查看全部购买方案
     func welcomePurchaseDidAllBenefit(cell: WelcomePaywallViewCell)
 }
 
@@ -39,60 +39,47 @@ class WelcomePaywallViewCell: UICollectionViewCell {
     
     func setupSubViews() {
         contentView.addSubview(notnowButton)
-        contentView.addSubview(restoreButton)
         
-        contentView.addSubview(starImgView)
-        contentView.addSubview(titleLabel)
-        contentView.addSubview(timerLabel)
-        contentView.addSubview(descLabel)
-        contentView.addSubview(viewVipButton)
-        
+        contentView.addSubview(detailScrollView)
+        detailScrollView.addSubview(detailStack)
+        let artworkContainer = UIView()
+        artworkContainer.addSubview(starImgView)
+        starImgView.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.top.bottom.equalToSuperview()
+            make.size.equalTo(140.ckValue())
+        }
+        let detailViews: [UIView] = [artworkContainer, recommendedLabel, titleLabel, billingLabel, descLabel, renewalLabel, viewVipButton, restoreButton]
+        detailViews.forEach {
+            detailStack.addArrangedSubview($0)
+        }
+        detailStack.setCustomSpacing(24.ckValue(), after: artworkContainer)
+        detailStack.setCustomSpacing(10.ckValue(), after: recommendedLabel)
+        detailStack.setCustomSpacing(20.ckValue(), after: descLabel)
     }
     
     func setupContains() {
         notnowButton.snp.makeConstraints { make in
             make.trailing.equalToSuperview().inset(20.ckValue())
             make.top.equalToSuperview().offset(kaka_safeAreaInsets().top + 15.ckValue())
-            make.size.greaterThanOrEqualTo(0)
+            make.height.greaterThanOrEqualTo(44.ckValue())
         }
         
-        restoreButton.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.bottom.equalToSuperview().inset(18.ckValue())
-            make.leading.equalToSuperview().offset(20.ckValue())
-            make.height.greaterThanOrEqualTo(0)
+        detailScrollView.snp.makeConstraints { make in
+            make.leading.trailing.equalToSuperview()
+            make.top.equalTo(notnowButton.snp.bottom).offset(12.ckValue())
+            // The controller owns the fixed Continue button below this scrolling area.
+            make.bottom.equalToSuperview().inset(kaka_safeAreaInsets().bottom + 180.ckValue())
         }
-        
-        starImgView.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(app_navHeight + 30.ckValue())
-            make.centerX.equalToSuperview()
-            make.size.equalTo(155.ckValue())
+        detailStack.snp.makeConstraints { make in
+            make.edges.equalTo(detailScrollView.contentLayoutGuide).inset(UIEdgeInsets(top: 8.ckValue(), left: 25.ckValue(), bottom: 20.ckValue(), right: 25.ckValue()))
+            make.width.equalTo(detailScrollView.frameLayoutGuide).offset(-50.ckValue())
         }
-        
-        titleLabel.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.top.equalTo(starImgView.snp.bottom).offset(20.ckValue())
-            make.leading.equalToSuperview().offset(25.ckValue())
-            make.height.greaterThanOrEqualTo(0)
-        }
-        
-        timerLabel.snp.makeConstraints { make in
-            make.top.equalTo(titleLabel.snp.bottom).offset(20.ckValue())
-            make.centerX.equalToSuperview()
-            make.size.equalTo(timerLabel.size)
-        }
-        
-        descLabel.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.top.equalTo(timerLabel.snp.bottom).offset(20.ckValue())
-            make.leading.equalTo(20.ckValue())
-            make.height.greaterThanOrEqualTo(0)
-        }
-        
         viewVipButton.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.top.equalTo(descLabel.snp.bottom).offset(20.ckValue())
-            make.size.greaterThanOrEqualTo(0)
+            make.height.greaterThanOrEqualTo(44.ckValue())
+        }
+        restoreButton.snp.makeConstraints { make in
+            make.height.greaterThanOrEqualTo(44.ckValue())
         }
     }
     
@@ -104,72 +91,67 @@ class WelcomePaywallViewCell: UICollectionViewCell {
     // MARK: GET && SET
     // 付款成功
     weak var delegate: WelcomePaywallCellDelegate?
-    
-    var products: [StoreProduct]? {
+
+    var isProcessingPurchase = false {
         didSet {
-            
-            guard let products = self.products else { return }
-            
-            if let firstModel = products.first, let freeTrailDays = firstModel.freeTrialDays {
-
-                var freeTrialStr: String
-                
-                if firstModel.productIdentifier == PurchaseStoreID.yearly.rawValue {
-                    freeTrialStr = String(format: "Best Value: %d-Day Free Trial, then %@/year (Only %@/month)".localStr(), freeTrailDays, firstModel.localizedPriceString, firstModel.localizedPricePerMonth ?? "??")
-                }else{
-                    freeTrialStr = String(format: "Free Trial for %d Days, then %@/week. Cancel anytime.".localStr(), freeTrailDays, firstModel.localizedPricePerWeek ?? "??")
-                }
-                
-                let autoRenewAttr = NSAttributedString(
-                    string: freeTrialStr,
-                    attributes: [.font: UIFontBold(17.ckValue()),.foregroundColor: UIColor.rgb(102, 99, 116)])
-                
-                self.timerLabel.isHidden = true
-                self.titleLabel.text = "Unlock Premium".localStr()
-                self.descLabel.attributedText = autoRenewAttr
-                
-            }else{
-                
-                let discountModel = products.filter { $0.productIdentifier == PurchaseStoreID.lifetime198.rawValue }.first
-                let lifetimeModel = products.filter { $0.productIdentifier == PurchaseStoreID.lifetime298.rawValue }.first
-                
-                let lifetimeArray = [discountModel, lifetimeModel].compactMap { $0 }.sorted { product1, product2 in
-                    return product1.price < product2.price
-                }
-                
-                let discountPrice = lifetimeArray.first?.localizedPriceString ?? "$24.99"
-                let lifetimePrice = lifetimeArray.last?.localizedPriceString ?? "$39.99"
-                
-                // 创建可变富文本
-                let combined = NSMutableAttributedString()
-
-                // 优惠价样式
-                let discountAttr = NSAttributedString(
-                    string: discountPrice + " ",
-                    attributes: [.font: UIFontNumber(22.ckValue()),.foregroundColor: UIColor.rgb(102, 99, 116)])
-                combined.append(discountAttr)
-                
-                // 原价样式（带删除线）
-                let lifetimeAttr = NSAttributedString(
-                    string: lifetimePrice,
-                    attributes: [.font: UIFontNumber(15.ckValue()), .foregroundColor: UIColor.rgb(102, 99, 116), .strikethroughStyle: NSUnderlineStyle.single.rawValue])
-                combined.append(lifetimeAttr)
-                
-                let offerStr = lifetimeArray.calculateDiscountPercentage().formatted(.percent.precision(.fractionLength(0...2)))
-                let lifetimeStr = String(format: "Limited Time Offer: Get Lifetime Access for %@ before the timer expires! Save %@ permanently.".localStr(), lifetimeArray.first?.localizedPriceString ?? "??", offerStr)
-                self.descLabel.attributedText = NSAttributedString(
-                    string: lifetimeStr,
-                    attributes: [.font: UIFontBold(17.ckValue()),.foregroundColor: UIColor.rgb(102, 99, 116)])
-                self.timerLabel.isHidden = false
-                self.titleLabel.attributedText = combined
-                
+            [notnowButton, restoreButton, viewVipButton].forEach {
+                $0.isEnabled = !isProcessingPurchase
+                $0.alpha = isProcessingPurchase ? 0.45 : 1
             }
-            
+        }
+    }
+    var product: StoreProduct? {
+        didSet {
+            titleLabel.text = product?.paywallTitle ?? "Unlock Premium".localStr()
+            billingLabel.text = product?.paywallBillingSummary
+            billingLabel.isHidden = product == nil
+            descLabel.text = product?.paywallDetail ?? "Purchase.ProductsUnavailable".localStr()
+            recommendedLabel.isHidden = product?.productIdentifier != PurchaseStoreID.yearly.rawValue
+            renewalLabel.isHidden = product?.productType != .autoRenewableSubscription
         }
     }
 
     
     // MARK: 懒加载
+    private lazy var detailScrollView: UIScrollView = {
+        let view = UIScrollView()
+        view.backgroundColor = .clear
+        view.contentInsetAdjustmentBehavior = .never
+        view.alwaysBounceVertical = false
+        view.showsHorizontalScrollIndicator = false
+        return view
+    }()
+
+    private lazy var detailStack: UIStackView = {
+        let view = UIStackView()
+        view.axis = .vertical
+        view.alignment = .fill
+        view.spacing = 16.ckValue()
+        return view
+    }()
+
+    private lazy var recommendedLabel: UILabel = {
+        let view = UILabel()
+        view.text = "Purchase.Recommended".localStr()
+        view.textAlignment = .center
+        view.numberOfLines = 0
+        view.font = UIFontBold(13.ckValue())
+        view.textColor = UIColor.rgb(69, 88, 112)
+        view.isHidden = true
+        return view
+    }()
+
+    private lazy var renewalLabel: UILabel = {
+        let view = UILabel()
+        view.text = "Auto-renewable. Cancel anytime.".localStr()
+        view.textAlignment = .center
+        view.numberOfLines = 0
+        view.font = UIFontLight(13.ckValue())
+        view.textColor = UIColor.rgb(102, 99, 116)
+        view.isHidden = true
+        return view
+    }()
+
     lazy var restoreButton: UIButton = {
         let attbuteStr = NSAttributedString(string: "Restore Purchase".localStr(), attributes: [.font: UIFontLight(13.ckValue()), .foregroundColor: UIColor.gray])
                         
@@ -197,7 +179,7 @@ class WelcomePaywallViewCell: UICollectionViewCell {
     }
     
     lazy var starImgView: UIImageView = {
-        let view = UIImageView(image: Reasource.named("gift_box"))
+        let view = UIImageView(image: Reasource.named("vip_gift_crown"))
         view.contentMode = .scaleAspectFit
         return view
     }()
@@ -211,18 +193,12 @@ class WelcomePaywallViewCell: UICollectionViewCell {
         return view
     }()
     
-    lazy var timerLabel: UILabel = {
-        let font = UIFontBold(16.ckValue())
-        let fontHeight = font.lineHeight + 32.ckValue()
-        let testText = "⏰ 01:00.00"
-        
-        let view = UILabel(frame: CGRectMake(0, 0, testText.width(font) + 50.ckValue(), fontHeight))
-        view.layer.masksToBounds = true
-        view.layer.cornerRadius = fontHeight / 2
-        view.backgroundColor = UIColor.systemBlue
+    private lazy var billingLabel: UILabel = {
+        let view = UILabel()
+        view.numberOfLines = 0
         view.textAlignment = .center
-        view.textColor = UIColor.white
-        view.font = font
+        view.textColor = UIColor.rgb(59, 65, 79)
+        view.font = UIFontBold(20.ckValue())
         return view
     }()
     
@@ -230,15 +206,17 @@ class WelcomePaywallViewCell: UICollectionViewCell {
         let view = UILabel()
         view.numberOfLines = 0
         view.text = "Unlock Premium".localStr()
-        view.font = UIFontBold(17.ckValue())
+        view.font = UIFontLight(16.ckValue())
         view.textColor = UIColor.rgb(102, 99, 116)
         view.textAlignment = .center
         return view
     }()
     
     lazy var viewVipButton: UIButton = {
-        let attbuteStr = NSAttributedString(string: "View All Benefits".localStr(), attributes: [.font: UIFontLight(12.ckValue()), .foregroundColor: UIColor.secondaryLabel, .underlineStyle: 1])
+        let attbuteStr = NSAttributedString(string: "Purchase.AllPlans".localStr(), attributes: [.font: UIFontLight(15.ckValue()), .foregroundColor: UIColor.rgb(59, 65, 79), .underlineStyle: 1])
         let view = UIButton(type: .custom)
+        view.titleLabel?.numberOfLines = 0
+        view.titleLabel?.textAlignment = .center
         view.setAttributedTitle(attbuteStr, for: .normal)
         view.addTarget(self, action: #selector(viewVipButtonClick), for: .touchUpInside)
         return view
@@ -249,4 +227,3 @@ class WelcomePaywallViewCell: UICollectionViewCell {
     }
     
 }
-

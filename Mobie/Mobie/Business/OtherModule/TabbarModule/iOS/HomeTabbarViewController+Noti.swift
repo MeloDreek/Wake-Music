@@ -24,16 +24,8 @@ extension HomeTabbarViewController {
         // 主题颜色已经变化
         NotificationCenter.default.addObserver(self, selector: #selector(appModeStyleChanged(_:)), name: Notification.Name(kAppThemeColorChangedKey), object: nil)
         
-        // 开始倒计时
-        NotificationCenter.default.addObserver(self, selector: #selector(setupDiscountTimer), name: Notification.Name(rawValue: kStartDiscountPriceKey), object: nil)
-        
         // 前往连接页面
         NotificationCenter.default.addObserver(self, selector: #selector(selectConnectPageNoti(_:)), name: Notification.Name(kJumpConnectPageKey), object: nil)
-        
-        // 开始倒计时
-        if DiscountIAPManager.shared.isShowDiscount() {
-            self.perform(#selector(setupDiscountTimer), with: nil, afterDelay: 1)
-        }
         
         // 新增了下载文件
         DownloadManager.shared.$taskArray.receive(on: DispatchQueue.main)
@@ -52,9 +44,6 @@ extension HomeTabbarViewController {
         
         // 隐藏MINI播放器
         self.localMusicCountChanged()
-        
-        // 如果是领取了优惠用户，引导好评
-        self.perform(#selector(guideFiveStarReview), with: nil, afterDelay: 9)
         
         // 检测支付记录
         AppStoreKitManager.shared.verifyPaymentRecords()
@@ -90,19 +79,6 @@ extension HomeTabbarViewController {
     @objc func appearanceChanged() {
         self.overrideUserInterfaceStyle = AppLocalManager.shared.appearanceStyle.userInterfaceStyle()
         self.setNeedsStatusBarAppearanceUpdate()
-    }
-    
-    @objc func guideFiveStarReview() {
-        
-        if UIApplication.shared.applicationState != .active {
-            return
-        }
-        
-        if AppLocalManager.shared.isReceiveOffer {
-            if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene {
-                SKStoreReviewController.requestReview(in: windowScene)
-            }
-        }
     }
     
     // 监听App即将进入前台

@@ -124,12 +124,10 @@ final class AppModeCoordinator {
         guard let root else { return }
         if let classic = root as? HomeTabbarViewController {
             classic.fileWatcher.stopWatching()
-            classic.timer.stopTimer()
             classic.cancellables.removeAll()
         } else if let classic = root as? MacTabbarViewController {
             classic.fileWatcher.stopWatching()
             classic.cancellables.removeAll()
-            if classic.isViewLoaded { classic.primaryVC.timer.stopTimer() }
         }
         // Cancel delayed root setup/review actions before their view disappears.
         NSObject.cancelPreviousPerformRequests(withTarget: root)

@@ -25,7 +25,7 @@ raise 'Unwanted trial copy remains' if catalog.key?(key)
 ui = read.call(app + 'Base/BaseUI/SuperViewController.swift')
 paywall = ui[/static func showRemoteConnectionPaywall.*?^    \}/m]
 raise 'Must confirm before opening paywall' unless paywall.include?('AppStoreKitManager.presentPurcharseVC(controller)') && paywall.include?('showTwoAlert')
-upsell = 'Upgrade to Premium at the lowest price currently available to unlock all remote features, plus upcoming Apple Watch and native CarPlay support.'
+upsell = 'Purchase.RemoteAccessMessage'
 translations = catalog.fetch(upsell).fetch('localizations')
 raise 'Missing upsell locales' unless translations.keys.sort == catalog.fetch('Queue.Title').fetch('localizations').keys.sort
 raise 'Incomplete upsell translations' unless translations.values.all? { |v| v.dig('stringUnit', 'state') == 'translated' && !v.dig('stringUnit', 'value').to_s.empty? }

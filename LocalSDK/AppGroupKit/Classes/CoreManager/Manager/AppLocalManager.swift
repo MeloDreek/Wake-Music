@@ -92,14 +92,6 @@ public class AppLocalManager: SmartCodableX, ObservableObject {
         }
     }
     
-    /// 是否领取了优惠
-    @SmartPublished
-    public var isReceiveOffer: Bool = false {
-        didSet {
-            save()
-        }
-    }
-    
     /// 删除引导好评
     @SmartPublished
     public var isDeleteRanting: Bool = false {

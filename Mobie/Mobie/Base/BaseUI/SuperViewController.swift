@@ -144,7 +144,7 @@ public class SuperViewController: UIViewController {
     }
 
     static func showRemoteConnectionPaywall(on controller: UIViewController) {
-        controller.showTwoAlert(message: "Upgrade to Premium at the lowest price currently available to unlock all remote features, plus upcoming Apple Watch and native CarPlay support.".localStr(), confirm: "Unlock Premium".localStr()) { [weak controller] in
+        controller.showTwoAlert(message: "Purchase.RemoteAccessMessage".localStr(), confirm: "Unlock Premium".localStr()) { [weak controller] in
             guard let controller else { return }
             AppStoreKitManager.presentPurcharseVC(controller)
         }

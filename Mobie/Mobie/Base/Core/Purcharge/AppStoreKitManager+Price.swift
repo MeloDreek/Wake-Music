@@ -13,21 +13,15 @@ import AppGroupKit
 extension AppStoreKitManager {
     
     /// 获取远程本地价格信息
-    public func refresRemoteProductsPrice(productIds: [PurchaseStoreID] = PurchaseStoreID.allCases, completion: (([StoreProduct])->Void)? = nil) {
+    public func refresRemoteProductsPrice(productIds: [PurchaseStoreID] = PurchaseStoreID.paywallProducts, completion: (([StoreProduct])->Void)? = nil) {
         
 #if !Target_Mobie_Pro
         
-        if AppStoreKitManager.shared.saleArray.isEmpty {
-            let defaultArr = StoreProduct.defaultProducts()
-            AppStoreKitManager.shared.saleArray = defaultArr
-            completion?(defaultArr)
-        }
-        
         let productIds = productIds.map { $0.rawValue }
         Purchases.shared.getProducts(productIds) { products in
-            
-            let goodsArray = products.sorted { model1, model2 in
-                return model1.price < model2.price
+            // 只展示 App Store 返回的真实商品，不能用虚构价格补齐缺失商品。
+            let goodsArray = PurchaseStoreID.paywallProducts.compactMap { id in
+                products.first { $0.productIdentifier == id.rawValue }
             }
             
             AppStoreKitManager.shared.saleArray = goodsArray

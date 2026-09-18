@@ -19,10 +19,6 @@ class WelcomeViewController: SuperViewController {
     override func preSetupSubViews() {
         super.preSetupSubViews()
         
-        if !DiscountIAPManager.shared.isShowDiscount() {
-            DiscountIAPManager.reset()
-        }
-        
         contentView.addSubview(collectionView)
         contentView.addSubview(bottomView)
         
@@ -108,57 +104,6 @@ class WelcomeViewController: SuperViewController {
         }
     }
     
-    @objc func postTimerNoti() {
-        
-        self.timer.startTimer(seconds: 0.01, repeats: true, callSoon: true) { [weak self] vTime in
-            guard let wSelf = self else { return }
-            guard let lastDiscountTime = DiscountIAPManager.shared.lastDiscountTime else {
-                vTime.stopTimer()
-                DiscountIAPManager.markDiscountStarted()
-                return
-            }
-            
-            let nowDate = Date()
-            
-            var leftTime = nowDate.timeIntervalSince1970 - lastDiscountTime
-            leftTime = wSelf.maxDiscountTime - leftTime
-            
-            if leftTime < 0 {
-                vTime.stopTimer()
-                DiscountIAPManager.markDiscountStarted()
-            }
-            
-            self?.updateDiscountTime(leftTime)
-        }
-    }
-    
-    @objc func updateDiscountTime(_ leftTime: Double) {
-        
-        guard let payHeadCell = self.paywallCell ?? (self.collectionView.visibleCells.filter { $0 is WelcomePaywallViewCell }.first as? WelcomePaywallViewCell) else { return }
-                
-        if self.paywallCell == nil {
-            self.paywallCell = payHeadCell
-        }
-        
-        if leftTime <= 0 {
-            payHeadCell.timerLabel.text = ""
-            payHeadCell.timerLabel.isHidden = true
-            if self.currentViewController() is WelcomeViewController {
-                self.finishAllPage()
-            }
-            return
-        }
-        
-        let totalMilliseconds = Int(leftTime * 100)
-        let hours = totalMilliseconds / (60 * 60 * 100)
-        let minutes = (totalMilliseconds % (60 * 60 * 100)) / (60 * 100)
-        let seconds = (totalMilliseconds % (60 * 100)) / 100
-        let milliseconds = totalMilliseconds % 100
-        
-        let timerString = String(format: "⏰ %02d:%02d:%02d.%02d", hours, minutes, seconds, milliseconds)
-        payHeadCell.timerLabel.text = timerString
-    }
-    
     // 网络状态变化了
     @objc func reachabilityChanged(note: Notification) {
                 
@@ -209,40 +154,19 @@ class WelcomeViewController: SuperViewController {
 //        }
         
         // 提取内购价格
-        self.purchaseManager.refresRemoteProductsPrice { products in
-            
-            guard products.count > 0 else { return }
-            
-            let lifetime1Model = products.filter { $0.productIdentifier == PurchaseStoreID.lifetime198.rawValue }.first
-            let lifetime2Model = products.filter { $0.productIdentifier == PurchaseStoreID.lifetime298.rawValue }.first
-            
-            let weekModel = products.filter { $0.productIdentifier == PurchaseStoreID.weekly.rawValue }.first
-            let yearModel = products.filter { $0.productIdentifier == PurchaseStoreID.yearly.rawValue }.first
-            
-            let tempSubArray = [weekModel, yearModel].compactMap { $0 }.sorted { product1, product2 in
-                return product1.price < product2.price
+        self.purchaseManager.refresRemoteProductsPrice { [weak self] products in
+            DispatchQueue.main.async {
+                guard let self else { return }
+                self.productArray = PurchaseStoreID.paywallProducts.compactMap { storeID in
+                    products.first { $0.productIdentifier == storeID.rawValue }
+                }
+                // Recommend a full year of Premium, without artificial urgency or trial promises.
+                self.selectModel = self.productArray.first {
+                    $0.productIdentifier == PurchaseStoreID.yearly.rawValue
+                } ?? self.productArray.first
+                self.updateContinueButton()
+                self.collectionView.reloadData()
             }
-            
-            let lifetimeArray = [lifetime1Model, lifetime2Model].compactMap { $0 }.sorted { product1, product2 in
-                return product1.price < product2.price
-            }
-            
-            let newSubArray = [tempSubArray.first].compactMap { $0 } // 主推周会员
-//            let newSubArray = [tempSubArray.last].compactMap { $0 } // 主推年会员
-                        
-            let isLifetimeOffer = (lifetime1Model?.price == 0) || (lifetime2Model?.price == 0)
-            let isFreeTrial = (weekModel?.hasFreeTrial ?? false) || (yearModel?.hasFreeTrial ?? false)
-            
-            if isLifetimeOffer { // 终身限免最高优
-                self.productArray = lifetimeArray
-                self.selectModel = lifetimeArray.first
-            }else{
-                // 推荐免费试用产品
-                self.productArray = isFreeTrial ? newSubArray : lifetimeArray
-                self.selectModel = isFreeTrial ? newSubArray.first : lifetimeArray.first
-            }
-            
-            self.collectionView.reloadData()
         }
 #else
 //        MusicConfigManager.shared.playerEngine = .wakePlayer
@@ -279,17 +203,19 @@ class WelcomeViewController: SuperViewController {
     
     // 下一页
     @objc func nextButtonClick() {
-        
-        self.currentIndex += 1
-        
-        if self.currentIndex >= dataArray.count {
+        guard !isProcessingPurchase else { return }
+
+        let nextIndex = self.currentIndex + 1
+        if nextIndex >= dataArray.count {
             if (self.dataArray.last?.isPurchase ?? false) && !UserInfoManager.shared.isVIP() {
+                guard self.selectModel != nil else { return }
                 self.continePurchase()
             }else{
                 self.finishAllPage()
             }
             return
         }
+        self.currentIndex = nextIndex
         
         self.view.backgroundColor = dataArray[currentIndex].backColor
         pageControl.currentPage = currentIndex
@@ -329,7 +255,8 @@ class WelcomeViewController: SuperViewController {
             
             let subModel = dataArray[currentIndex]
             pageControl.isHidden = subModel.isPurchase
-            privacyLabel.isHidden = subModel.isPurchase
+            // 购买页同样保留可访问的隐私政策与服务条款。
+            privacyLabel.isHidden = false
             
             let isFirst = currentIndex == 0
             nextButton.backgroundColor = isFirst ? .white : .black
@@ -339,40 +266,7 @@ class WelcomeViewController: SuperViewController {
             pageControl.overrideUserInterfaceStyle = isFirst ? .dark : .light
                         
             
-            if let selectModel = self.selectModel, subModel.isPurchase {
-                if selectModel.price == 0 {
-                    let priceTitle = String(format: "Payment %@".localStr(), selectModel.localizedPriceString)
-                    nextButton.setTitle(priceTitle, for: .normal)
-                }else{
-                    let freeTrailDays = selectModel.freeTrialDays ?? 0
-                    let freeTrialStr = String(format: "Free Trial for %d Days".localStr(), freeTrailDays)
-                    
-                    nextButton.setTitle(freeTrailDays > 0 ? freeTrialStr : "Continue".localStr(), for: .normal)
-                }
-                
-                if selectModel.productType == .nonConsumable {
-                    self.perform(#selector(postTimerNoti), with: nil, afterDelay: 0.5)
-                }
-                
-            }else{
-                self.nextButton.setTitle("Continue".localStr(), for: .normal)
-            }
-            
-//            let subModel = dataArray[currentIndex]
-//            privacyLabel.isHidden = subModel.isPurchase
-//            
-//            let isFirst = currentIndex == 0
-//            nextButton.backgroundColor = isFirst ? .white : .black
-//            nextButton.setTitleColor(isFirst ? .black : .white, for: .normal)
-//            
-//            let freeTrailDays = self.selectModel?.freeTrialDays ?? 0
-//            let freeTrialStr = String(format: "Free Trial for %d Days".localStr(), "\(freeTrailDays)")
-//            nextButton.setTitle((subModel.isPurchase && freeTrailDays > 0) ? freeTrialStr : "Continue".localStr(), for: .normal)
-//            
-//            privacyLabel.overrideUserInterfaceStyle = isFirst ? .dark : .light
-//            pageControl.overrideUserInterfaceStyle = isFirst ? .dark : .light
-//            
-//            self.postTimerNoti()
+            updateContinueButton()
         }
     }
     
@@ -386,16 +280,30 @@ class WelcomeViewController: SuperViewController {
     
     // 选中的内购产品
     var selectModel: StoreProduct?
-    
-    // 支付Cell
-    var paywallCell: WelcomePaywallViewCell?
+
+    // Both purchasing and restoring are single-flight operations during onboarding.
+    var isProcessingPurchase = false {
+        didSet {
+            updateContinueButton()
+            collectionView.visibleCells.compactMap { $0 as? WelcomePaywallViewCell }.forEach {
+                $0.isProcessingPurchase = isProcessingPurchase
+            }
+        }
+    }
     
     // 内购产品
     lazy var productArray: [StoreProduct] = {
-        return AppStoreKitManager.shared.saleArray
+        return PurchaseStoreID.paywallProducts.compactMap { storeID in
+            AppStoreKitManager.shared.saleArray.first { $0.productIdentifier == storeID.rawValue }
+        }
     }()
-    
-    let maxDiscountTime: Double = DiscountIAPManager.shared.maxDiscountTime
+
+    private func updateContinueButton() {
+        let isPurchasePage = dataArray.indices.contains(currentIndex) && dataArray[currentIndex].isPurchase
+        nextButton.setTitle("Continue".localStr(), for: .normal)
+        nextButton.isEnabled = !isProcessingPurchase && (!isPurchasePage || selectModel != nil || UserInfoManager.shared.isVIP())
+        nextButton.alpha = nextButton.isEnabled ? 1 : 0.45
+    }
     
     // MARK:  懒加载
     lazy var collectionView: UICollectionView = {
@@ -425,10 +333,6 @@ class WelcomeViewController: SuperViewController {
         layout.minimumLineSpacing = 0
         layout.minimumInteritemSpacing = 0
         return layout
-    }()
-    
-    lazy var timer: KakaTimer = {
-        return KakaTimer()
     }()
     
     lazy var purchaseManager: AppStoreKitManager = {
@@ -556,7 +460,8 @@ extension WelcomeViewController: UICollectionViewDataSource, UICollectionViewDel
         }else if subModel.isPurchase {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "WelcomePaywallViewCell", for: indexPath) as! WelcomePaywallViewCell
             cell.delegate = self
-            cell.products = self.productArray
+            cell.product = self.selectModel
+            cell.isProcessingPurchase = isProcessingPurchase
             return cell
         }else{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "WelcomeBaseCollectCell", for: indexPath) as! WelcomeBaseCollectCell
@@ -585,23 +490,29 @@ extension WelcomeViewController: WelcomePaywallCellDelegate {
     
     // 进入限制版
     func welcomePurchaseDidLimited(cell: WelcomePaywallViewCell) {
+        guard !isProcessingPurchase else { return }
         self.finishAllPage()
     }
     
     // 恢复购买
     func welcomePurchaseDidRestore(cell: WelcomePaywallViewCell) {
+        guard !isProcessingPurchase else { return }
+        isProcessingPurchase = true
         ProgressHUD.animate("Processing...".localStr())
         self.purchaseManager.restorePurcharge { [weak self] () in
             self?.verfityPurchageRecord()
-        } fail: { errorMsg in
+        } fail: { [weak self] errorMsg in
+            self?.isProcessingPurchase = false
+            ProgressHUD.dismiss()
             ProgressHUD.failed(errorMsg)
         }
     }
     
-    // 查看全部权益
+    // 查看全部方案；取消后仍停留在引导页，只有完成购买才结束引导。
     func welcomePurchaseDidAllBenefit(cell: WelcomePaywallViewCell) {
-        AppStoreKitManager.presentPurcharseVC(self, animated: true, cancel:  { [weak self] () in
-            self?.perform(#selector(self?.finishAllPage), with: nil, afterDelay: 2)
+        guard !isProcessingPurchase else { return }
+        AppStoreKitManager.presentPurcharseVC(self, animated: true, success: { [weak self] in
+            self?.finishAllPage()
         })
     }
     
@@ -609,6 +520,8 @@ extension WelcomeViewController: WelcomePaywallCellDelegate {
     func verfityPurchageRecord() {
         
         Purchases.shared.getCustomerInfo(fetchPolicy: .default) { [weak self] customerInfo, error in
+            self?.isProcessingPurchase = false
+            ProgressHUD.dismiss()
             
             if let activePremium = customerInfo?.entitlements.all[PremiumEntitlID], activePremium.isActive {
                 self?.purchaseManager.handlePayBigModel(activePremium: activePremium)

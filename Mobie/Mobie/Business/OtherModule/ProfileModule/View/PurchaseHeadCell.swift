@@ -61,14 +61,6 @@ class PurchaseHeadCell: UITableViewCell {
         self.accessoryType = .none
     }
     
-    // MARK:  GET && SET 
-    var isDiscount: Bool = true {
-        didSet {
-            starImgView.image = Reasource.named(isDiscount ? "gift_box" : "vip_gift_crown")
-        }
-    }
-    
-    
     // MARK:  懒加载 
     lazy var starImgView: UIImageView = {
         let view = UIImageView(image: Reasource.named("vip_gift_crown"))
@@ -97,4 +89,3 @@ class PurchaseHeadCell: UITableViewCell {
     }()
     
 }
-

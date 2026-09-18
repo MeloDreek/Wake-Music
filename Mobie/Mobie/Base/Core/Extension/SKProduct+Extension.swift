@@ -110,31 +110,11 @@ extension EntitlementInfo {
             return .normal
         }
         
-        let isSubscription = (/*goodsID == .weekly || */goodsID == .yearly)
-        
-        if isSubscription {
-            // 判断订阅状态
-            if self.isActive {
-                // 检查到期日期
-                if let expirationDate = self.expirationDate {
-                    // 如果到期日期在未来，则用户处于有效订阅状态
-                    return expirationDate > Date() ? .subscribing : .expired
-                } else {
-                    // 如果没有到期日期，表示是永久订阅
-                    return .subscribing
-                }
-            } else {
-                // 如果订阅不活跃，可能是退款或未支付
-                if self.billingIssueDetectedAt != nil || self.unsubscribeDetectedAt != nil {
-                    return .refunded
-                }
-                
-                return .normal
-            }
-        } else {
-            // 处理非订阅情况
-            return self.isActive ? .lifetime : .refunded
+        // RevenueCat 的有效权益包含宽限期和家庭共享；取消续订不等于退款。
+        if goodsID.isSubscription {
+            return self.isActive ? .subscribing : .expired
         }
+        return self.isActive ? .lifetime : .refunded
     }
     
 }

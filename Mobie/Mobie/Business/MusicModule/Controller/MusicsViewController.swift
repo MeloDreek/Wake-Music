@@ -251,18 +251,8 @@ class MusicsViewController: SuperViewController {
     }
         
     lazy var premiumBarItem: UIBarButtonItem = {
-        let timerView = PremiumTimerView(frame: CGRectMake(0, 0, PremiumTimerView.maxWidth(), 30.ckValue()))
-        timerView.onStopCallback = { [weak self] () in
-            self?.navigationItem.leftBarButtonItems = nil
-        }
-        timerView.addTarget(self, action: #selector(vipCenterClick), for: .touchUpInside)
-        
-        let item = UIBarButtonItem(customView: timerView)
-        item.style = .done
-        if #available(iOS 26.0, *) {
-            item.hidesSharedBackground = true
-        }
-        item.width = PremiumTimerView.maxWidth()
+        let item = UIBarButtonItem(image: UIImage(systemName: "crown"), style: .plain, target: self, action: #selector(vipCenterClick))
+        item.accessibilityLabel = "Unlock Premium".localStr()
         return item
     }()
     

@@ -1,204 +1,129 @@
-//
-//  PurchasePriceCell.swift
-//  Wakemusic
-//
-//  Created by Kaka Inc. on 2024/1/28.
-//
+// PurchasePriceCell.swift
+// A compact plan picker; full billing terms remain next to the purchase button.
 
 import KakaFoundation
-import KakaUIKit
 import AppGroupKit
 import RevenueCat
 
-
 class PurchasePriceCell: UITableViewCell {
+    private let selectionImage = UIImageView()
+    private let nameLabel = UILabel()
+    private let detailLabel = UILabel()
+    private let priceLabel = UILabel()
+    private let recommendationLabel = UILabel()
+    private let recommendationView = UIView()
+    private let titleStack = UIStackView()
+    private let priceStack = UIStackView()
+    private let rowStack = UIStackView()
+    private var priceWidthConstraint: NSLayoutConstraint!
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        self.preSetupSubViews()
-        self.preSetupContains()
-        self.preSetupHandleBuness()
+        selectionImage.contentMode = .scaleAspectFit
+        selectionImage.tintColor = appMainColor
+        titleStack.axis = .vertical
+        titleStack.spacing = 4
+        titleStack.addArrangedSubview(nameLabel)
+        titleStack.addArrangedSubview(detailLabel)
+        nameLabel.font = .preferredFont(forTextStyle: .headline)
+        detailLabel.font = .preferredFont(forTextStyle: .subheadline)
+        detailLabel.textColor = .secondaryLabel
+        priceLabel.font = .preferredFont(forTextStyle: .headline)
+        recommendationLabel.font = .preferredFont(forTextStyle: .caption2)
+        recommendationLabel.textColor = .white
+        recommendationLabel.textAlignment = .center
+        recommendationView.backgroundColor = .systemRed
+        recommendationView.layer.cornerRadius = 5
+        for label in [nameLabel, detailLabel, priceLabel, recommendationLabel] {
+            label.numberOfLines = 0
+            label.adjustsFontForContentSizeCategory = true
+        }
+        nameLabel.textAlignment = .natural
+        detailLabel.textAlignment = .natural
+        recommendationView.addSubview(recommendationLabel)
+        recommendationLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            recommendationLabel.leadingAnchor.constraint(equalTo: recommendationView.leadingAnchor, constant: 7),
+            recommendationLabel.trailingAnchor.constraint(equalTo: recommendationView.trailingAnchor, constant: -7),
+            recommendationLabel.topAnchor.constraint(equalTo: recommendationView.topAnchor, constant: 3),
+            recommendationLabel.bottomAnchor.constraint(equalTo: recommendationView.bottomAnchor, constant: -3)
+        ])
+        priceStack.axis = .vertical
+        priceStack.alignment = .trailing
+        priceStack.spacing = 5
+        priceStack.addArrangedSubview(priceLabel)
+        priceStack.addArrangedSubview(recommendationView)
+        priceStack.setContentHuggingPriority(.required, for: .horizontal)
+        priceStack.setContentCompressionResistancePriority(.required, for: .horizontal)
+        rowStack.axis = .horizontal
+        rowStack.alignment = .center
+        rowStack.spacing = 12
+        rowStack.addArrangedSubview(titleStack)
+        rowStack.addArrangedSubview(priceStack)
+        contentView.addSubview(selectionImage)
+        contentView.addSubview(rowStack)
+        selectionImage.translatesAutoresizingMaskIntoConstraints = false
+        rowStack.translatesAutoresizingMaskIntoConstraints = false
+        // Keep a long localized price from taking the entire row away from the title.
+        // At accessibility sizes the columns become stacked instead.
+        priceWidthConstraint = priceStack.widthAnchor.constraint(lessThanOrEqualTo: rowStack.widthAnchor, multiplier: 0.46)
+        NSLayoutConstraint.activate([
+            selectionImage.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+            selectionImage.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            selectionImage.widthAnchor.constraint(equalToConstant: 19),
+            selectionImage.heightAnchor.constraint(equalToConstant: 19),
+            rowStack.leadingAnchor.constraint(equalTo: selectionImage.trailingAnchor, constant: 12),
+            rowStack.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
+            rowStack.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 12),
+            rowStack.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -12),
+            contentView.heightAnchor.constraint(greaterThanOrEqualToConstant: 70)
+        ])
+        updateLayoutDirectionAndTextSize()
+        isAccessibilityElement = true
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    private func preSetupSubViews() {
-        self.selectionStyle = .default
-        contentView.addSubview(selectImgView)
-        contentView.addSubview(nameLabel)
-        contentView.addSubview(recommentView)
-        contentView.addSubview(timeLabel)
-        contentView.addSubview(priceLabel)
-        contentView.addSubview(price298Label)
-    }
-    
-    private func preSetupContains() {
-        selectImgView.snp.makeConstraints { make in
-            make.centerY.equalToSuperview()
-            make.leading.equalTo(20.ckValue())
-            make.size.equalTo(21.ckValue())
-        }
-        
-        nameLabel.snp.makeConstraints { make in
-            make.leading.equalTo(selectImgView.snp.trailing).offset(16.ckValue())
-            make.bottom.equalTo(selectImgView.snp.centerY)
-            make.size.greaterThanOrEqualTo(0)
-        }
-        
-        timeLabel.snp.makeConstraints { make in
-            make.leading.equalTo(nameLabel)
-            make.top.equalTo(nameLabel.snp.bottom).offset(3.ckValue())
-            make.size.greaterThanOrEqualTo(0)
-        }
-        
-        recommentView.snp.makeConstraints { make in
-            make.trailing.bottom.equalToSuperview()
-            make.size.equalTo(recommentView.size)
-        }
-        
-        priceLabel.snp.makeConstraints { make in
-            make.trailing.equalToSuperview().inset(15.ckValue())
-            make.centerY.equalToSuperview()
-            make.size.greaterThanOrEqualTo(0)
-        }
-        
-    }
-    
-    private func preSetupHandleBuness() {
-        
-    }
-    
-    // MARK:  GET && SET
-    var leftDiscountTime: Double = 0 {
-        didSet {
-            
-            let totalMilliseconds = Int(leftDiscountTime * 100)
-            let hours = totalMilliseconds / (60 * 60 * 100)
-            let minutes = (totalMilliseconds % (60 * 60 * 100)) / (60 * 100)
-            let seconds = (totalMilliseconds % (60 * 100)) / 100
-            let milliseconds = totalMilliseconds % 100
-            
-            let timerString = String(format: "⏰ %02d:%02d:%02d.%02d", hours, minutes, seconds, milliseconds)
-            self.timeLabel.text = timerString
-            
-        }
-    }
-    
-    func update(model: StoreProduct, isSelect: Bool) {
-        let products = AppStoreKitManager.shared.saleArray
-        
-        let discountModel = products.filter { $0.productIdentifier == PurchaseStoreID.lifetime198.rawValue }.first
-        let lifetimeModel = products.filter { $0.productIdentifier == PurchaseStoreID.lifetime298.rawValue }.first
-        
-        let lifetimeArray = [discountModel, lifetimeModel].compactMap { $0 }.sorted { product1, product2 in
-            return product1.price < product2.price
-        }
-        
-        selectImgView.isSelected = isSelect
-        recommentView.isHidden = model.productIdentifier != lifetimeArray.first?.productIdentifier
-        price298Label.isHidden = recommentView.isHidden
-        
-        nameLabel.text = model.localizedTitle
-        priceLabel.text = model.localizedPriceString
-        price298Label.attributedText = self.priceAttbuteStr(lifetimeArray)
-        
-        let saveStr = lifetimeArray.calculateDiscountPercentage().formatted(.percent.precision(.fractionLength(0...2)))
-        recommentView.text = String(format: "Save %@".localStr(), saveStr)
-        
-        let isAutoRenew = model.productType == .autoRenewableSubscription
-        timeLabel.text = model.secondStr()
-        timeLabel.textColor = model.secondTextColor()
-        
-        if isAutoRenew {
-            priceLabel.snp.remakeConstraints { make in
-                make.trailing.equalToSuperview().inset(15.ckValue())
-                make.centerY.equalToSuperview()
-                make.size.greaterThanOrEqualTo(0)
-            }
-            
-            price298Label.snp.removeConstraints()
-        }else{
-            priceLabel.snp.remakeConstraints { make in
-                make.trailing.equalToSuperview().inset(15.ckValue())
-                make.centerY.equalTo(nameLabel)
-                make.size.greaterThanOrEqualTo(0)
-            }
-            
-            price298Label.snp.remakeConstraints { make in
-                make.trailing.equalToSuperview().inset(15.ckValue())
-                make.centerY.equalTo(timeLabel)
-                make.size.greaterThanOrEqualTo(0)
-            }
-        }
-        
-    }
-    
-    func priceAttbuteStr(_ lifetimeArray: [StoreProduct]) -> NSAttributedString {
-        let price = lifetimeArray.last
-        
-        let attbuteStr = NSAttributedString(string: (price?.localizedPriceString ?? "$29.99"), attributes: [.font: UIFontLight(13.ckValue()), .foregroundColor: UIColor.secondaryLabel, .strikethroughStyle: 1])
-        
-        return attbuteStr
-    }
-    
-    // MARK:  懒加载
-    lazy var selectImgView: UIButton = {
-        let view = UIButton()
-        view.isUserInteractionEnabled = false
-        view.setBackgroundImage(Reasource.systemNamed("circle", color: .label), for: .normal)
-        view.setBackgroundImage(Reasource.systemNamed("checkmark.circle.fill", color: appMainColor), for: .selected)
-        return view
-    }()
-    
-    lazy var nameLabel: UILabel = {
-        let view = UILabel()
-        view.textColor = UIColor.label
-        view.font = UIFontBold(16.ckValue())
-        view.textAlignment = PhoneSetManager.isArabicLanguage() ? .right : .left
-        return view
-    }()
-    
-    lazy var priceLabel: UILabel = {
-        let view = UILabel()
-        view.textColor = UIColor.label
-        view.font = UIFontBold(14.ckValue())
-        view.textAlignment = PhoneSetManager.isArabicLanguage() ? .left : .right
-        return view
-    }()
-    
-    // 原价
-    lazy var price298Label: UILabel = {
-        let view = UILabel()
-        view.textAlignment = priceLabel.textAlignment
-        return view
-    }()
-    
-    lazy var timeLabel: UILabel = {
-        let view = UILabel()
-        view.text = "23:59:59.99"
-        view.textColor = UIColor.systemRed
-        view.font = UIFontLight(12.ckValue())
-        view.textAlignment = nameLabel.textAlignment
-        return view
-    }()
-    
-    lazy var recommentView: UILabel = {
-        let text = String(format: "Save %@".localStr(), 46.5.formatted(.percent.precision(.fractionLength(0...2))))
-        let font = UIFontLight(10.ckValue())
-        let corners: UIRectCorner = PhoneSetManager.isArabicLanguage() ? [UIRectCorner.topRight] : [UIRectCorner.topLeft]
-        
-        let height = font.lineHeight + 4.ckValue()
-        let view = UILabel(frame: CGRectMake(0, 0, text.width(font) + 15.ckValue(), height))
-        view.text = text
-        view.layer.masksToBounds = true
-        view.corner(byRoundingCorners: corners, radii: 12.ckValue())
-        view.backgroundColor = UIColor.systemRed
-        view.font = font
-        view.textColor = UIColor.white
-        view.textAlignment = .center
-        return view
-    }()
-    
-}
 
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        updateLayoutDirectionAndTextSize()
+    }
+
+    override func layoutSubviews() {
+        let isRTL = effectiveUserInterfaceLayoutDirection == .rightToLeft
+        let direction: UISemanticContentAttribute = isRTL ? .forceRightToLeft : .forceLeftToRight
+        if rowStack.semanticContentAttribute != direction {
+            rowStack.semanticContentAttribute = direction
+            priceStack.semanticContentAttribute = direction
+        }
+        super.layoutSubviews()
+        priceLabel.textAlignment = isRTL ? .left : .right
+    }
+
+    private func updateLayoutDirectionAndTextSize() {
+        let useVerticalLayout = traitCollection.preferredContentSizeCategory.isAccessibilityCategory
+        priceWidthConstraint.isActive = !useVerticalLayout
+        rowStack.axis = useVerticalLayout ? .vertical : .horizontal
+        rowStack.alignment = useVerticalLayout ? .fill : .center
+        rowStack.spacing = useVerticalLayout ? 8 : 12
+    }
+
+    func update(model: StoreProduct, isSelect: Bool, subtitle: String? = nil) {
+        selectionImage.image = UIImage(systemName: isSelect ? "checkmark.circle.fill" : "circle")
+        nameLabel.text = model.paywallTitle
+        let detail = subtitle?.trimmingCharacters(in: .whitespacesAndNewlines)
+        detailLabel.text = detail
+        detailLabel.isHidden = detail?.isEmpty != false
+        priceLabel.text = model.localizedPriceString
+        let isRecommended = model.productIdentifier == PurchaseStoreID.lifetime198.rawValue
+        recommendationLabel.text = isRecommended ? "Purchase.BestChoice".localStr() : nil
+        recommendationView.isHidden = !isRecommended
+        accessibilityLabel = [model.paywallTitle, detail, model.localizedPriceString, recommendationLabel.text]
+            .compactMap { $0 }
+            .filter { !$0.isEmpty }
+            .joined(separator: ", ")
+        accessibilityTraits = isSelect ? [.button, .selected] : .button
+    }
+}

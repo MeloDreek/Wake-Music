@@ -20,10 +20,6 @@ extension AppStoreKitManager {
             return
         }
         
-        if !DiscountIAPManager.shared.isShowDiscount() {
-            DiscountIAPManager.reset()
-        }
-        
         let vipVC = PurchaseViewController()
         vipVC.onCancelBlock = cancel
         vipVC.onPaySuccess = success

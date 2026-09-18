@@ -17,12 +17,9 @@ extension WelcomeViewController {
     
     // 引导支付
     @objc func continePurchase() {
+        guard !isProcessingPurchase, let vModel = self.selectModel else { return }
         
-        guard let vModel = self.selectModel else {
-            self.finishAllPage()
-            return
-        }
-        
+        isProcessingPurchase = true
         ProgressHUD.animate("Processing...".localStr())
         self.purchaseManager.startPurcharge(product: vModel) { [weak self] (enInfo) in
             guard let wSelf = self else { return }
@@ -30,8 +27,9 @@ extension WelcomeViewController {
             wSelf.verfityPurchageRecord()
             
         } failBlock: { [weak self] errorMsg in
-            guard let wSelf = self else { return }
             ProgressHUD.dismiss()
+            guard let wSelf = self else { return }
+            wSelf.isProcessingPurchase = false
             if errorMsg == KakaError.youhaveCanceled.errorDescription {
                 wSelf.view.makeToast(errorMsg)
             }else{

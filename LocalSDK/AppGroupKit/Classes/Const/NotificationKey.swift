@@ -17,20 +17,11 @@ public let kAppearanceChangedKey = "kAppearanceChangedKey"
 /// 支付成功，提示打开自动云同步
 public let kPurchageSuccessKey = "kPurchageSuccessKey"
 
-/// 弹出限时折扣大礼包
-public let kLifetimeDiscountKey = "kLifetimeDiscountKey"
-
 /// 本地音乐变化了，需要刷新列表
 public let kLocalMusicChangedKey = "kLocalMusicChangedKey"
 
 /// 播放引擎变化了
 public let kPlayerEngineChangedKey = "kPlayerEngineChangedKey"
-
-/// 更新折扣倒计时
-public let kDiscountLeftTimeKey = "kDiscountLeftTimeKey"
-
-/// 开始折扣倒计时
-public let kStartDiscountPriceKey = "kStartDiscountPriceKey"
 
 /// 远程音乐变化了
 public let kRemoteMusicChangedKey = "kRemoteMusicChangedKey"

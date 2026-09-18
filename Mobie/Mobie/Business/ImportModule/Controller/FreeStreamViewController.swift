@@ -92,15 +92,6 @@
 //        
 //    }
 //    
-//    @objc func vipCenterClick() {
-//        
-//        if !DiscountIAPManager.shared.isShowDiscount() {
-//            DiscountIAPManager.reset()
-//        }
-//        
-//        self.vipCenterClick()
-//    }
-//    
 //    // MARK:  GET && SET
 //    lazy var dataArray: [BroadcastsType] = {
 //        return BroadcastsType.allChannel()

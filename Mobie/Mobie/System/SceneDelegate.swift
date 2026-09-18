@@ -53,7 +53,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //        ColorFontManager.reset()
 //        ConnectConfigManager.reset()
 //        DownloadManager.reset()
-//        DiscountIAPManager.reset()
 //#endif
         
         ConnectConfigManager.updateConnectNewData()

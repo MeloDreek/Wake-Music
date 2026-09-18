@@ -22,8 +22,8 @@ extension MusicsViewController {
         // 编辑信息通知
         NotificationCenter.default.addObserver(self, selector: #selector(refreshDataAction), name: Notification.Name(kLocalMusicChangedKey), object: nil)
         
-        // 开始折扣倒计时
-        NotificationCenter.default.addObserver(self, selector: #selector(setupNavigationItem), name: Notification.Name(rawValue: kStartDiscountPriceKey), object: nil)
+        // 购买成功后隐藏高级版入口
+        NotificationCenter.default.addObserver(self, selector: #selector(setupNavigationItem), name: Notification.Name(rawValue: kPurchageSuccessKey), object: nil)
                 
         
         // 当前音乐模型
@@ -73,4 +73,3 @@ extension MusicsViewController {
     }
 
 }
-

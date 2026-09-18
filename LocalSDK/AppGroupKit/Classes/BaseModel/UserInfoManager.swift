@@ -69,11 +69,17 @@ public class UserInfoManager: SmartCodableX, ObservableObject {
         }
     }
     
-    /// VIP到期的毫秒时间戳
+    /// VIP 到期的 Unix 秒时间戳；旧版本缓存也可能是毫秒。
     @SmartPublished public var expireDate: TimeInterval? {
         didSet {
             save()
         }
+    }
+
+    public var membershipExpirationDate: Date? {
+        guard let timestamp = expireDate, timestamp.isFinite, timestamp > 0 else { return nil }
+        let seconds = timestamp >= 100_000_000_000 ? timestamp / 1000 : timestamp
+        return Date(timeIntervalSince1970: seconds)
     }
     
     /// 是否处于免费试用期

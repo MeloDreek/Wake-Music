@@ -154,6 +154,13 @@ final class AudioEngineDynamicsPlayer {}
         expect(bad.normalized().preamp == -12 && bad.outputGain == -24, "minimum combined gain")
         bad.gains = Array(repeating: -6, count: 13)
         expect(bad.normalized().gains.count == 10 && bad.outputGain == -12, "cuts do not require extra headroom")
+        expect(PlayerEqualizerPreset.factoryPresets.count >= 20, "at least twenty factory presets")
+        expect(!PlayerEqualizerPreset.factoryPresets.contains(.custom), "custom is not a factory preset")
+        let curves = PlayerEqualizerPreset.factoryPresets.compactMap(\.curve)
+        expect(Set(curves).count == curves.count, "factory presets have distinct curves")
+        for raw in ["flat", "bass", "vocal", "rock", "jazz", "acoustic", "custom"] {
+            expect(PlayerEqualizerPreset(rawValue: raw) != nil, "legacy preset IDs remain readable")
+        }
         for preset in PlayerEqualizerPreset.allCases {
             var settings = blank
             settings.isEnabled = true

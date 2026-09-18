@@ -15,10 +15,21 @@ public enum PurchaseStoreID: String, SmartCaseDefaultable {
 //    case option2 = "com.OfflineMusic.www.12"  // 捐赠选项2
 //    case option3 = "com.OfflineMusic.www.18"  // 捐赠选项3
     
-    case weekly = "com.OfflineMusic.www.Weekly"
+    case weekly = "com.OfflineMusic.www.Weekly"              // 周会员
+    case monthly = "com.OfflineMusic.www.Monthly"            // 月度会员
     case yearly = "com.OfflineMusic.www.Annual"              // 年度VIP
-    case lifetime198 = "com.OfflineMusic.www.lifetime198"    // 买断制折扣价
-    case lifetime298 = "com.OfflineMusic.www.lifetime298"    // 买断制原价
+    case lifetime198 = "com.OfflineMusic.www.lifetime198"    // 个人终身会员（保留原商品 ID）
+    case lifetime298 = "com.OfflineMusic.www.lifetime298"    // 家庭共享终身会员（保留原商品 ID）
+
+    /// 展示顺序与价格无关；Weekly 仅保留已有购买的识别与恢复。
+    public static let paywallProducts: [PurchaseStoreID] = [.monthly, .yearly, .lifetime198, .lifetime298]
+
+    public var isSubscription: Bool {
+        switch self {
+        case .weekly, .monthly, .yearly: return true
+        case .lifetime198, .lifetime298: return false
+        }
+    }
 }
 
 public enum PurchargeStatus: String, SmartCaseDefaultable {
@@ -70,4 +81,3 @@ extension Product {
         return monthlyPrice.formatted(self.priceFormatStyle)
     }
 }
-

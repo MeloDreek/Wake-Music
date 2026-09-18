@@ -18,11 +18,11 @@ extension UserInfoManager {
         switch payStatus {
         case .normal: return "Basic User".localStr()
         case .subscribing, .expired:
-            guard let expireDate = self.expireDate, expireDate > 1 else {
+            guard let expireDate = self.membershipExpirationDate else {
                 return "Premium Expired".localStr()
             }
             
-            let dateStr = Date(timeIntervalSince1970: (expireDate/1000).rounded()).convertToDateString(dateFormat: "yyyy-MM-dd")
+            let dateStr = expireDate.convertToDateString(dateFormat: "yyyy-MM-dd")
             return dateStr
         case .lifetime: return "♾️"
         case .refunded: return "Refunded".localStr()

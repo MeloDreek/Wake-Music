@@ -60,7 +60,7 @@ enum VIPBenefitsModel: CaseIterable {
         case .advancedSetting:
             return "Premium customization options, including dynamic animations, advanced audio engine, and more.".localStr()
         case .allAppleOS:
-            return "One-time purchase. Unlock all features on iPhone, iPad, and Mac.".localStr()
+            return "Purchase.CrossPlatformBenefit".localStr()
         case .newMore:
             return "All future premium features! E.g., Apple Watch, native CarPlay, more cloud storage, and more".localStr()
         }

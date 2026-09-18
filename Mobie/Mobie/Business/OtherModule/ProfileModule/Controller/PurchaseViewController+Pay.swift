@@ -18,6 +18,7 @@ extension PurchaseViewController {
     
     // 点击支付按钮
     @objc func payButtonClick() {
+        guard !isPurchasing, buyoutButton.isEnabled else { return }
         
         guard let vModel = self.selectModel else {
             guard let payCell = self.tableView.cellForRow(at: IndexPath(row: 0, section: 1)) else {
@@ -29,9 +30,11 @@ extension PurchaseViewController {
             return
         }
                         
+        isPurchasing = true
         ProgressHUD.animate("Processing...".localStr())
         AppStoreKitManager.shared.startPurcharge(product: vModel ) { [weak self] (enInfo) in
             guard let wSelf = self else { return }
+            wSelf.isPurchasing = false
             
             ProgressHUD.succeed()
             
@@ -40,8 +43,9 @@ extension PurchaseViewController {
             NotificationCenter.default.post(name: Notification.Name(kPurchageSuccessKey), object: nil)
                         
         } failBlock: { [weak self] errorMsg in
+            self?.isPurchasing = false
+            ProgressHUD.dismiss()
             if errorMsg.contains(KakaError.youhaveCanceled.errorDescription) {
-                ProgressHUD.dismiss()
                 self?.view.makeToast(errorMsg)
             }else{
                 self?.showOneAlert(message: errorMsg)

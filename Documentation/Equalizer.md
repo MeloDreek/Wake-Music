@@ -13,13 +13,15 @@ No shared SDK or FFmpeg binaries were changed.
 
 ## Runtime behavior
 
-EQ is off by default. The normal app checks `isPremium()`; the paid Pro target is entitled. This intentionally does not rely on the existing development `isVIP()` implementation that currently returns true. Opening the page is free; every mutation is gated both in the UI and store. Losing entitlement bypasses processing without deleting the saved curve.
+EQ is off by default. The store uses the app-wide `isVIP()` policy: Pro always has access; the normal app requires an active subscription or lifetime purchase. Opening the page is free; attempting to edit first presents a localized explanation with cancel/upgrade actions, and only confirmation opens the paywall. Every mutation is gated both in the UI and store. Losing entitlement bypasses processing without deleting the saved curve.
 
 Enabling EQ selects the all-format engine. An existing native EQ output updates live without flushing or reloading a song. The initial engine/output upgrade retires the previous player and restores its resolved URL, precise position, actual playback rate, volume and playback intent. Preparation does not automatically start playback. Only one app-owned seek restores position; live streams resume without a seek. Pending seeks and late completions use the existing generation/identity guards.
 
 Each band ranges from −12 to +12 dB. The preamp offers up to 12 dB additional attenuation. Positive boosts subtract the largest boost from master gain as automatic headroom; this reduces clipping risk but is not a brick-wall peak guarantee. Bands above the source Nyquist limit are bypassed. Turning EQ off bypasses all bands and restores unity master gain.
 
-The page uses a dark native rack design and a generated raster icon. Faders use vertical gestures; horizontal gestures browse the frequency strip. All controls have accessibility labels/values and entitlement-gated VoiceOver adjustments. The feature's sixteen copy keys are translated in all forty-two supported locales.
+The page uses a dark native rack design and a generated raster icon. Twenty-two factory presets use distinct, moderate ten-band curves and wrap into multiple rows rather than scrolling horizontally. Genre names reuse the existing localized music vocabulary. Original persisted preset IDs remain unchanged. The custom state reflects manual edits and is not a factory-preset button. A localized footer above Reset explains frequency ranges, gentle adjustment and distortion reduction; processing never changes the original audio files.
+
+Faders use vertical gestures; horizontal gestures browse only the frequency strip. All controls have accessibility labels/values and entitlement-gated VoiceOver adjustments. The feature's eighteen copy keys are translated in all forty-two supported locales. Catalyst retains the native preamp slider without unsupported track tint or custom thumb images; iOS keeps the metallic styling.
 
 ## Verification
 

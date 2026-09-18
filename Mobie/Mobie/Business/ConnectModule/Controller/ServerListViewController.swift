@@ -62,10 +62,6 @@ class ConnectListViewController: SuperViewController {
     }
     
     @objc func vipCenterClick() {
-        if !DiscountIAPManager.shared.isShowDiscount() {
-            DiscountIAPManager.reset()
-        }
-        
         AppStoreKitManager.presentPurcharseVC(self)
     }
     
@@ -260,4 +256,3 @@ extension ConnectListViewController: UITableViewDataSource, UITableViewDelegate 
     }
     
 }
-

@@ -16,17 +16,17 @@
   "products" : [
     {
       "displayPrice" : "69.99",
-      "familyShareable" : false,
+      "familyShareable" : true,
       "internalID" : "0FDFFC44",
       "localizations" : [
         {
-          "description" : "Lifetime",
-          "displayName" : "Lifetime",
-          "locale" : "en_US"
+          "locale" : "en_US",
+          "displayName" : "Family Lifetime Premium",
+          "description" : "Lifetime Premium with Family Sharing."
         }
       ],
       "productID" : "com.OfflineMusic.www.lifetime298",
-      "referenceName" : "Lifetime",
+      "referenceName" : "Family Lifetime Premium",
       "type" : "NonConsumable"
     },
     {
@@ -35,13 +35,13 @@
       "internalID" : "D71159D3",
       "localizations" : [
         {
-          "description" : "Lifetime Offer",
-          "displayName" : "Lifetime Offer",
-          "locale" : "en_US"
+          "locale" : "en_US",
+          "displayName" : "Lifetime Premium",
+          "description" : "All Premium features. One-time purchase."
         }
       ],
       "productID" : "com.OfflineMusic.www.lifetime198",
-      "referenceName" : "Lifetime Offer",
+      "referenceName" : "Lifetime Premium",
       "type" : "NonConsumable"
     }
   ],
@@ -67,6 +67,36 @@
       ],
       "name" : "自动订阅",
       "subscriptions" : [
+        {
+          "adHocOffers" : [
+
+          ],
+          "codeOffers" : [
+
+          ],
+          "displayPrice" : "4.99",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "A84E91C2",
+          "introductoryOffers" : [
+
+          ],
+          "localizations" : [
+            {
+              "locale" : "en_US",
+              "displayName" : "Monthly Premium",
+              "description" : "All Premium features. Billed monthly."
+            }
+          ],
+          "productID" : "com.OfflineMusic.www.Monthly",
+          "recurringSubscriptionPeriod" : "P1M",
+          "referenceName" : "Monthly Premium",
+          "subscriptionGroupID" : "95EBB2B9",
+          "type" : "RecurringSubscription",
+          "winbackOffers" : [
+
+          ]
+        },
         {
           "adHocOffers" : [
 
@@ -105,9 +135,9 @@
           ],
           "localizations" : [
             {
-              "description" : "Annual",
-              "displayName" : "Annual",
-              "locale" : "en_US"
+              "locale" : "en_US",
+              "displayName" : "Annual Premium",
+              "description" : "All Premium features. Billed annually."
             }
           ],
           "productID" : "com.OfflineMusic.www.Annual",

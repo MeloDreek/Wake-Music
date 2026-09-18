@@ -30,7 +30,6 @@
 		220F6633300283AF00915384 /* RevenueCatUI in Frameworks */ = {isa = PBXBuildFile; productRef = 220F6632300283AF00915384 /* RevenueCatUI */; };
 		22109C562DF09DC900A39370 /* MiniLyricAnimation+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22109C552DF09DC900A39370 /* MiniLyricAnimation+Extension.swift */; };
 		22109C572DF09DC900A39370 /* MiniLyricAnimation+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22109C552DF09DC900A39370 /* MiniLyricAnimation+Extension.swift */; };
-		221540CF2D02D01B00B47BE0 /* PremiumTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221540CE2D02D01B00B47BE0 /* PremiumTimerView.swift */; };
 		2217E0FD2EBC74E000C724F6 /* OneDriveFileListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2217E0FC2EBC74E000C724F6 /* OneDriveFileListController.swift */; };
 		2217E0FE2EBC74E000C724F6 /* OneDriveFileListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2217E0FC2EBC74E000C724F6 /* OneDriveFileListController.swift */; };
 		22196E542D3133B0005B05CD /* LibraryLyricsViewController+Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22196E532D3133B0005B05CD /* LibraryLyricsViewController+Search.swift */; };
@@ -178,7 +177,6 @@
 		225F57E22D85B2AB0055BDFF /* PurchaseFootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13CF2CA0633400E2948E /* PurchaseFootView.swift */; };
 		225F57E52D85B2AB0055BDFF /* ImportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22569F9E2D0FD80000FB47F2 /* ImportViewController.swift */; };
 		225F57E72D85B2AB0055BDFF /* ConnectSectionHeadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22474E572D75E6C90062D510 /* ConnectSectionHeadView.swift */; };
-		225F57E82D85B2AB0055BDFF /* PremiumTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221540CE2D02D01B00B47BE0 /* PremiumTimerView.swift */; };
 		225F57E92D85B2AB0055BDFF /* AudioChannelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22496B6B2D3641A100ED4E05 /* AudioChannelViewController.swift */; };
 		225F57EA2D85B2AB0055BDFF /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A138E2CA0633400E2948E /* WelcomeViewController.swift */; };
 		225F57EC2D85B2AB0055BDFF /* LibraryCoverViewController+Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22196E552D3134CB005B05CD /* LibraryCoverViewController+Search.swift */; };
@@ -223,7 +221,6 @@
 		225F58182D85B2AB0055BDFF /* MusicTopFolderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22556DB22D1D694300FA1807 /* MusicTopFolderCell.swift */; };
 		225F58192D85B2AB0055BDFF /* GuideRatingViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13CE2CA0633400E2948E /* GuideRatingViewCell.swift */; };
 		225F581A2D85B2AB0055BDFF /* VideoAudioInfoViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13D42CA0633400E2948E /* VideoAudioInfoViewCell.swift */; };
-		225F581B2D85B2AB0055BDFF /* AppStoreKitManager+Discount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A14192CA0633400E2948E /* AppStoreKitManager+Discount.swift */; };
 		225F581C2D85B2AB0055BDFF /* KakaMusicPlayer+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2268AE5C2CA12BC800340316 /* KakaMusicPlayer+Delegate.swift */; };
 		225F581D2D85B2AB0055BDFF /* MusicsFootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229C98AB2CA7DE7300925F0A /* MusicsFootView.swift */; };
 		225F581E2D85B2AB0055BDFF /* AppStoreKitManager+Pay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A141A2CA0633400E2948E /* AppStoreKitManager+Pay.swift */; };
@@ -296,7 +293,6 @@
 		225F586A2D85B2AB0055BDFF /* KakaNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A14032CA0633400E2948E /* KakaNavigationController.swift */; };
 		225F586B2D85B2AB0055BDFF /* MusicsViewController+Noti.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13A12CA0633400E2948E /* MusicsViewController+Noti.swift */; };
 		225F586E2D85B2AB0055BDFF /* MusicViewModel+Music.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225417512CC2D79400F00343 /* MusicViewModel+Music.swift */; };
-		225F586F2D85B2AB0055BDFF /* PurchaseViewController+Discount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13C22CA0633400E2948E /* PurchaseViewController+Discount.swift */; };
 		225F58702D85B2AB0055BDFF /* KakaAppStoreManager+Jump.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A14112CA0633400E2948E /* KakaAppStoreManager+Jump.swift */; };
 		225F58712D85B2AB0055BDFF /* WebdavFileListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22ABC7852D227A98003568CF /* WebdavFileListController.swift */; };
 		225F58722D85B2AB0055BDFF /* PlayerControlFloatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225DE65D2CCE640C00F4367E /* PlayerControlFloatView.swift */; };
@@ -478,7 +474,6 @@
 		228A144F2CA0633400E2948E /* MusicPlayerViewController+Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13BD2CA0633400E2948E /* MusicPlayerViewController+Action.swift */; };
 		228A14502CA0633400E2948E /* MusicPlayerViewController+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13BE2CA0633400E2948E /* MusicPlayerViewController+Delegate.swift */; };
 		228A14532CA0633400E2948E /* PurchaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13C12CA0633400E2948E /* PurchaseViewController.swift */; };
-		228A14542CA0633400E2948E /* PurchaseViewController+Discount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13C22CA0633400E2948E /* PurchaseViewController+Discount.swift */; };
 		228A14562CA0633400E2948E /* PurchaseViewController+Pay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13C42CA0633400E2948E /* PurchaseViewController+Pay.swift */; };
 		228A14572CA0633400E2948E /* VideoConverterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13C52CA0633400E2948E /* VideoConverterViewController.swift */; };
 		228A14582CA0633400E2948E /* VideoConverterViewController+Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13C62CA0633400E2948E /* VideoConverterViewController+Action.swift */; };
@@ -526,7 +521,6 @@
 		228A14982CA0633400E2948E /* SKProduct+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A14152CA0633400E2948E /* SKProduct+Extension.swift */; };
 		228A14992CA0633400E2948E /* UserInfoManager+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A14162CA0633400E2948E /* UserInfoManager+Extension.swift */; };
 		228A149A2CA0633400E2948E /* AppStoreKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A14182CA0633400E2948E /* AppStoreKitManager.swift */; };
-		228A149B2CA0633400E2948E /* AppStoreKitManager+Discount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A14192CA0633400E2948E /* AppStoreKitManager+Discount.swift */; };
 		228A149C2CA0633400E2948E /* AppStoreKitManager+Pay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A141A2CA0633400E2948E /* AppStoreKitManager+Pay.swift */; };
 		228A149D2CA0633400E2948E /* AppStoreKitManager+Price.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A141B2CA0633400E2948E /* AppStoreKitManager+Price.swift */; };
 		228A149F2CA0633400E2948E /* AnalyticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A141F2CA0633400E2948E /* AnalyticsManager.swift */; };
@@ -853,7 +847,6 @@
 		220DDAE12EAA6E9A00F50BB3 /* ConnectListViewController+Connect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ConnectListViewController+Connect.swift"; sourceTree = "<group>"; };
 		220DDAE42EAA78BE00F50BB3 /* GoogleDriveFileListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleDriveFileListController.swift; sourceTree = "<group>"; };
 		22109C552DF09DC900A39370 /* MiniLyricAnimation+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MiniLyricAnimation+Extension.swift"; sourceTree = "<group>"; };
-		221540CE2D02D01B00B47BE0 /* PremiumTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PremiumTimerView.swift; sourceTree = "<group>"; };
 		2217E0FC2EBC74E000C724F6 /* OneDriveFileListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneDriveFileListController.swift; sourceTree = "<group>"; };
 		22196E532D3133B0005B05CD /* LibraryLyricsViewController+Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LibraryLyricsViewController+Search.swift"; sourceTree = "<group>"; };
 		22196E552D3134CB005B05CD /* LibraryCoverViewController+Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LibraryCoverViewController+Search.swift"; sourceTree = "<group>"; };
@@ -1025,7 +1018,6 @@
 		228A13BD2CA0633400E2948E /* MusicPlayerViewController+Action.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MusicPlayerViewController+Action.swift"; sourceTree = "<group>"; };
 		228A13BE2CA0633400E2948E /* MusicPlayerViewController+Delegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MusicPlayerViewController+Delegate.swift"; sourceTree = "<group>"; };
 		228A13C12CA0633400E2948E /* PurchaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PurchaseViewController.swift; sourceTree = "<group>"; };
-		228A13C22CA0633400E2948E /* PurchaseViewController+Discount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PurchaseViewController+Discount.swift"; sourceTree = "<group>"; };
 		228A13C42CA0633400E2948E /* PurchaseViewController+Pay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PurchaseViewController+Pay.swift"; sourceTree = "<group>"; };
 		228A13C52CA0633400E2948E /* VideoConverterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoConverterViewController.swift; sourceTree = "<group>"; };
 		228A13C62CA0633400E2948E /* VideoConverterViewController+Action.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "VideoConverterViewController+Action.swift"; sourceTree = "<group>"; };
@@ -1073,7 +1065,6 @@
 		228A14152CA0633400E2948E /* SKProduct+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SKProduct+Extension.swift"; sourceTree = "<group>"; };
 		228A14162CA0633400E2948E /* UserInfoManager+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UserInfoManager+Extension.swift"; sourceTree = "<group>"; };
 		228A14182CA0633400E2948E /* AppStoreKitManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppStoreKitManager.swift; sourceTree = "<group>"; };
-		228A14192CA0633400E2948E /* AppStoreKitManager+Discount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AppStoreKitManager+Discount.swift"; sourceTree = "<group>"; };
 		228A141A2CA0633400E2948E /* AppStoreKitManager+Pay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AppStoreKitManager+Pay.swift"; sourceTree = "<group>"; };
 		228A141B2CA0633400E2948E /* AppStoreKitManager+Price.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AppStoreKitManager+Price.swift"; sourceTree = "<group>"; };
 		228A141F2CA0633400E2948E /* AnalyticsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalyticsManager.swift; sourceTree = "<group>"; };
@@ -1780,7 +1771,6 @@
 				2261E8802CB5267E009506C0 /* DonateViewController.swift */,
 				2261E8862CB6FAB2009506C0 /* DonateViewController+Pay.swift */,
 				228A13C12CA0633400E2948E /* PurchaseViewController.swift */,
-				228A13C22CA0633400E2948E /* PurchaseViewController+Discount.swift */,
 				228A13C42CA0633400E2948E /* PurchaseViewController+Pay.swift */,
 				228A13D82CA0633400E2948E /* AboutAppViewController.swift */,
 				223198252DD4CD94005F9AF0 /* PlayerEngineViewController.swift */,
@@ -1823,7 +1813,6 @@
 				228A13E82CA0633400E2948E /* SelectAvatarViewCell.swift */,
 				228A13E92CA0633400E2948E /* UIMenuAccessView.swift */,
 				228A13EA2CA0633400E2948E /* UserInfoHeadView.swift */,
-				221540CE2D02D01B00B47BE0 /* PremiumTimerView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1930,7 +1919,6 @@
 			isa = PBXGroup;
 			children = (
 				228A14182CA0633400E2948E /* AppStoreKitManager.swift */,
-				228A14192CA0633400E2948E /* AppStoreKitManager+Discount.swift */,
 				228A141A2CA0633400E2948E /* AppStoreKitManager+Pay.swift */,
 				228A141B2CA0633400E2948E /* AppStoreKitManager+Price.swift */,
 			);
@@ -2437,7 +2425,6 @@
 				225F57E52D85B2AB0055BDFF /* ImportViewController.swift in Sources */,
 				223FEAB82DF7FE3800FD4452 /* LyricOtherConfigTableCell.swift in Sources */,
 				225F57E72D85B2AB0055BDFF /* ConnectSectionHeadView.swift in Sources */,
-				225F57E82D85B2AB0055BDFF /* PremiumTimerView.swift in Sources */,
 				225F57E92D85B2AB0055BDFF /* AudioChannelViewController.swift in Sources */,
 				225F57EA2D85B2AB0055BDFF /* WelcomeViewController.swift in Sources */,
 				225F57EC2D85B2AB0055BDFF /* LibraryCoverViewController+Search.swift in Sources */,
@@ -2506,7 +2493,6 @@
 				225F58182D85B2AB0055BDFF /* MusicTopFolderCell.swift in Sources */,
 				225F58192D85B2AB0055BDFF /* GuideRatingViewCell.swift in Sources */,
 				225F581A2D85B2AB0055BDFF /* VideoAudioInfoViewCell.swift in Sources */,
-				225F581B2D85B2AB0055BDFF /* AppStoreKitManager+Discount.swift in Sources */,
 				225F581C2D85B2AB0055BDFF /* KakaMusicPlayer+Delegate.swift in Sources */,
 				22FB960F2DEDB004007EA2FD /* MiniPlayerLyricView.swift in Sources */,
 				225F581D2D85B2AB0055BDFF /* MusicsFootView.swift in Sources */,
@@ -2688,7 +2674,6 @@
 				225378322DF1744B00023F1A /* PlayerMoreViewController.swift in Sources */,
 				2258ACF12DE565D400F5754B /* PlayerGroupStyle.swift in Sources */,
 				225F586E2D85B2AB0055BDFF /* MusicViewModel+Music.swift in Sources */,
-				225F586F2D85B2AB0055BDFF /* PurchaseViewController+Discount.swift in Sources */,
 				225F58702D85B2AB0055BDFF /* KakaAppStoreManager+Jump.swift in Sources */,
 				225F58712D85B2AB0055BDFF /* WebdavFileListController.swift in Sources */,
 				225F58722D85B2AB0055BDFF /* PlayerControlFloatView.swift in Sources */,
@@ -2789,7 +2774,6 @@
 				22569F9F2D0FD80000FB47F2 /* ImportViewController.swift in Sources */,
 				223FEAB72DF7FE3800FD4452 /* LyricOtherConfigTableCell.swift in Sources */,
 				22474E582D75E6C90062D510 /* ConnectSectionHeadView.swift in Sources */,
-				221540CF2D02D01B00B47BE0 /* PremiumTimerView.swift in Sources */,
 				22496B6C2D3641A100ED4E05 /* AudioChannelViewController.swift in Sources */,
 				228A14252CA0633400E2948E /* WelcomeViewController.swift in Sources */,
 				22196E562D3134CB005B05CD /* LibraryCoverViewController+Search.swift in Sources */,
@@ -2858,7 +2842,6 @@
 				22556DB32D1D694300FA1807 /* MusicTopFolderCell.swift in Sources */,
 				228A145E2CA0633400E2948E /* GuideRatingViewCell.swift in Sources */,
 				228A14642CA0633400E2948E /* VideoAudioInfoViewCell.swift in Sources */,
-				228A149B2CA0633400E2948E /* AppStoreKitManager+Discount.swift in Sources */,
 				2268AE5D2CA12BC800340316 /* KakaMusicPlayer+Delegate.swift in Sources */,
 				22FB96102DEDB004007EA2FD /* MiniPlayerLyricView.swift in Sources */,
 				229C98AC2CA7DE7300925F0A /* MusicsFootView.swift in Sources */,
@@ -3040,7 +3023,6 @@
 				225378312DF1744A00023F1A /* PlayerMoreViewController.swift in Sources */,
 				2258ACF02DE565D400F5754B /* PlayerGroupStyle.swift in Sources */,
 				225417522CC2D79400F00343 /* MusicViewModel+Music.swift in Sources */,
-				228A14542CA0633400E2948E /* PurchaseViewController+Discount.swift in Sources */,
 				228A14942CA0633400E2948E /* KakaAppStoreManager+Jump.swift in Sources */,
 				22ABC7862D227A98003568CF /* WebdavFileListController.swift in Sources */,
 				225DE65E2CCE640C00F4367E /* PlayerControlFloatView.swift in Sources */,

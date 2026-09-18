@@ -15,10 +15,6 @@ import ProgressHUD
 
 class PurchaseViewController: SuperViewController {
     
-    deinit {
-        self.timer.stopTimer()
-    }
-    
     override func preSetupSubViews() {
         super.preSetupSubViews()
                 
@@ -52,7 +48,7 @@ class PurchaseViewController: SuperViewController {
         
         tipsLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.size.greaterThanOrEqualTo(0)
+            make.leading.trailing.equalTo(buyoutButton)
             make.top.equalTo(buyoutButton.snp.bottom).offset(8.ckValue())
         }
         
@@ -74,25 +70,47 @@ class PurchaseViewController: SuperViewController {
         
         self.darkAppearanceClick()
                         
-        self.handlePriceGoods(self.priceArray)
-        AppStoreKitManager.shared.refresRemoteProductsPrice() { [weak self] models in
-            self?.allProducts = models
-            self?.handlePriceGoods(models)
+        self.handlePriceGoods(AppStoreKitManager.shared.saleArray)
+        self.reloadProducts()
 
-            self?.perform(#selector(self?.showLifetimeOfferGift), with: nil, afterDelay: 1)
-        }
-        
     }
-    
-//    // 默认选择的产品
-//    @objc func selectDefaultStoreID() {
-//        guard let selectIndex = self.priceArray.firstIndex(where: {
-//            $0.productIdentifier == PurchaseStoreID.lifetime198.rawValue
-//        }) else { return }
-//        
-//        let indexPath = IndexPath(row: selectIndex, section: 1)
-//        self.tableView(self.tableView, didSelectRowAt: indexPath)
-//    }
+
+    private func reloadProducts() {
+        guard !isLoadingProducts else { return }
+        isLoadingProducts = true
+        tableView.reloadData()
+        AppStoreKitManager.shared.refresRemoteProductsPrice { [weak self] models in
+            self?.isLoadingProducts = false
+            self?.handlePriceGoods(models)
+        }
+    }
+
+    func handlePriceGoods(_ models: [StoreProduct]) {
+        let selectedID = selectModel?.productIdentifier
+        priceArray = PurchaseStoreID.paywallProducts.compactMap { id in
+            models.first { $0.productIdentifier == id.rawValue }
+        }
+        selectModel = priceArray.first { $0.productIdentifier == selectedID }
+            ?? priceArray.first { $0.productIdentifier == PurchaseStoreID.yearly.rawValue }
+            ?? priceArray.first
+        refreshTrialEligibility()
+        tableView.reloadData()
+    }
+
+    private func refreshTrialEligibility() {
+        let generation = UUID()
+        eligibilityRequestID = generation
+        trialEligibleProductIDs.removeAll()
+        let ids = priceArray.filter { $0.introductoryDiscount?.paymentMode == .freeTrial }.map(\.productIdentifier)
+        guard !ids.isEmpty else { return }
+        Purchases.shared.checkTrialOrIntroDiscountEligibility(productIdentifiers: ids) { [weak self] result in
+            DispatchQueue.main.async {
+                guard let self, self.eligibilityRequestID == generation else { return }
+                self.trialEligibleProductIDs = Set(ids.filter { result[$0]?.status == .eligible })
+                self.tableView.reloadSections(IndexSet(integer: 1), with: .none)
+            }
+        }
+    }
     
     @objc func closeButtonClick() {
         self.onCancelBlock?()
@@ -142,40 +160,36 @@ class PurchaseViewController: SuperViewController {
     // MARK:  GET && SET 
     var selectModel: StoreProduct? {
         didSet {
-            guard let vModel = self.selectModel else { return }
-            
-            let priceTitle = String(format: "Payment %@".localStr(), vModel.localizedPriceString)
-            let lifetimeTitle = "Get Lifetime Access".localStr()
-            
-            var autoSubTitle: String
-            if let freeTrialDays = vModel.freeTrialDays, freeTrialDays > 0 {
-                autoSubTitle = String(format: "Free Trial for %d Days".localStr(), freeTrialDays)
-            }else{
-                autoSubTitle = "Get Started".localStr()
-            }
-            
-            if vModel.productIdentifier == PurchaseStoreID.weekly.rawValue {
-                tipsLabel.text = "Auto-renewable. Cancel anytime.".localStr()
-                buyoutButton.setTitle(autoSubTitle, for: .normal)
-                
-            }else if vModel.productIdentifier == PurchaseStoreID.yearly.rawValue {
-                tipsLabel.text = "Auto-renewable. Cancel anytime.".localStr()
-                buyoutButton.setTitle(autoSubTitle, for: .normal)
-                
-            }else if vModel.productIdentifier == PurchaseStoreID.lifetime198.rawValue {
-                let isOffer = vModel.price == 0
-
-                tipsLabel.text = "One time purchase, valid forever".localStr()
-                buyoutButton.setTitle(isOffer ? priceTitle : lifetimeTitle, for: .normal)
-                
-            } else if vModel.productIdentifier == PurchaseStoreID.lifetime298.rawValue {
-                let isOffer = vModel.price == 0
-
-                tipsLabel.text = "One time purchase, valid forever".localStr()
-                buyoutButton.setTitle(isOffer ? priceTitle : lifetimeTitle, for: .normal)
-            }
+            updatePurchaseButton()
         }
     }
+
+    private func updatePurchaseButton() {
+        guard let product = selectModel else {
+            buyoutButton.isEnabled = false
+            buyoutButton.setTitle("Continue".localStr(), for: .normal)
+            tipsLabel.text = nil
+            return
+        }
+        let ownedID = UserInfoManager.shared.payedStoreModel()
+        let ownsSelection = UserInfoManager.shared.isVIP() && ownedID?.rawValue == product.productIdentifier
+        // 已有终身会员无需再订阅；个人终身仍可主动选择家庭共享方案。
+        let ownsLifetime = UserInfoManager.shared.isVIP() && ownedID?.isSubscription == false
+        let isFamilyUpgrade = ownedID == .lifetime198 && product.productIdentifier == PurchaseStoreID.lifetime298.rawValue
+        let alreadyCovered = ownsSelection || (ownsLifetime && !isFamilyUpgrade)
+        buyoutButton.isEnabled = !alreadyCovered && !isPurchasing
+        buyoutButton.setTitle(alreadyCovered ? "You have purchased".localStr() : "Continue".localStr(), for: .normal)
+        tipsLabel.text = product.productType == .autoRenewableSubscription
+            ? "Auto-renewable. Cancel anytime.".localStr()
+            : "One time purchase, valid forever".localStr()
+    }
+
+    var isPurchasing = false {
+        didSet { updatePurchaseButton() }
+    }
+    private var isLoadingProducts = false
+    private var eligibilityRequestID = UUID()
+    private var trialEligibleProductIDs = Set<String>()
         
     // 原始的屏幕亮度
     var firstBrightness = 0.5
@@ -186,12 +200,6 @@ class PurchaseViewController: SuperViewController {
     // 取消的回调
     var onCancelBlock: (()->Void)?
     
-    // 默认倒计时3小时
-    let maxDiscountTime: Double = DiscountIAPManager.shared.maxDiscountTime
-    
-    // 记录倒计时Cell
-    var discountCell: PurchasePriceCell?
-        
     // MARK:  懒加载
     
     lazy var tableView: UITableView = {
@@ -220,6 +228,7 @@ class PurchaseViewController: SuperViewController {
         view.font = UIFontLight(10.ckValue())
         view.textColor = UIColor.secondaryLabel
         view.textAlignment = .center
+        view.numberOfLines = 2
         return view
     }()
     
@@ -230,14 +239,12 @@ class PurchaseViewController: SuperViewController {
     }()
     
     lazy var buyoutButton: UIButton = {
-        let normalTitle = UserInfoManager.shared.isVIP() ? "You have purchased".localStr() : "Time-limited purchase".localStr()
-
         let view = UIButton()
-        view.isSelected = UserInfoManager.shared.isVIP()
+        view.isEnabled = false
         view.backgroundColor = appMainColor
         view.setTitleColor(UIColor.deAccent, for: .normal)
-        view.setTitle(normalTitle, for: .normal)
-        view.setTitle("You have purchased".localStr(), for: .selected)
+        view.setTitle("Continue".localStr(), for: .normal)
+        view.setTitleColor(.secondaryLabel, for: .disabled)
         view.layer.masksToBounds = true
         view.layer.cornerRadius = 4.ckValue()
         view.titleLabel?.font = UIFontBold(15.ckValue())
@@ -250,20 +257,13 @@ class PurchaseViewController: SuperViewController {
     }()
     
     lazy var priceArray: [StoreProduct] = {
-        return AppStoreKitManager.shared.saleArray
+        return []
     }()
-    
-    var allProducts: [StoreProduct] = []
     
     lazy var footView: PurchaseFootView = {
         let view = PurchaseFootView(frame: CGRectMake(0, 0, self.view.width, 50.ckValue()))
         view.delegate = self
         return view
-    }()
-    
-    lazy var timer: KakaTimer = {
-        let timer = KakaTimer()
-        return timer
     }()
     
     func aboutAttbuteStr() -> NSAttributedString {
@@ -293,7 +293,7 @@ extension PurchaseViewController: UITableViewDataSource, UITableViewDelegate, Pu
         if section == 0 {
             return 1
         }else if section == 1 {
-            return priceArray.count
+            return max(1, priceArray.count)
         }else if section == 2 {
             return benefitArray.count
         }else{
@@ -304,13 +304,23 @@ extension PurchaseViewController: UITableViewDataSource, UITableViewDelegate, Pu
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "PurchaseHeadCell", for: indexPath) as! PurchaseHeadCell
-            cell.isDiscount = self.selectModel?.productIdentifier == PurchaseStoreID.lifetime198.rawValue
             return cell
         }else if indexPath.section == 1 {
+            if priceArray.isEmpty {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "PriceTableViewCell", for: indexPath)
+                var config = UIListContentConfiguration.cell()
+                config.text = isLoadingProducts ? "Processing...".localStr() : "Purchase.ProductsUnavailable".localStr()
+                config.secondaryText = isLoadingProducts ? nil : "Retry".localStr()
+                config.textProperties.numberOfLines = 0
+                cell.contentConfiguration = config
+                return cell
+            }
             // 订阅产品
             let model = priceArray[indexPath.row]
             let cell = tableView.dequeueReusableCell(withIdentifier: "PurchasePriceCell", for: indexPath) as! PurchasePriceCell
-            cell.update(model: model, isSelect: model.productIdentifier == self.selectModel?.productIdentifier)
+            cell.update(model: model,
+                        isSelect: model.productIdentifier == self.selectModel?.productIdentifier,
+                        subtitle: model.compactPaywallSubtitle(isEligibleForTrial: trialEligibleProductIDs.contains(model.productIdentifier)))
             return cell
         } else if indexPath.section == 2 {
             // VIP权益
@@ -347,21 +357,13 @@ extension PurchaseViewController: UITableViewDataSource, UITableViewDelegate, Pu
         
         
         if indexPath.section == 1 {
-            self.selectModel = self.priceArray[indexPath.row]
-            
-            guard let cellArray = self.tableView.visibleCells.filter({ $0 is PurchasePriceCell }) as? [PurchasePriceCell] else {
+            guard !isPurchasing else { return }
+            guard !priceArray.isEmpty else {
+                reloadProducts()
                 return
             }
-            
-            for index in 0..<cellArray.count {
-                let subCell = cellArray[index]
-                let model = self.priceArray[index]
-                subCell.update(model: model, isSelect: model.productIdentifier == self.selectModel?.productIdentifier)
-            }
-            
-            if let headCell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? PurchaseHeadCell {
-                headCell.isDiscount = self.selectModel?.productIdentifier == PurchaseStoreID.lifetime198.rawValue
-            }
+            self.selectModel = self.priceArray[indexPath.row]
+            tableView.reloadSections(IndexSet(integer: 1), with: .none)
         }
         
     }
@@ -377,16 +379,13 @@ extension PurchaseViewController: UITableViewDataSource, UITableViewDelegate, Pu
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.section == 1 {
-            return 70.ckValue()
-        } else {
-            return UITableView.automaticDimension
-        }
+        return UITableView.automaticDimension
     }
     
     func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
         if section == 1 {
-            return nil
+            return priceArray.contains { $0.productIdentifier == PurchaseStoreID.lifetime298.rawValue }
+                ? "Purchase.FamilySharingFooter".localStr() : nil
         }else{
             return nil
         }
@@ -410,6 +409,7 @@ extension PurchaseViewController: UITableViewDataSource, UITableViewDelegate, Pu
             
             if let activePremium = customerInfo?.entitlements.all[PremiumEntitlID], activePremium.isActive {
                 AppStoreKitManager.shared.handlePayBigModel(activePremium: activePremium)
+                self.handlePriceGoods(self.priceArray)
                 ProgressHUD.succeed("Successful".localStr())
             }else{
                 ProgressHUD.failed(error?.localizedDescription)

@@ -15,64 +15,77 @@ import AppGroupKit
 public let PremiumEntitlID = "premium"
 
 extension StoreProduct {
-    func secondStr() -> String? {
-        
-        guard let storeID = PurchaseStoreID(rawValue: self.productIdentifier) else { return nil }
-        
+    var paywallTitle: String {
+        PurchaseStoreID(rawValue: productIdentifier)?.formatStr() ?? localizedTitle
+    }
+
+    var paywallDetail: String {
+        guard let storeID = PurchaseStoreID(rawValue: productIdentifier) else { return localizedDescription }
         switch storeID {
-        case .weekly:
-            if let freeTrialDays = self.freeTrialDays, freeTrialDays > 0 {
-                return String(format: "Free Trial for %d Days".localStr(), freeTrialDays)
-            }else{
-                return "Short-Term Trial".localStr()
-            }
-        case .yearly:
-            if let freeTrialDays = self.freeTrialDays, freeTrialDays > 0 {
-                return String(format: "Free Trial for %d Days".localStr(), freeTrialDays)
-            }else{
-                if let sk2Product = self.sk2Product {
-                    return String(format: "%@/mo".localStr(), sk2Product.localMonthlyPriceStr)
-                }else{
-                    return "Short-Term Trial".localStr()
-                }
-            }
-        case .lifetime198, .lifetime298:
-            return "Valid Forever".localStr()
+        case .weekly: return "Auto-renewable. Cancel anytime.".localStr()
+        case .monthly: return "Purchase.Monthly.Description".localStr()
+        case .yearly: return "Purchase.Annual.Description".localStr()
+        case .lifetime198: return "Purchase.Lifetime.Description".localStr()
+        case .lifetime298: return "Purchase.FamilyLifetime.Description".localStr()
         }
     }
-    
-    func secondTextColor() -> UIColor? {
-        if self.productType == .autoRenewableSubscription {
-            return UIColor.secondaryLabel
-        }else{
-            return UIColor.systemRed
+
+    /// 显示实际结算周期和总价，不以月均价替代年费，也不假定试用资格。
+    var paywallBillingSummary: String {
+        guard let storeID = PurchaseStoreID(rawValue: productIdentifier) else { return localizedPriceString }
+        let key: String
+        switch storeID {
+        case .weekly: return localizedPriceString
+        case .monthly: key = "Purchase.Billing.Monthly"
+        case .yearly: key = "Purchase.Billing.Annual"
+        case .lifetime198, .lifetime298: key = "Purchase.Billing.Once"
         }
+        return String(format: key.localStr(), localizedPriceString)
     }
-    
 }
 
-extension Array where Element == StoreProduct {
-    /// 计算两个终身商品之间的折扣百分比（例如：返回 30 表示省了 30%）
-    func calculateDiscountPercentage() -> Int {
-        // 1. 安全检查：确保数组里至少有两个商品
-        guard self.count >= 2 else { return 0 }
-        
-        // 2. 拿到两个商品的价格（Decimal 转 Double）
-        let price1 = NSDecimalNumber(decimal: self[0].price).doubleValue
-        let price2 = NSDecimalNumber(decimal: self[1].price).doubleValue
-        
-        // 3. 找出原价（高者）和特惠价（低者）
-        let originalPrice = Swift.max(price1, price2)
-        let discountPrice = Swift.min(price1, price2)
-        
-        // 防止原价为 0 导致除以零崩溃
-        guard originalPrice > 0 else { return 0 }
-        
-        // 4. 计算折扣百分比：(原价 - 特惠价) / 原价 * 100
-        let percentage = ((originalPrice - discountPrice) / originalPrice) * 100
-        
-        // 5. 四舍五入并转成整数返回
-        return Int(round(percentage))
+// MARK: - Compact paywall copy
+extension StoreProduct {
+    /// Eligibility must come from RevenueCat, not merely the existence of an offer.
+    func compactPaywallSubtitle(isEligibleForTrial: Bool) -> String? {
+        guard let id = PurchaseStoreID(rawValue: productIdentifier), id == .monthly || id == .yearly else { return nil }
+        if isEligibleForTrial, let duration = localizedFreeTrialDuration {
+            return String(format: "Purchase.FreeTrialDuration".localStr(), duration)
+        }
+        guard id == .yearly, let monthlyPrice = localizedPricePerMonth else { return nil }
+        return String(format: "%@/mo".localStr(), monthlyPrice)
+    }
+
+    private var localizedFreeTrialDuration: String? {
+        guard let offer = introductoryDiscount, offer.paymentMode == .freeTrial else { return nil }
+        let (count, overflow) = offer.subscriptionPeriod.value.multipliedReportingOverflow(by: offer.numberOfPeriods)
+        guard !overflow, count > 0 else { return nil }
+        var components = DateComponents()
+        let formatter = DateComponentsFormatter()
+        formatter.unitsStyle = .full
+        formatter.maximumUnitCount = 1
+        formatter.zeroFormattingBehavior = .dropAll
+        // Format the actual offer unit: one calendar month is not always 30 days.
+        switch offer.subscriptionPeriod.unit {
+        case .day:
+            components.day = count
+            formatter.allowedUnits = [.day]
+        case .week:
+            components.weekOfMonth = count
+            formatter.allowedUnits = [.weekOfMonth]
+        case .month:
+            components.month = count
+            formatter.allowedUnits = [.month]
+        case .year:
+            components.year = count
+            formatter.allowedUnits = [.year]
+        @unknown default:
+            return nil
+        }
+        var calendar = Calendar(identifier: .gregorian)
+        calendar.locale = Locale(identifier: Bundle.main.preferredLocalizations.first ?? Locale.current.identifier)
+        formatter.calendar = calendar
+        return formatter.string(from: components)
     }
 }
 
@@ -128,18 +141,18 @@ public class AppStoreKitManager {
             }
             
             guard let transaction = transaction else {
-                failBlock(error?.localizedDescription ?? "")
+                failBlock(error?.localizedDescription ?? "Unknown Error❗️".localStr())
                 return
             }
             
             Purchases.shared.getCustomerInfo(fetchPolicy: .default) { customerInfo, error in
                 guard let customerInfo = customerInfo else {
-                    failBlock(error?.localizedDescription ?? "")
+                    failBlock(error?.localizedDescription ?? "Unknown Error❗️".localStr())
                     return
                 }
                 
                 guard let activePremium = customerInfo.entitlements.all[PremiumEntitlID], activePremium.isActive else {
-                    failBlock("Unknown Error")
+                    failBlock("Unknown Error❗️".localStr())
                     return
                 }
                 
@@ -168,11 +181,12 @@ public class AppStoreKitManager {
                 return
             }
             
-            guard customerInfo.entitlements.active.count > 0 else {
+            guard let premium = customerInfo.entitlements.all[PremiumEntitlID], premium.isActive else {
                 fail?("No Purchase Records".localStr())
                 return
             }
-            
+
+            self.handlePayBigModel(activePremium: premium)
             success?()
         }
 #endif

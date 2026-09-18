@@ -73,6 +73,10 @@ final class PlayerEqualizerViewController: SuperViewController {
         stack.addArrangedSubview(makePresetsPanel())
         stack.addArrangedSubview(makeBandsPanel())
         stack.addArrangedSubview(makePreampPanel())
+        let guidance = EQStyle.label(size: 13, textStyle: .footnote)
+        guidance.text = "EQ.ListeningGuide".localStr()
+        guidance.textColor = EQStyle.secondary
+        stack.addArrangedSubview(guidance)
         stack.addArrangedSubview(makeResetButton())
         refreshSettings()
     }
@@ -194,25 +198,19 @@ final class PlayerEqualizerViewController: SuperViewController {
         premiumButton.titleLabel?.numberOfLines = 0
         premiumButton.titleLabel?.adjustsFontForContentSizeCategory = true
         premiumButton.titleLabel?.textAlignment = .center
-        premiumButton.addTarget(self, action: #selector(vipCenterClick), for: .touchUpInside)
+        premiumButton.addTarget(self, action: #selector(showPremiumGuidance), for: .touchUpInside)
         premiumButton.heightAnchor.constraint(greaterThanOrEqualToConstant: 44).isActive = true
         return premiumButton
     }
 
     private func makePresetsPanel() -> UIView {
         let title = EQStyle.sectionTitle("EQ.Presets")
-        let scroll = UIScrollView()
-        scroll.showsHorizontalScrollIndicator = false
-        scroll.alwaysBounceHorizontal = false
-        let row = UIStackView()
-        row.axis = .horizontal
-        row.spacing = 8
-        row.translatesAutoresizingMaskIntoConstraints = false
-        scroll.addSubview(row)
-        for preset in PlayerEqualizerPreset.allCases {
+        let grid = EQPresetGrid()
+        for preset in PlayerEqualizerPreset.factoryPresets {
             let button = UIButton(type: .system)
             var configuration = UIButton.Configuration.filled()
             configuration.title = preset.title
+            configuration.titleLineBreakMode = .byWordWrapping
             configuration.baseBackgroundColor = EQStyle.recess
             configuration.baseForegroundColor = EQStyle.secondary
             configuration.cornerStyle = .fixed
@@ -227,22 +225,15 @@ final class PlayerEqualizerViewController: SuperViewController {
             }
             button.configuration = configuration
             button.titleLabel?.adjustsFontForContentSizeCategory = true
-            button.heightAnchor.constraint(greaterThanOrEqualToConstant: 44).isActive = true
+            button.titleLabel?.numberOfLines = 0
+            button.titleLabel?.textAlignment = .center
             button.addAction(UIAction { [weak self] _ in
                 self?.edit { settings in settings.selectPreset(preset) }
             }, for: .touchUpInside)
             presetButtons[preset] = button
-            row.addArrangedSubview(button)
+            grid.addButton(button)
         }
-        NSLayoutConstraint.activate([
-            row.leadingAnchor.constraint(equalTo: scroll.contentLayoutGuide.leadingAnchor),
-            row.trailingAnchor.constraint(equalTo: scroll.contentLayoutGuide.trailingAnchor),
-            row.topAnchor.constraint(equalTo: scroll.contentLayoutGuide.topAnchor, constant: 1),
-            row.bottomAnchor.constraint(equalTo: scroll.contentLayoutGuide.bottomAnchor, constant: -1),
-            row.heightAnchor.constraint(equalTo: scroll.frameLayoutGuide.heightAnchor, constant: -2),
-        ])
-        // The stack's intrinsic height grows along with Dynamic Type, including accessibility sizes.
-        return EQStyle.column([title, scroll], spacing: 10)
+        return EQStyle.column([title, grid], spacing: 10)
     }
 
     private func makeBandsPanel() -> UIView {
@@ -329,10 +320,14 @@ final class PlayerEqualizerViewController: SuperViewController {
 
         preampSlider.minimumValue = -12
         preampSlider.maximumValue = 0
+        #if !targetEnvironment(macCatalyst)
+        // Catalyst uses an AppKit-backed slider; track/thumbnail customization
+        // is unsupported there and can raise an Objective-C exception.
         preampSlider.minimumTrackTintColor = EQStyle.amber.withAlphaComponent(0.8)
         preampSlider.maximumTrackTintColor = EQStyle.recess
         preampSlider.setThumbImage(EQStyle.horizontalThumb(), for: .normal)
         preampSlider.setThumbImage(EQStyle.horizontalThumb(), for: .highlighted)
+        #endif
         preampSlider.accessibilityLabel = "EQ.Preamp".localStr()
         preampSlider.authorize = { [weak self] in self?.authorizeEditing() ?? false }
         preampSlider.addTarget(self, action: #selector(preampChanged), for: .valueChanged)
@@ -392,12 +387,18 @@ final class PlayerEqualizerViewController: SuperViewController {
     private func authorizeEditing() -> Bool {
         guard PlayerEqualizerStore.hasAccess else {
             refreshSettings()
-            if presentedViewController == nil {
-                vipCenterClick()
-            }
+            showPremiumGuidance()
             return false
         }
         return true
+    }
+
+    @objc private func showPremiumGuidance() {
+        guard !PlayerEqualizerStore.hasAccess, presentedViewController == nil else { return }
+        showTwoAlert(message: "EQ.PremiumPrompt".localStr(), confirm: "Unlock Premium".localStr()) { [weak self] in
+            guard let self, !PlayerEqualizerStore.hasAccess else { return }
+            self.vipCenterClick()
+        }
     }
 
     private func edit(_ mutation: (inout PlayerEqualizerSettings) -> Void) {
@@ -435,6 +436,60 @@ final class PlayerEqualizerViewController: SuperViewController {
         preampValueLabel.text = EQStyle.decibels(settings.preamp)
         preampSlider.accessibilityValue = EQStyle.decibels(settings.preamp)
         preampSlider.accessibilityHint = hasAccess ? nil : "EQ.Premium".localStr()
+    }
+}
+
+/// Content-sized wrapping buttons: no nested horizontal scrolling. Reflows for
+/// Catalyst window resizing, Dynamic Type and RTL without truncating long names.
+private final class EQPresetGrid: UIView {
+    private var buttons: [UIButton] = []
+    private var measuredWidth: CGFloat = 0
+
+    func addButton(_ button: UIButton) {
+        buttons.append(button)
+        addSubview(button)
+        invalidateIntrinsicContentSize()
+    }
+
+    override var intrinsicContentSize: CGSize {
+        CGSize(width: UIView.noIntrinsicMetric, height: arrange(width: max(1, bounds.width), apply: false))
+    }
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        if measuredWidth != bounds.width {
+            measuredWidth = bounds.width
+            invalidateIntrinsicContentSize()
+        }
+        _ = arrange(width: max(1, bounds.width), apply: true)
+    }
+
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        invalidateIntrinsicContentSize()
+        setNeedsLayout()
+    }
+
+    private func arrange(width: CGFloat, apply: Bool) -> CGFloat {
+        var x: CGFloat = 0
+        var y: CGFloat = 0
+        var rowHeight: CGFloat = 0
+        let spacing: CGFloat = 8
+        let rtl = effectiveUserInterfaceLayoutDirection == .rightToLeft
+        for button in buttons {
+            let size = button.sizeThatFits(CGSize(width: width, height: .greatestFiniteMagnitude))
+            let w = min(width, max(44, ceil(size.width)))
+            let h = max(44, ceil(size.height))
+            if x > 0, x + w > width {
+                x = 0
+                y += rowHeight + spacing
+                rowHeight = 0
+            }
+            if apply { button.frame = CGRect(x: rtl ? width - x - w : x, y: y, width: w, height: h) }
+            rowHeight = max(rowHeight, h)
+            x += w + spacing
+        }
+        return y + rowHeight
     }
 }
 

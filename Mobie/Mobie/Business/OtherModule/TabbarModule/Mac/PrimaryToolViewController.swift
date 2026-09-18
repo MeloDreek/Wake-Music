@@ -35,8 +35,9 @@ class PrimaryToolViewController: SuperViewController {
         premiumView.snp.makeConstraints { make in
             make.bottom.equalToSuperview().offset(-macTabbarHeight - 25.ckValue())
             make.centerX.equalToSuperview()
-            make.width.equalTo(premiumView.width)
-            make.height.equalTo(premiumView.height)
+            make.leading.greaterThanOrEqualToSuperview().offset(20.ckValue())
+            make.trailing.lessThanOrEqualToSuperview().offset(-20.ckValue())
+            make.height.greaterThanOrEqualTo(40.ckValue())
         }
     }
     
@@ -57,17 +58,10 @@ class PrimaryToolViewController: SuperViewController {
         // 播放引擎切换了
         NotificationCenter.default.addObserver(self, selector: #selector(updateDownloadCount), name: Notification.Name(kPlayerEngineChangedKey), object: nil)
         
-        // 开始倒计时
-        NotificationCenter.default.addObserver(self, selector: #selector(setupDiscountTimer), name: Notification.Name(rawValue: kStartDiscountPriceKey), object: nil)
-        
         // 监听支付成功
         NotificationCenter.default.addObserver(self, selector: #selector(setupNavigationItem), name: Notification.Name(kPurchageSuccessKey), object: nil)
         
         self.setupNavigationItem()
-        
-        if DiscountIAPManager.shared.isShowDiscount() {
-            self.perform(#selector(setupDiscountTimer), with: nil, afterDelay: 1)
-        }
         
         // 新增了下载文件
         DownloadManager.shared.$taskArray.receive(on: DispatchQueue.main)
@@ -75,36 +69,6 @@ class PrimaryToolViewController: SuperViewController {
                 self?.updateDownloadCount()
             }.store(in: &cancellables)
         
-    }
-    
-    @objc func setupDiscountTimer() {
-        if !DiscountIAPManager.shared.isShowDiscount() {
-            return
-        }
-        
-        if UserInfoManager.shared.isVIP() {
-            return
-        }
-        
-        self.timer.startTimer(seconds: 0.01, repeats: true, callSoon: true) { [weak self] vTime in
-            guard let wSelf = self else { return }
-            guard let lastDiscountTime = DiscountIAPManager.shared.lastDiscountTime else {
-                DiscountIAPManager.markDiscountStarted()
-                return
-            }
-            
-            let nowDate = Date()
-            
-            var leftTime = nowDate.timeIntervalSince1970 - lastDiscountTime
-            leftTime = wSelf.maxDiscountTime - leftTime
-            
-            if leftTime < 0 {
-                vTime.stopTimer()
-            }
-            
-            NotificationCenter.default.post(name: Notification.Name(kDiscountLeftTimeKey), object: nil, userInfo: ["leftTime": leftTime])
-            
-        }
     }
     
     @objc func loginThirdServerSuccess(_ noti: Notification) {
@@ -135,9 +99,6 @@ class PrimaryToolViewController: SuperViewController {
     
     var cancellables = Set<AnyCancellable>()
 
-    // 默认倒计时3小时
-    let maxDiscountTime: Double = DiscountIAPManager.shared.maxDiscountTime
-    
     lazy var dataArray: [PrimaryCellGroupModel] = {
         let model1 = PrimaryCellGroupModel(group: .musicGroup, headTitle: "Music".localStr(), itemArray: [.allMusics, .artist, .album, .genre], footTitle: nil)
         let model2 = PrimaryCellGroupModel(group: .connectGroup, headTitle: "Connect".localStr(), itemArray: [.connect, .download], footTitle: nil)
@@ -162,16 +123,13 @@ class PrimaryToolViewController: SuperViewController {
         return view
     }()
     
-    lazy var timer: KakaTimer = {
-        let timer = KakaTimer()
-        return timer
-    }()
-    
-    lazy var premiumView: PremiumTimerView = {
-        let view = PremiumTimerView(frame: CGRectMake(0, 0, PremiumTimerView.maxWidth(), 40.ckValue()))
-        view.onStopCallback = { [weak self] () in
-            self?.setupNavigationItem()
-        }
+    lazy var premiumView: UIButton = {
+        var configuration = UIButton.Configuration.tinted()
+        configuration.title = "Unlock Premium".localStr()
+        configuration.image = UIImage(systemName: "crown")
+        configuration.imagePadding = 8
+        configuration.cornerStyle = .capsule
+        let view = UIButton(configuration: configuration)
         view.addTarget(self, action: #selector(vipCenterClick), for: .touchUpInside)
         return view
     }()

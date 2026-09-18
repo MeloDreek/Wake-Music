@@ -64,6 +64,10 @@ class UserInfoViewController: SuperViewController {
                 self?.allRecords.insert(weeklyModel, at: 0)
             }
             
+            if let monthlyModel = customerInfo.subscriptionsByProductIdentifier[PurchaseStoreID.monthly.rawValue] {
+                self?.allRecords.insert(monthlyModel, at: 0)
+            }
+
             if let yearlyModel = customerInfo.subscriptionsByProductIdentifier[PurchaseStoreID.yearly.rawValue] {
                 self?.allRecords.insert(yearlyModel, at: 0)
             }
@@ -98,7 +102,7 @@ class UserInfoViewController: SuperViewController {
         
         var itemArray: [UserInfoCellItemType] = [.nickName, .endDate]
 #if !Target_Mobie_Pro
-        if let storeID = AppStoreKitManager.shared.currentStoreID(), storeID.productType == .autoRenewableSubscription {
+        if UserInfoManager.shared.payedStoreModel()?.isSubscription == true {
             itemArray = [.nickName, .endDate, .premium]
         }else{
             if !UserInfoManager.shared.isVIP() {

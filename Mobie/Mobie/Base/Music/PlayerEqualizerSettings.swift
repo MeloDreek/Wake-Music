@@ -32,7 +32,23 @@ struct PlayerEqualizerSettings: Codable, Equatable {
 }
 
 enum PlayerEqualizerPreset: String, Codable, CaseIterable {
-    case flat, bass, vocal, rock, jazz, acoustic, custom
+    // Keep the original raw values stable so saved curves remain readable.
+    case flat, bass, vocal, rock, jazz, acoustic
+    case classical, pop, hipHop, rnb, electronic, blues, country, metal
+    case reggae, soul, punk, folk, latin, ambient, soundtrack, disco
+    case custom
+
+    static var factoryPresets: [Self] { allCases.filter { $0 != .custom } }
+
+    var localizationKey: String {
+        switch self {
+        case .flat, .bass, .vocal, .rock, .jazz, .acoustic, .custom:
+            return "EQ." + rawValue.prefix(1).uppercased() + rawValue.dropFirst()
+        case .hipHop: return "hip-hop"
+        case .rnb: return "r&b"
+        default: return rawValue
+        }
+    }
 
     var curve: [Float]? {
         switch self {
@@ -42,6 +58,24 @@ enum PlayerEqualizerPreset: String, Codable, CaseIterable {
         case .rock: return [4, 3, 2, -1, -2, 0, 2, 3, 4, 3]
         case .jazz: return [3, 2, 1, 2, -1, -1, 0, 2, 3, 3]
         case .acoustic: return [2, 2, 1, 0, 1, 2, 2, 3, 2, 1]
+        // Gentle starting points, not loudness targets or replicas of another player's curves.
+        // Frequencies: 32, 64, 125, 250, 500, 1k, 2k, 4k, 8k, 16k Hz.
+        case .classical: return [2, 1, 0, -1, -1, 0, 0, 1, 2, 2]
+        case .pop: return [-1, 1, 2, 1, 0, 1, 2, 3, 2, 0]
+        case .hipHop: return [5, 4, 3, 1, -1, 0, 1, 2, 1, 0]
+        case .rnb: return [4, 3, 2, 0, -1, 1, 2, 1, 2, 1]
+        case .electronic: return [4, 4, 2, 0, -2, -1, 1, 3, 4, 2]
+        case .blues: return [1, 2, 1, 0, 1, 2, 2, 1, 0, -1]
+        case .country: return [-1, 0, 1, 1, 0, 2, 3, 2, 1, 0]
+        case .metal: return [3, 3, 2, -1, -2, 1, 3, 2, 1, 0]
+        case .reggae: return [4, 5, 3, 1, 0, -1, 1, 1, 0, -1]
+        case .soul: return [2, 3, 2, 1, 0, 2, 2, 1, 0, -1]
+        case .punk: return [1, 2, 1, -1, 0, 2, 3, 2, 1, -1]
+        case .folk: return [-1, 0, 1, 0, 1, 2, 2, 1, 1, 0]
+        case .latin: return [2, 3, 2, 0, -1, 1, 2, 3, 2, 1]
+        case .ambient: return [3, 2, 1, 0, -1, -1, 0, 1, 2, 3]
+        case .soundtrack: return [3, 2, 1, -1, 0, 1, 1, 2, 2, 1]
+        case .disco: return [3, 4, 2, -1, -2, 0, 2, 3, 3, 1]
         case .custom: return nil
         }
     }

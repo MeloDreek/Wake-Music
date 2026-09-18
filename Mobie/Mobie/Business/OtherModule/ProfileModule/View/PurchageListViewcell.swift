@@ -183,12 +183,14 @@ extension PurchaseStoreID {
 //            return "option 3"
         case .weekly:
             return "Weekly".localStr()
+        case .monthly:
+            return "Purchase.Monthly.Title".localStr()
         case .yearly:
-            return "Annual".localStr()
+            return "Purchase.Annual.Title".localStr()
         case .lifetime298:
-            return "Lifetime".localStr()
+            return "Purchase.FamilyLifetime.Title".localStr()
         case .lifetime198:
-            return "Lifetime Discount".localStr()
+            return "Purchase.Lifetime.Title".localStr()
         
         }
     }

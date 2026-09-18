@@ -15,17 +15,18 @@ extension AppStoreKitManager {
     /// 启动后验证支付状态
     public func verifyPaymentRecords() {
 #if !Target_Mobie_Pro
-        Purchases.shared.restorePurchases { (customerInfo, error) in
+        Purchases.shared.getCustomerInfo { (customerInfo, error) in
             guard let customerInfo = customerInfo else {
                 return
             }
             
-            guard customerInfo.entitlements.all.count > 0 else { return }
-            
-            if let activePremium = customerInfo.entitlements.all[PremiumEntitlID], activePremium.isActive {
+            if let activePremium = customerInfo.entitlements.all[PremiumEntitlID] {
                 self.handlePayBigModel(activePremium: activePremium)
             }else{
                 UserInfoManager.shared.payStatus = .normal
+                UserInfoManager.shared.payGoodsId = nil
+                UserInfoManager.shared.expireDate = nil
+                UserInfoManager.shared.isFreeTrail = false
             }
         }
 #endif

@@ -8,7 +8,7 @@ extension Notification.Name {
 }
 
 extension PlayerEqualizerPreset {
-    var title: String { ("EQ." + rawValue.prefix(1).uppercased() + rawValue.dropFirst()).localStr() }
+    var title: String { localizationKey.localStr() }
 }
 
 @MainActor
@@ -19,12 +19,7 @@ final class PlayerEqualizerStore {
     private var cancellables = Set<AnyCancellable>()
 
     static var hasAccess: Bool {
-        #if Target_Mobie_Pro
-        return true
-        #else
-        // isVIP() currently contains a development bypass. DSP uses the real entitlement.
-        return UserInfoManager.shared.isPremium()
-        #endif
+        UserInfoManager.shared.isVIP()
     }
 
     var isActive: Bool { Self.hasAccess && settings.isEnabled }

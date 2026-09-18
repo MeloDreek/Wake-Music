@@ -36,8 +36,7 @@ class ProfileViewController: SuperViewController {
         // 主题颜色
         NotificationCenter.default.addObserver(self, selector: #selector(appModeStyleChanged(_:)), name: Notification.Name(kAppThemeColorChangedKey), object: nil)
         
-        // 开始折扣倒计时
-        NotificationCenter.default.addObserver(self, selector: #selector(updateNavigationItem), name: Notification.Name(rawValue: kStartDiscountPriceKey), object: nil)
+        // 购买状态更新后刷新高级版入口
         NotificationCenter.default.addObserver(self, selector: #selector(updateNavigationItem), name: Notification.Name(rawValue: kPurchageSuccessKey), object: nil)
                 
         // 监听是否填好了兑换码
@@ -85,11 +84,7 @@ class ProfileViewController: SuperViewController {
     }
     
     @objc func updateNavigationItem() {
-        self.navigationItem.rightBarButtonItem = (kaka_IsMacOS() || UserInfoManager.shared.isVIP() || !DiscountIAPManager.shared.isShowDiscount()) ? nil : self.premiumBarItem
-        
-        if !UserInfoManager.shared.isVIP() {
-            self.navigationItem.rightBarButtonItem = self.premiumBarItem
-        }
+        self.navigationItem.rightBarButtonItem = UserInfoManager.shared.isVIP() ? nil : self.premiumBarItem
         
         self.tableView.reloadData()
     }
@@ -114,7 +109,7 @@ class ProfileViewController: SuperViewController {
         barAppearance.configureWithTransparentBackground() // 底层透明，但内容穿透
         self.navigationController?.navigationBar.scrollEdgeAppearance = barAppearance
                 
-        self.tableView.reloadData()
+        self.updateNavigationItem()
     }
 
     // MARK:  GET && SET
@@ -181,18 +176,8 @@ class ProfileViewController: SuperViewController {
     
     
     lazy var premiumBarItem: UIBarButtonItem = {
-        let timerView = PremiumTimerView(frame: CGRectMake(0, 0, PremiumTimerView.maxWidth(), 30.ckValue()))
-        timerView.onStopCallback = { [weak self] () in
-            self?.navigationItem.rightBarButtonItem = nil
-        }
-        timerView.addTarget(self, action: #selector(vipCenterClick), for: .touchUpInside)
-        
-        let item = UIBarButtonItem(customView: timerView)
-        item.style = .done
-        if #available(iOS 26.0, *) {
-            item.hidesSharedBackground = true
-        }
-        item.width = PremiumTimerView.maxWidth()
+        let item = UIBarButtonItem(image: UIImage(systemName: "crown"), style: .plain, target: self, action: #selector(vipCenterClick))
+        item.accessibilityLabel = "Unlock Premium".localStr()
         return item
     }()
     

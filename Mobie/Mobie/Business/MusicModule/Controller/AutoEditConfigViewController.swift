@@ -388,10 +388,6 @@ extension AutoEditConfigViewController {
     
     // 解锁VIP
     @objc func vipButtonClick() {
-        if !DiscountIAPManager.shared.isShowDiscount() {
-            DiscountIAPManager.reset()
-        }
-        
         AppStoreKitManager.presentPurcharseVC(self)
     }
     
@@ -453,4 +449,3 @@ class AutoEditConfigTableCell: UITableViewCell {
     }
     
 }
-

@@ -146,7 +146,7 @@ final class PlayerMoreConfigCollectCell: UICollectionViewCell, UITableViewDataSo
         config.textProperties.adjustsFontForContentSizeCategory = true
         config.textProperties.numberOfLines = 0
         config.textProperties.color = color
-        config.image = element.image ?? UIImage(systemName: "slider.horizontal.3")
+        config.image = element.image ?? UIImage(systemName: "tag")
         config.imageProperties.tintColor = color
         config.imageProperties.preferredSymbolConfiguration = UIImage.SymbolConfiguration(pointSize: 20, weight: .regular)
         config.imageProperties.maximumSize = CGSize(width: 24, height: 24)

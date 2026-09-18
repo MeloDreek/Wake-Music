@@ -6,9 +6,13 @@ Run from the repository root on macOS with Xcode installed:
 bash Tests/Equalizer/run-tests.sh --settings-only
 bash Tests/Equalizer/run-tests.sh
 bash Tests/Equalizer/run-tests.sh --simulator
+ruby Tests/Equalizer/check-ui-copy.rb
+bash Tests/Equalizer/run-layout-probe.sh
 ```
 
 The simulator variant also runs the macOS tests and requires one booted arm64 iOS simulator. Set `EQ_SIMULATOR_UDID` when more than one simulator is booted. `DEVELOPER_DIR` can override the default `/Applications/Xcode.app/Contents/Developer`. Audio Unit creation requires access to system audio component services; a restrictive shell sandbox can block it even though the probe never plays sound.
+
+The layout probe extracts the production wrapping preset view and runs it inside the booted simulator without installing or interacting with the app. It checks 22 buttons at four widths, normal/large fonts, RTL/LTR and after resizing. The copy check validates all newly reused genre names and both new messages across 42 locales, the Catalyst slider styling guard, and confirmation before the paywall. The settings suite requires at least twenty distinct factory curves, excludes Custom from the factory list and retains all legacy raw IDs. `Tests/RemoteAccess/check-policy.rb` additionally compiles the actual shared entitlement implementation for both normal and Pro builds.
 
 `IntegrationTests.swift` compiles the actual app settings source. `extract-integration.rb` mechanically extracts the actual store and playback migration/retire/pause/seek methods for compilation against deterministic boundaries. It covers corrupt and short gain arrays, finite-value normalization, preset JSON round trips, master headroom, premium mutation gating, persistence, entitlement loss and foreground refresh, engine-observer suppression, paused migration, retained URL/volume/rate, pending seeks, request invalidation, and pause during a seek. A unique `UserDefaults` suite isolates test persistence and is removed after the run.
 
