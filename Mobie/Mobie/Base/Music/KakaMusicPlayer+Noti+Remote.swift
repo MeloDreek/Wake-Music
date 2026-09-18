@@ -409,7 +409,7 @@ extension KakaMusicPlayer {
     
     // 播放引擎已变更
     @MainActor @objc func playerEngineChanged() {
-        
+        if isSwitchingEngineForEqualizer { return }
         guard let playingMusic = self.playingMusic, MusicConfigManager.shared.playerEngine != .avPlayer else {
             return
         }

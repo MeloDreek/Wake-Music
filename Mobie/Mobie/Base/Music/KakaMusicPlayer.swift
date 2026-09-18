@@ -120,6 +120,7 @@ public class KakaMusicPlayer: NSObject, ObservableObject {
     var seekRequestID = UUID()
     var pendingSeekTime: TimeInterval?
     var isSeeking = false
+    var isSwitchingEngineForEqualizer = false
 
     var remoteMetadataTask: Task<Void, Never>?
     var remoteMetadataGeneration = UUID()
@@ -256,7 +257,9 @@ public class KakaMusicPlayer: NSObject, ObservableObject {
         let isPlaylist = model.mediaPlayURL.pathExtension.contains("m3u")
         option.formatContextOptions["protocol_whitelist"] = isPlaylist ?  "file,http,https,tcp,tls,crypto,async,cache,data,httpproxy" : nil
         
-//        KSOptions.audioPlayerType = AudioEnginePlayer.self
+        // The SDK's native EQ node preserves its routing, PCM format and playback clock.
+        // It is bypassed for non-Premium users and whenever EQ is switched off.
+        KSOptions.audioPlayerType = AudioEngineDynamicsPlayer.self
         
         if model.fileSourceType == .demoFile {
             KSOptions.firstPlayerType = KSMEPlayer.self
@@ -278,6 +281,10 @@ public class KakaMusicPlayer: NSObject, ObservableObject {
             }
         }
         
+        if PlayerEqualizerStore.shared.isActive {
+            // No silent fallback to KSAVPlayer: that path does not process this EQ.
+            option.playerTypes = [KSMEPlayer.self]
+        }
         return option
     }
     

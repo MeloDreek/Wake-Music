@@ -1,14 +1,14 @@
 import UIKit
-import AVKit
 import KakaFoundation
 
 /// Shared navigation footer; independent of the default/cassette transport controls.
 final class PlayerBottomBar: UIView {
     let playlistButton = UIButton(type: .custom)
     let moreButton = UIButton(type: .custom)
-    let airplayButton = AVRoutePickerView()
+    let equalizerButton = UIButton(type: .custom)
     var onPlaylist: (() -> Void)?
     var onMore: (() -> Void)?
+    var onEqualizer: (() -> Void)?
 
     /// The controller also supplies this reservation to the list pages.
     static func reservedHeight(safeBottom: CGFloat) -> CGFloat {
@@ -17,9 +17,12 @@ final class PlayerBottomBar: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        [playlistButton, airplayButton, moreButton].forEach { addSubview($0) }
-        airplayButton.tintColor = .white
-        airplayButton.activeTintColor = .white
+        [playlistButton, equalizerButton, moreButton].forEach { addSubview($0) }
+        equalizerButton.setImage(UIImage(named: "player_equalizer"), for: .normal)
+        equalizerButton.imageView?.contentMode = .scaleAspectFit
+        equalizerButton.imageEdgeInsets = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
+        equalizerButton.accessibilityLabel = "EQ.Title".localStr()
+        equalizerButton.addTarget(self, action: #selector(showEqualizer), for: .touchUpInside)
         playlistButton.accessibilityLabel = "Queue.Title".localStr()
         moreButton.accessibilityLabel = "More".localStr()
         playlistButton.addTarget(self, action: #selector(showPlaylist), for: .touchUpInside)
@@ -32,7 +35,7 @@ final class PlayerBottomBar: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         let rtl = effectiveUserInterfaceLayoutDirection == .rightToLeft
-        for (index, button) in [playlistButton, airplayButton, moreButton].enumerated() {
+        for (index, button) in [playlistButton, equalizerButton, moreButton].enumerated() {
             let position = rtl ? 2 - index : index
             button.frame = CGRect(x: bounds.width * CGFloat(position * 2 + 1) / 6 - 22,
                                   y: (bounds.height - 44) / 2, width: 44, height: 44)
@@ -53,4 +56,5 @@ final class PlayerBottomBar: UIView {
 
     @objc private func showPlaylist() { onPlaylist?() }
     @objc private func showMore() { onMore?() }
+    @objc private func showEqualizer() { onEqualizer?() }
 }

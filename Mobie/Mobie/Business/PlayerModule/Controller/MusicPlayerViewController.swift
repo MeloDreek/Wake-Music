@@ -94,7 +94,6 @@ class MusicPlayerViewController: SuperViewController {
         self.resetPlayerConfig()
         
         self.perform(#selector(showTapePlayerUI), with: nil, afterDelay: 1)
-        self.perform(#selector(showAirPlayTips), with: nil, afterDelay: 3)
     }
     
     func resetPlayerConfig() {
@@ -132,32 +131,11 @@ class MusicPlayerViewController: SuperViewController {
         self.view.addSubview(guideView)
     }
     
-    @objc func showAirPlayTips() {
-        
-        guard let playingMusic = KakaMusicPlayer.shared.playingMusic, playingMusic.fileSourceType != .demoFile else { return }
-        
-        if self.playDefaultControl.isHidden || self.playDefaultControl.airplayButton.isHidden {
-            return
-        }
-        
-        if !MusicConfigManager.shared.playerStyle.isDefaultStyle() {
-            return
-        }
-        
-        if AppLocalManager.shared.isShowAirPlay > 2 {
-            return
-        }
-                
-        let popView = CMPopTipView(message: "Connect Your Car and TV".localStr())
-        popView?.hasShadow = true
-        popView?.has3DStyle = false
-        popView?.borderColor = UIColor.white
-        popView?.dismissTapAnywhere = true
-        popView?.backgroundColor = appMainColor
-        popView?.textColor = UIColor.deAccent
-        popView?.presentPointing(at: self.playDefaultControl.airplayButton, in: self.view, animated: true)
-        
-        AppLocalManager.shared.isShowAirPlay += 1
+    func presentEqualizer() {
+        let navigation = KakaNavigationController(rootViewController: PlayerEqualizerViewController())
+        navigation.overrideUserInterfaceStyle = .dark
+        navigation.modalPresentationStyle = .formSheet
+        present(navigation, animated: true)
     }
     
     @objc func dismissItemAction() {
@@ -366,6 +344,7 @@ class MusicPlayerViewController: SuperViewController {
             guard let self else { return }
             self.setMoreConfigVisible(!self.isShowingMoreConfig)
         }
+        bar.onEqualizer = { [weak self] in self?.presentEqualizer() }
         return bar
     }()
 
@@ -376,6 +355,7 @@ class MusicPlayerViewController: SuperViewController {
         
         let view = PlayControlDefaultView(frame: CGRectMake(0, 0, controlWidth, controlHeight))
         view.delegate = self
+        view.bottomBar.onEqualizer = { [weak self] in self?.presentEqualizer() }
         view.isHidden = !MusicConfigManager.shared.playerStyle.isDefaultStyle()
         return view
     }()

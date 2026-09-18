@@ -81,8 +81,20 @@ extension KakaMusicPlayer: @preconcurrency PlayerControllerDelegate {
     
     @MainActor public func playerController(state: KSPlayer.KSPlayerState) {
         debugPrint("播放状态 = \(state)")
+        if state == .readyToPlay {
+            configureCurrentEqualizer()
+        }
         // A late readiness/buffering/end callback must never undo a user's pause.
         guard wantsPlayback else {
+            if state == .readyToPlay, let time = pendingSeekTime {
+                // EQ preparation must also honor a seek while staying paused.
+                playerView.pause()
+                if playerView.playerLayer?.player.seekable == true {
+                    seek(time: time)
+                } else {
+                    pendingSeekTime = nil
+                }
+            }
             if playerView.playerLayer?.player.isPlaying == true { playerView.pause() }
             playbackStatus = .paused
             return
@@ -105,9 +117,14 @@ extension KakaMusicPlayer: @preconcurrency PlayerControllerDelegate {
         
         if state == .readyToPlay {
             if let time = pendingSeekTime {
-                // Cancel SDK auto-start before seeking; completion decides whether to resume.
                 playerView.pause()
-                seek(time: time)
+                if playerView.playerLayer?.player.seekable == true {
+                    seek(time: time)
+                } else {
+                    // Live radio cannot seek, including to zero; still resume after an EQ upgrade.
+                    pendingSeekTime = nil
+                    playerView.play()
+                }
             }
             self.isRetry = false
             

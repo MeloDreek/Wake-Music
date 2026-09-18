@@ -157,7 +157,7 @@ class PlayControlDefaultView: UIView, UIGestureRecognizerDelegate {
             .receive(on: DispatchQueue.main)
             .sink { [weak self] isLandscape in
                 let isPhoneLandScape = isLandscape && kaka_IsiPhone()
-                self?.airplayButton.isHidden = isPhoneLandScape
+                self?.equalizerButton.isHidden = isPhoneLandScape
                 self?.playlistButton.isHidden = isPhoneLandScape
                 self?.moreButton.isHidden = isPhoneLandScape
                 self?.sliderView.isHidden = isPhoneLandScape
@@ -298,7 +298,7 @@ class PlayControlDefaultView: UIView, UIGestureRecognizerDelegate {
         }
         return view
     }()
-    var airplayButton: AVRoutePickerView { bottomBar.airplayButton }
+    var equalizerButton: UIButton { bottomBar.equalizerButton }
     var playlistButton: UIButton { bottomBar.playlistButton }
     var moreButton: UIButton { bottomBar.moreButton }
     
