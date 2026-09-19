@@ -18,9 +18,6 @@ final class PlayerBottomBar: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         [playlistButton, equalizerButton, moreButton].forEach { addSubview($0) }
-        equalizerButton.setImage(UIImage(named: "player_equalizer"), for: .normal)
-        equalizerButton.imageView?.contentMode = .scaleAspectFit
-        equalizerButton.imageEdgeInsets = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
         equalizerButton.accessibilityLabel = "EQ.Title".localStr()
         equalizerButton.addTarget(self, action: #selector(showEqualizer), for: .touchUpInside)
         playlistButton.accessibilityLabel = "Queue.Title".localStr()
@@ -46,8 +43,10 @@ final class PlayerBottomBar: UIView {
     func updateSelection(queue: Bool, more: Bool) {
         let config = UIImage.SymbolConfiguration(pointSize: 21, weight: .medium)
         playlistButton.setImage(UIImage(systemName: queue ? "list.bullet" : "list.triangle", withConfiguration: config), for: .normal)
+        equalizerButton.setImage(UIImage(systemName: "slider.vertical.3", withConfiguration: config), for: .normal)
         moreButton.setImage(UIImage(systemName: "ellipsis.circle", withConfiguration: config), for: .normal)
-        for (button, selected) in [(playlistButton, queue), (moreButton, more)] {
+        for (button, selected) in [(playlistButton, queue), (equalizerButton, false), (moreButton, more)] {
+            button.imageView?.contentMode = .scaleAspectFit
             button.tintColor = .white
             button.backgroundColor = selected ? .white.withAlphaComponent(0.18) : .clear
             button.accessibilityTraits = selected ? [.button, .selected] : .button

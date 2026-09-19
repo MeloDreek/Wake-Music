@@ -27,7 +27,7 @@ class PlayerEngineViewController: SuperViewController {
         super.preSetupHandleBuness()
         self.title = SettingCellItemType.selectPlayer.titleStr()
         
-        if self.isPresent() && self.splitViewController == nil {
+        if self.isPresent() && self.splitViewController == nil && navigationController?.viewControllers.first === self {
             self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelBarClick))
         }
         
@@ -43,7 +43,13 @@ class PlayerEngineViewController: SuperViewController {
     }
     
     @objc func cancelBarClick() {
-        (self.navigationController ?? self).dismiss(animated: true)
+        // EQ (and Profile) can push this page. Return to that caller instead of
+        // dismissing the caller's entire presented navigation controller.
+        if let navigationController, navigationController.viewControllers.first !== self {
+            navigationController.popViewController(animated: true)
+        } else {
+            (self.navigationController ?? self).dismiss(animated: true)
+        }
     }
     
     // MARK:  GET && SET

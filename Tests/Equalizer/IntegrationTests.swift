@@ -135,6 +135,7 @@ final class AudioEngineDynamicsPlayer {}
     static func main() throws {
         defer { UserDefaults.standard.removePersistentDomain(forName: UserDefaults.suite) }
         try testSettings()
+        try testCustomRecallAndMigration()
         try testStoreAndReload()
         print("PASS_EQUALIZER_SETTINGS_STORE_RELOAD assertions=\(assertions)")
     }
@@ -154,8 +155,13 @@ final class AudioEngineDynamicsPlayer {}
         expect(bad.normalized().preamp == -12 && bad.outputGain == -24, "minimum combined gain")
         bad.gains = Array(repeating: -6, count: 13)
         expect(bad.normalized().gains.count == 10 && bad.outputGain == -12, "cuts do not require extra headroom")
-        expect(PlayerEqualizerPreset.factoryPresets.count >= 20, "at least twenty factory presets")
+        let expectedPresets: [PlayerEqualizerPreset] = [
+            .flat, .bass, .bassReduction, .treble, .trebleReduction,
+            .vocal, .warmth, .clarity, .soft, .rock, .pop, .jazz, .acoustic, .classical
+        ]
+        expect(PlayerEqualizerPreset.factoryPresets == expectedPresets, "curated listening goals before selected musical starting points")
         expect(!PlayerEqualizerPreset.factoryPresets.contains(.custom), "custom is not a factory preset")
+        expect(PlayerEqualizerPreset.displayedPresets == expectedPresets + [.custom], "custom is available exactly once in the final position")
         let curves = PlayerEqualizerPreset.factoryPresets.compactMap(\.curve)
         expect(Set(curves).count == curves.count, "factory presets have distinct curves")
         for raw in ["flat", "bass", "vocal", "rock", "jazz", "acoustic", "custom"] {
@@ -183,6 +189,80 @@ final class AudioEngineDynamicsPlayer {}
         expect(custom.gains.allSatisfy { $0 == 0 }, "flat resets band gains")
     }
 
+    static func testCustomRecallAndMigration() throws {
+        var manual = PlayerEqualizerSettings()
+        manual.gains = [1, -2, 3, -4, 5, -6, 4, -3, 2, -1]
+        manual.preamp = -4.5
+        manual.saveCustomCurve()
+        let remembered = manual
+        expect(manual.preset == .custom && manual.customCurve?.gains == manual.gains, "manual edit saves and marks custom")
+        expect(!manual.isEnabled, "manual edit does not enable EQ")
+        manual.selectPreset(.jazz)
+        expect(manual.gains == PlayerEqualizerPreset.jazz.curve && manual.customCurve == remembered.customCurve, "factory preset leaves custom memory untouched")
+        expect(manual.preamp == -4.5 && !manual.isEnabled, "factory selection retains preamp and disabled state")
+        manual.selectPreset(.rock)
+        manual.selectPreset(.custom)
+        expect(manual == remembered, "custom restores complete manual curve and preamp after multiple factories")
+        manual.selectPreset(.flat)
+        manual.preamp = 0 // Reset action clears active EQ, not the recall slot.
+        manual.selectPreset(.custom)
+        expect(manual == remembered, "custom can be recalled after flat reset including preamp")
+        manual.selectPreset(.pop)
+        let disk = try JSONEncoder().encode(manual)
+        var recalled = try JSONDecoder().decode(PlayerEqualizerSettings.self, from: disk).normalized()
+        expect(recalled == manual, "custom slot persists while a factory preset is active")
+        recalled.selectPreset(.custom)
+        expect(recalled == remembered, "custom recall survives relaunch")
+        recalled.gains[0] = -5
+        recalled.preamp = -2
+        recalled.saveCustomCurve()
+        recalled.selectPreset(.treble)
+        recalled.selectPreset(.custom)
+        expect(recalled.gains[0] == -5 && recalled.preamp == -2, "latest manual band and preamp edits replace the recalled values")
+
+        var first = PlayerEqualizerSettings()
+        first.selectPreset(.acoustic)
+        first.preamp = -1.5
+        first.selectPreset(.custom)
+        expect(first.gains == PlayerEqualizerPreset.acoustic.curve && first.preamp == -1.5, "first custom selection starts at current values")
+        expect(first.customCurve != nil && !first.isEnabled, "first custom selection remembers values without enabling")
+
+        let legacyCases: [PlayerEqualizerPreset] = [.flat, .bass, .vocal, .rock, .jazz, .acoustic,
+            .classical, .pop, .hipHop, .rnb, .electronic, .blues, .country, .metal,
+            .reggae, .soul, .punk, .folk, .latin, .ambient, .soundtrack, .disco, .custom]
+        for preset in legacyCases {
+            let oldGains = preset.curve ?? remembered.gains
+            // Genuine old v1 JSON with no customCurve field.
+            let oldData = try JSONSerialization.data(withJSONObject: [
+                "isEnabled": true, "gains": oldGains, "preamp": -3, "preset": preset.rawValue
+            ])
+            let migrated = try JSONDecoder().decode(PlayerEqualizerSettings.self, from: oldData).normalized()
+            expect(migrated.isEnabled && migrated.gains == oldGains && migrated.preamp == -3, "legacy JSON keeps exact active audio values")
+            if PlayerEqualizerPreset.factoryPresets.contains(preset) {
+                expect(migrated.preset == preset, "visible legacy factory choice retained")
+            } else {
+                expect(migrated.preset == .custom && migrated.customCurve?.gains == oldGains && migrated.customCurve?.preamp == -3,
+                       "hidden legacy or manual curve migrates to recoverable custom")
+                var migratedRecall = migrated
+                migratedRecall.selectPreset(.flat)
+                migratedRecall.selectPreset(.custom)
+                expect(migratedRecall == migrated, "migrated legacy sound can be recalled")
+            }
+        }
+        let malformedSnapshot = Data("""
+        {"isEnabled":true,"gains":[1,2,3],"preamp":-2,"preset":"bass","customCurve":{"gains":"broken","preamp":{}}}
+        """.utf8)
+        let repaired = try JSONDecoder().decode(PlayerEqualizerSettings.self, from: malformedSnapshot).normalized()
+        expect(repaired.isEnabled && repaired.gains == [1,2,3,0,0,0,0,0,0,0] && repaired.preamp == -2 && repaired.preset == .bass,
+               "malformed optional snapshot does not discard active EQ")
+        expect(repaired.customCurve == nil, "malformed optional snapshot is discarded alone")
+        var invalidRecall = PlayerEqualizerSettings()
+        invalidRecall.customCurve = .init(gains: [.nan, .infinity, -99, 99], preamp: -.infinity)
+        invalidRecall.selectPreset(.custom)
+        expect(invalidRecall.gains == [0,0,-12,12,0,0,0,0,0,0] && invalidRecall.preamp == 0, "recall normalizes short nonfinite and excessive data")
+        expect(invalidRecall.customCurve?.gains == invalidRecall.gains, "repaired recall is stored as safe values")
+    }
+
     static func testStoreAndReload() throws {
         let key = "PlayerEqualizerSettings.v1"
         var saved = PlayerEqualizerSettings()
@@ -199,6 +279,11 @@ final class AudioEngineDynamicsPlayer {}
         enabled.isEnabled = true
         enabled.selectPreset(.bass)
         expect(!store.update(enabled), "non-premium mutation rejected")
+        var forbiddenCustom = enabled
+        forbiddenCustom.gains[0] = 3
+        forbiddenCustom.preamp = -6
+        forbiddenCustom.saveCustomCurve()
+        expect(!store.update(forbiddenCustom) && store.settings.customCurve == nil, "non-premium custom edit and recall slot mutation rejected")
         expect(UserDefaults.standard.data(forKey: key) == original && notifications == 0, "rejection has no persistent or notification side effects")
         UserInfoManager.shared.premium = true
         expect(store.update(enabled) && store.isActive, "premium enables DSP")
@@ -206,6 +291,17 @@ final class AudioEngineDynamicsPlayer {}
         expect(MusicConfigManager.shared.playerEngine == .wakePlayer && MusicConfigManager.shared.engineObserverWasSuppressed, "EQ engine migration suppresses legacy zero-time observer")
         let persisted = try JSONDecoder().decode(PlayerEqualizerSettings.self, from: UserDefaults.standard.data(forKey: key)!)
         expect(persisted == enabled, "accepted settings persisted")
+        var acceptedCustom = enabled
+        acceptedCustom.gains[0] = 2.5
+        acceptedCustom.preamp = -5
+        acceptedCustom.saveCustomCurve()
+        expect(store.update(acceptedCustom), "premium custom edit accepted")
+        var factory = store.settings
+        factory.selectPreset(.vocal)
+        expect(store.update(factory), "factory change with saved custom accepted")
+        var persistedCustom = try JSONDecoder().decode(PlayerEqualizerSettings.self, from: UserDefaults.standard.data(forKey: key)!)
+        persistedCustom.selectPreset(.custom)
+        expect(persistedCustom == acceptedCustom, "store persists custom gains and preamp across factory selection")
 
         let player = KakaMusicPlayer.shared
         let old = TestLayer(player: TestMediaPlayer())

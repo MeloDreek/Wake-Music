@@ -19,6 +19,10 @@ extension KakaMusicPlayer {
     public func startPlayMusic(musics: [MusicItemModel], itemIndex: Int) {
         
         guard musics.indices.contains(itemIndex) else { return }
+        // Keep the selected identity from the original list, not its filtered index.
+        // An empty folder must not stop the current song or become a playable item.
+        let model = musics[itemIndex]
+        guard !model.isFolder() else { return }
         
         retirePlayback()
         MusicConfigManager.shared.lastPlayTime = 0
@@ -27,7 +31,6 @@ extension KakaMusicPlayer {
         self.tempMusicArray = musics
         self.nextPlayMusic = nil
         
-        let model = musics[itemIndex]
         self.playingMusic = model
         self.playlistSortTypeChanged()
         
@@ -69,6 +72,13 @@ extension KakaMusicPlayer {
         self.playbackRequestID = UUID()
         
         guard var model = self.playingMusic else { return }
+        // Defensive guard for old persisted current-song records and direct callers.
+        guard !model.isFolder() else {
+            retirePlayback()
+            playingMusic = nil
+            playbackStatus = .error
+            return
+        }
 
         // History and restored queues must not bypass the connection paywall.
         // Already downloaded files remain available without a new connection.

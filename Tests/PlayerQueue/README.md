@@ -2,6 +2,8 @@
 
 Run `bash Tests/PlayerQueue/run-regressions.sh`. The executable uses production generic queue operations with no playback, credentials, or network access.
 
+Run `ruby Tests/PlayerQueue/check-folder-entry.rb` for the production queue setters and start-selection path. It checks folder exclusion (including empty/all-folder inputs), deduplication, preservation of the selected identity after filtering, and rejection before interrupting current playback. An optional simulator Documents path verifies the existing MMM/nonempty and PPP/empty fixtures read-only. Model boundaries are doubled; the queue and selection implementations are extracted from the app.
+
 Coverage: stable identity deduplication, appending a duplicate to an unchanged list (the old `didSet` bug), empty/single-track queues, distinct IDs with identical titles, current-track exclusion, wrapped order, all forward/backward moves, invalid moves, 10,000-track input, and rejecting stale drag snapshots after a song/order/membership change.
 
 The player publishes `queueItems` only after normalization via the `musicArray` setter. Original-order restoration is normalized too. Metadata-only updates are still published; they must not be suppressed by identity-only equality. Both legacy playlist surfaces subscribe to the normalized publisher and resolve taps by song ID rather than a potentially stale row index. Their delayed reload/scroll tasks were removed.

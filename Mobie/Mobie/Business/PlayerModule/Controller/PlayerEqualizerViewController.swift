@@ -123,10 +123,26 @@ final class PlayerEqualizerViewController: SuperViewController {
         navigationItem.standardAppearance = appearance
         navigationItem.scrollEdgeAppearance = appearance
         navigationItem.compactAppearance = appearance
+        let engine = UIBarButtonItem(image: UIImage(systemName: "cpu"), style: .plain,
+                                     target: self, action: #selector(showPlayerEngine))
+        engine.tintColor = EQStyle.silver
+        engine.accessibilityLabel = SettingCellItemType.selectPlayer.titleStr()
+        navigationItem.rightBarButtonItem = engine
         if isPresent(), navigationController?.viewControllers.first === self {
             let done = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(cancelButtonClick))
             done.tintColor = EQStyle.silver
             navigationItem.leftBarButtonItem = done
+        }
+    }
+
+    @objc private func showPlayerEngine() {
+        let engine = PlayerEngineViewController()
+        if let navigationController {
+            navigationController.pushViewController(engine, animated: true)
+        } else {
+            let navigation = KakaNavigationController(rootViewController: engine)
+            navigation.modalPresentationStyle = kaka_IsiPad() ? .fullScreen : .automatic
+            present(navigation, animated: true)
         }
     }
 
@@ -206,7 +222,7 @@ final class PlayerEqualizerViewController: SuperViewController {
     private func makePresetsPanel() -> UIView {
         let title = EQStyle.sectionTitle("EQ.Presets")
         let grid = EQPresetGrid()
-        for preset in PlayerEqualizerPreset.factoryPresets {
+        for preset in PlayerEqualizerPreset.displayedPresets {
             let button = UIButton(type: .system)
             var configuration = UIButton.Configuration.filled()
             configuration.title = preset.title
@@ -233,7 +249,10 @@ final class PlayerEqualizerViewController: SuperViewController {
             presetButtons[preset] = button
             grid.addButton(button)
         }
-        return EQStyle.column([title, grid], spacing: 10)
+        let note = EQStyle.label(size: 12, textStyle: .footnote)
+        note.text = "EQ.PresetsGuide".localStr()
+        note.textColor = EQStyle.secondary
+        return EQStyle.column([title, grid, note], spacing: 10)
     }
 
     private func makeBandsPanel() -> UIView {
@@ -285,7 +304,7 @@ final class PlayerEqualizerViewController: SuperViewController {
                 self?.edit { settings in
                     guard settings.gains.indices.contains(index) else { return }
                     settings.gains[index] = band.fader.value
-                    settings.preset = .custom
+                    settings.saveCustomCurve()
                 }
             }, for: .valueChanged)
             faders.append(band)
@@ -381,7 +400,10 @@ final class PlayerEqualizerViewController: SuperViewController {
     }
 
     @objc private func preampChanged() {
-        edit { $0.preamp = (preampSlider.value * 2).rounded() / 2 }
+        edit {
+            $0.preamp = (preampSlider.value * 2).rounded() / 2
+            $0.saveCustomCurve()
+        }
     }
 
     private func authorizeEditing() -> Bool {

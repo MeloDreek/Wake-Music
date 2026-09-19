@@ -68,7 +68,7 @@ public class KakaMusicPlayer: NSObject, ObservableObject {
     var musicArray: [MusicItemModel] {
         get { queueItems }
         set {
-            let items = removeDuplicate(newValue)
+            let items = normalizedQueue(newValue)
             if items.map({ $0.uniqueID() }) != queueItems.map({ $0.uniqueID() }) {
                 nextPlayMusic = nil
                 pendingShuffleRound = nil
@@ -79,8 +79,10 @@ public class KakaMusicPlayer: NSObject, ObservableObject {
         }
     }
     
-    func removeDuplicate(_ list: [MusicItemModel]) -> [MusicItemModel] {
-        PlaybackQueue.unique(list, id: { $0.uniqueID() })
+    func normalizedQueue(_ list: [MusicItemModel]) -> [MusicItemModel] {
+        // Library groups and restored remote lists can include folder models.
+        // Enforce this before publishing and for the original (unshuffled) order.
+        PlaybackQueue.unique(list.filter { !$0.isFolder() }, id: { $0.uniqueID() })
     }
 
     /// Restore once at cold launch; entering another shell or foregrounding a
@@ -97,7 +99,7 @@ public class KakaMusicPlayer: NSObject, ObservableObject {
     private var originalQueue: [MusicItemModel] = []
     var tempMusicArray: [MusicItemModel] {
         get { originalQueue }
-        set { originalQueue = removeDuplicate(newValue) }
+        set { originalQueue = normalizedQueue(newValue) }
     }
 
     /// A drag is committed only against the exact queue/current song it started with.
