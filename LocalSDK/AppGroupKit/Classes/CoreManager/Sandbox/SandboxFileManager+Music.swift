@@ -12,6 +12,34 @@ import CryptoKit
 import Darwin
 
 extension MusicItemModel {
+    /// Artwork belongs to a source file/account, not editable (or localized) tags.
+    public func artworkCacheKey() -> String {
+        let identity: String
+        if isLocalFile(), mediaPlayURL.isFileURL {
+            identity = MusicArtworkCache.localIdentity(url: mediaPlayURL, documents: SandboxFileManager.shared.basePublicFileURL())
+        } else {
+            identity = "remote:" + preDownloadIdentity()
+        }
+        return MusicArtworkCache.key(identity: identity)
+    }
+
+    public func localArtworkCacheURL() -> URL {
+        SandboxFileManager.shared.coverPathURL().appendingPathComponent(artworkCacheKey() + ".jpg")
+    }
+
+    /// Only old provider-scoped identities can be reused safely. Legacy local
+    /// title/artist names can collide and are rebuilt from the source on scan.
+    public func existingArtworkCacheURL() -> URL? {
+        let url = localArtworkCacheURL()
+        if FileManager.default.fileExists(atPath: url.path) { return url }
+        guard smbFile != nil || megaFile != nil || yandexFile != nil || pan123File != nil ||
+                guangyaFile != nil || boxFile != nil || pcloudFile != nil else { return nil }
+        let name = filePathName()
+        guard !name.contains("/"), !name.contains("\0"), name.utf8.count < 240 else { return nil }
+        let legacy = SandboxFileManager.shared.coverPathURL().appendingPathComponent(name + ".jpg")
+        return FileManager.default.fileExists(atPath: legacy.path) ? legacy : nil
+    }
+
     /// Stable source/account key, independent of the human-readable filename and tags.
     public func preDownloadIdentity() -> String {
         var parts = [fileSourceType.rawValue, uniqueID()]
@@ -31,6 +59,35 @@ extension MusicItemModel {
         return SHA256.hash(data: Data(parts.joined(separator: "\u{0}").utf8))
             .map { String(format: "%02x", $0) }.joined()
     }
+}
+
+public enum MusicArtworkCache {
+    public static func revision(at url: URL) -> String {
+        // URL resource values can retain a previous modification date when the
+        // same URL instance is reused after an atomic replacement.
+        let values = try? FileManager.default.attributesOfItem(atPath: url.path)
+        let date = values?[.modificationDate] as? Date
+        let size = values?[.size] as? NSNumber
+        return "\(date?.timeIntervalSince1970 ?? 0)-\(size?.int64Value ?? 0)"
+    }
+
+    public static func localIdentity(url: URL, documents: URL) -> String {
+        // Lexical normalization must not depend on whether an imported file
+        // already exists (standardizedFileURL may resolve /private symlinks).
+        let path = url.standardized.path.precomposedStringWithCanonicalMapping
+        let root = documents.standardized.path.precomposedStringWithCanonicalMapping + "/"
+        // iOS may change the sandbox UUID after installing an app update.
+        if path.hasPrefix(root) { return "documents:" + String(path.dropFirst(root.count)) }
+        return "file:" + path
+    }
+
+    public static func key(identity: String) -> String {
+        "artwork-v2-" + SHA256.hash(data: Data(identity.utf8)).map { String(format: "%02x", $0) }.joined()
+    }
+}
+
+extension Notification.Name {
+    public static let musicArtworkCacheDidChange = Notification.Name("Wakemusic.PlaybackArtworkCached")
 }
 
 /// A source marker travels with the file when renamed/moved; no stale filename index
@@ -365,14 +422,7 @@ extension SandboxFileManager {
             return false
         }
         
-        // 歌曲封面
-        let coverFileURL = self.coverPathURL()
-        let oldArtist = oldModel.artist ?? "Unknown Artist".localStr()
-                    
-        let newTargetURL = coverFileURL.appendingPathComponent(oldArtist + " - " + newTitle + ".jpg")
-        let oldTargetURL = coverFileURL.appendingPathComponent(oldModel.filePathName() + ".jpg")
-                
-        try? FileManager.default.moveItem(at: oldTargetURL, to: newTargetURL)
+        // Artwork keys are independent of editable tags; no file rename needed.
         
         return success
     }
@@ -388,13 +438,7 @@ extension SandboxFileManager {
             return false
         }
         
-        // 歌曲封面
-        let coverFileURL = self.coverPathURL()
-                    
-        let newTargetURL = coverFileURL.appendingPathComponent(newArtist + " - " + oldModel.showTitleName() + ".jpg")
-        let oldTargetURL = coverFileURL.appendingPathComponent(oldModel.filePathName() + ".jpg")
-                
-        try? FileManager.default.moveItem(at: oldTargetURL, to: newTargetURL)
+        // Artwork keys are independent of editable tags; no file rename needed.
         
         return success
     }
@@ -456,7 +500,29 @@ extension SandboxFileManager {
             return
         }
         
-        guard let imageData = image?.dataWithCompression() else {
+        guard let image, image.size.width.isFinite, image.size.height.isFinite,
+              image.size.width > 0, image.size.height > 0 else {
+            fail?(KakaError.custom("convert image failed!"))
+            return
+        }
+
+        // Bound decoded cache size as well as file size. Compression alone still
+        // leaves a huge source image huge when decoded by a scrolling list.
+        let ratio = min(1, 1200 / max(image.size.width * image.scale, image.size.height * image.scale))
+        let size = CGSize(width: max(1, image.size.width * image.scale * ratio),
+                          height: max(1, image.size.height * image.scale * ratio))
+        let imageData: Data? = autoreleasepool {
+            let format = UIGraphicsImageRendererFormat()
+            format.scale = 1
+            format.opaque = true
+            let thumbnail = UIGraphicsImageRenderer(size: size, format: format).image { _ in
+                UIColor.black.setFill()
+                UIRectFill(CGRect(origin: .zero, size: size))
+                image.draw(in: CGRect(origin: .zero, size: size))
+            }
+            return thumbnail.jpegData(compressionQuality: 0.88)
+        }
+        guard let imageData else {
             fail?(KakaError.custom("convert image failed!"))
             return
         }
@@ -472,20 +538,13 @@ extension SandboxFileManager {
                 try FileManager.default.createDirectory(atPath: accountFolderPath, withIntermediateDirectories: true, attributes: nil)
             }
             
-            let targetFullPathStr = accountFolderPath + "/" + model.filePathName() + ".jpg"
-            
-            // 账户的沙盒URL
-            var targetFolderURL: URL
-            if #available(iOS 16.0, *) {
-                targetFolderURL = URL(filePath: targetFullPathStr, directoryHint: .notDirectory, relativeTo: nil)
-            } else {
-                targetFolderURL = URL(fileURLWithPath: targetFullPathStr, isDirectory: false)
-            }
+            let targetFolderURL = model.localArtworkCacheURL()
             
             try imageData.write(to: targetFolderURL, options: .atomic)
             
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            DispatchQueue.main.async {
                 success?(targetFolderURL)
+                NotificationCenter.default.post(name: .musicArtworkCacheDidChange, object: model.artworkCacheKey())
             }
             
         } catch {

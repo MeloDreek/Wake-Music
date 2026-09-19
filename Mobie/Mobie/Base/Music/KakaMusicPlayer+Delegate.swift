@@ -307,8 +307,7 @@ extension KakaMusicPlayer {
                         
         // 写入沙盒封面并清理缓存
         SandboxFileManager.shared.writeMusicthumbnailImage(model: musicModel, image: coverImage) { vURL in
-            ImageCache.default.removeImage(forKey: vURL.absoluteString)
-            NotificationCenter.default.post(name: .playbackArtworkCached, object: musicModel.filePathName())
+            ImageCache.default.removeImage(forKey: vURL.cacheKey)
             guard self.acceptsRemoteMetadata(musicModel, generation: generation) else { return }
             
             // 更新播放信息（触发封面刷新）

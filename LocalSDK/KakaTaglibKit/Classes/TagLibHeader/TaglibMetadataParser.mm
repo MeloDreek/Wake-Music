@@ -91,6 +91,8 @@
             // 封面
             metadataModel.coverArt = [self extractCoverArtFromURL:fileURL];
             
+        }else if (readType == TaglibReaderTypeBasicLyrics) {
+            metadataModel.lyricModel = [self extractLyricsFromURL:fileURL];
         }else if (readType == TaglibReaderTypeBasic) {
             
         }
@@ -983,4 +985,3 @@
 
 
 @end
-

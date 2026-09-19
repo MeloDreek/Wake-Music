@@ -36,9 +36,52 @@ class MusicTableViewCell: UITableViewCell {
 
     @objc private func playbackArtworkCached(_ notification: Notification) {
         guard let model = musicModel, let key = notification.object as? String,
-              key == model.filePathName(), let image = model.musicCoverImage() else { return }
+              key == model.artworkCacheKey() else { return }
+        // Refresh badges/accessory too: a successful write resolves a missing tag.
+        update(musicModel: model, cellType: cellType)
+    }
+
+    override func prepareForReuse() {
+        super.prepareForReuse()
         coverImgView.kf.cancelDownloadTask()
-        coverImgView.image = image
+        coverImgView.image = nil
+        musicModel = nil
+        isPlaying = false
+        loadingBgView.isHidden = true
+    }
+
+    private static let artworkCache: ImageCache = {
+        let cache = ImageCache(name: "MusicListThumbnails.v2")
+        cache.memoryStorage.config.totalCostLimit = 24 * 1024 * 1024
+        cache.memoryStorage.config.countLimit = 200
+        return cache
+    }()
+
+    private func loadArtwork(_ model: MusicItemModel, url: URL? = nil, modifier: AnyModifier? = nil) {
+        coverImgView.kf.cancelDownloadTask()
+        let url = url ?? model.coverThumbnailURL()
+        let side: CGFloat = kaka_IsMacOS() ? 35 : 44.ckValue()
+        var options: KingfisherOptionsInfo = [
+            .processor(DownsamplingImageProcessor(size: CGSize(width: side, height: side))),
+            .scaleFactor(traitCollection.displayScale),
+            .targetCache(Self.artworkCache)
+        ]
+        if let modifier { options.append(.requestModifier(modifier)) }
+        // Never synchronously load an original cover as a placeholder. Local
+        // JPEGs already live on disk; only their small decoded thumbnails need RAM.
+        let placeholder = model.placeImage()
+        if url.isFileURL {
+            guard FileManager.default.fileExists(atPath: url.path) else {
+                coverImgView.image = placeholder
+                return
+            }
+            let revision = MusicArtworkCache.revision(at: url)
+            let provider = LocalFileImageDataProvider(fileURL: url, cacheKey: model.artworkCacheKey() + ":" + revision)
+            options.append(.cacheMemoryOnly)
+            coverImgView.kf.setImage(with: .provider(provider), placeholder: placeholder, options: options)
+        } else {
+            coverImgView.kf.setImage(with: url, placeholder: placeholder, options: options)
+        }
     }
     
     required init?(coder: NSCoder) {
@@ -271,28 +314,26 @@ class MusicTableViewCell: UITableViewCell {
         if let webFileModel = musicModel.webFileModel {
             // 1️⃣Webdav
             if musicModel.mediaPlayURL.isSupportMusicFile(false) {
-                let fileName = webFileModel.fileName.ocString.deletingPathExtension + ".jpg"
-                let coverURL = SandboxFileManager.shared.coverPathURL().appendingPathComponent(fileName)
-                self.coverImgView.kf.setImage(with: coverURL, placeholder: musicModel.musicCoverImage() ?? musicModel.placeImage())
+                self.loadArtwork(musicModel)
             }else{
-                self.coverImgView.kf.setImage(with: webFileModel.mediaPlayURL, placeholder: musicModel.musicCoverImage() ?? musicModel.placeImage())
+                self.loadArtwork(musicModel, url: webFileModel.mediaPlayURL)
             }
             
             self.nameLabel.text = webFileModel.fileName
             self.descLabel.text = self.secondWebdavStr(webFileModel)
         }else if let baiduFileModel = musicModel.baiduFileModel {
             // 2️⃣百度网盘
-            coverImgView.kf.setImage(with: musicModel.coverThumbnailURL(), placeholder: musicModel.musicCoverImage() ?? musicModel.placeImage())
+            loadArtwork(musicModel)
             nameLabel.text = musicModel.showTitleName() + musicModel.addPathExtension()
             self.descLabel.text = self.secondBaiduStr(baiduFileModel)
         }else if let aliFileModel = musicModel.aliFileModel {
             // 3️⃣阿里云盘
-            coverImgView.kf.setImage(with: musicModel.coverThumbnailURL(), placeholder: musicModel.musicCoverImage() ?? musicModel.placeImage())
+            loadArtwork(musicModel)
             nameLabel.text = musicModel.showTitleName() + musicModel.addPathExtension()
             self.descLabel.text = self.secondAliyunStr(aliFileModel)
         }else if let drive115Model = musicModel.drive115Model {
             // 4️⃣115网盘
-            coverImgView.kf.setImage(with: musicModel.coverThumbnailURL(), placeholder: musicModel.musicCoverImage() ?? musicModel.placeImage())
+            loadArtwork(musicModel)
             nameLabel.text = musicModel.showTitleName() + musicModel.addPathExtension()
             self.descLabel.text = self.second115Str(drive115Model)
         }else if let googleFile = musicModel.googleFile {
@@ -305,9 +346,9 @@ class MusicTableViewCell: UITableViewCell {
                     return r
                 }
                 
-                coverImgView.kf.setImage(with: musicModel.mediaPlayURL, placeholder: musicModel.musicCoverImage() ?? musicModel.placeImage(), options: [.requestModifier(modifier)])
+                loadArtwork(musicModel, url: musicModel.mediaPlayURL, modifier: modifier)
             }else{
-                coverImgView.kf.setImage(with: musicModel.coverThumbnailURL(), placeholder: musicModel.musicCoverImage() ?? musicModel.placeImage())
+                loadArtwork(musicModel)
             }
             
             nameLabel.text = musicModel.showTitleName() + musicModel.addPathExtension()
@@ -315,46 +356,46 @@ class MusicTableViewCell: UITableViewCell {
             
         }else if let dropboxFile = musicModel.dropboxFile {
             // 6️⃣Dropbox网盘
-            coverImgView.kf.setImage(with: musicModel.coverThumbnailURL(), placeholder: musicModel.musicCoverImage() ?? musicModel.placeImage())
+            loadArtwork(musicModel)
             nameLabel.text = musicModel.showTitleName() + musicModel.addPathExtension()
             self.descLabel.text = self.secondDropboxStr(dropboxFile)
         }else if let file = musicModel.smbFile {
-            coverImgView.kf.setImage(with: musicModel.coverThumbnailURL(), placeholder: musicModel.musicCoverImage() ?? musicModel.placeImage())
+            loadArtwork(musicModel)
             nameLabel.text = file.name
             self.descLabel.text = file.isDirectory() ? "SMB" : musicModel.durationTimeStr()
         }else if let file = musicModel.megaFile {
-            coverImgView.kf.setImage(with: musicModel.coverThumbnailURL(), placeholder: musicModel.musicCoverImage() ?? musicModel.placeImage())
+            loadArtwork(musicModel)
             nameLabel.text = file.name
             self.descLabel.text = file.isDirectory() ? "MEGA" : musicModel.durationTimeStr()
         }else if let file = musicModel.yandexFile {
-            coverImgView.kf.setImage(with: musicModel.coverThumbnailURL(), placeholder: musicModel.musicCoverImage() ?? musicModel.placeImage())
+            loadArtwork(musicModel)
             nameLabel.text = file.name
             self.descLabel.text = file.isDirectory() ? "Yandex Disk" : musicModel.durationTimeStr()
         }else if let file = musicModel.pan123File {
-            coverImgView.kf.setImage(with: musicModel.coverThumbnailURL(), placeholder: musicModel.musicCoverImage() ?? musicModel.placeImage())
+            loadArtwork(musicModel)
             nameLabel.text = file.name
             self.descLabel.text = file.isDirectory() ? "Pan123.Name".localStr() : musicModel.durationTimeStr()
         }else if let file = musicModel.guangyaFile {
-            coverImgView.kf.setImage(with: musicModel.coverThumbnailURL(), placeholder: musicModel.musicCoverImage() ?? musicModel.placeImage())
+            loadArtwork(musicModel)
             nameLabel.text = file.name
             self.descLabel.text = file.isDirectory() ? "Guangya.Name".localStr() : musicModel.durationTimeStr()
         }else if let file = musicModel.boxFile {
-            coverImgView.kf.setImage(with: musicModel.coverThumbnailURL(), placeholder: musicModel.musicCoverImage() ?? musicModel.placeImage())
+            loadArtwork(musicModel)
             nameLabel.text = file.name
             self.descLabel.text = file.isDirectory() ? "Box" : musicModel.durationTimeStr()
         }else if let file = musicModel.pcloudFile {
-            coverImgView.kf.setImage(with: musicModel.coverThumbnailURL(), placeholder: musicModel.musicCoverImage() ?? musicModel.placeImage())
+            loadArtwork(musicModel)
             nameLabel.text = file.name
             self.descLabel.text = file.isDirectory() ? "pCloud" : musicModel.durationTimeStr()
         }else if let onedriveFile = musicModel.onedriveFile {
             // 7️⃣OneDrive网盘
-            coverImgView.kf.setImage(with: musicModel.coverThumbnailURL(), placeholder: musicModel.musicCoverImage() ?? musicModel.placeImage())
+            loadArtwork(musicModel)
             nameLabel.text = musicModel.showTitleName() + musicModel.addPathExtension()
             self.descLabel.text = self.secondOnedriveStr(onedriveFile)
         }
         else{
             // 本地音乐
-            coverImgView.kf.setImage(with: musicModel.coverThumbnailURL(), placeholder: musicModel.musicCoverImage() ?? musicModel.placeImage())
+            loadArtwork(musicModel)
             nameLabel.text = musicModel.showTitleName() + (MusicConfigManager.shared.isShowExtension ? musicModel.addPathExtension() : "")
             self.descLabel.text = self.secondLocalStr(musicModel)
         }
@@ -551,8 +592,7 @@ extension MusicTableViewCell {
                 
         if musicModel.isFullMusicTag() { return }
         
-        if let _ = musicModel.musicCoverImage() {
-        }else{
+        if !musicModel.hasCachedArtwork() {
             let tagView = self.createTagView(MusicActionType.coverArt.titleStr())
             tagView.tagBackgroundColor = .systemRed
             taglistView.addTagView(tagView)

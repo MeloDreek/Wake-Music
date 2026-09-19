@@ -120,71 +120,42 @@ extension MusicViewModel {
             // 进入调度组
             dispatchGroup.enter()
 
-            // 使用并发队列来执行每个文件的元数据解析任务
-            let operationQueue = DispatchQueue(label: "com.musicApp.operationQueue", attributes: .concurrent)
-
-            operationQueue.async {
-                
-                if fileURL.hasDirectoryPath {
-                    // 不写入文件夹
-                    dispatchGroup.leave()
-                    return
-                }
-                
-                if fileURL.isLRCFile() {
-                    SandboxFileManager.shared.saveLrcFileToDocument(lrcPath: fileURL, handleType: .move)
-                    dispatchGroup.leave()
-                    return
-                }
-                
-                let metaData: MetadataTagModel?
-                        
-                if FileManager.default.isReadableFile(atPath: fileURL.path) {
-                    metaData = TaglibMetadataParser.readMetadata(withFileURL: fileURL, read: .all)
-                } else if fileURL.startAccessingSecurityScopedResource() {
-                    defer {
-                        fileURL.stopAccessingSecurityScopedResource()
+            // Limit concurrent cover decoding, and release temporary ObjC/image
+            // allocations after each file instead of retaining an entire scan.
+            self.parserManager.addOperation {
+                autoreleasepool {
+                    if fileURL.hasDirectoryPath {
+                        // 不写入文件夹
+                        dispatchGroup.leave()
+                        return
                     }
-                    
-                    metaData = TaglibMetadataParser.readMetadata(withFileURL: fileURL, read: .all)
-                    
-                } else {
-                    metaData = TaglibMetadataParser.readMetadata(withFileURL: fileURL, read: .all)
-                }
-                
-                let musicModel = fileURL.createMusicModel(handleType: .link, sourceType: .localFile, targetURL: self.baseFileURL, metadata: metaData)
-                
-                if FileManager.default.fileExists(atPath: musicModel.coverThumbnailURL().path) {
-                    // 使用串行队列来保证对 modelArray 的线程安全
+
+                    if fileURL.isLRCFile() {
+                        SandboxFileManager.shared.saveLrcFileToDocument(lrcPath: fileURL, handleType: .move)
+                        dispatchGroup.leave()
+                        return
+                    }
+
+                    let metaData = MusicParseOperation.readMetadata(fileURL: fileURL, sourceType: .localFile,
+                                                                   reuseCachedArtwork: true)
+                    let musicModel = fileURL.createMusicModel(handleType: .link, sourceType: .localFile,
+                                                             targetURL: self.baseFileURL, metadata: metaData)
+
+                    if !MusicParseOperation.hasCurrentCachedArtwork(model: musicModel) {
+                        // The write is synchronous; only the lightweight notification
+                        // is dispatched to main. Do not capture artwork in callbacks.
+                        SandboxFileManager.shared.writeMusicthumbnailImage(model: musicModel, image: metaData?.coverArt)
+                    }
                     modelArrayQueue.async {
                         modelArray.append(musicModel)
                         dispatchGroup.leave()
                     }
-                } else {
-                    SandboxFileManager.shared.writeMusicthumbnailImage(model: musicModel, image: metaData?.coverArt) { imageURL in
-                        // 使用串行队列来保证对 modelArray 的线程安全
-                        modelArrayQueue.async {
-                            modelArray.append(musicModel)
-                            dispatchGroup.leave()
-                        }
-                    } fail: { error in
-                        // 使用串行队列来保证对 modelArray 的线程安全
-                        modelArrayQueue.async {
-                            modelArray.append(musicModel)
-                            dispatchGroup.leave()
-                        }
-                    }
                 }
-
             }
         }
 
-        self.parserManager.addOperation {
-            dispatchGroup.wait() // 等待所有任务完成
-        }
-
         // 所有任务完成后调用 completion
-        dispatchGroup.notify(queue: .global(qos: .default)) { () in
+        dispatchGroup.notify(queue: .main) { () in
             
             let sortedMusic = self.sortHomeMusics(modelArray)
             var tempSortArray = [MusicItemModel]()
@@ -195,11 +166,9 @@ extension MusicViewModel {
                 }
             }
             
-            DispatchQueue.main.async {
-                self.allMusicArray = tempSortArray
-                NotificationCenter.default.post(name: .librarySnapshotDidChange, object: self)
-                completion?(modelArray)
-            }
+            self.allMusicArray = tempSortArray
+            NotificationCenter.default.post(name: .librarySnapshotDidChange, object: self)
+            completion?(modelArray)
         }
     }
     
@@ -381,10 +350,10 @@ extension MusicViewModel {
             guard let queue = objc_getAssociatedObject(self, &MusicKeys.kTaskKey) as? OperationQueue else {
                 let manager = OperationQueue()
                 manager.name = "com.parser.operationQueue"
-                manager.qualityOfService = .userInteractive
-                
-                let cpuCoreCount = ProcessInfo.processInfo.activeProcessorCount
-                manager.maxConcurrentOperationCount = max(2, min(cpuCoreCount / 2, 6))
+                manager.qualityOfService = .utility
+                // Tag readers may decode large embedded artwork. CPU count is
+                // not an appropriate memory budget for a library with 1,000+ files.
+                manager.maxConcurrentOperationCount = 2
                 
                 objc_setAssociatedObject(self, &MusicKeys.kTaskKey, manager, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
                 return manager

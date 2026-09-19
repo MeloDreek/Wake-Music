@@ -38,6 +38,12 @@ final class MusicParseOperation: Operation, @unchecked Sendable {
         
     // 重写 main 方法，实现任务逻辑
     override func main() {
+        autoreleasepool {
+            self.processFile()
+        }
+    }
+
+    private func processFile() {
         // 检查操作是否已取消
         if self.isCancelled {
             self.completionHandler?(.failure(.custom("Canceled!")))
@@ -57,64 +63,65 @@ final class MusicParseOperation: Operation, @unchecked Sendable {
             return
         }
         
-        // 解析音乐文件
-        self.parseURL(fileURL: self.fileURL) { result1 in
-            switch result1 {
-            case .success(let model):
-                switch self.handleType {
-                case .copy, .move:
-                    // 1️⃣ 复制或者移动源文件
-                    SandboxFileManager.shared.saveMusicToDocument(sourceURL: self.fileURL, targetFolderURL: self.targetFolderURL, model: model) { [weak self] newModel in
-                        self?.completionHandler?(.success(newModel))
-                        self?.cancel()
-                    }
-                    break
-                case .link:
-                    // 2️⃣ 只读取路径，同时更改本地路径的名称
-                    self.completionHandler?(.success(model))
-                    self.cancel()
-                    break
-                }
-            case .failure(let failure):
-                self.completionHandler?(.failure(failure))
-                self.cancel()
+        // Keep artwork scoped to this operation, never in MusicItemModel or a
+        // main-queue completion. Imported files get a different cache identity.
+        let metadata = Self.readMetadata(fileURL: self.fileURL, sourceType: self.sourceType,
+                                         reuseCachedArtwork: self.handleType == .link)
+        let model = self.fileURL.createMusicModel(handleType: self.handleType, sourceType: self.sourceType,
+                                                 targetURL: self.targetFolderURL, metadata: metadata)
+
+        switch self.handleType {
+        case .copy, .move:
+            // saveMusicToDocument completes synchronously with the final URL.
+            // Only then may we derive the destination artwork cache key.
+            SandboxFileManager.shared.saveMusicToDocument(sourceURL: self.fileURL, targetFolderURL: self.targetFolderURL,
+                                                          model: model) { newModel in
+                self.finish(model: newModel, metadata: metadata)
             }
-        }
-        
-    }
-    
-    /// 解析文件的元数据，同时写入JSON文件、附件图
-    func parseURL(fileURL: URL, completion: @escaping (Result<MusicItemModel, KakaError>) -> Void) {
-        
-        // 1️⃣ 解析元数据
-        let metaData: MetadataTagModel?
-                
-        if FileManager.default.isReadableFile(atPath: fileURL.path) {
-            metaData = TaglibMetadataParser.readMetadata(withFileURL: fileURL, read: .all)
-        } else if fileURL.startAccessingSecurityScopedResource() {
-            defer {
-                fileURL.stopAccessingSecurityScopedResource()
-            }
-            
-            metaData = TaglibMetadataParser.readMetadata(withFileURL: fileURL, read: .all)
-            
-        } else {
-            metaData = TaglibMetadataParser.readMetadata(withFileURL: fileURL, read: .all)
-        }
-        
-        let musicModel = fileURL.createMusicModel(handleType: self.handleType, sourceType: self.sourceType, targetURL: self.targetFolderURL, metadata: metaData)
-        
-        // 2️⃣ 写入封面
-        guard let coverArt = metaData?.coverArt else {
-            completion(.success(musicModel))
-            return
-        }
-        
-        SandboxFileManager.shared.writeMusicthumbnailImage(model: musicModel, image: coverArt) { vURL in
-            completion(.success(musicModel))
-        } fail: { error in
-            completion(.success(musicModel))
+        case .link:
+            self.finish(model: model, metadata: metadata)
         }
     }
-    
+
+    private func finish(model: MusicItemModel, metadata: MetadataTagModel?) {
+        if !model.isFolder(), !Self.hasCurrentCachedArtwork(model: model) {
+            // The disk write is synchronous. A missing/invalid cover must not
+            // prevent importing an otherwise playable audio file.
+            SandboxFileManager.shared.writeMusicthumbnailImage(model: model, image: metadata?.coverArt)
+        }
+        self.completionHandler?(.success(model))
+        self.completionHandler = nil
+    }
+
+    /// Cached covers are already on disk: refresh textual tags and lyrics
+    /// without decoding the embedded image again for every library refresh.
+    static func readMetadata(fileURL: URL, sourceType: ImportFileType,
+                             reuseCachedArtwork: Bool) -> MetadataTagModel? {
+        guard !fileURL.hasDirectoryPath else { return nil }
+        let model = MusicItemModel(fileURL: fileURL, sourceType: sourceType)
+        let hasCachedArtwork = reuseCachedArtwork && Self.hasCurrentCachedArtwork(model: model)
+        let readType: TaglibReaderType = hasCachedArtwork ? .basicLyrics : .all
+        let accessedResource = !FileManager.default.isReadableFile(atPath: fileURL.path) &&
+            fileURL.startAccessingSecurityScopedResource()
+        defer {
+            if accessedResource { fileURL.stopAccessingSecurityScopedResource() }
+        }
+        return TaglibMetadataParser.readMetadata(withFileURL: fileURL, read: readType)
+    }
+
+    /// An external editor may change artwork while keeping the same filename.
+    /// Missing source attributes must not make a stale thumbnail authoritative.
+    static func hasCurrentCachedArtwork(model: MusicItemModel) -> Bool {
+        let cachedURL = model.localArtworkCacheURL()
+        guard FileManager.default.isReadableFile(atPath: cachedURL.path),
+              let cacheValues = try? FileManager.default.attributesOfItem(atPath: cachedURL.path),
+              cacheValues[.type] as? FileAttributeType == .typeRegular,
+              let cacheSize = cacheValues[.size] as? NSNumber, cacheSize.int64Value > 0,
+              let cacheDate = cacheValues[.modificationDate] as? Date,
+              // URL.resourceValues can retain an old modification date inside
+              // a reused model URL. Read fresh file attributes on each scan.
+              let sourceValues = try? FileManager.default.attributesOfItem(atPath: model.mediaPlayURL.path),
+              let sourceDate = sourceValues[.modificationDate] as? Date else { return false }
+        return cacheDate >= sourceDate
+    }
 }

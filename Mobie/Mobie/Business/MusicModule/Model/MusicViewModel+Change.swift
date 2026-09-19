@@ -25,58 +25,32 @@ extension MusicViewModel {
             dispatchGroup.enter()
             
             let operation = BlockOperation {
-                
-                if !fileURL.isSupportMusicFile(true) || fileURL.hasDirectoryPath {
-                    // 不支持的文件格式，不写入
-                    dispatchGroup.leave()
-                    return
-                }
-                
-                if fileURL.isLRCFile() {
-                    SandboxFileManager.shared.saveLrcFileToDocument(lrcPath: fileURL, handleType: .move)
-                    dispatchGroup.leave()
-                    return
-                }
-                
-                let metaData: MetadataTagModel?
-
-                if FileManager.default.isReadableFile(atPath: fileURL.path) {
-                    metaData = TaglibMetadataParser.readMetadata(withFileURL: fileURL, read: .all)
-                } else if fileURL.startAccessingSecurityScopedResource() {
-                    defer {
-                        fileURL.stopAccessingSecurityScopedResource()
+                autoreleasepool {
+                    if !fileURL.isSupportMusicFile(true) || fileURL.hasDirectoryPath {
+                        // 不支持的文件格式，不写入
+                        dispatchGroup.leave()
+                        return
                     }
-                    metaData = TaglibMetadataParser.readMetadata(withFileURL: fileURL, read: .all)
-                } else {
-                    metaData = TaglibMetadataParser.readMetadata(withFileURL: fileURL, read: .all)
-                }
-                
-                // 确保 metaData 不为 nil
-                let musicModel = fileURL.createMusicModel(handleType: .link, sourceType: .localFile, targetURL: self.baseFileURL, metadata: metaData)
-                
-                if FileManager.default.fileExists(atPath: musicModel.coverThumbnailURL().path) {
-                    // 使用串行队列保证对 newArray 的线程安全访问
+
+                    if fileURL.isLRCFile() {
+                        SandboxFileManager.shared.saveLrcFileToDocument(lrcPath: fileURL, handleType: .move)
+                        dispatchGroup.leave()
+                        return
+                    }
+
+                    let metaData = MusicParseOperation.readMetadata(fileURL: fileURL, sourceType: .localFile,
+                                                                   reuseCachedArtwork: true)
+                    let musicModel = fileURL.createMusicModel(handleType: .link, sourceType: .localFile,
+                                                             targetURL: self.baseFileURL, metadata: metaData)
+
+                    if !MusicParseOperation.hasCurrentCachedArtwork(model: musicModel) {
+                        SandboxFileManager.shared.writeMusicthumbnailImage(model: musicModel, image: metaData?.coverArt)
+                    }
                     arrayQueue.async {
                         newArray.append(musicModel)
                         dispatchGroup.leave()
                     }
-                } else {
-//                    debugPrint("需要补齐一张封面 = \(musicModel.filePathName())")
-                    SandboxFileManager.shared.writeMusicthumbnailImage(model: musicModel, image: metaData?.coverArt) { imageURL in
-                        // 使用串行队列保证对 newArray 的线程安全访问
-                        arrayQueue.async {
-                            newArray.append(musicModel)
-                            dispatchGroup.leave()
-                        }
-                    } fail: { error in
-                        // 使用串行队列保证对 newArray 的线程安全访问
-                        arrayQueue.async {
-                            newArray.append(musicModel)
-                            dispatchGroup.leave()
-                        }
-                    }
                 }
-                
             }
             
             self.parserManager.addOperation(operation)

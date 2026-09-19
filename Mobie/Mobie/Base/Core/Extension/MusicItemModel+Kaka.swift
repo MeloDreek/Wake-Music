@@ -260,7 +260,7 @@ extension MusicItemModel {
         let isTitle = (self.title?.count ?? 0) > 0
         let isArtist = (self.artist?.count ?? 0) > 0
         
-        let isCover = self.coverArt != nil || FileManager.default.fileExists(atPath: self.coverThumbnailURL().path)
+        let isCover = self.hasCachedArtwork()
         let isLyric = (self.lyricModel?.lyrics?.count ?? 0) > 0
         
         return isTitle && isArtist && isCover && isLyric
@@ -268,11 +268,8 @@ extension MusicItemModel {
     
     /// 文件缩略图地址
     public func coverThumbnailURL() -> URL {
-        
-        let fileName = self.filePathName() + ".jpg"
-        let cacheCoverURL = SandboxFileManager.shared.coverPathURL().appending(path: fileName, directoryHint: .notDirectory)
-        
-        if FileManager.default.fileExists(atPath: cacheCoverURL.path) { return cacheCoverURL }
+        let cacheCoverURL = self.localArtworkCacheURL()
+        if let existing = self.existingArtworkCacheURL() { return existing }
         if let navSong = self.navidromeSong {
             return navSong.coverImgURL() ?? cacheCoverURL
         }else if let baiduFile = self.baiduFileModel {
@@ -287,8 +284,7 @@ extension MusicItemModel {
     
     /// 音乐封面
     public func musicCoverImage() -> KakaImage? {
-        let localURL = SandboxFileManager.shared.coverPathURL().appendingPathComponent(filePathName() + ".jpg")
-        if let cached = UIImage(contentsOfFile: localURL.path) { return cached }
+        if let localURL = existingArtworkCacheURL(), let cached = UIImage(contentsOfFile: localURL.path) { return cached }
         if let navSong = self.navidromeSong, let imageURL = navSong.coverImgURL() {
             return imageURL.getCachedImage()
         }else if let baiduFile = self.baiduFileModel, let imageURL = baiduFile.coverImgURL() {
@@ -301,6 +297,11 @@ extension MusicItemModel {
                 return UIImage(contentsOfFile: filePathStr)
             }
         }
+    }
+
+    /// Tag badges must not decode artwork just to check whether it exists.
+    func hasCachedArtwork() -> Bool {
+        coverArt != nil || existingArtworkCacheURL() != nil
     }
 
     /// UI may display cached cloud artwork in any engine, but must never initiate tag parsing.

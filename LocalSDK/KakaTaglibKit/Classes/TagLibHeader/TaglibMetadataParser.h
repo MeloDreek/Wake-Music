@@ -12,7 +12,8 @@
 typedef NS_ENUM(NSUInteger, TaglibReaderType) {
     TaglibReaderTypeAll = 0,        // 基础信息，封面，歌词
     TaglibReaderTypeBasic = 1,      // 基础信息
-    TaglibReaderTypeBasicCover = 2  // 基础信息+封面
+    TaglibReaderTypeBasicCover = 2, // 基础信息+封面
+    TaglibReaderTypeBasicLyrics = 3 // 基础信息+歌词（磁盘已有封面，不重复解码）
 };
 
 /// 音乐标签解析器
@@ -97,4 +98,3 @@ typedef NS_ENUM(NSUInteger, TaglibReaderType) {
 + (BOOL)setLyris:(NSString *)lyric toFileURL:(NSURL *)fileURL;
 
 @end
-
