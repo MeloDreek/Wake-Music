@@ -4,9 +4,9 @@ import Foundation
 struct PlayerEqualizerSettings: Codable, Equatable {
     static let frequencies: [Float] = [32, 64, 125, 250, 500, 1_000, 2_000, 4_000, 8_000, 16_000]
     var isEnabled = false
-    var gains = Array(repeating: Float(0), count: frequencies.count)
+    var gains = PlayerEqualizerPreset.bass.curve!
     var preamp: Float = 0
-    var preset: PlayerEqualizerPreset = .flat
+    var preset: PlayerEqualizerPreset = .bass
     /// Separate from the active factory preset, so trying a preset is reversible.
     /// Optional for compatibility with saved v1 settings that predate custom recall.
     var customCurve: CustomCurve?
@@ -90,8 +90,12 @@ extension PlayerEqualizerSettings {
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         isEnabled = try values.decodeIfPresent(Bool.self, forKey: .isEnabled) ?? false
-        gains = try values.decodeIfPresent([Float].self, forKey: .gains) ?? gains
+        // Missing fields in an older saved record retain the old flat fallback.
+        // Only a genuinely new settings instance starts with Bass Boost.
+        gains = try values.decodeIfPresent([Float].self, forKey: .gains)
+            ?? Array(repeating: Float(0), count: Self.frequencies.count)
         preamp = try values.decodeIfPresent(Float.self, forKey: .preamp) ?? 0
+        preset = .flat
         if let rawPreset = try values.decodeIfPresent(String.self, forKey: .preset) {
             preset = PlayerEqualizerPreset(rawValue: rawPreset) ?? .custom
         }
@@ -114,7 +118,7 @@ enum PlayerEqualizerPreset: String, Codable, CaseIterable {
         .flat, .bass, .bassReduction, .treble, .trebleReduction,
         .vocal, .warmth, .clarity, .soft, .rock, .pop, .jazz, .acoustic, .classical
     ]
-    static var displayedPresets: [Self] { factoryPresets + [.custom] }
+    static var displayedPresets: [Self] { [.custom, .bass] + factoryPresets.filter { $0 != .bass } }
 
     var localizationKey: String {
         switch self {

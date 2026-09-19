@@ -383,7 +383,7 @@ class PlayControlTapeView: UIView, UIGestureRecognizerDelegate {
 //        })
         
         let isShowAudioTag = AppLocalManager.shared.isShowAudioTag
-        let showTagAction = UIAction(title: "Show Audio Information".localStr(), image: isShowAudioTag ? nil : UIImage(systemName: "tag.slash"), identifier: nil, discoverabilityTitle: nil, attributes: [], state: isShowAudioTag ? .on : .off, handler: { [weak self] _ in
+        let showTagAction = UIAction(title: "Show Audio Information".localStr(), image: UIImage(systemName: isShowAudioTag ? "tag" : "tag.slash"), identifier: nil, discoverabilityTitle: nil, attributes: [], state: isShowAudioTag ? .on : .off, handler: { [weak self] _ in
             AppLocalManager.shared.isShowAudioTag = !AppLocalManager.shared.isShowAudioTag
         })
         

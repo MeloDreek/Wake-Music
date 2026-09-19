@@ -13,7 +13,7 @@ keys.each do |key|
 end
 source = File.read(File.join(root, 'Mobie/Mobie/Business/PlayerModule/Controller/PlayerEqualizerViewController.swift'))
 presets = source.split('private func makePresetsPanel()', 2).last.split('private func makeBandsPanel()', 2).first
-raise 'Presets must not scroll horizontally' if presets.include?('UIScrollView')
+raise 'Preset gestures must yield vertical swipes to page' unless presets.include?('scrollView.panGestureRecognizer.require(toFail: grid.scrollView.panGestureRecognizer)')
 raise 'Missing curated presets and Custom' unless presets.include?('PlayerEqualizerPreset.displayedPresets')
 raise 'Missing preset guidance' unless presets.include?('"EQ.PresetsGuide".localStr()')
 raise 'Missing audio-engine navigation entry' unless source.include?('navigationItem.rightBarButtonItem = engine') && source.include?('engine.accessibilityLabel = SettingCellItemType.selectPlayer.titleStr()')
@@ -25,4 +25,4 @@ catalyst = preamp.gsub(/#if !targetEnvironment\(macCatalyst\).*?#endif/m, '')
 raise 'Unsupported Catalyst slider styling' if catalyst.match?(/TrackTintColor|setThumbImage/)
 raise 'Missing confirmation before paywall' unless source.include?('showTwoAlert(message: "EQ.PremiumPrompt".localStr()')
 raise 'Banner bypasses confirmation' if source.include?('premiumButton.addTarget(self, action: #selector(vipCenterClick)')
-puts "PASS_EQ_UI_COPY #{keys.count} titles/messages across #{locales.count} locales; curated presets, Custom, engine navigation, wrapping, Catalyst guard, confirmation."
+puts "PASS_EQ_UI_COPY #{keys.count} titles/messages across #{locales.count} locales; curated presets, Custom, engine navigation, horizontal browsing, Catalyst guard, confirmation."

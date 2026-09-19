@@ -84,6 +84,16 @@ public final class SandboxFileManager: @unchecked Sendable {
         return URL(fileURLWithPath: coverPath)
     }
     
+    /// Rebuildable spectrum reports, hidden from the local music library and backups.
+    public func spectrumPathURL() -> URL {
+        var directory = basePublicFileURL().appendingPathComponent(".MusicSpectrum", isDirectory: true)
+        try? FileManager.default.createDirectory(at: directory, withIntermediateDirectories: true)
+        var values = URLResourceValues()
+        values.isExcludedFromBackup = true
+        try? directory.setResourceValues(values)
+        return directory
+    }
+
     // 本地歌词地址
     public func lyricsPathURL() -> URL {
         let lyricPath = self.basePublicFileURL().appendingPathComponent(SandboxType_AllLyric).path

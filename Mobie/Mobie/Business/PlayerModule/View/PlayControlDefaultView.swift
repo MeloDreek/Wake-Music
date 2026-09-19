@@ -469,12 +469,12 @@ class PlayControlDefaultView: UIView, UIGestureRecognizerDelegate {
 //        })
         
         let isShowAudioTag = AppLocalManager.shared.isShowAudioTag
-        let showTagAction = UIAction(title: "Show Audio Information".localStr(), image: isShowAudioTag ? nil : UIImage(systemName: "tag.slash"), identifier: PlayerMoreActionID.showAudioInformation, discoverabilityTitle: nil, attributes: [], state: isShowAudioTag ? .on : .off, handler: { [weak self] _ in
+        let showTagAction = UIAction(title: "Show Audio Information".localStr(), image: UIImage(systemName: isShowAudioTag ? "tag" : "tag.slash"), identifier: PlayerMoreActionID.showAudioInformation, discoverabilityTitle: nil, attributes: [], state: isShowAudioTag ? .on : .off, handler: { [weak self] _ in
             AppLocalManager.shared.isShowAudioTag = !AppLocalManager.shared.isShowAudioTag
         })
 
         let isShowMiniLyric = MusicConfigManager.shared.lyricConfig.isShowMiniLyric
-        let showMiniLyric = UIAction(title: "Mini Lyrics".localStr(), image: isShowMiniLyric ? nil : UIImage(systemName: "text.badge.checkmark"), identifier: PlayerMoreActionID.showMiniLyrics, discoverabilityTitle: nil, attributes: [], state: isShowMiniLyric ? .on : .off, handler: { [weak self] _ in
+        let showMiniLyric = UIAction(title: "Mini Lyrics".localStr(), image: UIImage(systemName: isShowMiniLyric ? "checkmark.circle" : "circle"), identifier: PlayerMoreActionID.showMiniLyrics, discoverabilityTitle: nil, attributes: [], state: isShowMiniLyric ? .on : .off, handler: { [weak self] _ in
             var lyricConfig = MusicConfigManager.shared.lyricConfig
             lyricConfig.isShowMiniLyric = !lyricConfig.isShowMiniLyric
             

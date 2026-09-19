@@ -6,7 +6,7 @@ enum PresetLayoutProbe {
     @MainActor static func main() {
         var checks = 0
         let presets = PlayerEqualizerPreset.displayedPresets
-        precondition(presets.last == .custom, "Custom must remain the final preset")
+        precondition(Array(presets.prefix(2)) == [.custom, .bass], "Custom and Bass Boost must lead the first row")
         precondition(presets.filter { $0 == .custom }.count == 1)
         precondition(Set(presets).count == presets.count, "Duplicate presets")
         for locale in EQLayoutLocalizations.labels.keys.sorted() {
@@ -16,15 +16,21 @@ enum PresetLayoutProbe {
                     for rtl in [false, true] {
                         let (grid, buttons) = makeGrid(width: width, category: category, rtl: rtl, labels: labels)
                         checks += checkLayout(grid, buttons: buttons, rtl: rtl)
-                        precondition(buttons.last!.frame.minY > 0, "Presets must wrap into rows")
-                        let oldHeight = grid.intrinsicContentSize.height
+                        precondition(Set(buttons.map { $0.frame.minY }).count == 3, "Exactly three rows")
+                        precondition(buttons[0].frame.minY == 0 && buttons[1].frame.minY == 0)
+                        let scroll = grid.scrollView
+                        let maximum = max(0, scroll.contentSize.width - scroll.bounds.width)
+                        precondition(abs(scroll.contentOffset.x - (rtl ? maximum : 0)) < 0.1, "Start at reading-direction leading edge")
+                        scroll.contentOffset.x = rtl ? 0 : maximum
+                        let lastColumn = buttons[4].frame
+                        precondition(lastColumn.minX >= scroll.contentOffset.x - 0.1 && lastColumn.maxX <= scroll.contentOffset.x + width + 0.1, "Last column reachable by scrolling")
                         grid.frame.size.width = width * 0.7
                         grid.frame.size.height = grid.intrinsicContentSize.height
                         grid.setNeedsLayout()
                         grid.layoutIfNeeded()
                         checks += checkLayout(grid, buttons: buttons, rtl: rtl)
-                        precondition(grid.intrinsicContentSize.height >= oldHeight, "Narrower window must expand grid height")
-                        checks += 2
+                        precondition(Set(buttons.map { $0.frame.minY }).count == 3, "Resize must preserve three rows")
+                        checks += 5
                     }
                 }
             }
@@ -60,7 +66,7 @@ enum PresetLayoutProbe {
                     for: .systemFont(ofSize: 14, weight: .semibold), compatibleWith: traits)
                 return values
             }
-            if preset == .flat {
+            if preset == .bass {
                 let amber = UIColor(red: 1, green: 0.72, blue: 0.33, alpha: 1)
                 config.baseForegroundColor = amber
                 config.baseBackgroundColor = amber.withAlphaComponent(0.15)
@@ -81,7 +87,7 @@ enum PresetLayoutProbe {
     @MainActor private static func checkLayout(_ grid: EQPresetGrid, buttons: [UIButton], rtl: Bool) -> Int {
         var checks = 0
         for (index, button) in buttons.enumerated() {
-            precondition(button.frame.minX >= -0.1 && button.frame.maxX <= grid.bounds.width + 0.1)
+            precondition(button.frame.minX >= -0.1 && button.frame.maxX <= grid.scrollView.contentSize.width + 0.1)
             precondition(button.frame.height >= 44 && button.frame.width >= 44)
             precondition(button.frame.minY >= 0 && button.frame.maxY <= grid.intrinsicContentSize.height + 0.1)
             for other in buttons.dropFirst(index + 1) {

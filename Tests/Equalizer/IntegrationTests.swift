@@ -142,7 +142,10 @@ final class AudioEngineDynamicsPlayer {}
 
     static func testSettings() throws {
         let blank = PlayerEqualizerSettings()
-        expect(!blank.isEnabled && blank.gains.count == 10 && blank.outputGain == 0, "safe defaults")
+        expect(!blank.isEnabled && blank.preset == .bass && blank.outputGain == -6, "new settings select Bass Boost without enabling EQ")
+        expect(blank.gains == [6, 5, 4, 2, 0, 0, 0, 0, 0, 0], "Bass Boost retains its original curve and applies it by default")
+        let legacyEmpty = try JSONDecoder().decode(PlayerEqualizerSettings.self, from: Data("{}".utf8))
+        expect(legacyEmpty.preset == .flat && legacyEmpty.gains.allSatisfy { $0 == 0 }, "old incomplete records keep their flat fallback")
         var bad = blank
         bad.gains = [.nan, .infinity, -.infinity, 30, -30, 2]
         bad.preamp = .nan
@@ -161,7 +164,7 @@ final class AudioEngineDynamicsPlayer {}
         ]
         expect(PlayerEqualizerPreset.factoryPresets == expectedPresets, "curated listening goals before selected musical starting points")
         expect(!PlayerEqualizerPreset.factoryPresets.contains(.custom), "custom is not a factory preset")
-        expect(PlayerEqualizerPreset.displayedPresets == expectedPresets + [.custom], "custom is available exactly once in the final position")
+        expect(PlayerEqualizerPreset.displayedPresets == [.custom, .bass] + expectedPresets.filter { $0 != .bass }, "Custom is first, followed by Bass Boost, with no duplicates")
         let curves = PlayerEqualizerPreset.factoryPresets.compactMap(\.curve)
         expect(Set(curves).count == curves.count, "factory presets have distinct curves")
         for raw in ["flat", "bass", "vocal", "rock", "jazz", "acoustic", "custom"] {

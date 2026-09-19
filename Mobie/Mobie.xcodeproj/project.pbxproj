@@ -803,6 +803,10 @@
 		E09180000000000000000220 /* KakaMusicPlayer+Equalizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09180000000000000000200 /* KakaMusicPlayer+Equalizer.swift */; };
 		E09180000000000000000310 /* PlayerEqualizerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09180000000000000000300 /* PlayerEqualizerViewController.swift */; };
 		E09180000000000000000320 /* PlayerEqualizerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09180000000000000000300 /* PlayerEqualizerViewController.swift */; };
+		E09190000000000000000110 /* AudioSpectrumAnalyzer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09190000000000000000100; };
+		E09190000000000000000120 /* AudioSpectrumAnalyzer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09190000000000000000100; };
+		E09190000000000000000210 /* PlayerSpectrumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09190000000000000000200; };
+		E09190000000000000000220 /* PlayerSpectrumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09190000000000000000200; };
 		FD00ACDE888B441591ABD001 /* PlaybackQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD00ACDE888B441591ABD000 /* PlaybackQueue.swift */; };
 		FD00ACDE888B441591ABD002 /* PlaybackQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD00ACDE888B441591ABD000 /* PlaybackQueue.swift */; };
 		FD00ACDE888B441591ABD011 /* PlayerQueueCollectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD00ACDE888B441591ABD010 /* PlayerQueueCollectCell.swift */; };
@@ -1206,6 +1210,8 @@
 		E09180000000000000000100 /* PlayerEqualizerStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerEqualizerStore.swift; sourceTree = "<group>"; };
 		E09180000000000000000200 /* KakaMusicPlayer+Equalizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KakaMusicPlayer+Equalizer.swift"; sourceTree = "<group>"; };
 		E09180000000000000000300 /* PlayerEqualizerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerEqualizerViewController.swift; sourceTree = "<group>"; };
+		E09190000000000000000100 /* AudioSpectrumAnalyzer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioSpectrumAnalyzer.swift; sourceTree = "<group>"; };
+		E09190000000000000000200 /* PlayerSpectrumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerSpectrumViewController.swift; sourceTree = "<group>"; };
 		FBD07F657408F494AEAD6A1B /* Pods-Mobie_Pro.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mobie_Pro.debug.xcconfig"; path = "Target Support Files/Pods-Mobie_Pro/Pods-Mobie_Pro.debug.xcconfig"; sourceTree = "<group>"; };
 		FC044DCD42AEE7FFFB8D29DE /* Pods_Mobie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mobie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD00ACDE888B441591ABD000 /* PlaybackQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackQueue.swift; sourceTree = "<group>"; };
@@ -1431,6 +1437,7 @@
 				228A141F2CA0633400E2948E /* AnalyticsManager.swift */,
 				228A14202CA0633400E2948E /* KakaMusicPlayer.swift */,
 				E09180000000000000000000 /* PlayerEqualizerSettings.swift */,
+				E09190000000000000000100 /* AudioSpectrumAnalyzer.swift */,
 				E09180000000000000000100 /* PlayerEqualizerStore.swift */,
 				E09180000000000000000200 /* KakaMusicPlayer+Equalizer.swift */,
 				FD00ACDE888B441591ABD000 /* PlaybackQueue.swift */,
@@ -1681,6 +1688,7 @@
 				226513EE2DD9862B009AC64D /* MusicPlayerViewController.storyboard */,
 				228A13BC2CA0633400E2948E /* MusicPlayerViewController.swift */,
 				E09180000000000000000300 /* PlayerEqualizerViewController.swift */,
+				E09190000000000000000200 /* PlayerSpectrumViewController.swift */,
 				2258ACEC2DE5649B00F5754B /* MusicPlayerViewController+Data.swift */,
 				228A13BD2CA0633400E2948E /* MusicPlayerViewController+Action.swift */,
 				228A13BE2CA0633400E2948E /* MusicPlayerViewController+Delegate.swift */,
@@ -2507,6 +2515,8 @@
 				E09180000000000000000110 /* PlayerEqualizerStore.swift in Sources */,
 				E09180000000000000000210 /* KakaMusicPlayer+Equalizer.swift in Sources */,
 				E09180000000000000000310 /* PlayerEqualizerViewController.swift in Sources */,
+				E09190000000000000000110 /* AudioSpectrumAnalyzer.swift in Sources */,
+				E09190000000000000000210 /* PlayerSpectrumViewController.swift in Sources */,
 				22C287AE3053C6B700801D66 /* NoneLyriclistView.swift in Sources */,
 				225F58232D85B2AB0055BDFF /* MusicViewModel+Genre.swift in Sources */,
 				226AF34D2E21103F007C44DF /* ConnectNavidromeArtistCell.swift in Sources */,
@@ -2856,6 +2866,8 @@
 				E09180000000000000000120 /* PlayerEqualizerStore.swift in Sources */,
 				E09180000000000000000220 /* KakaMusicPlayer+Equalizer.swift in Sources */,
 				E09180000000000000000320 /* PlayerEqualizerViewController.swift in Sources */,
+				E09190000000000000000120 /* AudioSpectrumAnalyzer.swift in Sources */,
+				E09190000000000000000220 /* PlayerSpectrumViewController.swift in Sources */,
 				22C287AF3053C6B700801D66 /* NoneLyriclistView.swift in Sources */,
 				2257DE862D0BC4FC00BBC0CE /* MusicViewModel+Genre.swift in Sources */,
 				226AF34C2E21103F007C44DF /* ConnectNavidromeArtistCell.swift in Sources */,

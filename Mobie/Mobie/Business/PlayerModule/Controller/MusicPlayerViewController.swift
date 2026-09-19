@@ -137,6 +137,14 @@ class MusicPlayerViewController: SuperViewController {
         navigation.modalPresentationStyle = .formSheet
         present(navigation, animated: true)
     }
+
+    func presentSpectrum() {
+        guard let model = KakaMusicPlayer.shared.playingMusic else { return }
+        let navigation = KakaNavigationController(rootViewController: PlayerSpectrumViewController(model: model))
+        navigation.overrideUserInterfaceStyle = .dark
+        navigation.modalPresentationStyle = .formSheet
+        present(navigation, animated: true)
+    }
     
     @objc func dismissItemAction() {
         (self.navigationController ?? self).dismiss(animated: true)

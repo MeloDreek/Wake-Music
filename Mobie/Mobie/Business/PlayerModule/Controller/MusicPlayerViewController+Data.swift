@@ -52,6 +52,7 @@ extension MusicPlayerViewController: UICollectionViewDataSource, UICollectionVie
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PlayerMoreConfigCollectCell", for: indexPath) as! PlayerMoreConfigCollectCell
             cell.bottomReservedHeight = auxiliaryBottomReservedHeight
             cell.actionsProvider = { [weak self] in self?.playDefaultControl.moreMenu() }
+            cell.onSpectrum = { [weak self] in self?.presentSpectrum() }
             cell.refresh()
             return cell
         }

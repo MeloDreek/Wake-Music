@@ -12,6 +12,7 @@ enum PlayerMoreActionID {
 /// Inline settings list, sharing action handlers without presenting a popup menu.
 final class PlayerMoreConfigCollectCell: UICollectionViewCell, UITableViewDataSource, UITableViewDelegate {
     var actionsProvider: (() -> UIMenu?)?
+    var onSpectrum: (() -> Void)?
     var bottomReservedHeight: CGFloat = 76 {
         didSet { if oldValue != bottomReservedHeight { setNeedsLayout() } }
     }
@@ -117,7 +118,12 @@ final class PlayerMoreConfigCollectCell: UICollectionViewCell, UITableViewDataSo
         layoutSongHeader()
         sections = []
         for group in definition.children.compactMap({ $0 as? UIMenu }) {
-            let rows = group.children.filter { ($0 as? UIAction)?.attributes.contains(.hidden) != true }
+            var rows = group.children.filter { ($0 as? UIAction)?.attributes.contains(.hidden) != true }
+            if sections.isEmpty {
+                rows.insert(UIAction(title: "Spectrum.Title".localStr(), image: UIImage(systemName: "waveform.path.ecg")) { [weak self] _ in
+                    self?.onSpectrum?()
+                }, at: 0)
+            }
             if !rows.isEmpty { sections.append(Section(rows: rows)) }
         }
         tableView.reloadData()

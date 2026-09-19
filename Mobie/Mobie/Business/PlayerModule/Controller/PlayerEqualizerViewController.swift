@@ -16,6 +16,7 @@ final class PlayerEqualizerViewController: SuperViewController {
     private let premiumButton = UIButton(type: .system)
     private let preampSlider = EQAccessSlider()
     private let bandScrollView = EQBandScrollView()
+    private let presetGrid = EQPresetGrid()
     private let bandScrollHint = UIImageView(image: UIImage(systemName: "arrow.left.and.right"))
     private let preampValueLabel = EQStyle.label(size: 15, weight: .medium, monospaced: true)
     private var faders: [EQBandView] = []
@@ -94,6 +95,7 @@ final class PlayerEqualizerViewController: SuperViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         bandScrollView.flashScrollIndicators()
+        presetGrid.scrollView.flashScrollIndicators()
     }
 
     override func viewDidLayoutSubviews() {
@@ -221,7 +223,8 @@ final class PlayerEqualizerViewController: SuperViewController {
 
     private func makePresetsPanel() -> UIView {
         let title = EQStyle.sectionTitle("EQ.Presets")
-        let grid = EQPresetGrid()
+        let grid = presetGrid
+        scrollView.panGestureRecognizer.require(toFail: grid.scrollView.panGestureRecognizer)
         for preset in PlayerEqualizerPreset.displayedPresets {
             let button = UIButton(type: .system)
             var configuration = UIButton.Configuration.filled()
@@ -461,16 +464,30 @@ final class PlayerEqualizerViewController: SuperViewController {
     }
 }
 
-/// Content-sized wrapping buttons: no nested horizontal scrolling. Reflows for
-/// Catalyst window resizing, Dynamic Type and RTL without truncating long names.
+/// Three rows in reading order, inside a horizontal viewport. Custom and Bass
+/// Boost are adjacent in the first row, including in right-to-left languages.
 private final class EQPresetGrid: UIView {
+    let scrollView: UIScrollView = HorizontalScrollView()
     private var buttons: [UIButton] = []
     private var measuredWidth: CGFloat = 0
+    private var previousDirection: UIUserInterfaceLayoutDirection?
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        scrollView.contentInsetAdjustmentBehavior = .never
+        scrollView.showsVerticalScrollIndicator = false
+        scrollView.indicatorStyle = .white
+        scrollView.isDirectionalLockEnabled = true
+        addSubview(scrollView)
+    }
+
+    required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
 
     func addButton(_ button: UIButton) {
         buttons.append(button)
-        addSubview(button)
+        scrollView.addSubview(button)
         invalidateIntrinsicContentSize()
+        setNeedsLayout()
     }
 
     override var intrinsicContentSize: CGSize {
@@ -493,25 +510,50 @@ private final class EQPresetGrid: UIView {
     }
 
     private func arrange(width: CGFloat, apply: Bool) -> CGFloat {
-        var x: CGFloat = 0
-        var y: CGFloat = 0
-        var rowHeight: CGFloat = 0
+        guard !buttons.isEmpty else { return 0 }
+        let rows = 3
+        let columns = Int(ceil(Double(buttons.count) / Double(rows)))
         let spacing: CGFloat = 8
-        let rtl = effectiveUserInterfaceLayoutDirection == .rightToLeft
-        for button in buttons {
-            let size = button.sizeThatFits(CGSize(width: width, height: .greatestFiniteMagnitude))
-            let w = min(width, max(44, ceil(size.width)))
-            let h = max(44, ceil(size.height))
-            if x > 0, x + w > width {
-                x = 0
-                y += rowHeight + spacing
-                rowHeight = 0
-            }
-            if apply { button.frame = CGRect(x: rtl ? width - x - w : x, y: y, width: w, height: h) }
-            rowHeight = max(rowHeight, h)
-            x += w + spacing
+        // Show a partial next column on phones as a scrolling affordance. Long
+        // translations and larger accessibility fonts grow the row, not its count.
+        let columnWidth = min(160, max(104, floor(width * 0.36)))
+        let rowHeight = buttons.reduce(CGFloat(44)) { height, button in
+            max(height, ceil(button.sizeThatFits(CGSize(width: columnWidth, height: .greatestFiniteMagnitude)).height))
         }
-        return y + rowHeight
+        let contentWidth = max(width, CGFloat(columns) * (columnWidth + spacing) - spacing)
+        let height = CGFloat(rows) * (rowHeight + spacing) - spacing + 8
+        if apply {
+            let direction = effectiveUserInterfaceLayoutDirection
+            let rtl = direction == .rightToLeft
+            let oldMaximum = max(0, scrollView.contentSize.width - scrollView.bounds.width)
+            let leadingOffset = previousDirection == .rightToLeft
+                ? oldMaximum - scrollView.contentOffset.x : scrollView.contentOffset.x
+            scrollView.frame = bounds
+            scrollView.contentSize = CGSize(width: contentWidth, height: height)
+            for (index, button) in buttons.enumerated() {
+                let x = CGFloat(index % columns) * (columnWidth + spacing)
+                let y = CGFloat(index / columns) * (rowHeight + spacing)
+                button.frame = CGRect(x: rtl ? contentWidth - x - columnWidth : x,
+                                      y: y, width: columnWidth, height: rowHeight)
+            }
+            let maximum = max(0, contentWidth - width)
+            let offset = min(maximum, max(0, leadingOffset))
+            scrollView.contentOffset = CGPoint(x: rtl ? maximum - offset : offset, y: 0)
+            previousDirection = direction
+        }
+        return height
+    }
+
+    private final class HorizontalScrollView: UIScrollView {
+        override func touchesShouldCancel(in view: UIView) -> Bool { true }
+
+        override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+            if gestureRecognizer === panGestureRecognizer {
+                let velocity = panGestureRecognizer.velocity(in: self)
+                guard contentSize.width > bounds.width, abs(velocity.x) > abs(velocity.y) else { return false }
+            }
+            return super.gestureRecognizerShouldBegin(gestureRecognizer)
+        }
     }
 }
 
