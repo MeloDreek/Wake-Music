@@ -43,7 +43,18 @@ public class KakaMusicPlayer: NSObject, ObservableObject {
     }
     
     func setupAudioCategory() {
-        KSOptions.setAudioSession()
+        // KSPlayer no longer exposes setAudioSession. Keep the prior session
+        // behavior using Apple's public API instead of patching the dependency.
+        #if !os(macOS)
+        let session = AVAudioSession.sharedInstance()
+        let category: AVAudioSession.Category = session.category == .playAndRecord ? .playAndRecord : .playback
+        #if os(tvOS)
+        try? session.setCategory(category, mode: .moviePlayback, policy: .longFormAudio)
+        #else
+        try? session.setCategory(category, mode: .moviePlayback, policy: .longFormVideo)
+        #endif
+        try? session.setActive(true)
+        #endif
     }
     
     // 下一首歌曲

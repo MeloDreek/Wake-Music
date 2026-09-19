@@ -291,7 +291,7 @@ extension KakaMusicPlayer {
             guard self.acceptsRemoteMetadata(model, generation: generation) else { return }
             // Standard FLAC/MP4/etc. artwork and missing text tags still use FFmpeg.
             let info = await Task.detached(priority: .utility) {
-                PlaybackMetadataResult(info: try? FFmpegUtility.getMetadata(for: sourceURL, options: options))
+                PlaybackMetadataResult(info: try? await FFmpegUtility.getMetadata(for: sourceURL, options: options))
             }.value
             guard self.acceptsRemoteMetadata(model, generation: generation), let info = info.info else { return }
             self.handleAudioMetadata(info)

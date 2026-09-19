@@ -24,6 +24,10 @@ import SafariServices
 
 // 封面，歌名、歌手、专辑，文件名、文件大小、文件格式、比特率、码率、声道。
 class MusicTagEditorController: SuperViewController {
+    private var metadataTask: Task<Void, Never>?
+
+    deinit { metadataTask?.cancel() }
+
     init(_ model: MusicItemModel) {
         super.init(nibName: nil, bundle: nil)
         self.origialModel = model
@@ -115,19 +119,20 @@ class MusicTagEditorController: SuperViewController {
         KSOptions.firstPlayerType = KSMEPlayer.self
         currentOption.playerTypes = [KSMEPlayer.self]
         
-        DispatchQueue.global().async {
+        metadataTask?.cancel()
+        metadataTask = Task { @MainActor [weak self] in
             do {
-                let metadata = try FFmpegUtility.getMetadata(for: playingMusic.mediaPlayURL, options: currentOption)
+                let metadata = try await FFmpegUtility.getMetadata(for: playingMusic.mediaPlayURL, options: currentOption)
+                guard !Task.isCancelled, let self,
+                      self.origialModel?.uniqueID() == playingMusic.uniqueID() else { return }
                 debugPrint("ffmpeg元数据 = \(metadata.metadata), 封面宽 = \(metadata.coverImage?.width ?? 0)")
-                DispatchQueue.main.async {
-                    self.footStr = metadata.metadata
-                        .sorted { ($0.key + $0.value).count < ($1.key + $1.value).count }
-                        .map { "▶️\($0.key): \($0.value)" }
-                        .joined(separator: "\n")
-                    
-                    self.tableView.reloadData()
-                }
+                self.footStr = metadata.metadata
+                    .sorted { ($0.key + $0.value).count < ($1.key + $1.value).count }
+                    .map { "▶️\($0.key): \($0.value)" }
+                    .joined(separator: "\n")
+                self.tableView.reloadData()
             } catch {
+                guard !Task.isCancelled else { return }
                 debugPrint("解析内嵌元数据失败 = \(error.localizedDescription)")
             }
         }

@@ -7,14 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E09180000000000000000010 /* PlayerEqualizerSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09180000000000000000000 /* PlayerEqualizerSettings.swift */; };
-		E09180000000000000000020 /* PlayerEqualizerSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09180000000000000000000 /* PlayerEqualizerSettings.swift */; };
-		E09180000000000000000110 /* PlayerEqualizerStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09180000000000000000100 /* PlayerEqualizerStore.swift */; };
-		E09180000000000000000120 /* PlayerEqualizerStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09180000000000000000100 /* PlayerEqualizerStore.swift */; };
-		E09180000000000000000210 /* KakaMusicPlayer+Equalizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09180000000000000000200 /* KakaMusicPlayer+Equalizer.swift */; };
-		E09180000000000000000220 /* KakaMusicPlayer+Equalizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09180000000000000000200 /* KakaMusicPlayer+Equalizer.swift */; };
-		E09180000000000000000310 /* PlayerEqualizerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09180000000000000000300 /* PlayerEqualizerViewController.swift */; };
-		E09180000000000000000320 /* PlayerEqualizerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09180000000000000000300 /* PlayerEqualizerViewController.swift */; };
 		01F75346B3745539580B69EB /* Pods_Mobie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC044DCD42AEE7FFFB8D29DE /* Pods_Mobie.framework */; };
 		02B57660DD995BBB02E0E76A /* CollectionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132CAFD74F21CC80A0EE1C8C /* CollectionDetailViewController.swift */; };
 		22059B832CAE9378006F6E7A /* SocialMediaType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22059B822CAE9378006F6E7A /* SocialMediaType.swift */; };
@@ -152,8 +144,6 @@
 		2258ACF02DE565D400F5754B /* PlayerGroupStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2258ACEF2DE565D400F5754B /* PlayerGroupStyle.swift */; };
 		2258ACF12DE565D400F5754B /* PlayerGroupStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2258ACEF2DE565D400F5754B /* PlayerGroupStyle.swift */; };
 		2258ACF32DE5743700F5754B /* PlayControlDefaultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2258ACF22DE5743700F5754B /* PlayControlDefaultView.swift */; };
-		C0DE09170000000000000022 /* PlayerBottomBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DE09170000000000000021 /* PlayerBottomBar.swift */; };
-		C0DE09170000000000000023 /* PlayerBottomBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DE09170000000000000021 /* PlayerBottomBar.swift */; };
 		2258ACF42DE5743700F5754B /* PlayControlDefaultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2258ACF22DE5743700F5754B /* PlayControlDefaultView.swift */; };
 		2258ACF62DE5AF6D00F5754B /* PlayBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2258ACF52DE5AF6D00F5754B /* PlayBackgroundView.swift */; };
 		2258ACF72DE5AF6D00F5754B /* PlayBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2258ACF52DE5AF6D00F5754B /* PlayBackgroundView.swift */; };
@@ -763,6 +753,8 @@
 		C0DE09170000000000000003 /* WebDAVAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DE09170000000000000001 /* WebDAVAddress.swift */; };
 		C0DE09170000000000000012 /* DownloadManager+Tasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DE09170000000000000011 /* DownloadManager+Tasks.swift */; };
 		C0DE09170000000000000013 /* DownloadManager+Tasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DE09170000000000000011 /* DownloadManager+Tasks.swift */; };
+		C0DE09170000000000000022 /* PlayerBottomBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DE09170000000000000021 /* PlayerBottomBar.swift */; };
+		C0DE09170000000000000023 /* PlayerBottomBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DE09170000000000000021 /* PlayerBottomBar.swift */; };
 		C10D00000000000000000001 /* PCloudDriveService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10D00000000000000000002 /* PCloudDriveService.swift */; };
 		C10D00000000000000000003 /* PCloudDriveService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10D00000000000000000002 /* PCloudDriveService.swift */; };
 		C10D00000000000000000004 /* PCloudDriveFileListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10D00000000000000000005 /* PCloudDriveFileListController.swift */; };
@@ -803,6 +795,14 @@
 		DA1100000000000000000003 /* YandexFileListStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1100000000000000000002 /* YandexFileListStatus.swift */; };
 		DA1200000000000000000001 /* YandexDriveAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1200000000000000000002 /* YandexDriveAPI.swift */; };
 		DA1200000000000000000003 /* YandexDriveAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1200000000000000000002 /* YandexDriveAPI.swift */; };
+		E09180000000000000000010 /* PlayerEqualizerSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09180000000000000000000 /* PlayerEqualizerSettings.swift */; };
+		E09180000000000000000020 /* PlayerEqualizerSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09180000000000000000000 /* PlayerEqualizerSettings.swift */; };
+		E09180000000000000000110 /* PlayerEqualizerStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09180000000000000000100 /* PlayerEqualizerStore.swift */; };
+		E09180000000000000000120 /* PlayerEqualizerStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09180000000000000000100 /* PlayerEqualizerStore.swift */; };
+		E09180000000000000000210 /* KakaMusicPlayer+Equalizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09180000000000000000200 /* KakaMusicPlayer+Equalizer.swift */; };
+		E09180000000000000000220 /* KakaMusicPlayer+Equalizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09180000000000000000200 /* KakaMusicPlayer+Equalizer.swift */; };
+		E09180000000000000000310 /* PlayerEqualizerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09180000000000000000300 /* PlayerEqualizerViewController.swift */; };
+		E09180000000000000000320 /* PlayerEqualizerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09180000000000000000300 /* PlayerEqualizerViewController.swift */; };
 		FD00ACDE888B441591ABD001 /* PlaybackQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD00ACDE888B441591ABD000 /* PlaybackQueue.swift */; };
 		FD00ACDE888B441591ABD002 /* PlaybackQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD00ACDE888B441591ABD000 /* PlaybackQueue.swift */; };
 		FD00ACDE888B441591ABD011 /* PlayerQueueCollectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD00ACDE888B441591ABD010 /* PlayerQueueCollectCell.swift */; };
@@ -837,10 +837,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		E09180000000000000000000 /* PlayerEqualizerSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlayerEqualizerSettings.swift"; sourceTree = "<group>"; };
-		E09180000000000000000100 /* PlayerEqualizerStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlayerEqualizerStore.swift"; sourceTree = "<group>"; };
-		E09180000000000000000200 /* KakaMusicPlayer+Equalizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KakaMusicPlayer+Equalizer.swift"; sourceTree = "<group>"; };
-		E09180000000000000000300 /* PlayerEqualizerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlayerEqualizerViewController.swift"; sourceTree = "<group>"; };
 		132CAFD74F21CC80A0EE1C8C /* CollectionDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionDetailViewController.swift; sourceTree = "<group>"; };
 		2024258CB3388C84E94183D3 /* Pods_Mobie_Pro.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mobie_Pro.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		22059B822CAE9378006F6E7A /* SocialMediaType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialMediaType.swift; sourceTree = "<group>"; };
@@ -921,7 +917,6 @@
 		2258ACEC2DE5649B00F5754B /* MusicPlayerViewController+Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MusicPlayerViewController+Data.swift"; sourceTree = "<group>"; };
 		2258ACEF2DE565D400F5754B /* PlayerGroupStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerGroupStyle.swift; sourceTree = "<group>"; };
 		2258ACF22DE5743700F5754B /* PlayControlDefaultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayControlDefaultView.swift; sourceTree = "<group>"; };
-		C0DE09170000000000000021 /* PlayerBottomBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerBottomBar.swift; sourceTree = "<group>"; };
 		2258ACF52DE5AF6D00F5754B /* PlayBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayBackgroundView.swift; sourceTree = "<group>"; };
 		2258ACF82DE5BBFB00F5754B /* PlayerSubViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerSubViewDelegate.swift; sourceTree = "<group>"; };
 		2258ACFB2DE5FB0300F5754B /* LyricSetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LyricSetViewController.swift; sourceTree = "<group>"; };
@@ -1186,6 +1181,7 @@
 		C09110000000000000000002 /* EmbeddedArtworkReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmbeddedArtworkReader.swift; sourceTree = "<group>"; };
 		C0DE09170000000000000001 /* WebDAVAddress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebDAVAddress.swift; sourceTree = "<group>"; };
 		C0DE09170000000000000011 /* DownloadManager+Tasks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DownloadManager+Tasks.swift"; sourceTree = "<group>"; };
+		C0DE09170000000000000021 /* PlayerBottomBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerBottomBar.swift; sourceTree = "<group>"; };
 		C10D00000000000000000002 /* PCloudDriveService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCloudDriveService.swift; sourceTree = "<group>"; };
 		C10D00000000000000000005 /* PCloudDriveFileListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PCloudDriveFileListController.swift; sourceTree = "<group>"; };
 		C10D00000000000000000008 /* KakaMusicPlayer+PCloud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KakaMusicPlayer+PCloud.swift"; sourceTree = "<group>"; };
@@ -1206,6 +1202,10 @@
 		DA1000000000000000000008 /* KakaMusicPlayer+Yandex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KakaMusicPlayer+Yandex.swift"; sourceTree = "<group>"; };
 		DA1100000000000000000002 /* YandexFileListStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YandexFileListStatus.swift; sourceTree = "<group>"; };
 		DA1200000000000000000002 /* YandexDriveAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YandexDriveAPI.swift; sourceTree = "<group>"; };
+		E09180000000000000000000 /* PlayerEqualizerSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerEqualizerSettings.swift; sourceTree = "<group>"; };
+		E09180000000000000000100 /* PlayerEqualizerStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerEqualizerStore.swift; sourceTree = "<group>"; };
+		E09180000000000000000200 /* KakaMusicPlayer+Equalizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KakaMusicPlayer+Equalizer.swift"; sourceTree = "<group>"; };
+		E09180000000000000000300 /* PlayerEqualizerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerEqualizerViewController.swift; sourceTree = "<group>"; };
 		FBD07F657408F494AEAD6A1B /* Pods-Mobie_Pro.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mobie_Pro.debug.xcconfig"; path = "Target Support Files/Pods-Mobie_Pro/Pods-Mobie_Pro.debug.xcconfig"; sourceTree = "<group>"; };
 		FC044DCD42AEE7FFFB8D29DE /* Pods_Mobie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mobie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD00ACDE888B441591ABD000 /* PlaybackQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackQueue.swift; sourceTree = "<group>"; };

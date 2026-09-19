@@ -73,6 +73,10 @@ class SelectLyricViewController: SuperViewController {
     }
     
     func refreshDataAction() {
+        let requestID = UUID()
+        self.lyricRequestID = requestID
+        self.selectLyricModel = nil
+        self.lyricArray = []
         
         let tempLyric = TaglibMetadataParser.readMetadata(withFileURL: self.music.mediaPlayURL, read: .all).lyricModel
         if let lyrics = tempLyric?.lyrics, lyrics.count > 0 {
@@ -80,9 +84,7 @@ class SelectLyricViewController: SuperViewController {
         }
         
         if let result = self.result, let lyrics = result.lyrics, lyrics.count > 0 {
-            self.embeddedButton.isHidden = false
-            self.lyricArray = lyrics
-            self.tableView.reloadData()
+            self.updateLyrics(lyrics)
         }else{
             
             self.loadingView.startAnimating()
@@ -90,34 +92,39 @@ class SelectLyricViewController: SuperViewController {
             self.loadingView.isHidden = false
             self.loadingLabel.isHidden = false
             self.embeddedButton.isHidden = true
+            self.tableView.reloadData()
             
-            self.musicMatcher.matchLocalAudio(model: self.music) { result in
-                
-                self.tableView.isHidden = false
-                self.loadingView.isHidden = true
-                self.loadingLabel.isHidden = true
-                self.embeddedButton.isHidden = false
+            self.musicMatcher.matchLocalAudio(model: self.music) { [weak self] result in
+                guard let self = self, self.lyricRequestID == requestID else { return }
                 
                 switch result {
                 case .success(let model):
-                    let lyrics = model.lyrics ?? []
-#warning("模拟mock数据")
-//#if DEBUG
-//                    self.lyricArray = lyrics + lyrics + lyrics
-//#else
-                    self.lyricArray = lyrics
-//#endif
-                    self.tableView.reloadData()
-                    break
+                    self.updateLyrics(model.lyrics ?? [])
                 case .failure(let failure):
-                    self.lyricArray = []
-                    self.tableView.reloadData()
+                    self.updateLyrics([])
                     self.showOneAlert(message: failure.errorDescription)
-                    break
                 }
             }
         }
         
+    }
+
+    private func updateLyrics(_ lyrics: [LyricInfoModel]) {
+        self.lyricArray = lyrics
+        self.selectLyricModel = nil
+        self.loadingView.stopAnimating()
+        self.tableView.isHidden = false
+        self.loadingView.isHidden = true
+        self.loadingLabel.isHidden = true
+        self.embeddedButton.isHidden = false
+        self.tableView.reloadData()
+    }
+
+    private func lyric(at indexPath: IndexPath) -> LyricInfoModel? {
+        // Empty results still display a placeholder row; a pending tap can also
+        // refer to an index from before the most recent refresh.
+        guard indexPath.section == 1, lyricArray.indices.contains(indexPath.row) else { return nil }
+        return lyricArray[indexPath.row]
     }
     
     // 内嵌事件
@@ -170,6 +177,7 @@ class SelectLyricViewController: SuperViewController {
     var selectLyricModel: LyricInfoModel?  // 当前选中的歌词
     var embeddedLyric: LyricInfoModel?  // 当前内嵌的歌词
     var onSelectBlock: ((LyricInfoModel)->Void)?
+    private var lyricRequestID = UUID()
     
     // MARK: 懒加载
     
@@ -304,9 +312,8 @@ extension SelectLyricViewController: UITableViewDataSource, UITableViewDelegate 
             }
             
         }else{
-            if self.lyricArray.count > 0 {
+            if let lyricModel = self.lyric(at: indexPath) {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "LRCLyricTableViewCell", for: indexPath) as! LRCLyricTableViewCell
-                let lyricModel = self.lyricArray[indexPath.row]
                 let isSelected = self.selectLyricModel == lyricModel
                 cell.updateLyric(lyricModel: lyricModel, isSelect: isSelected)
                 cell.accessoryType = .none
@@ -320,14 +327,16 @@ extension SelectLyricViewController: UITableViewDataSource, UITableViewDelegate 
         }
     }
     
+    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        return self.lyric(at: indexPath) == nil ? nil : indexPath
+    }
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        if indexPath.section == 0 {
-            return
-        }
+        guard let lyricModel = self.lyric(at: indexPath) else { return }
         
-        self.selectLyricModel = self.lyricArray[indexPath.row]
+        self.selectLyricModel = lyricModel
         self.tableView.reloadData()
     }
     
@@ -345,4 +354,3 @@ extension SelectLyricViewController: UITableViewDataSource, UITableViewDelegate 
     
     
 }
-
