@@ -2,7 +2,7 @@ import Foundation
 import AppGroupKit
 
 enum MusicServerRoute: Hashable {
-    case songs, artists, albums, radios, recent, favorites, playlists, random
+    case songs, artists, albums, radios, recent, favorites, playlists, random, recentlyAdded
     case playlist(id: String), album(id: String), artist(id: String)
     case search(query: String, kind: MusicServerSearchKind)
 }
@@ -15,7 +15,7 @@ struct MusicServerOverview {
 }
 
 struct MusicServerSong {
-    let value: NavidromeSong
+    var value: NavidromeSong
     let bitDepth: Int?
     var id: String { value.id }
     var title: String { value.title }
@@ -24,7 +24,7 @@ struct MusicServerSong {
     var coverArt: String { value.coverArt }
 }
 
-struct MusicServerArtist { let id: String; let name: String; let albumCount: Int?; let songCount: Int?; let coverArt: String }
+struct MusicServerArtist { let id: String; let name: String; let albumCount: Int?; let songCount: Int?; let coverArt: String; var starred: Bool = false }
 struct MusicServerAlbum { let id: String; let name: String; let artist: String; let songCount: Int?; let coverArt: String }
 struct MusicServerPlaylist { let id: String; let name: String; let songCount: Int?; let coverArt: String; let owner: String }
 struct MusicServerRadio { let id: String; let name: String; let streamURL: URL? }
@@ -106,6 +106,9 @@ final class MusicServerSession {
     private let authenticationFlight = MusicServerAuthenticationFlight<NavidromeUserModel>()
     private let transport: URLSession
     private let decoder = JSONDecoder()
+    /// Complete metadata only, scoped to this account/session. Explicit pull-to-refresh replaces it.
+    private var artistCatalogCache: (accountID: String, artists: [MusicServerArtist])?
+    private var artistCatalogLoadID = UUID()
 
     init(user: NavidromeUserModel) {
         self.user = user
@@ -253,6 +256,8 @@ final class MusicServerSession {
         switch route {
         case .songs: path = "/api/song"; sort = "title"
         case .recent: path = "/api/song"; sort = "play_date"
+        // Creation time is the server's library import time, not release year or last playback.
+        case .recentlyAdded: path = "/api/song"; sort = "created_at"
         case .favorites: path = "/api/song"; sort = "starred_at"; query.append(.init(name: "starred", value: "true"))
         case .artists: path = "/api/artist"; sort = "name"
         case .albums: path = "/api/album"; sort = "name"
@@ -267,7 +272,7 @@ final class MusicServerSession {
         case .random, .search: throw MusicServerError.unsupported
         }
         query.append(.init(name: "_sort", value: sort))
-        query.append(.init(name: "_order", value: route == .recent || route == .favorites ? "DESC" : "ASC"))
+        query.append(.init(name: "_order", value: route == .recent || route == .favorites || route == .recentlyAdded ? "DESC" : "ASC"))
         let response = try await native(path, query: query)
         // Native APIs must honor the explicit range. Never proceed with an accidental full-library response.
         guard response.records.count <= size else { throw MusicServerError.responseTooLarge }
@@ -325,6 +330,159 @@ final class MusicServerSession {
             if !hasMore || items.count == limit { break }
         }
         return MusicServerPage(items: items, total: nil, hasMore: hasMore, nextOffset: cursor)
+    }
+
+    /// Search and favorite filtering happen on the server, including on very large libraries.
+    func artistPage(offset: Int = 0, limit: Int = 100, query: String = "", starredOnly: Bool = false) async throws -> MusicServerPage {
+        guard authenticated else { throw MusicServerError.expiredSession }
+        let start = max(0, offset)
+        let size = min(max(1, limit), MusicServerWire.maximumPageSize)
+        let name = query.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard nativeAPIAvailable else {
+            if !name.isEmpty, !starredOnly { return try await page(.search(query: name, kind: .artists), offset: start, limit: size) }
+            // getArtists/getStarred2 cannot be paginated. Do not download an entire large server
+            // merely to show an index; compatible servers still support scoped artist search.
+            throw MusicServerError.unsupported
+        }
+        var parameters = [URLQueryItem(name: "_start", value: String(start)), .init(name: "_end", value: String(start + size)),
+                          .init(name: "_sort", value: "name"), .init(name: "_order", value: "ASC")]
+        if !name.isEmpty { parameters.append(.init(name: "name", value: name)) }
+        if starredOnly { parameters.append(.init(name: "starred", value: "true")) }
+        let response = try await native("/api/artist", query: parameters)
+        guard response.records.count <= size else { throw MusicServerError.responseTooLarge }
+        let next = start + response.records.count
+        return MusicServerPage(items: response.records.filter { !$0.id.isEmpty }.map { item($0, route: .artists) },
+                               total: response.total, hasMore: !response.records.isEmpty && (response.total.map { next < $0 } ?? (response.records.count == size)), nextOffset: next)
+    }
+
+    /// One UI load, internally bounded native requests. Navidrome's getArtists index only
+    /// contains album artists, so native accounts must not silently fall back and lose track artists.
+    func allArtists(forceReload: Bool = false, onProgress: (@MainActor (Int, Int?) -> Void)? = nil) async throws -> [MusicServerArtist] {
+        try Task.checkCancellation()
+        guard authenticated else { throw MusicServerError.expiredSession }
+        let requestedAccount = accountID
+        if forceReload { artistCatalogCache = nil }
+        if let cache = artistCatalogCache, cache.accountID == requestedAccount {
+            onProgress?(cache.artists.count, cache.artists.count)
+            try Task.checkCancellation()
+            guard accountID == requestedAccount else { throw CancellationError() }
+            return cache.artists
+        }
+        let loadID = UUID()
+        artistCatalogLoadID = loadID
+        do {
+            let records: [MusicServerArtistRecord]
+            if nativeAPIAvailable {
+                var catalog = MusicServerArtistCatalog.Accumulator()
+                var knownTotal: Int?
+                while true {
+                    try Task.checkCancellation()
+                    guard accountID == requestedAccount, artistCatalogLoadID == loadID else { throw CancellationError() }
+                    let result = try await artistCatalogBatch(offset: catalog.nextOffset)
+                    try Task.checkCancellation()
+                    guard accountID == requestedAccount, artistCatalogLoadID == loadID else { throw CancellationError() }
+                    let complete = try catalog.append(result.records, total: result.total)
+                    if let total = result.total { knownTotal = total }
+                    onProgress?(catalog.records.count, knownTotal)
+                    if complete { break }
+                }
+                records = catalog.records
+            } else {
+                guard let url = subsonicURL("getArtists") else { throw MusicServerError.invalidAddress }
+                let (data, response) = try await send(URLRequest(url: url), maximumResponseBytes: MusicServerArtistCatalog.maximumIndexResponseBytes)
+                try validate(response)
+                records = try await Self.decodeArtistCatalog(data, indexResponse: true)
+                try Task.checkCancellation()
+                guard accountID == requestedAccount, artistCatalogLoadID == loadID else { throw CancellationError() }
+                onProgress?(records.count, records.count)
+            }
+            try Task.checkCancellation()
+            guard accountID == requestedAccount, artistCatalogLoadID == loadID else { throw CancellationError() }
+            let artists = records.map { MusicServerArtist(id: $0.id, name: $0.name, albumCount: $0.albumCount,
+                                                         songCount: $0.songCount, coverArt: $0.coverArt, starred: $0.starred) }
+            try Task.checkCancellation()
+            artistCatalogCache = (requestedAccount, artists)
+            return artists
+        } catch is CancellationError {
+            throw CancellationError()
+        } catch let failure as MusicServerArtistCatalog.Failure {
+            switch failure {
+            case .responseTooLarge: throw MusicServerError.responseTooLarge
+            case .invalidResponse: throw MusicServerError.invalidResponse
+            case .server(let code):
+                if let code, [40, 41, 42, 43].contains(code) { throw MusicServerError.invalidCredentials }
+                if code == 70 { throw MusicServerError.unsupported }
+                throw MusicServerError.unavailable
+            }
+        } catch is DecodingError {
+            throw MusicServerError.invalidResponse
+        }
+    }
+
+    private func artistCatalogBatch(offset: Int, mayRefresh: Bool = true) async throws -> (records: [MusicServerArtistRecord], total: Int?) {
+        let query = [URLQueryItem(name: "_start", value: String(offset)),
+                     .init(name: "_end", value: String(offset + MusicServerArtistCatalog.batchSize)),
+                     .init(name: "_sort", value: "id"), .init(name: "_order", value: "ASC")]
+        guard let base = MusicServerWire.normalizedBaseURL(user.hostUrl),
+              let url = MusicServerWire.url(base: base, path: "/api/artist", query: query) else { throw MusicServerError.invalidAddress }
+        var request = URLRequest(url: url)
+        let requestToken = user.token
+        request.setValue("Bearer " + requestToken, forHTTPHeaderField: "X-ND-Authorization")
+        request.setValue(AppMeta.identifier, forHTTPHeaderField: "x-nd-client-unique-id")
+        let (data, response) = try await send(request)
+        try Task.checkCancellation()
+        if response.statusCode == 401 || response.statusCode == 403 {
+            if mayRefresh {
+                if user.token == requestToken { authenticated = false }
+                _ = try await authenticate()
+                return try await artistCatalogBatch(offset: offset, mayRefresh: false)
+            }
+            authenticated = false
+        }
+        try validate(response)
+        let total = MusicServerWire.totalCount(response)
+        guard total.map({ $0 <= MusicServerArtistCatalog.maximumArtists }) ?? true else { throw MusicServerError.responseTooLarge }
+        let records = try await Self.decodeArtistCatalog(data, indexResponse: false)
+        return (records, total)
+    }
+
+    nonisolated private static func decodeArtistCatalog(_ data: Data, indexResponse: Bool) async throws -> [MusicServerArtistRecord] {
+        try Task.checkCancellation()
+        let decode = Task.detached(priority: .userInitiated) {
+            try indexResponse ? MusicServerArtistCatalog.decodeIndex(data) : MusicServerArtistCatalog.decodeNative(data)
+        }
+        return try await withTaskCancellationHandler(operation: {
+            let records = try await decode.value
+            try Task.checkCancellation()
+            return records
+        }, onCancel: { decode.cancel() })
+    }
+
+    func setArtistFavorite(id: String, isFavorite: Bool) async throws {
+        let requestedAccount = accountID
+        try await setFavorite(id: id, parameter: "artistId", isFavorite: isFavorite)
+        if var cache = artistCatalogCache, cache.accountID == requestedAccount, accountID == requestedAccount,
+           let index = cache.artists.firstIndex(where: { $0.id == id }) {
+            cache.artists[index].starred = isFavorite
+            artistCatalogCache = cache
+        }
+    }
+
+    func setSongFavorite(id: String, isFavorite: Bool) async throws {
+        try await setFavorite(id: id, parameter: "id", isFavorite: isFavorite)
+        MusicServerHistory.updateFavorite(accountID: accountID, songID: id, isFavorite: isFavorite)
+    }
+
+    private func setFavorite(id: String, parameter: String, isFavorite: Bool) async throws {
+        guard authenticated else { throw MusicServerError.expiredSession }
+        guard !id.isEmpty else { throw MusicServerError.invalidResponse }
+        _ = try await subsonic(isFavorite ? "star" : "unstar", query: [.init(name: parameter, value: id)], useFormPost: true)
+    }
+
+    func addSongToPlaylist(songID: String, playlistID: String) async throws {
+        guard authenticated else { throw MusicServerError.expiredSession }
+        guard !songID.isEmpty, !playlistID.isEmpty else { throw MusicServerError.invalidResponse }
+        _ = try await subsonic("updatePlaylist", query: [.init(name: "playlistId", value: playlistID), .init(name: "songIdToAdd", value: songID)], useFormPost: true)
     }
 
     private func compatiblePage(_ route: MusicServerRoute, offset: Int, limit: Int) async throws -> MusicServerPage {
@@ -397,7 +555,7 @@ final class MusicServerSession {
 
     private func item(_ record: MusicServerRecord, route: MusicServerRoute) -> MusicServerItem {
         switch route {
-        case .artists: return .artist(MusicServerArtist(id: record.id, name: record.name, albumCount: record.albumCount, songCount: record.songCount, coverArt: record.coverArt.isEmpty ? "ar-" + record.id : record.coverArt))
+        case .artists: return .artist(MusicServerArtist(id: record.id, name: record.name, albumCount: record.albumCount, songCount: record.songCount, coverArt: record.coverArt.isEmpty ? "ar-" + record.id : record.coverArt, starred: record.starred))
         case .albums, .artist: return .album(MusicServerAlbum(id: record.id, name: record.name, artist: record.artist, songCount: record.songCount, coverArt: record.coverArt.isEmpty ? "al-" + record.id : record.coverArt))
         case .playlists: return .playlist(MusicServerPlaylist(id: record.id, name: record.name, songCount: record.songCount, coverArt: record.coverArt.isEmpty ? "pl-" + record.id : record.coverArt, owner: record.ownerName))
         case .radios: return .radio(MusicServerRadio(id: record.id, name: record.name, streamURL: record.streamURL.flatMap(URL.init(string:))))
@@ -469,8 +627,8 @@ final class MusicServerSession {
         }
     }
 
-    private func send(_ request: URLRequest) async throws -> (Data, HTTPURLResponse) {
-        do { return try await Self.readBounded(request, transport: transport) }
+    private func send(_ request: URLRequest, maximumResponseBytes: Int = MusicServerWire.maximumResponseBytes) async throws -> (Data, HTTPURLResponse) {
+        do { return try await Self.readBounded(request, transport: transport, maximumResponseBytes: maximumResponseBytes) }
         catch is CancellationError { throw CancellationError() }
         catch let error as MusicServerError { throw error }
         catch {
@@ -488,16 +646,16 @@ final class MusicServerSession {
     }
 
     /// Consumes bytes off the main actor and cancels if a server ignores pagination or sends a huge error page.
-    nonisolated private static func readBounded(_ request: URLRequest, transport: URLSession) async throws -> (Data, HTTPURLResponse) {
+    nonisolated private static func readBounded(_ request: URLRequest, transport: URLSession, maximumResponseBytes: Int) async throws -> (Data, HTTPURLResponse) {
         try Task.checkCancellation()
         let (bytes, response) = try await transport.bytes(for: request)
         defer { bytes.task.cancel() }
         guard let response = response as? HTTPURLResponse else { throw MusicServerError.invalidResponse }
-        guard response.expectedContentLength <= Int64(MusicServerWire.maximumResponseBytes) else { throw MusicServerError.responseTooLarge }
+        guard maximumResponseBytes > 0, response.expectedContentLength <= Int64(maximumResponseBytes) else { throw MusicServerError.responseTooLarge }
         var data = Data()
-        data.reserveCapacity(min(max(Int(response.expectedContentLength), 0), MusicServerWire.maximumResponseBytes))
+        data.reserveCapacity(min(max(Int(response.expectedContentLength), 0), maximumResponseBytes))
         for try await byte in bytes {
-            if data.count >= MusicServerWire.maximumResponseBytes { throw MusicServerError.responseTooLarge }
+            if data.count >= maximumResponseBytes { throw MusicServerError.responseTooLarge }
             data.append(byte)
             if data.count.isMultiple(of: 16384) { try Task.checkCancellation() }
         }

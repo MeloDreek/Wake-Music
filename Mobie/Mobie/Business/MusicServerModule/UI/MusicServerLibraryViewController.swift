@@ -59,6 +59,6 @@ final class MusicServerLibraryViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let entry = sections[indexPath.section][indexPath.row]
-        navigationController?.pushViewController(MusicServerBrowseViewController(session: session, route: entry.route, title: entry.title.localStr()), animated: true)
+        MusicServerSelection.browse(entry.route, title: entry.title.localStr(), session: session, from: self)
     }
 }

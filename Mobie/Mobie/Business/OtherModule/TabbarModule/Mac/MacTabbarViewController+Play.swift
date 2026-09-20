@@ -64,9 +64,7 @@ extension MacTabbarViewController: PlayingControlViewDelegate, UIPopoverPresenta
                 musicVC.playLastMusicCache(model)
             }
         }else{
-            if let navVC = self.children[2] as? KakaNavigationController, let musicVC = navVC.viewControllers.first as? NavidromeViewController {
-                musicVC.playLastMusicCache(model)
-            }
+            KakaMusicPlayer.shared.startPlayMusic(musics: [model], itemIndex: 0)
         }
     }
     

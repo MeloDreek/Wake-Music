@@ -92,6 +92,138 @@ enum MusicServerWire {
     }
 }
 
+/// Compact, value-only metadata for a complete artist catalog. Full song metadata and artwork
+/// images must not be retained for every artist in a large library.
+struct MusicServerArtistRecord: Decodable, Sendable {
+    let id: String
+    let name: String
+    let albumCount: Int?
+    let songCount: Int?
+    let coverArt: String
+    let starred: Bool
+
+    private enum Key: String, CodingKey { case id, name, title, albumCount, songCount, coverArt, starred }
+
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: Key.self)
+        func text(_ key: Key) -> String? {
+            if let value = try? values.decode(String.self, forKey: key) { return value }
+            return (try? values.decode(Int.self, forKey: key)).map(String.init)
+        }
+        func count(_ key: Key) -> Int? {
+            if let value = try? values.decode(Int.self, forKey: key) { return value }
+            return text(key).flatMap(Int.init)
+        }
+        id = text(.id) ?? ""
+        name = text(.name) ?? text(.title) ?? ""
+        albumCount = count(.albumCount)
+        songCount = count(.songCount)
+        let cover = text(.coverArt) ?? ""
+        coverArt = cover.isEmpty ? "ar-" + id : cover
+        starred = (try? values.decode(Bool.self, forKey: .starred)) ?? !(text(.starred) ?? "").isEmpty
+    }
+}
+
+enum MusicServerArtistCatalog {
+    // Native Navidrome uses deluan/rest's explicit _start/_end range, without a 100-item cap.
+    // Keep larger batches exclusive to catalog loading; interactive requests still cap at 100.
+    static let batchSize = 1_000
+    static let maximumArtists = 250_000
+    static let maximumIndexResponseBytes = 64 * 1024 * 1024
+
+    enum Failure: Error { case invalidResponse, responseTooLarge, server(code: Int?) }
+
+    struct Accumulator {
+        private(set) var records: [MusicServerArtistRecord] = []
+        private(set) var nextOffset = 0
+        private var ids = Set<String>()
+        private var expectedTotal: Int?
+
+        /// Returns true only for a complete catalog. A repeated/empty premature page is an
+        /// error, never a successfully loaded partial library or an endless request loop.
+        mutating func append(_ page: [MusicServerArtistRecord], total: Int?, requested: Int = batchSize) throws -> Bool {
+            try Task.checkCancellation()
+            guard page.count <= requested, nextOffset <= maximumArtists - page.count,
+                  total.map({ $0 <= maximumArtists }) ?? true else { throw Failure.responseTooLarge }
+            if let total {
+                guard total >= 0, total >= nextOffset + page.count else { throw Failure.invalidResponse }
+                if let expectedTotal, expectedTotal != total { throw Failure.invalidResponse }
+                expectedTotal = total
+            }
+            if page.isEmpty {
+                guard expectedTotal.map({ nextOffset >= $0 }) ?? true else { throw Failure.invalidResponse }
+                return true
+            }
+            let oldCount = records.count
+            for (index, artist) in page.enumerated() {
+                if index.isMultiple(of: 256) { try Task.checkCancellation() }
+                guard !artist.id.isEmpty else { throw Failure.invalidResponse }
+                if ids.insert(artist.id).inserted { records.append(artist) }
+            }
+            guard records.count > oldCount else { throw Failure.invalidResponse }
+            nextOffset += page.count
+            if let expectedTotal { return nextOffset >= expectedTotal }
+            return page.count < requested
+        }
+    }
+
+    static func decodeNative(_ data: Data) throws -> [MusicServerArtistRecord] {
+        try Task.checkCancellation()
+        guard data.count <= MusicServerWire.maximumResponseBytes else { throw Failure.responseTooLarge }
+        let records = try JSONDecoder().decode([MusicServerArtistRecord].self, from: data)
+        guard records.count <= batchSize else { throw Failure.responseTooLarge }
+        try Task.checkCancellation()
+        return records
+    }
+
+    static func decodeIndex(_ data: Data) throws -> [MusicServerArtistRecord] {
+        try Task.checkCancellation()
+        guard data.count <= maximumIndexResponseBytes else { throw Failure.responseTooLarge }
+        let envelope = try JSONDecoder().decode(IndexEnvelope.self, from: data)
+        try Task.checkCancellation()
+        return envelope.records
+    }
+
+    /// Decode one group at a time, directly from the response. Avoid JSONSerialization's
+    /// large dictionary tree and its second JSON encoding used by small, paginated calls.
+    private struct IndexEnvelope: Decodable {
+        let records: [MusicServerArtistRecord]
+        private enum Root: String, CodingKey { case response = "subsonic-response" }
+        private enum Payload: String, CodingKey { case status, error, artists }
+        private enum ErrorKey: String, CodingKey { case code }
+        private enum Artists: String, CodingKey { case index }
+        private struct Group: Decodable { let artist: [MusicServerArtistRecord]? }
+
+        init(from decoder: Decoder) throws {
+            let root = try decoder.container(keyedBy: Root.self)
+            let payload = try root.nestedContainer(keyedBy: Payload.self, forKey: .response)
+            guard try payload.decode(String.self, forKey: .status) == "ok" else {
+                let error = try? payload.nestedContainer(keyedBy: ErrorKey.self, forKey: .error)
+                throw Failure.server(code: try? error?.decode(Int.self, forKey: .code))
+            }
+            guard payload.contains(.artists) else { throw Failure.invalidResponse }
+            let artists = try payload.nestedContainer(keyedBy: Artists.self, forKey: .artists)
+            guard artists.contains(.index), !(try artists.decodeNil(forKey: .index)) else { records = []; return }
+            var groups = try artists.nestedUnkeyedContainer(forKey: .index)
+            var result: [MusicServerArtistRecord] = []
+            var ids = Set<String>()
+            var rawCount = 0
+            while !groups.isAtEnd {
+                try Task.checkCancellation()
+                let group = try groups.decode(Group.self)
+                for (index, artist) in (group.artist ?? []).enumerated() {
+                    if index.isMultiple(of: 256) { try Task.checkCancellation() }
+                    rawCount += 1
+                    guard rawCount <= maximumArtists else { throw Failure.responseTooLarge }
+                    guard !artist.id.isEmpty else { throw Failure.invalidResponse }
+                    if ids.insert(artist.id).inserted { result.append(artist) }
+                }
+            }
+            records = result
+        }
+    }
+}
+
 /// Both Navidrome's native API and Subsonic return these concepts, but use different scalar names/types.
 /// Missing optional metadata must never reject an otherwise playable track.
 struct MusicServerRecord: Decodable {

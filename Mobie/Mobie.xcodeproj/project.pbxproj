@@ -56,17 +56,9 @@
 		2242159F2F88DAE600766F40 /* AliyunpanSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 2242159E2F88DAE600766F40 /* AliyunpanSDK */; };
 		2242A1FF2DEEA2410081D23D /* TapePlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2242A1FE2DEEA2410081D23D /* TapePlayerView.swift */; };
 		2242A2002DEEA2420081D23D /* TapePlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2242A1FE2DEEA2410081D23D /* TapePlayerView.swift */; };
-		22436B0E2D72ED520004E09D /* ConnectMyPlayListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22436B0D2D72ED520004E09D /* ConnectMyPlayListCell.swift */; };
-		22436B142D72F0360004E09D /* NavidromeSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22436B132D72F0360004E09D /* NavidromeSection.swift */; };
-		22436B162D72F5700004E09D /* NavidromeViewController+Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22436B152D72F5700004E09D /* NavidromeViewController+Action.swift */; };
-		22436B182D7443E90004E09D /* NavidromeArtistListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22436B172D7443E80004E09D /* NavidromeArtistListController.swift */; };
-		22436B1A2D7446BA0004E09D /* NavidromeArtistDetialController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22436B192D7446BA0004E09D /* NavidromeArtistDetialController.swift */; };
-		22436B1C2D744B750004E09D /* ConnectArtistTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22436B1B2D744B750004E09D /* ConnectArtistTableCell.swift */; };
 		2243D76D2DE8A5E60010F9FB /* MusicPlayerViewController+Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2243D76C2DE8A5E50010F9FB /* MusicPlayerViewController+Animation.swift */; };
 		2243D76E2DE8A5E60010F9FB /* MusicPlayerViewController+Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2243D76C2DE8A5E50010F9FB /* MusicPlayerViewController+Animation.swift */; };
-		22474E582D75E6C90062D510 /* ConnectSectionHeadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22474E572D75E6C90062D510 /* ConnectSectionHeadView.swift */; };
 		2247DC122D1A7DF50082F76D /* PlayerStyleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2247DC112D1A7DF50082F76D /* PlayerStyleViewController.swift */; };
-		2247DC162D1AB8F10082F76D /* NavidromeViewController+Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2247DC152D1AB8F10082F76D /* NavidromeViewController+Data.swift */; };
 		22496B6C2D3641A100ED4E05 /* AudioChannelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22496B6B2D3641A100ED4E05 /* AudioChannelViewController.swift */; };
 		22497AEB2DDDEE27001D8338 /* PlayBackDefaultTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22497AEA2DDDEE26001D8338 /* PlayBackDefaultTableCell.swift */; };
 		22497AEC2DDDEE27001D8338 /* PlayBackDefaultTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22497AEA2DDDEE26001D8338 /* PlayBackDefaultTableCell.swift */; };
@@ -100,7 +92,6 @@
 		224C9BD42DD0F26B000CCA6C /* AppDelegate+Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224C9BD22DD0F26B000CCA6C /* AppDelegate+Action.swift */; };
 		224DAE3C2EAE5961003CFAAC /* DriveUserModel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224DAE3B2EAE5961003CFAAC /* DriveUserModel+Extension.swift */; };
 		224DAE3D2EAE5961003CFAAC /* DriveUserModel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224DAE3B2EAE5961003CFAAC /* DriveUserModel+Extension.swift */; };
-		2250931B2D705965003BE202 /* NavidromeViewController+Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2250931A2D705965003BE202 /* NavidromeViewController+Request.swift */; };
 		225100722CCA4E8B005AFD62 /* FullScreenNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225100712CCA4E8B005AFD62 /* FullScreenNavController.swift */; };
 		22526E0A2E84F59C00C32DBF /* KSPlayer in Frameworks */ = {isa = PBXBuildFile; productRef = 22526E092E84F59C00C32DBF /* KSPlayer */; };
 		22526E0C2E84F5AD00C32DBF /* Reachability in Frameworks */ = {isa = PBXBuildFile; productRef = 22526E0B2E84F5AD00C32DBF /* Reachability */; };
@@ -133,7 +124,6 @@
 		22577F722D04257400AD35E7 /* DocumentFolderWatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22577F712D04257400AD35E7 /* DocumentFolderWatcher.swift */; };
 		22577F752D043E3100AD35E7 /* LibraryCoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22577F742D043E3100AD35E7 /* LibraryCoverViewController.swift */; };
 		2257955C2D79DC7A005479EA /* SelectPlaylistController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2257955B2D79DC7A005479EA /* SelectPlaylistController.swift */; };
-		2257DE492D0A8E8100BBC0CE /* NavidromeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2257DE482D0A8E8100BBC0CE /* NavidromeViewController.swift */; };
 		2257DE522D0AB31A00BBC0CE /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2257DE512D0AB31A00BBC0CE /* CollectionViewController.swift */; };
 		2257DE542D0AC7C600BBC0CE /* GenreListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2257DE532D0AC7C600BBC0CE /* GenreListViewController.swift */; };
 		2257DE572D0AD04600BBC0CE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2257DE562D0AD04600BBC0CE /* LaunchScreen.storyboard */; };
@@ -162,11 +152,9 @@
 		225B41E52E43419600EF07FE /* ResponseDrive115Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225B41E42E43419600EF07FE /* ResponseDrive115Model.swift */; };
 		225B41E62E43419600EF07FE /* ResponseDrive115Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225B41E42E43419600EF07FE /* ResponseDrive115Model.swift */; };
 		225DE65E2CCE640C00F4367E /* PlayerControlFloatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225DE65D2CCE640C00F4367E /* PlayerControlFloatView.swift */; };
-		225E6BAB2D281FAE00A25B34 /* NavidromeViewController+Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225E6BAA2D281FAE00A25B34 /* NavidromeViewController+Search.swift */; };
 		225F57E12D85B2AB0055BDFF /* ConnectConfigManager+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B361CF2D2157BC009DC9F5 /* ConnectConfigManager+Extension.swift */; };
 		225F57E22D85B2AB0055BDFF /* PurchaseFootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13CF2CA0633400E2948E /* PurchaseFootView.swift */; };
 		225F57E52D85B2AB0055BDFF /* ImportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22569F9E2D0FD80000FB47F2 /* ImportViewController.swift */; };
-		225F57E72D85B2AB0055BDFF /* ConnectSectionHeadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22474E572D75E6C90062D510 /* ConnectSectionHeadView.swift */; };
 		225F57E92D85B2AB0055BDFF /* AudioChannelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22496B6B2D3641A100ED4E05 /* AudioChannelViewController.swift */; };
 		225F57EA2D85B2AB0055BDFF /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A138E2CA0633400E2948E /* WelcomeViewController.swift */; };
 		225F57EC2D85B2AB0055BDFF /* LibraryCoverViewController+Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22196E552D3134CB005B05CD /* LibraryCoverViewController+Search.swift */; };
@@ -177,7 +165,6 @@
 		225F57F22D85B2AB0055BDFF /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226DFB732D675FBF00E3BE06 /* APIManager.swift */; };
 		225F57F32D85B2AB0055BDFF /* EmptyCollectViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13B42CA0633400E2948E /* EmptyCollectViewCell.swift */; };
 		225F57F52D85B2AB0055BDFF /* HomeTabbarViewController+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13F12CA0633400E2948E /* HomeTabbarViewController+UI.swift */; };
-		225F57F62D85B2AB0055BDFF /* NavidromeViewController+Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2250931A2D705965003BE202 /* NavidromeViewController+Request.swift */; };
 		225F57F72D85B2AB0055BDFF /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13DE2CA0633400E2948E /* UserInfoViewController.swift */; };
 		225F57F92D85B2AB0055BDFF /* FreeStreamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13BB2CA0633400E2948E /* FreeStreamViewController.swift */; };
 		225F57FA2D85B2AB0055BDFF /* MusicPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13BC2CA0633400E2948E /* MusicPlayerViewController.swift */; };
@@ -199,13 +186,11 @@
 		225F580B2D85B2AB0055BDFF /* MusicPlaylistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226FEC5C2D374E5B007ADA70 /* MusicPlaylistView.swift */; };
 		225F580C2D85B2AB0055BDFF /* GenreDetialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2257DE872D0BE26400BBC0CE /* GenreDetialViewController.swift */; };
 		225F580D2D85B2AB0055BDFF /* ConfigInfoKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A140C2CA0633400E2948E /* ConfigInfoKey.swift */; };
-		225F580E2D85B2AB0055BDFF /* NavidromeSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22436B132D72F0360004E09D /* NavidromeSection.swift */; };
 		225F580F2D85B2AB0055BDFF /* MusicsViewController+Files.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13A02CA0633400E2948E /* MusicsViewController+Files.swift */; };
 		225F58102D85B2AB0055BDFF /* WelcomeInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13922CA0633400E2948E /* WelcomeInfoModel.swift */; };
 		225F58112D85B2AB0055BDFF /* PlayerStyleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2247DC112D1A7DF50082F76D /* PlayerStyleViewController.swift */; };
 		225F58122D85B2AB0055BDFF /* MusicViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13AD2CA0633400E2948E /* MusicViewModel.swift */; };
 		225F58132D85B2AB0055BDFF /* MusicTopFolderHeadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13B72CA0633400E2948E /* MusicTopFolderHeadView.swift */; };
-		225F58142D85B2AB0055BDFF /* ConnectArtistTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22436B1B2D744B750004E09D /* ConnectArtistTableCell.swift */; };
 		225F58162D85B2AB0055BDFF /* ConnectListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2275AC6C2D265D8E00D125B2 /* ConnectListViewController.swift */; };
 		225F58172D85B2AB0055BDFF /* HomeTabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13ED2CA0633400E2948E /* HomeTabbarViewController.swift */; };
 		225F58182D85B2AB0055BDFF /* MusicTopFolderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22556DB22D1D694300FA1807 /* MusicTopFolderCell.swift */; };
@@ -228,11 +213,9 @@
 		225F582B2D85B2AB0055BDFF /* SelectPlaylistController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2257955B2D79DC7A005479EA /* SelectPlaylistController.swift */; };
 		225F582C2D85B2AB0055BDFF /* UserInfoManager+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A14162CA0633400E2948E /* UserInfoManager+Extension.swift */; };
 		225F582D2D85B2AB0055BDFF /* AlbumListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13952CA0633400E2948E /* AlbumListViewController.swift */; };
-		225F582E2D85B2AB0055BDFF /* NavidromeViewController+Noti.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2275AC6E2D2693B800D125B2 /* NavidromeViewController+Noti.swift */; };
 		225F58302D85B2AB0055BDFF /* CollectionDetialHeadCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226C9C202D1FE089003A3CE8 /* CollectionDetialHeadCell.swift */; };
 		225F58312D85B2AB0055BDFF /* LibraryLyricsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22577F6C2D04251A00AD35E7 /* LibraryLyricsViewController.swift */; };
 		225F58322D85B2AB0055BDFF /* DonateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2261E8802CB5267E009506C0 /* DonateViewController.swift */; };
-		225F58332D85B2AB0055BDFF /* NavidromeSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227998BA2D773D6300BCE0B9 /* NavidromeSearchViewController.swift */; };
 		225F58342D85B2AB0055BDFF /* MusicsViewController+Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A139D2CA0633400E2948E /* MusicsViewController+Data.swift */; };
 		225F58362D85B2AB0055BDFF /* MusicActionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13AB2CA0633400E2948E /* MusicActionType.swift */; };
 		225F58372D85B2AB0055BDFF /* ServerSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CCFBFA2D6B012900A6710D /* ServerSectionView.swift */; };
@@ -246,7 +229,6 @@
 		225F58422D85B2AB0055BDFF /* MusicViewModel+Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2254174F2CC2BFDF00F00343 /* MusicViewModel+Album.swift */; };
 		225F58432D85B2AB0055BDFF /* GenreListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2257DE532D0AC7C600BBC0CE /* GenreListViewController.swift */; };
 		225F58442D85B2AB0055BDFF /* ArtistDetialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13A32CA0633400E2948E /* ArtistDetialViewController.swift */; };
-		225F58452D85B2AB0055BDFF /* NavidromeViewController+Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225E6BAA2D281FAE00A25B34 /* NavidromeViewController+Search.swift */; };
 		225F58462D85B2AB0055BDFF /* SelectAvatarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13DC2CA0633400E2948E /* SelectAvatarViewController.swift */; };
 		225F58472D85B2AB0055BDFF /* LibraryCoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22577F742D043E3100AD35E7 /* LibraryCoverViewController.swift */; };
 		225F58482D85B2AB0055BDFF /* PurchaseViewController+Pay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13C42CA0633400E2948E /* PurchaseViewController+Pay.swift */; };
@@ -254,7 +236,6 @@
 		225F584A2D85B2AB0055BDFF /* UIMenuAccessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13E92CA0633400E2948E /* UIMenuAccessView.swift */; };
 		225F584B2D85B2AB0055BDFF /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2257DE512D0AB31A00BBC0CE /* CollectionViewController.swift */; };
 		225F584C2D85B2AB0055BDFF /* PurchasePriceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13D12CA0633400E2948E /* PurchasePriceCell.swift */; };
-		225F584D2D85B2AB0055BDFF /* NavidromeViewController+Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22436B152D72F5700004E09D /* NavidromeViewController+Action.swift */; };
 		225F584E2D85B2AB0055BDFF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A135E2CA00F5600E2948E /* AppDelegate.swift */; };
 		225F584F2D85B2AB0055BDFF /* VIPBenefitsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13C92CA0633400E2948E /* VIPBenefitsModel.swift */; };
 		225F58502D85B2AB0055BDFF /* MusicConfigEnum+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224C8A142CE23911008B594C /* MusicConfigEnum+Extension.swift */; };
@@ -279,7 +260,6 @@
 		225F58652D85B2AB0055BDFF /* PurchageListViewcell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13E62CA0633400E2948E /* PurchageListViewcell.swift */; };
 		225F58672D85B2AB0055BDFF /* PlayerTimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224AC8A72CE4333200F4F2AF /* PlayerTimerViewController.swift */; };
 		225F58682D85B2AB0055BDFF /* MusicsViewController+Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A139C2CA0633400E2948E /* MusicsViewController+Action.swift */; };
-		225F58692D85B2AB0055BDFF /* NavidromeViewController+Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2247DC152D1AB8F10082F76D /* NavidromeViewController+Data.swift */; };
 		225F586A2D85B2AB0055BDFF /* KakaNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A14032CA0633400E2948E /* KakaNavigationController.swift */; };
 		225F586B2D85B2AB0055BDFF /* MusicsViewController+Noti.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13A12CA0633400E2948E /* MusicsViewController+Noti.swift */; };
 		225F586E2D85B2AB0055BDFF /* MusicViewModel+Music.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225417512CC2D79400F00343 /* MusicViewModel+Music.swift */; };
@@ -297,7 +277,6 @@
 		225F587B2D85B2AB0055BDFF /* BaiduDriveError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CFF8272CADCF2900CF825C /* BaiduDriveError.swift */; };
 		225F587C2D85B2AB0055BDFF /* MusicItemModel+Kaka.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13AC2CA0633400E2948E /* MusicItemModel+Kaka.swift */; };
 		225F587D2D85B2AB0055BDFF /* WiFiServerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13992CA0633400E2948E /* WiFiServerViewController.swift */; };
-		225F587E2D85B2AB0055BDFF /* NavidromeArtistListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22436B172D7443E80004E09D /* NavidromeArtistListController.swift */; };
 		225F58802D85B2AB0055BDFF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13602CA00F5600E2948E /* SceneDelegate.swift */; };
 		225F58812D85B2AB0055BDFF /* AudioTagListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FECF302CB7B9A200FBE36B /* AudioTagListView.swift */; };
 		225F58822D85B2AB0055BDFF /* GuidePremiumViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13E42CA0633400E2948E /* GuidePremiumViewCell.swift */; };
@@ -307,7 +286,6 @@
 		225F58862D85B2AB0055BDFF /* DocumentFolderWatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22577F712D04257400AD35E7 /* DocumentFolderWatcher.swift */; };
 		225F58872D85B2AB0055BDFF /* VideoConverterViewController+Crop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226EF7C62CA41C93004630B0 /* VideoConverterViewController+Crop.swift */; };
 		225F58882D85B2AB0055BDFF /* ScanUSBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228624352CBFC2DD00472448 /* ScanUSBViewController.swift */; };
-		225F58892D85B2AB0055BDFF /* ConnectMyPlayListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22436B0D2D72ED520004E09D /* ConnectMyPlayListCell.swift */; };
 		225F588C2D85B2AB0055BDFF /* GenreCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227310272D1ED9CB00EB7842 /* GenreCollectionCell.swift */; };
 		225F588D2D85B2AB0055BDFF /* AppLogoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226A28372D00614A0072EA11 /* AppLogoViewController.swift */; };
 		225F588E2D85B2AB0055BDFF /* SKProduct+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A14152CA0633400E2948E /* SKProduct+Extension.swift */; };
@@ -319,7 +297,6 @@
 		225F58972D85B2AB0055BDFF /* MusicViewModel+Singer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2254174D2CC2BFD600F00343 /* MusicViewModel+Singer.swift */; };
 		225F58982D85B2AB0055BDFF /* LoginTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B361D12D217448009DC9F5 /* LoginTableViewCell.swift */; };
 		225F58992D85B2AB0055BDFF /* AboutAppTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13E32CA0633400E2948E /* AboutAppTableCell.swift */; };
-		225F589A2D85B2AB0055BDFF /* NavidromeSongListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227998B22D76F68D00BCE0B9 /* NavidromeSongListController.swift */; };
 		225F589B2D85B2AB0055BDFF /* VideoConverterViewController+Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13C62CA0633400E2948E /* VideoConverterViewController+Action.swift */; };
 		225F589D2D85B2AB0055BDFF /* MusicsViewController+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A139E2CA0633400E2948E /* MusicsViewController+Delegate.swift */; };
 		225F589E2D85B2AB0055BDFF /* SocialMediaType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22059B822CAE9378006F6E7A /* SocialMediaType.swift */; };
@@ -328,9 +305,7 @@
 		225F58A12D85B2AB0055BDFF /* LoginedViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13E52CA0633400E2948E /* LoginedViewCell.swift */; };
 		225F58A22D85B2AB0055BDFF /* AuthWebdavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226C9C222D200734003A3CE8 /* AuthWebdavViewController.swift */; };
 		225F58A32D85B2AB0055BDFF /* GenreTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22577E652D03E1B200AD35E7 /* GenreTypeViewController.swift */; };
-		225F58A42D85B2AB0055BDFF /* NavidromeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2257DE482D0A8E8100BBC0CE /* NavidromeViewController.swift */; };
 		225F58A52D85B2AB0055BDFF /* AudioSuffixViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226EF7C42CA40D3D004630B0 /* AudioSuffixViewCell.swift */; };
-		225F58A62D85B2AB0055BDFF /* NavidromeArtistDetialController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22436B192D7446BA0004E09D /* NavidromeArtistDetialController.swift */; };
 		225F58A72D85B2AB0055BDFF /* MusicGenreType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22577E672D03E1DC00AD35E7 /* MusicGenreType.swift */; };
 		225F58A82D85B2AB0055BDFF /* AppStoreKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A14182CA0633400E2948E /* AppStoreKitManager.swift */; };
 		225F58A92D85B2AB0055BDFF /* MusicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13B62CA0633400E2948E /* MusicTableViewCell.swift */; };
@@ -371,8 +346,6 @@
 		22694D9D2D23ECB400DE036D /* WebDavFileObject+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22694D9C2D23ECB400DE036D /* WebDavFileObject+Extension.swift */; };
 		22697C592CA9879B0030A9E2 /* MusicViewModel+Parse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22697C582CA9879B0030A9E2 /* MusicViewModel+Parse.swift */; };
 		226A28382D00614A0072EA11 /* AppLogoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226A28372D00614A0072EA11 /* AppLogoViewController.swift */; };
-		226AF34C2E21103F007C44DF /* ConnectNavidromeArtistCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226AF34B2E21103F007C44DF /* ConnectNavidromeArtistCell.swift */; };
-		226AF34D2E21103F007C44DF /* ConnectNavidromeArtistCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226AF34B2E21103F007C44DF /* ConnectNavidromeArtistCell.swift */; };
 		226AF34F2E236738007C44DF /* KakaMusicPlayer+API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226AF34E2E236738007C44DF /* KakaMusicPlayer+API.swift */; };
 		226AF3502E236738007C44DF /* KakaMusicPlayer+API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226AF34E2E236738007C44DF /* KakaMusicPlayer+API.swift */; };
 		226C9C212D1FE089003A3CE8 /* CollectionDetialHeadCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226C9C202D1FE089003A3CE8 /* CollectionDetialHeadCell.swift */; };
@@ -390,14 +363,11 @@
 		227427F12DE6E173000DB946 /* DominantColors in Frameworks */ = {isa = PBXBuildFile; productRef = 227427F02DE6E173000DB946 /* DominantColors */; };
 		227427F32DE6E3E7000DB946 /* DominantColors in Frameworks */ = {isa = PBXBuildFile; productRef = 227427F22DE6E3E7000DB946 /* DominantColors */; };
 		2275AC6D2D265D8E00D125B2 /* ConnectListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2275AC6C2D265D8E00D125B2 /* ConnectListViewController.swift */; };
-		2275AC6F2D2693B800D125B2 /* NavidromeViewController+Noti.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2275AC6E2D2693B800D125B2 /* NavidromeViewController+Noti.swift */; };
 		227607F42DF2D75A00B6776E /* OrientationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227607F32DF2D75A00B6776E /* OrientationManager.swift */; };
 		227607F52DF2D75A00B6776E /* OrientationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227607F32DF2D75A00B6776E /* OrientationManager.swift */; };
 		227607F72DF2F02600B6776E /* MusicDescInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227607F62DF2F02600B6776E /* MusicDescInfoView.swift */; };
 		227607F82DF2F02600B6776E /* MusicDescInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227607F62DF2F02600B6776E /* MusicDescInfoView.swift */; };
 		2277C6102D165FBF00A50BF3 /* UnsupportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2277C60F2D165FBF00A50BF3 /* UnsupportViewController.swift */; };
-		227998B32D76F68D00BCE0B9 /* NavidromeSongListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227998B22D76F68D00BCE0B9 /* NavidromeSongListController.swift */; };
-		227998BB2D773D6300BCE0B9 /* NavidromeSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227998BA2D773D6300BCE0B9 /* NavidromeSearchViewController.swift */; };
 		227E2EB32D97DB2700BE9858 /* EmptyDataTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227E2EB22D97DB2700BE9858 /* EmptyDataTableCell.swift */; };
 		227E2EB42D97DB2700BE9858 /* EmptyDataTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227E2EB22D97DB2700BE9858 /* EmptyDataTableCell.swift */; };
 		227FB9E22EAD007500F3181C /* GoogleErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227FB9E12EAD007500F3181C /* GoogleErrorResponse.swift */; };
@@ -528,8 +498,6 @@
 		22953EFC30359278001B0546 /* SwiftyUploader in Frameworks */ = {isa = PBXBuildFile; productRef = 22953EFB30359278001B0546 /* SwiftyUploader */; };
 		2296BCCE2CD8B4F500E9166E /* MeteDataGroupCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2296BCCD2CD8B4F500E9166E /* MeteDataGroupCellModel.swift */; };
 		2296BCD42CD91A7E00E9166E /* SupportTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2296BCD32CD91A7E00E9166E /* SupportTypeViewController.swift */; };
-		2299B8FD2D8A95C100D9F886 /* NavidromeSongListController+Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2299B8FC2D8A95C000D9F886 /* NavidromeSongListController+Search.swift */; };
-		2299B8FE2D8A95C100D9F886 /* NavidromeSongListController+Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2299B8FC2D8A95C000D9F886 /* NavidromeSongListController+Search.swift */; };
 		229C98AC2CA7DE7300925F0A /* MusicsFootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229C98AB2CA7DE7300925F0A /* MusicsFootView.swift */; };
 		229DEA442D716124003967DB /* SubsonicResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229DEA432D716124003967DB /* SubsonicResponse.swift */; };
 		22A44487303C4A8300DD3E62 /* BatchAutoEmbedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22A44486303C4A8300DD3E62 /* BatchAutoEmbedController.swift */; };
@@ -547,8 +515,6 @@
 		22AB3BCD2CE6406B0063F284 /* PlayerLyricsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AB3BCC2CE6406B0063F284 /* PlayerLyricsCell.swift */; };
 		22AB5CE82D6EB31E006E10BC /* ConnectListTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AB5CE72D6EB31E006E10BC /* ConnectListTableCell.swift */; };
 		22ABC7862D227A98003568CF /* WebdavFileListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22ABC7852D227A98003568CF /* WebdavFileListController.swift */; };
-		22AE9BFF2F9FA9F200630B10 /* SearchArtistTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AE9BFE2F9FA9F200630B10 /* SearchArtistTableCell.swift */; };
-		22AE9C002F9FA9F200630B10 /* SearchArtistTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AE9BFE2F9FA9F200630B10 /* SearchArtistTableCell.swift */; };
 		22B1AD472DE0668500DEBED0 /* PlayerStyleDefaultTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B1AD462DE0668500DEBED0 /* PlayerStyleDefaultTableCell.swift */; };
 		22B1AD482DE0668500DEBED0 /* PlayerStyleDefaultTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B1AD462DE0668500DEBED0 /* PlayerStyleDefaultTableCell.swift */; };
 		22B1AD4A2DE0671000DEBED0 /* PlayerStyleTapeTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B1AD492DE0671000DEBED0 /* PlayerStyleTapeTableCell.swift */; };
@@ -591,6 +557,8 @@
 		22BEE396305BAC9800C8A175 /* MusicServerSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BEE38F305BAC9800C8A175 /* MusicServerSearchViewController.swift */; };
 		22BEE397305BAC9800C8A175 /* MusicServerHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BEE38D305BAC9800C8A175 /* MusicServerHomeViewController.swift */; };
 		22BEE398305BAC9800C8A175 /* MusicServerBrowseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BEE38B305BAC9800C8A175 /* MusicServerBrowseViewController.swift */; };
+		5DCC20260920000100000002 /* MusicServerArtistsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCC20260920000100000001 /* MusicServerArtistsViewController.swift */; };
+		5DCC20260920000200000002 /* MusicServerLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCC20260920000200000001 /* MusicServerLoadingView.swift */; };
 		22BEE399305BAC9800C8A175 /* MusicServerSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BEE385305BAC9800C8A175 /* MusicServerSession.swift */; };
 		22BEE39A305BAC9800C8A175 /* AppModeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BEE388305BAC9800C8A175 /* AppModeCoordinator.swift */; };
 		22BEE39B305BAC9800C8A175 /* MusicServerHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BEE384305BAC9800C8A175 /* MusicServerHistory.swift */; };
@@ -601,6 +569,8 @@
 		22BEE3A0305BAC9800C8A175 /* MusicServerSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BEE38F305BAC9800C8A175 /* MusicServerSearchViewController.swift */; };
 		22BEE3A1305BAC9800C8A175 /* MusicServerHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BEE38D305BAC9800C8A175 /* MusicServerHomeViewController.swift */; };
 		22BEE3A2305BAC9800C8A175 /* MusicServerBrowseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BEE38B305BAC9800C8A175 /* MusicServerBrowseViewController.swift */; };
+		5DCC20260920000100000003 /* MusicServerArtistsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCC20260920000100000001 /* MusicServerArtistsViewController.swift */; };
+		5DCC20260920000200000003 /* MusicServerLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCC20260920000200000001 /* MusicServerLoadingView.swift */; };
 		22BEE3A3305BAC9800C8A175 /* MusicServerSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BEE385305BAC9800C8A175 /* MusicServerSession.swift */; };
 		22BEE3A4305BAC9800C8A175 /* AppModeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BEE388305BAC9800C8A175 /* AppModeCoordinator.swift */; };
 		22C2572C302D721400A68C1B /* AudioMatchTagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C2572B302D721400A68C1B /* AudioMatchTagViewController.swift */; };
@@ -859,16 +829,8 @@
 		223FB4B02DFD3753003EDA2E /* WelcomeTapeBtnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeTapeBtnView.swift; sourceTree = "<group>"; };
 		223FEAB62DF7FE3800FD4452 /* LyricOtherConfigTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LyricOtherConfigTableCell.swift; sourceTree = "<group>"; };
 		2242A1FE2DEEA2410081D23D /* TapePlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapePlayerView.swift; sourceTree = "<group>"; };
-		22436B0D2D72ED520004E09D /* ConnectMyPlayListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectMyPlayListCell.swift; sourceTree = "<group>"; };
-		22436B132D72F0360004E09D /* NavidromeSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavidromeSection.swift; sourceTree = "<group>"; };
-		22436B152D72F5700004E09D /* NavidromeViewController+Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NavidromeViewController+Action.swift"; sourceTree = "<group>"; };
-		22436B172D7443E80004E09D /* NavidromeArtistListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavidromeArtistListController.swift; sourceTree = "<group>"; };
-		22436B192D7446BA0004E09D /* NavidromeArtistDetialController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavidromeArtistDetialController.swift; sourceTree = "<group>"; };
-		22436B1B2D744B750004E09D /* ConnectArtistTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectArtistTableCell.swift; sourceTree = "<group>"; };
 		2243D76C2DE8A5E50010F9FB /* MusicPlayerViewController+Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MusicPlayerViewController+Animation.swift"; sourceTree = "<group>"; };
-		22474E572D75E6C90062D510 /* ConnectSectionHeadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectSectionHeadView.swift; sourceTree = "<group>"; };
 		2247DC112D1A7DF50082F76D /* PlayerStyleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerStyleViewController.swift; sourceTree = "<group>"; };
-		2247DC152D1AB8F10082F76D /* NavidromeViewController+Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NavidromeViewController+Data.swift"; sourceTree = "<group>"; };
 		22496B6B2D3641A100ED4E05 /* AudioChannelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioChannelViewController.swift; sourceTree = "<group>"; };
 		22497AEA2DDDEE26001D8338 /* PlayBackDefaultTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayBackDefaultTableCell.swift; sourceTree = "<group>"; };
 		22497AF12DDE0807001D8338 /* PlayBackgroundListController+Upload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlayBackgroundListController+Upload.swift"; sourceTree = "<group>"; };
@@ -888,7 +850,6 @@
 		224C9BCC2DD0A1ED000CCA6C /* LRCLyricTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LRCLyricTableViewCell.swift; sourceTree = "<group>"; };
 		224C9BD22DD0F26B000CCA6C /* AppDelegate+Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Action.swift"; sourceTree = "<group>"; };
 		224DAE3B2EAE5961003CFAAC /* DriveUserModel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DriveUserModel+Extension.swift"; sourceTree = "<group>"; };
-		2250931A2D705965003BE202 /* NavidromeViewController+Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NavidromeViewController+Request.swift"; sourceTree = "<group>"; };
 		225100712CCA4E8B005AFD62 /* FullScreenNavController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenNavController.swift; sourceTree = "<group>"; };
 		2252C7572F8A132400A8DDE5 /* AliyunDriveFileListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AliyunDriveFileListController.swift; sourceTree = "<group>"; };
 		22534F882CD78CC500A9795C /* MusicTagEditorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicTagEditorController.swift; sourceTree = "<group>"; };
@@ -911,7 +872,6 @@
 		22577F712D04257400AD35E7 /* DocumentFolderWatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentFolderWatcher.swift; sourceTree = "<group>"; };
 		22577F742D043E3100AD35E7 /* LibraryCoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryCoverViewController.swift; sourceTree = "<group>"; };
 		2257955B2D79DC7A005479EA /* SelectPlaylistController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectPlaylistController.swift; sourceTree = "<group>"; };
-		2257DE482D0A8E8100BBC0CE /* NavidromeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavidromeViewController.swift; sourceTree = "<group>"; };
 		2257DE512D0AB31A00BBC0CE /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		2257DE532D0AC7C600BBC0CE /* GenreListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreListViewController.swift; sourceTree = "<group>"; };
 		2257DE552D0AD04600BBC0CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -931,7 +891,6 @@
 		225A5D8E2EAFB4EA009DB87E /* DropboxDriveFileListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropboxDriveFileListController.swift; sourceTree = "<group>"; };
 		225B41E42E43419600EF07FE /* ResponseDrive115Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseDrive115Model.swift; sourceTree = "<group>"; };
 		225DE65D2CCE640C00F4367E /* PlayerControlFloatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerControlFloatView.swift; sourceTree = "<group>"; };
-		225E6BAA2D281FAE00A25B34 /* NavidromeViewController+Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NavidromeViewController+Search.swift"; sourceTree = "<group>"; };
 		225F58D12D85B2AB0055BDFF /* WakemusicPro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WakemusicPro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		225F88C12CD078C60093B359 /* PlayConfigViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayConfigViewController.swift; sourceTree = "<group>"; };
 		225F88C32CD090360093B359 /* PlayConfigGroupModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayConfigGroupModel.swift; sourceTree = "<group>"; };
@@ -949,7 +908,6 @@
 		22694D9C2D23ECB400DE036D /* WebDavFileObject+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WebDavFileObject+Extension.swift"; sourceTree = "<group>"; };
 		22697C582CA9879B0030A9E2 /* MusicViewModel+Parse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MusicViewModel+Parse.swift"; sourceTree = "<group>"; };
 		226A28372D00614A0072EA11 /* AppLogoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLogoViewController.swift; sourceTree = "<group>"; };
-		226AF34B2E21103F007C44DF /* ConnectNavidromeArtistCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectNavidromeArtistCell.swift; sourceTree = "<group>"; };
 		226AF34E2E236738007C44DF /* KakaMusicPlayer+API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KakaMusicPlayer+API.swift"; sourceTree = "<group>"; };
 		226C9C202D1FE089003A3CE8 /* CollectionDetialHeadCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionDetialHeadCell.swift; sourceTree = "<group>"; };
 		226C9C222D200734003A3CE8 /* AuthWebdavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthWebdavViewController.swift; sourceTree = "<group>"; };
@@ -963,12 +921,9 @@
 		227310252D1EAD8200EB7842 /* ArtistCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtistCollectionCell.swift; sourceTree = "<group>"; };
 		227310272D1ED9CB00EB7842 /* GenreCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreCollectionCell.swift; sourceTree = "<group>"; };
 		2275AC6C2D265D8E00D125B2 /* ConnectListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectListViewController.swift; sourceTree = "<group>"; };
-		2275AC6E2D2693B800D125B2 /* NavidromeViewController+Noti.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NavidromeViewController+Noti.swift"; sourceTree = "<group>"; };
 		227607F32DF2D75A00B6776E /* OrientationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrientationManager.swift; sourceTree = "<group>"; };
 		227607F62DF2F02600B6776E /* MusicDescInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicDescInfoView.swift; sourceTree = "<group>"; };
 		2277C60F2D165FBF00A50BF3 /* UnsupportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsupportViewController.swift; sourceTree = "<group>"; };
-		227998B22D76F68D00BCE0B9 /* NavidromeSongListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavidromeSongListController.swift; sourceTree = "<group>"; };
-		227998BA2D773D6300BCE0B9 /* NavidromeSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavidromeSearchViewController.swift; sourceTree = "<group>"; };
 		227E2EB22D97DB2700BE9858 /* EmptyDataTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyDataTableCell.swift; sourceTree = "<group>"; };
 		227FB9E12EAD007500F3181C /* GoogleErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleErrorResponse.swift; sourceTree = "<group>"; };
 		22814C4F2DD1BEF100565CBC /* MusicPlaylistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlaylistViewController.swift; sourceTree = "<group>"; };
@@ -1076,7 +1031,6 @@
 		22953EF530357CB5001B0546 /* AudioFingerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioFingerTableViewCell.swift; sourceTree = "<group>"; };
 		2296BCCD2CD8B4F500E9166E /* MeteDataGroupCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeteDataGroupCellModel.swift; sourceTree = "<group>"; };
 		2296BCD32CD91A7E00E9166E /* SupportTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportTypeViewController.swift; sourceTree = "<group>"; };
-		2299B8FC2D8A95C000D9F886 /* NavidromeSongListController+Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NavidromeSongListController+Search.swift"; sourceTree = "<group>"; };
 		229C98AB2CA7DE7300925F0A /* MusicsFootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicsFootView.swift; sourceTree = "<group>"; };
 		229DEA432D716124003967DB /* SubsonicResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubsonicResponse.swift; sourceTree = "<group>"; };
 		22A44486303C4A8300DD3E62 /* BatchAutoEmbedController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatchAutoEmbedController.swift; sourceTree = "<group>"; };
@@ -1087,7 +1041,6 @@
 		22AB3BCC2CE6406B0063F284 /* PlayerLyricsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerLyricsCell.swift; sourceTree = "<group>"; };
 		22AB5CE72D6EB31E006E10BC /* ConnectListTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectListTableCell.swift; sourceTree = "<group>"; };
 		22ABC7852D227A98003568CF /* WebdavFileListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebdavFileListController.swift; sourceTree = "<group>"; };
-		22AE9BFE2F9FA9F200630B10 /* SearchArtistTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchArtistTableCell.swift; sourceTree = "<group>"; };
 		22B1AD462DE0668500DEBED0 /* PlayerStyleDefaultTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerStyleDefaultTableCell.swift; sourceTree = "<group>"; };
 		22B1AD492DE0671000DEBED0 /* PlayerStyleTapeTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerStyleTapeTableCell.swift; sourceTree = "<group>"; };
 		22B1AD4C2DE0674200DEBED0 /* PlayerStyleVinylTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerStyleVinylTableCell.swift; sourceTree = "<group>"; };
@@ -1114,6 +1067,8 @@
 		22BEE388305BAC9800C8A175 /* AppModeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModeCoordinator.swift; sourceTree = "<group>"; };
 		22BEE389305BAC9800C8A175 /* MusicServerRootControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicServerRootControllers.swift; sourceTree = "<group>"; };
 		22BEE38B305BAC9800C8A175 /* MusicServerBrowseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicServerBrowseViewController.swift; sourceTree = "<group>"; };
+		5DCC20260920000100000001 /* MusicServerArtistsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicServerArtistsViewController.swift; sourceTree = "<group>"; };
+		5DCC20260920000200000001 /* MusicServerLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicServerLoadingView.swift; sourceTree = "<group>"; };
 		22BEE38C305BAC9800C8A175 /* MusicServerCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicServerCells.swift; sourceTree = "<group>"; };
 		22BEE38D305BAC9800C8A175 /* MusicServerHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicServerHomeViewController.swift; sourceTree = "<group>"; };
 		22BEE38E305BAC9800C8A175 /* MusicServerLibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicServerLibraryViewController.swift; sourceTree = "<group>"; };
@@ -1471,7 +1426,6 @@
 				C02300000000000000000002 /* SMBFileListStatus.swift */,
 				22B361D32D2174E8009DC9F5 /* LoginGroupModel.swift */,
 				22694D9C2D23ECB400DE036D /* WebDavFileObject+Extension.swift */,
-				22436B132D72F0360004E09D /* NavidromeSection.swift */,
 				229DEA432D716124003967DB /* SubsonicResponse.swift */,
 				225B41E42E43419600EF07FE /* ResponseDrive115Model.swift */,
 				227FB9E12EAD007500F3181C /* GoogleErrorResponse.swift */,
@@ -1485,12 +1439,6 @@
 				2275AC6C2D265D8E00D125B2 /* ConnectListViewController.swift */,
 				220DDAE12EAA6E9A00F50BB3 /* ConnectListViewController+Connect.swift */,
 				222E32EF2EAB4821000269C7 /* ConnectListViewController+Access.swift */,
-				2257DE482D0A8E8100BBC0CE /* NavidromeViewController.swift */,
-				2247DC152D1AB8F10082F76D /* NavidromeViewController+Data.swift */,
-				2250931A2D705965003BE202 /* NavidromeViewController+Request.swift */,
-				225E6BAA2D281FAE00A25B34 /* NavidromeViewController+Search.swift */,
-				2275AC6E2D2693B800D125B2 /* NavidromeViewController+Noti.swift */,
-				22436B152D72F5700004E09D /* NavidromeViewController+Action.swift */,
 				22ABC7852D227A98003568CF /* WebdavFileListController.swift */,
 				220DDAE42EAA78BE00F50BB3 /* GoogleDriveFileListController.swift */,
 				224A4DF32E1692CB0041244A /* BaiduDriveFileListController.swift */,
@@ -1505,11 +1453,6 @@
 				C02000000000000000000005 /* SMBDriveFileListController.swift */,
 				2217E0FC2EBC74E000C724F6 /* OneDriveFileListController.swift */,
 				224B43DD2E2D3F88007F3E89 /* Drive115FileListController.swift */,
-				227998BA2D773D6300BCE0B9 /* NavidromeSearchViewController.swift */,
-				22436B172D7443E80004E09D /* NavidromeArtistListController.swift */,
-				22436B192D7446BA0004E09D /* NavidromeArtistDetialController.swift */,
-				227998B22D76F68D00BCE0B9 /* NavidromeSongListController.swift */,
-				2299B8FC2D8A95C000D9F886 /* NavidromeSongListController+Search.swift */,
 				2257955B2D79DC7A005479EA /* SelectPlaylistController.swift */,
 				2266CB702D93F43C00EB8846 /* VideoPlayerController.swift */,
 			);
@@ -1522,12 +1465,7 @@
 				22B361D12D217448009DC9F5 /* LoginTableViewCell.swift */,
 				22CCFBFA2D6B012900A6710D /* ServerSectionView.swift */,
 				22AB5CE72D6EB31E006E10BC /* ConnectListTableCell.swift */,
-				22436B0D2D72ED520004E09D /* ConnectMyPlayListCell.swift */,
-				22436B1B2D744B750004E09D /* ConnectArtistTableCell.swift */,
-				22474E572D75E6C90062D510 /* ConnectSectionHeadView.swift */,
 				227E2EB22D97DB2700BE9858 /* EmptyDataTableCell.swift */,
-				226AF34B2E21103F007C44DF /* ConnectNavidromeArtistCell.swift */,
-				22AE9BFE2F9FA9F200630B10 /* SearchArtistTableCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1994,6 +1932,8 @@
 			isa = PBXGroup;
 			children = (
 				22BEE38B305BAC9800C8A175 /* MusicServerBrowseViewController.swift */,
+				5DCC20260920000100000001 /* MusicServerArtistsViewController.swift */,
+				5DCC20260920000200000001 /* MusicServerLoadingView.swift */,
 				22BEE38C305BAC9800C8A175 /* MusicServerCells.swift */,
 				22BEE38D305BAC9800C8A175 /* MusicServerHomeViewController.swift */,
 				22BEE38E305BAC9800C8A175 /* MusicServerLibraryViewController.swift */,
@@ -2428,11 +2368,12 @@
 				22BEE396305BAC9800C8A175 /* MusicServerSearchViewController.swift in Sources */,
 				22BEE397305BAC9800C8A175 /* MusicServerHomeViewController.swift in Sources */,
 				22BEE398305BAC9800C8A175 /* MusicServerBrowseViewController.swift in Sources */,
+				5DCC20260920000100000002 /* MusicServerArtistsViewController.swift in Sources */,
+				5DCC20260920000200000002 /* MusicServerLoadingView.swift in Sources */,
 				22BEE399305BAC9800C8A175 /* MusicServerSession.swift in Sources */,
 				22BEE39A305BAC9800C8A175 /* AppModeCoordinator.swift in Sources */,
 				225F57E52D85B2AB0055BDFF /* ImportViewController.swift in Sources */,
 				223FEAB82DF7FE3800FD4452 /* LyricOtherConfigTableCell.swift in Sources */,
-				225F57E72D85B2AB0055BDFF /* ConnectSectionHeadView.swift in Sources */,
 				225F57E92D85B2AB0055BDFF /* AudioChannelViewController.swift in Sources */,
 				225F57EA2D85B2AB0055BDFF /* WelcomeViewController.swift in Sources */,
 				225F57EC2D85B2AB0055BDFF /* LibraryCoverViewController+Search.swift in Sources */,
@@ -2449,7 +2390,6 @@
 				225378352DF1776A00023F1A /* PlayerMoreCellModel.swift in Sources */,
 				225F57F32D85B2AB0055BDFF /* EmptyCollectViewCell.swift in Sources */,
 				225F57F52D85B2AB0055BDFF /* HomeTabbarViewController+UI.swift in Sources */,
-				225F57F62D85B2AB0055BDFF /* NavidromeViewController+Request.swift in Sources */,
 				225F57F72D85B2AB0055BDFF /* UserInfoViewController.swift in Sources */,
 				225F57F92D85B2AB0055BDFF /* FreeStreamViewController.swift in Sources */,
 				2266A1512DE7531400F5AEB7 /* LyricFontColorTableCell.swift in Sources */,
@@ -2484,7 +2424,6 @@
 				22814C562DD1FF0300565CBC /* CoverGalleryCellModel.swift in Sources */,
 				225F580D2D85B2AB0055BDFF /* ConfigInfoKey.swift in Sources */,
 				22B1AD4B2DE0671000DEBED0 /* PlayerStyleTapeTableCell.swift in Sources */,
-				225F580E2D85B2AB0055BDFF /* NavidromeSection.swift in Sources */,
 				224C9BD42DD0F26B000CCA6C /* AppDelegate+Action.swift in Sources */,
 				225F580F2D85B2AB0055BDFF /* MusicsViewController+Files.swift in Sources */,
 				22C707882DCBA20300A1B79A /* DownloadViewController.swift in Sources */,
@@ -2492,7 +2431,6 @@
 				225F58112D85B2AB0055BDFF /* PlayerStyleViewController.swift in Sources */,
 				225F58122D85B2AB0055BDFF /* MusicViewModel.swift in Sources */,
 				225F58132D85B2AB0055BDFF /* MusicTopFolderHeadView.swift in Sources */,
-				225F58142D85B2AB0055BDFF /* ConnectArtistTableCell.swift in Sources */,
 				225F58162D85B2AB0055BDFF /* ConnectListViewController.swift in Sources */,
 				22497AEC2DDDEE27001D8338 /* PlayBackDefaultTableCell.swift in Sources */,
 				225F58172D85B2AB0055BDFF /* HomeTabbarViewController.swift in Sources */,
@@ -2519,7 +2457,6 @@
 				E09190000000000000000210 /* PlayerSpectrumViewController.swift in Sources */,
 				22C287AE3053C6B700801D66 /* NoneLyriclistView.swift in Sources */,
 				225F58232D85B2AB0055BDFF /* MusicViewModel+Genre.swift in Sources */,
-				226AF34D2E21103F007C44DF /* ConnectNavidromeArtistCell.swift in Sources */,
 				225F58242D85B2AB0055BDFF /* EmptyTableViewCell.swift in Sources */,
 				22ED75472EF57AB900E92BB3 /* AppleSearchAdsManager.swift in Sources */,
 				225F58252D85B2AB0055BDFF /* MusicPlayerViewController+Delegate.swift in Sources */,
@@ -2537,7 +2474,6 @@
 				225F582B2D85B2AB0055BDFF /* SelectPlaylistController.swift in Sources */,
 				225F582C2D85B2AB0055BDFF /* UserInfoManager+Extension.swift in Sources */,
 				225F582D2D85B2AB0055BDFF /* AlbumListViewController.swift in Sources */,
-				225F582E2D85B2AB0055BDFF /* NavidromeViewController+Noti.swift in Sources */,
 				225F58302D85B2AB0055BDFF /* CollectionDetialHeadCell.swift in Sources */,
 				225F58312D85B2AB0055BDFF /* LibraryLyricsViewController.swift in Sources */,
 				225A5D902EAFB4EA009DB87E /* DropboxDriveFileListController.swift in Sources */,
@@ -2557,7 +2493,6 @@
 				C02300000000000000000003 /* SMBFileListStatus.swift in Sources */,
 				22C2572F302D723500A68C1B /* AudioMatchCoverFootView.swift in Sources */,
 				225F58322D85B2AB0055BDFF /* DonateViewController.swift in Sources */,
-				225F58332D85B2AB0055BDFF /* NavidromeSearchViewController.swift in Sources */,
 				225F58342D85B2AB0055BDFF /* MusicsViewController+Data.swift in Sources */,
 				2266A1542DE7537200F5AEB7 /* LyricFontAlignTableCell.swift in Sources */,
 				22FB960A2DED5007007EA2FD /* PlayControlTapeView.swift in Sources */,
@@ -2586,7 +2521,6 @@
 				225F58432D85B2AB0055BDFF /* GenreListViewController.swift in Sources */,
 				225F58442D85B2AB0055BDFF /* ArtistDetialViewController.swift in Sources */,
 				02B57660DD995BBB02E0E76A /* CollectionDetailViewController.swift in Sources */,
-				225F58452D85B2AB0055BDFF /* NavidromeViewController+Search.swift in Sources */,
 				225F58462D85B2AB0055BDFF /* SelectAvatarViewController.swift in Sources */,
 				227607F72DF2F02600B6776E /* MusicDescInfoView.swift in Sources */,
 				2252C7582F8A132400A8DDE5 /* AliyunDriveFileListController.swift in Sources */,
@@ -2607,7 +2541,6 @@
 				225F584A2D85B2AB0055BDFF /* UIMenuAccessView.swift in Sources */,
 				225F584B2D85B2AB0055BDFF /* CollectionViewController.swift in Sources */,
 				225F584C2D85B2AB0055BDFF /* PurchasePriceCell.swift in Sources */,
-				225F584D2D85B2AB0055BDFF /* NavidromeViewController+Action.swift in Sources */,
 				225F584E2D85B2AB0055BDFF /* AppDelegate.swift in Sources */,
 				225F584F2D85B2AB0055BDFF /* VIPBenefitsModel.swift in Sources */,
 				225F58502D85B2AB0055BDFF /* MusicConfigEnum+Extension.swift in Sources */,
@@ -2675,7 +2608,6 @@
 				22109C562DF09DC900A39370 /* MiniLyricAnimation+Extension.swift in Sources */,
 				22C2573E302D92FC00A68C1B /* GalleryEmptyViewCell.swift in Sources */,
 				225F58682D85B2AB0055BDFF /* MusicsViewController+Action.swift in Sources */,
-				225F58692D85B2AB0055BDFF /* NavidromeViewController+Data.swift in Sources */,
 				225F586A2D85B2AB0055BDFF /* KakaNavigationController.swift in Sources */,
 				225F586B2D85B2AB0055BDFF /* MusicsViewController+Noti.swift in Sources */,
 				22C707802DCB9F4300A1B79A /* LargeImageViewController.swift in Sources */,
@@ -2699,7 +2631,6 @@
 				225F58782D85B2AB0055BDFF /* PlayerControlToolBarView.swift in Sources */,
 				225F58792D85B2AB0055BDFF /* PlayAnimationController.swift in Sources */,
 				225F587A2D85B2AB0055BDFF /* KakaMusicPlayer+Tools.swift in Sources */,
-				22AE9BFF2F9FA9F200630B10 /* SearchArtistTableCell.swift in Sources */,
 				22F25776302CBB2A00EBCD38 /* MusicTagEditorOperation.swift in Sources */,
 				2258ACFD2DE5FB0300F5754B /* LyricSetViewController.swift in Sources */,
 				22C25739302D739400A68C1B /* AutoEditConfigViewController.swift in Sources */,
@@ -2707,7 +2638,6 @@
 				225F587B2D85B2AB0055BDFF /* BaiduDriveError.swift in Sources */,
 				225F587C2D85B2AB0055BDFF /* MusicItemModel+Kaka.swift in Sources */,
 				225F587D2D85B2AB0055BDFF /* WiFiServerViewController.swift in Sources */,
-				225F587E2D85B2AB0055BDFF /* NavidromeArtistListController.swift in Sources */,
 				22C707902DCBA3CC00A1B79A /* FAQsViewController.swift in Sources */,
 				225F58802D85B2AB0055BDFF /* SceneDelegate.swift in Sources */,
 				225F58812D85B2AB0055BDFF /* AudioTagListView.swift in Sources */,
@@ -2722,7 +2652,6 @@
 				225F58862D85B2AB0055BDFF /* DocumentFolderWatcher.swift in Sources */,
 				225F58872D85B2AB0055BDFF /* VideoConverterViewController+Crop.swift in Sources */,
 				225F58882D85B2AB0055BDFF /* ScanUSBViewController.swift in Sources */,
-				225F58892D85B2AB0055BDFF /* ConnectMyPlayListCell.swift in Sources */,
 				225F588C2D85B2AB0055BDFF /* GenreCollectionCell.swift in Sources */,
 				225F588D2D85B2AB0055BDFF /* AppLogoViewController.swift in Sources */,
 				225F588E2D85B2AB0055BDFF /* SKProduct+Extension.swift in Sources */,
@@ -2738,7 +2667,6 @@
 				220DDAE62EAA78BE00F50BB3 /* GoogleDriveFileListController.swift in Sources */,
 				225F58992D85B2AB0055BDFF /* AboutAppTableCell.swift in Sources */,
 				22F2576D302CBAE600EBCD38 /* AudioFingerprintMatcher.swift in Sources */,
-				225F589A2D85B2AB0055BDFF /* NavidromeSongListController.swift in Sources */,
 				225F589B2D85B2AB0055BDFF /* VideoConverterViewController+Action.swift in Sources */,
 				225F589D2D85B2AB0055BDFF /* MusicsViewController+Delegate.swift in Sources */,
 				225F589E2D85B2AB0055BDFF /* SocialMediaType.swift in Sources */,
@@ -2752,11 +2680,8 @@
 				224B43DE2E2D3F88007F3E89 /* Drive115FileListController.swift in Sources */,
 				225F58A22D85B2AB0055BDFF /* AuthWebdavViewController.swift in Sources */,
 				22EA9D8E2DCDF7D200D64EEA /* MusicCellType.swift in Sources */,
-				2299B8FD2D8A95C100D9F886 /* NavidromeSongListController+Search.swift in Sources */,
 				225F58A32D85B2AB0055BDFF /* GenreTypeViewController.swift in Sources */,
-				225F58A42D85B2AB0055BDFF /* NavidromeViewController.swift in Sources */,
 				225F58A52D85B2AB0055BDFF /* AudioSuffixViewCell.swift in Sources */,
-				225F58A62D85B2AB0055BDFF /* NavidromeArtistDetialController.swift in Sources */,
 				225F58A72D85B2AB0055BDFF /* MusicGenreType.swift in Sources */,
 				225F58A82D85B2AB0055BDFF /* AppStoreKitManager.swift in Sources */,
 				225F58A92D85B2AB0055BDFF /* MusicTableViewCell.swift in Sources */,
@@ -2779,11 +2704,12 @@
 				22BEE3A0305BAC9800C8A175 /* MusicServerSearchViewController.swift in Sources */,
 				22BEE3A1305BAC9800C8A175 /* MusicServerHomeViewController.swift in Sources */,
 				22BEE3A2305BAC9800C8A175 /* MusicServerBrowseViewController.swift in Sources */,
+				5DCC20260920000100000003 /* MusicServerArtistsViewController.swift in Sources */,
+				5DCC20260920000200000003 /* MusicServerLoadingView.swift in Sources */,
 				22BEE3A3305BAC9800C8A175 /* MusicServerSession.swift in Sources */,
 				22BEE3A4305BAC9800C8A175 /* AppModeCoordinator.swift in Sources */,
 				22569F9F2D0FD80000FB47F2 /* ImportViewController.swift in Sources */,
 				223FEAB72DF7FE3800FD4452 /* LyricOtherConfigTableCell.swift in Sources */,
-				22474E582D75E6C90062D510 /* ConnectSectionHeadView.swift in Sources */,
 				22496B6C2D3641A100ED4E05 /* AudioChannelViewController.swift in Sources */,
 				228A14252CA0633400E2948E /* WelcomeViewController.swift in Sources */,
 				22196E562D3134CB005B05CD /* LibraryCoverViewController+Search.swift in Sources */,
@@ -2800,7 +2726,6 @@
 				225378342DF1776A00023F1A /* PlayerMoreCellModel.swift in Sources */,
 				228A14482CA0633400E2948E /* EmptyCollectViewCell.swift in Sources */,
 				228A147B2CA0633400E2948E /* HomeTabbarViewController+UI.swift in Sources */,
-				2250931B2D705965003BE202 /* NavidromeViewController+Request.swift in Sources */,
 				228A146C2CA0633400E2948E /* UserInfoViewController.swift in Sources */,
 				228A144D2CA0633400E2948E /* FreeStreamViewController.swift in Sources */,
 				2266A1522DE7531400F5AEB7 /* LyricFontColorTableCell.swift in Sources */,
@@ -2835,7 +2760,6 @@
 				22814C572DD1FF0300565CBC /* CoverGalleryCellModel.swift in Sources */,
 				228A14902CA0633400E2948E /* ConfigInfoKey.swift in Sources */,
 				22B1AD4A2DE0671000DEBED0 /* PlayerStyleTapeTableCell.swift in Sources */,
-				22436B142D72F0360004E09D /* NavidromeSection.swift in Sources */,
 				224C9BD32DD0F26B000CCA6C /* AppDelegate+Action.swift in Sources */,
 				228A14362CA0633400E2948E /* MusicsViewController+Files.swift in Sources */,
 				22C707872DCBA20300A1B79A /* DownloadViewController.swift in Sources */,
@@ -2843,7 +2767,6 @@
 				2247DC122D1A7DF50082F76D /* PlayerStyleViewController.swift in Sources */,
 				228A14422CA0633400E2948E /* MusicViewModel.swift in Sources */,
 				228A144B2CA0633400E2948E /* MusicTopFolderHeadView.swift in Sources */,
-				22436B1C2D744B750004E09D /* ConnectArtistTableCell.swift in Sources */,
 				2275AC6D2D265D8E00D125B2 /* ConnectListViewController.swift in Sources */,
 				22497AEB2DDDEE27001D8338 /* PlayBackDefaultTableCell.swift in Sources */,
 				228A14772CA0633400E2948E /* HomeTabbarViewController.swift in Sources */,
@@ -2870,7 +2793,6 @@
 				E09190000000000000000220 /* PlayerSpectrumViewController.swift in Sources */,
 				22C287AF3053C6B700801D66 /* NoneLyriclistView.swift in Sources */,
 				2257DE862D0BC4FC00BBC0CE /* MusicViewModel+Genre.swift in Sources */,
-				226AF34C2E21103F007C44DF /* ConnectNavidromeArtistCell.swift in Sources */,
 				228A14492CA0633400E2948E /* EmptyTableViewCell.swift in Sources */,
 				22ED75482EF57AB900E92BB3 /* AppleSearchAdsManager.swift in Sources */,
 				228A14502CA0633400E2948E /* MusicPlayerViewController+Delegate.swift in Sources */,
@@ -2888,7 +2810,6 @@
 				2257955C2D79DC7A005479EA /* SelectPlaylistController.swift in Sources */,
 				228A14992CA0633400E2948E /* UserInfoManager+Extension.swift in Sources */,
 				228A142B2CA0633400E2948E /* AlbumListViewController.swift in Sources */,
-				2275AC6F2D2693B800D125B2 /* NavidromeViewController+Noti.swift in Sources */,
 				226C9C212D1FE089003A3CE8 /* CollectionDetialHeadCell.swift in Sources */,
 				22577F6D2D04251A00AD35E7 /* LibraryLyricsViewController.swift in Sources */,
 				225A5D8F2EAFB4EA009DB87E /* DropboxDriveFileListController.swift in Sources */,
@@ -2908,7 +2829,6 @@
 				C02300000000000000000001 /* SMBFileListStatus.swift in Sources */,
 				22C25730302D723500A68C1B /* AudioMatchCoverFootView.swift in Sources */,
 				2261E8812CB5267E009506C0 /* DonateViewController.swift in Sources */,
-				227998BB2D773D6300BCE0B9 /* NavidromeSearchViewController.swift in Sources */,
 				228A14332CA0633400E2948E /* MusicsViewController+Data.swift in Sources */,
 				2266A1552DE7537200F5AEB7 /* LyricFontAlignTableCell.swift in Sources */,
 				22FB96092DED5007007EA2FD /* PlayControlTapeView.swift in Sources */,
@@ -2937,7 +2857,6 @@
 				2257DE542D0AC7C600BBC0CE /* GenreListViewController.swift in Sources */,
 				228A14392CA0633400E2948E /* ArtistDetialViewController.swift in Sources */,
 				870B35FFC850D1C18BA65AAF /* CollectionDetailViewController.swift in Sources */,
-				225E6BAB2D281FAE00A25B34 /* NavidromeViewController+Search.swift in Sources */,
 				228A146A2CA0633400E2948E /* SelectAvatarViewController.swift in Sources */,
 				227607F82DF2F02600B6776E /* MusicDescInfoView.swift in Sources */,
 				2252C7592F8A132400A8DDE5 /* AliyunDriveFileListController.swift in Sources */,
@@ -2958,7 +2877,6 @@
 				228A14752CA0633400E2948E /* UIMenuAccessView.swift in Sources */,
 				2257DE522D0AB31A00BBC0CE /* CollectionViewController.swift in Sources */,
 				228A14612CA0633400E2948E /* PurchasePriceCell.swift in Sources */,
-				22436B162D72F5700004E09D /* NavidromeViewController+Action.swift in Sources */,
 				228A135F2CA00F5600E2948E /* AppDelegate.swift in Sources */,
 				228A145A2CA0633400E2948E /* VIPBenefitsModel.swift in Sources */,
 				224C8A152CE23911008B594C /* MusicConfigEnum+Extension.swift in Sources */,
@@ -3026,7 +2944,6 @@
 				22109C572DF09DC900A39370 /* MiniLyricAnimation+Extension.swift in Sources */,
 				22C2573F302D92FC00A68C1B /* GalleryEmptyViewCell.swift in Sources */,
 				228A14322CA0633400E2948E /* MusicsViewController+Action.swift in Sources */,
-				2247DC162D1AB8F10082F76D /* NavidromeViewController+Data.swift in Sources */,
 				228A14892CA0633400E2948E /* KakaNavigationController.swift in Sources */,
 				228A14372CA0633400E2948E /* MusicsViewController+Noti.swift in Sources */,
 				22C707812DCB9F4300A1B79A /* LargeImageViewController.swift in Sources */,
@@ -3050,7 +2967,6 @@
 				228A147C2CA0633400E2948E /* PlayerControlToolBarView.swift in Sources */,
 				226FF2F22CCA8B8E00514BE4 /* PlayAnimationController.swift in Sources */,
 				228A14A22CA0633400E2948E /* KakaMusicPlayer+Tools.swift in Sources */,
-				22AE9C002F9FA9F200630B10 /* SearchArtistTableCell.swift in Sources */,
 				22F25777302CBB2A00EBCD38 /* MusicTagEditorOperation.swift in Sources */,
 				2258ACFC2DE5FB0300F5754B /* LyricSetViewController.swift in Sources */,
 				22C25738302D739400A68C1B /* AutoEditConfigViewController.swift in Sources */,
@@ -3058,7 +2974,6 @@
 				22CFF8282CADCF2900CF825C /* BaiduDriveError.swift in Sources */,
 				228A14412CA0633400E2948E /* MusicItemModel+Kaka.swift in Sources */,
 				228A142F2CA0633400E2948E /* WiFiServerViewController.swift in Sources */,
-				22436B182D7443E90004E09D /* NavidromeArtistListController.swift in Sources */,
 				22C7078F2DCBA3CC00A1B79A /* FAQsViewController.swift in Sources */,
 				228A13612CA00F5600E2948E /* SceneDelegate.swift in Sources */,
 				22FECF312CB7B9A200FBE36B /* AudioTagListView.swift in Sources */,
@@ -3073,7 +2988,6 @@
 				22577F722D04257400AD35E7 /* DocumentFolderWatcher.swift in Sources */,
 				226EF7C72CA41C93004630B0 /* VideoConverterViewController+Crop.swift in Sources */,
 				228624362CBFC2DD00472448 /* ScanUSBViewController.swift in Sources */,
-				22436B0E2D72ED520004E09D /* ConnectMyPlayListCell.swift in Sources */,
 				227310282D1ED9CB00EB7842 /* GenreCollectionCell.swift in Sources */,
 				226A28382D00614A0072EA11 /* AppLogoViewController.swift in Sources */,
 				228A14982CA0633400E2948E /* SKProduct+Extension.swift in Sources */,
@@ -3089,7 +3003,6 @@
 				220DDAE52EAA78BE00F50BB3 /* GoogleDriveFileListController.swift in Sources */,
 				228A146F2CA0633400E2948E /* AboutAppTableCell.swift in Sources */,
 				22F2576E302CBAE600EBCD38 /* AudioFingerprintMatcher.swift in Sources */,
-				227998B32D76F68D00BCE0B9 /* NavidromeSongListController.swift in Sources */,
 				228A14582CA0633400E2948E /* VideoConverterViewController+Action.swift in Sources */,
 				228A14342CA0633400E2948E /* MusicsViewController+Delegate.swift in Sources */,
 				22059B832CAE9378006F6E7A /* SocialMediaType.swift in Sources */,
@@ -3103,11 +3016,8 @@
 				224B43DF2E2D3F88007F3E89 /* Drive115FileListController.swift in Sources */,
 				226C9C232D200734003A3CE8 /* AuthWebdavViewController.swift in Sources */,
 				22EA9D8F2DCDF7D300D64EEA /* MusicCellType.swift in Sources */,
-				2299B8FE2D8A95C100D9F886 /* NavidromeSongListController+Search.swift in Sources */,
 				22577E662D03E1B200AD35E7 /* GenreTypeViewController.swift in Sources */,
-				2257DE492D0A8E8100BBC0CE /* NavidromeViewController.swift in Sources */,
 				226EF7C52CA40D3D004630B0 /* AudioSuffixViewCell.swift in Sources */,
-				22436B1A2D7446BA0004E09D /* NavidromeArtistDetialController.swift in Sources */,
 				22577E682D03E1DC00AD35E7 /* MusicGenreType.swift in Sources */,
 				228A149A2CA0633400E2948E /* AppStoreKitManager.swift in Sources */,
 				228A144A2CA0633400E2948E /* MusicTableViewCell.swift in Sources */,

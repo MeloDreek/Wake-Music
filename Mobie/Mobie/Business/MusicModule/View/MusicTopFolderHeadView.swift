@@ -19,13 +19,6 @@ enum MusicTopHeadClickType: Int {
 protocol MusicTopHeadViewDelegate: AnyObject {
     // 点击本地Item
     func musicTopHeadViewDidClickLocal(headView: UIView, clickType: MusicTopHeadClickType, folder: URL)
-    
-    // Navidrome-前往歌手列表
-    func musicTopHeadViewDidClickAdd(headView: UIView)
-    
-    // 点击前往歌手详情页
-    func musicTopHeadViewDidClickArtist(headView: UIView, navArtist: NavidromeArtist)
-    
 }
 
 class MusicTopFolderHeadView: UITableViewHeaderFooterView {
@@ -100,8 +93,6 @@ class MusicTopFolderHeadView: UITableViewHeaderFooterView {
         view.contentInset = UIEdgeInsets(top: kaka_IsMacOS() ? 20 : 0, left: itemSpace, bottom: 0, right: itemSpace)
         view.semanticContentAttribute = PhoneSetManager.isArabicLanguage() ? .forceRightToLeft : .forceLeftToRight
         view.register(MusicTopFolderCell.self, forCellWithReuseIdentifier: "MusicTopFolderCell")
-        view.register(MusicTopFolderCell.self, forCellWithReuseIdentifier: "MusicTopFolderCell0")
-        view.register(MusicTopFolderCell.self, forCellWithReuseIdentifier: "MusicTopFolderCell1")
         return view
     }()
     

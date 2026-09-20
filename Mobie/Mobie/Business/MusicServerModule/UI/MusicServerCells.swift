@@ -105,24 +105,24 @@ enum MusicServerLoadState {
     case more
 }
 
-/// Three-song shelves, with the next column peeking in to make horizontal browsing discoverable.
-final class MusicServerCarouselCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+/// Full-width artwork grids. The enclosing grouped table owns the section appearance.
+final class MusicServerCarouselCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegate {
     private let collectionView = MusicServerCarouselCollectionView(frame: .zero, collectionViewLayout: MusicServerCarouselLayout())
+    private let pageControl = UIPageControl()
     private var collectionHeight: NSLayoutConstraint!
     private var items: [MusicServerItem] = []
     private var session: MusicServerSession?
+    private var onSongAction: ((MusicServerItem, MusicActionType) -> Void)?
     private var onSelect: ((MusicServerItem) -> Void)?
     private var identity: [String] = []
+    private var metrics: MusicServerGridMetrics?
     private var pendingScrollReset = false
+    private var currentPage = 0
+    private var isPositioningPage = false
+    private var previousViewportSize: CGSize = .zero
 
-    static func preferredHeight(for traits: UITraitCollection) -> CGFloat {
-        rowHeight(for: traits) * 3 + 4
-    }
-
-    private static func rowHeight(for traits: UITraitCollection) -> CGFloat {
-        let title = UIFont.preferredFont(forTextStyle: .body, compatibleWith: traits)
-        let subtitle = UIFont.preferredFont(forTextStyle: .subheadline, compatibleWith: traits)
-        return max(74, ceil(title.lineHeight + subtitle.lineHeight + 23))
+    static func preferredHeight(for traits: UITraitCollection, width: CGFloat) -> CGFloat {
+        MusicServerGridMetrics(width: width, traits: traits).totalHeight
     }
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -132,20 +132,31 @@ final class MusicServerCarouselCell: UITableViewCell, UICollectionViewDataSource
         collectionView.backgroundColor = .clear
         collectionView.contentInsetAdjustmentBehavior = .never
         collectionView.showsHorizontalScrollIndicator = false
-        collectionView.alwaysBounceHorizontal = true
+        collectionView.isPagingEnabled = true
+        collectionView.alwaysBounceHorizontal = false
         collectionView.decelerationRate = .fast
         collectionView.dataSource = self
         collectionView.delegate = self
-        collectionView.register(MusicServerCarouselColumn.self, forCellWithReuseIdentifier: "column")
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
-        contentView.addSubview(collectionView)
-        collectionHeight = collectionView.heightAnchor.constraint(equalToConstant: Self.preferredHeight(for: traitCollection))
+        collectionView.register(MusicServerGridPage.self, forCellWithReuseIdentifier: "page")
+        pageControl.hidesForSinglePage = true
+        pageControl.pageIndicatorTintColor = .tertiaryLabel
+        pageControl.currentPageIndicatorTintColor = .secondaryLabel
+        pageControl.addTarget(self, action: #selector(pageChanged), for: .valueChanged)
+        [collectionView, pageControl].forEach {
+            $0.translatesAutoresizingMaskIntoConstraints = false
+            contentView.addSubview($0)
+        }
+        collectionHeight = collectionView.heightAnchor.constraint(equalToConstant: MusicServerGridMetrics(width: 393, traits: traitCollection).gridHeight)
         collectionHeight.priority = UILayoutPriority(999)
         NSLayoutConstraint.activate([
             collectionView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             collectionView.topAnchor.constraint(equalTo: contentView.topAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            pageControl.topAnchor.constraint(equalTo: collectionView.bottomAnchor),
+            pageControl.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            pageControl.widthAnchor.constraint(lessThanOrEqualTo: contentView.widthAnchor),
+            pageControl.heightAnchor.constraint(equalToConstant: MusicServerGridMetrics.pageControlHeight),
+            pageControl.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
             collectionHeight
         ])
     }
@@ -153,142 +164,253 @@ final class MusicServerCarouselCell: UITableViewCell, UICollectionViewDataSource
     required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
 
     func configure(items: [MusicServerItem], session: MusicServerSession,
+                   onSongAction: ((MusicServerItem, MusicActionType) -> Void)? = nil,
                    onSelect: @escaping (MusicServerItem) -> Void) {
         let newIdentity = [session.accountID] + items.map(\.id)
-        // A progress/count refresh should not jump an actively browsed shelf back to its beginning.
+        // Metadata/playback refreshes must not send an actively browsed grid back to page one.
         pendingScrollReset = pendingScrollReset || identity != newIdentity
         identity = newIdentity
         self.items = items
         self.session = session
+        self.onSongAction = onSongAction
         self.onSelect = onSelect
+        updatePageCount()
         collectionView.reloadData()
         setNeedsLayout()
     }
 
+    func refreshPlaybackState() {
+        for case let page as MusicServerGridPage in collectionView.visibleCells { page.refreshPlaybackState() }
+    }
+
+    private var pageMetrics: MusicServerGridMetrics {
+        metrics ?? MusicServerGridMetrics(width: max(1, contentView.bounds.width), traits: traitCollection)
+    }
+
+    private var pageCount: Int { (items.count + pageMetrics.itemsPerPage - 1) / pageMetrics.itemsPerPage }
+
+    private func updatePageCount() {
+        pageControl.numberOfPages = pageCount
+        pageControl.currentPage = min(currentPage, max(0, pageCount - 1))
+        collectionView.alwaysBounceHorizontal = pageCount > 1
+    }
+
     override func layoutSubviews() {
         super.layoutSubviews()
-        if pendingScrollReset, collectionView.bounds.width > 0, !items.isEmpty {
-            pendingScrollReset = false
-            collectionView.layoutIfNeeded()
-            // Preserve the 20 pt leading gutter, including when the first column is at the right in RTL.
-            let maximum = max(0, collectionView.contentSize.width - collectionView.bounds.width)
-            let firstFrame = collectionView.collectionViewLayout.layoutAttributesForItem(at: IndexPath(item: 0, section: 0))?.frame ?? .zero
-            let desired = collectionView.effectiveUserInterfaceLayoutDirection == .rightToLeft
-                ? firstFrame.maxX - collectionView.bounds.width + 20 : firstFrame.minX - 20
-            collectionView.setContentOffset(CGPoint(x: min(maximum, max(0, desired)), y: 0), animated: false)
+        let width = collectionView.bounds.width
+        guard width > 0 else { return }
+        let newMetrics = MusicServerGridMetrics(width: width, traits: traitCollection)
+        let oldMetrics = metrics
+        let metricsChanged = oldMetrics?.columns != newMetrics.columns ||
+            oldMetrics?.artworkSide != newMetrics.artworkSide || oldMetrics?.gridHeight != newMetrics.gridHeight
+        let viewportChanged = previousViewportSize != collectionView.bounds.size
+        guard pendingScrollReset || metricsChanged || viewportChanged else { return }
+        let firstVisibleSong = currentPage * (oldMetrics?.itemsPerPage ?? newMetrics.itemsPerPage)
+        if pendingScrollReset { currentPage = 0 }
+        else if oldMetrics?.columns != newMetrics.columns { currentPage = firstVisibleSong / newMetrics.itemsPerPage }
+        pendingScrollReset = false
+        metrics = newMetrics
+        collectionHeight.constant = newMetrics.gridHeight
+        currentPage = min(currentPage, max(0, pageCount - 1))
+        updatePageCount()
+
+        isPositioningPage = true
+        defer { isPositioningPage = false }
+        contentView.layoutIfNeeded()
+        previousViewportSize = collectionView.bounds.size
+        if metricsChanged { collectionView.reloadData() }
+        collectionView.collectionViewLayout.invalidateLayout()
+        collectionView.layoutIfNeeded()
+        scrollToPage(currentPage, animated: false)
+    }
+
+    private func scrollToPage(_ page: Int, animated: Bool) {
+        guard (0..<pageCount).contains(page),
+              let frame = collectionView.collectionViewLayout.layoutAttributesForItem(at: IndexPath(item: page, section: 0))?.frame else { return }
+        currentPage = page
+        pageControl.currentPage = page
+        // Physical page positions are resolved by the pager, including its RTL order.
+        collectionView.setContentOffset(CGPoint(x: frame.minX, y: 0), animated: animated)
+    }
+
+    @objc private func pageChanged() { scrollToPage(pageControl.currentPage, animated: true) }
+
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        guard !isPositioningPage, !pendingScrollReset,
+              collectionView.bounds.size == previousViewportSize, collectionView.bounds.width > 0 else { return }
+        let center = CGPoint(x: collectionView.bounds.midX, y: collectionView.bounds.midY)
+        if let page = collectionView.indexPathForItem(at: center) {
+            currentPage = page.item
+            pageControl.currentPage = currentPage
         }
     }
 
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
         if traitCollection.preferredContentSizeCategory != previousTraitCollection?.preferredContentSizeCategory {
-            collectionHeight.constant = Self.preferredHeight(for: traitCollection)
-            collectionView.collectionViewLayout.invalidateLayout()
+            setNeedsLayout()
         }
     }
 
     override func prepareForReuse() {
         super.prepareForReuse()
         onSelect = nil
+        onSongAction = nil
         session = nil
-        for case let column as MusicServerCarouselColumn in collectionView.visibleCells { column.cancelArtwork() }
-        // Keep identity/offset until the next configure, so returning to the same section retains its position.
+        for case let page as MusicServerGridPage in collectionView.visibleCells { page.cancelArtwork() }
     }
 
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        (items.count + 2) / 3
-    }
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int { pageCount }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "column", for: indexPath) as! MusicServerCarouselColumn
-        let start = indexPath.item * 3
-        let values = Array(items[start..<min(start + 3, items.count)])
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "page", for: indexPath) as! MusicServerGridPage
+        let start = indexPath.item * pageMetrics.itemsPerPage
+        let values = Array(items[start..<min(start + pageMetrics.itemsPerPage, items.count)])
         if let session {
-            cell.configure(items: values, session: session) { [weak self] in self?.onSelect?($0) }
+            cell.configure(items: values, session: session, metrics: pageMetrics,
+                           layoutDirection: collectionView.effectiveUserInterfaceLayoutDirection,
+                           onSongAction: onSongAction) { [weak self] in self?.onSelect?($0) }
         }
         return cell
     }
 
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout,
-                        sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = min(420, max(1, collectionView.bounds.width - 64))
-        return CGSize(width: width, height: Self.rowHeight(for: traitCollection) * 3)
-    }
+}
 
+private struct MusicServerGridMetrics {
+    static let pageControlHeight: CGFloat = 24
+    let columns: Int
+    let artworkSide: CGFloat
+    let titleFont: UIFont
+    let subtitleFont: UIFont
+    var itemsPerPage: Int { columns * 2 }
+    var cardHeight: CGFloat { artworkSide + 8 + ceil(titleFont.lineHeight) + 2 + ceil(subtitleFont.lineHeight) }
+    var gridHeight: CGFloat { cardHeight * 2 + 18 + 16 }
+    var totalHeight: CGFloat { gridHeight + Self.pageControlHeight }
+
+    init(width: CGFloat, traits: UITraitCollection) {
+        columns = min(4, max(2, Int((max(1, width) - 16) / 176)))
+        let columnWidth = max(1, (width - 32 - CGFloat(columns - 1) * 16) / CGFloat(columns))
+        artworkSide = min(140, columnWidth)
+        titleFont = UIFontMetrics(forTextStyle: .subheadline).scaledFont(for: .systemFont(ofSize: 15, weight: .semibold), compatibleWith: traits)
+        subtitleFont = UIFontMetrics(forTextStyle: .caption1).scaledFont(for: .systemFont(ofSize: 12), compatibleWith: traits)
+    }
 }
 
 private final class MusicServerCarouselCollectionView: UICollectionView {
     override func touchesShouldCancel(in view: UIView) -> Bool {
-        // Song rows are UIControls; the default UIScrollView implementation may keep their tap
-        // tracking alive instead of letting the horizontal pan take over.
         view is UIControl || super.touchesShouldCancel(in: view)
     }
 }
 
-private final class MusicServerCarouselLayout: UICollectionViewFlowLayout {
-    override init() {
-        super.init()
-        scrollDirection = .horizontal
-        minimumLineSpacing = 20
-        minimumInteritemSpacing = 0
-        sectionInset = UIEdgeInsets(top: 0, left: 20, bottom: 4, right: 20)
-    }
-
-    required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
-    // FlowLayout already lays out columns in its environment's direction. Flipping again makes an
-    // Arabic shelf start at the last column instead of the first.
+/// Pages have no inter-item layout: each one always equals the current viewport.
+/// Computing frames directly avoids stale FlowLayout metrics while split-view size changes.
+private final class MusicServerCarouselLayout: UICollectionViewLayout {
     override var flipsHorizontallyInOppositeLayoutDirection: Bool { false }
 
+    private var pageCount: Int {
+        guard let collectionView, collectionView.numberOfSections > 0 else { return 0 }
+        return collectionView.numberOfItems(inSection: 0)
+    }
+
+    override var collectionViewContentSize: CGSize {
+        guard let collectionView else { return .zero }
+        return CGSize(width: collectionView.bounds.width * CGFloat(pageCount), height: collectionView.bounds.height)
+    }
+
+    override func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
+        guard let collectionView, indexPath.section == 0, (0..<pageCount).contains(indexPath.item) else { return nil }
+        let physicalPage = collectionView.effectiveUserInterfaceLayoutDirection == .rightToLeft
+            ? pageCount - 1 - indexPath.item : indexPath.item
+        let attributes = UICollectionViewLayoutAttributes(forCellWith: indexPath)
+        attributes.frame = CGRect(x: CGFloat(physicalPage) * collectionView.bounds.width, y: 0,
+                                  width: collectionView.bounds.width, height: collectionView.bounds.height)
+        return attributes
+    }
+
+    override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
+        (0..<pageCount).compactMap { layoutAttributesForItem(at: IndexPath(item: $0, section: 0)) }
+            .filter { $0.frame.intersects(rect) }
+    }
+
     override func shouldInvalidateLayout(forBoundsChange newBounds: CGRect) -> Bool {
-        guard let collectionView else { return false }
-        return collectionView.bounds.size != newBounds.size
+        collectionView?.bounds.size != newBounds.size
+    }
+
+    override func invalidationContext(forBoundsChange newBounds: CGRect) -> UICollectionViewLayoutInvalidationContext {
+        let context = super.invalidationContext(forBoundsChange: newBounds)
+        if let collectionView, collectionView.bounds.width > 0,
+           collectionView.bounds.width != newBounds.width {
+            let physicalPage = (collectionView.contentOffset.x / collectionView.bounds.width).rounded()
+            context.contentOffsetAdjustment.x = physicalPage * newBounds.width - collectionView.contentOffset.x
+        }
+        return context
     }
 
     override func targetContentOffset(forProposedContentOffset proposedContentOffset: CGPoint,
                                      withScrollingVelocity velocity: CGPoint) -> CGPoint {
-        guard let collectionView else { return proposedContentOffset }
-        let rect = CGRect(origin: CGPoint(x: proposedContentOffset.x - collectionView.bounds.width, y: 0),
-                          size: CGSize(width: collectionView.bounds.width * 3, height: collectionView.bounds.height))
-        let rtl = collectionView.effectiveUserInterfaceLayoutDirection == .rightToLeft
-        let offsets = (layoutAttributesForElements(in: rect) ?? []).filter { $0.representedElementCategory == .cell }.map {
-            rtl ? $0.frame.maxX - collectionView.bounds.width + sectionInset.right : $0.frame.minX - sectionInset.left
-        }
-        guard let nearest = offsets.min(by: { abs($0 - proposedContentOffset.x) < abs($1 - proposedContentOffset.x) }) else {
-            return proposedContentOffset
-        }
-        let maximum = max(0, collectionViewContentSize.width - collectionView.bounds.width)
-        return CGPoint(x: min(maximum, max(0, nearest)), y: proposedContentOffset.y)
+        guard let collectionView, collectionView.bounds.width > 0 else { return proposedContentOffset }
+        let width = collectionView.bounds.width
+        let pageOffset = (proposedContentOffset.x / width).rounded() * width
+        let maximum = max(0, collectionViewContentSize.width - width)
+        return CGPoint(x: min(maximum, max(0, pageOffset)), y: 0)
     }
 }
 
-private final class MusicServerCarouselColumn: UICollectionViewCell {
-    private let rows = (0..<3).map { _ in MusicServerCarouselSongRow() }
+private final class MusicServerGridPage: UICollectionViewCell {
+    private let rows = UIStackView()
+    private var cards: [MusicServerGridSongView] = []
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        let stack = UIStackView(arrangedSubviews: rows)
-        stack.axis = .vertical
-        stack.distribution = .fillEqually
-        stack.translatesAutoresizingMaskIntoConstraints = false
-        contentView.addSubview(stack)
+        rows.axis = .vertical
+        rows.spacing = 18
+        rows.distribution = .fillEqually
+        rows.translatesAutoresizingMaskIntoConstraints = false
+        contentView.addSubview(rows)
         NSLayoutConstraint.activate([
-            stack.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            stack.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            stack.topAnchor.constraint(equalTo: contentView.topAnchor),
-            stack.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+            rows.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+            rows.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
+            rows.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
+            rows.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8)
         ])
     }
 
     required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
 
-    func configure(items: [MusicServerItem], session: MusicServerSession, onSelect: @escaping (MusicServerItem) -> Void) {
-        for (index, row) in rows.enumerated() {
-            row.configure(item: index < items.count ? items[index] : nil, session: session,
-                          showsSeparator: index + 1 < items.count, onSelect: onSelect)
+    func configure(items: [MusicServerItem], session: MusicServerSession, metrics: MusicServerGridMetrics,
+                   layoutDirection: UIUserInterfaceLayoutDirection,
+                   onSongAction: ((MusicServerItem, MusicActionType) -> Void)?,
+                   onSelect: @escaping (MusicServerItem) -> Void) {
+        cancelArtwork()
+        cards.removeAll()
+        for row in rows.arrangedSubviews { rows.removeArrangedSubview(row); row.removeFromSuperview() }
+        let semantic: UISemanticContentAttribute = layoutDirection == .rightToLeft ? .forceRightToLeft : .forceLeftToRight
+        rows.semanticContentAttribute = semantic
+        for rowIndex in 0..<2 {
+            let row = UIStackView()
+            row.axis = .horizontal
+            row.spacing = 16
+            row.distribution = .fillEqually
+            row.semanticContentAttribute = semantic
+            for column in 0..<metrics.columns {
+                let index = rowIndex * metrics.columns + column
+                if items.indices.contains(index) {
+                    let card = MusicServerGridSongView()
+                    card.semanticContentAttribute = semantic
+                    card.configure(item: items[index], session: session, metrics: metrics,
+                                   onSongAction: onSongAction, onSelect: onSelect)
+                    cards.append(card)
+                    row.addArrangedSubview(card)
+                } else {
+                    row.addArrangedSubview(UIView())
+                }
+            }
+            rows.addArrangedSubview(row)
         }
     }
 
-    func cancelArtwork() { rows.forEach { $0.cancelArtwork() } }
+    func cancelArtwork() { cards.forEach { $0.cancelArtwork() } }
+    func refreshPlaybackState() { cards.forEach { $0.refreshPlaybackState() } }
 
     override func prepareForReuse() {
         super.prepareForReuse()
@@ -296,89 +418,163 @@ private final class MusicServerCarouselColumn: UICollectionViewCell {
     }
 }
 
-private final class MusicServerCarouselSongRow: UIControl, UIGestureRecognizerDelegate {
+private final class MusicServerGridSongView: UIView {
     private let artworkContainer = UIView()
-    private let placeholder = UIImageView(image: UIImage(systemName: "music.note"))
+    private let artworkPlaceholder = UIImageView(image: UIImage(systemName: "music.note"))
     private let artwork = UIImageView()
     private let titleLabel = UILabel()
     private let subtitleLabel = UILabel()
-    private let separator = UIView()
-    private var onTap: (() -> Void)?
+    private let playArea = MusicServerGridPlayArea()
+    private let moreButton = UIButton(type: .system)
+    private var artworkSide: NSLayoutConstraint!
+    private var hasActivePlayback: (() -> Bool)?
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        backgroundColor = .clear
+        artwork.contentMode = .scaleAspectFill
+        artwork.clipsToBounds = true
+        artworkContainer.backgroundColor = .tertiarySystemFill
+        artworkContainer.layer.cornerRadius = 8
+        artworkContainer.layer.cornerCurve = .continuous
+        artworkContainer.clipsToBounds = true
+        artworkPlaceholder.contentMode = .scaleAspectFit
+        artworkPlaceholder.tintColor = .tertiaryLabel
+        titleLabel.numberOfLines = 1
+        subtitleLabel.numberOfLines = 1
+        titleLabel.lineBreakMode = .byTruncatingTail
+        subtitleLabel.lineBreakMode = .byTruncatingTail
+        titleLabel.adjustsFontForContentSizeCategory = true
+        subtitleLabel.adjustsFontForContentSizeCategory = true
+        subtitleLabel.textColor = .secondaryLabel
+        moreButton.setImage(UIImage(systemName: "ellipsis", withConfiguration: UIImage.SymbolConfiguration(pointSize: 17, weight: .medium)), for: .normal)
+        moreButton.tintColor = .secondaryLabel
+        moreButton.showsMenuAsPrimaryAction = true
+        moreButton.accessibilityLabel = "More".localStr()
+        moreButton.accessibilityIdentifier = "music.server.grid.more"
+        [playArea, moreButton].forEach { $0.translatesAutoresizingMaskIntoConstraints = false; addSubview($0) }
+        [artworkContainer, titleLabel, subtitleLabel].forEach {
+            $0.translatesAutoresizingMaskIntoConstraints = false
+            playArea.addSubview($0)
+        }
+        [artworkPlaceholder, artwork].forEach {
+            $0.translatesAutoresizingMaskIntoConstraints = false
+            artworkContainer.addSubview($0)
+        }
+        artworkSide = artworkContainer.widthAnchor.constraint(equalToConstant: 140)
+        NSLayoutConstraint.activate([
+            playArea.leadingAnchor.constraint(equalTo: leadingAnchor),
+            playArea.trailingAnchor.constraint(equalTo: trailingAnchor),
+            playArea.topAnchor.constraint(equalTo: topAnchor),
+            playArea.bottomAnchor.constraint(equalTo: bottomAnchor),
+            artworkContainer.topAnchor.constraint(equalTo: playArea.topAnchor),
+            artworkContainer.centerXAnchor.constraint(equalTo: playArea.centerXAnchor),
+            artworkSide,
+            artworkContainer.heightAnchor.constraint(equalTo: artworkContainer.widthAnchor),
+            artworkPlaceholder.centerXAnchor.constraint(equalTo: artworkContainer.centerXAnchor),
+            artworkPlaceholder.centerYAnchor.constraint(equalTo: artworkContainer.centerYAnchor),
+            artworkPlaceholder.widthAnchor.constraint(equalToConstant: 32),
+            artworkPlaceholder.heightAnchor.constraint(equalToConstant: 32),
+            artwork.leadingAnchor.constraint(equalTo: artworkContainer.leadingAnchor),
+            artwork.trailingAnchor.constraint(equalTo: artworkContainer.trailingAnchor),
+            artwork.topAnchor.constraint(equalTo: artworkContainer.topAnchor),
+            artwork.bottomAnchor.constraint(equalTo: artworkContainer.bottomAnchor),
+            titleLabel.leadingAnchor.constraint(equalTo: artworkContainer.leadingAnchor),
+            titleLabel.topAnchor.constraint(equalTo: artworkContainer.bottomAnchor, constant: 8),
+            titleLabel.trailingAnchor.constraint(equalTo: moreButton.leadingAnchor, constant: -2),
+            subtitleLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
+            subtitleLabel.trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor),
+            subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 2),
+            subtitleLabel.bottomAnchor.constraint(lessThanOrEqualTo: playArea.bottomAnchor),
+            moreButton.trailingAnchor.constraint(equalTo: artworkContainer.trailingAnchor),
+            moreButton.topAnchor.constraint(equalTo: artworkContainer.bottomAnchor, constant: 4),
+            moreButton.widthAnchor.constraint(equalToConstant: 32),
+            moreButton.heightAnchor.constraint(greaterThanOrEqualToConstant: 40)
+        ])
+        playArea.isAccessibilityElement = true
+        playArea.accessibilityTraits = .button
+        playArea.accessibilityIdentifier = "music.server.grid.play"
+    }
+
+    required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
+
+    func configure(item: MusicServerItem, session: MusicServerSession, metrics: MusicServerGridMetrics,
+                   onSongAction: ((MusicServerItem, MusicActionType) -> Void)?,
+                   onSelect: @escaping (MusicServerItem) -> Void) {
+        artwork.kf.cancelDownloadTask()
+        // Explicitly mirror both sides of cross-view leading/trailing constraints.
+        // UIKit image/label containers can otherwise retain the application's base direction.
+        [playArea, artworkContainer, artworkPlaceholder, artwork, titleLabel, subtitleLabel, moreButton].forEach {
+            $0.semanticContentAttribute = semanticContentAttribute
+        }
+        artwork.image = nil
+        artworkSide.constant = metrics.artworkSide
+        titleLabel.font = metrics.titleFont
+        subtitleLabel.font = metrics.subtitleFont
+        titleLabel.text = item.title
+        subtitleLabel.text = item.subtitle
+        titleLabel.textAlignment = effectiveUserInterfaceLayoutDirection == .rightToLeft ? .right : .left
+        subtitleLabel.textAlignment = titleLabel.textAlignment
+        playArea.accessibilityLabel = [item.title, item.subtitle].filter { !$0.isEmpty }.joined(separator: ", ")
+        playArea.onActivate = { onSelect(item) }
+        playArea.accessibilityCustomActions = [UIAccessibilityCustomAction(name: "Play".localStr()) { [weak playArea] _ in
+            playArea?.accessibilityActivate() ?? false
+        }]
+        moreButton.isEnabled = onSongAction != nil
+        if case .song(let song) = item {
+            let model = session.musicItem(for: song)
+            hasActivePlayback = { KakaMusicPlayer.shared.playingMusic == model && KakaMusicPlayer.shared.isPlaying }
+            let likeAction: MusicActionType = model.isFlagFavorite() ? .removeFavirote : .addFavirote
+            func action(_ type: MusicActionType) -> UIAction {
+                UIAction(title: type.titleStr(), image: type.iconImage(), attributes: type == .download ? .destructive : []) { _ in
+                    onSongAction?(item, type)
+                }
+            }
+            moreButton.menu = UIMenu(title: item.title, children: [
+                UIMenu(options: .displayInline, children: [action(likeAction), action(.addPlaylist)]),
+                UIMenu(options: .displayInline, children: [action(.artistDetial), action(.albumDetial)]),
+                UIMenu(options: .displayInline, children: [action(.download)])
+            ])
+        } else {
+            hasActivePlayback = nil
+            moreButton.menu = nil
+        }
+        if !item.artworkID.isEmpty, let url = session.artworkURL(id: item.artworkID, size: 300) {
+            let resource = KF.ImageResource(downloadURL: url, cacheKey: "music-server:\(session.accountID):\(item.artworkID):300")
+            artwork.kf.setImage(with: resource, options: [
+                .processor(DownsamplingImageProcessor(size: CGSize(width: metrics.artworkSide, height: metrics.artworkSide))),
+                .scaleFactor(traitCollection.displayScale), .transition(.fade(0.15))
+            ])
+        }
+        refreshPlaybackState()
+    }
+
+    func refreshPlaybackState() { titleLabel.textColor = hasActivePlayback?() == true ? tintColor : .label }
+    func cancelArtwork() { artwork.kf.cancelDownloadTask() }
+}
+
+/// A card is activated only by a completed tap, never by a scroll view's delayed selection callback.
+private final class MusicServerGridPlayArea: UIView, UIGestureRecognizerDelegate {
+    var onActivate: (() -> Void)?
     private lazy var tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapped(_:)))
     private let requiredScrollGestures = NSHashTable<UIGestureRecognizer>.weakObjects()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        artworkContainer.backgroundColor = .tertiarySystemFill
-        artworkContainer.layer.cornerRadius = 8
-        artworkContainer.layer.cornerCurve = .continuous
-        artworkContainer.clipsToBounds = true
-        placeholder.tintColor = .tertiaryLabel
-        placeholder.contentMode = .scaleAspectFit
-        artwork.contentMode = .scaleAspectFill
-        artwork.clipsToBounds = true
-        titleLabel.font = .preferredFont(forTextStyle: .body)
-        subtitleLabel.font = .preferredFont(forTextStyle: .subheadline)
-        subtitleLabel.textColor = .secondaryLabel
-        [titleLabel, subtitleLabel].forEach { $0.adjustsFontForContentSizeCategory = true; $0.numberOfLines = 1 }
-        let labels = UIStackView(arrangedSubviews: [titleLabel, subtitleLabel])
-        labels.axis = .vertical
-        labels.spacing = 3
-        separator.backgroundColor = .separator
-        separator.alpha = 0.45
-        [artworkContainer, labels, separator].forEach {
-            $0.translatesAutoresizingMaskIntoConstraints = false
-            $0.isUserInteractionEnabled = false
-            addSubview($0)
-        }
-        [placeholder, artwork].forEach {
-            $0.translatesAutoresizingMaskIntoConstraints = false
-            artworkContainer.addSubview($0)
-        }
-        NSLayoutConstraint.activate([
-            artworkContainer.leadingAnchor.constraint(equalTo: leadingAnchor),
-            artworkContainer.centerYAnchor.constraint(equalTo: centerYAnchor),
-            artworkContainer.widthAnchor.constraint(equalToConstant: 54),
-            artworkContainer.heightAnchor.constraint(equalTo: artworkContainer.widthAnchor),
-            placeholder.centerXAnchor.constraint(equalTo: artworkContainer.centerXAnchor),
-            placeholder.centerYAnchor.constraint(equalTo: artworkContainer.centerYAnchor),
-            placeholder.widthAnchor.constraint(equalToConstant: 22),
-            placeholder.heightAnchor.constraint(equalToConstant: 22),
-            artwork.leadingAnchor.constraint(equalTo: artworkContainer.leadingAnchor),
-            artwork.trailingAnchor.constraint(equalTo: artworkContainer.trailingAnchor),
-            artwork.topAnchor.constraint(equalTo: artworkContainer.topAnchor),
-            artwork.bottomAnchor.constraint(equalTo: artworkContainer.bottomAnchor),
-            labels.leadingAnchor.constraint(equalTo: artworkContainer.trailingAnchor, constant: 12),
-            labels.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -2),
-            labels.centerYAnchor.constraint(equalTo: centerYAnchor),
-            separator.leadingAnchor.constraint(equalTo: labels.leadingAnchor),
-            separator.trailingAnchor.constraint(equalTo: trailingAnchor),
-            separator.bottomAnchor.constraint(equalTo: bottomAnchor),
-            separator.heightAnchor.constraint(equalToConstant: 0.5)
-        ])
-        // A touchUpInside action can fire at the end of a drag across nested scroll views.
-        // Recognize a completed tap instead, after both horizontal and vertical pans have failed.
         tapGesture.delegate = self
         addGestureRecognizer(tapGesture)
-        accessibilityTraits = .button
     }
 
     required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
 
-    override func didMoveToWindow() {
-        super.didMoveToWindow()
-        bindScrollGestureRequirements()
-    }
+    override func didMoveToWindow() { super.didMoveToWindow(); bindScrollGestures() }
+    override func layoutSubviews() { super.layoutSubviews(); bindScrollGestures() }
 
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        bindScrollGestureRequirements()
-    }
-
-    private func bindScrollGestureRequirements() {
+    private func bindScrollGestures() {
         var ancestor = superview
         while let view = ancestor {
-            if let scroll = view as? UIScrollView, !requiredScrollGestures.contains(scroll.panGestureRecognizer) {
+            if let scroll = view as? UIScrollView, scroll.isScrollEnabled,
+               !requiredScrollGestures.contains(scroll.panGestureRecognizer) {
                 tapGesture.require(toFail: scroll.panGestureRecognizer)
                 requiredScrollGestures.add(scroll.panGestureRecognizer)
             }
@@ -390,57 +586,45 @@ private final class MusicServerCarouselSongRow: UIControl, UIGestureRecognizerDe
         var ancestor = superview
         while let view = ancestor {
             if let scroll = view as? UIScrollView,
-               scroll.isDragging || scroll.isDecelerating || scroll.panGestureRecognizer.state == .began || scroll.panGestureRecognizer.state == .changed {
-                return true
-            }
+               scroll.isDragging || scroll.isDecelerating ||
+                scroll.panGestureRecognizer.state == .began || scroll.panGestureRecognizer.state == .changed { return true }
             ancestor = view.superview
         }
         return false
     }
 
-    override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
-        super.gestureRecognizerShouldBegin(gestureRecognizer) && onTap != nil && !hasActiveScrollingAncestor
-    }
-
-    func configure(item: MusicServerItem?, session: MusicServerSession, showsSeparator: Bool,
-                   onSelect: @escaping (MusicServerItem) -> Void) {
-        cancelArtwork()
-        artwork.image = nil
-        titleLabel.text = item?.title
-        subtitleLabel.text = item?.subtitle
-        subtitleLabel.isHidden = item?.subtitle.isEmpty != false
-        artworkContainer.isHidden = item == nil
-        separator.isHidden = !showsSeparator
-        isUserInteractionEnabled = item != nil
-        isAccessibilityElement = item != nil
-        onTap = nil
-        accessibilityLabel = nil
-        guard let item else { return }
-        onTap = { onSelect(item) }
-        accessibilityLabel = [item.title, item.subtitle].filter { !$0.isEmpty }.joined(separator: ", ")
-        if !item.artworkID.isEmpty, let url = session.artworkURL(id: item.artworkID, size: 160) {
-            let resource = KF.ImageResource(downloadURL: url, cacheKey: "music-server:\(session.accountID):\(item.artworkID):160")
-            artwork.kf.setImage(with: resource, options: [
-                .processor(DownsamplingImageProcessor(size: CGSize(width: 54, height: 54))),
-                .scaleFactor(traitCollection.displayScale),
-                .transition(.fade(0.15))
-            ])
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        var touchedView = touch.view
+        while let view = touchedView, view !== self {
+            if view is UIControl { return false }
+            touchedView = view.superview
         }
-    }
-
-    func cancelArtwork() { artwork.kf.cancelDownloadTask() }
-    @objc private func tapped(_ gesture: UITapGestureRecognizer) {
-        guard gesture.state == .ended, !hasActiveScrollingAncestor else { return }
-        onTap?()
-    }
-
-    override func accessibilityActivate() -> Bool {
-        guard let onTap, !hasActiveScrollingAncestor else { return false }
-        onTap()
         return true
     }
 
-    override var isHighlighted: Bool { didSet { alpha = isHighlighted ? 0.55 : 1 } }
+    override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+        super.gestureRecognizerShouldBegin(gestureRecognizer) && !hasActiveScrollingAncestor
+    }
+
+    @objc private func tapped(_ gesture: UITapGestureRecognizer) {
+        guard gesture.state == .ended else { return }
+        _ = accessibilityActivate()
+    }
+
+    override func accessibilityActivate() -> Bool {
+        guard !hasActiveScrollingAncestor, let onActivate else { return false }
+        onActivate()
+        return true
+    }
+
+    override var canBecomeFirstResponder: Bool { true }
+    override var canBecomeFocused: Bool { true }
+    override var keyCommands: [UIKeyCommand]? {
+        [UIKeyCommand(input: "\r", modifierFlags: [], action: #selector(activateFromKeyboard)),
+         UIKeyCommand(input: " ", modifierFlags: [], action: #selector(activateFromKeyboard))]
+        + (super.keyCommands ?? []).filter { $0.input != "\r" && $0.input != " " }
+    }
+    @objc private func activateFromKeyboard() { _ = accessibilityActivate() }
 }
 
 final class MusicServerStatusCell: UITableViewCell {
@@ -558,8 +742,8 @@ final class MusicServerSectionHeader: UITableViewHeaderFooterView {
         NSLayoutConstraint.activate([
             stack.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
             stack.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
-            stack.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 15),
-            stack.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -5),
+            stack.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 4),
+            stack.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
             titleButton.heightAnchor.constraint(greaterThanOrEqualToConstant: 44),
             button.heightAnchor.constraint(greaterThanOrEqualToConstant: 44)
         ])
@@ -580,7 +764,7 @@ final class MusicServerSectionHeader: UITableViewHeaderFooterView {
         titleConfig.imagePadding = 5
         titleConfig.titleTextAttributesTransformer = UIConfigurationTextAttributesTransformer { attributes in
             var attributes = attributes
-            attributes.font = UIFontMetrics(forTextStyle: .title2).scaledFont(for: .systemFont(ofSize: 22, weight: .bold))
+            attributes.font = UIFontMetrics(forTextStyle: .headline).scaledFont(for: .systemFont(ofSize: 17, weight: .semibold))
             return attributes
         }
         if navigation != nil {

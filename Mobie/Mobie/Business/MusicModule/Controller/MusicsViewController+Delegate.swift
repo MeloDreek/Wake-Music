@@ -88,15 +88,6 @@ extension MusicsViewController: DocumentFolderWatcherDelegate, MusicTopHeadViewD
             self.deleteMusicModel([tempModel])
         }
     }
-    
-    func musicTopHeadViewDidClickAdd(headView: UIView) {
-        
-    }
-    
-    func musicTopHeadViewDidClickArtist(headView: UIView, navArtist: NavidromeArtist) {
-        
-    }
-    
 }
 
 extension MusicsViewController: MusicTopBatchEditHeadViewDelegate {

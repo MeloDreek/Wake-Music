@@ -5,8 +5,10 @@ Optionally set `MUSIC_SERVER_SIMULATOR_UDID` to select it. The probe does not la
 reinstall, navigate, or make network requests from Wakemusic.
 
 It compiles the actual `MusicServerCells.swift` and `UIFontNumber` into a standalone
-UIKit renderer. Only the server model, localization lookup, and image-loading
-dependencies are stubbed. PNG snapshots are written to a newly created directory
+UIKit renderer. The server model, localization lookup, image-loading dependencies,
+playback state and action names are stubbed. The custom artwork grid and menu UIKit
+components are the real production implementation.
+PNG snapshots are written to a newly created directory
 under `/private/tmp/wake-server-home-layout.*`.
 
 Assertions cover:
@@ -15,14 +17,19 @@ Assertions cover:
 - Inline section navigation arrow; image-only playlist action with its accessible
   label and at least a 44 × 44 pt hit target.
 - Empty-state height of at least 168 pt.
-- The next song column peeking into the viewport on phone and iPad widths.
-- The first song remaining visible in the initial Arabic RTL column.
+- Exactly one full-width page at rest: no next-page preview on phone or iPad.
+- Two artwork-card rows, with two phone columns and width-adaptive iPad columns.
+- The first song remaining visible in the initial Arabic RTL page.
+- Whole-page snapping, page dots, and preserving the relevant song page on resize.
 - Horizontal scrolling being allowed to cancel a song row's touch tracking.
-- A song touch-up event not starting playback, with a dedicated tap recognizer and
-  explicit VoiceOver activation still available.
-- Increased carousel height for the largest accessibility content-size category.
+- A real custom artwork grid (no nested UITableViews), pan-dependent song taps,
+  explicit accessible/keyboard activation, and all five server song menu actions.
+  Native collection selection callbacks cannot start playback after a cancelled drag.
+- Playback refresh updating visible song cells without reloading/moving the shelf.
+- A grid tall enough for both artwork/text rows at all tested text sizes.
 
 The offscreen content-size override validates geometry but does not reproduce every
-application-level Dynamic Type font notification. Test actual enlarged text,
-VoiceOver, horizontal dragging, and vertical scrolling in the running app as well.
+application-level Dynamic Type font notification. Test the actual menu action
+handlers, artwork loading, VoiceOver, horizontal dragging, and vertical
+scrolling in the running app as well.
 The renderer uses English fixture strings and placeholder artwork, not live accounts.

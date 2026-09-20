@@ -2,12 +2,18 @@ import UIKit
 import KakaFoundation
 import AppGroupKit
 
-/// Reused by every See All / overview destination. Only the current page is requested.
-final class MusicServerBrowseViewController: SuperViewController {
+/// Songs/albums search the entire server, not only the rows already on screen.
+/// Further pages load automatically as the listener reaches the end of the list.
+final class MusicServerBrowseViewController: SuperViewController, UISearchResultsUpdating, UISearchBarDelegate {
     private let session: MusicServerSession
     private let route: MusicServerRoute
-    private let tableView = UITableView(frame: .zero, style: .insetGrouped)
+    private let tableView = UITableView(frame: .zero, style: .grouped)
     private let refreshControl = UIRefreshControl()
+    private let searchController = UISearchController(searchResultsController: nil)
+    private let loadingView = MusicServerLoadingView()
+    private let pageFooter = UIView()
+    private let pageSpinner = UIActivityIndicatorView(style: .medium)
+    private let pageRetryButton = UIButton(type: .system)
     private var items: [MusicServerItem] = []
     private var nextOffset = 0
     private var hasMore = true
@@ -15,6 +21,10 @@ final class MusicServerBrowseViewController: SuperViewController {
     private var didFail = false
     private var errorMessage = "This section could not be loaded.".localStr()
     private var request: Task<Void, Never>?
+    private var pendingSearch: Task<Void, Never>?
+    private var query = ""
+    private var searchPending = false
+    private var didCompleteInitialLoad = false
     private var generation = UUID()
 
     init(session: MusicServerSession, route: MusicServerRoute, title: String) {
@@ -25,7 +35,7 @@ final class MusicServerBrowseViewController: SuperViewController {
     }
 
     required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
-    deinit { request?.cancel() }
+    deinit { request?.cancel(); pendingSearch?.cancel() }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +48,6 @@ final class MusicServerBrowseViewController: SuperViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(MusicServerItemCell.self, forCellReuseIdentifier: "item")
-        tableView.register(MusicServerStatusCell.self, forCellReuseIdentifier: "status")
         tableView.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(tableView)
         NSLayoutConstraint.activate([
@@ -47,6 +56,31 @@ final class MusicServerBrowseViewController: SuperViewController {
             tableView.topAnchor.constraint(equalTo: contentView.topAnchor),
             tableView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
         ])
+        loadingView.translatesAutoresizingMaskIntoConstraints = false
+        contentView.addSubview(loadingView)
+        NSLayoutConstraint.activate([
+            loadingView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            loadingView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            loadingView.topAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.topAnchor),
+            loadingView.bottomAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.bottomAnchor)
+        ])
+        pageFooter.addSubview(pageSpinner)
+        pageFooter.addSubview(pageRetryButton)
+        pageRetryButton.setTitle("Retry".localStr(), for: .normal)
+        pageRetryButton.addTarget(self, action: #selector(retryPage), for: .touchUpInside)
+        if searchKind != nil {
+            definesPresentationContext = true
+            searchController.obscuresBackgroundDuringPresentation = false
+            searchController.searchResultsUpdater = self
+            searchController.searchBar.delegate = self
+            searchController.searchBar.placeholder = "Search".localStr()
+            searchController.searchBar.autocapitalizationType = .none
+            searchController.searchBar.autocorrectionType = .no
+            searchController.searchBar.isUserInteractionEnabled = false
+            searchController.searchBar.searchTextField.isEnabled = false
+            navigationItem.searchController = searchController
+            navigationItem.hidesSearchBarWhenScrolling = false
+        }
         refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
         tableView.refreshControl = refreshControl
         if case .random = route {
@@ -57,10 +91,17 @@ final class MusicServerBrowseViewController: SuperViewController {
         loadNextPage()
     }
 
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        pageFooter.frame.size = CGSize(width: tableView.bounds.width, height: 56)
+        pageSpinner.center = CGPoint(x: pageFooter.bounds.midX, y: 28)
+        pageRetryButton.frame = CGRect(x: 20, y: 6, width: max(0, pageFooter.bounds.width - 40), height: 44)
+    }
+
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         if isMovingFromParent || navigationController?.isBeingDismissed == true {
-            request?.cancel()
+            cancelPendingRequests()
         }
     }
 
@@ -68,11 +109,13 @@ final class MusicServerBrowseViewController: SuperViewController {
         generation = UUID()
         request?.cancel()
         request = nil
+        pendingSearch?.cancel()
+        pendingSearch = nil
     }
 
     @objc private func refresh() {
-        request?.cancel()
-        generation = UUID()
+        cancelPendingRequests()
+        searchPending = false
         items.removeAll()
         nextOffset = 0
         hasMore = true
@@ -82,19 +125,19 @@ final class MusicServerBrowseViewController: SuperViewController {
     }
 
     private func loadNextPage() {
-        guard !isLoading, hasMore else { return }
+        guard !isLoading, !searchPending, hasMore else { return }
         isLoading = true
         didFail = false
-        tableView.reloadData()
+        updatePresentation()
         let requestGeneration = generation
         let offset = nextOffset
         let session = session
-        let route = route
+        let route = requestRoute
         request = Task { [weak self] in
             do {
                 _ = try await session.authenticate()
                 try Task.checkCancellation()
-                let page = try await session.page(route, offset: offset, limit: 40)
+                let page = try await session.page(route, offset: offset, limit: route == .random ? 30 : 40)
                 guard !Task.isCancelled, let self, self.generation == requestGeneration else { return }
                 var known = Set(self.items.map(Self.stableKey))
                 let additions = page.items.filter { known.insert(Self.stableKey($0)).inserted }
@@ -103,17 +146,21 @@ final class MusicServerBrowseViewController: SuperViewController {
                 // A repeated/empty page stops pagination rather than looping forever.
                 self.nextOffset = page.nextOffset ?? (self.nextOffset + page.items.count)
                 self.hasMore = page.hasMore && !page.items.isEmpty && !additions.isEmpty
+                    && self.nextOffset > offset
                 self.isLoading = false
+                self.didCompleteInitialLoad = true
+                self.searchController.searchBar.isUserInteractionEnabled = true
+                self.searchController.searchBar.searchTextField.isEnabled = true
                 self.refreshControl.endRefreshing()
                 self.navigationItem.rightBarButtonItem?.isEnabled = !self.items.isEmpty
-                self.tableView.reloadData()
+                self.updatePresentation()
             } catch {
                 guard !Task.isCancelled, let self, self.generation == requestGeneration else { return }
                 self.isLoading = false
                 self.didFail = true
                 self.errorMessage = (error as? MusicServerError)?.localizedDescription ?? "This section could not be loaded.".localStr()
                 self.refreshControl.endRefreshing()
-                self.tableView.reloadData()
+                self.updatePresentation()
             }
         }
     }
@@ -128,10 +175,76 @@ final class MusicServerBrowseViewController: SuperViewController {
         }
     }
 
-    private var showsStatusRow: Bool { items.isEmpty || hasMore || isLoading || didFail }
+    private var searchKind: MusicServerSearchKind? {
+        switch route {
+        case .songs: return .songs
+        case .albums: return .albums
+        default: return nil
+        }
+    }
+
+    private var requestRoute: MusicServerRoute {
+        guard !query.isEmpty, let kind = searchKind else { return route }
+        return .search(query: query, kind: kind)
+    }
+
+    private func updatePresentation() {
+        loadingView.isHidden = !items.isEmpty
+        if items.isEmpty {
+            if isLoading || searchPending { loadingView.configure(.loading) }
+            else if didFail { loadingView.configure(.failed(errorMessage)) { [weak self] in self?.loadNextPage() } }
+            else { loadingView.configure(.empty(emptyMessage)) }
+        }
+        pageSpinner.stopAnimating()
+        pageSpinner.isHidden = !isLoading
+        pageRetryButton.isHidden = !didFail
+        if isLoading, !items.isEmpty { pageSpinner.startAnimating() }
+        tableView.tableFooterView = !items.isEmpty && (isLoading || didFail) ? pageFooter : nil
+        navigationItem.rightBarButtonItem?.isEnabled = !items.isEmpty
+        tableView.reloadData()
+    }
+
+    @objc private func retryPage() { loadNextPage() }
+
+    func updateSearchResults(for searchController: UISearchController) { scheduleSearch() }
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        scheduleSearch(immediately: true)
+        searchBar.resignFirstResponder()
+    }
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = ""
+        scheduleSearch(immediately: true)
+    }
+
+    private func scheduleSearch(immediately: Bool = false) {
+        guard didCompleteInitialLoad, searchKind != nil else { return }
+        let nextQuery = (searchController.searchBar.text ?? "").trimmingCharacters(in: .whitespacesAndNewlines)
+        guard nextQuery != query || searchPending else { return }
+        cancelPendingRequests()
+        query = nextQuery
+        items.removeAll()
+        nextOffset = 0
+        hasMore = true
+        isLoading = false
+        didFail = false
+        searchPending = true
+        refreshControl.endRefreshing()
+        updatePresentation()
+        let requestGeneration = generation
+        pendingSearch = Task { [weak self] in
+            do {
+                if !immediately { try await Task.sleep(nanoseconds: 300_000_000) }
+                try Task.checkCancellation()
+                guard let self, self.generation == requestGeneration else { return }
+                self.pendingSearch = nil
+                self.searchPending = false
+                self.loadNextPage()
+            } catch { /* A newer query or navigation cancelled this search. */ }
+        }
+    }
 
     private var emptyMessage: String {
-        switch route {
+        switch requestRoute {
         case .search: return "No search results. Try another keyword.".localStr()
         case .recent: return "Play something to start your listening history.".localStr()
         case .favorites: return "Your favorite songs will appear here.".localStr()
@@ -148,30 +261,23 @@ final class MusicServerBrowseViewController: SuperViewController {
 
 extension MusicServerBrowseViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        items.count + (showsStatusRow ? 1 : 0)
+        items.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if items.indices.contains(indexPath.row) {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "item", for: indexPath) as! MusicServerItemCell
-            cell.configure(item: items[indexPath.row], session: session)
-            return cell
-        }
-        let cell = tableView.dequeueReusableCell(withIdentifier: "status", for: indexPath) as! MusicServerStatusCell
-        let state: MusicServerLoadState
-        if isLoading { state = .loading }
-        else if didFail { state = .failed(errorMessage) }
-        else if items.isEmpty { state = .empty(emptyMessage) }
-        else { state = .more }
-        cell.configure(state) { [weak self] in self?.loadNextPage() }
+        let cell = tableView.dequeueReusableCell(withIdentifier: "item", for: indexPath) as! MusicServerItemCell
+        cell.configure(item: items[indexPath.row], session: session)
         return cell
     }
 
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        // An explicit Load More button is also available for keyboard/VoiceOver.
-        if !items.isEmpty, indexPath.row == items.count, !isLoading, hasMore, !didFail {
+        if !items.isEmpty, indexPath.row >= items.count - 6, !isLoading, !searchPending, hasMore, !didFail {
             // Do not reload the table inside its own cell-display callback.
-            DispatchQueue.main.async { [weak self] in self?.loadNextPage() }
+            let requestGeneration = generation
+            DispatchQueue.main.async { [weak self] in
+                guard let self, self.generation == requestGeneration else { return }
+                self.loadNextPage()
+            }
         }
     }
 
@@ -201,11 +307,11 @@ enum MusicServerSelection {
                 KakaMusicPlayer.shared.startPlayMusic(musics: queue, itemIndex: index)
             }
         case .album(let album):
-            push(.album(id: album.id), title: item.title, session: session, from: controller)
+            browse(.album(id: album.id), title: item.title, session: session, from: controller)
         case .artist(let artist):
-            push(.artist(id: artist.id), title: item.title, session: session, from: controller)
+            browse(.artist(id: artist.id), title: item.title, session: session, from: controller)
         case .playlist(let playlist):
-            push(.playlist(id: playlist.id), title: item.title, session: session, from: controller)
+            browse(.playlist(id: playlist.id), title: item.title, session: session, from: controller)
         case .radio(let radio):
             guard let model = session.musicItem(for: radio) else {
                 let alert = UIAlertController(title: item.title, message: "This radio station has no playable stream.".localStr(), preferredStyle: .alert)
@@ -218,7 +324,13 @@ enum MusicServerSelection {
         }
     }
 
-    private static func push(_ route: MusicServerRoute, title: String, session: MusicServerSession, from controller: UIViewController) {
-        controller.navigationController?.pushViewController(MusicServerBrowseViewController(session: session, route: route, title: title), animated: true)
+    static func browse(_ route: MusicServerRoute, title: String, session: MusicServerSession, from controller: UIViewController) {
+        let destination: UIViewController
+        if case .artists = route {
+            destination = MusicServerArtistsViewController(session: session)
+        } else {
+            destination = MusicServerBrowseViewController(session: session, route: route, title: title)
+        }
+        controller.navigationController?.pushViewController(destination, animated: true)
     }
 }

@@ -103,22 +103,6 @@ class MusicTopFolderCell: UICollectionViewCell {
         return UIImage(named: "music_place")
     }
     
-    var navArtist: NavidromeArtist? {
-        didSet {
-            guard let navArtist = self.navArtist else {
-                countLabel.isHidden = true
-                nameLabel.text = "Favorite Artists".localStr()
-                coverImgView.image = UIImage(named: "add_artist")
-                return
-            }
-            
-            countLabel.isHidden = navArtist.songCount == nil || navArtist.songCount == 0
-            nameLabel.text = navArtist.name
-            countLabel.text = "\(navArtist.songCount ?? 0)"
-            coverImgView.kf.setImage(with: navArtist.artistAvatarURL(), placeholder: UIImage(named: "music_place"))
-        }
-    }
-    
     
     // MARK:  懒加载
     lazy var backView: UIView = {
@@ -171,4 +155,3 @@ class MusicTopFolderCell: UICollectionViewCell {
     }()
     
 }
-

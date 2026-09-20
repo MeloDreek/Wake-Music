@@ -60,6 +60,17 @@ home_copy.fetch('keys').each_with_index do |key, index|
 end
 
 source_paths = Dir.glob(File.join(root, 'Mobie/Mobie/Business/MusicServerModule/**/*.swift'))
+uploads = JSON.parse(File.read(File.join(__dir__, 'RecentUploadsLocalizations.json')))
+upload_strings = strings.fetch(uploads.fetch('key')).fetch('localizations')
+check.call(upload_strings.keys.sort == expected_locales, 'Recent uploads must cover every app language')
+expected_locales.each do |locale|
+  base = uploads.fetch('aliases').fetch(locale, locale)
+  unit = upload_strings.fetch(locale).fetch('stringUnit')
+  check.call(unit['state'] == 'translated' && unit['value'] == uploads.fetch('translations').fetch(base), "Recent upload translation mismatch: #{locale}")
+end
+%w[All\ Songs Edit\ Configuration Random\ Songs Reload Similar\ Artists].each do |key|
+  check.call(!strings.key?(key), "Obsolete Navidrome-only localization remains: #{key}")
+end
 check.call(!source_paths.empty?, 'No module source files found')
 source_paths.each do |path|
   source = File.read(path)

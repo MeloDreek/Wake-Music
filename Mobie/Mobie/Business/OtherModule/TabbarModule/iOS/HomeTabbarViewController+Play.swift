@@ -68,10 +68,9 @@ extension HomeTabbarViewController: PlayingControlViewDelegate {
                 musicVC.playLastMusicCache(model)
             }
         }else{
-            self.selectedIndex = 2
-            if let navVC = self.children[2] as? KakaNavigationController, let musicVC = navVC.viewControllers.first as? NavidromeViewController {
-                musicVC.playLastMusicCache(model)
-            }
+            // Remote playback belongs to the shared player, not a legacy
+            // controller in Classic's Connect tab.
+            KakaMusicPlayer.shared.startPlayMusic(musics: [model], itemIndex: 0)
         }
     }
     
@@ -118,12 +117,6 @@ extension HomeTabbarViewController: PlayingControlViewDelegate {
     func musicControlViewDidLongDoubleClick(view: UIView) {
         if self.selectedIndex == 0 {
             if let navVC = self.children[0] as? KakaNavigationController, let musicVC = navVC.viewControllers.first as? MusicsViewController {
-                musicVC.locationPlayingCell()
-            }
-        }
-        
-        if self.selectedIndex == 2 {
-            if let navVC = self.children[2] as? KakaNavigationController, let musicVC = navVC.viewControllers.first as? NavidromeViewController {
                 musicVC.locationPlayingCell()
             }
         }

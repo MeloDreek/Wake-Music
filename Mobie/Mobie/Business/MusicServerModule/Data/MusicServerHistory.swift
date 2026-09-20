@@ -29,6 +29,19 @@ enum MusicServerHistory {
         read(user.accountIdentity).map { $0.song(user: user) }
     }
 
+    /// A confirmed remote annotation must survive a homepage refresh. This changes
+    /// metadata only: favoriting never creates a play, reorders history or emits a play notification.
+    static func updateFavorite(accountID: String, songID: String, isFavorite: Bool) {
+        guard !accountID.isEmpty, !songID.isEmpty else { return }
+        var records = read(accountID)
+        guard let index = records.firstIndex(where: { $0.id == songID }),
+              records[index].starred != isFavorite else { return }
+        records[index].starred = isFavorite
+        if let data = try? JSONEncoder().encode(records) {
+            UserDefaults.standard.set(data, forKey: storageKey(accountID))
+        }
+    }
+
     private static func storageKey(_ accountID: String) -> String { "MusicServer.Recent.v1." + accountID }
     private static func read(_ accountID: String) -> [Entry] {
         guard let data = UserDefaults.standard.data(forKey: storageKey(accountID)), data.count <= 512 * 1024,
@@ -55,7 +68,7 @@ enum MusicServerHistory {
         let disc: Int
         let year: Int?
         let genre: String?
-        let starred: Bool?
+        var starred: Bool?
 
         init(song: NavidromeSong, bitDepth: Int?) {
             id = song.id; title = song.title; artist = song.artist; artistID = song.artistId

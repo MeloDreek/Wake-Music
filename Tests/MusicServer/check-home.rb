@@ -7,7 +7,14 @@ assert = lambda do |condition, message|
   raise message unless condition
   checks += 1
 end
-assert.call(home.include?('self == .random ? 50 : 12'), 'Bound song shelves and discovery separately')
+assert.call(home.include?('case .random: return 30') && home.include?('case .recentlyAdded: return 20'), 'Bound random shelves to 30 and recent uploads to 20')
+assert.call(home.include?('self == .recent || self == .favorites || self == .random'), 'Random uses the same horizontal shelf interaction as favorites')
+assert.call(home.include?('case overview, recent, favorites, playlists, random, recentlyAdded'), 'Recent uploads follows random discovery')
+assert.call(home.include?('cellType: .navLargeServer') && home.include?('MusicTableViewCellDelegate'), 'Home music rows use the shared music cell and functional menus')
+assert.call(cells.include?('MusicServerGridPage') && cells.include?('collectionView.isPagingEnabled = true'), 'Song previews use full-width paged grids')
+assert.call(home.include?('style: .grouped') && home.include?('tableView.backgroundColor = .systemGroupedBackground'), 'Home uses native grouped table appearance')
+assert.call(home.include?('preferredHeight(for: traitCollection, width: tableView.bounds.width)'), 'Grid height uses its real viewport width')
+assert.call(home.include?('onSongAction:') && home.include?('handleSongAction(model:'), 'Grid and uploaded-song row menus share one action handler')
 assert.call(home.include?('items = try await session.allPlaylists()'), 'Show all accessible playlists')
 assert.call(home.include?('section == .playlists ? unique'), 'Never truncate playlists to the preview limit')
 assert.call(home.include?('if kind.isShelf { return 1 }'), 'Each horizontal song shelf occupies one outer table row')
