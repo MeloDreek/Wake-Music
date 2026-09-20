@@ -262,6 +262,44 @@ extension KakaMusicPlayer {
         self.currentTime = 0
         self.totalTime = 0
     }
+
+    /// Leaving the music-server shell is not account logout. Keep account/history
+    /// data, but retire its live playback and expose the bundled demo, paused.
+    @MainActor func resetToPausedDemo() {
+        NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(prepareNextMusic), object: nil)
+        retirePlayback()
+        remoteMetadataTask?.cancel()
+        remoteMetadataTask = nil
+        remoteMetadataGeneration = UUID()
+        remoteMetadataAttempted = false
+        DownloadManager.shared.cancelPreDownload()
+        nextPlayMusic = nil
+        pendingShuffleRound = nil
+        isRetry = false
+        isDecodingError = false
+        sleepTimer.stopTimer()
+        sleepTime = 0
+        MusicConfigManager.shared.sleepTime = nil
+
+        let demo = MusicItemModel.demoMusicModel()
+        currentTime = 0
+        totalTime = TimeInterval(demo.durationSeconds)
+        MusicConfigManager.shared.lastPlayTime = 0
+        MusicConfigManager.shared.lastTotalTime = totalTime
+        musicArray = [demo]
+        tempMusicArray = [demo]
+        // This persistence slot stores remote queues, not bundled/local audio.
+        ConnectConfigManager.shared.lastPlaylist = []
+        playingMusic = demo
+        playbackStatus = .paused
+        setupRemoteTransportControls()
+        updateNowPlayingInfo(musicModel: demo)
+        updateControlPlayTime(currentTime: 0, totalTime: totalTime)
+        var nowPlaying = MPNowPlayingInfoCenter.default().nowPlayingInfo ?? [:]
+        nowPlaying[MPNowPlayingInfoPropertyPlaybackRate] = 0
+        MPNowPlayingInfoCenter.default().nowPlayingInfo = nowPlaying
+        updatePlaybackState()
+    }
     
     // 拖动播放进度
     @MainActor func seek(time: TimeInterval, resumePlayback: Bool = false) {

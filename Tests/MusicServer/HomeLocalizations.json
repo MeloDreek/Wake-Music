@@ -1,0 +1,157 @@
+{
+  "keys": [
+    "MusicServer.Home.RefreshBatch",
+    "MusicServer.ExitConfirmation"
+  ],
+  "translations": {
+    "ar": [
+      "مجموعة أخرى",
+      "سيؤدي الخروج إلى العودة إلى الوضع الكلاسيكي وإيقاف الأغنية الحالية مؤقتًا. هل تريد المتابعة؟"
+    ],
+    "ca": [
+      "Un altre grup",
+      "En sortir, tornaràs al mode clàssic i es posarà en pausa la cançó actual. Vols continuar?"
+    ],
+    "cs": [
+      "Další výběr",
+      "Po opuštění se vrátíte do klasického režimu a aktuální skladba se pozastaví. Pokračovat?"
+    ],
+    "da": [
+      "Nyt udvalg",
+      "Når du forlader denne visning, vender du tilbage til klassisk tilstand, og den aktuelle sang sættes på pause. Vil du fortsætte?"
+    ],
+    "de": [
+      "Neue Auswahl",
+      "Beim Verlassen kehrst du zum klassischen Modus zurück und der aktuelle Titel wird pausiert. Fortfahren?"
+    ],
+    "el": [
+      "Νέα επιλογή",
+      "Η έξοδος θα σας επιστρέψει στην κλασική λειτουργία και θα διακόψει προσωρινά το τρέχον τραγούδι. Συνέχεια;"
+    ],
+    "en": [
+      "Refresh",
+      "Exiting will return to Classic Mode and pause the current song. Continue?"
+    ],
+    "es": [
+      "Otra selección",
+      "Al salir, volverás al modo clásico y se pausará la canción actual. ¿Quieres continuar?"
+    ],
+    "fi": [
+      "Uusi valikoima",
+      "Poistuminen palauttaa perinteiseen tilaan ja keskeyttää nykyisen kappaleen toiston. Jatketaanko?"
+    ],
+    "fr": [
+      "Nouvelle sélection",
+      "En quittant, vous reviendrez au mode classique et la lecture du morceau en cours sera mise en pause. Continuer ?"
+    ],
+    "he": [
+      "מבחר חדש",
+      "היציאה תחזיר אותך למצב הקלאסי ותשהה את השיר הנוכחי. להמשיך?"
+    ],
+    "hi": [
+      "नए गाने",
+      "बाहर निकलने पर क्लासिक मोड खुलेगा और मौजूदा गाना रुक जाएगा। जारी रखें?"
+    ],
+    "hr": [
+      "Novi izbor",
+      "Izlaskom ćete se vratiti u klasični način rada, a trenutačna pjesma bit će pauzirana. Želite li nastaviti?"
+    ],
+    "hu": [
+      "Új válogatás",
+      "Kilépéskor visszatérsz a klasszikus módba, és az aktuális szám lejátszása szünetel. Folytatod?"
+    ],
+    "id": [
+      "Pilihan baru",
+      "Keluar akan mengembalikan Anda ke mode klasik dan menjeda lagu saat ini. Lanjutkan?"
+    ],
+    "it": [
+      "Nuova selezione",
+      "Uscendo tornerai alla modalità classica e il brano corrente verrà messo in pausa. Continuare?"
+    ],
+    "ja": [
+      "別の曲を表示",
+      "終了するとクラシックモードに戻り、現在の曲の再生が一時停止します。続けますか？"
+    ],
+    "ko": [
+      "새로운 곡 보기",
+      "나가면 클래식 모드로 돌아가고 현재 곡의 재생이 일시 정지됩니다. 계속할까요?"
+    ],
+    "ms": [
+      "Pilihan baharu",
+      "Keluar akan membawa anda kembali ke mod klasik dan menjeda lagu semasa. Teruskan?"
+    ],
+    "nb": [
+      "Nytt utvalg",
+      "Når du forlater denne visningen, går du tilbake til klassisk modus, og den gjeldende sangen settes på pause. Vil du fortsette?"
+    ],
+    "nl": [
+      "Nieuwe selectie",
+      "Als je afsluit, keer je terug naar de klassieke modus en wordt het huidige nummer gepauzeerd. Doorgaan?"
+    ],
+    "pl": [
+      "Nowy zestaw",
+      "Po wyjściu wrócisz do trybu klasycznego, a bieżący utwór zostanie wstrzymany. Kontynuować?"
+    ],
+    "pt-BR": [
+      "Nova seleção",
+      "Ao sair, você voltará ao modo clássico e a música atual será pausada. Continuar?"
+    ],
+    "pt-PT": [
+      "Nova seleção",
+      "Ao sair, regressará ao modo clássico e a música atual ficará em pausa. Continuar?"
+    ],
+    "ro": [
+      "Altă selecție",
+      "La ieșire, vei reveni la modul clasic, iar melodia curentă va fi pusă pe pauză. Continui?"
+    ],
+    "ru": [
+      "Другая подборка",
+      "После выхода вы вернётесь в классический режим, а текущая песня будет приостановлена. Продолжить?"
+    ],
+    "sk": [
+      "Nový výber",
+      "Po odchode sa vrátite do klasického režimu a aktuálna skladba sa pozastaví. Pokračovať?"
+    ],
+    "sl": [
+      "Nov izbor",
+      "Ob izhodu se boste vrnili v klasični način, trenutna skladba pa se bo začasno ustavila. Želite nadaljevati?"
+    ],
+    "sv": [
+      "Nytt urval",
+      "När du lämnar den här vyn återgår du till klassiskt läge och den aktuella låten pausas. Vill du fortsätta?"
+    ],
+    "th": [
+      "เปลี่ยนชุดเพลง",
+      "เมื่อออก คุณจะกลับสู่โหมดคลาสสิกและเพลงปัจจุบันจะหยุดชั่วคราว ต้องการดำเนินการต่อหรือไม่"
+    ],
+    "tr": [
+      "Yeni seçki",
+      "Çıkış yaptığınızda klasik moda dönülür ve geçerli şarkı duraklatılır. Devam edilsin mi?"
+    ],
+    "uk": [
+      "Інша добірка",
+      "Після виходу ви повернетеся до класичного режиму, а поточну пісню буде призупинено. Продовжити?"
+    ],
+    "vi": [
+      "Đổi danh sách",
+      "Khi thoát, bạn sẽ trở về chế độ cổ điển và bài hát hiện tại sẽ tạm dừng. Tiếp tục?"
+    ],
+    "zh-Hans": [
+      "换一批",
+      "退出后将回到默认的经典模式，且暂停当前播放的歌曲，是否继续？"
+    ],
+    "zh-Hant": [
+      "換一批",
+      "退出後將回到預設的經典模式，並暫停目前播放的歌曲，是否繼續？"
+    ]
+  },
+  "aliases": {
+    "en-AU": "en",
+    "en-GB": "en",
+    "en-IN": "en",
+    "es-419": "es",
+    "es-US": "es",
+    "fr-CA": "fr",
+    "zh-HK": "zh-Hant"
+  }
+}

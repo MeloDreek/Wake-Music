@@ -75,7 +75,7 @@ extension NavidromeViewController: UITableViewDataSource, UITableViewDelegate {
             if let songs = self.navsetModel.randomSongs, songs.count > 0 {
                 let musicModel = MusicItemModel(navSong: songs[indexPath.row])
                 let cell = tableView.dequeueReusableCell(withIdentifier: "MusicTableViewCell", for: indexPath) as! MusicTableViewCell
-                cell.update(musicModel: musicModel, cellType: self.navUser.isLargeServer ? .navLargeServer : .navSmallServer)
+                cell.update(musicModel: musicModel, cellType: .navLargeServer)
                 cell.delegate = self
                 return cell
             }else{

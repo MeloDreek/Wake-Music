@@ -45,6 +45,20 @@ new_keys.each do |key|
   check.call(translations.fetch('en').fetch('stringUnit').fetch('value') == key, "English source mismatch: #{key}")
 end
 
+home_copy = JSON.parse(File.read(File.join(__dir__, 'HomeLocalizations.json')))
+home_copy.fetch('keys').each_with_index do |key, index|
+  record = strings.fetch(key)
+  translations = record.fetch('localizations')
+  check.call(record['extractionState'] == 'manual', "Home key not marked manual: #{key}")
+  check.call(translations.keys.sort == expected_locales, "Incomplete home locales: #{key}")
+  expected_locales.each do |locale|
+    base = home_copy.fetch('aliases').fetch(locale, locale)
+    expected = home_copy.fetch('translations').fetch(base).fetch(index)
+    unit = translations.fetch(locale).fetch('stringUnit')
+    check.call(unit['state'] == 'translated' && unit['value'] == expected, "Home translation mismatch: #{key}/#{locale}")
+  end
+end
+
 source_paths = Dir.glob(File.join(root, 'Mobie/Mobie/Business/MusicServerModule/**/*.swift'))
 check.call(!source_paths.empty?, 'No module source files found')
 source_paths.each do |path|

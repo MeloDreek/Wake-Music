@@ -4,7 +4,7 @@ require 'tmpdir'
 require 'fileutils'
 root = File.expand_path('../..', __dir__)
 source = File.read(File.join(root, 'Mobie/Mobie/Base/Music/KakaMusicPlayer+Play.swift'))
-names = %w[acceptsPlaybackRequest retirePlayback togglePlayback pause stop seek]
+names = %w[acceptsPlaybackRequest retirePlayback togglePlayback pause stop resetToPausedDemo seek]
 methods = names.map do |name|
   start = source.index("@MainActor func #{name}(") or abort "Missing method: #{name}"
   opening = source.index('{', start)

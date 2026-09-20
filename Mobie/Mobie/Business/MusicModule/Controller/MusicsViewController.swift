@@ -87,7 +87,7 @@ class MusicsViewController: SuperViewController {
             
             if let lastModel = KakaMusicPlayer.shared.playingMusic, lastModel.isLocalFile() {
                 if lastModel.isLocalFile() {
-                    if self.viewModel.isBaseDoc && !KakaMusicPlayer.shared.isPlaying {
+                    if self.viewModel.isBaseDoc && !KakaMusicPlayer.shared.isPlaying && lastModel.fileSourceType != .demoFile {
                         // 仅仅是为了程序首次进来后可以有播放列表和当前音乐
                         KakaMusicPlayer.shared.playingMusic = models.first(where: { $0 == lastModel }) ?? MusicItemModel.demoMusicModel()
                         let sortedArray = models.filter({ $0.mediaPlayURL.isSupportMusicFile(false) }).sorted(by: { element1, element2 in

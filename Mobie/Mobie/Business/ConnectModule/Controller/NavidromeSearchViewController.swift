@@ -299,7 +299,7 @@ extension NavidromeSearchViewController: UITableViewDataSource, UITableViewDeleg
                     let cell = tableView.dequeueReusableCell(withIdentifier: "MusicTableViewCell", for: indexPath) as! MusicTableViewCell
                     let songModel = songs[indexPath.row]
                     let musicModel = MusicItemModel(navSong: songModel)
-                    let cellType: MusicCellType = self.navUser.isLargeServer ? .navLargeServer : .navSmallServer
+                    let cellType: MusicCellType = .navLargeServer
                     cell.update(musicModel: musicModel, cellType: cellType)
                     cell.delegate = self
                     return cell

@@ -10,6 +10,7 @@ final class AppModeCoordinator {
     private weak var window: UIWindow?
     private var isSwitching = false
     private var activeServer: NavidromeUserModel?
+    private weak var exitConfirmation: UIAlertController?
 
     init(window: UIWindow) { self.window = window }
 
@@ -62,9 +63,37 @@ final class AppModeCoordinator {
 
     func showClassic() {
         guard !isSwitching else { return }
+        // Retire server work before constructing Classic's first screen. A late
+        // playback/metadata callback must not restore the song we just left.
+        if let root = window?.rootViewController { cancelServerRequests(in: root) }
+        KakaMusicPlayer.shared.resetToPausedDemo()
         AppLocalManager.shared.homeMode = .classic
         // Keep the saved account itself; Exit is not Logout.
         replaceRoot(makeClassicRoot(), returning: true)
+    }
+
+    private func requestExitToClassic() {
+        guard !isSwitching, activeServer != nil, exitConfirmation == nil,
+              let root = window?.rootViewController else { return }
+        var presenter = root
+        while let presented = presenter.presentedViewController, !presented.isBeingDismissed {
+            presenter = presented
+        }
+        guard !(presenter is UIAlertController), !presenter.isBeingDismissed else { return }
+        let alert = UIAlertController(title: "Back to Classic Mode".localStr(),
+            message: "MusicServer.ExitConfirmation".localStr(), preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Cancel".localStr(), style: .cancel) { [weak self] _ in
+            self?.exitConfirmation = nil
+        })
+        alert.addAction(UIAlertAction(title: "Continue".localStr(), style: .default) { [weak self, weak root] _ in
+            guard let self else { return }
+            self.exitConfirmation = nil
+            // A stale confirmation cannot replace a newer shell/account.
+            guard let root, self.window?.rootViewController === root, self.activeServer != nil else { return }
+            self.showClassic()
+        })
+        exitConfirmation = alert
+        presenter.present(alert, animated: true)
     }
 
     func reloadCurrentMode() {
@@ -80,7 +109,7 @@ final class AppModeCoordinator {
     private func makeServerRoot(_ user: NavidromeUserModel) -> UIViewController {
         activeServer = user
         let session = MusicServerSession(user: user)
-        let exit: () -> Void = { [weak self] in self?.showClassic() }
+        let exit: () -> Void = { [weak self] in self?.requestExitToClassic() }
         if UIDevice.current.userInterfaceIdiom == .pad || kaka_IsMacOS() {
             return MusicServerSplitViewController(session: session, onExit: exit)
         }

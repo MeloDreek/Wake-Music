@@ -20,6 +20,13 @@ the same engine is used until seek completion, and a subsequent pause cancels
 the requested resume. UI scrubbing/lyric jumps must use the atomic seek-and-resume
 API instead of a separate `seek()` followed immediately by `play()`.
 
+The music-server exit reset also executes the production method: it must cancel
+pending metadata/prefetch/seek work, silence the retired engine, clear the remote
+queue, select only the bundled Demo without autoplay, and reset persisted and
+Now Playing progress. A late seek completion/provider callback must not restart
+the old song. `ruby Tests/MusicServer/check-navigation.rb` checks that both exit
+entrances prompt first and cancelling does not cancel homepage requests.
+
 This does not simulate FFmpeg/AVPlayer audio output or real provider networking.
 Device follow-up: pause/resume repeatedly, pause then next/previous during slow URL
 resolution, seek then immediately pause/next, and return from queue/settings after

@@ -203,6 +203,26 @@ final class MusicServerSession {
         return result.total ?? (result.records.isEmpty ? 0 : nil)
     }
 
+    /// Playlist metadata is deliberately fetched in one bounded request: the Subsonic endpoint
+    /// returns every accessible playlist, but never the songs inside those playlists.
+    func allPlaylists() async throws -> [MusicServerItem] {
+        try Task.checkCancellation()
+        guard authenticated else { throw MusicServerError.expiredSession }
+        let response = try await subsonic("getPlaylists")
+        let playlists = try records(response, container: "playlists", key: "playlist")
+        try Task.checkCancellation()
+        return MusicServerPlaylistSupport.uniquePlaylists(playlists).map { item($0, route: .playlists) }
+    }
+
+    /// Do not retry a mutation after a timeout: the server may already have created it.
+    func createPlaylist(name: String) async throws {
+        try Task.checkCancellation()
+        guard authenticated else { throw MusicServerError.expiredSession }
+        let name = name.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !name.isEmpty else { throw MusicServerError.invalidResponse }
+        _ = try await subsonic("createPlaylist", query: [.init(name: "name", value: name)], useFormPost: true)
+    }
+
     func page(_ route: MusicServerRoute, offset: Int = 0, limit: Int = 40) async throws -> MusicServerPage {
         guard authenticated else { throw MusicServerError.expiredSession }
         let start = max(0, offset)
@@ -311,6 +331,12 @@ final class MusicServerSession {
         // Only truly pageable protocol endpoints are used; getStarred/getArtists/getPlaylist can
         // return entire libraries and are deliberately not used as a hidden unbounded fallback.
         switch route {
+        case .playlists:
+            let playlists = try await allPlaylists()
+            let items = Array(playlists.dropFirst(offset).prefix(limit))
+            let nextOffset = offset + items.count
+            return MusicServerPage(items: items, total: playlists.count,
+                                   hasMore: nextOffset < playlists.count, nextOffset: nextOffset)
         case .albums:
             let response = try await subsonic("getAlbumList2", query: [.init(name: "type", value: "alphabeticalByName"), .init(name: "offset", value: String(offset)), .init(name: "size", value: String(limit))])
             let records = try records(response, container: "albumList2", key: "album")
@@ -408,14 +434,18 @@ final class MusicServerSession {
         return MusicServerWire.url(base: base, path: "/rest/" + endpoint, query: auth + query)
     }
 
-    private func subsonic(_ endpoint: String, query: [URLQueryItem] = [], authenticatedUser: NavidromeUserModel? = nil) async throws -> [String: Any] {
+    private func subsonic(_ endpoint: String, query: [URLQueryItem] = [], authenticatedUser: NavidromeUserModel? = nil, useFormPost: Bool = false) async throws -> [String: Any] {
         guard let url = subsonicURL(endpoint, query: query, authenticatedUser: authenticatedUser) else { throw MusicServerError.invalidAddress }
-        let (data, response) = try await send(URLRequest(url: url))
+        let request = try useFormPost ? MusicServerPlaylistSupport.postRequest(url: url) : URLRequest(url: url)
+        let (data, response) = try await send(request)
         try validate(response)
         guard let root = try? JSONSerialization.jsonObject(with: data) as? [String: Any], let payload = root["subsonic-response"] as? [String: Any] else { throw MusicServerError.invalidResponse }
         guard payload["status"] as? String == "ok" else {
             let code = (payload["error"] as? [String: Any])?["code"] as? Int
             if code == 40 || code == 41 || code == 42 || code == 43 { throw MusicServerError.invalidCredentials }
+            // Older compatible servers can ignore form bodies. Never fall back to a mutating GET
+            // or replay an ambiguous request merely to work around an unsupported extension.
+            if useFormPost && code == 10 { throw MusicServerError.unsupported }
             if code == 70 { throw MusicServerError.unsupported }
             throw MusicServerError.unavailable
         }
@@ -483,5 +513,30 @@ final class MusicServerSession {
         let token: String
         let subsonicSalt: String?
         let subsonicToken: String?
+    }
+}
+
+/// Shared by the real playlist client and offline request/response regression tests.
+enum MusicServerPlaylistSupport {
+    static func uniquePlaylists(_ records: [MusicServerRecord]) -> [MusicServerRecord] {
+        var seen = Set<String>()
+        return records.filter { !$0.id.isEmpty && seen.insert($0.id).inserted }.sorted {
+            let order = $0.name.localizedStandardCompare($1.name)
+            return order == .orderedSame ? $0.id < $1.id : order == .orderedAscending
+        }
+    }
+
+    static func postRequest(url: URL) throws -> URLRequest {
+        guard var components = URLComponents(url: url, resolvingAgainstBaseURL: false),
+              let form = components.percentEncodedQuery else { throw MusicServerError.invalidAddress }
+        // The URL builder already percent-encodes literal '+' characters. Keep that encoding
+        // when moving both authentication and playlist parameters out of the URL into the body.
+        components.percentEncodedQuery = nil
+        guard let endpoint = components.url else { throw MusicServerError.invalidAddress }
+        var request = URLRequest(url: endpoint)
+        request.httpMethod = "POST"
+        request.setValue("application/x-www-form-urlencoded; charset=utf-8", forHTTPHeaderField: "Content-Type")
+        request.httpBody = Data(form.utf8)
+        return request
     }
 }

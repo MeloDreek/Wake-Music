@@ -645,11 +645,6 @@ extension MusicTableViewCell {
                 self.accessoryView = self.cloudDriveButton()
                 self.accessoryType = .none
                 break
-                
-            case .navSmallServer:
-                self.accessoryView = self.smallnavButton()
-                self.accessoryType = .none
-                break
             
             case .navLargeServer:
                 self.accessoryView = self.largenavBUtton()

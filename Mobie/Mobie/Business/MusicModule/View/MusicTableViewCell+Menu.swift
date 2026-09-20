@@ -125,38 +125,7 @@ extension MusicTableViewCell {
     
 }
 
-
-// 4️⃣小型Navidrome服
-extension MusicTableViewCell {
-    func smallnavButton() -> UIButton {
-        let view = UIButton(type: .custom)
-        view.showsMenuAsPrimaryAction = true
-        view.menu = self.smallnavMenu()
-        view.size = CGSizeMake(45.ckValue(), 45.ckValue())
-        view.setImage(MusicCellType.navSmallServer.iconImage(), for: .normal)
-        return view
-    }
-        
-    private func smallnavMenu() -> UIMenu {
-        var actionArray = [UIAction]()
-        let typeArray: [MusicActionType] = [.artistDetial, /*.albumDetial,*/ .download]
-        
-        for subType in typeArray {
-            let isRed = subType == .download || subType == .deleteItem
-            let subMemu = UIAction(title: subType.titleStr(), image: subType.iconImage(), identifier: nil, discoverabilityTitle: nil, attributes: isRed ? [.destructive] : [], state: .off, handler: { [weak self] _ in
-                guard let wSelf = self, let model = wSelf.musicModel else { return }
-                wSelf.delegate?.musicTableCell(cell: wSelf, model: model, action: subType)
-            })
-            actionArray.append(subMemu)
-        }
-        
-        let menu = UIMenu(title: self.musicModel.showTitleName(), image: UIImage(systemName: "ellipsis"), identifier: nil, options: [], children: actionArray)
-        return menu
-    }
-    
-}
-
-// 5️⃣一般的大型Navidrome服
+// 4️⃣一般的大型Navidrome服
 extension MusicTableViewCell {
     func largenavBUtton() -> UIButton {
         let view = UIButton(type: .custom)
@@ -199,7 +168,7 @@ extension MusicTableViewCell {
             wSelf.delegate?.musicTableCell(cell: wSelf, model: model, action: .albumDetial)
         }
                 
-        let detialMenu = UIMenu(title: "", options: .displayInline, children: [artistAction/*, albumAction*/])
+        let detialMenu = UIMenu(title: "", options: .displayInline, children: [artistAction, albumAction])
 
         // 下载
         let downloadAction = UIAction(title: MusicActionType.download.titleStr(), image: MusicActionType.download.iconImage(), attributes: .destructive) { [weak self] (_) in

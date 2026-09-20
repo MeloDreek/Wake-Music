@@ -2,7 +2,8 @@ import UIKit
 import KakaFoundation
 import AppGroupKit
 
-/// A bounded dashboard: opening a large server never means fetching its full library.
+/// A listening-first dashboard. Song shelves stay bounded even on very large
+/// servers; playlists and the 50-song discovery selection are real table rows.
 final class MusicServerHomeViewController: SuperViewController {
     private enum Section: Int, CaseIterable {
         case overview, recent, favorites, playlists, random
@@ -35,11 +36,14 @@ final class MusicServerHomeViewController: SuperViewController {
             case .overview, .random: return "No music is available yet.".localStr()
             }
         }
+
+        var isShelf: Bool { self == .recent || self == .favorites }
+        var previewLimit: Int { self == .random ? 50 : 12 }
     }
 
     private let session: MusicServerSession
     private let onExit: () -> Void
-    private let tableView = UITableView(frame: .zero, style: .insetGrouped)
+    private let tableView = UITableView(frame: .zero, style: .grouped)
     private let refreshControl = UIRefreshControl()
     private var overview: MusicServerOverview?
     private var previews: [Section: [MusicServerItem]] = [:]
@@ -52,6 +56,8 @@ final class MusicServerHomeViewController: SuperViewController {
     private var authenticationFailed = false
     private var authenticationError = "Unable to connect to this music server.".localStr()
     private var hasAppeared = false
+    private var isCreatingPlaylist = false
+    private weak var playlistNameAlert: UIAlertController?
 
     init(session: MusicServerSession, onExit: @escaping () -> Void) {
         self.session = session
@@ -70,8 +76,13 @@ final class MusicServerHomeViewController: SuperViewController {
         let exit = UIBarButtonItem(image: AppModeCoordinator.exitImage, style: .plain, target: self, action: #selector(exitTapped))
         exit.accessibilityLabel = "Back to Classic Mode".localStr()
         navigationItem.leftBarButtonItem = exit
-        view.backgroundColor = .systemGroupedBackground
-        tableView.backgroundColor = .systemGroupedBackground
+        view.backgroundColor = .systemBackground
+        tableView.backgroundColor = .systemBackground
+        tableView.separatorStyle = .none
+        tableView.sectionHeaderTopPadding = 0
+        tableView.cellLayoutMarginsFollowReadableWidth = false
+        tableView.layoutMargins = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
+        tableView.contentInset.bottom = 20
         tableView.dataSource = self
         tableView.delegate = self
         tableView.rowHeight = UITableView.automaticDimension
@@ -81,6 +92,7 @@ final class MusicServerHomeViewController: SuperViewController {
         tableView.register(MusicServerItemCell.self, forCellReuseIdentifier: "item")
         tableView.register(MusicServerStatusCell.self, forCellReuseIdentifier: "status")
         tableView.register(MusicServerOverviewCell.self, forCellReuseIdentifier: "overview")
+        tableView.register(MusicServerCarouselCell.self, forCellReuseIdentifier: "shelf")
         tableView.register(MusicServerSectionHeader.self, forHeaderFooterViewReuseIdentifier: "header")
         tableView.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(tableView)
@@ -98,14 +110,25 @@ final class MusicServerHomeViewController: SuperViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        if hasAppeared, authenticated, !loadingSections.contains(.recent) {
-            loadSection(.recent, generation: generation)
+        if hasAppeared, authenticated {
+            // Full-list screens can change favorites/history/playlists.
+            for section in [Section.recent, .favorites, .playlists] where !loadingSections.contains(section) {
+                loadSection(section, generation: generation)
+            }
         }
         hasAppeared = true
     }
 
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        if previousTraitCollection?.preferredContentSizeCategory != traitCollection.preferredContentSizeCategory {
+            tableView.reloadData()
+        }
+    }
+
     @objc private func exitTapped() {
-        cancelPendingRequests()
+        // The coordinator asks for confirmation first. Cancelling the prompt
+        // must not cancel loads or change the current playback state.
         onExit()
     }
 
@@ -122,6 +145,7 @@ final class MusicServerHomeViewController: SuperViewController {
     }
 
     @objc private func refreshAll() {
+        guard !isCreatingPlaylist else { refreshControl.endRefreshing(); return }
         cancelPendingRequests()
         authenticated = false
         authenticationFailed = false
@@ -183,10 +207,16 @@ final class MusicServerHomeViewController: SuperViewController {
         let session = session
         tasks[key] = Task { [weak self] in
             do {
-                let page = try await session.page(route, offset: 0, limit: 3)
+                let items: [MusicServerItem]
+                if section == .playlists {
+                    items = try await session.allPlaylists()
+                } else {
+                    items = try await session.page(route, offset: 0, limit: section.previewLimit).items
+                }
                 guard !Task.isCancelled, let self, self.generation == requestGeneration else { return }
                 var seen = Set<String>()
-                self.previews[section] = Array(page.items.filter { seen.insert($0.id).inserted }.prefix(3))
+                let unique = items.filter { seen.insert($0.id).inserted }
+                self.previews[section] = section == .playlists ? unique : Array(unique.prefix(section.previewLimit))
                 self.finishLoading(section)
             } catch {
                 guard !Task.isCancelled, let self, self.generation == requestGeneration else { return }
@@ -214,6 +244,72 @@ final class MusicServerHomeViewController: SuperViewController {
         showList(route: route, title: section.title)
     }
 
+    private func refreshDiscovery() {
+        guard authenticated, !loadingSections.contains(.random) else { return }
+        // Keep the current batch visible until a replacement succeeds.
+        loadSection(.random, generation: generation)
+        tableView.reloadSections(IndexSet(integer: Section.random.rawValue), with: .none)
+    }
+
+    private func createPlaylistTapped() {
+        guard authenticated, !isCreatingPlaylist, presentedViewController == nil else { return }
+        let alert = UIAlertController(title: "New Playlist".localStr(), message: nil, preferredStyle: .alert)
+        alert.addTextField { [weak self] field in
+            field.placeholder = "Name".localStr()
+            field.autocapitalizationType = .sentences
+            field.returnKeyType = .done
+            field.addTarget(self, action: #selector(MusicServerHomeViewController.playlistNameChanged(_:)), for: .editingChanged)
+        }
+        alert.addAction(UIAlertAction(title: "Cancel".localStr(), style: .cancel))
+        let create = UIAlertAction(title: "Confirm".localStr(), style: .default) { [weak self, weak alert] _ in
+            let name = alert?.textFields?.first?.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+            guard !name.isEmpty else { return }
+            self?.createPlaylist(name: name)
+        }
+        create.isEnabled = false
+        alert.addAction(create)
+        alert.preferredAction = create
+        playlistNameAlert = alert
+        present(alert, animated: true)
+    }
+
+    @objc private func playlistNameChanged(_ field: UITextField) {
+        playlistNameAlert?.preferredAction?.isEnabled = !(field.text ?? "").trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+    }
+
+    private func createPlaylist(name: String) {
+        guard !isCreatingPlaylist else { return }
+        isCreatingPlaylist = true
+        tableView.reloadSections(IndexSet(integer: Section.playlists.rawValue), with: .none)
+        let requestGeneration = generation
+        let session = session
+        tasks["create-playlist"] = Task { [weak self] in
+            do {
+                try await session.createPlaylist(name: name)
+                guard !Task.isCancelled, let self, self.generation == requestGeneration else { return }
+                self.isCreatingPlaylist = false
+                self.loadSection(.playlists, generation: requestGeneration)
+                self.tableView.reloadSections(IndexSet(integer: Section.playlists.rawValue), with: .none)
+            } catch {
+                guard !Task.isCancelled, let self, self.generation == requestGeneration else { return }
+                self.isCreatingPlaylist = false
+                let message = (error as? MusicServerError)?.localizedDescription ?? "Unable to connect to the music server. Please try again.".localStr()
+                // Keep a visible failure even if the name alert is still closing
+                // or an exit confirmation currently owns the presentation slot.
+                self.failedSections.insert(.playlists)
+                self.sectionErrors[.playlists] = message
+                self.tableView.reloadSections(IndexSet(integer: Section.playlists.rawValue), with: .none)
+                let alert = UIAlertController(title: "New Playlist".localStr(), message: message, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK".localStr(), style: .default))
+                if self.viewIfLoaded?.window != nil, self.presentedViewController == nil,
+                   self.navigationController?.presentedViewController == nil,
+                   self.tabBarController?.presentedViewController == nil {
+                    self.present(alert, animated: true)
+                }
+            }
+        }
+    }
+
     private func showList(route: MusicServerRoute, title: String) {
         navigationController?.pushViewController(MusicServerBrowseViewController(session: session, route: route, title: title), animated: true)
     }
@@ -231,12 +327,15 @@ extension MusicServerHomeViewController: UITableViewDataSource, UITableViewDeleg
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard authenticated, let kind = Section(rawValue: section), kind != .overview else { return 1 }
-        return max(1, previews[kind]?.count ?? 0)
+        if kind.isShelf { return 1 }
+        let count = previews[kind]?.count ?? 0
+        return max(1, count + (count > 0 && failedSections.contains(kind) ? 1 : 0))
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard authenticated, let section = Section(rawValue: indexPath.section) else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "status", for: indexPath) as! MusicServerStatusCell
+            cell.minimumHeight = 180
             cell.configure(authenticationFailed ? .failed(authenticationError) : .loading) { [weak self] in self?.refreshAll() }
             return cell
         }
@@ -245,12 +344,23 @@ extension MusicServerHomeViewController: UITableViewDataSource, UITableViewDeleg
             cell.configure(overview) { [weak self] in self?.showOverviewCategory($0) }
             return cell
         }
+        if section.isShelf, let items = previews[section], !items.isEmpty {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "shelf", for: indexPath) as! MusicServerCarouselCell
+            cell.configure(items: items, session: session) { [weak self] item in
+                guard let self else { return }
+                MusicServerSelection.open(item, among: items, session: self.session, from: self)
+            }
+            return cell
+        }
         if let items = previews[section], items.indices.contains(indexPath.row) {
             let cell = tableView.dequeueReusableCell(withIdentifier: "item", for: indexPath) as! MusicServerItemCell
+            cell.backgroundColor = .systemBackground
+            cell.layoutMargins = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
             cell.configure(item: items[indexPath.row], session: session)
             return cell
         }
         let cell = tableView.dequeueReusableCell(withIdentifier: "status", for: indexPath) as! MusicServerStatusCell
+        cell.minimumHeight = 168
         let state: MusicServerLoadState
         if loadingSections.contains(section) { state = .loading }
         else if failedSections.contains(section) { state = .failed(sectionErrors[section] ?? "This section could not be loaded.".localStr()) }
@@ -262,9 +372,27 @@ extension MusicServerHomeViewController: UITableViewDataSource, UITableViewDeleg
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         guard authenticated, let kind = Section(rawValue: section) else { return nil }
         let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "header") as! MusicServerSectionHeader
-        let canShowAll = kind.route != nil && !(previews[kind]?.isEmpty ?? true)
-        header.configure(title: kind.title, onSeeAll: canShowAll ? { [weak self] in self?.showAll(kind) } : nil)
+        switch kind {
+        case .overview:
+            header.configure(title: kind.title)
+        case .recent, .favorites:
+            header.configure(title: kind.title, navigation: { [weak self] in self?.showAll(kind) })
+        case .playlists:
+            header.configure(title: kind.title, actionTitle: "New Playlist".localStr(), actionSymbol: "plus",
+                             actionEnabled: !isCreatingPlaylist, action: { [weak self] in self?.createPlaylistTapped() })
+        case .random:
+            header.configure(title: kind.title, actionTitle: "MusicServer.Home.RefreshBatch".localStr(),
+                             actionEnabled: !loadingSections.contains(.random), action: { [weak self] in self?.refreshDiscovery() })
+        }
         return header
+    }
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if authenticated, let section = Section(rawValue: indexPath.section), section.isShelf,
+           !(previews[section]?.isEmpty ?? true) {
+            return MusicServerCarouselCell.preferredHeight(for: traitCollection)
+        }
+        return UITableView.automaticDimension
     }
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -272,16 +400,17 @@ extension MusicServerHomeViewController: UITableViewDataSource, UITableViewDeleg
     }
 
     func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
-        authenticated && section == Section.recent.rawValue ? "Recent plays on this device and from your server.".localStr() : nil
+        nil
     }
 
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        authenticated && section == Section.recent.rawValue ? UITableView.automaticDimension : 8
+        authenticated ? 22 : .leastNormalMagnitude
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         guard authenticated, let section = Section(rawValue: indexPath.section),
+              !section.isShelf,
               let items = previews[section], items.indices.contains(indexPath.row) else { return }
         MusicServerSelection.open(items[indexPath.row], among: items, session: session, from: self)
     }

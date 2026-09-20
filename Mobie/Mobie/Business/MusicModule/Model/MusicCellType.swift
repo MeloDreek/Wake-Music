@@ -13,10 +13,9 @@ enum MusicCellType: Int {
     case download = 2
     case cloudDrive = 3
     
-    case navSmallServer = 4
-    case navLargeServer = 5
-    case navArtistDetial = 6
-    case navPlaylistDetial = 7
+    case navLargeServer = 4
+    case navArtistDetial = 5
+    case navPlaylistDetial = 6
     
     
     func iconImage() -> UIImage? {
@@ -25,7 +24,7 @@ enum MusicCellType: Int {
             return nil
         case .download:
             return MusicActionType.download.iconImage()
-        case .local, .cloudDrive, .navSmallServer, .navLargeServer, .navArtistDetial, .navPlaylistDetial:
+        case .local, .cloudDrive, .navLargeServer, .navArtistDetial, .navPlaylistDetial:
             return Reasource.systemNamed(kaka_IsMacOS() ? "ellipsis.circle" : "ellipsis")
         }
     }
