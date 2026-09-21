@@ -1,60 +1,14 @@
 import UIKit
 import KakaFoundation
+import KakaUIKit
 import AppGroupKit
 import Combine
-import KakaUIKit
 
-/// A listening-first dashboard. Song shelves stay bounded even on very large
-/// servers; playlists and recently uploaded songs are real table rows.
-final class MusicServerHomeViewController: SuperViewController {
-    private enum Section: Int, CaseIterable {
-        case overview, recent, favorites, playlists, random, recentlyAdded
-
-        var title: String {
-            switch self {
-            case .overview: return "Server Overview".localStr()
-            case .recent: return "Recently Played".localStr()
-            case .favorites: return "Favourite Songs".localStr()
-            case .playlists: return "My Playlists".localStr()
-            case .random: return "Discover Music".localStr()
-            case .recentlyAdded: return "MusicServer.Home.RecentlyUploaded".localStr()
-            }
-        }
-
-        var route: MusicServerRoute? {
-            switch self {
-            case .overview: return nil
-            case .recent: return .recent
-            case .favorites: return .favorites
-            case .playlists: return .playlists
-            case .random: return .random
-            case .recentlyAdded: return .recentlyAdded
-            }
-        }
-
-        var emptyMessage: String {
-            switch self {
-            case .recent: return "Play something to start your listening history.".localStr()
-            case .favorites: return "Your favorite songs will appear here.".localStr()
-            case .playlists: return "Your playlists will appear here.".localStr()
-            case .overview, .random, .recentlyAdded: return "No music is available yet.".localStr()
-            }
-        }
-
-        var isShelf: Bool { self == .recent || self == .favorites || self == .random }
-        var previewLimit: Int {
-            switch self {
-            case .random: return 30
-            case .recentlyAdded: return 20
-            default: return 12
-            }
-        }
-    }
-
-    private let session: MusicServerSession
+/// Account-scoped data fills the six sections of the native grouped homepage.
+final class NavidromeHomeViewController: SuperViewController {
+    private typealias Section = NavidromeSection
+    let session: MusicServerSession
     private let onExit: () -> Void
-    private let tableView = UITableView(frame: .zero, style: .grouped)
-    private let refreshControl = UIRefreshControl()
     private let loadingView = MusicServerLoadingView()
     private var overview: MusicServerOverview?
     private var previews: [Section: [MusicServerItem]] = [:]
@@ -85,45 +39,29 @@ final class MusicServerHomeViewController: SuperViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupSubViews()
+        setupContains()
+        handleBuness()
+    }
+
+    func setupSubViews() {
         navigationItem.title = session.user.customName.isEmpty ? "Navidrome" : session.user.customName
         navigationItem.largeTitleDisplayMode = .always
         let exit = UIBarButtonItem(image: AppModeCoordinator.exitImage, style: .plain, target: self, action: #selector(exitTapped))
         exit.accessibilityLabel = "Back to Classic Mode".localStr()
         navigationItem.leftBarButtonItem = exit
         view.backgroundColor = .systemGroupedBackground
-        tableView.backgroundColor = .systemGroupedBackground
-        tableView.separatorStyle = .singleLine
-        tableView.cellLayoutMarginsFollowReadableWidth = false
-        tableView.dataSource = self
-        tableView.delegate = self
-        tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 80
-        tableView.sectionHeaderHeight = UITableView.automaticDimension
-        tableView.estimatedSectionHeaderHeight = 44
-        tableView.register(MusicServerItemCell.self, forCellReuseIdentifier: "item")
-        tableView.register(MusicTableViewCell.self, forCellReuseIdentifier: "song")
-        tableView.register(MusicServerStatusCell.self, forCellReuseIdentifier: "status")
-        tableView.register(MusicServerOverviewCell.self, forCellReuseIdentifier: "overview")
-        tableView.register(MusicServerCarouselCell.self, forCellReuseIdentifier: "shelf")
-        tableView.register(MusicServerSectionHeader.self, forHeaderFooterViewReuseIdentifier: "header")
-        tableView.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(tableView)
-        NSLayoutConstraint.activate([
-            tableView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            tableView.topAnchor.constraint(equalTo: contentView.topAnchor),
-            tableView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
-        ])
-        loadingView.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(loadingView)
-        NSLayoutConstraint.activate([
-            loadingView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            loadingView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            loadingView.topAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.topAnchor),
-            loadingView.bottomAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.bottomAnchor)
-        ])
-        refreshControl.addTarget(self, action: #selector(refreshAll), for: .valueChanged)
-        tableView.refreshControl = refreshControl
+    }
+
+    func setupContains() {
+        tableView.snp.makeConstraints { $0.edges.equalToSuperview() }
+        loadingView.snp.makeConstraints { $0.edges.equalTo(contentView.safeAreaLayoutGuide) }
+    }
+
+    func handleBuness() {
+        configSearchBar()
         NotificationCenter.default.addObserver(self, selector: #selector(recentHistoryChanged(_:)), name: MusicServerHistory.didChange, object: nil)
         KakaMusicPlayer.shared.$playingMusic.receive(on: DispatchQueue.main).sink { [weak self] _ in
             self?.refreshVisiblePlaybackState()
@@ -131,8 +69,57 @@ final class MusicServerHomeViewController: SuperViewController {
         KakaMusicPlayer.shared.$playbackStatus.receive(on: DispatchQueue.main).sink { [weak self] _ in
             self?.refreshVisiblePlaybackState()
         }.store(in: &playbackSubscriptions)
-        refreshAll()
+        refreshDataAction()
     }
+
+    // MARK: GET && SET
+    lazy var sectionArray: [NavidromeSection] = {
+        return NavidromeSection.allCases
+    }()
+
+    // MARK: 懒加载
+    lazy var tableView: UITableView = {
+        let view = UITableView(frame: self.view.bounds, style: .insetGrouped)
+        view.rowHeight = UITableView.automaticDimension
+        view.estimatedRowHeight = 80
+        view.sectionHeaderHeight = UITableView.automaticDimension
+        view.estimatedSectionHeaderHeight = 44
+        view.keyboardDismissMode = .onDrag
+        view.backgroundColor = .systemGroupedBackground
+        view.delegate = self
+        view.dataSource = self
+#if !targetEnvironment(macCatalyst)
+        view.refreshControl = self.kaka_header
+#endif
+        view.allowsMultipleSelection = false
+        view.allowsMultipleSelectionDuringEditing = false
+        view.contentInset = UIEdgeInsets(top: kaka_IsMacOS() ? 20 : 0, left: 0, bottom: 0, right: 0)
+        view.contentInsetAdjustmentBehavior = .automatic
+        view.register(NavidromeSectionHeadView.self, forHeaderFooterViewReuseIdentifier: "NavidromeSectionHeadView")
+        view.register(MusicTableViewCell.self, forCellReuseIdentifier: "MusicTableViewCell")
+        view.register(NavidromeOverviewCell.self, forCellReuseIdentifier: "NavidromeOverviewCell")
+        view.register(NavidromeRecentViewCell.self, forCellReuseIdentifier: "NavidromeRecentViewCell")
+        view.register(NavidromeRecentViewCell.self, forCellReuseIdentifier: "NavidromeRandomViewCell")
+        view.register(NavidromeFavoriteViewCell.self, forCellReuseIdentifier: "NavidromeFavoriteViewCell")
+        view.register(NavidromePlaylistViewCell.self, forCellReuseIdentifier: "NavidromePlaylistViewCell")
+        view.register(NavidromeEmptyViewCell.self, forCellReuseIdentifier: "NavidromeEmptyViewCell")
+        return view
+    }()
+
+    lazy var kaka_header: UIRefreshControl = {
+        let view = UIRefreshControl()
+        view.top = self.navigationController?.navigationBar.height ?? app_navHeight
+        view.size = CGSizeMake(30.ckValue(), 30.ckValue())
+        view.tintColor = .label
+        view.addTarget(self, action: #selector(refreshDataAction), for: .valueChanged)
+        return view
+    }()
+
+    lazy var searchController: NavidromeSearchViewController = {
+        let searchVC = NavidromeSearchViewController(session: session)
+        return searchVC
+    }()
+
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -165,13 +152,14 @@ final class MusicServerHomeViewController: SuperViewController {
     }
 
     func cancelPendingRequests() {
+        searchController.cancelPendingRequests()
         generation = UUID()
         tasks.values.forEach { $0.cancel() }
         tasks.removeAll()
     }
 
-    @objc private func refreshAll() {
-        guard !isCreatingPlaylist, favoriteChanges.isEmpty else { refreshControl.endRefreshing(); return }
+    @objc private func refreshDataAction() {
+        guard !isCreatingPlaylist, favoriteChanges.isEmpty else { kaka_header.endRefreshing(); return }
         cancelPendingRequests()
         favoriteOverrides.removeAll()
         authenticated = false
@@ -201,8 +189,8 @@ final class MusicServerHomeViewController: SuperViewController {
                 guard !Task.isCancelled, let self, self.generation == requestGeneration else { return }
                 self.authenticationFailed = true
                 self.authenticationError = (error as? MusicServerError)?.localizedDescription ?? "Unable to connect to this music server.".localStr()
-                self.loadingView.configure(.failed(self.authenticationError)) { [weak self] in self?.refreshAll() }
-                self.refreshControl.endRefreshing()
+                self.loadingView.configure(.failed(self.authenticationError)) { [weak self] in self?.refreshDataAction() }
+                self.kaka_header.endRefreshing()
                 self.tableView.reloadData()
             }
         }
@@ -260,7 +248,7 @@ final class MusicServerHomeViewController: SuperViewController {
 
     private func finishLoading(_ section: Section) {
         loadingSections.remove(section)
-        if loadingSections.isEmpty { refreshControl.endRefreshing() }
+        if loadingSections.isEmpty { kaka_header.endRefreshing() }
         loadingView.isHidden = true
         tableView.reloadSections(IndexSet(integer: section.rawValue), with: .none)
     }
@@ -273,7 +261,7 @@ final class MusicServerHomeViewController: SuperViewController {
 
     private func showAll(_ section: Section) {
         guard let route = section.route else { return }
-        showList(route: route, title: section.title)
+        showList(route: route, title: section.title ?? "")
     }
 
     private func refreshDiscovery() {
@@ -290,7 +278,7 @@ final class MusicServerHomeViewController: SuperViewController {
             field.placeholder = "Name".localStr()
             field.autocapitalizationType = .sentences
             field.returnKeyType = .done
-            field.addTarget(self, action: #selector(MusicServerHomeViewController.playlistNameChanged(_:)), for: .editingChanged)
+            field.addTarget(self, action: #selector(NavidromeHomeViewController.playlistNameChanged(_:)), for: .editingChanged)
         }
         alert.addAction(UIAlertAction(title: "Cancel".localStr(), style: .cancel))
         let create = UIAlertAction(title: "Confirm".localStr(), style: .default) { [weak self, weak alert] _ in
@@ -361,9 +349,9 @@ final class MusicServerHomeViewController: SuperViewController {
 
     private func refreshVisiblePlaybackState() {
         for cell in tableView.visibleCells {
-            if let shelf = cell as? MusicServerCarouselCell { shelf.refreshPlaybackState() }
+            if let shelf = cell as? NavidromeRecentViewCell { shelf.refreshPlaybackState() }
             if let songCell = cell as? MusicTableViewCell, let model = songCell.musicModel {
-                songCell.update(musicModel: model, cellType: .navLargeServer)
+                songCell.update(musicModel: model, cellType: .navidromeTrack)
             }
         }
     }
@@ -374,7 +362,7 @@ final class MusicServerHomeViewController: SuperViewController {
     }
 }
 
-extension MusicServerHomeViewController: MusicTableViewCellDelegate {
+extension NavidromeHomeViewController: MusicTableViewCellDelegate {
     func musicTableCell(cell: MusicTableViewCell, model: MusicItemModel, action: MusicActionType) {
         handleSongAction(model: model, action: action)
     }
@@ -456,8 +444,8 @@ extension MusicServerHomeViewController: MusicTableViewCellDelegate {
     }
 }
 
-extension MusicServerHomeViewController: UITableViewDataSource, UITableViewDelegate {
-    func numberOfSections(in tableView: UITableView) -> Int { authenticated ? Section.allCases.count : 1 }
+extension NavidromeHomeViewController: UITableViewDataSource, UITableViewDelegate {
+    func numberOfSections(in tableView: UITableView) -> Int { authenticated ? sectionArray.count : 1 }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard authenticated, let kind = Section(rawValue: section), kind != .overview else { return 1 }
@@ -468,18 +456,20 @@ extension MusicServerHomeViewController: UITableViewDataSource, UITableViewDeleg
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard authenticated, let section = Section(rawValue: indexPath.section) else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "status", for: indexPath) as! MusicServerStatusCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "NavidromeEmptyViewCell", for: indexPath) as! NavidromeEmptyViewCell
             cell.minimumHeight = 180
-            cell.configure(authenticationFailed ? .failed(authenticationError) : .loading) { [weak self] in self?.refreshAll() }
+            cell.configure(authenticationFailed ? .failed(authenticationError) : .loading) { [weak self] in self?.refreshDataAction() }
             return cell
         }
         if section == .overview, let overview {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "overview", for: indexPath) as! MusicServerOverviewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "NavidromeOverviewCell", for: indexPath) as! NavidromeOverviewCell
             cell.configure(overview) { [weak self] in self?.showOverviewCategory($0) }
             return cell
         }
         if section.isShelf, let items = previews[section], !items.isEmpty {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "shelf", for: indexPath) as! MusicServerCarouselCell
+            let identifier = section == .favorites ? "NavidromeFavoriteViewCell" :
+                (section == .random ? "NavidromeRandomViewCell" : "NavidromeRecentViewCell")
+            let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! NavidromeRecentViewCell
             cell.configure(items: items, session: session, onSongAction: { [weak self] item, action in
                 guard let self, case .song(let song) = item else { return }
                 self.handleSongAction(model: self.session.musicItem(for: song), action: action)
@@ -491,19 +481,19 @@ extension MusicServerHomeViewController: UITableViewDataSource, UITableViewDeleg
         }
         if let items = previews[section], items.indices.contains(indexPath.row) {
             if case .song(let song) = items[indexPath.row] {
-                let cell = tableView.dequeueReusableCell(withIdentifier: "song", for: indexPath) as! MusicTableViewCell
+                let cell = tableView.dequeueReusableCell(withIdentifier: "MusicTableViewCell", for: indexPath) as! MusicTableViewCell
                 cell.delegate = self
                 cell.backgroundColor = .systemBackground
-                cell.update(musicModel: session.musicItem(for: song), cellType: .navLargeServer)
+                cell.update(musicModel: session.musicItem(for: song), cellType: .navidromeTrack)
                 return cell
             }
-            let cell = tableView.dequeueReusableCell(withIdentifier: "item", for: indexPath) as! MusicServerItemCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "NavidromePlaylistViewCell", for: indexPath) as! NavidromePlaylistViewCell
             cell.backgroundColor = .systemBackground
             cell.layoutMargins = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
             cell.configure(item: items[indexPath.row], session: session)
             return cell
         }
-        let cell = tableView.dequeueReusableCell(withIdentifier: "status", for: indexPath) as! MusicServerStatusCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "NavidromeEmptyViewCell", for: indexPath) as! NavidromeEmptyViewCell
         cell.minimumHeight = 168
         let state: MusicServerLoadState
         if loadingSections.contains(section) { state = .loading }
@@ -515,34 +505,26 @@ extension MusicServerHomeViewController: UITableViewDataSource, UITableViewDeleg
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         guard authenticated, let kind = Section(rawValue: section) else { return nil }
-        let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "header") as! MusicServerSectionHeader
+        let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "NavidromeSectionHeadView") as! NavidromeSectionHeadView
         switch kind {
         case .overview:
-            header.configure(title: kind.title)
+            return nil
         case .recent, .favorites:
-            header.configure(title: kind.title, navigation: { [weak self] in self?.showAll(kind) })
+            header.configure(title: kind.title ?? "", navigation: { [weak self] in self?.showAll(kind) })
         case .playlists:
-            header.configure(title: kind.title, actionTitle: "New Playlist".localStr(), actionSymbol: "plus",
+            header.configure(title: kind.title ?? "", actionTitle: "New Playlist".localStr(), actionSymbol: "plus",
                              actionEnabled: !isCreatingPlaylist, action: { [weak self] in self?.createPlaylistTapped() })
         case .random:
-            header.configure(title: kind.title, navigation: { [weak self] in self?.showAll(kind) }, actionTitle: "MusicServer.Home.RefreshBatch".localStr(),
+            header.configure(title: kind.title ?? "", navigation: { [weak self] in self?.showAll(kind) }, actionTitle: "MusicServer.Home.RefreshBatch".localStr(),
                              actionEnabled: !loadingSections.contains(.random), action: { [weak self] in self?.refreshDiscovery() })
         case .recentlyAdded:
-            header.configure(title: kind.title)
+            header.configure(title: kind.title ?? "")
         }
         return header
     }
 
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if authenticated, let section = Section(rawValue: indexPath.section), section.isShelf,
-           !(previews[section]?.isEmpty ?? true) {
-            return MusicServerCarouselCell.preferredHeight(for: traitCollection, width: tableView.bounds.width)
-        }
-        return UITableView.automaticDimension
-    }
-
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        authenticated ? UITableView.automaticDimension : .leastNormalMagnitude
+        authenticated && sectionArray[section] != .overview ? UITableView.automaticDimension : .leastNormalMagnitude
     }
 
     func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {

@@ -165,8 +165,7 @@ final class AppModeCoordinator {
     }
 
     private func cancelServerRequests(in controller: UIViewController) {
-        (controller as? MusicServerHomeViewController)?.cancelPendingRequests()
-        (controller as? MusicServerSearchViewController)?.cancelPendingRequests()
+        (controller as? NavidromeHomeViewController)?.cancelPendingRequests()
         (controller as? MusicServerBrowseViewController)?.cancelPendingRequests()
         (controller as? MusicServerArtistsViewController)?.cancelPendingRequests()
         for child in controller.children { cancelServerRequests(in: child) }

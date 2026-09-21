@@ -64,8 +64,12 @@ class DownloadViewController: SuperViewController {
     }
     
     func updateRightBarItem() {
-        if self.isPresent() && !kaka_IsMacOS() {
+        // In music-server mode this is a root destination, not a presented download sheet.
+        let isServerDestination = tabBarController is MusicServerTabBarController || splitViewController is MusicServerSplitViewController
+        if self.isPresent() && !kaka_IsMacOS() && !isServerDestination {
             self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(dismissItemAction))
+        } else if isServerDestination {
+            self.navigationItem.leftBarButtonItem = nil
         }
         
         self.navigationItem.rightBarButtonItem = DownloadManager.shared.downloadsRunning ? self.stopDownloadItem : self.downloadBarItem

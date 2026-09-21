@@ -8,7 +8,7 @@ root, destination = ARGV
 source = File.read(File.join(root, 'Mobie/Mobie/Business/MusicServerModule/Data/MusicServerSession.swift'))
 fixture = File.read(File.join(root, 'Tests/MusicServer/SessionFeatureRegression.swift'))
 abort 'Production session must remain MainActor-isolated' unless source.include?("@MainActor\nfinal class MusicServerSession")
-home = File.read(File.join(root, 'Mobie/Mobie/Business/MusicServerModule/UI/MusicServerHomeViewController.swift'))
+home = File.read(File.join(root, 'Mobie/Mobie/Business/MusicServerModule/UI/NavidromeHomeViewController.swift'))
 abort 'Incoming favorite pages must apply the local override before filtering unstarred songs' unless home.match?(/items\.filter.*?map\(self\.applyingFavoriteOverride\).*?\.filter \{ if section == \.favorites, case \.song\(let song\) = \$0 \{ return song\.value\.starred \}/m)
 abort 'An accepted unlike must disappear immediately before the server shelf reload' unless home.match?(/try await self\.session\.setSongFavorite.*?self\.favoriteOverrides\[song\.id\] = favorite.*?self\.previews\[\.favorites\] = self\.previews\[\.favorites\]\?\.filter \{\s*if case \.song\(let song\) = \$0 \{ return song\.value\.starred \}.*?self\.loadSection\(\.favorites/m)
 def extract(source, signature)

@@ -132,7 +132,7 @@ extension MusicTableViewCell {
         view.showsMenuAsPrimaryAction = true
         view.menu = self.largenavMenu()
         view.size = CGSizeMake(45.ckValue(), 45.ckValue())
-        view.setImage(MusicCellType.navLargeServer.iconImage(), for: .normal)
+        view.setImage(MusicCellType.navidromeTrack.iconImage(), for: .normal)
         return view
     }
         

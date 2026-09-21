@@ -646,7 +646,7 @@ extension MusicTableViewCell {
                 self.accessoryType = .none
                 break
             
-            case .navLargeServer:
+            case .navidromeTrack:
                 self.accessoryView = self.largenavBUtton()
                 self.accessoryType = .none
                 break

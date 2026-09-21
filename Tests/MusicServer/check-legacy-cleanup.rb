@@ -5,7 +5,7 @@ require 'pathname'
 
 root = Pathname.new(__dir__).join('../..').expand_path
 removed = %w[
-  NavidromeViewController NavidromeSearchViewController
+  NavidromeViewController MusicServerHomeViewController MusicServerSearchViewController
   NavidromeArtistListController NavidromeArtistDetialController
   NavidromeSongListController ConnectNavidromeArtistCell
   ConnectArtistTableCell ConnectMyPlayListCell ConnectSectionHeadView
@@ -17,6 +17,10 @@ violations = sources.map do |path|
   path if File.read(path).match?(pattern)
 end.compact
 abort "Obsolete Navidrome UI references: #{violations.join(', ')}" unless violations.empty?
+
+# The new homepage deliberately reuses this name for its UISearchController.
+search = root.join('Mobie/Mobie/Business/MusicServerModule/UI/NavidromeSearchViewController.swift').read
+abort 'Homepage search must remain embedded' unless search.include?('class NavidromeSearchViewController: UISearchController')
 
 %w[NavidromeUserModel NavidromeSong NavidromeArtist NavidromePlaylist NavidromeAlbum].each do |name|
   path = root.join("LocalSDK/AppGroupKit/Classes/CoreData/Navidrome/#{name}.swift")

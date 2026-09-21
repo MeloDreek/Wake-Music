@@ -6,8 +6,8 @@ export DEVELOPER_DIR="${DEVELOPER_DIR:-/Applications/Xcode.app/Contents/Develope
 ruby - "$home_root" "$home_temp" <<'RUBY'
 require 'json'
 root, output = ARGV
-source = File.read(File.join(root, 'Mobie/Mobie/Business/MusicServerModule/UI/MusicServerCells.swift'))
-source = source.gsub(/^import (KakaFoundation|Kingfisher)\n/, '')
+source = %w[MusicServerCells NavidromeRecentViewCell NavidromeOverviewCell NavidromeSectionHeadView NavidromeEmptyViewCell].map { |name| File.read(File.join(root, "Mobie/Mobie/Business/MusicServerModule/UI/#{name}.swift")) }.join("\n")
+source = source.gsub(/^import (KakaFoundation|Kingfisher|AppGroupKit)\n/, '')
 font = File.read(File.join(root, 'Mobie/Mobie/Base/Core/ConstKey/ConfigInfoKey.swift'))[/func UIFontNumber\(_ value: CGFloat\) -> UIFont \{.*?\n\}/m]
 File.write(File.join(output, 'Cells.swift'), source + "\n" + font)
 RUBY

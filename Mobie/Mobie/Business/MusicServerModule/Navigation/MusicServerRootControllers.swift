@@ -6,32 +6,41 @@ import AppGroupKit
 /// Every destination shares the same account-scoped session and playback engine.
 @MainActor
 private enum MusicServerDestination: Int, CaseIterable {
-    case home, library, search, profile
+    case home, library, download, profile
 
     var title: String {
         switch self {
         case .home: return "Home".localStr()
         case .library: return "Library".localStr()
-        case .search: return "Search".localStr()
+        case .download: return "Download".localStr()
         case .profile: return KakaTabbarType.profile.formatStr()
         }
     }
 
     var symbol: String {
         switch self {
-        case .home: return "house"
-        case .library: return "square.stack"
-        case .search: return "magnifyingglass"
+        case .home: return "music.note.house"
+        case .library: return "rectangle.stack"
+        case .download: return "arrow.down.circle"
         case .profile: return "person.crop.circle"
+        }
+    }
+
+    var symbol_sel: String {
+        switch self {
+        case .home: return "music.note.house.fill"
+        case .library: return "rectangle.stack.fill"
+        case .download: return "arrow.down.circle.fill"
+        case .profile: return "person.crop.circle.fill"
         }
     }
 
     func controller(session: MusicServerSession, onExit: @escaping () -> Void) -> UIViewController {
         switch self {
-        case .home: return MusicServerHomeViewController(session: session, onExit: onExit)
+        case .home: return NavidromeHomeViewController(session: session, onExit: onExit)
         case .profile: return ProfileViewController()
         case .library: return MusicServerLibraryViewController(session: session)
-        case .search: return MusicServerSearchViewController(session: session)
+        case .download: return DownloadViewController()
         }
     }
 }
@@ -57,7 +66,7 @@ final class MusicServerTabBarController: UITabBarController {
         viewControllers = MusicServerDestination.allCases.map { destination in
             let controller = destination.controller(session: session, onExit: onExit)
             let navigation = KakaNavigationController(rootViewController: controller)
-            navigation.tabBarItem = UITabBarItem(title: destination.title, image: UIImage(systemName: destination.symbol), tag: destination.rawValue)
+            navigation.tabBarItem = UITabBarItem(title: destination.title, image: UIImage(systemName: destination.symbol), selectedImage: UIImage(systemName: destination.symbol_sel))
             // Shared Profile screens already reserve playingHeight in their scroll insets.
             navigation.additionalSafeAreaInsets.bottom = destination == .profile ? 6 : playingHeight + 6
             return navigation

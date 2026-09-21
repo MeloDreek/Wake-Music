@@ -6,6 +6,8 @@ import AppGroupKit
 /// Further pages load automatically as the listener reaches the end of the list.
 final class MusicServerBrowseViewController: SuperViewController, UISearchResultsUpdating, UISearchBarDelegate {
     private let session: MusicServerSession
+    /// Embedded homepage search supplies navigation without a second navigation stack.
+    var onSelection: ((MusicServerItem, [MusicServerItem]) -> Void)?
     private let route: MusicServerRoute
     private let tableView = UITableView(frame: .zero, style: .grouped)
     private let refreshControl = UIRefreshControl()
@@ -284,7 +286,8 @@ extension MusicServerBrowseViewController: UITableViewDataSource, UITableViewDel
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         guard items.indices.contains(indexPath.row) else { return }
-        MusicServerSelection.open(items[indexPath.row], among: items, session: session, from: self)
+        if let onSelection { onSelection(items[indexPath.row], items) }
+        else { MusicServerSelection.open(items[indexPath.row], among: items, session: session, from: self) }
     }
 }
 

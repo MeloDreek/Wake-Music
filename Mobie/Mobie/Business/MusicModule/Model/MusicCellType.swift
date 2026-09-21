@@ -13,7 +13,7 @@ enum MusicCellType: Int {
     case download = 2
     case cloudDrive = 3
     
-    case navLargeServer = 4
+    case navidromeTrack = 4
     case navArtistDetial = 5
     case navPlaylistDetial = 6
     
@@ -24,7 +24,7 @@ enum MusicCellType: Int {
             return nil
         case .download:
             return MusicActionType.download.iconImage()
-        case .local, .cloudDrive, .navLargeServer, .navArtistDetial, .navPlaylistDetial:
+        case .local, .cloudDrive, .navidromeTrack, .navArtistDetial, .navPlaylistDetial:
             return Reasource.systemNamed(kaka_IsMacOS() ? "ellipsis.circle" : "ellipsis")
         }
     }
