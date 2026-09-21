@@ -11,8 +11,6 @@ import Combine
 
 /// 下载列表
 class DownloadViewController: SuperViewController {
-    /// A server module already has its own library; importing would send it back into Connect.
-    var allowsMusicImport = true
     override func preSetupSubViews() {
         super.preSetupSubViews()
         
@@ -66,12 +64,8 @@ class DownloadViewController: SuperViewController {
     }
     
     func updateRightBarItem() {
-        // In music-server mode this is a root destination, not a presented download sheet.
-        let isServerDestination = tabBarController is MusicServerTabBarController || splitViewController is MusicServerSplitViewController
-        if self.isPresent() && !kaka_IsMacOS() && !isServerDestination {
+        if self.isPresent() && !kaka_IsMacOS() {
             self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(dismissItemAction))
-        } else if isServerDestination {
-            self.navigationItem.leftBarButtonItem = nil
         }
         
         self.navigationItem.rightBarButtonItem = DownloadManager.shared.downloadsRunning ? self.stopDownloadItem : self.downloadBarItem
@@ -156,7 +150,6 @@ view.refreshControl = self.kaka_header
         view.tableHeaderView = (self.dataArray.isEmpty || !kaka_IsMacOS()) ? nil : self.headView
         view.contentInsetAdjustmentBehavior = .automatic
         view.register(EmptyTableViewCell.self, forCellReuseIdentifier: "EmptyTableViewCell")
-        view.register(NavidromeEmptyViewCell.self, forCellReuseIdentifier: "ServerDownloadEmpty")
         view.register(MusicTableViewCell.self, forCellReuseIdentifier: "MusicTableViewCell")
         return view
     }()
@@ -216,11 +209,6 @@ extension DownloadViewController: UITableViewDataSource, UITableViewDelegate, Em
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard dataArray.count > 0 else {
-            if !allowsMusicImport {
-                let cell = tableView.dequeueReusableCell(withIdentifier: "ServerDownloadEmpty", for: indexPath) as! NavidromeEmptyViewCell
-                cell.configure(.empty("Download music from your cloud drive or server for the best offline listening experience.".localStr()))
-                return cell
-            }
             let cell = tableView.dequeueReusableCell(withIdentifier: "EmptyTableViewCell", for: indexPath) as! EmptyTableViewCell
             cell.delegate = self
             cell.messaleLabel.text = "Download music from your cloud drive or server for the best offline listening experience.".localStr()
@@ -362,7 +350,6 @@ extension DownloadViewController: UITableViewDataSource, UITableViewDelegate, Em
     }
     
     func importMusicClick() {
-        guard allowsMusicImport else { return }
         let importVC = ImportViewController()
         let navVC = KakaNavigationController(rootViewController: importVC)
         navVC.modalPresentationStyle = kaka_IsMacOS() ? .formSheet : .fullScreen

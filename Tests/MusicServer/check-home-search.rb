@@ -7,7 +7,7 @@ bridge = base.join('UI/NavidromeHomeViewController+Search.swift').read
 roots = base.join('Navigation/MusicServerRootControllers.swift').read
 checks = {
   'new home is the root' => roots.include?('return NavidromeHomeViewController(session: session, onExit: onExit)'),
-  'shared download queue tab without import loop' => roots.include?('let controller = DownloadViewController()') && roots.include?('controller.allowsMusicImport = false'),
+  'independent download tab sharing the home exit flow' => roots.include?('case .download: return NavidromeDownloadViewController(onExit: onExit)'),
   'embedded search, not another tab' => bridge.include?('navigationItem.searchController = searchController') && !roots.include?('case search'),
   'all search scopes' => search.include?('["Songs", "Artists", "Albums"]'),
   'server search and pagination reuse' => search.include?('route: .search(query: query, kind: kind)'),

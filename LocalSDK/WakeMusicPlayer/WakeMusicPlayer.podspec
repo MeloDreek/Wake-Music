@@ -10,10 +10,10 @@ Pod::Spec.new do |s|
   s.name             = "WakeMusicPlayer"
   s.version          = "1.0.0"
   s.summary          = "WakeMusicPlayer."
-  s.homepage         = "https://www.passlockapp.com/"
+  s.homepage         = "https://www.kakainc.com/"
   s.license          = { :type => "MIT", :file => "LICENSE" }
   s.author           = "MeloDreek@gmail.com"
-  s.source           = { :git => "https://www.passlockapp.com/WakeMusicPlayer.git", :tag => s.version }
+  s.source           = { :git => "https://www.kakainc.com/WakeMusicPlayer.git", :tag => s.version }
   s.platforms        = { :ios => '14.0', :osx => '10.15' }
   s.requires_arc     = true
   

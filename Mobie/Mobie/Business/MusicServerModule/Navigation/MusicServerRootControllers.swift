@@ -2,6 +2,7 @@ import UIKit
 import KakaUIKit
 import KakaFoundation
 import AppGroupKit
+import Combine
 
 /// Every destination shares the same account-scoped session and playback engine.
 @MainActor
@@ -40,10 +41,7 @@ private enum MusicServerDestination: Int, CaseIterable {
         case .home: return NavidromeHomeViewController(session: session, onExit: onExit)
         case .profile: return ProfileViewController()
         case .library: return MusicServerLibraryViewController(session: session)
-        case .download:
-            let controller = DownloadViewController()
-            controller.allowsMusicImport = false
-            return controller
+        case .download: return NavidromeDownloadViewController(onExit: onExit)
         }
     }
 }
@@ -53,6 +51,7 @@ final class MusicServerTabBarController: UITabBarController {
     private let session: MusicServerSession
     private let onExit: () -> Void
     private lazy var playback = MusicServerPlaybackChrome(host: self)
+    private var downloadBadgeSubscription: AnyCancellable?
 
     init(session: MusicServerSession, onExit: @escaping () -> Void) {
         self.session = session
@@ -75,6 +74,11 @@ final class MusicServerTabBarController: UITabBarController {
             return navigation
         }
         playback.install(in: view, bottom: tabBar.topAnchor)
+        // Observe at the root so the badge works before the Downloads tab is ever opened.
+        updateDownloadBadge(DownloadManager.shared.taskArray.count)
+        downloadBadgeSubscription = DownloadManager.shared.$taskArray
+            .map { $0.count }.removeDuplicates().receive(on: DispatchQueue.main)
+            .sink { [weak self] count in self?.updateDownloadBadge(count) }
         overrideUserInterfaceStyle = AppLocalManager.shared.appearanceStyle.userInterfaceStyle()
         NotificationCenter.default.addObserver(self, selector: #selector(updateAppearance), name: Notification.Name(kAppearanceChangedKey), object: nil)
         AppStoreKitManager.shared.verifyPaymentRecords()
@@ -83,6 +87,13 @@ final class MusicServerTabBarController: UITabBarController {
     @objc private func updateAppearance() {
         overrideUserInterfaceStyle = AppLocalManager.shared.appearanceStyle.userInterfaceStyle()
         tabBar.tintColor = appMainColor
+    }
+
+    private func updateDownloadBadge(_ count: Int) {
+        let index = MusicServerDestination.download.rawValue
+        guard let controllers = viewControllers, controllers.indices.contains(index) else { return }
+        // UIKit's built-in badge keeps the system styling; nil hides it when the queue empties.
+        controllers[index].tabBarItem.badgeValue = count > 0 ? String(count) : nil
     }
 }
 

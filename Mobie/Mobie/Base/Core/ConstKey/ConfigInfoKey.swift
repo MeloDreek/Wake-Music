@@ -18,18 +18,15 @@ import AppGroupKit
 
 // 联系邮箱
 //let companyEmail = "MeloDreek@gmail.com"
-let companyEmail = "support@passlockapp.com"
+let companyEmail = "support@kakainc.com"
 let emailAppURL = kaka_IsMacOS() ? "https://mail.google.com/" : "https://apps.apple.com/app/id1108187098"
 let FeedbackURL = URL(string: "https://tally.so/r/jaqN96")!
 
 // 隐私政策
-var kPrivacyUrl = "https://passlockapp.com/wakemusic/privacy.html".localStr()
+var kPrivacyUrl = "https://kakainc.com/en/wakemusic/legal/app-store/privacy/".localStr()
 
 // 服务协议
-var kUseItemUrl = "https://passlockapp.com/wakemusic/users.html".localStr()
-
-//// 免费会员活动
-//var kPremiumUrl = "https://wakemusicapp.notion.site/Wake-Music-Lifetime-Premium-For-Free-1f260994aed281cbaa39fb9c7cb153ce".localStr()
+var kUseItemUrl = "https://kakainc.com/en/wakemusic/legal/app-store/terms/".localStr()
 
 
 let avatarImage = Reasource.named(avatarDefaultName)

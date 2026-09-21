@@ -10,10 +10,10 @@ Pod::Spec.new do |s|
   s.name             = "KakaUIKit"
   s.version          = "1.0.0"
   s.summary          = "KakaUIKit."
-  s.homepage         = "https://www.passlockapp.com/"
+  s.homepage         = "https://www.kakainc.com/"
   s.license          = { :type => "MIT", :file => "LICENSE" }
   s.author           = "MeloDreek@gmail.com"
-  s.source           = { :git => "https://www.passlockapp.com//KakaUIKit.git", :tag => s.version }
+  s.source           = { :git => "https://www.kakainc.com//KakaUIKit.git", :tag => s.version }
   s.platform         = :ios, '14.0'
   s.requires_arc     = true
   

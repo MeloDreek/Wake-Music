@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   s.author             = { "Melo" => "MeloDreek@gmail.com" }
   s.social_media_url   = "https://kaka.com/"
   s.platform     = :ios, "11.0"
-  s.source       = { :git => "https://www.passlockapp.com/KakaPhotoBrowser.git", :tag => "#{s.version}" }
+  s.source       = { :git => "https://www.kakainc.com/KakaPhotoBrowser.git", :tag => "#{s.version}" }
   s.source_files  = "KakaPhotoBrowser", "KakaPhotoBrowser/**/*.{h,m}"
   
   s.framework  = "UIKit"

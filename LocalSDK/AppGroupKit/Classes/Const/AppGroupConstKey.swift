@@ -85,7 +85,7 @@ public let pCloud_RedirectURL = "pclsdk-w-a7jnl6xfok4"
 public let Drive115_ClientID = "100196055"
 public let Drive115_AppKey = "03c66caf7a8ee03769a6258060bc3d6c"
 public let Drive115_AppSecret = "29d2dd418ebf19635f6f9a249780e1ce78431a865be0bbd97655f68c10b8d6f8"
-public let Drive115_RedirectURL = "https://passlockapp.com/oauth/115/callback"
+public let Drive115_RedirectURL = "https://kakainc.com/oauth/115/callback"
 
 
 // BOX

@@ -1,1544 +1,516 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    "MusicServer.Artist.TopSongs" : {
+    "MusicServer.Downloads.Pause" : {
       "extractionState" : "manual",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "أبرز الأغاني"
+            "value" : "إيقاف التنزيلات مؤقتًا"
           }
         },
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Cançons destacades"
+            "value" : "Posa en pausa les descàrregues"
           }
         },
         "cs" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nejlepší skladby"
+            "value" : "Pozastavit stahování"
           }
         },
         "da" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Populære sange"
+            "value" : "Sæt downloads på pause"
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Top-Titel"
+            "value" : "Downloads pausieren"
           }
         },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Κορυφαία τραγούδια"
+            "value" : "Παύση λήψεων"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Top Songs"
+            "value" : "Pause Downloads"
           }
         },
         "en-AU" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Top Songs"
+            "value" : "Pause Downloads"
           }
         },
         "en-GB" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Top Songs"
+            "value" : "Pause Downloads"
           }
         },
         "en-IN" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Top Songs"
+            "value" : "Pause Downloads"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Canciones destacadas"
+            "value" : "Pausar descargas"
           }
         },
         "es-419" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Canciones destacadas"
+            "value" : "Pausar descargas"
           }
         },
         "es-US" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Canciones destacadas"
+            "value" : "Pausar descargas"
           }
         },
         "fi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Suosituimmat kappaleet"
+            "value" : "Keskeytä lataukset"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Titres populaires"
+            "value" : "Mettre les téléchargements en pause"
           }
         },
         "fr-CA" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Titres populaires"
+            "value" : "Mettre les téléchargements en pause"
           }
         },
         "he" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "שירים מובילים"
+            "value" : "השהיית הורדות"
           }
         },
         "hi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "लोकप्रिय गाने"
+            "value" : "डाउनलोड रोकें"
           }
         },
         "hr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Najpopularnije pjesme"
+            "value" : "Pauziraj preuzimanja"
           }
         },
         "hu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Népszerű dalok"
+            "value" : "Letöltések szüneteltetése"
           }
         },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Lagu Terpopuler"
+            "value" : "Jeda Unduhan"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Brani più ascoltati"
+            "value" : "Sospendi download"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "人気の曲"
+            "value" : "ダウンロードを一時停止"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "인기곡"
+            "value" : "다운로드 일시 정지"
           }
         },
         "ms" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Lagu Popular"
+            "value" : "Jeda Muat Turun"
           }
         },
         "nb" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Populære sanger"
+            "value" : "Sett nedlastinger på pause"
           }
         },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Populaire nummers"
+            "value" : "Downloads pauzeren"
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Najpopularniejsze utwory"
+            "value" : "Wstrzymaj pobieranie"
           }
         },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Músicas populares"
+            "value" : "Pausar downloads"
           }
         },
         "pt-PT" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Músicas populares"
+            "value" : "Pausar descargas"
           }
         },
         "ro" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Melodii populare"
+            "value" : "Întrerupe descărcările"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Популярные песни"
+            "value" : "Приостановить загрузки"
           }
         },
         "sk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Najobľúbenejšie skladby"
+            "value" : "Pozastaviť sťahovanie"
           }
         },
         "sl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Najbolj priljubljene skladbe"
+            "value" : "Začasno ustavi prenose"
           }
         },
         "sv" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Populära låtar"
+            "value" : "Pausa hämtningar"
           }
         },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "เพลงยอดนิยม"
+            "value" : "หยุดดาวน์โหลดชั่วคราว"
           }
         },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Popüler Şarkılar"
+            "value" : "İndirmeleri Duraklat"
           }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Популярні пісні"
+            "value" : "Призупинити завантаження"
           }
         },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Bài hát nổi bật"
+            "value" : "Tạm dừng tải xuống"
           }
         },
         "zh-HK" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "歌曲排行"
+            "value" : "暫停下載"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "歌曲排行"
+            "value" : "暂停下载"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "歌曲排行"
+            "value" : "暫停下載"
           }
         }
       }
     },
-    "MusicServer.Artist.SimilarArtists" : {
+    "MusicServer.Downloads.OfflineMessage" : {
       "extractionState" : "manual",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "فنانون مشابهون"
+            "value" : "انتقل إلى الوضع الكلاسيكي دون اتصال للاستمتاع بالأغاني التي نزّلتها من Navidrome مع أفضل تجربة موسيقية دون إنترنت."
           }
         },
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Artistes semblants"
+            "value" : "Canvia al mode clàssic sense connexió i gaudeix de les cançons descarregades de Navidrome amb la millor experiència musical sense connexió."
           }
         },
         "cs" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Podobní interpreti"
+            "value" : "Přepněte do klasického offline režimu a užijte si skladby stažené z Navidrome s prvotřídním poslechem bez připojení."
           }
         },
         "da" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Lignende kunstnere"
+            "value" : "Skift til klassisk offlinetilstand, og nyd dine downloads fra Navidrome med den ultimative offline musikoplevelse."
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ähnliche Künstler"
+            "value" : "Wechsle in den klassischen Offline-Modus und genieße deine Navidrome-Downloads mit erstklassigem Musikgenuss ohne Internet."
           }
         },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Παρόμοιοι καλλιτέχνες"
+            "value" : "Μεταβείτε στην κλασική λειτουργία εκτός σύνδεσης και απολαύστε τα τραγούδια που κατεβάσατε από το Navidrome με την απόλυτη μουσική εμπειρία χωρίς διαδίκτυο."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Similar Artists"
+            "value" : "Switch to Classic offline mode to enjoy your Navidrome downloads with the ultimate offline music experience."
           }
         },
         "en-AU" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Similar Artists"
+            "value" : "Switch to Classic offline mode to enjoy your Navidrome downloads with the ultimate offline music experience."
           }
         },
         "en-GB" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Similar Artists"
+            "value" : "Switch to Classic offline mode to enjoy your Navidrome downloads with the ultimate offline music experience."
           }
         },
         "en-IN" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Similar Artists"
+            "value" : "Switch to Classic offline mode to enjoy your Navidrome downloads with the ultimate offline music experience."
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Artistas similares"
+            "value" : "Cambia al modo clásico sin conexión y disfruta de tus descargas de Navidrome con la mejor experiencia musical sin internet."
           }
         },
         "es-419" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Artistas similares"
+            "value" : "Cambia al modo clásico sin conexión y disfruta de tus descargas de Navidrome con la mejor experiencia musical sin internet."
           }
         },
         "es-US" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Artistas similares"
+            "value" : "Cambia al modo clásico sin conexión y disfruta de tus descargas de Navidrome con la mejor experiencia musical sin internet."
           }
         },
         "fi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Samankaltaiset artistit"
+            "value" : "Vaihda klassiseen offline-tilaan ja nauti Navidromesta lataamistasi kappaleista ensiluokkaisella kuuntelukokemuksella ilman verkkoyhteyttä."
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Artistes similaires"
+            "value" : "Passez au mode classique hors ligne et profitez de vos téléchargements Navidrome pour une expérience musicale hors ligne incomparable."
           }
         },
         "fr-CA" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Artistes similaires"
+            "value" : "Passez au mode classique hors ligne et profitez de vos téléchargements Navidrome pour une expérience musicale hors ligne incomparable."
           }
         },
         "he" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "אמנים דומים"
+            "value" : "אפשר לעבור למצב הקלאסי הלא מקוון וליהנות מהשירים שהורדת מ־Navidrome עם חוויית מוזיקה מעולה ללא אינטרנט."
           }
         },
         "hi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "मिलते-जुलते कलाकार"
+            "value" : "क्लासिक ऑफ़लाइन मोड पर जाएँ और Navidrome से डाउनलोड किए गए गानों के साथ बेहतरीन ऑफ़लाइन संगीत अनुभव का आनंद लें।"
           }
         },
         "hr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Slični izvođači"
+            "value" : "Prebacite se u klasični izvanmrežni način rada i uživajte u pjesmama preuzetim s Navidromea uz vrhunski doživljaj glazbe bez interneta."
           }
         },
         "hu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Hasonló előadók"
+            "value" : "Váltson klasszikus offline módra, és élvezze a Navidrome-ból letöltött dalokat kiváló zenei élménnyel, internet nélkül."
           }
         },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Artis Serupa"
+            "value" : "Beralih ke mode offline Klasik untuk menikmati lagu yang diunduh dari Navidrome dengan pengalaman musik offline terbaik."
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Artisti simili"
+            "value" : "Passa alla modalità classica offline e goditi i brani scaricati da Navidrome con un’esperienza musicale offline di altissimo livello."
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "似ているアーティスト"
+            "value" : "クラシックのオフラインモードに切り替えると、Navidromeからダウンロードした曲を、充実したオフライン音楽体験で楽しめます。"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "비슷한 아티스트"
+            "value" : "클래식 오프라인 모드로 전환하여 Navidrome에서 다운로드한 곡을 최고의 오프라인 음악 환경에서 즐겨 보세요."
           }
         },
         "ms" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Artis Serupa"
+            "value" : "Beralih ke mod luar talian Klasik untuk menikmati lagu yang dimuat turun daripada Navidrome dengan pengalaman muzik luar talian terbaik."
           }
         },
         "nb" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Lignende artister"
+            "value" : "Bytt til klassisk frakoblet modus og nyt sangene du har lastet ned fra Navidrome, med en førsteklasses musikkopplevelse uten nett."
           }
         },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Vergelijkbare artiesten"
+            "value" : "Schakel over naar de klassieke offlinemodus en geniet van je Navidrome-downloads met de ultieme offline muziekervaring."
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Podobni wykonawcy"
+            "value" : "Przejdź do klasycznego trybu offline i ciesz się utworami pobranymi z Navidrome oraz doskonałym odtwarzaniem muzyki bez internetu."
           }
         },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Artistas semelhantes"
+            "value" : "Mude para o modo clássico offline e aproveite suas músicas baixadas do Navidrome com a melhor experiência musical sem internet."
           }
         },
         "pt-PT" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Artistas semelhantes"
+            "value" : "Mude para o modo clássico offline e desfrute das músicas descarregadas do Navidrome com a melhor experiência musical sem internet."
           }
         },
         "ro" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Artiști similari"
+            "value" : "Treceți la modul clasic offline și bucurați-vă de melodiile descărcate din Navidrome, cu o experiență muzicală offline de excepție."
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Похожие исполнители"
+            "value" : "Переключитесь в классический офлайн-режим и наслаждайтесь музыкой, скачанной из Navidrome, без интернета и с максимальным удобством."
           }
         },
         "sk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Podobní interpreti"
+            "value" : "Prepnite do klasického offline režimu a vychutnajte si skladby stiahnuté z Navidrome so špičkovým zážitkom z hudby bez pripojenia."
           }
         },
         "sl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Podobni izvajalci"
+            "value" : "Preklopite v klasični način brez povezave in uživajte v skladbah, prenesenih iz Navidroma, z vrhunsko glasbeno izkušnjo brez interneta."
           }
         },
         "sv" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Liknande artister"
+            "value" : "Växla till klassiskt offlineläge och njut av låtarna du laddat ner från Navidrome med en förstklassig musikupplevelse utan internet."
           }
         },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "ศิลปินที่คล้ายกัน"
+            "value" : "เปลี่ยนเป็นโหมดคลาสสิกแบบออฟไลน์เพื่อเพลิดเพลินกับเพลงที่ดาวน์โหลดจาก Navidrome พร้อมประสบการณ์ฟังเพลงออฟไลน์ระดับยอดเยี่ยม"
           }
         },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Benzer Sanatçılar"
+            "value" : "Klasik çevrimdışı moda geçerek Navidrome’dan indirdiğiniz şarkıların keyfini üstün bir çevrimdışı müzik deneyimiyle çıkarın."
           }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Схожі виконавці"
+            "value" : "Перейдіть у класичний офлайн-режим і насолоджуйтеся музикою, завантаженою з Navidrome, з першокласним прослуховуванням без інтернету."
           }
         },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nghệ sĩ tương tự"
+            "value" : "Chuyển sang chế độ ngoại tuyến Cổ điển để thưởng thức các bài hát đã tải từ Navidrome với trải nghiệm âm nhạc ngoại tuyến đỉnh cao."
           }
         },
         "zh-HK" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "相似歌手"
+            "value" : "從 Navidrome 下載的歌曲，您也可以直接切換到經典的離線模式，享受最頂級的離線音樂體驗。"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "相似歌手"
+            "value" : "从Navidrome下载的歌曲，您也可以直接切换到经典的离线模式，享受最顶级的离线音乐体验。"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "相似藝人"
-          }
-        }
-      }
-    },
-    "MusicServer.Artist.NoTopSongs" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "لا تتوفر لدى الخادم أغانٍ رائجة لهذا الفنان بعد."
-          }
-        },
-        "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "El servidor encara no ofereix cançons destacades d’aquest artista."
-          }
-        },
-        "cs" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Server zatím nemá žebříček skladeb tohoto interpreta."
-          }
-        },
-        "da" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Serveren har endnu ingen populære sange for denne kunstner."
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Der Server bietet noch keine Top-Titel für diesen Künstler an."
-          }
-        },
-        "el" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ο διακομιστής δεν παρέχει ακόμη κορυφαία τραγούδια για αυτόν τον καλλιτέχνη."
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "The server has no top songs for this artist yet."
-          }
-        },
-        "en-AU" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "The server has no top songs for this artist yet."
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "The server has no top songs for this artist yet."
-          }
-        },
-        "en-IN" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "The server has no top songs for this artist yet."
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "El servidor aún no ofrece canciones destacadas de este artista."
-          }
-        },
-        "es-419" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "El servidor aún no ofrece canciones destacadas de este artista."
-          }
-        },
-        "es-US" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "El servidor aún no ofrece canciones destacadas de este artista."
-          }
-        },
-        "fi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Palvelimella ei vielä ole tämän artistin suosituimpia kappaleita."
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Le serveur ne propose pas encore de titres populaires pour cet artiste."
-          }
-        },
-        "fr-CA" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Le serveur ne propose pas encore de titres populaires pour cet artiste."
-          }
-        },
-        "he" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "השרת עדיין לא מספק שירים מובילים של האמן הזה."
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "सर्वर पर इस कलाकार के लोकप्रिय गाने अभी उपलब्ध नहीं हैं।"
-          }
-        },
-        "hr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Poslužitelj još nema najpopularnije pjesme ovog izvođača."
-          }
-        },
-        "hu" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "A szerver még nem kínál népszerű dalokat ettől az előadótól."
-          }
-        },
-        "id" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Server belum menyediakan lagu terpopuler dari artis ini."
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Il server non offre ancora i brani più ascoltati di questo artista."
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "このアーティストの人気曲データは、サーバーでまだ提供されていません。"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "서버에서 아직 이 아티스트의 인기곡을 제공하지 않습니다."
-          }
-        },
-        "ms" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Pelayan belum menyediakan lagu popular artis ini."
-          }
-        },
-        "nb" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Serveren har ennå ingen populære sanger for denne artisten."
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "De server biedt nog geen populaire nummers van deze artiest aan."
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Serwer nie udostępnia jeszcze najpopularniejszych utworów tego wykonawcy."
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "O servidor ainda não oferece as músicas populares deste artista."
-          }
-        },
-        "pt-PT" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "O servidor ainda não disponibiliza as músicas populares deste artista."
-          }
-        },
-        "ro" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Serverul nu oferă încă melodii populare ale acestui artist."
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "На сервере пока нет списка популярных песен этого исполнителя."
-          }
-        },
-        "sk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Server zatiaľ neponúka najobľúbenejšie skladby tohto interpreta."
-          }
-        },
-        "sl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Strežnik še ne ponuja najbolj priljubljenih skladb tega izvajalca."
-          }
-        },
-        "sv" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Servern har ännu inga populära låtar för den här artisten."
-          }
-        },
-        "th" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "เซิร์ฟเวอร์ยังไม่มีข้อมูลเพลงยอดนิยมของศิลปินนี้"
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sunucu henüz bu sanatçının popüler şarkılarını sunmuyor."
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "На сервері поки немає списку популярних пісень цього виконавця."
-          }
-        },
-        "vi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Máy chủ chưa cung cấp bài hát nổi bật của nghệ sĩ này."
-          }
-        },
-        "zh-HK" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "伺服器暫未提供這位歌手的歌曲排行。"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "服务器暂未提供该艺术家的歌曲排行。"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "伺服器尚未提供這位藝人的歌曲排行。"
-          }
-        }
-      }
-    },
-    "MusicServer.Artist.NoSimilarArtists" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "لا يتوفر لدى الخادم فنانون مشابهون لعرضهم بعد."
-          }
-        },
-        "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "El servidor encara no ofereix artistes semblants."
-          }
-        },
-        "cs" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Server zatím nenabízí podobné interprety."
-          }
-        },
-        "da" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Serveren har endnu ingen lignende kunstnere at vise."
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Der Server bietet noch keine ähnlichen Künstler an."
-          }
-        },
-        "el" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ο διακομιστής δεν παρέχει ακόμη παρόμοιους καλλιτέχνες."
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "The server has no similar artists to show yet."
-          }
-        },
-        "en-AU" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "The server has no similar artists to show yet."
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "The server has no similar artists to show yet."
-          }
-        },
-        "en-IN" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "The server has no similar artists to show yet."
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "El servidor aún no ofrece artistas similares."
-          }
-        },
-        "es-419" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "El servidor aún no ofrece artistas similares."
-          }
-        },
-        "es-US" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "El servidor aún no ofrece artistas similares."
-          }
-        },
-        "fi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Palvelimella ei vielä ole samankaltaisia artisteja näytettäväksi."
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Le serveur ne propose pas encore d’artistes similaires."
-          }
-        },
-        "fr-CA" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Le serveur ne propose pas encore d’artistes similaires."
-          }
-        },
-        "he" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "השרת עדיין לא מספק אמנים דומים להצגה."
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "सर्वर पर मिलते-जुलते कलाकार अभी उपलब्ध नहीं हैं।"
-          }
-        },
-        "hr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Poslužitelj još nema sličnih izvođača za prikaz."
-          }
-        },
-        "hu" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "A szerver még nem kínál hasonló előadókat."
-          }
-        },
-        "id" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Server belum menyediakan artis serupa."
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Il server non offre ancora artisti simili."
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "似ているアーティストのデータは、サーバーでまだ提供されていません。"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "서버에서 아직 비슷한 아티스트를 제공하지 않습니다."
-          }
-        },
-        "ms" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Pelayan belum menyediakan artis serupa."
-          }
-        },
-        "nb" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Serveren har ennå ingen lignende artister å vise."
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "De server biedt nog geen vergelijkbare artiesten aan."
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Serwer nie udostępnia jeszcze podobnych wykonawców."
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "O servidor ainda não oferece artistas semelhantes."
-          }
-        },
-        "pt-PT" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "O servidor ainda não disponibiliza artistas semelhantes."
-          }
-        },
-        "ro" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Serverul nu oferă încă artiști similari."
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "На сервере пока нет похожих исполнителей."
-          }
-        },
-        "sk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Server zatiaľ neponúka podobných interpretov."
-          }
-        },
-        "sl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Strežnik še ne ponuja podobnih izvajalcev."
-          }
-        },
-        "sv" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Servern har ännu inga liknande artister att visa."
-          }
-        },
-        "th" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "เซิร์ฟเวอร์ยังไม่มีข้อมูลศิลปินที่คล้ายกัน"
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sunucu henüz benzer sanatçılar sunmuyor."
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "На сервері поки немає схожих виконавців."
-          }
-        },
-        "vi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Máy chủ chưa cung cấp nghệ sĩ tương tự."
-          }
-        },
-        "zh-HK" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "伺服器暫未提供相似歌手。"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "服务器暂未提供相似歌手。"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "伺服器尚未提供相似藝人。"
-          }
-        }
-      }
-    },
-    "MusicServer.Artists.InitialLoadHint" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "جارٍ تحميل قائمة الفنانين الكاملة. قد يستغرق التحميل الأول وقتًا أطول قليلًا."
-          }
-        },
-        "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "S’està carregant la llista completa d’artistes. La primera càrrega pot trigar una mica més."
-          }
-        },
-        "cs" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Načítá se úplný seznam interpretů. První načtení může chvíli trvat."
-          }
-        },
-        "da" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Indlæser hele kunstnerlisten. Første indlæsning kan tage lidt længere tid."
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Die vollständige Künstlerliste wird geladen. Das erste Laden kann etwas länger dauern."
-          }
-        },
-        "el" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Φόρτωση της πλήρους λίστας καλλιτεχνών. Η πρώτη φόρτωση μπορεί να διαρκέσει λίγο περισσότερο."
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Loading the full artist list. The first load may take a little longer."
-          }
-        },
-        "en-AU" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Loading the full artist list. The first load may take a little longer."
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Loading the full artist list. The first load may take a little longer."
-          }
-        },
-        "en-IN" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Loading the full artist list. The first load may take a little longer."
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Cargando la lista completa de artistas. La primera carga puede tardar un poco más."
-          }
-        },
-        "es-419" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Cargando la lista completa de artistas. La primera carga puede tardar un poco más."
-          }
-        },
-        "es-US" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Cargando la lista completa de artistas. La primera carga puede tardar un poco más."
-          }
-        },
-        "fi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ladataan koko artistiluetteloa. Ensimmäinen lataus voi kestää hieman kauemmin."
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Chargement de la liste complète des artistes. Le premier chargement peut prendre un peu plus de temps."
-          }
-        },
-        "fr-CA" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Chargement de la liste complète des artistes. Le premier chargement peut prendre un peu plus de temps."
-          }
-        },
-        "he" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "רשימת האמנים המלאה נטענת. הטעינה הראשונה עשויה להימשך קצת יותר זמן."
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "कलाकारों की पूरी सूची लोड हो रही है। पहली बार लोड होने में थोड़ा ज़्यादा समय लग सकता है।"
-          }
-        },
-        "hr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Učitava se cijeli popis izvođača. Prvo učitavanje može potrajati malo dulje."
-          }
-        },
-        "hu" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "A teljes előadólista betöltése folyamatban. Az első betöltés kicsit tovább tarthat."
-          }
-        },
-        "id" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Memuat daftar artis lengkap. Pemuatan pertama mungkin memerlukan waktu lebih lama."
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Caricamento dell’elenco completo degli artisti. Il primo caricamento potrebbe richiedere più tempo."
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "アーティスト一覧を読み込んでいます。初回は少し時間がかかる場合があります。"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "전체 아티스트 목록을 불러오는 중입니다. 처음에는 시간이 조금 더 걸릴 수 있습니다."
-          }
-        },
-        "ms" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Memuatkan senarai penuh artis. Pemuatan pertama mungkin mengambil masa lebih lama."
-          }
-        },
-        "nb" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Laster inn hele artistlisten. Første innlasting kan ta litt lengre tid."
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "De volledige artiestenlijst wordt geladen. De eerste keer kan dit wat langer duren."
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Wczytywanie pełnej listy wykonawców. Pierwsze wczytanie może potrwać nieco dłużej."
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Carregando a lista completa de artistas. O primeiro carregamento pode demorar um pouco mais."
-          }
-        },
-        "pt-PT" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "A carregar a lista completa de artistas. O primeiro carregamento pode demorar um pouco mais."
-          }
-        },
-        "ro" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Se încarcă lista completă de artiști. Prima încărcare poate dura puțin mai mult."
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Загружается полный список исполнителей. Первая загрузка может занять немного больше времени."
-          }
-        },
-        "sk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Načítava sa úplný zoznam interpretov. Prvé načítanie môže trvať trochu dlhšie."
-          }
-        },
-        "sl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Nalaganje celotnega seznama izvajalcev. Prvo nalaganje lahko traja nekoliko dlje."
-          }
-        },
-        "sv" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Läser in hela artistlistan. Första inläsningen kan ta lite längre tid."
-          }
-        },
-        "th" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "กำลังโหลดรายชื่อศิลปินทั้งหมด การโหลดครั้งแรกอาจใช้เวลานานขึ้นเล็กน้อย"
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sanatçı listesinin tamamı yükleniyor. İlk yükleme biraz daha uzun sürebilir."
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Завантажується повний список виконавців. Перше завантаження може тривати трохи довше."
-          }
-        },
-        "vi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Đang tải toàn bộ danh sách nghệ sĩ. Lần tải đầu tiên có thể mất thêm chút thời gian."
-          }
-        },
-        "zh-HK" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "正在載入完整藝人列表，首次載入可能較慢，請稍候。"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "正在加载完整艺术家列表，首次加载可能较慢，请稍候。"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "正在載入完整藝人列表，首次載入可能較慢，請稍候。"
-          }
-        }
-      }
-    },
-    "MusicServer.Home.ViewOnWeb" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "عرض على الويب"
-          }
-        },
-        "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Mostra al web"
-          }
-        },
-        "cs" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Zobrazit na webu"
-          }
-        },
-        "da" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Vis på nettet"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Im Web anzeigen"
-          }
-        },
-        "el" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Προβολή στον ιστό"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "View on the Web"
-          }
-        },
-        "en-AU" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "View on the Web"
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "View on the Web"
-          }
-        },
-        "en-IN" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "View on the Web"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ver en la web"
-          }
-        },
-        "es-419" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ver en la web"
-          }
-        },
-        "es-US" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ver en la web"
-          }
-        },
-        "fi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Näytä verkossa"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Voir sur le Web"
-          }
-        },
-        "fr-CA" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Voir sur le Web"
-          }
-        },
-        "he" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "הצגה באינטרנט"
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "वेब पर देखें"
-          }
-        },
-        "hr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Prikaži na webu"
-          }
-        },
-        "hu" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Megtekintés a weben"
-          }
-        },
-        "id" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Lihat di Web"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Visualizza sul web"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Webで表示"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "웹에서 보기"
-          }
-        },
-        "ms" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Lihat di Web"
-          }
-        },
-        "nb" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Vis på nettet"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Bekijken op het web"
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Wyświetl w przeglądarce"
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ver na web"
-          }
-        },
-        "pt-PT" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ver na web"
-          }
-        },
-        "ro" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Vezi pe web"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Открыть в браузере"
-          }
-        },
-        "sk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Zobraziť na webe"
-          }
-        },
-        "sl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ogled v spletu"
-          }
-        },
-        "sv" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Visa på webben"
-          }
-        },
-        "th" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ดูบนเว็บ"
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Web’de Görüntüle"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Відкрити в браузері"
-          }
-        },
-        "vi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Xem trên web"
-          }
-        },
-        "zh-HK" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "在網頁中查看"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "在网页中查看"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "在網頁中查看"
+            "value" : "從 Navidrome 下載的歌曲，您也可以直接切換到經典的離線模式，享受最頂級的離線音樂體驗。"
           }
         }
       }
@@ -77136,171 +76108,25 @@
         }
       }
     },
-    "https://passlockapp.com/wakemusic/privacy.html" : {
-      "extractionState" : "manual",
-      "shouldTranslate" : false
-    },
-    "https://passlockapp.com/wakemusic/users.html" : {
-      "extractionState" : "manual",
-      "shouldTranslate" : false
-    },
-    "https://wakemusicapp.notion.site/Wake-Music-Lifetime-Premium-For-Free-1f260994aed281cbaa39fb9c7cb153ce" : {
+    "https://kakainc.com/en/wakemusic/legal/app-store/privacy/" : {
       "extractionState" : "manual",
       "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "https://wakemusicapp.notion.site/Wake-Music-1f360994aed2808abee1d5628fd80f3f"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "https://wakemusicapp.notion.site/Wake-Music-Kostenloses-Erwerb-eines-lebenslangen-Mitgliedsstatus-1f360994aed28046adaee9aadf25df29"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "https://wakemusicapp.notion.site/Wake-Music-Lifetime-Premium-For-Free-1f260994aed281cbaa39fb9c7cb153ce"
-          }
-        },
-        "en-AU" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "https://wakemusicapp.notion.site/Wake-Music-Lifetime-Premium-For-Free-1f260994aed281cbaa39fb9c7cb153ce"
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "https://wakemusicapp.notion.site/Wake-Music-Lifetime-Premium-For-Free-1f260994aed281cbaa39fb9c7cb153ce"
-          }
-        },
-        "en-IN" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "https://wakemusicapp.notion.site/Wake-Music-Lifetime-Premium-For-Free-1f260994aed281cbaa39fb9c7cb153ce"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "https://wakemusicapp.notion.site/Wake-Music-Consigue-Premium-gratis-de-por-vida-1f360994aed2804689e1f67d90c23171"
-          }
-        },
-        "es-419" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "https://wakemusicapp.notion.site/Wake-Music-Consigue-Premium-gratis-de-por-vida-1f360994aed2804689e1f67d90c23171"
-          }
-        },
-        "es-US" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "https://wakemusicapp.notion.site/Wake-Music-Consigue-Premium-gratis-de-por-vida-1f360994aed2804689e1f67d90c23171"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "https://wakemusicapp.notion.site/Wake-Music-Obtenez-la-version-Premium-gratuitement-1f360994aed280ca8266de5c567aacdd"
-          }
-        },
-        "fr-CA" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "https://wakemusicapp.notion.site/Wake-Music-Obtenez-la-version-Premium-gratuitement-1f360994aed280ca8266de5c567aacdd"
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "https://wakemusicapp.notion.site/Wake-Music-21460994aed280a99a11eafcb551765e"
-          }
-        },
-        "id" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "https://wakemusicapp.notion.site/Wake-Music-Dapatkan-keanggotaan-permanen-secara-gratis-1f360994aed2808682ebfba530a8282b"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "https://wakemusicapp.notion.site/Wake-Music-Ottieni-Premium-gratis-a-vita-1f360994aed2801b819dfae00e0843bf"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "https://wakemusicapp.notion.site/1f360994aed28080a61dc9bff0afffed"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "https://wakemusicapp.notion.site/1f360994aed280c58158e4277ff0bc02"
-          }
-        },
-        "ms" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "https://wakemusicapp.notion.site/Wake-Music-Keahlian-tetap-percuma-1f360994aed280d597e9cdee0d52e916"
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "https://wakemusicapp.notion.site/Wake-Music-Obter-Premium-gr-tis-para-sempre-1f360994aed280ee8c89c0833b8e00bf"
-          }
-        },
-        "pt-PT" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "https://wakemusicapp.notion.site/Wake-Music-Obter-Premium-gr-tis-para-sempre-1f360994aed280ee8c89c0833b8e00bf"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "https://wakemusicapp.notion.site/1f360994aed2802eb331da2965131a1b"
-          }
-        },
-        "th" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "https://wakemusicapp.notion.site/Wake-Music-1f360994aed28064807df6fc1ba990b3"
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "https://wakemusicapp.notion.site/Wake-Music-cretsiz-olarak-kal-c-yelik-al-n-21460994aed2807b87fef947028df737"
-          }
-        },
-        "vi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "https://wakemusicapp.notion.site/Wake-Music-Th-nh-vi-n-tr-n-i-mi-n-ph-1f360994aed2806a884afece52e4a2aa"
-          }
-        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "https://www.yuque.com/mmws/wake/vd6m9ttuotbyenbm"
+            "value" : "https://kakainc.com/zh-hans/wakemusic/legal/app-store/privacy/"
           }
-        },
-        "zh-Hant" : {
+        }
+      },
+      "shouldTranslate" : false
+    },
+    "https://kakainc.com/en/wakemusic/legal/app-store/terms/" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "https://wakemusicapp.notion.site/1f360994aed280b5b5c5f11b21aa7214"
-          }
-        },
-        "zh-HK" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "https://wakemusicapp.notion.site/1f360994aed280b5b5c5f11b21aa7214"
+            "value" : "https://kakainc.com/zh-hans/wakemusic/legal/app-store/terms/"
           }
         }
       },
@@ -101502,777 +100328,6 @@
         }
       }
     },
-    "MusicServer.Home.RecentlyUploaded" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "أُضيفت مؤخرًا"
-          }
-        },
-        "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Afegides recentment"
-          }
-        },
-        "cs" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Nedávno přidané"
-          }
-        },
-        "da" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Senest tilføjet"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Zuletzt hinzugefügt"
-          }
-        },
-        "el" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Πρόσφατες προσθήκες"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Recently Added"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Añadidas recientemente"
-          }
-        },
-        "fi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Äskettäin lisätyt"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ajouts récents"
-          }
-        },
-        "he" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "נוספו לאחרונה"
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "हाल ही में जोड़े गए"
-          }
-        },
-        "hr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Nedavno dodano"
-          }
-        },
-        "hu" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Nemrég hozzáadott"
-          }
-        },
-        "id" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Baru Ditambahkan"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Aggiunti di recente"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "最近追加した曲"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "최근 추가된 곡"
-          }
-        },
-        "ms" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ditambah Baru-baru Ini"
-          }
-        },
-        "nb" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Nylig lagt til"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Recent toegevoegd"
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ostatnio dodane"
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Adicionadas recentemente"
-          }
-        },
-        "pt-PT" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Adicionadas recentemente"
-          }
-        },
-        "ro" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Adăugate recent"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Недавно добавленные"
-          }
-        },
-        "sk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Nedávno pridané"
-          }
-        },
-        "sl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Nedavno dodano"
-          }
-        },
-        "sv" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Senast tillagda"
-          }
-        },
-        "th" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "เพิ่มล่าสุด"
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Son Eklenenler"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Нещодавно додані"
-          }
-        },
-        "vi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Mới thêm"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "最近上传"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "最近上傳"
-          }
-        },
-        "en-AU" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Recently Added"
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Recently Added"
-          }
-        },
-        "en-IN" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Recently Added"
-          }
-        },
-        "es-419" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Añadidas recientemente"
-          }
-        },
-        "es-US" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Añadidas recientemente"
-          }
-        },
-        "fr-CA" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ajouts récents"
-          }
-        },
-        "zh-HK" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "最近上傳"
-          }
-        }
-      }
-    },
-    "MusicServer.Home.RefreshBatch" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "مجموعة أخرى"
-          }
-        },
-        "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Un altre grup"
-          }
-        },
-        "cs" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Další výběr"
-          }
-        },
-        "da" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Nyt udvalg"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Neue Auswahl"
-          }
-        },
-        "el" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Νέα επιλογή"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Refresh"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Otra selección"
-          }
-        },
-        "fi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Uusi valikoima"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Nouvelle sélection"
-          }
-        },
-        "he" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "מבחר חדש"
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "नए गाने"
-          }
-        },
-        "hr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Novi izbor"
-          }
-        },
-        "hu" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Új válogatás"
-          }
-        },
-        "id" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Pilihan baru"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Nuova selezione"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "別の曲を表示"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "새로운 곡 보기"
-          }
-        },
-        "ms" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Pilihan baharu"
-          }
-        },
-        "nb" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Nytt utvalg"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Nieuwe selectie"
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Nowy zestaw"
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Nova seleção"
-          }
-        },
-        "pt-PT" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Nova seleção"
-          }
-        },
-        "ro" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Altă selecție"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Другая подборка"
-          }
-        },
-        "sk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Nový výber"
-          }
-        },
-        "sl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Nov izbor"
-          }
-        },
-        "sv" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Nytt urval"
-          }
-        },
-        "th" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "เปลี่ยนชุดเพลง"
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Yeni seçki"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Інша добірка"
-          }
-        },
-        "vi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Đổi danh sách"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "换一批"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "換一批"
-          }
-        },
-        "en-AU" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Refresh"
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Refresh"
-          }
-        },
-        "en-IN" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Refresh"
-          }
-        },
-        "es-419" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Otra selección"
-          }
-        },
-        "es-US" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Otra selección"
-          }
-        },
-        "fr-CA" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Nouvelle sélection"
-          }
-        },
-        "zh-HK" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "換一批"
-          }
-        }
-      }
-    },
-    "MusicServer.ExitConfirmation" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "سيؤدي الخروج إلى العودة إلى الوضع الكلاسيكي وإيقاف الأغنية الحالية مؤقتًا. هل تريد المتابعة؟"
-          }
-        },
-        "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "En sortir, tornaràs al mode clàssic i es posarà en pausa la cançó actual. Vols continuar?"
-          }
-        },
-        "cs" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Po opuštění se vrátíte do klasického režimu a aktuální skladba se pozastaví. Pokračovat?"
-          }
-        },
-        "da" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Når du forlader denne visning, vender du tilbage til klassisk tilstand, og den aktuelle sang sættes på pause. Vil du fortsætte?"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Beim Verlassen kehrst du zum klassischen Modus zurück und der aktuelle Titel wird pausiert. Fortfahren?"
-          }
-        },
-        "el" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Η έξοδος θα σας επιστρέψει στην κλασική λειτουργία και θα διακόψει προσωρινά το τρέχον τραγούδι. Συνέχεια;"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Exiting will return to Classic Mode and pause the current song. Continue?"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Al salir, volverás al modo clásico y se pausará la canción actual. ¿Quieres continuar?"
-          }
-        },
-        "fi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Poistuminen palauttaa perinteiseen tilaan ja keskeyttää nykyisen kappaleen toiston. Jatketaanko?"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "En quittant, vous reviendrez au mode classique et la lecture du morceau en cours sera mise en pause. Continuer ?"
-          }
-        },
-        "he" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "היציאה תחזיר אותך למצב הקלאסי ותשהה את השיר הנוכחי. להמשיך?"
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "बाहर निकलने पर क्लासिक मोड खुलेगा और मौजूदा गाना रुक जाएगा। जारी रखें?"
-          }
-        },
-        "hr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Izlaskom ćete se vratiti u klasični način rada, a trenutačna pjesma bit će pauzirana. Želite li nastaviti?"
-          }
-        },
-        "hu" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Kilépéskor visszatérsz a klasszikus módba, és az aktuális szám lejátszása szünetel. Folytatod?"
-          }
-        },
-        "id" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Keluar akan mengembalikan Anda ke mode klasik dan menjeda lagu saat ini. Lanjutkan?"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Uscendo tornerai alla modalità classica e il brano corrente verrà messo in pausa. Continuare?"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "終了するとクラシックモードに戻り、現在の曲の再生が一時停止します。続けますか？"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "나가면 클래식 모드로 돌아가고 현재 곡의 재생이 일시 정지됩니다. 계속할까요?"
-          }
-        },
-        "ms" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Keluar akan membawa anda kembali ke mod klasik dan menjeda lagu semasa. Teruskan?"
-          }
-        },
-        "nb" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Når du forlater denne visningen, går du tilbake til klassisk modus, og den gjeldende sangen settes på pause. Vil du fortsette?"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Als je afsluit, keer je terug naar de klassieke modus en wordt het huidige nummer gepauzeerd. Doorgaan?"
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Po wyjściu wrócisz do trybu klasycznego, a bieżący utwór zostanie wstrzymany. Kontynuować?"
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ao sair, você voltará ao modo clássico e a música atual será pausada. Continuar?"
-          }
-        },
-        "pt-PT" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ao sair, regressará ao modo clássico e a música atual ficará em pausa. Continuar?"
-          }
-        },
-        "ro" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "La ieșire, vei reveni la modul clasic, iar melodia curentă va fi pusă pe pauză. Continui?"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "После выхода вы вернётесь в классический режим, а текущая песня будет приостановлена. Продолжить?"
-          }
-        },
-        "sk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Po odchode sa vrátite do klasického režimu a aktuálna skladba sa pozastaví. Pokračovať?"
-          }
-        },
-        "sl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ob izhodu se boste vrnili v klasični način, trenutna skladba pa se bo začasno ustavila. Želite nadaljevati?"
-          }
-        },
-        "sv" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "När du lämnar den här vyn återgår du till klassiskt läge och den aktuella låten pausas. Vill du fortsätta?"
-          }
-        },
-        "th" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "เมื่อออก คุณจะกลับสู่โหมดคลาสสิกและเพลงปัจจุบันจะหยุดชั่วคราว ต้องการดำเนินการต่อหรือไม่"
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Çıkış yaptığınızda klasik moda dönülür ve geçerli şarkı duraklatılır. Devam edilsin mi?"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Після виходу ви повернетеся до класичного режиму, а поточну пісню буде призупинено. Продовжити?"
-          }
-        },
-        "vi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Khi thoát, bạn sẽ trở về chế độ cổ điển và bài hát hiện tại sẽ tạm dừng. Tiếp tục?"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "退出后将回到默认的经典模式，且暂停当前播放的歌曲，是否继续？"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "退出後將回到預設的經典模式，並暫停目前播放的歌曲，是否繼續？"
-          }
-        },
-        "en-AU" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Exiting will return to Classic Mode and pause the current song. Continue?"
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Exiting will return to Classic Mode and pause the current song. Continue?"
-          }
-        },
-        "en-IN" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Exiting will return to Classic Mode and pause the current song. Continue?"
-          }
-        },
-        "es-419" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Al salir, volverás al modo clásico y se pausará la canción actual. ¿Quieres continuar?"
-          }
-        },
-        "es-US" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Al salir, volverás al modo clásico y se pausará la canción actual. ¿Quieres continuar?"
-          }
-        },
-        "fr-CA" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "En quittant, vous reviendrez au mode classique et la lecture du morceau en cours sera mise en pause. Continuer ?"
-          }
-        },
-        "zh-HK" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "退出後將回到預設的經典模式，並暫停目前播放的歌曲，是否繼續？"
-          }
-        }
-      }
-    },
     "Music Server" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -103285,6 +101340,2319 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "音樂標籤是儲存在音訊檔案內的資料，例如封面、歌詞、標題、藝人、專輯、發行年份和流派。取樣率、位元率則是音訊本身的屬性，並非可編輯的標籤。"
+          }
+        }
+      }
+    },
+    "MusicServer.Artist.NoSimilarArtists" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "لا يتوفر لدى الخادم فنانون مشابهون لعرضهم بعد."
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "El servidor encara no ofereix artistes semblants."
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Server zatím nenabízí podobné interprety."
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Serveren har endnu ingen lignende kunstnere at vise."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Der Server bietet noch keine ähnlichen Künstler an."
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ο διακομιστής δεν παρέχει ακόμη παρόμοιους καλλιτέχνες."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The server has no similar artists to show yet."
+          }
+        },
+        "en-AU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The server has no similar artists to show yet."
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The server has no similar artists to show yet."
+          }
+        },
+        "en-IN" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The server has no similar artists to show yet."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "El servidor aún no ofrece artistas similares."
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "El servidor aún no ofrece artistas similares."
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "El servidor aún no ofrece artistas similares."
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Palvelimella ei vielä ole samankaltaisia artisteja näytettäväksi."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Le serveur ne propose pas encore d’artistes similaires."
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Le serveur ne propose pas encore d’artistes similaires."
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "השרת עדיין לא מספק אמנים דומים להצגה."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "सर्वर पर मिलते-जुलते कलाकार अभी उपलब्ध नहीं हैं।"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Poslužitelj još nema sličnih izvođača za prikaz."
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A szerver még nem kínál hasonló előadókat."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Server belum menyediakan artis serupa."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Il server non offre ancora artisti simili."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "似ているアーティストのデータは、サーバーでまだ提供されていません。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "서버에서 아직 비슷한 아티스트를 제공하지 않습니다."
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pelayan belum menyediakan artis serupa."
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Serveren har ennå ingen lignende artister å vise."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "De server biedt nog geen vergelijkbare artiesten aan."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Serwer nie udostępnia jeszcze podobnych wykonawców."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O servidor ainda não oferece artistas semelhantes."
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O servidor ainda não disponibiliza artistas semelhantes."
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Serverul nu oferă încă artiști similari."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "На сервере пока нет похожих исполнителей."
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Server zatiaľ neponúka podobných interpretov."
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Strežnik še ne ponuja podobnih izvajalcev."
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Servern har ännu inga liknande artister att visa."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "เซิร์ฟเวอร์ยังไม่มีข้อมูลศิลปินที่คล้ายกัน"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sunucu henüz benzer sanatçılar sunmuyor."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "На сервері поки немає схожих виконавців."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Máy chủ chưa cung cấp nghệ sĩ tương tự."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "服务器暂未提供相似歌手。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "伺服器尚未提供相似藝人。"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "伺服器暫未提供相似歌手。"
+          }
+        }
+      }
+    },
+    "MusicServer.Artist.NoTopSongs" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "لا تتوفر لدى الخادم أغانٍ رائجة لهذا الفنان بعد."
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "El servidor encara no ofereix cançons destacades d’aquest artista."
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Server zatím nemá žebříček skladeb tohoto interpreta."
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Serveren har endnu ingen populære sange for denne kunstner."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Der Server bietet noch keine Top-Titel für diesen Künstler an."
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ο διακομιστής δεν παρέχει ακόμη κορυφαία τραγούδια για αυτόν τον καλλιτέχνη."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The server has no top songs for this artist yet."
+          }
+        },
+        "en-AU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The server has no top songs for this artist yet."
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The server has no top songs for this artist yet."
+          }
+        },
+        "en-IN" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The server has no top songs for this artist yet."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "El servidor aún no ofrece canciones destacadas de este artista."
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "El servidor aún no ofrece canciones destacadas de este artista."
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "El servidor aún no ofrece canciones destacadas de este artista."
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Palvelimella ei vielä ole tämän artistin suosituimpia kappaleita."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Le serveur ne propose pas encore de titres populaires pour cet artiste."
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Le serveur ne propose pas encore de titres populaires pour cet artiste."
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "השרת עדיין לא מספק שירים מובילים של האמן הזה."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "सर्वर पर इस कलाकार के लोकप्रिय गाने अभी उपलब्ध नहीं हैं।"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Poslužitelj još nema najpopularnije pjesme ovog izvođača."
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A szerver még nem kínál népszerű dalokat ettől az előadótól."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Server belum menyediakan lagu terpopuler dari artis ini."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Il server non offre ancora i brani più ascoltati di questo artista."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "このアーティストの人気曲データは、サーバーでまだ提供されていません。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "서버에서 아직 이 아티스트의 인기곡을 제공하지 않습니다."
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pelayan belum menyediakan lagu popular artis ini."
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Serveren har ennå ingen populære sanger for denne artisten."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "De server biedt nog geen populaire nummers van deze artiest aan."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Serwer nie udostępnia jeszcze najpopularniejszych utworów tego wykonawcy."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O servidor ainda não oferece as músicas populares deste artista."
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O servidor ainda não disponibiliza as músicas populares deste artista."
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Serverul nu oferă încă melodii populare ale acestui artist."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "На сервере пока нет списка популярных песен этого исполнителя."
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Server zatiaľ neponúka najobľúbenejšie skladby tohto interpreta."
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Strežnik še ne ponuja najbolj priljubljenih skladb tega izvajalca."
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Servern har ännu inga populära låtar för den här artisten."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "เซิร์ฟเวอร์ยังไม่มีข้อมูลเพลงยอดนิยมของศิลปินนี้"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sunucu henüz bu sanatçının popüler şarkılarını sunmuyor."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "На сервері поки немає списку популярних пісень цього виконавця."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Máy chủ chưa cung cấp bài hát nổi bật của nghệ sĩ này."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "服务器暂未提供该艺术家的歌曲排行。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "伺服器尚未提供這位藝人的歌曲排行。"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "伺服器暫未提供這位歌手的歌曲排行。"
+          }
+        }
+      }
+    },
+    "MusicServer.Artist.SimilarArtists" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "فنانون مشابهون"
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Artistes semblants"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Podobní interpreti"
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lignende kunstnere"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ähnliche Künstler"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Παρόμοιοι καλλιτέχνες"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Similar Artists"
+          }
+        },
+        "en-AU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Similar Artists"
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Similar Artists"
+          }
+        },
+        "en-IN" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Similar Artists"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Artistas similares"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Artistas similares"
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Artistas similares"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Samankaltaiset artistit"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Artistes similaires"
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Artistes similaires"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "אמנים דומים"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "मिलते-जुलते कलाकार"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Slični izvođači"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hasonló előadók"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Artis Serupa"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Artisti simili"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "似ているアーティスト"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "비슷한 아티스트"
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Artis Serupa"
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lignende artister"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vergelijkbare artiesten"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Podobni wykonawcy"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Artistas semelhantes"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Artistas semelhantes"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Artiști similari"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Похожие исполнители"
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Podobní interpreti"
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Podobni izvajalci"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Liknande artister"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ศิลปินที่คล้ายกัน"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Benzer Sanatçılar"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Схожі виконавці"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nghệ sĩ tương tự"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "相似歌手"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "相似藝人"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "相似歌手"
+          }
+        }
+      }
+    },
+    "MusicServer.Artist.TopSongs" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "أبرز الأغاني"
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cançons destacades"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nejlepší skladby"
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Populære sange"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Top-Titel"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Κορυφαία τραγούδια"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Top Songs"
+          }
+        },
+        "en-AU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Top Songs"
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Top Songs"
+          }
+        },
+        "en-IN" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Top Songs"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Canciones destacadas"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Canciones destacadas"
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Canciones destacadas"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Suosituimmat kappaleet"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Titres populaires"
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Titres populaires"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "שירים מובילים"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "लोकप्रिय गाने"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Najpopularnije pjesme"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Népszerű dalok"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lagu Terpopuler"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Brani più ascoltati"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "人気の曲"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "인기곡"
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lagu Popular"
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Populære sanger"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Populaire nummers"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Najpopularniejsze utwory"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Músicas populares"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Músicas populares"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Melodii populare"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Популярные песни"
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Najobľúbenejšie skladby"
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Najbolj priljubljene skladbe"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Populära låtar"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "เพลงยอดนิยม"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Popüler Şarkılar"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Популярні пісні"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bài hát nổi bật"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "歌曲排行"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "歌曲排行"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "歌曲排行"
+          }
+        }
+      }
+    },
+    "MusicServer.Artists.InitialLoadHint" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "جارٍ تحميل قائمة الفنانين الكاملة. قد يستغرق التحميل الأول وقتًا أطول قليلًا."
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "S’està carregant la llista completa d’artistes. La primera càrrega pot trigar una mica més."
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Načítá se úplný seznam interpretů. První načtení může chvíli trvat."
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Indlæser hele kunstnerlisten. Første indlæsning kan tage lidt længere tid."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Die vollständige Künstlerliste wird geladen. Das erste Laden kann etwas länger dauern."
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Φόρτωση της πλήρους λίστας καλλιτεχνών. Η πρώτη φόρτωση μπορεί να διαρκέσει λίγο περισσότερο."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Loading the full artist list. The first load may take a little longer."
+          }
+        },
+        "en-AU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Loading the full artist list. The first load may take a little longer."
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Loading the full artist list. The first load may take a little longer."
+          }
+        },
+        "en-IN" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Loading the full artist list. The first load may take a little longer."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cargando la lista completa de artistas. La primera carga puede tardar un poco más."
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cargando la lista completa de artistas. La primera carga puede tardar un poco más."
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cargando la lista completa de artistas. La primera carga puede tardar un poco más."
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ladataan koko artistiluetteloa. Ensimmäinen lataus voi kestää hieman kauemmin."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Chargement de la liste complète des artistes. Le premier chargement peut prendre un peu plus de temps."
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Chargement de la liste complète des artistes. Le premier chargement peut prendre un peu plus de temps."
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "רשימת האמנים המלאה נטענת. הטעינה הראשונה עשויה להימשך קצת יותר זמן."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "कलाकारों की पूरी सूची लोड हो रही है। पहली बार लोड होने में थोड़ा ज़्यादा समय लग सकता है।"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Učitava se cijeli popis izvođača. Prvo učitavanje može potrajati malo dulje."
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A teljes előadólista betöltése folyamatban. Az első betöltés kicsit tovább tarthat."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Memuat daftar artis lengkap. Pemuatan pertama mungkin memerlukan waktu lebih lama."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Caricamento dell’elenco completo degli artisti. Il primo caricamento potrebbe richiedere più tempo."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "アーティスト一覧を読み込んでいます。初回は少し時間がかかる場合があります。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "전체 아티스트 목록을 불러오는 중입니다. 처음에는 시간이 조금 더 걸릴 수 있습니다."
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Memuatkan senarai penuh artis. Pemuatan pertama mungkin mengambil masa lebih lama."
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Laster inn hele artistlisten. Første innlasting kan ta litt lengre tid."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "De volledige artiestenlijst wordt geladen. De eerste keer kan dit wat langer duren."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wczytywanie pełnej listy wykonawców. Pierwsze wczytanie może potrwać nieco dłużej."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Carregando a lista completa de artistas. O primeiro carregamento pode demorar um pouco mais."
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A carregar a lista completa de artistas. O primeiro carregamento pode demorar um pouco mais."
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Se încarcă lista completă de artiști. Prima încărcare poate dura puțin mai mult."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Загружается полный список исполнителей. Первая загрузка может занять немного больше времени."
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Načítava sa úplný zoznam interpretov. Prvé načítanie môže trvať trochu dlhšie."
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nalaganje celotnega seznama izvajalcev. Prvo nalaganje lahko traja nekoliko dlje."
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Läser in hela artistlistan. Första inläsningen kan ta lite längre tid."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "กำลังโหลดรายชื่อศิลปินทั้งหมด การโหลดครั้งแรกอาจใช้เวลานานขึ้นเล็กน้อย"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sanatçı listesinin tamamı yükleniyor. İlk yükleme biraz daha uzun sürebilir."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Завантажується повний список виконавців. Перше завантаження може тривати трохи довше."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Đang tải toàn bộ danh sách nghệ sĩ. Lần tải đầu tiên có thể mất thêm chút thời gian."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "正在加载完整艺术家列表，首次加载可能较慢，请稍候。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "正在載入完整藝人列表，首次載入可能較慢，請稍候。"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "正在載入完整藝人列表，首次載入可能較慢，請稍候。"
+          }
+        }
+      }
+    },
+    "MusicServer.ExitConfirmation" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "سيؤدي الخروج إلى العودة إلى الوضع الكلاسيكي وإيقاف الأغنية الحالية مؤقتًا. هل تريد المتابعة؟"
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "En sortir, tornaràs al mode clàssic i es posarà en pausa la cançó actual. Vols continuar?"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Po opuštění se vrátíte do klasického režimu a aktuální skladba se pozastaví. Pokračovat?"
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Når du forlader denne visning, vender du tilbage til klassisk tilstand, og den aktuelle sang sættes på pause. Vil du fortsætte?"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Beim Verlassen kehrst du zum klassischen Modus zurück und der aktuelle Titel wird pausiert. Fortfahren?"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Η έξοδος θα σας επιστρέψει στην κλασική λειτουργία και θα διακόψει προσωρινά το τρέχον τραγούδι. Συνέχεια;"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Exiting will return to Classic Mode and pause the current song. Continue?"
+          }
+        },
+        "en-AU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Exiting will return to Classic Mode and pause the current song. Continue?"
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Exiting will return to Classic Mode and pause the current song. Continue?"
+          }
+        },
+        "en-IN" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Exiting will return to Classic Mode and pause the current song. Continue?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Al salir, volverás al modo clásico y se pausará la canción actual. ¿Quieres continuar?"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Al salir, volverás al modo clásico y se pausará la canción actual. ¿Quieres continuar?"
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Al salir, volverás al modo clásico y se pausará la canción actual. ¿Quieres continuar?"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Poistuminen palauttaa perinteiseen tilaan ja keskeyttää nykyisen kappaleen toiston. Jatketaanko?"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "En quittant, vous reviendrez au mode classique et la lecture du morceau en cours sera mise en pause. Continuer ?"
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "En quittant, vous reviendrez au mode classique et la lecture du morceau en cours sera mise en pause. Continuer ?"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "היציאה תחזיר אותך למצב הקלאסי ותשהה את השיר הנוכחי. להמשיך?"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "बाहर निकलने पर क्लासिक मोड खुलेगा और मौजूदा गाना रुक जाएगा। जारी रखें?"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Izlaskom ćete se vratiti u klasični način rada, a trenutačna pjesma bit će pauzirana. Želite li nastaviti?"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kilépéskor visszatérsz a klasszikus módba, és az aktuális szám lejátszása szünetel. Folytatod?"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Keluar akan mengembalikan Anda ke mode klasik dan menjeda lagu saat ini. Lanjutkan?"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Uscendo tornerai alla modalità classica e il brano corrente verrà messo in pausa. Continuare?"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "終了するとクラシックモードに戻り、現在の曲の再生が一時停止します。続けますか？"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "나가면 클래식 모드로 돌아가고 현재 곡의 재생이 일시 정지됩니다. 계속할까요?"
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Keluar akan membawa anda kembali ke mod klasik dan menjeda lagu semasa. Teruskan?"
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Når du forlater denne visningen, går du tilbake til klassisk modus, og den gjeldende sangen settes på pause. Vil du fortsette?"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Als je afsluit, keer je terug naar de klassieke modus en wordt het huidige nummer gepauzeerd. Doorgaan?"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Po wyjściu wrócisz do trybu klasycznego, a bieżący utwór zostanie wstrzymany. Kontynuować?"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ao sair, você voltará ao modo clássico e a música atual será pausada. Continuar?"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ao sair, regressará ao modo clássico e a música atual ficará em pausa. Continuar?"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La ieșire, vei reveni la modul clasic, iar melodia curentă va fi pusă pe pauză. Continui?"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "После выхода вы вернётесь в классический режим, а текущая песня будет приостановлена. Продолжить?"
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Po odchode sa vrátite do klasického režimu a aktuálna skladba sa pozastaví. Pokračovať?"
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ob izhodu se boste vrnili v klasični način, trenutna skladba pa se bo začasno ustavila. Želite nadaljevati?"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "När du lämnar den här vyn återgår du till klassiskt läge och den aktuella låten pausas. Vill du fortsätta?"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "เมื่อออก คุณจะกลับสู่โหมดคลาสสิกและเพลงปัจจุบันจะหยุดชั่วคราว ต้องการดำเนินการต่อหรือไม่"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Çıkış yaptığınızda klasik moda dönülür ve geçerli şarkı duraklatılır. Devam edilsin mi?"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Після виходу ви повернетеся до класичного режиму, а поточну пісню буде призупинено. Продовжити?"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Khi thoát, bạn sẽ trở về chế độ cổ điển và bài hát hiện tại sẽ tạm dừng. Tiếp tục?"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "退出后将回到默认的经典模式，且暂停当前播放的歌曲，是否继续？"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "退出後將回到預設的經典模式，並暫停目前播放的歌曲，是否繼續？"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "退出後將回到預設的經典模式，並暫停目前播放的歌曲，是否繼續？"
+          }
+        }
+      }
+    },
+    "MusicServer.Home.RecentlyUploaded" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "أُضيفت مؤخرًا"
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Afegides recentment"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nedávno přidané"
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Senest tilføjet"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zuletzt hinzugefügt"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Πρόσφατες προσθήκες"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recently Added"
+          }
+        },
+        "en-AU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recently Added"
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recently Added"
+          }
+        },
+        "en-IN" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recently Added"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Añadidas recientemente"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Añadidas recientemente"
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Añadidas recientemente"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Äskettäin lisätyt"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ajouts récents"
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ajouts récents"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "נוספו לאחרונה"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "हाल ही में जोड़े गए"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nedavno dodano"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nemrég hozzáadott"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Baru Ditambahkan"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aggiunti di recente"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "最近追加した曲"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "최근 추가된 곡"
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ditambah Baru-baru Ini"
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nylig lagt til"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recent toegevoegd"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ostatnio dodane"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Adicionadas recentemente"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Adicionadas recentemente"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Adăugate recent"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Недавно добавленные"
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nedávno pridané"
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nedavno dodano"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Senast tillagda"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "เพิ่มล่าสุด"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Son Eklenenler"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Нещодавно додані"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mới thêm"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "最近上传"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "最近上傳"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "最近上傳"
+          }
+        }
+      }
+    },
+    "MusicServer.Home.RefreshBatch" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "مجموعة أخرى"
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Un altre grup"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Další výběr"
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nyt udvalg"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Neue Auswahl"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Νέα επιλογή"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Refresh"
+          }
+        },
+        "en-AU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Refresh"
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Refresh"
+          }
+        },
+        "en-IN" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Refresh"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Otra selección"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Otra selección"
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Otra selección"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Uusi valikoima"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nouvelle sélection"
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nouvelle sélection"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "מבחר חדש"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "नए गाने"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Novi izbor"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Új válogatás"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pilihan baru"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nuova selezione"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "別の曲を表示"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "새로운 곡 보기"
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pilihan baharu"
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nytt utvalg"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nieuwe selectie"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nowy zestaw"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nova seleção"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nova seleção"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Altă selecție"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Другая подборка"
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nový výber"
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nov izbor"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nytt urval"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "เปลี่ยนชุดเพลง"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Yeni seçki"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Інша добірка"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Đổi danh sách"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "换一批"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "換一批"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "換一批"
+          }
+        }
+      }
+    },
+    "MusicServer.Home.ViewOnWeb" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "عرض على الويب"
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostra al web"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zobrazit na webu"
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vis på nettet"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Im Web anzeigen"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Προβολή στον ιστό"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "View on the Web"
+          }
+        },
+        "en-AU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "View on the Web"
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "View on the Web"
+          }
+        },
+        "en-IN" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "View on the Web"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ver en la web"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ver en la web"
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ver en la web"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Näytä verkossa"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Voir sur le Web"
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Voir sur le Web"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "הצגה באינטרנט"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "वेब पर देखें"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prikaži na webu"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Megtekintés a weben"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lihat di Web"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Visualizza sul web"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Webで表示"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "웹에서 보기"
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lihat di Web"
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vis på nettet"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bekijken op het web"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wyświetl w przeglądarce"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ver na web"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ver na web"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vezi pe web"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Открыть в браузере"
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zobraziť na webe"
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ogled v spletu"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Visa på webben"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ดูบนเว็บ"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Web’de Görüntüle"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Відкрити в браузері"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Xem trên web"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在网页中查看"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在網頁中查看"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在網頁中查看"
           }
         }
       }
@@ -159275,12 +159643,6 @@
             "value" : "Không thể giải mã một phần dữ liệu âm thanh. Phổ âm thanh có thể có khoảng trống và kết quả phân tích chưa đầy đủ."
           }
         },
-        "zh-HK" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "部分音訊資料無法解碼，頻譜圖可能有空白，分析結果並不完整。"
-          }
-        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -159288,6 +159650,12 @@
           }
         },
         "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "部分音訊資料無法解碼，頻譜圖可能有空白，分析結果並不完整。"
+          }
+        },
+        "zh-HK" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "部分音訊資料無法解碼，頻譜圖可能有空白，分析結果並不完整。"
