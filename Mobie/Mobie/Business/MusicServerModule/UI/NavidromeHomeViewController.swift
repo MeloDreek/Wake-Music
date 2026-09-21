@@ -3,6 +3,7 @@ import KakaFoundation
 import KakaUIKit
 import AppGroupKit
 import Combine
+import SafariServices
 
 /// Account-scoped data fills the six sections of the native grouped homepage.
 final class NavidromeHomeViewController: SuperViewController {
@@ -50,7 +51,6 @@ final class NavidromeHomeViewController: SuperViewController {
         let exit = UIBarButtonItem(image: AppModeCoordinator.exitImage, style: .plain, target: self, action: #selector(exitTapped))
         exit.accessibilityLabel = "Back to Classic Mode".localStr()
         navigationItem.leftBarButtonItem = exit
-        view.backgroundColor = .systemGroupedBackground
         contentView.addSubview(tableView)
         contentView.addSubview(loadingView)
     }
@@ -78,6 +78,48 @@ final class NavidromeHomeViewController: SuperViewController {
     }()
 
     // MARK: 懒加载
+    private lazy var webFooter: UIView = {
+        let footer = UIView()
+        let button = UIButton(type: .system)
+        button.setAttributedTitle(NSAttributedString(string: "MusicServer.Home.ViewOnWeb".localStr(), attributes: [
+            .underlineStyle: NSUnderlineStyle.single.rawValue
+        ]), for: .normal)
+        button.titleLabel?.font = .preferredFont(forTextStyle: .subheadline)
+        button.titleLabel?.adjustsFontForContentSizeCategory = true
+        button.titleLabel?.numberOfLines = 0
+        button.titleLabel?.textAlignment = .center
+        button.isEnabled = session.webURL != nil
+        button.addTarget(self, action: #selector(openServerWebsite), for: .touchUpInside)
+        footer.addSubview(button)
+        button.snp.makeConstraints {
+            $0.centerX.equalToSuperview()
+            $0.leading.greaterThanOrEqualToSuperview().offset(20)
+            $0.trailing.lessThanOrEqualToSuperview().inset(20)
+            $0.top.bottom.equalToSuperview().inset(16)
+            $0.height.greaterThanOrEqualTo(44)
+        }
+        return footer
+    }()
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        let width = tableView.bounds.width
+        guard width > 0 else { return }
+        let height = webFooter.systemLayoutSizeFitting(
+            CGSize(width: width, height: UIView.layoutFittingCompressedSize.height),
+            withHorizontalFittingPriority: .required, verticalFittingPriority: .fittingSizeLevel).height
+        let size = CGSize(width: width, height: ceil(height))
+        if webFooter.frame.size != size || tableView.tableFooterView == nil {
+            webFooter.frame.size = size
+            tableView.tableFooterView = webFooter
+        }
+    }
+
+    @objc private func openServerWebsite() {
+        guard let url = session.webURL, presentedViewController == nil else { return }
+        present(SFSafariViewController(url: url), animated: true)
+    }
+
     lazy var tableView: UITableView = {
         let view = UITableView(frame: self.view.bounds, style: .insetGrouped)
         view.rowHeight = UITableView.automaticDimension
@@ -85,7 +127,6 @@ final class NavidromeHomeViewController: SuperViewController {
         view.sectionHeaderHeight = UITableView.automaticDimension
         view.estimatedSectionHeaderHeight = 44
         view.keyboardDismissMode = .onDrag
-        view.backgroundColor = .systemGroupedBackground
         view.delegate = self
         view.dataSource = self
 #if !targetEnvironment(macCatalyst)
@@ -483,12 +524,10 @@ extension NavidromeHomeViewController: UITableViewDataSource, UITableViewDelegat
             if case .song(let song) = items[indexPath.row] {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "MusicTableViewCell", for: indexPath) as! MusicTableViewCell
                 cell.delegate = self
-                cell.backgroundColor = .systemBackground
                 cell.update(musicModel: session.musicItem(for: song), cellType: .navidromeTrack)
                 return cell
             }
             let cell = tableView.dequeueReusableCell(withIdentifier: "NavidromePlaylistViewCell", for: indexPath) as! NavidromePlaylistViewCell
-            cell.backgroundColor = .systemBackground
             cell.layoutMargins = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
             cell.configure(item: items[indexPath.row], session: session)
             return cell

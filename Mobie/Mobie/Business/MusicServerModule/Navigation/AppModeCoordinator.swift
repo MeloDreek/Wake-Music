@@ -168,6 +168,7 @@ final class AppModeCoordinator {
         (controller as? NavidromeHomeViewController)?.cancelPendingRequests()
         (controller as? MusicServerBrowseViewController)?.cancelPendingRequests()
         (controller as? MusicServerArtistsViewController)?.cancelPendingRequests()
+        (controller as? MusicServerArtistDetailViewController)?.cancelPendingRequests()
         for child in controller.children { cancelServerRequests(in: child) }
     }
 }

@@ -84,11 +84,17 @@ class MusicServerItemCell: UITableViewCell {
         case .radio: symbol = "antenna.radiowaves.left.and.right"; accessoryType = .none
         }
         placeholder.image = UIImage(systemName: symbol)
+        if case .song = item {
+            placeholder.image = nil
+        }
         artwork.kf.cancelDownloadTask()
-        artwork.image = nil
+        let songPlaceholder: UIImage?
+        if case .song(let song) = item { songPlaceholder = session.musicItem(for: song).placeImage() }
+        else { songPlaceholder = nil }
+        artwork.image = songPlaceholder
         if !item.artworkID.isEmpty, let url = session.artworkURL(id: item.artworkID, size: 160) {
             let resource = KF.ImageResource(downloadURL: url, cacheKey: "music-server:\(session.accountID):\(item.artworkID):160")
-            artwork.kf.setImage(with: resource, options: [
+            artwork.kf.setImage(with: resource, placeholder: songPlaceholder, options: [
                 .processor(DownsamplingImageProcessor(size: CGSize(width: 50, height: 50))),
                 .scaleFactor(traitCollection.displayScale),
                 .transition(.fade(0.15))

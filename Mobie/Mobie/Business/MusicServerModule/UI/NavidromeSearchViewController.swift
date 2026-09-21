@@ -72,7 +72,6 @@ private final class NavidromeSearchResultsController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemGroupedBackground
         messageLabel.text = "Search songs, artists, or albums.".localStr()
         messageLabel.font = .preferredFont(forTextStyle: .body)
         messageLabel.adjustsFontForContentSizeCategory = true

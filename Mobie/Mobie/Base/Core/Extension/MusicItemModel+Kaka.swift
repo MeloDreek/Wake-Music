@@ -21,7 +21,7 @@ extension MusicItemModel {
             return self.coverArt ?? KakaImage(named: "demo_art")!
         } else if self.fileSourceType == .fromNavidrome {
             if let navSong = self.navidromeSong {
-                return KakaImage(named: "\(navSong.suffix)_icon") ?? KakaImage(named: "music_place")!
+                return KakaImage(named: "\(navSong.suffix.lowercased())_icon") ?? KakaImage(named: "music_place")!
             }else{
                 return KakaImage(named: "music_place")!
             }

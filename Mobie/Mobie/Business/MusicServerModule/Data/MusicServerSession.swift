@@ -110,6 +110,20 @@ final class MusicServerSession {
     private var artistCatalogCache: (accountID: String, artists: [MusicServerArtist])?
     private var artistCatalogLoadID = UUID()
 
+    var hasCachedArtistCatalog: Bool { artistCatalogCache?.accountID == accountID }
+
+    /// Open the server UI without leaking API credentials or token query parameters.
+    var webURL: URL? {
+        guard var components = URLComponents(string: user.hostUrl.trimmingCharacters(in: .whitespacesAndNewlines)),
+              ["http", "https"].contains(components.scheme?.lowercased() ?? ""),
+              let host = components.host, !host.isEmpty else { return nil }
+        components.user = nil
+        components.password = nil
+        components.query = nil
+        components.fragment = nil
+        return components.url
+    }
+
     init(user: NavidromeUserModel) {
         self.user = user
         let config = URLSessionConfiguration.ephemeral
@@ -506,6 +520,40 @@ final class MusicServerSession {
     func artworkURL(id: String, size: Int = 160) -> URL? {
         guard !id.isEmpty else { return nil }
         return subsonicURL("getCoverArt", query: [.init(name: "id", value: id), .init(name: "size", value: String(min(max(size, 40), 1200)))])
+    }
+
+    /// Artist-scoped protocol data; never download the full song library to build a profile.
+    func artistDetails(id: String) async throws -> (artist: MusicServerArtist, albums: [MusicServerItem]) {
+        guard !id.isEmpty else { throw MusicServerError.invalidResponse }
+        let response = try await subsonic("getArtist", query: [.init(name: "id", value: id)])
+        guard let object = response["artist"] as? [String: Any] else { throw MusicServerError.invalidResponse }
+        let data = try JSONSerialization.data(withJSONObject: object)
+        let record = try decoder.decode(MusicServerRecord.self, from: data)
+        guard record.id == id, case .artist(let artist) = item(record, route: .artists) else { throw MusicServerError.invalidResponse }
+        var seen = Set<String>()
+        let albums = try records(response, container: "artist", key: "album")
+            .filter { !$0.id.isEmpty && seen.insert($0.id).inserted }.map { item($0, route: .albums) }
+        return (artist, albums)
+    }
+
+    func artistTopSongs(name: String, limit: Int = 30) async throws -> [MusicServerItem] {
+        guard !name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else { return [] }
+        let count = min(max(limit, 1), 30)
+        let response = try await subsonic("getTopSongs", query: [.init(name: "artist", value: name), .init(name: "count", value: String(count))])
+        guard response["topSongs"] is [String: Any] else { throw MusicServerError.invalidResponse }
+        var seen = Set<String>()
+        return try records(response, container: "topSongs", key: "song")
+            .filter { !$0.id.isEmpty && seen.insert($0.id).inserted }.prefix(count).map { .song(song($0)) }
+    }
+
+    func similarArtists(id: String) async throws -> [MusicServerItem] {
+        let response = try await subsonic("getArtistInfo2", query: [.init(name: "id", value: id),
+            .init(name: "count", value: "20"), .init(name: "includeNotPresent", value: "false")])
+        guard response["artistInfo2"] is [String: Any] else { throw MusicServerError.invalidResponse }
+        var seen: Set<String> = [id]
+        return try records(response, container: "artistInfo2", key: "similarArtist")
+            .filter { !$0.id.isEmpty && $0.id != "-1" && seen.insert($0.id).inserted }
+            .prefix(20).map { item($0, route: .artists) }
     }
 
     func musicItem(for song: MusicServerSong) -> MusicItemModel {

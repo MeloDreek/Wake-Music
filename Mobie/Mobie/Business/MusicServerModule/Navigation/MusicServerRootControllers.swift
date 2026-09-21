@@ -40,7 +40,10 @@ private enum MusicServerDestination: Int, CaseIterable {
         case .home: return NavidromeHomeViewController(session: session, onExit: onExit)
         case .profile: return ProfileViewController()
         case .library: return MusicServerLibraryViewController(session: session)
-        case .download: return DownloadViewController()
+        case .download:
+            let controller = DownloadViewController()
+            controller.allowsMusicImport = false
+            return controller
         }
     }
 }

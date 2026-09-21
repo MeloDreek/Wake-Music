@@ -575,6 +575,8 @@
 		22BEE394305BAC9800C8A175 /* MusicServerLibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BEE38E305BAC9800C8A175 /* MusicServerLibraryViewController.swift */; };
 		22BEE395305BAC9800C8A175 /* MusicServerCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BEE38C305BAC9800C8A175 /* MusicServerCells.swift */; };
 		22BEE398305BAC9800C8A175 /* MusicServerBrowseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BEE38B305BAC9800C8A175 /* MusicServerBrowseViewController.swift */; };
+		B5DCA9AD9480470FB01A0101 /* MusicServerArtistDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DCA9AD9480470FB01A0100 /* MusicServerArtistDetailViewController.swift */; };
+		B5DCA9AD9480470FB01A0201 /* MusicServerSongActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DCA9AD9480470FB01A0200 /* MusicServerSongActions.swift */; };
 		22BEE399305BAC9800C8A175 /* MusicServerSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BEE385305BAC9800C8A175 /* MusicServerSession.swift */; };
 		22BEE39A305BAC9800C8A175 /* AppModeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BEE388305BAC9800C8A175 /* AppModeCoordinator.swift */; };
 		22BEE39B305BAC9800C8A175 /* MusicServerHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BEE384305BAC9800C8A175 /* MusicServerHistory.swift */; };
@@ -583,6 +585,8 @@
 		22BEE39E305BAC9800C8A175 /* MusicServerLibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BEE38E305BAC9800C8A175 /* MusicServerLibraryViewController.swift */; };
 		22BEE39F305BAC9800C8A175 /* MusicServerCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BEE38C305BAC9800C8A175 /* MusicServerCells.swift */; };
 		22BEE3A2305BAC9800C8A175 /* MusicServerBrowseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BEE38B305BAC9800C8A175 /* MusicServerBrowseViewController.swift */; };
+		B5DCA9AD9480470FB01A0102 /* MusicServerArtistDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DCA9AD9480470FB01A0100 /* MusicServerArtistDetailViewController.swift */; };
+		B5DCA9AD9480470FB01A0202 /* MusicServerSongActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DCA9AD9480470FB01A0200 /* MusicServerSongActions.swift */; };
 		22BEE3A3305BAC9800C8A175 /* MusicServerSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BEE385305BAC9800C8A175 /* MusicServerSession.swift */; };
 		22BEE3A4305BAC9800C8A175 /* AppModeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BEE388305BAC9800C8A175 /* AppModeCoordinator.swift */; };
 		22C2572C302D721400A68C1B /* AudioMatchTagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C2572B302D721400A68C1B /* AudioMatchTagViewController.swift */; };
@@ -1093,6 +1097,8 @@
 		22BEE388305BAC9800C8A175 /* AppModeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModeCoordinator.swift; sourceTree = "<group>"; };
 		22BEE389305BAC9800C8A175 /* MusicServerRootControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicServerRootControllers.swift; sourceTree = "<group>"; };
 		22BEE38B305BAC9800C8A175 /* MusicServerBrowseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicServerBrowseViewController.swift; sourceTree = "<group>"; };
+		B5DCA9AD9480470FB01A0100 /* MusicServerArtistDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicServerArtistDetailViewController.swift; sourceTree = "<group>"; };
+		B5DCA9AD9480470FB01A0200 /* MusicServerSongActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicServerSongActions.swift; sourceTree = "<group>"; };
 		22BEE38C305BAC9800C8A175 /* MusicServerCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicServerCells.swift; sourceTree = "<group>"; };
 		22BEE38E305BAC9800C8A175 /* MusicServerLibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicServerLibraryViewController.swift; sourceTree = "<group>"; };
 		22C2572B302D721400A68C1B /* AudioMatchTagViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioMatchTagViewController.swift; sourceTree = "<group>"; };
@@ -1956,6 +1962,8 @@
 			isa = PBXGroup;
 			children = (
 				22BEE38B305BAC9800C8A175 /* MusicServerBrowseViewController.swift */,
+				B5DCA9AD9480470FB01A0100 /* MusicServerArtistDetailViewController.swift */,
+				B5DCA9AD9480470FB01A0200 /* MusicServerSongActions.swift */,
 				5DCC20260920000100000001 /* MusicServerArtistsViewController.swift */,
 				5DCC20260920000200000001 /* MusicServerLoadingView.swift */,
 				22BEE38C305BAC9800C8A175 /* MusicServerCells.swift */,
@@ -2398,6 +2406,8 @@
 				22BEE394305BAC9800C8A175 /* MusicServerLibraryViewController.swift in Sources */,
 				22BEE395305BAC9800C8A175 /* MusicServerCells.swift in Sources */,
 				22BEE398305BAC9800C8A175 /* MusicServerBrowseViewController.swift in Sources */,
+				B5DCA9AD9480470FB01A0101 /* MusicServerArtistDetailViewController.swift in Sources */,
+				B5DCA9AD9480470FB01A0201 /* MusicServerSongActions.swift in Sources */,
 				5DCC20260920000100000002 /* MusicServerArtistsViewController.swift in Sources */,
 				5DCC20260920000200000002 /* MusicServerLoadingView.swift in Sources */,
 				22BEE399305BAC9800C8A175 /* MusicServerSession.swift in Sources */,
@@ -2742,6 +2752,8 @@
 				22BEE39E305BAC9800C8A175 /* MusicServerLibraryViewController.swift in Sources */,
 				22BEE39F305BAC9800C8A175 /* MusicServerCells.swift in Sources */,
 				22BEE3A2305BAC9800C8A175 /* MusicServerBrowseViewController.swift in Sources */,
+				B5DCA9AD9480470FB01A0102 /* MusicServerArtistDetailViewController.swift in Sources */,
+				B5DCA9AD9480470FB01A0202 /* MusicServerSongActions.swift in Sources */,
 				5DCC20260920000100000003 /* MusicServerArtistsViewController.swift in Sources */,
 				5DCC20260920000200000003 /* MusicServerLoadingView.swift in Sources */,
 				22BEE3A3305BAC9800C8A175 /* MusicServerSession.swift in Sources */,

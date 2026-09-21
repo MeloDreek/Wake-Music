@@ -12,7 +12,7 @@ assert.call(home.include?('self == .recent || self == .favorites || self == .ran
 assert.call(home.include?('case overview, recent, favorites, playlists, random, recentlyAdded'), 'Recent uploads follows random discovery')
 assert.call(home.include?('cellType: .navidromeTrack') && home.include?('MusicTableViewCellDelegate'), 'Home music rows use the shared music cell and functional menus')
 assert.call(cells.include?('NavidromeSongListCollectionCell') && cells.include?('collectionView.isPagingEnabled = true'), 'Song previews use full-width paged song rows')
-assert.call(home.include?('style: .insetGrouped') && home.include?('view.backgroundColor = .systemGroupedBackground'), 'Home uses native grouped table appearance')
+assert.call(home.include?('style: .insetGrouped') && !home.include?('backgroundColor ='), 'Home uses native inset-grouped table appearance without color overrides')
 assert.call(cells.include?('systemLayoutSizeFitting') && cells.include?('CGFloat(min(3, items.count))'), 'List height must have at most three rows')
 assert.call(home.include?('onSongAction:') && home.include?('handleSongAction(model:'), 'Grid and uploaded-song row menus share one action handler')
 assert.call(home.include?('items = try await session.allPlaylists()'), 'Show all accessible playlists')

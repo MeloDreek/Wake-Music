@@ -10,7 +10,6 @@ final class NavidromeOverviewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         selectionStyle = .none
-//        backgroundColor = .clear
         let titles = ["Songs", "Artists", "Albums", "Radio Stations"]
         tiles = titles.indices.map { index in
             let tile = MusicServerOverviewTile(title: titles[index].localStr(), paletteIndex: index)
@@ -27,13 +26,14 @@ final class NavidromeOverviewCell: UITableViewCell {
         }
         let stack = UIStackView(arrangedSubviews: rows)
         stack.axis = .vertical
+        stack.distribution = .fillEqually
         stack.spacing = 12
         stack.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(stack)
         NSLayoutConstraint.activate([
-            stack.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
-            stack.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
-            stack.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 2),
+            stack.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 12),
+            stack.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -12),
+            stack.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 12),
             stack.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -12)
         ])
     }
@@ -55,20 +55,22 @@ private final class MusicServerOverviewTile: UIControl {
 
     init(title: String, paletteIndex: Int) {
         super.init(frame: .zero)
-        let hues: [CGFloat] = [0.04, 0.60, 0.36, 0.74]
-        let hue = hues[paletteIndex % hues.count]
-        backgroundColor = UIColor { traits in
-            UIColor(hue: hue, saturation: traits.userInterfaceStyle == .dark ? 0.24 : 0.07,
-                    brightness: traits.userInterfaceStyle == .dark ? 0.21 : 0.98, alpha: 1)
-        }
+        let palette = [
+            UIColor(red: 0.73, green: 0.19, blue: 0.25, alpha: 0.82),
+            UIColor(red: 0.16, green: 0.36, blue: 0.72, alpha: 0.82),
+            UIColor(red: 0.08, green: 0.46, blue: 0.35, alpha: 0.82),
+            UIColor(red: 0.48, green: 0.27, blue: 0.69, alpha: 0.82)
+        ]
+        backgroundColor = palette[paletteIndex % palette.count]
         layer.cornerRadius = 18
         layer.cornerCurve = .continuous
         captionLabel.text = title
         captionLabel.font = .preferredFont(forTextStyle: .subheadline)
-        captionLabel.textColor = .secondaryLabel
+        captionLabel.textColor = .white
         captionLabel.adjustsFontForContentSizeCategory = true
         captionLabel.numberOfLines = 0
         numberLabel.font = UIFontMetrics(forTextStyle: .title1).scaledFont(for: UIFontNumber(29))
+        numberLabel.textColor = .white
         numberLabel.adjustsFontForContentSizeCategory = true
         numberLabel.adjustsFontSizeToFitWidth = true
         numberLabel.minimumScaleFactor = 0.75

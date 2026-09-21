@@ -6,7 +6,7 @@ import Kingfisher
 /// batching stays inside the session; the UI never exposes partial alphabet indexes.
 final class MusicServerArtistsViewController: SuperViewController, UISearchResultsUpdating, UISearchBarDelegate {
     private let session: MusicServerSession
-    private let tableView = UITableView(frame: .zero, style: .grouped)
+    private let tableView = UITableView(frame: .zero, style: .insetGrouped)
     private let loadingView = MusicServerLoadingView()
     private let refreshControl = UIRefreshControl()
     private let searchController = UISearchController(searchResultsController: nil)
@@ -42,7 +42,6 @@ final class MusicServerArtistsViewController: SuperViewController, UISearchResul
         super.viewDidLoad()
         title = "Artists".localStr()
         navigationItem.largeTitleDisplayMode = .never
-        view.backgroundColor = .systemGroupedBackground
         definesPresentationContext = true
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchResultsUpdater = self
@@ -52,7 +51,6 @@ final class MusicServerArtistsViewController: SuperViewController, UISearchResul
         searchController.searchBar.autocorrectionType = .no
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
-        tableView.backgroundColor = .systemGroupedBackground
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 76
         tableView.keyboardDismissMode = .onDrag
@@ -112,6 +110,8 @@ final class MusicServerArtistsViewController: SuperViewController, UISearchResul
         indexRecords.removeAll()
         starredArtistIDs.removeAll()
         showState(.loading)
+        loadingView.setLoadingHint(!session.hasCachedArtistCatalog
+                                  ? "MusicServer.Artists.InitialLoadHint".localStr() : nil)
         let requestGeneration = generation
         let session = session
         artistRequest = Task { [weak self] in

@@ -21,6 +21,7 @@ struct MusicServerOverview { var songs: Int?; var artists: Int?; var albums: Int
 struct MusicItemModel: Equatable {
     let song: HomeProbeRecord
     func isFlagFavorite() -> Bool { false }
+    func placeImage() -> UIImage { UIImage(systemName: "waveform")! }
 }
 enum MusicActionType {
     case addFavirote, removeFavirote, addPlaylist, artistDetial, albumDetial, download
@@ -38,7 +39,7 @@ enum HomeProbeTransition { case fade(Double) }
 enum HomeProbeImageOption { case processor(DownsamplingImageProcessor), scaleFactor(CGFloat), transition(HomeProbeTransition) }
 struct HomeProbeImageLoader {
     func cancelDownloadTask() {}
-    func setImage(with resource: KF.ImageResource, options: [HomeProbeImageOption]) {}
+    func setImage(with resource: KF.ImageResource, placeholder: UIImage? = nil, options: [HomeProbeImageOption]) {}
 }
 extension UIImageView { var kf: HomeProbeImageLoader { HomeProbeImageLoader() } }
 
@@ -76,6 +77,26 @@ private final class HomeProbeListCell: NavidromeRecentViewCell {
             let semantic: UISemanticContentAttribute = direction == .rightToLeft ? .forceRightToLeft : .forceLeftToRight
             child.view.semanticContentAttribute = semantic
             let session = MusicServerSession()
+            let overview = NavidromeOverviewCell(style: .default, reuseIdentifier: nil)
+            child.view.addSubview(overview)
+            overview.configure(MusicServerOverview(songs: 456749, artists: 89440, albums: 72558, radios: 0), onSelect: { _ in })
+            let overviewSize = overview.contentView.systemLayoutSizeFitting(CGSize(width: width, height: 0),
+                withHorizontalFittingPriority: .required, verticalFittingPriority: .fittingSizeLevel)
+            overview.frame = CGRect(x: 0, y: 0, width: width, height: overviewSize.height)
+            overview.layoutIfNeeded()
+            let tiles = descendants(overview).compactMap { $0 as? UIControl }.filter { $0.accessibilityTraits.contains(.button) }
+            precondition(tiles.count == 4, "Four overview tiles")
+            precondition(tiles.allSatisfy { abs($0.bounds.width - tiles[0].bounds.width) <= 1 }, "Equal tile widths: \(tiles.map(\.bounds))")
+            precondition(tiles.allSatisfy { abs($0.bounds.height - tiles[0].bounds.height) <= 1 }, "Equal tile heights")
+            precondition(Set(tiles.compactMap(\.backgroundColor)).count == 4, "Distinct overview colors")
+            for tile in tiles {
+                let labels = descendants(tile).compactMap { $0 as? UILabel }
+                precondition(labels.count == 2 && labels.allSatisfy { $0.textColor == .white }, "White overview text")
+            }
+            let tileFrames = tiles.map { $0.convert($0.bounds, to: overview.contentView) }
+            precondition(abs(tileFrames[1].minX - tileFrames[0].maxX - 12) < 1, "Horizontal tile spacing")
+            precondition(abs(tileFrames[2].minY - tileFrames[0].maxY - 12) < 1, "Vertical tile spacing")
+            overview.removeFromSuperview()
             let items = (0..<8).map { MusicServerItem.song(HomeProbeRecord(id: "\($0)", title: "Song \($0 + 1) — A Little Longer", subtitle: "The Artist", artworkID: "")) }
             let carousel = HomeProbeListCell(style: .default, reuseIdentifier: nil)
             carousel.probeTraits = traits

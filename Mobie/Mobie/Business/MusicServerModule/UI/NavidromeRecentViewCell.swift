@@ -250,7 +250,7 @@ private final class NavidromeSongListCollectionCell: UICollectionViewCell {
 
 private final class NavidromeSongRowView: UIView {
     private let artworkContainer = UIView()
-    private let artworkPlaceholder = UIImageView(image: UIImage(systemName: "music.note"))
+    private let artworkPlaceholder = UIImageView()
     private let artwork = UIImageView()
     private let titleLabel = UILabel()
     private let subtitleLabel = UILabel()
@@ -304,8 +304,8 @@ private final class NavidromeSongRowView: UIView {
             artworkContainer.heightAnchor.constraint(equalTo: artworkContainer.widthAnchor),
             artworkPlaceholder.centerXAnchor.constraint(equalTo: artworkContainer.centerXAnchor),
             artworkPlaceholder.centerYAnchor.constraint(equalTo: artworkContainer.centerYAnchor),
-            artworkPlaceholder.widthAnchor.constraint(equalToConstant: 32),
-            artworkPlaceholder.heightAnchor.constraint(equalToConstant: 32),
+            artworkPlaceholder.widthAnchor.constraint(equalTo: artworkContainer.widthAnchor),
+            artworkPlaceholder.heightAnchor.constraint(equalTo: artworkContainer.heightAnchor),
             artwork.leadingAnchor.constraint(equalTo: artworkContainer.leadingAnchor),
             artwork.trailingAnchor.constraint(equalTo: artworkContainer.trailingAnchor),
             artwork.topAnchor.constraint(equalTo: artworkContainer.topAnchor),
@@ -339,6 +339,7 @@ private final class NavidromeSongRowView: UIView {
             $0.semanticContentAttribute = semanticContentAttribute
         }
         artwork.image = nil
+        artworkPlaceholder.image = nil
         artworkSide.constant = metrics.artworkSide
         titleCenter.constant = -(metrics.subtitleFont.lineHeight + 2) / 2
         titleLabel.font = metrics.titleFont
@@ -355,6 +356,7 @@ private final class NavidromeSongRowView: UIView {
         moreButton.isEnabled = onSongAction != nil
         if case .song(let song) = item {
             let model = session.musicItem(for: song)
+            artworkPlaceholder.image = model.placeImage()
             hasActivePlayback = { KakaMusicPlayer.shared.playingMusic == model && KakaMusicPlayer.shared.isPlaying }
             let likeAction: MusicActionType = model.isFlagFavorite() ? .removeFavirote : .addFavirote
             func action(_ type: MusicActionType) -> UIAction {

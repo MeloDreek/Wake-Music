@@ -1,6 +1,7 @@
 import UIKit
 import KakaFoundation
 import AppGroupKit
+import Combine
 
 /// Songs/albums search the entire server, not only the rows already on screen.
 /// Further pages load automatically as the listener reaches the end of the list.
@@ -9,7 +10,7 @@ final class MusicServerBrowseViewController: SuperViewController, UISearchResult
     /// Embedded homepage search supplies navigation without a second navigation stack.
     var onSelection: ((MusicServerItem, [MusicServerItem]) -> Void)?
     private let route: MusicServerRoute
-    private let tableView = UITableView(frame: .zero, style: .grouped)
+    private let tableView = UITableView(frame: .zero, style: .insetGrouped)
     private let refreshControl = UIRefreshControl()
     private let searchController = UISearchController(searchResultsController: nil)
     private let loadingView = MusicServerLoadingView()
@@ -28,6 +29,23 @@ final class MusicServerBrowseViewController: SuperViewController, UISearchResult
     private var searchPending = false
     private var didCompleteInitialLoad = false
     private var generation = UUID()
+    private var favoriteOverrides: [String: Bool] = [:]
+    private var playbackSubscriptions = Set<AnyCancellable>()
+    private lazy var songActions: MusicServerSongActions = {
+        let actions = MusicServerSongActions(session: session, controller: self)
+        actions.onFavoriteChange = { [weak self] id, favorite in
+            guard let self else { return }
+            self.favoriteOverrides[id] = favorite
+            self.items = self.items.map(self.applyingFavoriteOverride).filter(self.shouldDisplay)
+            self.updatePresentation()
+        }
+        actions.onOpenItem = { [weak self] item in
+            guard let self else { return }
+            if let onSelection = self.onSelection { onSelection(item, [item]) }
+            else { MusicServerSelection.open(item, among: [item], session: self.session, from: self) }
+        }
+        return actions
+    }()
 
     init(session: MusicServerSession, route: MusicServerRoute, title: String) {
         self.session = session
@@ -42,14 +60,19 @@ final class MusicServerBrowseViewController: SuperViewController, UISearchResult
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.largeTitleDisplayMode = .never
-        view.backgroundColor = .systemGroupedBackground
-        tableView.backgroundColor = .systemGroupedBackground
         tableView.keyboardDismissMode = .onDrag
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 72
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(MusicServerItemCell.self, forCellReuseIdentifier: "item")
+        tableView.register(MusicTableViewCell.self, forCellReuseIdentifier: "song")
+        KakaMusicPlayer.shared.$playingMusic.receive(on: DispatchQueue.main).sink { [weak self] _ in
+            self?.refreshVisibleSongs()
+        }.store(in: &playbackSubscriptions)
+        KakaMusicPlayer.shared.$playbackStatus.receive(on: DispatchQueue.main).sink { [weak self] _ in
+            self?.refreshVisibleSongs()
+        }.store(in: &playbackSubscriptions)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(tableView)
         NSLayoutConstraint.activate([
@@ -142,12 +165,13 @@ final class MusicServerBrowseViewController: SuperViewController, UISearchResult
                 let page = try await session.page(route, offset: offset, limit: route == .random ? 30 : 40)
                 guard !Task.isCancelled, let self, self.generation == requestGeneration else { return }
                 var known = Set(self.items.map(Self.stableKey))
-                let additions = page.items.filter { known.insert(Self.stableKey($0)).inserted }
+                let unique = page.items.filter { known.insert(Self.stableKey($0)).inserted }
+                let additions = unique.map(self.applyingFavoriteOverride).filter(self.shouldDisplay)
                 self.items.append(contentsOf: additions)
                 // Offset follows the server page, not the deduplicated UI count.
                 // A repeated/empty page stops pagination rather than looping forever.
                 self.nextOffset = page.nextOffset ?? (self.nextOffset + page.items.count)
-                self.hasMore = page.hasMore && !page.items.isEmpty && !additions.isEmpty
+                self.hasMore = page.hasMore && !page.items.isEmpty && !unique.isEmpty
                     && self.nextOffset > offset
                 self.isLoading = false
                 self.didCompleteInitialLoad = true
@@ -208,6 +232,23 @@ final class MusicServerBrowseViewController: SuperViewController, UISearchResult
 
     @objc private func retryPage() { loadNextPage() }
 
+    private func applyingFavoriteOverride(_ item: MusicServerItem) -> MusicServerItem {
+        guard case .song(var song) = item, let favorite = favoriteOverrides[song.id] else { return item }
+        song.value.starred = favorite
+        return .song(song)
+    }
+
+    private func shouldDisplay(_ item: MusicServerItem) -> Bool {
+        if case .favorites = route, case .song(let song) = item { return song.value.starred }
+        return true
+    }
+
+    private func refreshVisibleSongs() {
+        for case let cell as MusicTableViewCell in tableView.visibleCells {
+            if let model = cell.musicModel { cell.update(musicModel: model, cellType: .navidromeTrack) }
+        }
+    }
+
     func updateSearchResults(for searchController: UISearchController) { scheduleSearch() }
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         scheduleSearch(immediately: true)
@@ -267,6 +308,12 @@ extension MusicServerBrowseViewController: UITableViewDataSource, UITableViewDel
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if case .song(let song) = items[indexPath.row] {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "song", for: indexPath) as! MusicTableViewCell
+            cell.delegate = self
+            cell.update(musicModel: session.musicItem(for: song), cellType: .navidromeTrack)
+            return cell
+        }
         let cell = tableView.dequeueReusableCell(withIdentifier: "item", for: indexPath) as! MusicServerItemCell
         cell.configure(item: items[indexPath.row], session: session)
         return cell
@@ -291,6 +338,12 @@ extension MusicServerBrowseViewController: UITableViewDataSource, UITableViewDel
     }
 }
 
+extension MusicServerBrowseViewController: MusicTableViewCellDelegate {
+    func musicTableCell(cell: MusicTableViewCell, model: MusicItemModel, action: MusicActionType) {
+        songActions.handle(model: model, action: action)
+    }
+}
+
 /// Navigation and playback are shared, so home previews and detail lists cannot diverge.
 @MainActor
 enum MusicServerSelection {
@@ -312,7 +365,7 @@ enum MusicServerSelection {
         case .album(let album):
             browse(.album(id: album.id), title: item.title, session: session, from: controller)
         case .artist(let artist):
-            browse(.artist(id: artist.id), title: item.title, session: session, from: controller)
+            controller.navigationController?.pushViewController(MusicServerArtistDetailViewController(session: session, artist: artist), animated: true)
         case .playlist(let playlist):
             browse(.playlist(id: playlist.id), title: item.title, session: session, from: controller)
         case .radio(let radio):
@@ -331,6 +384,9 @@ enum MusicServerSelection {
         let destination: UIViewController
         if case .artists = route {
             destination = MusicServerArtistsViewController(session: session)
+        } else if case .artist(let id) = route {
+            destination = MusicServerArtistDetailViewController(session: session,
+                artist: MusicServerArtist(id: id, name: title, albumCount: nil, songCount: nil, coverArt: "ar-" + id))
         } else {
             destination = MusicServerBrowseViewController(session: session, route: route, title: title)
         }

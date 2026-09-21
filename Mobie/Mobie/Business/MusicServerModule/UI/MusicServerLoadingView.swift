@@ -9,6 +9,7 @@ final class MusicServerLoadingView: UIView {
     private let indicator = NVActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 25, height: 25),
                                                    type: .lineScalePulseOutRapid)
     private let messageLabel = UILabel()
+    private let detailLabel = UILabel()
     private let retryButton = UIButton(type: .system)
     private var onAction: (() -> Void)?
 
@@ -20,9 +21,15 @@ final class MusicServerLoadingView: UIView {
         messageLabel.textAlignment = .center
         messageLabel.numberOfLines = 0
         messageLabel.textColor = .secondaryLabel
+        detailLabel.font = .preferredFont(forTextStyle: .footnote)
+        detailLabel.adjustsFontForContentSizeCategory = true
+        detailLabel.textAlignment = .center
+        detailLabel.numberOfLines = 0
+        detailLabel.textColor = .secondaryLabel
+        detailLabel.isHidden = true
         retryButton.titleLabel?.font = .preferredFont(forTextStyle: .body)
         retryButton.addTarget(self, action: #selector(retryTapped), for: .touchUpInside)
-        let stack = UIStackView(arrangedSubviews: [indicator, messageLabel, retryButton])
+        let stack = UIStackView(arrangedSubviews: [indicator, messageLabel, detailLabel, retryButton])
         stack.axis = .vertical
         stack.alignment = .center
         stack.spacing = 14
@@ -38,7 +45,9 @@ final class MusicServerLoadingView: UIView {
             stack.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -15),
             stack.leadingAnchor.constraint(greaterThanOrEqualTo: leadingAnchor, constant: 28),
             stack.trailingAnchor.constraint(lessThanOrEqualTo: trailingAnchor, constant: -28),
-            messageLabel.widthAnchor.constraint(lessThanOrEqualToConstant: 440)
+            messageLabel.widthAnchor.constraint(lessThanOrEqualToConstant: 440),
+            detailLabel.widthAnchor.constraint(lessThanOrEqualToConstant: 440),
+            detailLabel.widthAnchor.constraint(lessThanOrEqualTo: widthAnchor, constant: -56)
         ])
     }
 
@@ -56,6 +65,7 @@ final class MusicServerLoadingView: UIView {
         indicator.stopAnimating()
         indicator.isHidden = true
         retryButton.isHidden = true
+        detailLabel.isHidden = true
         switch state {
         case .loading:
             indicator.color = appMainColor
@@ -79,6 +89,11 @@ final class MusicServerLoadingView: UIView {
         let count = loaded.formatted()
         let progress = total.map { count + " / " + $0.formatted() } ?? count
         messageLabel.text = "Processing...".localStr() + "\n" + progress
+    }
+
+    func setLoadingHint(_ text: String?) {
+        detailLabel.text = text
+        detailLabel.isHidden = text == nil
     }
 
     override func didMoveToWindow() {

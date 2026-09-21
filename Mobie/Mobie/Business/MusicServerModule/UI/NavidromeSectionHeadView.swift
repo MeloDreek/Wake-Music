@@ -11,7 +11,6 @@ final class NavidromeSectionHeadView: UITableViewHeaderFooterView {
 
     override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
-        backgroundConfiguration = .clear()
         titleButton.titleLabel?.adjustsFontForContentSizeCategory = true
         titleButton.titleLabel?.numberOfLines = 0
         titleButton.contentHorizontalAlignment = .leading
@@ -25,6 +24,7 @@ final class NavidromeSectionHeadView: UITableViewHeaderFooterView {
         button.setContentCompressionResistancePriority(.required, for: .horizontal)
         button.setContentHuggingPriority(.defaultHigh, for: .horizontal)
         button.addTarget(self, action: #selector(actionTapped), for: .touchUpInside)
+        button.contentHorizontalAlignment = .trailing
         let spacer = UIView()
         spacer.setContentHuggingPriority(.defaultLow, for: .horizontal)
         let stack = UIStackView(arrangedSubviews: [titleButton, spacer, button])
@@ -37,7 +37,7 @@ final class NavidromeSectionHeadView: UITableViewHeaderFooterView {
         actionWidth.isActive = true
         NSLayoutConstraint.activate([
             stack.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
-            stack.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
+            stack.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -4),
             stack.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 4),
             stack.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
             titleButton.heightAnchor.constraint(greaterThanOrEqualToConstant: 44),
@@ -75,8 +75,8 @@ final class NavidromeSectionHeadView: UITableViewHeaderFooterView {
 
         var actionConfig = UIButton.Configuration.plain()
         actionConfig.title = actionSymbol == nil ? actionTitle : nil
-        actionConfig.image = actionSymbol.flatMap { UIImage(systemName: $0, withConfiguration: UIImage.SymbolConfiguration(pointSize: 20, weight: .medium)) }
-        actionConfig.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 0)
+        actionConfig.image = actionSymbol.flatMap { UIImage(systemName: $0, withConfiguration: UIImage.SymbolConfiguration(pointSize: 18, weight: .regular)) }
+        actionConfig.contentInsets = .zero
         actionConfig.titleTextAttributesTransformer = UIConfigurationTextAttributesTransformer { attributes in
             var attributes = attributes
             attributes.font = .preferredFont(forTextStyle: .subheadline)
