@@ -6,7 +6,6 @@ export DEVELOPER_DIR="${DEVELOPER_DIR:-/Applications/Xcode.app/Contents/Develope
 task_sdk="$(xcrun --sdk iphonesimulator --show-sdk-path)"
 for task_file in \
   Business/PlayerModule/View/PlayControlDefaultView.swift \
-  Business/OtherModule/TabbarModule/iOS/PlayerControlFloatView.swift \
   Business/OtherModule/TabbarModule/iOS/PlayerControlToolBarView.swift; do
   # Require the production configuration as well as checking UIKit's behavior.
   rg -q 'for: \[\.selected, \.highlighted\]' "$task_root/Mobie/Mobie/$task_file"

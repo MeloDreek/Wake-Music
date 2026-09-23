@@ -27,26 +27,21 @@ extension HomeTabbarViewController: DocumentFolderWatcherDelegate {
     
     // 本地文件有变化
     @objc func localMusicCountChanged() {
-        
-        let localMusics = SandboxFileManager.shared.readLocalMusicFiles().filter { $0.isSupportMusicFile(false) || $0.hasDirectoryPath }
-        let remoteMusic = ConnectConfigManager.shared.selectFolderArray + ConnectConfigManager.shared.lastPlaylist
-        
-        let allCount = localMusics.count + remoteMusic.count
-        
-        let isToolBar = MusicConfigManager.shared.miniPlayerUI == .toolbarUI
-        
-        self.toolbarView.isHidden = !isToolBar
-        self.floatingView.isHidden = isToolBar
+        self.toolbarView.isHidden = false
 
-        if allCount == 0 && KakaMusicPlayer.shared.playingMusic == nil {
+        let player = KakaMusicPlayer.shared
+        if player.playingMusic == nil {
             let demoModel = MusicItemModel.demoMusicModel()
-            KakaMusicPlayer.shared.playingMusic = demoModel
-            KakaMusicPlayer.shared.musicArray = [demoModel]
-            
-            KakaMusicPlayer.shared.tempMusicArray = KakaMusicPlayer.shared.musicArray
+            player.playingMusic = demoModel
+            player.musicArray = [demoModel]
+            player.tempMusicArray = [demoModel]
             
             self.toolbarView.musicModel = demoModel
-            self.floatingView.musicModel = demoModel
+        } else if let current = player.playingMusic,
+                  current.fileSourceType == .demoFile,
+                  player.musicArray.isEmpty {
+            player.musicArray = [current]
+            player.tempMusicArray = [current]
         }
     }
 }

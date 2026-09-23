@@ -1,10 +1,5 @@
-//
-//  WelcomeViewController+Login.swift
-//  AppLock
-//
-//  Created by Kaka Inc. on 2024/1/2.
-//
-
+import Foundation
+import UIKit
 import KakaFoundation
 import KakaUIKit
 import KakaObjcKit
@@ -12,77 +7,133 @@ import AppGroupKit
 import RevenueCat
 import ProgressHUD
 
-
 extension WelcomeViewController {
-    
-    // 引导支付
-    @objc func continePurchase() {
-        guard !isProcessingPurchase, let vModel = self.selectModel else { return }
-        
-        isProcessingPurchase = true
-        ProgressHUD.animate("Processing...".localStr())
-        self.purchaseManager.startPurcharge(product: vModel) { [weak self] (enInfo) in
-            guard let wSelf = self else { return }
-                        
-            wSelf.verfityPurchageRecord()
-            
-        } failBlock: { [weak self] errorMsg in
-            ProgressHUD.dismiss()
-            guard let wSelf = self else { return }
-            wSelf.isProcessingPurchase = false
-            if errorMsg == KakaError.youhaveCanceled.errorDescription {
-                wSelf.view.makeToast(errorMsg)
-            }else{
-                wSelf.showOneAlert(message: errorMsg)
+    func fetchOffer() {
+#if !Target_Mobie_Pro
+        guard dataArray.contains(where: \.isPurchase), !isLoadingOffer, !isProcessingPurchase, !isFinishing else { return }
+        let requestID = UUID()
+        offerRequestID = requestID
+        isLoadingOffer = true
+        trialDays = nil
+        updatePage()
+
+        // A failed storefront/eligibility request must never strand a first-time user.
+        DispatchQueue.main.asyncAfter(deadline: .now() + 15) { [weak self] in
+            guard let self, self.offerRequestID == requestID, self.isLoadingOffer else { return }
+            self.offerRequestID = nil
+            self.isLoadingOffer = false
+            self.trialDays = nil // Unknown eligibility is not a promise of a free trial.
+            self.updatePage()
+        }
+        purchaseManager.refresRemoteProductsPrice { [weak self] products in
+            DispatchQueue.main.async {
+                guard let self, self.offerRequestID == requestID, !self.isFinishing else { return }
+                // Never silently substitute another subscription when monthly is unavailable.
+                self.selectedProduct = products.first { $0.productIdentifier == PurchaseStoreID.monthly.rawValue }
+                guard let product = self.selectedProduct,
+                      product.introductoryDiscount?.paymentMode == .freeTrial else {
+                    self.isLoadingOffer = false
+                    self.updatePage()
+                    return
+                }
+                Purchases.shared.checkTrialOrIntroDiscountEligibility(productIdentifiers: [product.productIdentifier]) { [weak self] result in
+                    DispatchQueue.main.async {
+                        guard let self, self.offerRequestID == requestID, !self.isFinishing else { return }
+                        self.trialDays = result[product.productIdentifier]?.status == .eligible ? product.onboardingTrialDays : nil
+                        self.isLoadingOffer = false
+                        self.updatePage()
+                    }
+                }
             }
         }
-                
-    }
-    
-    // 设置播放器样式
-    func setupPlayerStyle(_ isFreeEnd: Bool) {
-#if Target_Mobie_Pro
-        MusicConfigManager.shared.playerStyle = .tape1
-        var defaultModel = MusicConfigManager.shared.playbackModel
-        defaultModel.backgroundType = .defaultType
-        defaultModel.backgroundConfig = .coverAssetColor
-        MusicConfigManager.shared.playbackModel = defaultModel
-#else
-        MusicConfigManager.shared.playerStyle = isFreeEnd ? .defaultCircle : .tape1
-        var defaultModel = MusicConfigManager.shared.playbackModel
-        defaultModel.backgroundType = .defaultType
-        defaultModel.backgroundConfig = isFreeEnd ? .gaussianBlur : .coverAssetColor
-        MusicConfigManager.shared.playbackModel = defaultModel
 #endif
-        
     }
-    
-    // 跳转
-    @objc func finishAllPage() {
-        
-        self.view.isUserInteractionEnabled = false
-        AppLocalManager.shared.isFirstLaunch = false
 
-        let ani: CATransition = CATransition()
-        ani.type = CATransitionType(rawValue: "cube")
-        ani.subtype = CATransitionSubtype.fromRight
-        ani.duration = 0.35
-        ani.isRemovedOnCompletion = true
-        appKeyWindow?.layer.add(ani, forKey: nil)
-        
-        self.perform(#selector(dismissAnimation), with: nil, afterDelay: ani.duration - 0.1)
+    func continuePurchase() {
+        guard !isProcessingPurchase, !isLoadingOffer, !isFinishing,
+              let product = selectedProduct, product.productIdentifier == PurchaseStoreID.monthly.rawValue else { return }
+        isProcessingPurchase = true
+        ProgressHUD.animate("Processing...".localStr())
+        purchaseManager.startPurcharge(product: product) { [weak self] _ in
+            DispatchQueue.main.async {
+                // startPurcharge already verifies and persists the active entitlement.
+                ProgressHUD.dismiss()
+                self?.isProcessingPurchase = false
+                self?.finishAllPage()
+            }
+        } failBlock: { [weak self] error in
+            DispatchQueue.main.async {
+                ProgressHUD.dismiss()
+                guard let self else { return }
+                self.isProcessingPurchase = false
+                if error != KakaError.youhaveCanceled.errorDescription { self.showOneAlert(message: error) }
+            }
+        }
     }
-    
-    @objc func dismissAnimation() {
-        
-        self.setupPlayerStyle(true)
-        
-        let scene = view.window?.windowScene?.delegate as? SceneDelegate
-        scene?.window?.rootViewController = scene?.modeCoordinator?.restoredRootController()
-        scene?.window?.makeKeyAndVisible()
-        
+
+    @objc func finishAllPage() {
+        guard !isProcessingPurchase, !isFinishing,
+              let scene = view.window?.windowScene?.delegate as? SceneDelegate,
+              let window = scene.window, let coordinator = scene.modeCoordinator else { return }
+        isFinishing = true
+        offerRequestID = nil
+        AppLocalManager.shared.isFirstLaunch = false
+        view.isUserInteractionEnabled = false
+        if !kaka_IsMacOS(), !UIAccessibility.isReduceMotionEnabled {
+            let transition = CATransition()
+            transition.type = .fade
+            transition.duration = 0.3
+            window.layer.add(transition, forKey: "welcome.finish")
+        }
+        window.rootViewController = coordinator.restoredRootController()
+        window.makeKeyAndVisible()
     }
-    
-    
-    
+}
+
+extension WelcomeViewController: WelcomePaywallCellDelegate {
+    func welcomePurchaseDidLimited(cell: WelcomePaywallViewCell) {
+        finishAllPage()
+    }
+
+    func welcomePurchaseDidRestore(cell: WelcomePaywallViewCell) {
+        guard !isProcessingPurchase, !isFinishing else { return }
+        isProcessingPurchase = true
+        ProgressHUD.animate("Processing...".localStr())
+        purchaseManager.restorePurcharge { [weak self] in
+            DispatchQueue.main.async {
+                ProgressHUD.dismiss()
+                self?.isProcessingPurchase = false
+                self?.finishAllPage()
+            }
+        } fail: { [weak self] error in
+            DispatchQueue.main.async {
+                ProgressHUD.dismiss()
+                self?.isProcessingPurchase = false
+                self?.showOneAlert(message: error)
+            }
+        }
+    }
+
+    func welcomePurchaseDidAllBenefit(cell: WelcomePaywallViewCell) {
+        guard !isProcessingPurchase, !isFinishing else { return }
+        AppStoreKitManager.presentPurcharseVC(self, animated: true, success: { [weak self] in
+            self?.finishAllPage()
+        })
+    }
+}
+
+extension StoreProduct {
+    var onboardingTrialDays: Int? {
+        guard let offer = introductoryDiscount, offer.paymentMode == .freeTrial else { return nil }
+        let unit: Calendar.Component
+        switch offer.subscriptionPeriod.unit {
+        case .day: unit = .day
+        case .week: unit = .weekOfYear
+        case .month: unit = .month
+        case .year: unit = .year
+        @unknown default: return nil
+        }
+        return WelcomeTrialDuration.days(value: offer.subscriptionPeriod.value,
+                                         periods: offer.numberOfPeriods, unit: unit)
+    }
 }

@@ -79,26 +79,6 @@ class HomeTabbarViewController: UITabBarController {
             }
             make.height.equalTo(toolbarView.bounds.height)
         }
-        
-        self.view.addSubview(floatingView)
-        floatingView.snp.makeConstraints { make in
-            make.trailing.equalToSuperview().offset(-20.ckValue())
-            if kaka_IsiPhone() {
-                make.bottom.equalTo(self.tabBar.snp.top).offset(-10.ckValue())
-            }else{
-                make.bottom.equalToSuperview().offset(-app_tabbarHeight-10.ckValue())
-            }
-            make.size.equalTo(floatingView.fullSize)
-        }
-    }
-    
-    override func viewWillTransition(to size: CGSize, with coordinator: any UIViewControllerTransitionCoordinator) {
-        super.viewWillTransition(to: size, with: coordinator)
-        coordinator.animate { context in
-            
-        } completion: { [weak self] context in
-            self?.floatingView.correctLocation()
-        }
     }
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
@@ -156,10 +136,4 @@ class HomeTabbarViewController: UITabBarController {
         return view
     }()
     
-    lazy var floatingView: PlayerControlFloatView = {
-        let view = PlayerControlFloatView(frame: .zero)
-        view.toolDelegate = self
-        return view
-    }()
-        
 }

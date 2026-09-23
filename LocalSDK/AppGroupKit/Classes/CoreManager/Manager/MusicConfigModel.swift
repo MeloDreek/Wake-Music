@@ -7,12 +7,6 @@
 
 import SmartCodable
 
-/// 迷你播放器
-public enum MiniPlayerStyle: Int, SmartCaseDefaultable {
-    case toolbarUI = 0
-    case floatUI = 1
-}
-
 /// 屏幕歌词顺序
 public enum LyricSortStyle: Int, SmartCaseDefaultable {
     case dontShow = 0

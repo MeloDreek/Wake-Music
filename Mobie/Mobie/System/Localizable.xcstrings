@@ -1,6 +1,1038 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "Onboarding.Connect.Body": {
+      "comment": "Welcome onboarding. Feature/premium presentation.",
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "اربط وحدات التخزين السحابي وخوادم NAS. موسيقاك معك أينما كنت."
+          }
+        },
+        "ca": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Connecta els teus espais al núvol i servidors NAS. La teva música, siguis on siguis."
+          }
+        },
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Připojte cloudová úložiště a servery NAS. Vaše hudba, ať jste kdekoli."
+          }
+        },
+        "da": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tilslut dit cloudlager og dine NAS-servere. Din musik, hvor du end er."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Verbinde Cloud-Speicher und NAS-Server. Deine Musik, wo immer du bist."
+          }
+        },
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Συνδέστε χώρους cloud και διακομιστές NAS. Η μουσική σας, όπου κι αν είστε."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Connect your cloud drives and NAS servers. Your music, wherever you are."
+          }
+        },
+        "en-AU": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Connect your cloud drives and NAS servers. Your music, wherever you are."
+          }
+        },
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Connect your cloud drives and NAS servers. Your music, wherever you are."
+          }
+        },
+        "en-IN": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Connect your cloud drives and NAS servers. Your music, wherever you are."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Conecta tus unidades en la nube y servidores NAS. Tu música, estés donde estés."
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Conecta tus unidades en la nube y servidores NAS. Tu música, estés donde estés."
+          }
+        },
+        "es-US": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Conecta tus unidades en la nube y servidores NAS. Tu música, estés donde estés."
+          }
+        },
+        "fi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Yhdistä pilvitallennustilasi ja NAS-palvelimesi. Musiikkisi kulkee mukanasi."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Connectez vos espaces cloud et serveurs NAS. Votre musique, où que vous soyez."
+          }
+        },
+        "fr-CA": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Connectez vos espaces cloud et serveurs NAS. Votre musique, où que vous soyez."
+          }
+        },
+        "he": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "חברו כונני ענן ושרתי NAS. המוזיקה שלכם, בכל מקום."
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "अपने क्लाउड ड्राइव और NAS सर्वर जोड़ें। आपका संगीत, जहाँ भी आप हों।"
+          }
+        },
+        "hr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Povežite pohranu u oblaku i NAS poslužitelje. Vaša glazba, gdje god bili."
+          }
+        },
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Csatlakoztasd felhőtárhelyeidet és NAS-szervereidet. A zenéd, bárhol is vagy."
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hubungkan penyimpanan cloud dan server NAS Anda. Musik Anda, di mana pun Anda berada."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Collega cloud e server NAS. La tua musica, ovunque tu sia."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "クラウドストレージや NAS に接続。好きな音楽を、どこにいても。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "클라우드 드라이브와 NAS에 연결하세요. 어디서든 자유롭게 음악을 즐기세요."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sambungkan storan awan dan pelayan NAS anda. Muzik anda, di mana-mana sahaja."
+          }
+        },
+        "nb": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Koble til skylagring og NAS-servere. Musikken din, uansett hvor du er."
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Verbind je cloudopslag en NAS-servers. Je muziek, waar je ook bent."
+          }
+        },
+        "pl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Połącz dyski w chmurze i serwery NAS. Twoja muzyka, gdziekolwiek jesteś."
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Conecte suas nuvens e servidores NAS. Sua música, onde você estiver."
+          }
+        },
+        "pt-PT": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ligue os seus serviços de nuvem e servidores NAS. A sua música, onde quer que esteja."
+          }
+        },
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Conectează spațiile cloud și serverele NAS. Muzica ta, oriunde te-ai afla."
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Подключайте облачные диски и NAS-серверы. Ваша музыка — где бы вы ни были."
+          }
+        },
+        "sk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pripojte cloudové úložiská a servery NAS. Vaša hudba, nech ste kdekoľvek."
+          }
+        },
+        "sl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Povežite shrambe v oblaku in strežnike NAS. Vaša glasba, kjer koli ste."
+          }
+        },
+        "sv": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Anslut molnlagring och NAS-servrar. Din musik, var du än är."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เชื่อมต่อคลาวด์ไดรฟ์และเซิร์ฟเวอร์ NAS ฟังเพลงของคุณได้อย่างอิสระทุกที่"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bulut sürücülerinizi ve NAS sunucularınızı bağlayın. Müziğiniz, nerede olursanız olun yanınızda."
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Підключайте хмарні диски та NAS-сервери. Ваша музика — де б ви не були."
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kết nối ổ đĩa đám mây và máy chủ NAS. Âm nhạc của bạn, ở bất cứ đâu."
+          }
+        },
+        "zh-HK": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "連接雲端硬碟與 NAS 伺服器，自由聽歌，就是這麼簡單。"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "连接网盘与 NAS 服务器，听歌自由，就是这么简单。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "連接雲端硬碟與 NAS 伺服器，自由聽歌，就是這麼簡單。"
+          }
+        }
+      }
+    },
+    "Onboarding.Equalizer.Body": {
+      "comment": "Welcome onboarding. Feature/premium presentation.",
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "محرك صوت يدعم جميع الصيغ، ومعادل صوت بعشرة نطاقات. اضبط الصوت على ذوقك."
+          }
+        },
+        "ca": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Un motor d’àudio multiformat i un equalitzador de 10 bandes. El so a la teva mida."
+          }
+        },
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zvukový engine pro všechny formáty a 10pásmový ekvalizér. Zvuk podle vás."
+          }
+        },
+        "da": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "En lydmotor til alle formater og en 10-bånds equalizer. Lyd på din måde."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Eine Audio-Engine für alle Formate. Ein 10-Band-Equalizer. Dein persönlicher Klang."
+          }
+        },
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Μηχανή ήχου για όλες τις μορφές και ισοσταθμιστής 10 ζωνών. Ήχος στα μέτρα σας."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "An all-format audio engine. A 10-band equalizer. Sound shaped around you."
+          }
+        },
+        "en-AU": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "An all-format audio engine. A 10-band equalizer. Sound shaped around you."
+          }
+        },
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "An all-format audio engine. A 10-band equalizer. Sound shaped around you."
+          }
+        },
+        "en-IN": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "An all-format audio engine. A 10-band equalizer. Sound shaped around you."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Un motor de audio multiformato y un ecualizador de 10 bandas. El sonido, a tu medida."
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Un motor de audio multiformato y un ecualizador de 10 bandas. El sonido, a tu medida."
+          }
+        },
+        "es-US": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Un motor de audio multiformato y un ecualizador de 10 bandas. El sonido, a tu medida."
+          }
+        },
+        "fi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kaikkia formaatteja tukeva äänimoottori ja 10-kaistainen taajuuskorjain. Sinun näköisesi ääni."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Un moteur audio multiformat et un égaliseur à 10 bandes. Un son à votre image."
+          }
+        },
+        "fr-CA": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Un moteur audio multiformat et un égaliseur à 10 bandes. Un son à votre image."
+          }
+        },
+        "he": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "מנוע שמע לכל הפורמטים ואקולייזר עם 10 תחומים. צליל שמתאים לכם."
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "सभी फ़ॉर्मैट के लिए ऑडियो इंजन और 10-बैंड इक्वलाइज़र। आवाज़, आपकी पसंद की।"
+          }
+        },
+        "hr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zvučni sustav za sve formate i 10-pojasni ekvilizator. Zvuk po vašoj mjeri."
+          }
+        },
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Minden formátumot támogató hangmotor és 10 sávos hangszínszabályzó. Hangzás a te ízlésed szerint."
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mesin audio untuk semua format dan equalizer 10 band. Suara sesuai selera Anda."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Un motore audio multiformato e un equalizzatore a 10 bande. Il suono, come piace a te."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "全形式対応の音声エンジンと10バンドイコライザーで、あなた好みの音に。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "모든 형식을 지원하는 오디오 엔진과 10밴드 이퀄라이저로 나만의 사운드를 완성하세요."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Enjin audio untuk semua format dan penyama 10 jalur. Bunyi mengikut cita rasa anda."
+          }
+        },
+        "nb": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "En lydmotor for alle formater og en 10-bånds equalizer. Lyd slik du liker den."
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Een audio-engine voor alle formaten en een 10-bands equalizer. Geluid zoals jij het wilt."
+          }
+        },
+        "pl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Silnik audio obsługujący wszystkie formaty i 10-pasmowy korektor. Dźwięk dopasowany do Ciebie."
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Um mecanismo de áudio multiformato e um equalizador de 10 bandas. O som do seu jeito."
+          }
+        },
+        "pt-PT": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Um motor de áudio multiformato e um equalizador de 10 bandas. O som à sua medida."
+          }
+        },
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Un motor audio pentru toate formatele și un egalizator cu 10 benzi. Sunet pe gustul tău."
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Аудиодвижок для всех форматов и 10-полосный эквалайзер. Настройте звук под себя."
+          }
+        },
+        "sk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zvukový engine pre všetky formáty a 10-pásmový ekvalizér. Zvuk podľa vás."
+          }
+        },
+        "sl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zvočni pogon za vse formate in 10-pasovni izenačevalnik. Zvok po vaši meri."
+          }
+        },
+        "sv": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "En ljudmotor för alla format och en 10-bands equalizer. Ljud på ditt sätt."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เอนจินเสียงที่รองรับทุกฟอร์แมต พร้อมอีควอไลเซอร์ 10 แบนด์ ปรับเสียงในแบบที่คุณชอบ"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tüm formatları destekleyen ses motoru ve 10 bantlı ekolayzer. Zevkinize göre ses."
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Аудіорушій для всіх форматів і 10-смуговий еквалайзер. Налаштуйте звук під себе."
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bộ máy âm thanh đa định dạng và bộ cân bằng 10 băng tần. Âm thanh theo cách của bạn."
+          }
+        },
+        "zh-HK": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "全格式音訊引擎，配搭 10 段等化器，調出您的專屬好聲音。"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "全格式音频引擎，搭配 10 段均衡器，调出您的专属好声音。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "全格式音訊引擎，搭配 10 段等化器，調出您的專屬好聲音。"
+          }
+        }
+      }
+    },
+    "Onboarding.Fingerprint.Body": {
+      "comment": "Welcome onboarding. Feature/premium presentation.",
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "تعرّف على أغانيك وضمّن بياناتها الوصفية في الملفات. ابنِ مجموعة تستمتع بها دون إنترنت وتحتفظ بها لسنوات."
+          }
+        },
+        "ca": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Identifica les cançons i integra’n les metadades als fitxers. Crea una col·lecció sense connexió que perduri."
+          }
+        },
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rozpoznávejte skladby a vkládejte metadata do souborů. Vytvořte si offline sbírku na dlouhá léta."
+          }
+        },
+        "da": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Genkend sange, og indlejr metadata i filerne. Skab en offlinesamling, der holder."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Erkenne Songs und bette ihre Metadaten ein. Für eine Offline-Sammlung, die bleibt."
+          }
+        },
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Αναγνωρίστε τραγούδια και ενσωματώστε τα μεταδεδομένα στα αρχεία. Δημιουργήστε μια συλλογή εκτός σύνδεσης που διαρκεί."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Identify your songs and embed their metadata. Build an offline collection that lasts."
+          }
+        },
+        "en-AU": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Identify your songs and embed their metadata. Build an offline collection that lasts."
+          }
+        },
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Identify your songs and embed their metadata. Build an offline collection that lasts."
+          }
+        },
+        "en-IN": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Identify your songs and embed their metadata. Build an offline collection that lasts."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Identifica tus canciones e integra sus metadatos en los archivos. Crea una colección sin conexión que perdure."
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Identifica tus canciones e integra sus metadatos en los archivos. Crea una colección sin conexión que perdure."
+          }
+        },
+        "es-US": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Identifica tus canciones e integra sus metadatos en los archivos. Crea una colección sin conexión que perdure."
+          }
+        },
+        "fi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tunnista kappaleet ja tallenna metatiedot tiedostoihin. Rakenna offline-kokoelma, joka kestää aikaa."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Identifiez vos morceaux et intégrez leurs métadonnées aux fichiers. Une collection hors ligne à garder longtemps."
+          }
+        },
+        "fr-CA": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Identifiez vos morceaux et intégrez leurs métadonnées aux fichiers. Une collection hors ligne à garder longtemps."
+          }
+        },
+        "he": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "זהו שירים והטמיעו את המטא־נתונים בקבצים. בנו אוסף להאזנה ללא חיבור שיישאר איתכם."
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "गाने पहचानें और उनका मेटाडेटा फ़ाइलों में सहेजें। एक ऐसा ऑफ़लाइन संग्रह बनाएँ जो हमेशा साथ रहे।"
+          }
+        },
+        "hr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Prepoznajte pjesme i ugradite metapodatke u datoteke. Izgradite trajnu izvanmrežnu zbirku."
+          }
+        },
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Azonosítsd a dalokat, és ágyazd be metaadataikat a fájlokba. Építs maradandó offline gyűjteményt."
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kenali lagu dan sematkan metadatanya ke dalam file. Bangun koleksi offline yang tahan lama."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Identifica i brani e incorpora i metadati nei file. Crea una raccolta offline da conservare nel tempo."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "曲を識別し、メタデータをファイルに保存。ずっと大切にできるオフラインコレクションへ。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "곡을 식별하고 메타데이터를 파일에 저장하세요. 오래 간직할 오프라인 컬렉션을 만들어 보세요."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kenal pasti lagu dan benamkan metadatanya dalam fail. Bina koleksi luar talian untuk disimpan lama."
+          }
+        },
+        "nb": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gjenkjenn sanger og bygg inn metadata i filene. Lag en frakoblet samling som varer."
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Herken nummers en sla metadata op in de bestanden. Bouw een offline collectie die blijft."
+          }
+        },
+        "pl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rozpoznawaj utwory i zapisuj metadane w plikach. Stwórz kolekcję offline na lata."
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Identifique músicas e incorpore os metadados aos arquivos. Crie uma coleção offline para guardar por muito tempo."
+          }
+        },
+        "pt-PT": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Identifique músicas e incorpore os metadados nos ficheiros. Crie uma coleção offline para guardar ao longo do tempo."
+          }
+        },
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Identifică melodiile și încorporează metadatele în fișiere. Creează o colecție offline de păstrat în timp."
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Распознавайте песни и встраивайте метаданные в файлы. Создайте офлайн-коллекцию на долгие годы."
+          }
+        },
+        "sk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rozpoznávajte skladby a vkladajte metadáta do súborov. Vytvorte si offline zbierku na dlhé roky."
+          }
+        },
+        "sl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Prepoznajte skladbe in vdelajte metapodatke v datoteke. Ustvarite trajno zbirko za poslušanje brez povezave."
+          }
+        },
+        "sv": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Identifiera låtar och bädda in metadata i filerna. Bygg en offlinesamling som håller."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ระบุเพลงและฝังข้อมูลเมตาลงในไฟล์ สร้างคลังเพลงออฟไลน์ที่เก็บไว้ได้ยาวนาน"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Şarkıları tanıyın ve meta verilerini dosyalara gömün. Kalıcı bir çevrimdışı koleksiyon oluşturun."
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Розпізнавайте пісні та вбудовуйте метадані у файли. Створіть офлайн-колекцію на довгі роки."
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nhận diện bài hát và nhúng siêu dữ liệu vào tệp. Xây dựng bộ sưu tập ngoại tuyến để lưu giữ lâu dài."
+          }
+        },
+        "zh-HK": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "辨識歌曲並將中繼資料永久寫入檔案，讓離線收藏歷久常新。"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "识别歌曲并将元数据永久写入文件，让离线收藏历久弥新。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "辨識歌曲並將中繼資料永久寫入檔案，讓離線收藏歷久彌新。"
+          }
+        }
+      }
+    },
+    "Onboarding.Trial.Terms": {
+      "comment": "Welcome onboarding. Actual eligible trial days and localized monthly price; %d then %@.",
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "تجربة مجانية لمدة %d يومًا، ثم %@ شهريًا. تجديد تلقائي، ويمكنك الإلغاء في أي وقت."
+          }
+        },
+        "ca": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%d dies gratis; després, %@ al mes. Renovació automàtica. Cancel·la quan vulguis."
+          }
+        },
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%d dní zdarma, poté %@ měsíčně. Automatické obnovení. Zrušte kdykoli."
+          }
+        },
+        "da": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%d dage gratis, derefter %@ pr. måned. Fornyes automatisk. Opsig når som helst."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%d Tage kostenlos, danach %@ pro Monat. Automatische Verlängerung. Jederzeit kündbar."
+          }
+        },
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%d ημέρες δωρεάν, μετά %@ τον μήνα. Αυτόματη ανανέωση. Ακύρωση ανά πάσα στιγμή."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%d days free, then %@ per month. Auto-renews. Cancel anytime."
+          }
+        },
+        "en-AU": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%d days free, then %@ per month. Auto-renews. Cancel anytime."
+          }
+        },
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%d days free, then %@ per month. Auto-renews. Cancel anytime."
+          }
+        },
+        "en-IN": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%d days free, then %@ per month. Auto-renews. Cancel anytime."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%d días gratis; después, %@ al mes. Renovación automática. Cancela cuando quieras."
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%d días gratis; después, %@ al mes. Renovación automática. Cancela cuando quieras."
+          }
+        },
+        "es-US": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%d días gratis; después, %@ al mes. Renovación automática. Cancela cuando quieras."
+          }
+        },
+        "fi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%d päivää maksutta, sitten %@ kuukaudessa. Uusiutuu automaattisesti. Peru milloin vain."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%d jours gratuits, puis %@ par mois. Renouvellement automatique. Annulation à tout moment."
+          }
+        },
+        "fr-CA": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%d jours gratuits, puis %@ par mois. Renouvellement automatique. Annulation à tout moment."
+          }
+        },
+        "he": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%d ימים בחינם, ואז %@ לחודש. חידוש אוטומטי. אפשר לבטל בכל עת."
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%d दिन मुफ़्त, फिर %@ प्रति माह। अपने आप नवीनीकरण होगा। कभी भी रद्द करें।"
+          }
+        },
+        "hr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%d dana besplatno, zatim %@ mjesečno. Automatska obnova. Otkažite kad god želite."
+          }
+        },
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%d nap ingyen, utána %@ havonta. Automatikusan megújul. Bármikor lemondható."
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gratis %d hari, lalu %@ per bulan. Diperpanjang otomatis. Batalkan kapan saja."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%d giorni gratis, poi %@ al mese. Rinnovo automatico. Annulla quando vuoi."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%d日間無料、その後は月額%@。自動更新、いつでも解約できます。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%d일 무료 체험 후 월 %@. 자동 갱신되며 언제든지 해지할 수 있습니다."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Percuma %d hari, kemudian %@ sebulan. Diperbaharui secara automatik. Batalkan bila-bila masa."
+          }
+        },
+        "nb": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%d dager gratis, deretter %@ per måned. Fornyes automatisk. Avslutt når som helst."
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%d dagen gratis, daarna %@ per maand. Automatische verlenging. Altijd opzegbaar."
+          }
+        },
+        "pl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%d dni za darmo, potem %@ miesięcznie. Automatyczne odnawianie. Anuluj w dowolnej chwili."
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%d dias grátis, depois %@ por mês. Renovação automática. Cancele quando quiser."
+          }
+        },
+        "pt-PT": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%d dias grátis, depois %@ por mês. Renovação automática. Cancele quando quiser."
+          }
+        },
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%d zile gratuit, apoi %@ pe lună. Reînnoire automată. Anulează oricând."
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Бесплатно %d дн., затем %@ в месяц. Автопродление. Отмена в любое время."
+          }
+        },
+        "sk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%d dní zadarmo, potom %@ mesačne. Automatické obnovenie. Zrušte kedykoľvek."
+          }
+        },
+        "sl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%d dni brezplačno, nato %@ na mesec. Samodejno podaljšanje. Prekličite kadar koli."
+          }
+        },
+        "sv": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%d dagar gratis, sedan %@ per månad. Förnyas automatiskt. Avsluta när du vill."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ฟรี %d วัน จากนั้น %@ ต่อเดือน ต่ออายุอัตโนมัติ ยกเลิกได้ทุกเมื่อ"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%d gün ücretsiz, ardından ayda %@. Otomatik yenilenir. İstediğiniz zaman iptal edebilirsiniz."
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Безкоштовно %d дн., потім %@ на місяць. Автопоновлення. Скасування будь-коли."
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Miễn phí %d ngày, sau đó %@ mỗi tháng. Tự động gia hạn. Hủy bất cứ lúc nào."
+          }
+        },
+        "zh-HK": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "免費試用 %d 天，之後每月 %@。自動續訂，可隨時取消。"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "免费试用 %d 天，之后每月 %@。自动续费，可随时取消。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "免費試用 %d 天，之後每月 %@。自動續訂，可隨時取消。"
+          }
+        }
+      }
+    },
     "MusicServer.Downloads.Pause" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -22092,257 +23124,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "藍調"
-          }
-        }
-      }
-    },
-    "Bottom Toolbar" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "شريط الأدوات السفلي"
-          }
-        },
-        "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Barra d’eines inferior"
-          }
-        },
-        "cs" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Dolní panel nástrojů"
-          }
-        },
-        "da" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Nederste værktøjslinje"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Untere Symbolleiste"
-          }
-        },
-        "el" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Κάτω γραμμή εργαλείων"
-          }
-        },
-        "en-AU" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Bottom Toolbar"
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Bottom Toolbar"
-          }
-        },
-        "en-IN" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Bottom Toolbar"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Barra de herramientas inferior"
-          }
-        },
-        "es-419" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Barra de herramientas inferior"
-          }
-        },
-        "es-US" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Barra de herramientas inferior"
-          }
-        },
-        "fi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Alatyökalupalkki"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Barre d’outils inférieure"
-          }
-        },
-        "fr-CA" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Barre d'outils inférieure"
-          }
-        },
-        "he" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "סרגל כלים תחתון"
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "निचला टूलबार"
-          }
-        },
-        "hr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Donja alatna traka"
-          }
-        },
-        "hu" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Alsó eszköztár"
-          }
-        },
-        "id" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Bilah Alat Bawah"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Barra degli strumenti inferiore"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "下部ツールバー"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "하단 툴바"
-          }
-        },
-        "ms" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Bar Alat Bawah"
-          }
-        },
-        "nb" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Nederste verktøylinje"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Onderste werkbalk"
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Dolny pasek narzędzi"
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Barra de ferramentas inferior"
-          }
-        },
-        "pt-PT" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Barra de ferramentas inferior"
-          }
-        },
-        "ro" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Bară de instrumente inferioară"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Нижняя панель инструментов"
-          }
-        },
-        "sk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Dolný panel nástrojov"
-          }
-        },
-        "sl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Spodnja orodna vrstica"
-          }
-        },
-        "sv" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Nedre verktygsfält"
-          }
-        },
-        "th" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "แถบเครื่องมือด้านล่าง"
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Alt Araç Çubuğu"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Нижня панель інструментів"
-          }
-        },
-        "vi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Thanh công cụ dưới cùng"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "底部工具栏"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "底部工具列"
-          }
-        },
-        "zh-HK" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "底部工具列"
           }
         }
       }
@@ -76389,263 +77170,6 @@
         }
       }
     },
-    "Identify songs instantly via advanced audio fingerprinting. Embed metadata permanently into your tracks." : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "تعرّف على الأغاني فورًا باستخدام البصمة الصوتية، واحفظ بياناتها الوصفية بشكل دائم داخل ملفات الموسيقى."
-          }
-        },
-        "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Identifica cançons a través de l'empremta digital d'àudio. Insereix les metadades a les pistes per sempre."
-          }
-        },
-        "cs" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Identifikujte skladby pomocí akustického otisku. Trvale vložte metadata přímo do zvukových stop."
-          }
-        },
-        "da" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Identificer sange via avanceret akustisk fingeraftryk. Integrer metadata permanent i dine numre."
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Songs per Audio-Fingerprint präzise erkennen. Metadaten dauerhaft in Tracks einbetten."
-          }
-        },
-        "el" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Αναγνωρίστε τραγούδια μέσω ακουστικού αποτυπώματος. Ενσωματώστε μόνιμα τα μεταδεδομένα."
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Identify songs with audio fingerprinting and save their metadata directly to your music files."
-          }
-        },
-        "en-AU" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Identify songs with audio fingerprinting and save their metadata directly to your music files."
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Identify songs with audio fingerprinting and save their metadata directly to your music files."
-          }
-        },
-        "en-IN" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Identify songs with audio fingerprinting and save their metadata directly to your music files."
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Identifica canciones mediante huella digital de audio. Incrusta metadatos de forma permanente."
-          }
-        },
-        "es-419" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Identifica canciones mediante huella digital de audio. Incrusta metadatos de forma permanente."
-          }
-        },
-        "es-US" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Identifica canciones mediante huella digital de audio. Incrusta metadatos de forma permanente."
-          }
-        },
-        "fi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tunnista kappaleet äänisormenjäljen avulla. Upota metatiedot pysyvästi ääniraitoihin."
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Identifiez les titres via l'empreinte acoustique. Intégrez les métadonnées de façon permanente."
-          }
-        },
-        "fr-CA" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Identifiez les titres via l'empreinte acoustique. Intégrez les métadonnées de façon permanente."
-          }
-        },
-        "he" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "זהה שירים באמצעות טביעת אצבע קולית מתקדמת. הטמע מטא-נתונים לצמיתות ברצועות השמע שלך."
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "एडवांस्ड ऑडियो फिंगरप्रिंटिंग से गानों को पहचानें। मेटाडेटा को हमेशा के लिए अपने ट्रैक्स में एम्बेड करें।"
-          }
-        },
-        "hr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Prepoznajte pjesme putem naprednog akustičnog otiska. Trajno ugradite metapodatke u svoje zapise."
-          }
-        },
-        "hu" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Azonosítsa a dalokat hanglenyomat alapján. Ágyazza be a metaadatokat véglegesen a hangsávokba."
-          }
-        },
-        "id" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Identifikasi lagu via sidik jari audio tingkat lanjut. Sematkan metadata secara permanen di trek Anda."
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Identifica i brani tramite l'impronta acustica. Incorpora i metadati in modo permanente nelle tracce."
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "高度なオーディオ指紋技術で楽曲を特定。メタデータを音源に永久保存し、理想のライブラリへ"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "고급 오디오 핑거프린팅 기술로 곡을 정밀 식별합니다. 메타데이터를 음원에 영구 삽입해 보세요."
-          }
-        },
-        "ms" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Kenal pasti lagu dengan pantas melalui teknologi cap jari audio. Benamkan metadata secara kekal ke dalam fail muzik anda."
-          }
-        },
-        "nb" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Gjenkjenn sanger raskt med avansert lydfingeravtrykk. Lagre metadata permanent i musikkfilene."
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Identificeer nummers via geavanceerde audio-fingerprinting. Sluit metadata permanent in je tracks in."
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Identyfikuj utwory dzięki cyfrowemu odciskowi audio. Trwale osadzaj metadane w swoich ścieżkach."
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Identifique músicas por impressão digital de áudio. Insira metadados permanentemente em suas faixas."
-          }
-        },
-        "pt-PT" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Identifique músicas por impressão digital de áudio. Insira metadados permanentemente nas suas faixas."
-          }
-        },
-        "ro" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Identifică melodii prin amprentă audio avansată. Inserează metadate permanent în piesele tale."
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Мгновенно распознавайте треки по аудиоотпечатку и сохраняйте метаданные прямо в музыкальных файлах."
-          }
-        },
-        "sk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Identifikujte skladby pomocou akustického odtlačku. Trvale vložte metadáta priamo do zvukových stôp."
-          }
-        },
-        "sl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Takoj prepoznajte pesmi z naprednim zvočnim prstnim odtisom. Trajno vdelajte metapodatke v svoje skladbe."
-          }
-        },
-        "sv" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Identifiera låtar via avancerat akustiskt fingeravtryck. Bädda in metadata permanent i dina spår."
-          }
-        },
-        "th" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ระบุตัวตนของเพลงด้วยเทคโนโลยีลายนิ้วมือเสียงขั้นสูง ฝังเมทาดาตาลงในแทร็กอย่างถาวรเพื่อคลังเพลงที่สมบูรณ์แบบ"
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Gelişmiş ses parmak iziyle şarkıları tanıyın. Meta verileri parçalarınıza kalıcı olarak gömün."
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Миттєво розпізнавайте треки за аудіовідбитком і зберігайте метадані безпосередньо в музичних файлах."
-          }
-        },
-        "vi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Nhận diện bài hát qua dấu vân tay âm thanh tiên tiến. Nhúng siêu dữ liệu vĩnh viễn vào track nhạc."
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "通过音频指纹识别歌曲，将匹配的信息直接写入音乐文件。"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "透過音訊指紋辨識歌曲，將配對的資訊直接寫入音樂檔案。"
-          }
-        },
-        "zh-HK" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "透過音訊指紋識別歌曲，將配對的資料直接寫入音樂檔案。"
-          }
-        }
-      }
-    },
     "If you think we are not bad, please give us a 5 star rating or recommend it to your friends. Thank you for your support!" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -79710,257 +80234,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "僅限 iOS"
-          }
-        }
-      }
-    },
-    "iPod Style" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "نمط iPod"
-          }
-        },
-        "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Estil iPod"
-          }
-        },
-        "cs" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Styl iPodu"
-          }
-        },
-        "da" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "iPod-stil"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "iPod-Stil"
-          }
-        },
-        "el" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Στυλ iPod"
-          }
-        },
-        "en-AU" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "iPod Style"
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "iPod Style"
-          }
-        },
-        "en-IN" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "iPod Style"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Estilo iPod"
-          }
-        },
-        "es-419" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Estilo iPod"
-          }
-        },
-        "es-US" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Estilo iPod"
-          }
-        },
-        "fi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "iPod-tyyli"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Style iPod"
-          }
-        },
-        "fr-CA" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Style iPod"
-          }
-        },
-        "he" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "סגנון iPod"
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "iPod स्टाइल"
-          }
-        },
-        "hr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Stil iPoda"
-          }
-        },
-        "hu" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "iPod-stílus"
-          }
-        },
-        "id" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Gaya iPod"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Stile iPod"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "iPodスタイル"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "iPod 스타일"
-          }
-        },
-        "ms" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Gaya iPod"
-          }
-        },
-        "nb" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "iPod-stil"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "iPod-stijl"
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Styl iPod"
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Estilo iPod"
-          }
-        },
-        "pt-PT" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Estilo iPod"
-          }
-        },
-        "ro" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Stil iPod"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Стиль iPod"
-          }
-        },
-        "sk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Štýl iPod"
-          }
-        },
-        "sl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Slog iPod"
-          }
-        },
-        "sv" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "iPod-stil"
-          }
-        },
-        "th" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "สไตล์ iPod"
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "iPod Stili"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Стиль iPod"
-          }
-        },
-        "vi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Kiểu iPod"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "iPod 样式"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "iPod 樣式"
-          }
-        },
-        "zh-HK" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "iPod 風格"
           }
         }
       }
@@ -125294,257 +125567,6 @@
         }
       }
     },
-    "Please tap the red button" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "يرجى النقر على الزر الأحمر"
-          }
-        },
-        "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Per favor, prem el botó vermell"
-          }
-        },
-        "cs" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Prosím, klepněte na červené tlačítko"
-          }
-        },
-        "da" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tryk venligst på den røde knap"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Bitte tippen Sie auf den roten Button"
-          }
-        },
-        "el" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Παρακαλώ, πατήστε το κόκκινο κουμπί"
-          }
-        },
-        "en-AU" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Please tap the red button"
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Please tap the red button"
-          }
-        },
-        "en-IN" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Please tap the red button"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Por favor, pulsa el botón rojo"
-          }
-        },
-        "es-419" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Por favor, toca el botón rojo"
-          }
-        },
-        "es-US" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Por favor, toca el botón rojo"
-          }
-        },
-        "fi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Napauta punaista painiketta, kiitos"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Veuillez appuyer sur le bouton rouge"
-          }
-        },
-        "fr-CA" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Veuillez appuyer sur le bouton rouge"
-          }
-        },
-        "he" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "אנא לחץ על הכפתור האדום"
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "कृपया लाल बटन दबाएं"
-          }
-        },
-        "hr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Molim vas, dodirnite crveni gumb"
-          }
-        },
-        "hu" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Kérjük, koppintson a piros gombra"
-          }
-        },
-        "id" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Silakan ketuk tombol merah"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Per favore, tocca il pulsante rosso"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "赤いボタンをタップしてください"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "빨간색 버튼을 탭해 주세요"
-          }
-        },
-        "ms" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sila ketuk butang merah"
-          }
-        },
-        "nb" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Vennligst trykk på den røde knappen"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tik alstublieft op de rode knop"
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Proszę dotknąć czerwonego przycisku"
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Por favor, toque no botão vermelho"
-          }
-        },
-        "pt-PT" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Por favor, toque no botão vermelho"
-          }
-        },
-        "ro" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Te rog, atinge butonul roșu"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Пожалуйста, нажмите на красную кнопку"
-          }
-        },
-        "sk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Prosím, klepnite na červené tlačidlo"
-          }
-        },
-        "sl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Prosim, tapnite na rdeč gumb"
-          }
-        },
-        "sv" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tryck vänligen på den röda knappen"
-          }
-        },
-        "th" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "กรุณาแตะปุ่มสีแดง"
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Lütfen kırmızı butona dokunun"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Будь ласка, натисніть на червону кнопку"
-          }
-        },
-        "vi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Vui lòng chạm vào nút màu đỏ"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "请点击红色按钮"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "請點擊紅色按鈕"
-          }
-        },
-        "zh-HK" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "請點擊紅色按鈕"
-          }
-        }
-      }
-    },
     "Please Try switching networks or turning off the VPN (if it's turned on)" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -156336,257 +156358,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "找不到 SMB 共享資料夾或檔案。請填寫共享名稱，而非 Mac 上的檔案路徑。"
-          }
-        }
-      }
-    },
-    "Snap to Screen Edges" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "الالتصاق بحواف الشاشة"
-          }
-        },
-        "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ajusta’t a les vores de la pantalla"
-          }
-        },
-        "cs" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Přichytit k okrajům obrazovky"
-          }
-        },
-        "da" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Fastgør til skærmens kanter"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "An Bildschirmrändern einrasten"
-          }
-        },
-        "el" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Προσκόλληση στις άκρες της οθόνης"
-          }
-        },
-        "en-AU" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Snap to Screen Edges"
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Snap to Screen Edges"
-          }
-        },
-        "en-IN" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Snap to Screen Edges"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ajustar a los bordes de la pantalla"
-          }
-        },
-        "es-419" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ajustar a los bordes de la pantalla"
-          }
-        },
-        "es-US" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ajustar a los bordes de la pantalla"
-          }
-        },
-        "fi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Kiinnitä näytön reunoihin"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Accrocher aux bords de l’écran"
-          }
-        },
-        "fr-CA" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Accrocher aux bords de l’écran"
-          }
-        },
-        "he" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "הצמדה לקצוות המסך"
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "स्क्रीन के किनारों पर स्नैप करें"
-          }
-        },
-        "hr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Prilagodi se rubovima zaslona"
-          }
-        },
-        "hu" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Igazítás a képernyő széléhez"
-          }
-        },
-        "id" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Lekatkan ke Tepi Layar"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Aggancia ai bordi dello schermo"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "画面端にスナップ"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "화면 가장자리에 맞추기"
-          }
-        },
-        "ms" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Lekapkan pada Tepi Skrin"
-          }
-        },
-        "nb" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Fest til skjermkantene"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Aan schermranden vastklikken"
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Przyciągaj do krawędzi ekranu"
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Encaixar nas bordas da tela"
-          }
-        },
-        "pt-PT" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Encaixar nas margens do ecrã"
-          }
-        },
-        "ro" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Fixare la marginile ecranului"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Прилипать к краям экрана"
-          }
-        },
-        "sk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Prichytiť k okrajom obrazovky"
-          }
-        },
-        "sl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Pripni na robove zaslona"
-          }
-        },
-        "sv" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Fäst mot skärmens kanter"
-          }
-        },
-        "th" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ดูดติดขอบหน้าจออัตโนมัติ"
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ekran Kenarlarına Yapıştır"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Прилипати до країв екрана"
-          }
-        },
-        "vi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tự động bám vào cạnh màn hình"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "自动吸附到屏幕边缘"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "自動吸附至螢幕邊緣"
-          }
-        },
-        "zh-HK" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "自動吸附至螢幕邊緣"
           }
         }
       }

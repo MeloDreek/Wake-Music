@@ -26,15 +26,18 @@ public class KakaMusicPlayer: NSObject, ObservableObject {
         super.init()
         
         let lastMusic = UserDefaults.standard.dictionary(forKey: "kLastPlayMusic")
-        self.playingMusic = MusicConfigManager.shared.lastPlayModel ?? MusicItemModel.deserialize(from: lastMusic)
-        // 旧版本的系统媒体库记录已不可用，不能把它恢复为本地文件或演示曲目。
-        if self.playingMusic?.mediaPlayURL.scheme == "ipod-library" {
-            self.playingMusic = nil
-            MusicConfigManager.shared.lastPlayModel = nil
+        let restored = MusicConfigManager.shared.lastPlayModel ?? MusicItemModel.deserialize(from: lastMusic)
+        // A missing or obsolete saved selection must still leave the mini player
+        // with an actual playable item. Do not replace a valid remote song while
+        // its stream URL is being resolved asynchronously.
+        if let restored, restored.mediaPlayURL.scheme != "ipod-library", !restored.isFolder() {
+            self.playingMusic = restored.fileSourceType == .demoFile ? MusicItemModel.demoMusicModel() : restored
+        } else {
+            let demo = MusicItemModel.demoMusicModel()
+            self.playingMusic = demo
+            MusicConfigManager.shared.lastPlayModel = demo
             MusicConfigManager.shared.lastPlayTime = 0
-        }
-        if self.playingMusic?.fileSourceType == .demoFile {
-            self.playingMusic = MusicItemModel.demoMusicModel()
+            MusicConfigManager.shared.lastTotalTime = TimeInterval(demo.durationSeconds)
         }
         UserDefaults.standard.removeObject(forKey: "kLastPlayMusic")
                 
@@ -152,7 +155,16 @@ public class KakaMusicPlayer: NSObject, ObservableObject {
                 remoteMetadataGeneration = UUID()
                 remoteMetadataAttempted = false
             }
-            guard let playingMusic = self.playingMusic else { return }
+            guard let playingMusic = self.playingMusic else {
+                // A removed connection or an obsolete queue can clear the current
+                // selection. Wait until the current mutation finishes so a song
+                // being replaced in the same turn is not overwritten by Demo.
+                DispatchQueue.main.async { [weak self] in
+                    guard let self, self.playingMusic == nil else { return }
+                    self.resetToPausedDemo(clearRemotePlaylist: false)
+                }
+                return
+            }
                         
             self.lastUpdateTime = 0
             self.cacheCoverImage = nil

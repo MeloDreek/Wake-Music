@@ -214,6 +214,10 @@ let MPNowPlayingInfoPropertyPlaybackRate = "rate"
         precondition(exitingLayer.plays == 0 && p.playingMusic?.id == "demo", "Pending server seek cannot resume on Classic")
         p.resetToPausedDemo()
         precondition(p.playingMusic?.id == "demo" && !p.wantsPlayback && p.playerView.playerLayer == nil, "Reset is idempotent and never auto-starts Demo")
+        ConnectConfigManager.shared.lastPlaylist = [b]
+        p.resetToPausedDemo(clearRemotePlaylist: false)
+        precondition(ConnectConfigManager.shared.lastPlaylist.map(\.id) == ["B"],
+                     "Unlinking the active provider must preserve remaining remote history")
         print("PASS: playback requests, pause/stop, same-track resume, stale seeks, rapid toggles, and paused Demo reset/persistence after music-server exit")
     }
 }

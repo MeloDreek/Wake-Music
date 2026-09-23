@@ -35,8 +35,6 @@ enum PlayConfigItemType {
     case playerStyle
     case playerBack
     case playAnimation
-    case miniStyle
-    case enableSide
     
     case showExtension
     case lyricStyle
@@ -58,11 +56,6 @@ enum PlayConfigItemType {
             return "Player Background".localStr()
         case .playAnimation:
             return "Play Animation".localStr()
-        case .miniStyle:
-            return "Mini Bar"
-        case .enableSide:
-            return "Snap to Screen Edges".localStr()
-            
             
         case .showExtension:
             return "Show File Extension".localStr()

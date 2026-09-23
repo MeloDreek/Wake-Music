@@ -71,12 +71,14 @@ extension KakaMusicPlayer {
     @MainActor func play() {
         self.playbackRequestID = UUID()
         
-        guard var model = self.playingMusic else { return }
+        guard var model = self.playingMusic else {
+            resetToPausedDemo(clearRemotePlaylist: false)
+            return
+        }
         // Defensive guard for old persisted current-song records and direct callers.
         guard !model.isFolder() else {
             retirePlayback()
-            playingMusic = nil
-            playbackStatus = .error
+            resetToPausedDemo(clearRemotePlaylist: false)
             return
         }
 
@@ -265,7 +267,7 @@ extension KakaMusicPlayer {
 
     /// Leaving the music-server shell is not account logout. Keep account/history
     /// data, but retire its live playback and expose the bundled demo, paused.
-    @MainActor func resetToPausedDemo() {
+    @MainActor func resetToPausedDemo(clearRemotePlaylist: Bool = true) {
         NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(prepareNextMusic), object: nil)
         retirePlayback()
         remoteMetadataTask?.cancel()
@@ -289,7 +291,9 @@ extension KakaMusicPlayer {
         musicArray = [demo]
         tempMusicArray = [demo]
         // This persistence slot stores remote queues, not bundled/local audio.
-        ConnectConfigManager.shared.lastPlaylist = []
+        if clearRemotePlaylist {
+            ConnectConfigManager.shared.lastPlaylist = []
+        }
         playingMusic = demo
         playbackStatus = .paused
         setupRemoteTransportControls()
@@ -395,11 +399,13 @@ extension KakaMusicPlayer {
         }
         
         retirePlayback()
+        guard let model else {
+            resetToPausedDemo(clearRemotePlaylist: false)
+            return
+        }
         self.playingMusic = model
         
         MusicConfigManager.shared.lastPlayTime = 0
-        
-        guard let _ = model else { return }
         
         self.play()
     }

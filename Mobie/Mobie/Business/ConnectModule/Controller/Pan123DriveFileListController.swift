@@ -504,7 +504,6 @@ extension Pan123DriveFileListController {
         if let tabbarVC = self.tabBarController as? HomeTabbarViewController {
             tabbarVC.tabBar.isHidden = true
             tabbarVC.toolbarView.isHidden = true
-            tabbarVC.floatingView.isHidden = true
             self.navigationItem.titleView = UIView()
         }
 

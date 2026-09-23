@@ -20,9 +20,9 @@
       "internalID" : "0FDFFC44",
       "localizations" : [
         {
-          "locale" : "en_US",
+          "description" : "Lifetime Premium with Family Sharing.",
           "displayName" : "Family Lifetime Premium",
-          "description" : "Lifetime Premium with Family Sharing."
+          "locale" : "en_US"
         }
       ],
       "productID" : "com.OfflineMusic.www.lifetime298",
@@ -35,9 +35,9 @@
       "internalID" : "D71159D3",
       "localizations" : [
         {
-          "locale" : "en_US",
+          "description" : "All Premium features. One-time purchase.",
           "displayName" : "Lifetime Premium",
-          "description" : "All Premium features. One-time purchase."
+          "locale" : "en_US"
         }
       ],
       "productID" : "com.OfflineMusic.www.lifetime198",
@@ -59,6 +59,9 @@
     ],
     "_timeRate" : 0
   },
+  "subscriptionBundleGroups" : [
+
+  ],
   "subscriptionGroups" : [
     {
       "id" : "95EBB2B9",
@@ -71,26 +74,48 @@
           "adHocOffers" : [
 
           ],
+          "billingPlans" : [
+            {
+              "billingPlanType" : "BILLED_UPFRONT",
+              "commitmentDisplayPrice" : "1.99",
+              "displayPrice" : "1.99",
+              "internalID" : "C68BDE4A",
+              "isEnabled" : true
+            }
+          ],
           "codeOffers" : [
 
           ],
-          "displayPrice" : "4.99",
+          "displayPrice" : "1.99",
           "familyShareable" : false,
           "groupNumber" : 1,
           "internalID" : "A84E91C2",
+          "introductoryOffer" : {
+            "billingPlanType" : "BILLED_UPFRONT",
+            "internalID" : "399BC1BD",
+            "numberOfPeriods" : 1,
+            "paymentMode" : "free",
+            "subscriptionPeriod" : "P3D"
+          },
           "introductoryOffers" : [
-
+            {
+              "billingPlanType" : "BILLED_UPFRONT",
+              "internalID" : "399BC1BD",
+              "numberOfPeriods" : 1,
+              "paymentMode" : "free",
+              "subscriptionPeriod" : "P3D"
+            }
           ],
           "localizations" : [
             {
-              "locale" : "en_US",
-              "displayName" : "Monthly Premium",
-              "description" : "All Premium features. Billed monthly."
+              "description" : "All Premium features. Billed monthly.",
+              "displayName" : "Monthly",
+              "locale" : "en_US"
             }
           ],
           "productID" : "com.OfflineMusic.www.Monthly",
           "recurringSubscriptionPeriod" : "P1M",
-          "referenceName" : "Monthly Premium",
+          "referenceName" : "Monthly",
           "subscriptionGroupID" : "95EBB2B9",
           "type" : "RecurringSubscription",
           "winbackOffers" : [
@@ -135,9 +160,9 @@
           ],
           "localizations" : [
             {
-              "locale" : "en_US",
+              "description" : "All Premium features. Billed annually.",
               "displayName" : "Annual Premium",
-              "description" : "All Premium features. Billed annually."
+              "locale" : "en_US"
             }
           ],
           "productID" : "com.OfflineMusic.www.Annual",
@@ -204,8 +229,11 @@
       ]
     }
   ],
+  "subscriptionSuiteGroups" : [
+
+  ],
   "version" : {
-    "major" : 5,
-    "minor" : 0
+    "major" : 6,
+    "minor" : 3
   }
 }

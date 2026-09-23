@@ -1,5 +1,5 @@
 //
-//  MiniPlayerStyle+Extension.swift
+//  MusicConfigStyle+Extension.swift
 //  Mobie
 //
 //  Created by 张文 on 10/29/24.
@@ -7,26 +7,6 @@
 
 import AppGroupKit
 import KSPlayer
-
-extension MiniPlayerStyle {
-    func formatStr() -> String {
-        switch self {
-        case .toolbarUI:
-            return "Bottom Toolbar".localStr()
-        case .floatUI:
-            return "iPod Style".localStr()
-        }
-    }
-    
-    func iconImage() -> UIImage? {
-        switch self {
-        case .toolbarUI:
-            return UIImage(systemName: "slider.horizontal.below.rectangle")
-        case .floatUI:
-            return UIImage(systemName: "candybarphone")
-        }
-    }
-}
 
 extension LyricSortStyle {
     func formatStr() -> String {

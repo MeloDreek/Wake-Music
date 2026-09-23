@@ -64,8 +64,6 @@
 		223E51A5302B291A00FEF1E4 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 223E51A4302B291A00FEF1E4 /* FirebaseAnalytics */; };
 		223E51A7302B291A00FEF1E4 /* FirebaseAnalyticsCore in Frameworks */ = {isa = PBXBuildFile; productRef = 223E51A6302B291A00FEF1E4 /* FirebaseAnalyticsCore */; };
 		223E51A9302B291A00FEF1E4 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 223E51A8302B291A00FEF1E4 /* FirebaseCrashlytics */; };
-		223FB4B12DFD3753003EDA2E /* WelcomeTapeBtnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223FB4B02DFD3753003EDA2E /* WelcomeTapeBtnView.swift */; };
-		223FB4B22DFD3753003EDA2E /* WelcomeTapeBtnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223FB4B02DFD3753003EDA2E /* WelcomeTapeBtnView.swift */; };
 		223FDA622E04148200079731 /* MorphingLabel in Frameworks */ = {isa = PBXBuildFile; productRef = 223FDA612E04148200079731 /* MorphingLabel */; };
 		223FDA642E0414D600079731 /* MorphingLabel in Frameworks */ = {isa = PBXBuildFile; productRef = 223FDA632E0414D600079731 /* MorphingLabel */; };
 		223FDA662E0414E800079731 /* MorphingLabel in Frameworks */ = {isa = PBXBuildFile; productRef = 223FDA652E0414E800079731 /* MorphingLabel */; };
@@ -171,7 +169,6 @@
 		225A5D902EAFB4EA009DB87E /* DropboxDriveFileListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225A5D8E2EAFB4EA009DB87E /* DropboxDriveFileListController.swift */; };
 		225B41E52E43419600EF07FE /* ResponseDrive115Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225B41E42E43419600EF07FE /* ResponseDrive115Model.swift */; };
 		225B41E62E43419600EF07FE /* ResponseDrive115Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225B41E42E43419600EF07FE /* ResponseDrive115Model.swift */; };
-		225DE65E2CCE640C00F4367E /* PlayerControlFloatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225DE65D2CCE640C00F4367E /* PlayerControlFloatView.swift */; };
 		225F57E12D85B2AB0055BDFF /* ConnectConfigManager+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B361CF2D2157BC009DC9F5 /* ConnectConfigManager+Extension.swift */; };
 		225F57E22D85B2AB0055BDFF /* PurchaseFootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13CF2CA0633400E2948E /* PurchaseFootView.swift */; };
 		225F57E52D85B2AB0055BDFF /* ImportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22569F9E2D0FD80000FB47F2 /* ImportViewController.swift */; };
@@ -188,7 +185,7 @@
 		225F57F72D85B2AB0055BDFF /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13DE2CA0633400E2948E /* UserInfoViewController.swift */; };
 		225F57F92D85B2AB0055BDFF /* FreeStreamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13BB2CA0633400E2948E /* FreeStreamViewController.swift */; };
 		225F57FA2D85B2AB0055BDFF /* MusicPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13BC2CA0633400E2948E /* MusicPlayerViewController.swift */; };
-		225F57FB2D85B2AB0055BDFF /* MiniPlayerStyle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225F88C52CD094F70093B359 /* MiniPlayerStyle+Extension.swift */; };
+		225F57FB2D85B2AB0055BDFF /* MusicConfigStyle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225F88C52CD094F70093B359 /* MusicConfigStyle+Extension.swift */; };
 		225F57FC2D85B2AB0055BDFF /* MusicsViewController+Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13A22CA0633400E2948E /* MusicsViewController+Search.swift */; };
 		225F57FD2D85B2AB0055BDFF /* KakaMusicPlayer+Noti+Remote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A14212CA0633400E2948E /* KakaMusicPlayer+Noti+Remote.swift */; };
 		225F57FE2D85B2AB0055BDFF /* ColorFontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2235E0582D19494300ED0231 /* ColorFontManager.swift */; };
@@ -285,7 +282,6 @@
 		225F586E2D85B2AB0055BDFF /* MusicViewModel+Music.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225417512CC2D79400F00343 /* MusicViewModel+Music.swift */; };
 		225F58702D85B2AB0055BDFF /* KakaAppStoreManager+Jump.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A14112CA0633400E2948E /* KakaAppStoreManager+Jump.swift */; };
 		225F58712D85B2AB0055BDFF /* WebdavFileListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22ABC7852D227A98003568CF /* WebdavFileListController.swift */; };
-		225F58722D85B2AB0055BDFF /* PlayerControlFloatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225DE65D2CCE640C00F4367E /* PlayerControlFloatView.swift */; };
 		225F58732D85B2AB0055BDFF /* AudioWaveformView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13CC2CA0633400E2948E /* AudioWaveformView.swift */; };
 		225F58742D85B2AB0055BDFF /* AnalyticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A141F2CA0633400E2948E /* AnalyticsManager.swift */; };
 		225F58752D85B2AB0055BDFF /* LibraryLyricsViewController+Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22196E532D3133B0005B05CD /* LibraryLyricsViewController+Search.swift */; };
@@ -345,7 +341,7 @@
 		225F58E82D85B6000055BDFF /* ZLImageEditor in Frameworks */ = {isa = PBXBuildFile; productRef = 225F58E72D85B6000055BDFF /* ZLImageEditor */; };
 		225F88C22CD078C60093B359 /* PlayConfigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225F88C12CD078C60093B359 /* PlayConfigViewController.swift */; };
 		225F88C42CD090360093B359 /* PlayConfigGroupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225F88C32CD090360093B359 /* PlayConfigGroupModel.swift */; };
-		225F88C62CD094F70093B359 /* MiniPlayerStyle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225F88C52CD094F70093B359 /* MiniPlayerStyle+Extension.swift */; };
+		225F88C62CD094F70093B359 /* MusicConfigStyle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225F88C52CD094F70093B359 /* MusicConfigStyle+Extension.swift */; };
 		2261E8812CB5267E009506C0 /* DonateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2261E8802CB5267E009506C0 /* DonateViewController.swift */; };
 		2261E8872CB6FAB2009506C0 /* DonateViewController+Pay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2261E8862CB6FAB2009506C0 /* DonateViewController+Pay.swift */; };
 		226513EC2DD985C0009AC64D /* PlayerSceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226513EB2DD985C0009AC64D /* PlayerSceneDelegate.swift */; };
@@ -508,8 +504,6 @@
 		228A14A12CA0633400E2948E /* KakaMusicPlayer+Noti+Remote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A14212CA0633400E2948E /* KakaMusicPlayer+Noti+Remote.swift */; };
 		228A14A22CA0633400E2948E /* KakaMusicPlayer+Tools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A14222CA0633400E2948E /* KakaMusicPlayer+Tools.swift */; };
 		228A14A32CA0633400E2948E /* KakaMusicPlayer+Play.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A14232CA0633400E2948E /* KakaMusicPlayer+Play.swift */; };
-		2290E6D82DFAC20700137CF9 /* WelcomeTapeCollectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2290E6D72DFAC20700137CF9 /* WelcomeTapeCollectCell.swift */; };
-		2290E6D92DFAC20700137CF9 /* WelcomeTapeCollectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2290E6D72DFAC20700137CF9 /* WelcomeTapeCollectCell.swift */; };
 		22948BD6303D8E5000139F6A /* BatchEditSuccessController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22948BD5303D8E5000139F6A /* BatchEditSuccessController.swift */; };
 		22948BD7303D8E5000139F6A /* BatchEditSuccessController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22948BD5303D8E5000139F6A /* BatchEditSuccessController.swift */; };
 		22953EF630357CB5001B0546 /* AudioFingerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22953EF530357CB5001B0546 /* AudioFingerTableViewCell.swift */; };
@@ -858,7 +852,6 @@
 		2237276C2DE3121000A2FC1C /* PlayBackCoverTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayBackCoverTableCell.swift; sourceTree = "<group>"; };
 		223A499D2D7FE6A4003B3886 /* ServerConfigModel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ServerConfigModel+Extension.swift"; sourceTree = "<group>"; };
 		223D47352CC69D5D00F12826 /* URL+Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Parser.swift"; sourceTree = "<group>"; };
-		223FB4B02DFD3753003EDA2E /* WelcomeTapeBtnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeTapeBtnView.swift; sourceTree = "<group>"; };
 		223FEAB62DF7FE3800FD4452 /* LyricOtherConfigTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LyricOtherConfigTableCell.swift; sourceTree = "<group>"; };
 		2242A1FE2DEEA2410081D23D /* TapePlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapePlayerView.swift; sourceTree = "<group>"; };
 		2243D76C2DE8A5E50010F9FB /* MusicPlayerViewController+Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MusicPlayerViewController+Animation.swift"; sourceTree = "<group>"; };
@@ -922,11 +915,10 @@
 		2259F6EA2CA2784E0041CA38 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		225A5D8E2EAFB4EA009DB87E /* DropboxDriveFileListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropboxDriveFileListController.swift; sourceTree = "<group>"; };
 		225B41E42E43419600EF07FE /* ResponseDrive115Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseDrive115Model.swift; sourceTree = "<group>"; };
-		225DE65D2CCE640C00F4367E /* PlayerControlFloatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerControlFloatView.swift; sourceTree = "<group>"; };
 		225F58D12D85B2AB0055BDFF /* WakemusicPro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WakemusicPro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		225F88C12CD078C60093B359 /* PlayConfigViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayConfigViewController.swift; sourceTree = "<group>"; };
 		225F88C32CD090360093B359 /* PlayConfigGroupModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayConfigGroupModel.swift; sourceTree = "<group>"; };
-		225F88C52CD094F70093B359 /* MiniPlayerStyle+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MiniPlayerStyle+Extension.swift"; sourceTree = "<group>"; };
+		225F88C52CD094F70093B359 /* MusicConfigStyle+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MusicConfigStyle+Extension.swift"; sourceTree = "<group>"; };
 		2261E8802CB5267E009506C0 /* DonateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonateViewController.swift; sourceTree = "<group>"; };
 		2261E8862CB6FAB2009506C0 /* DonateViewController+Pay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DonateViewController+Pay.swift"; sourceTree = "<group>"; };
 		226513EB2DD985C0009AC64D /* PlayerSceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerSceneDelegate.swift; sourceTree = "<group>"; };
@@ -1058,7 +1050,6 @@
 		228A14212CA0633400E2948E /* KakaMusicPlayer+Noti+Remote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "KakaMusicPlayer+Noti+Remote.swift"; sourceTree = "<group>"; };
 		228A14222CA0633400E2948E /* KakaMusicPlayer+Tools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "KakaMusicPlayer+Tools.swift"; sourceTree = "<group>"; };
 		228A14232CA0633400E2948E /* KakaMusicPlayer+Play.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "KakaMusicPlayer+Play.swift"; sourceTree = "<group>"; };
-		2290E6D72DFAC20700137CF9 /* WelcomeTapeCollectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeTapeCollectCell.swift; sourceTree = "<group>"; };
 		22948BD5303D8E5000139F6A /* BatchEditSuccessController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatchEditSuccessController.swift; sourceTree = "<group>"; };
 		22953EF530357CB5001B0546 /* AudioFingerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioFingerTableViewCell.swift; sourceTree = "<group>"; };
 		2296BCCD2CD8B4F500E9166E /* MeteDataGroupCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeteDataGroupCellModel.swift; sourceTree = "<group>"; };
@@ -1442,7 +1433,7 @@
 				C02000000000000000000008 /* KakaMusicPlayer+SMB.swift */,
 				228A14222CA0633400E2948E /* KakaMusicPlayer+Tools.swift */,
 				22CFF8272CADCF2900CF825C /* BaiduDriveError.swift */,
-				225F88C52CD094F70093B359 /* MiniPlayerStyle+Extension.swift */,
+				225F88C52CD094F70093B359 /* MusicConfigStyle+Extension.swift */,
 			);
 			path = Music;
 			sourceTree = "<group>";
@@ -1560,9 +1551,7 @@
 				228A138E2CA0633400E2948E /* WelcomeViewController.swift */,
 				228A13902CA0633400E2948E /* WelcomeViewController+Page.swift */,
 				228A13912CA0633400E2948E /* WelcomeBaseCollectCell.swift */,
-				2290E6D72DFAC20700137CF9 /* WelcomeTapeCollectCell.swift */,
 				22D61358300E05460078864F /* WelcomePaywallViewCell.swift */,
-				223FB4B02DFD3753003EDA2E /* WelcomeTapeBtnView.swift */,
 				228A13922CA0633400E2948E /* WelcomeInfoModel.swift */,
 			);
 			path = LoginModule;
@@ -1994,7 +1983,6 @@
 				228A13F02CA0633400E2948E /* HomeTabbarViewController+Play.swift */,
 				228A13F12CA0633400E2948E /* HomeTabbarViewController+UI.swift */,
 				228A13F22CA0633400E2948E /* PlayerControlToolBarView.swift */,
-				225DE65D2CCE640C00F4367E /* PlayerControlFloatView.swift */,
 				228888A52DD3853D00358231 /* DownloadPoolView.swift */,
 				228A13F32CA0633400E2948E /* KakaTabbarType.swift */,
 			);
@@ -2440,7 +2428,7 @@
 				2266A1512DE7531400F5AEB7 /* LyricFontColorTableCell.swift in Sources */,
 				225F57FA2D85B2AB0055BDFF /* MusicPlayerViewController.swift in Sources */,
 				224A4DF52E1692CB0041244A /* BaiduDriveFileListController.swift in Sources */,
-				225F57FB2D85B2AB0055BDFF /* MiniPlayerStyle+Extension.swift in Sources */,
+				225F57FB2D85B2AB0055BDFF /* MusicConfigStyle+Extension.swift in Sources */,
 				22953EF630357CB5001B0546 /* AudioFingerTableViewCell.swift in Sources */,
 				225F57FC2D85B2AB0055BDFF /* MusicsViewController+Search.swift in Sources */,
 				22814C542DD1CDBE00565CBC /* MusicTableViewCell+Menu.swift in Sources */,
@@ -2573,7 +2561,6 @@
 				227607F72DF2F02600B6776E /* MusicDescInfoView.swift in Sources */,
 				2252C7582F8A132400A8DDE5 /* AliyunDriveFileListController.swift in Sources */,
 				22569ACD2DE464A30038E914 /* PlayerLyricCollectCell.swift in Sources */,
-				2290E6D82DFAC20700137CF9 /* WelcomeTapeCollectCell.swift in Sources */,
 				228888A72DD3853D00358231 /* DownloadPoolView.swift in Sources */,
 				22BE96322E25FC9700ABE6C4 /* Auth115LifeViewController.swift in Sources */,
 				224BF9B62DF7284A009F1421 /* HorizonLyricsViewCell.swift in Sources */,
@@ -2607,7 +2594,6 @@
 				225F585A2D85B2AB0055BDFF /* UIApplication+Top.swift in Sources */,
 				225F585B2D85B2AB0055BDFF /* AboutAppViewController.swift in Sources */,
 				225F585C2D85B2AB0055BDFF /* ConnectListTableCell.swift in Sources */,
-				223FB4B22DFD3753003EDA2E /* WelcomeTapeBtnView.swift in Sources */,
 				225F585E2D85B2AB0055BDFF /* SettingGroupCellModel.swift in Sources */,
 				2217E0FE2EBC74E000C724F6 /* OneDriveFileListController.swift in Sources */,
 				226AF3502E236738007C44DF /* KakaMusicPlayer+API.swift in Sources */,
@@ -2670,7 +2656,6 @@
 				225F586E2D85B2AB0055BDFF /* MusicViewModel+Music.swift in Sources */,
 				225F58702D85B2AB0055BDFF /* KakaAppStoreManager+Jump.swift in Sources */,
 				225F58712D85B2AB0055BDFF /* WebdavFileListController.swift in Sources */,
-				225F58722D85B2AB0055BDFF /* PlayerControlFloatView.swift in Sources */,
 				225F58732D85B2AB0055BDFF /* AudioWaveformView.swift in Sources */,
 				225F58742D85B2AB0055BDFF /* AnalyticsManager.swift in Sources */,
 				2237276E2DE3121000A2FC1C /* PlayBackCoverTableCell.swift in Sources */,
@@ -2787,7 +2772,7 @@
 				2266A1522DE7531400F5AEB7 /* LyricFontColorTableCell.swift in Sources */,
 				228A144E2CA0633400E2948E /* MusicPlayerViewController.swift in Sources */,
 				224A4DF42E1692CB0041244A /* BaiduDriveFileListController.swift in Sources */,
-				225F88C62CD094F70093B359 /* MiniPlayerStyle+Extension.swift in Sources */,
+				225F88C62CD094F70093B359 /* MusicConfigStyle+Extension.swift in Sources */,
 				22953EF730357CB5001B0546 /* AudioFingerTableViewCell.swift in Sources */,
 				228A14382CA0633400E2948E /* MusicsViewController+Search.swift in Sources */,
 				22814C532DD1CDBE00565CBC /* MusicTableViewCell+Menu.swift in Sources */,
@@ -2920,7 +2905,6 @@
 				227607F82DF2F02600B6776E /* MusicDescInfoView.swift in Sources */,
 				2252C7592F8A132400A8DDE5 /* AliyunDriveFileListController.swift in Sources */,
 				22569ACC2DE464A30038E914 /* PlayerLyricCollectCell.swift in Sources */,
-				2290E6D92DFAC20700137CF9 /* WelcomeTapeCollectCell.swift in Sources */,
 				228888A62DD3853D00358231 /* DownloadPoolView.swift in Sources */,
 				22BE96332E25FC9700ABE6C4 /* Auth115LifeViewController.swift in Sources */,
 				224BF9B52DF7284A009F1421 /* HorizonLyricsViewCell.swift in Sources */,
@@ -2954,7 +2938,6 @@
 				228A148C2CA0633400E2948E /* UIApplication+Top.swift in Sources */,
 				228A14662CA0633400E2948E /* AboutAppViewController.swift in Sources */,
 				22AB5CE82D6EB31E006E10BC /* ConnectListTableCell.swift in Sources */,
-				223FB4B12DFD3753003EDA2E /* WelcomeTapeBtnView.swift in Sources */,
 				228A146D2CA0633400E2948E /* SettingGroupCellModel.swift in Sources */,
 				2217E0FD2EBC74E000C724F6 /* OneDriveFileListController.swift in Sources */,
 				226AF34F2E236738007C44DF /* KakaMusicPlayer+API.swift in Sources */,
@@ -3017,7 +3000,6 @@
 				225417522CC2D79400F00343 /* MusicViewModel+Music.swift in Sources */,
 				228A14942CA0633400E2948E /* KakaAppStoreManager+Jump.swift in Sources */,
 				22ABC7862D227A98003568CF /* WebdavFileListController.swift in Sources */,
-				225DE65E2CCE640C00F4367E /* PlayerControlFloatView.swift in Sources */,
 				228A145C2CA0633400E2948E /* AudioWaveformView.swift in Sources */,
 				228A149F2CA0633400E2948E /* AnalyticsManager.swift in Sources */,
 				2237276D2DE3121000A2FC1C /* PlayBackCoverTableCell.swift in Sources */,

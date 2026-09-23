@@ -14,7 +14,6 @@ import ZLImageEditor
 import Kingfisher
 import Combine
 
-// mini播放器样式，自动吸附屏幕边缘。封面占位图。
 class PlayConfigViewController: SuperViewController {
     override func preSetupSubViews() {
         super.preSetupSubViews()
@@ -56,14 +55,6 @@ class PlayConfigViewController: SuperViewController {
                 self?.playerConfigUIChanged()
             }.store(in: &cancellables)
         
-        // Mini播放器样式变化了
-        MusicConfigManager.shared.$miniPlayerUI
-            .receive(on: DispatchQueue.main)
-            .sink { [weak self] engine in
-                self?.playerConfigUIChanged()
-            }.store(in: &cancellables)
-        
-        
     }
     
     @objc func playerConfigUIChanged() {
@@ -75,7 +66,7 @@ class PlayConfigViewController: SuperViewController {
     var cancellables = Set<AnyCancellable>()
     
     lazy var dataArray: [PlayConfigGroupModel] = {
-        let model1 = PlayConfigGroupModel(group: .playerGroup, headTitle: nil, itemArray: [.preDownload, .playerStyle, .playerBack, .playAnimation, .miniStyle, .enableSide], footTitle: nil)
+        let model1 = PlayConfigGroupModel(group: .playerGroup, headTitle: nil, itemArray: [.preDownload, .playerStyle, .playerBack, .playAnimation], footTitle: nil)
         let model2 = PlayConfigGroupModel(group: .otherGroup, headTitle: nil, itemArray: [.lyricStyle, .showExtension, .lastTimeCache, .showMissTags], footTitle: nil)
         let model3 = PlayConfigGroupModel(group: .naviGroup, headTitle: "When playing Navidrome's music".localStr(), itemArray: [.transcoding, .targetFormat, .targetMaxBitRate], footTitle: nil)
         return [model1, model2, model3]
@@ -206,21 +197,6 @@ class PlayConfigTableCell: UITableViewCell {
                 self.accessoryView = nil
                 self.selectionStyle = .default
                 break
-            case .miniStyle:
-                self.accessoryType = .none
-                self.accessoryView = self.miniPlayerView()
-                self.selectionStyle = .default
-                break
-            case .enableSide:
-                self.accessoryType = .none
-                self.accessoryView = self.miniSwitchView
-                
-                let isCircle = MusicConfigManager.shared.miniPlayerUI == .floatUI
-                self.miniSwitchView.isEnabled = isCircle
-                cellConfig.textProperties.color = isCircle ? UIColor.label : UIColor.secondaryLabel
-                self.selectionStyle = isCircle ? .default : .none
-                break
-                
             case .showMissTags:
                 self.accessoryType = .none
                 self.accessoryView = self.misstagSwitchView
@@ -304,49 +280,6 @@ class PlayConfigTableCell: UITableViewCell {
         }
     }
     
-    // 自动吸附到屏幕边缘
-    lazy var miniSwitchView: UISwitch = {
-        let view = UISwitch(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
-        view.isOn = MusicConfigManager.shared.isFloatSide
-        view.onTintColor = ColorFontManager.shared.accentTyle == .color0 ? ColorFontManager.shared.defaultType.color() : ColorFontManager.shared.accentTyle.color()
-        view.addTarget(self, action: #selector(miniSwitchViewClick(_:)), for: .valueChanged)
-        return view
-    }()
-    
-    // 迷你播放器
-    func miniPlayerView() -> UIView {
-        let view = UIMenuAccessView(frame: CGRectMake(0, 0, 100.ckValue(), 50.ckValue()))
-        view.menu = self.miniPlayerMenu()
-        view.color = UIColor.secondaryLabel
-        view.timeLabel.text = MusicConfigManager.shared.miniPlayerUI.formatStr()
-        view.contentHorizontalAlignment = .trailing
-        view.showsMenuAsPrimaryAction = true
-        return view
-    }
-    func miniPlayerMenu() -> UIMenu {
-        
-        let normalArray: [MiniPlayerStyle] = [.toolbarUI, .floatUI]
-        var actionArray1 = [UIAction]()
-        let selectType = MusicConfigManager.shared.miniPlayerUI
-
-        for subType in normalArray {
-            let action = UIAction(title: subType.formatStr(), image: subType.iconImage(), state: selectType == subType ? .on : .off, handler: { _ in
-                if kaka_IsMacOS() {
-                    if subType != .toolbarUI {
-                        appKeyWindow?.makeToast("iOS Only".localStr())
-                    }
-                    return
-                }
-                
-                MusicConfigManager.shared.miniPlayerUI = subType
-            })
-
-            actionArray1.append(action)
-        }
-        let normalMenu = UIMenu(title: "", options: .displayInline, children: actionArray1)
-        return normalMenu
-    }
-    
     // 是否显示扩展名
     lazy var extensionSwitchView: UISwitch = {
         let view = UISwitch(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
@@ -388,10 +321,6 @@ class PlayConfigTableCell: UITableViewCell {
         let normalMenu = UIMenu(title: "", options: .displayInline, children: actionArray1)
         return normalMenu
         
-    }
-    
-    @objc func miniSwitchViewClick(_ sender: UISwitch) {
-        MusicConfigManager.shared.isFloatSide = sender.isOn
     }
     
     // 是否转码

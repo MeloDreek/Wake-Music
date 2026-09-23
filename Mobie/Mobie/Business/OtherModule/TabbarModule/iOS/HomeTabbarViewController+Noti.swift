@@ -33,12 +33,6 @@ extension HomeTabbarViewController {
                 self?.perform(#selector(self?.updateDownloadCount), with: nil, afterDelay: 1)
             }.store(in: &cancellables)
         
-        // 修改了Minibar
-        MusicConfigManager.shared.$miniPlayerUI.receive(on: DispatchQueue.main)
-            .sink { [weak self] minibarStyle in
-                self?.localMusicCountChanged()
-            }.store(in: &cancellables)
-        
         // 暗黑浅色模式
         self.appearanceChanged()
         
@@ -86,7 +80,6 @@ extension HomeTabbarViewController {
         let playingMusic = KakaMusicPlayer.shared.playingMusic
                 
         self.toolbarView.musicModel = playingMusic
-        self.floatingView.musicModel = playingMusic
         
         KakaMusicPlayer.shared.restoreRemoteQueueIfNeeded()
         

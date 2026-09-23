@@ -33,13 +33,13 @@ class DownloadPoolView: UIView {
     }
     
     private func setupAutoLayout() {
-        
+
         coverImgView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.centerY.equalToSuperview()
             make.size.equalToSuperview().multipliedBy(0.8)
         }
-        
+
         countLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.size.equalTo(countLabel.size)
@@ -59,7 +59,7 @@ class DownloadPoolView: UIView {
     
     @objc func appModeStyleChanged(_ noti: Notification) {
         guard let newColor = noti.object as? UIColor else { return }
-        
+
         self.tintColor = newColor
     }
     
@@ -226,45 +226,27 @@ extension DownloadPoolView {
     /// 修正位置
     func correctLocation() {
     
-        if MusicConfigManager.shared.isFloatSide {
-            // 1️⃣ 动画吸附在屏幕两侧
-            var endCenter = center
-            endCenter.x = center.x > screenW * 0.5 ? screenW-(rightMinMargin + fullSize.width * 0.5) : (leftMinMargin + fullSize.width * 0.5)
+        var endCenter = center
+        let point = self.frame.origin
         
-            if center.y < (topMinMargin + fullSize.height * 0.5) {
-                endCenter.y = (topMinMargin + fullSize.height * 0.5)
-            } else if center.y > screenH - (bottomMinMargin + fullSize.height * 0.5) {
-                endCenter.y = screenH - (bottomMinMargin + fullSize.height * 0.5)
-            }
-            
-            UIView.animate(withDuration: 0.25) { [weak self] () in
-                self?.center = endCenter
-            }
-        }else{
-            // 2️⃣ 纠正极端值
-            var endCenter = center
-            let point = self.frame.origin
-            
-            if point.x < leftMinMargin {
-                endCenter.x = leftMinMargin + fullSize.width / 2
-            }
-            
-            if point.x + fullSize.width > screenW {
-                endCenter.x = screenW - fullSize.width / 2 - rightMinMargin
-            }
-            
-            if point.y < topMinMargin {
-                endCenter.y = topMinMargin + fullSize.height / 2
-            }
-            
-            if point.y + fullSize.height > screenH - bottomMinMargin {
-                endCenter.y = screenH - fullSize.width / 2 - bottomMinMargin
-            }
-            
-            UIView.animate(withDuration: 0.25) { [weak self] () in
-                self?.center = endCenter
-            }
+        if point.x < leftMinMargin {
+            endCenter.x = leftMinMargin + fullSize.width / 2
+        }
+
+        if point.x + fullSize.width > screenW {
+            endCenter.x = screenW - fullSize.width / 2 - rightMinMargin
+        }
+
+        if point.y < topMinMargin {
+            endCenter.y = topMinMargin + fullSize.height / 2
+        }
+
+        if point.y + fullSize.height > screenH - bottomMinMargin {
+            endCenter.y = screenH - fullSize.height / 2 - bottomMinMargin
         }
         
+        UIView.animate(withDuration: 0.25) { [weak self] () in
+            self?.center = endCenter
+        }
     }
 }

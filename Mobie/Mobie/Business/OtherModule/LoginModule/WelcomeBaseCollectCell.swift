@@ -1,157 +1,123 @@
-//
-//  WelcomeBaseCollectCell.swift
-//  AppLock
-//
-//  Created by Kaka Inc. on 2024/1/2.
-//
-
+import UIKit
 import KakaFoundation
 import AppGroupKit
 import KakaUIKit
 
+/// Pages scroll vertically on small windows or with accessibility text.
+/// The controller reserves a separate area for the action and legal links.
 class WelcomeBaseCollectCell: UICollectionViewCell {
+    private let scrollView = UIScrollView()
+    private let stack = UIStackView()
+    private let artwork = UIImageView()
+    private let titleLabel = UILabel()
+    private let bodyLabel = UILabel()
+    private let tagsView = WelcomeFormatTagsView()
+    private var artworkHeight: NSLayoutConstraint!
+
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.preSetupSubViews()
-        self.preSetupContains()
-        self.preSetupHandleBuness()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    private func preSetupSubViews() {
         contentView.backgroundColor = .clear
-        contentView.addSubview(welcomeImgView)
-        contentView.addSubview(colorView)
-        contentView.addSubview(welcomeLabel)
-        contentView.addSubview(descLabel)
+        scrollView.backgroundColor = .clear
+        scrollView.contentInsetAdjustmentBehavior = .never
+        scrollView.showsVerticalScrollIndicator = false
+        scrollView.alwaysBounceVertical = false
+        stack.axis = .vertical
+        stack.spacing = 20
+        artwork.contentMode = .scaleAspectFit
+        artwork.isAccessibilityElement = false
+        titleLabel.font = UIFontMetrics(forTextStyle: .largeTitle).scaledFont(for: .systemFont(ofSize: 32, weight: .bold))
+        titleLabel.textColor = .white
+        titleLabel.numberOfLines = 0
+        titleLabel.textAlignment = .center
+        titleLabel.adjustsFontForContentSizeCategory = true
+        titleLabel.accessibilityTraits = .header
+        bodyLabel.font = UIFontMetrics(forTextStyle: .body).scaledFont(for: .systemFont(ofSize: 17))
+        bodyLabel.textColor = .white.withAlphaComponent(0.8)
+        bodyLabel.numberOfLines = 0
+        bodyLabel.textAlignment = .center
+        bodyLabel.adjustsFontForContentSizeCategory = true
+        tagsView.textColor = .white
+        tagsView.textFont = .systemFont(ofSize: 13, weight: .semibold)
+        tagsView.tag_cornerRadius = 10
+        tagsView.paddingX = 11
+        tagsView.paddingY = 7
+        tagsView.marginX = 7
+        tagsView.marginY = 8
+        tagsView.alignment = .center
+        tagsView.isUserInteractionEnabled = false
+        tagsView.semanticContentAttribute = .forceLeftToRight
+        contentView.addSubview(scrollView)
+        scrollView.addSubview(stack)
+        [artwork, titleLabel, bodyLabel, tagsView].forEach(stack.addArrangedSubview)
+        [scrollView, stack, artwork].forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
+        artworkHeight = artwork.heightAnchor.constraint(equalToConstant: 260)
+        NSLayoutConstraint.activate([
+            scrollView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            scrollView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            stack.centerXAnchor.constraint(equalTo: scrollView.frameLayoutGuide.centerXAnchor),
+            stack.widthAnchor.constraint(equalTo: scrollView.frameLayoutGuide.widthAnchor, constant: -48).welcomePriority(999),
+            stack.widthAnchor.constraint(lessThanOrEqualToConstant: 520),
+            stack.topAnchor.constraint(greaterThanOrEqualTo: scrollView.contentLayoutGuide.topAnchor, constant: 12),
+            stack.bottomAnchor.constraint(equalTo: scrollView.contentLayoutGuide.bottomAnchor, constant: -24),
+            stack.centerYAnchor.constraint(equalTo: scrollView.frameLayoutGuide.centerYAnchor).welcomePriority(750),
+            artworkHeight
+        ])
     }
-    
-    private func preSetupContains() {
-        
-        contentView.snp.updateConstraints { make in
-            make.edges.equalToSuperview()
-        }
-        
-        welcomeImgView.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            if kaka_IsMacOS() {
-                make.top.equalToSuperview().offset(70.ckValue())
-                make.size.equalTo(400)
-            }else{
-                make.bottom.equalTo(contentView.snp.centerY)
-                make.width.equalToSuperview().multipliedBy(kaka_IsiPad() ? 0.5 : 0.75)
-                make.height.equalTo(welcomeImgView.snp.width)
-            }
-        }
-        
-        welcomeLabel.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.top.equalTo(welcomeImgView.snp.bottom).offset(35.ckValue())
-            make.size.equalTo(30)
-        }
-        
-        colorView.snp.makeConstraints { make in
-            make.centerX.equalTo(welcomeLabel)
-            make.top.equalTo(welcomeLabel).offset(10.ckValue())
-            make.leading.equalTo(welcomeLabel).offset(-3.ckValue())
-            make.bottom.equalTo(welcomeLabel).offset(3.ckValue())
-        }
-        
-        descLabel.snp.makeConstraints { make in
-            make.leading.equalTo(leadingSpase)
-            make.top.equalTo(welcomeLabel.snp.bottom).offset(20.ckValue())
-            make.centerX.equalToSuperview()
-            make.height.greaterThanOrEqualTo(0)
-        }
-    }
-    
-    private func preSetupHandleBuness() {
-        
-    }
-    
-    let leadingSpase = kaka_IsMacOS() ? 80.ckValue() : 30.ckValue()
-    
-    // MARK:  GET && SET 
+    required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
+
     var model: WelcomeInfoModel? {
         didSet {
-            guard let vModel = model else { return }
-            
-            self.backgroundColor = vModel.backColor
-            let alignment: NSTextAlignment = .center
-            
-            welcomeLabel.text = vModel.title
-            descLabel.attributedText = self.descAttbuteStr(content: vModel.descStr, alignment: alignment)
-            welcomeImgView.image = Reasource.named(vModel.iconName)
-            
-            let welcomeSize = CGSize(width: vModel.title.width(welcomeLabel.font) + 5, height: welcomeLabel.font.lineHeight)
-            welcomeLabel.snp.updateConstraints { make in
-                make.size.equalTo(welcomeSize)
+            guard let model else { return }
+            artwork.image = Reasource.named(model.iconName)
+            titleLabel.text = model.title
+            bodyLabel.text = model.descStr
+            bodyLabel.isHidden = model.descStr.isEmpty
+            tagsView.removeAllTags()
+            tagsView.isHidden = model.page != .formats
+            if model.page == .formats {
+                // Stable vivid colors, not randomized again on cell reuse.
+                let colors: [UIColor] = [.rgb(100, 69, 201), .rgb(0, 104, 173), .rgb(179, 51, 116),
+                                         .rgb(0, 117, 106), .rgb(175, 71, 30), .rgb(74, 87, 189)]
+                let preferred = ["FLAC", "MP3", "DSD", "WAV", "ALAC", "APE", "DTS", "AAC"]
+                let all = AudioExtension.audioSuffixs.map { $0.uppercased() }
+                let formats = preferred.filter(all.contains) + all.filter { !preferred.contains($0) }
+                for (index, format) in formats.enumerated() {
+                    tagsView.addTag(format).tagBackgroundColor = colors[index % colors.count]
+                }
             }
-            contentView.layoutIfNeeded()
+            scrollView.setContentOffset(.zero, animated: false)
+            setNeedsLayout()
         }
     }
-    
-    func descAttbuteStr(content: String, alignment: NSTextAlignment = PhoneSetManager.isArabicLanguage() ? .right : .left) -> NSAttributedString {
-        
-        let paramStyle = NSMutableParagraphStyle()
-        paramStyle.lineSpacing = 3.ckValue()
-        paramStyle.alignment = alignment
-        
-        let attributes = [NSAttributedString.Key.font: UIFontBold(17.ckValue()), NSAttributedString.Key.foregroundColor: UIColor.rgb(102, 99, 116), NSAttributedString.Key.paragraphStyle: paramStyle]
-        
-        let attbuteStr = NSAttributedString(string: content, attributes: attributes)
-        
-        return attbuteStr
+    override func layoutSubviews() {
+        let height = min(340, max(150, bounds.height * (model?.page == .formats ? 0.36 : 0.53)), max(0, bounds.width - 72))
+        if artworkHeight.constant != height { artworkHeight.constant = height }
+        super.layoutSubviews()
+        tagsView.invalidateIntrinsicContentSize()
     }
-    
-    func calculateMaxFontSize(content: String, maxWidth: CGFloat, maxFont: CGFloat) -> UIFont {
-        var fontSize: CGFloat = 40 // 初始字体大小
-        
-        while true {
-            let estimatedWidth = content.width(UIFontBold(fontSize))
-            
-            if estimatedWidth <= maxWidth {
-                break
-            }
-            
-            fontSize -= 1
-        }
-        
-        return UIFontBold(fontSize > maxFont ? maxFont : fontSize)
-    }
-    
-    // MARK:  懒加载 
-    lazy var welcomeImgView: UIImageView = {
-        let view = UIImageView()
-        view.contentMode = .scaleAspectFit
-        return view
-    }()
-    
-    lazy var colorView: UIView = {
-        let view = UIView()
-        view.backgroundColor = UIColor.rgb(255, 165, 0)
-        view.layer.masksToBounds = true
-        view.layer.cornerRadius = 2.ckValue()
-        return view
-    }()
-    
-    lazy var welcomeLabel: UILabel = {
-        let view = UILabel()
-        view.text = "Welcome"
-        view.numberOfLines = 1
-        view.font = UIFontBold(30.ckValue())
-        view.textColor = UIColor.rgb(19, 20, 21)
-        view.textAlignment = .center
-        return view
-    }()
-    
-    lazy var descLabel: UILabel = {
-        let view = UILabel()
-        view.numberOfLines = 0
-        return view
-    }()
+}
 
+private final class WelcomeFormatTagsView: TagListView {
+    override var intrinsicContentSize: CGSize {
+        guard !tagViews.isEmpty else { return .zero }
+        let width = max(1, bounds.width)
+        var rows: CGFloat = 1, used: CGFloat = 0, height: CGFloat = 0
+        for tag in tagViews {
+            let size = tag.intrinsicContentSize
+            let tagWidth = min(size.width, width)
+            if used > 0 && used + marginX + tagWidth > width { rows += 1; used = 0 }
+            used += (used > 0 ? marginX : 0) + tagWidth
+            height = max(height, size.height)
+        }
+        return CGSize(width: UIView.noIntrinsicMetric, height: rows * height + (rows - 1) * marginY)
+    }
+}
+
+extension NSLayoutConstraint {
+    func welcomePriority(_ value: Float) -> NSLayoutConstraint {
+        priority = UILayoutPriority(value)
+        return self
+    }
 }

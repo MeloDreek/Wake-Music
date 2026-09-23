@@ -37,6 +37,20 @@ protocol PlayingControlViewDelegate: AnyObject {
 }
 
 class PlayerControlToolBarView: UIToolbar {
+
+    override var isHidden: Bool {
+        didSet {
+            guard oldValue, !isHidden else { return }
+            // File screens can temporarily hide the mini player. Restore its
+            // latest model and progress when it becomes visible again.
+            appModeSwitchChanged()
+            playingMusicChanged()
+            let player = KakaMusicPlayer.shared
+            if player.totalTime > 0 || player.currentTime > 0 {
+                updateDuration(curTime: player.currentTime, endTime: player.totalTime)
+            }
+        }
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -227,7 +241,7 @@ class PlayerControlToolBarView: UIToolbar {
             .receive(on: DispatchQueue.main)
             .sink { [weak self] currentTime in
                 guard let wSelf = self else { return }
-                if wSelf.loadingView.isAnimating {
+                if wSelf.loadingView.isAnimating && currentTime > 0 && wSelf.playStatus.isPlaying {
                     self?.stopAnimating()
                 }
                 self?.updateDuration(curTime: currentTime, endTime: KakaMusicPlayer.shared.totalTime)
@@ -237,7 +251,10 @@ class PlayerControlToolBarView: UIToolbar {
         KakaMusicPlayer.shared.$playingMusic
             .receive(on: DispatchQueue.main)
             .sink { [weak self] model in
-                self?.playingMusicChanged()
+                // @Published emits before its wrapped property has been written.
+                // Reading shared.playingMusic here can return the previous song
+                // (including nil on the first update).
+                self?.setPlayingMusic(model)
             }.store(in: &cancellables)
         
         // 当前音乐模型
@@ -279,14 +296,17 @@ class PlayerControlToolBarView: UIToolbar {
     
     // 当前播放的音乐变化了，立马刷新页面
     @objc func playingMusicChanged() {
-        
-        if self.isHidden { return }
-        
-        if self.musicModel != KakaMusicPlayer.shared.playingMusic {
-            self.updateDuration(curTime: 0, endTime: 0)
+        setPlayingMusic(KakaMusicPlayer.shared.playingMusic)
+    }
+
+    private func setPlayingMusic(_ model: MusicItemModel?) {
+        if isHidden { return }
+
+        let changedSong = musicModel?.uniqueID() != model?.uniqueID()
+        self.musicModel = model
+        if changedSong {
+            self.updateDuration(curTime: 0, endTime: TimeInterval(model?.durationSeconds ?? 0))
         }
-        
-        self.musicModel = KakaMusicPlayer.shared.playingMusic
     }
     
     @objc func clickMusicView() {
@@ -295,14 +315,11 @@ class PlayerControlToolBarView: UIToolbar {
     
     // 点击播放
     @objc func playButtonClick(_ sender: UIButton) {
-        
-        if KakaMusicPlayer.shared.playingMusic == nil {
-            self.toolDelegate?.musicControlViewDidFirstPlay(view: self, model: self.musicModel)
-            return
+        let player = KakaMusicPlayer.shared
+        if player.playingMusic == nil {
+            player.resetToPausedDemo(clearRemotePlaylist: false)
         }
-        
-        KakaMusicPlayer.shared.togglePlayback()
-        
+        player.togglePlayback()
     }
     
     @objc func lastButtonClick(_ sender: UIButton) {
@@ -377,6 +394,8 @@ class PlayerControlToolBarView: UIToolbar {
     
     var playStatus = KSPlayerState.preparing {
         didSet {
+            NSObject.cancelPreviousPerformRequests(withTarget: self,
+                selector: #selector(stopAnimating), object: nil)
             
             self.playButton.isSelected = playStatus.isPlaying
                         
@@ -427,6 +446,11 @@ class PlayerControlToolBarView: UIToolbar {
             if self.isHidden { return }
             
             guard let musicModel = self.musicModel else {
+                nameLabel.text = nil
+                coverImgView.kf.cancelDownloadTask()
+                coverImgView.image = nil
+                timeLabel.text = "00:00 - 00:00"
+                progressView.progress = 0
                 self.playButton.isSelected = false
                 return
             }
@@ -434,7 +458,8 @@ class PlayerControlToolBarView: UIToolbar {
             self.appModeSwitchChanged()
                         
             let addStr = MusicConfigManager.shared.isShowExtension ? musicModel.addPathExtension() : ""
-            nameLabel.text = musicModel.showTitleName() + addStr + "  "
+            let title = musicModel.showTitleName().trimmingCharacters(in: .whitespacesAndNewlines)
+            nameLabel.text = (title.isEmpty ? "Unknown Title".localStr() : title) + addStr + "  "
             let coverImage: UIImage? = (musicModel.musicCoverImage() ?? TaglibMetadataParser.extractCoverArt(from: musicModel.mediaPlayURL)) ?? musicModel.placeImage()
 
             coverImgView.kf.setImage(with: musicModel.coverThumbnailURL(), placeholder: coverImage)
@@ -452,12 +477,6 @@ class PlayerControlToolBarView: UIToolbar {
                 }
             }
             
-#warning("模拟mock数据")
-//#if DEBUG
-//            nameLabel.text = "Wakemusic".localStr()
-//            coverImgView.image = MusicGenreType.pop.iconImage()
-//#endif
-                        
             self.layoutIfNeeded()
             
         }
@@ -478,8 +497,8 @@ class PlayerControlToolBarView: UIToolbar {
             return
         }
         
-        var progress = curTime / endTime
-        progress = min(progress, 1)
+        let progress = endTime.isFinite && endTime > 0 && curTime.isFinite
+            ? max(0, min(curTime / endTime, 1)) : 0
         
         var timeStr = "\(curTime.stringValue) - \(endTime.stringValue)"
         if curTime <= 0 && endTime <= 0 {
@@ -577,12 +596,21 @@ class PlayerControlToolBarView: UIToolbar {
         let rawProgress = isRTL ? (width - location.x) / width : location.x / width
         let progress = max(0, min(1, TimeInterval(rawProgress)))
                         
-        if !KakaMusicPlayer.shared.isPlaying {
-            KakaMusicPlayer.shared.play()
+        let player = KakaMusicPlayer.shared
+        guard let model = player.playingMusic else { return }
+        let duration = player.totalTime > 0 ? player.totalTime : TimeInterval(model.durationSeconds)
+        guard duration > 0 else { return }
+        let playTime = duration * progress
+        if player.playerView.playerLayer != nil {
+            // Seeking a paused stream also resumes it. Calling play() first can
+            // recreate the engine and lose the requested seek position.
+            player.seek(time: playTime, resumePlayback: true)
+        } else {
+            // A not-yet-opened stream consumes this position when play() sets up
+            // its engine (including providers that must resolve a fresh URL).
+            MusicConfigManager.shared.lastPlayTime = playTime
+            player.play()
         }
-        
-        let playTime = KakaMusicPlayer.shared.playerView.totalTime * progress
-        KakaMusicPlayer.shared.seek(time: playTime, resumePlayback: true)
     }
     
     private(set) lazy var playButton: UIButton = {

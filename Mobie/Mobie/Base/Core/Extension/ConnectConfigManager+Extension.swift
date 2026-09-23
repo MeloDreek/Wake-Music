@@ -191,9 +191,7 @@ extension ConnectConfigManager {
             player.tempMusicArray = player.tempMusicArray.filter { $0.smbFile?.smbUser != user }
             if player.nextPlayMusic?.smbFile?.smbUser == user { player.nextPlayMusic = nil }
             if player.playingMusic?.smbFile?.smbUser == user {
-                player.stop()
-                player.playingMusic = nil
-                MusicConfigManager.shared.lastPlayModel = nil
+                player.resetToPausedDemo(clearRemotePlaylist: false)
             }
         }
         if let user = serverModel.megaUser {
@@ -204,9 +202,7 @@ extension ConnectConfigManager {
             player.tempMusicArray = player.tempMusicArray.filter { $0.megaFile?.megaUser != user }
             if player.nextPlayMusic?.megaFile?.megaUser == user { player.nextPlayMusic = nil }
             if player.playingMusic?.megaFile?.megaUser == user {
-                player.stop()
-                player.playingMusic = nil
-                MusicConfigManager.shared.lastPlayModel = nil
+                player.resetToPausedDemo(clearRemotePlaylist: false)
             }
         }
         if let user = serverModel.yandexUser {
@@ -217,9 +213,7 @@ extension ConnectConfigManager {
             player.tempMusicArray = player.tempMusicArray.filter { $0.yandexFile?.yandexUser != user }
             if player.nextPlayMusic?.yandexFile?.yandexUser == user { player.nextPlayMusic = nil }
             if player.playingMusic?.yandexFile?.yandexUser == user {
-                player.stop()
-                player.playingMusic = nil
-                MusicConfigManager.shared.lastPlayModel = nil
+                player.resetToPausedDemo(clearRemotePlaylist: false)
             }
         }
         if let user = serverModel.pan123User {
@@ -230,9 +224,7 @@ extension ConnectConfigManager {
             player.tempMusicArray = player.tempMusicArray.filter { $0.pan123File?.pan123User != user }
             if player.nextPlayMusic?.pan123File?.pan123User == user { player.nextPlayMusic = nil }
             if player.playingMusic?.pan123File?.pan123User == user {
-                player.stop()
-                player.playingMusic = nil
-                MusicConfigManager.shared.lastPlayModel = nil
+                player.resetToPausedDemo(clearRemotePlaylist: false)
             }
         }
         if let user = serverModel.guangyaUser {
@@ -243,9 +235,7 @@ extension ConnectConfigManager {
             player.tempMusicArray = player.tempMusicArray.filter { $0.guangyaFile?.guangyaUser != user }
             if player.nextPlayMusic?.guangyaFile?.guangyaUser == user { player.nextPlayMusic = nil }
             if player.playingMusic?.guangyaFile?.guangyaUser == user {
-                player.stop()
-                player.playingMusic = nil
-                MusicConfigManager.shared.lastPlayModel = nil
+                player.resetToPausedDemo(clearRemotePlaylist: false)
             }
         }
         if let user = serverModel.boxUser {
@@ -256,9 +246,7 @@ extension ConnectConfigManager {
             player.tempMusicArray = player.tempMusicArray.filter { $0.boxFile?.boxUser != user }
             if player.nextPlayMusic?.boxFile?.boxUser == user { player.nextPlayMusic = nil }
             if player.playingMusic?.boxFile?.boxUser == user {
-                player.stop()
-                player.playingMusic = nil
-                MusicConfigManager.shared.lastPlayModel = nil
+                player.resetToPausedDemo(clearRemotePlaylist: false)
             }
         }
         if let user = serverModel.pcloudUser {
@@ -269,9 +257,7 @@ extension ConnectConfigManager {
             player.tempMusicArray = player.tempMusicArray.filter { $0.pcloudFile?.pcloudUser != user }
             if player.nextPlayMusic?.pcloudFile?.pcloudUser == user { player.nextPlayMusic = nil }
             if player.playingMusic?.pcloudFile?.pcloudUser == user {
-                player.stop()
-                player.playingMusic = nil
-                MusicConfigManager.shared.lastPlayModel = nil
+                player.resetToPausedDemo(clearRemotePlaylist: false)
             }
         }
         

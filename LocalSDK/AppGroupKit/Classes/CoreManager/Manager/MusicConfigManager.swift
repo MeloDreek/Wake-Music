@@ -48,14 +48,6 @@ public class MusicConfigManager: ObservableObject, SmartCodableX {
         }
     }
     
-    /// mini播放器样式
-    @SmartPublished
-    public var miniPlayerUI = MiniPlayerStyle.toolbarUI {
-        didSet {
-            save()
-        }
-    }
-    
     /// 显示扩展名
     @SmartPublished
     public var isShowExtension: Bool = false {
@@ -163,14 +155,6 @@ public class MusicConfigManager: ObservableObject, SmartCodableX {
     /// 上一次的总时间
     @SmartPublished
     public var lastTotalTime: TimeInterval = 0 {
-        didSet {
-            save()
-        }
-    }
-    
-    /// mini播放器是否吸附在屏幕边缘
-    @SmartPublished
-    public var isFloatSide = false {
         didSet {
             save()
         }
