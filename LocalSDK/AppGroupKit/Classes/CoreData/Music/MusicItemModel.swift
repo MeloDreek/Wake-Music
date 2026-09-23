@@ -86,6 +86,11 @@ public struct MusicItemModel: SmartCodableX, Equatable, Hashable, Sendable {
         self.mediaPlayURL = smbFile.mediaPlayURL()
         self.smbFile = smbFile
     }
+    public init(ftpFile: FTPDriveFileModel) {
+        self.fileSourceType = .fromFTP
+        self.mediaPlayURL = ftpFile.mediaPlayURL()
+        self.ftpFile = ftpFile
+    }
     public init(yandexFile: YandexDriveFileModel) {
         self.fileSourceType = .fromYandexDrive
         self.mediaPlayURL = yandexFile.mediaPlayURL()
@@ -155,6 +160,7 @@ public struct MusicItemModel: SmartCodableX, Equatable, Hashable, Sendable {
     public var onedriveFile: OneDriveFileModel?
     
     public var smbFile: SMBDriveFileModel?
+    public var ftpFile: FTPDriveFileModel?
     public var yandexFile: YandexDriveFileModel?
     public var pan123File: Pan123DriveFileModel?
     public var guangyaFile: GuangyaDriveFileModel?
@@ -221,6 +227,7 @@ public struct MusicItemModel: SmartCodableX, Equatable, Hashable, Sendable {
     /// 定义一个主键
     public func uniqueID() -> String {
         if let file = smbFile { return file.identity }
+        if let file = ftpFile { return file.identity }
         if let file = megaFile { return file.identity }
         if let file = yandexFile { return file.identity }
         if let file = pan123File { return file.identity }

@@ -287,6 +287,7 @@ private final class DownloadExecution: NSObject, UNUserNotificationCenterDelegat
         }
         let model = job.model
         if let file = model.smbFile { SMBDriveService.shared.fileURL(file, completion: callback) }
+        else if let file = model.ftpFile { FTPDriveService.shared.fileURL(file, completion: callback) }
         else if let file = model.megaFile {
             Task { @MainActor [weak self, weak job] in
                 guard let self, let job, self.current(job) else { return }

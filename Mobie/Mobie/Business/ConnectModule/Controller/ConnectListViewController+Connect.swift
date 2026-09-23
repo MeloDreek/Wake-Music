@@ -56,6 +56,7 @@ extension ConnectListViewController {
         }
         
         if itemType == .fromSMB { self.connectSMB() }
+        if itemType == .fromFTP { self.connectFTP() }
 
         if itemType == .fromMEGADrive {
             self.connectMEGADrive()

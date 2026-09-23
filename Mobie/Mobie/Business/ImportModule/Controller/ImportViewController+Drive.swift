@@ -46,7 +46,7 @@ extension ImportViewController {
         }
         
         // Server forms remain browsable; their Connect actions enforce access.
-        let formServices: [ImportFileType] = [.fromSMB, .fromWebDAV, .fromNavidrome]
+        let formServices: [ImportFileType] = [.fromSMB, .fromFTP, .fromWebDAV, .fromNavidrome]
         let defersAccessCheck = formServices.contains(itemType)
         if !defersAccessCheck {
             guard requireRemoteConnectionAccess() else { return }
@@ -86,6 +86,9 @@ extension ImportViewController {
         
         if itemType == .fromSMB {
             self.connectSMB()
+        }
+        if itemType == .fromFTP {
+            self.connectFTP()
         }
 
         if itemType == .fromMEGADrive {

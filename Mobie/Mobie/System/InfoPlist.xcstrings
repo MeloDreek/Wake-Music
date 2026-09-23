@@ -1780,259 +1780,259 @@
       }
     },
     "NSLocalNetworkUsageDescription" : {
-      "comment" : "SMB connection, read-only audio access.",
+      "comment" : "connection, read-only audio access.",
       "extractionState" : "manual",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "يصل Wake Music إلى خوادم SMB في شبكتك المحلية لتصفح ملفاتك الصوتية وتشغيلها وتنزيلها."
+            "value" : "يصل Wake Music إلى خوادم في شبكتك المحلية لتصفح ملفاتك الصوتية وتشغيلها وتنزيلها."
           }
         },
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Wake Music accedeix als servidors SMB de la xarxa local per explorar, reproduir i baixar els teus fitxers d’àudio."
+            "value" : "Wake Music accedeix als servidors de la xarxa local per explorar, reproduir i baixar els teus fitxers d’àudio."
           }
         },
         "cs" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Wake Music přistupuje k serverům SMB v místní síti pro procházení, přehrávání a stahování vašich zvukových souborů."
+            "value" : "Wake Music přistupuje k serverům v místní síti pro procházení, přehrávání a stahování vašich zvukových souborů."
           }
         },
         "da" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Wake Music får adgang til SMB-servere på dit lokale netværk for at gennemse, afspille og hente dine lydfiler."
+            "value" : "Wake Music får adgang til servere på dit lokale netværk for at gennemse, afspille og hente dine lydfiler."
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Wake Music greift auf SMB-Server im lokalen Netzwerk zu, um deine Audiodateien zu durchsuchen, abzuspielen und herunterzuladen."
+            "value" : "Wake Music greift auf Server im lokalen Netzwerk zu, um deine Audiodateien zu durchsuchen, abzuspielen und herunterzuladen."
           }
         },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Το Wake Music αποκτά πρόσβαση σε διακομιστές SMB στο τοπικό δίκτυο για περιήγηση, αναπαραγωγή και λήψη των αρχείων ήχου σας."
+            "value" : "Το Wake Music αποκτά πρόσβαση σε διακομιστές στο τοπικό δίκτυο για περιήγηση, αναπαραγωγή και λήψη των αρχείων ήχου σας."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Wake Music accesses SMB servers on your local network to browse, play, and download your audio files."
+            "value" : "Wake Music accesses NAS devices and other servers on your local network to browse, play, and download your audio files."
           }
         },
         "en-AU" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Wake Music accesses SMB servers on your local network to browse, play, and download your audio files."
+            "value" : "Wake Music accesses NAS devices and other servers on your local network to browse, play, and download your audio files."
           }
         },
         "en-GB" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Wake Music accesses SMB servers on your local network to browse, play, and download your audio files."
+            "value" : "Wake Music accesses NAS devices and other servers on your local network to browse, play, and download your audio files."
           }
         },
         "en-IN" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Wake Music accesses SMB servers on your local network to browse, play, and download your audio files."
+            "value" : "Wake Music accesses NAS devices and other servers on your local network to browse, play, and download your audio files."
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Wake Music accede a servidores SMB de tu red local para explorar, reproducir y descargar tus archivos de audio."
+            "value" : "Wake Music accede a servidores de tu red local para explorar, reproducir y descargar tus archivos de audio."
           }
         },
         "es-419" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Wake Music accede a servidores SMB de tu red local para explorar, reproducir y descargar tus archivos de audio."
+            "value" : "Wake Music accede a servidores de tu red local para explorar, reproducir y descargar tus archivos de audio."
           }
         },
         "es-US" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Wake Music accede a servidores SMB de tu red local para explorar, reproducir y descargar tus archivos de audio."
+            "value" : "Wake Music accede a servidores de tu red local para explorar, reproducir y descargar tus archivos de audio."
           }
         },
         "fi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Wake Music käyttää lähiverkkosi SMB-palvelimia äänitiedostojesi selaamiseen, toistamiseen ja lataamiseen."
+            "value" : "Wake Music käyttää lähiverkkosi palvelimia äänitiedostojesi selaamiseen, toistamiseen ja lataamiseen."
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Wake Music accède aux serveurs SMB de votre réseau local pour parcourir, lire et télécharger vos fichiers audio."
+            "value" : "Wake Music accède aux serveurs de votre réseau local pour parcourir, lire et télécharger vos fichiers audio."
           }
         },
         "fr-CA" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Wake Music accède aux serveurs SMB de votre réseau local pour parcourir, lire et télécharger vos fichiers audio."
+            "value" : "Wake Music accède aux serveurs de votre réseau local pour parcourir, lire et télécharger vos fichiers audio."
           }
         },
         "he" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Wake Music ניגש לשרתי SMB ברשת המקומית כדי לעיין בקובצי האודיו שלך, לנגן ולהוריד אותם."
+            "value" : "Wake Music ניגש לשרתים ברשת המקומית כדי לעיין בקובצי האודיו שלך, לנגן ולהוריד אותם."
           }
         },
         "hi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Wake Music आपकी ऑडियो फ़ाइलें ब्राउज़, प्ले और डाउनलोड करने के लिए स्थानीय नेटवर्क के SMB सर्वर तक पहुँचता है।"
+            "value" : "Wake Music आपकी ऑडियो फ़ाइलें ब्राउज़, प्ले और डाउनलोड करने के लिए स्थानीय नेटवर्क के सर्वर तक पहुँचता है।"
           }
         },
         "hr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Wake Music pristupa SMB poslužiteljima na lokalnoj mreži za pregledavanje, reprodukciju i preuzimanje vaših audiodatoteka."
+            "value" : "Wake Music pristupa poslužiteljima na lokalnoj mreži za pregledavanje, reprodukciju i preuzimanje vaših audiodatoteka."
           }
         },
         "hu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "A Wake Music a helyi hálózat SMB-szervereit használja hangfájljai böngészéséhez, lejátszásához és letöltéséhez."
+            "value" : "A Wake Music a helyi hálózat szervereit használja hangfájljai böngészéséhez, lejátszásához és letöltéséhez."
           }
         },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Wake Music mengakses server SMB di jaringan lokal untuk menelusuri, memutar, dan mengunduh file audio Anda."
+            "value" : "Wake Music mengakses server di jaringan lokal untuk menelusuri, memutar, dan mengunduh file audio Anda."
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Wake Music accede ai server SMB della rete locale per sfogliare, riprodurre e scaricare i tuoi file audio."
+            "value" : "Wake Music accede ai server della rete locale per sfogliare, riprodurre e scaricare i tuoi file audio."
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Wake MusicはローカルネットワークのSMBサーバーにアクセスし、音声ファイルの閲覧、再生、ダウンロードを行います。"
+            "value" : "Wake MusicはローカルネットワークのNASやその他のサーバーにアクセスし、音声ファイルの閲覧、再生、ダウンロードを行います。"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Wake Music은 오디오 파일을 탐색, 재생, 다운로드하기 위해 로컬 네트워크의 SMB 서버에 접근합니다."
+            "value" : "Wake Music은 오디오 파일을 탐색, 재생, 다운로드하기 위해 로컬 네트워크의 서버에 접근합니다."
           }
         },
         "ms" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Wake Music mengakses pelayan SMB pada rangkaian setempat untuk menyemak imbas, memainkan dan memuat turun fail audio anda."
+            "value" : "Wake Music mengakses pelayan pada rangkaian setempat untuk menyemak imbas, memainkan dan memuat turun fail audio anda."
           }
         },
         "nb" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Wake Music bruker SMB-servere på det lokale nettverket for å bla gjennom, spille av og laste ned lydfilene dine."
+            "value" : "Wake Music bruker servere på det lokale nettverket for å bla gjennom, spille av og laste ned lydfilene dine."
           }
         },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Wake Music gebruikt SMB-servers op je lokale netwerk om je audiobestanden te bekijken, af te spelen en te downloaden."
+            "value" : "Wake Music gebruikt servers op je lokale netwerk om je audiobestanden te bekijken, af te spelen en te downloaden."
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Wake Music uzyskuje dostęp do serwerów SMB w sieci lokalnej, aby przeglądać, odtwarzać i pobierać Twoje pliki audio."
+            "value" : "Wake Music uzyskuje dostęp do serwerów w sieci lokalnej, aby przeglądać, odtwarzać i pobierać Twoje pliki audio."
           }
         },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "O Wake Music acessa servidores SMB na sua rede local para navegar, reproduzir e baixar seus arquivos de áudio."
+            "value" : "O Wake Music acessa servidores na sua rede local para navegar, reproduzir e baixar seus arquivos de áudio."
           }
         },
         "pt-PT" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "O Wake Music acede a servidores SMB na sua rede local para explorar, reproduzir e descarregar os seus ficheiros de áudio."
+            "value" : "O Wake Music acede a servidores na sua rede local para explorar, reproduzir e descarregar os seus ficheiros de áudio."
           }
         },
         "ro" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Wake Music accesează servere SMB din rețeaua locală pentru a răsfoi, reda și descărca fișierele tale audio."
+            "value" : "Wake Music accesează servere din rețeaua locală pentru a răsfoi, reda și descărca fișierele tale audio."
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Wake Music обращается к серверам SMB в локальной сети для просмотра, воспроизведения и загрузки ваших аудиофайлов."
+            "value" : "Wake Music обращается к серверам в локальной сети для просмотра, воспроизведения и загрузки ваших аудиофайлов."
           }
         },
         "sk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Wake Music pristupuje k serverom SMB v lokálnej sieti na prehliadanie, prehrávanie a sťahovanie vašich zvukových súborov."
+            "value" : "Wake Music pristupuje k serverom v lokálnej sieti na prehliadanie, prehrávanie a sťahovanie vašich zvukových súborov."
           }
         },
         "sl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Wake Music dostopa do strežnikov SMB v lokalnem omrežju za brskanje, predvajanje in prenos vaših zvočnih datotek."
+            "value" : "Wake Music dostopa do strežnikov v lokalnem omrežju za brskanje, predvajanje in prenos vaših zvočnih datotek."
           }
         },
         "sv" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Wake Music använder SMB-servrar i ditt lokala nätverk för att bläddra bland, spela upp och ladda ned dina ljudfiler."
+            "value" : "Wake Music använder servrar i ditt lokala nätverk för att bläddra bland, spela upp och ladda ned dina ljudfiler."
           }
         },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Wake Music เข้าถึงเซิร์ฟเวอร์ SMB บนเครือข่ายภายในเพื่อเรียกดู เล่น และดาวน์โหลดไฟล์เสียงของคุณ"
+            "value" : "Wake Music เข้าถึงเซิร์ฟเวอร์บนเครือข่ายภายในเพื่อเรียกดู เล่น และดาวน์โหลดไฟล์เสียงของคุณ"
           }
         },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Wake Music, ses dosyalarınızı gözden geçirmek, oynatmak ve indirmek için yerel ağınızdaki SMB sunucularına erişir."
+            "value" : "Wake Music, ses dosyalarınızı gözden geçirmek, oynatmak ve indirmek için yerel ağınızdaki sunuculara erişir."
           }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Wake Music звертається до серверів SMB у локальній мережі для перегляду, відтворення й завантаження ваших аудіофайлів."
+            "value" : "Wake Music звертається до серверів у локальній мережі для перегляду, відтворення й завантаження ваших аудіофайлів."
           }
         },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Wake Music truy cập máy chủ SMB trên mạng cục bộ để duyệt, phát và tải xuống tệp âm thanh của bạn."
+            "value" : "Wake Music truy cập máy chủ trên mạng cục bộ để duyệt, phát và tải xuống tệp âm thanh của bạn."
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "维克音乐需要访问局域网中的 SMB 服务器，以浏览、播放和下载你的音频文件。"
+            "value" : "维克音乐需要访问局域网中的 NAS 和其他服务器，以浏览、播放和下载你的音频文件。"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "維克音樂需要存取區域網路中的 SMB 伺服器，以瀏覽、播放及下載你的音訊檔案。"
+            "value" : "維克音樂需要存取區域網路中的 NAS 和其他伺服器，以瀏覽、播放及下載你的音訊檔案。"
           }
         },
         "zh-HK" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "維克音樂需要存取區域網路中的 SMB 伺服器，以瀏覽、播放及下載你的音訊檔案。"
+            "value" : "維克音樂需要存取區域網路中的 NAS 和其他伺服器，以瀏覽、播放及下載你的音訊檔案。"
           }
         }
       }

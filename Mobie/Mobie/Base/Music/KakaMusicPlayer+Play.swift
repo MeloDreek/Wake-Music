@@ -105,10 +105,10 @@ extension KakaMusicPlayer {
         }
 
         // Re-resolve temporary cloud links after a pause; the previous URL may have expired.
-        let isResumingPCloud = (model.pcloudFile != nil || model.megaFile != nil || model.yandexFile != nil || model.guangyaFile != nil || model.pan123File != nil || model.boxFile != nil || model.smbFile != nil) && self.playerView.playerLayer?.player.playbackState == .paused && self.playerView.playerLayer?.url == model.mediaPlayURL
+        let isResumingPCloud = (model.pcloudFile != nil || model.megaFile != nil || model.yandexFile != nil || model.guangyaFile != nil || model.pan123File != nil || model.boxFile != nil || model.smbFile != nil || model.ftpFile != nil) && self.playerView.playerLayer?.player.playbackState == .paused && self.playerView.playerLayer?.url == model.mediaPlayURL
         let pcloudResumeTime = isResumingPCloud ? self.currentTime : MusicConfigManager.shared.lastPlayTime
         
-        let fileExtension = model.megaFile?.fileExtension() ?? model.smbFile?.fileExtension() ?? model.yandexFile?.fileExtension() ?? model.guangyaFile?.fileExtension() ?? model.pan123File?.fileExtension() ?? model.boxFile?.fileExtension() ?? model.mediaPlayURL.pathExtension.lowercased()
+        let fileExtension = model.megaFile?.fileExtension() ?? model.smbFile?.fileExtension() ?? model.ftpFile?.fileExtension() ?? model.yandexFile?.fileExtension() ?? model.guangyaFile?.fileExtension() ?? model.pan123File?.fileExtension() ?? model.boxFile?.fileExtension() ?? model.mediaPlayURL.pathExtension.lowercased()
         let isPremiumType = AudioExtensionType.premiumExtensions().contains(fileExtension)
         if !UserInfoManager.shared.isVIP() && isPremiumType && (model.fileSourceType != .demoFile) {
             retirePlayback()
@@ -128,7 +128,7 @@ extension KakaMusicPlayer {
             playbackStatus = .buffering
             return
         }
-        if let playerLayer = self.playerView.playerLayer, model.pcloudFile == nil, model.megaFile == nil, model.yandexFile == nil, model.guangyaFile == nil, model.pan123File == nil, model.boxFile == nil, model.smbFile == nil, playerLayer.player.playbackState == .paused, self.playingMusic?.mediaPlayURL == playerLayer.url {
+        if let playerLayer = self.playerView.playerLayer, model.pcloudFile == nil, model.megaFile == nil, model.yandexFile == nil, model.guangyaFile == nil, model.pan123File == nil, model.boxFile == nil, model.smbFile == nil, model.ftpFile == nil, playerLayer.player.playbackState == .paused, self.playingMusic?.mediaPlayURL == playerLayer.url {
             // 继续播放
             debugPrint("继续播放")
         }else{
@@ -160,6 +160,9 @@ extension KakaMusicPlayer {
             }else{
                 if model.smbFile != nil {
                     self.handleSMBStreaming(model, resumeTime: pcloudResumeTime)
+                    return
+                }else if model.ftpFile != nil {
+                    self.handleFTPStreaming(model, resumeTime: pcloudResumeTime)
                     return
                 }else if model.megaFile != nil {
                     self.handleMEGAStreaming(model, resumeTime: pcloudResumeTime)

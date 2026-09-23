@@ -260,6 +260,10 @@ extension SandboxFileManager {
         if let cached = publicFiles.first(where: { PreDownloadedAudioFile.sourceIdentity(at: $0) == identity }) {
             return cached
         }
+        // FTP was introduced after source markers became mandatory. An untagged
+        // file with the same display name may belong to another server (or a
+        // local import), so it must never satisfy an FTP cache lookup.
+        if model.ftpFile != nil { return nil }
         let legacyName = (model.pcloudFile != nil || model.megaFile != nil || model.yandexFile != nil ||
                           model.guangyaFile != nil || model.pan123File != nil || model.boxFile != nil || model.smbFile != nil)
             ? model.filePathName() + model.addPathExtension() : model.downloadPathName()

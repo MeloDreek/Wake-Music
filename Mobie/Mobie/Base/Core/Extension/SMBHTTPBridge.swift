@@ -5,7 +5,7 @@ import AppGroupKit
 #endif
 
 /// Private loopback transport for AVPlayer/KSPlayer and the existing download queue.
-/// Never binds to Wi-Fi, never puts SMB credentials/paths in HTTP URLs, and reads
+/// Never binds to Wi-Fi, never puts remote credentials/paths in HTTP URLs, and reads
 /// bounded chunks only after the previous chunk has been consumed by the socket.
 @MainActor
 final class SMBHTTPBridge {
@@ -14,29 +14,50 @@ final class SMBHTTPBridge {
     private var starting: Task<UInt16, Error>?
     private var readyContinuation: CheckedContinuation<UInt16, Error>?
     private struct Entry {
-        let file: SMBDriveFileModel
+        let account: String
         let size: Int64
+        let chunkSize: Int64
         let read: (Range<Int64>) async throws -> Data
         var lastUsed = Date()
     }
     private var entries: [String: Entry] = [:]
     private var connections: [UUID: (NWConnection, String?)] = [:]
+    private var responseTasks: [UUID: Task<Void, Never>] = [:]
 
     func register(file: SMBDriveFileModel, size: Int64, read: @escaping (Range<Int64>) async throws -> Data) async throws -> URL {
+        try await register(account: "smb:" + (file.smbUser?.identity ?? ""),
+                           fileExtension: file.fileExtension(), size: size, chunkSize: 256 * 1024, read: read)
+    }
+
+    func register(file: FTPDriveFileModel, size: Int64, read: @escaping (Range<Int64>) async throws -> Data) async throws -> URL {
+        try await register(account: "ftp:" + (file.ftpUser?.identity ?? ""),
+                           fileExtension: file.fileExtension(), size: size, chunkSize: 2 * 1024 * 1024, read: read)
+    }
+
+    private func register(account: String, fileExtension: String, size: Int64, chunkSize: Int64,
+                          read: @escaping (Range<Int64>) async throws -> Data) async throws -> URL {
         let port = try await start()
         let active = Set(connections.values.compactMap { $0.1 })
         entries = entries.filter { active.contains($0.key) || Date().timeIntervalSince($0.value.lastUsed) < 60 }
         if entries.count >= 24, let oldest = entries.filter({ !active.contains($0.key) }).min(by: { $0.value.lastUsed < $1.value.lastUsed }) {
             entries.removeValue(forKey: oldest.key)
         }
-        guard entries.count < 24 else { throw SMBFailure.message("Too many SMB streams. Please try again later.") }
+        guard entries.count < 24 else { throw SMBFailure.message("Too many remote streams. Please try again later.") }
         let token = UUID().uuidString
-        entries[token] = Entry(file: file, size: size, read: read)
-        return URL(string: "http://127.0.0.1:\(port)/\(token)/audio")!.appendingPathExtension(file.fileExtension())
+        entries[token] = Entry(account: account, size: size, chunkSize: chunkSize, read: read)
+        return URL(string: "http://127.0.0.1:\(port)/\(token)/audio")!.appendingPathExtension(fileExtension)
     }
 
     func revoke(account: String) {
-        let tokens = Set(entries.filter { $0.value.file.smbUser?.identity == account }.keys)
+        revoke(prefixedAccount: "smb:" + account)
+    }
+
+    func revokeFTP(account: String) {
+        revoke(prefixedAccount: "ftp:" + account)
+    }
+
+    private func revoke(prefixedAccount: String) {
+        let tokens = Set(entries.filter { $0.value.account == prefixedAccount }.keys)
         entries = entries.filter { !tokens.contains($0.key) }
         for (_, pair) in connections where pair.1.map(tokens.contains) == true { pair.0.cancel() }
     }
@@ -93,6 +114,7 @@ final class SMBHTTPBridge {
                     // Do not return NWConnection as Task.Success: its Sendable
                     // conformance is iOS 17+, but cleanup must also work on iOS 16.
                     _ = self?.connections.removeValue(forKey: id)
+                    self?.responseTasks.removeValue(forKey: id)?.cancel()
                 }
             }
         }
@@ -113,7 +135,9 @@ final class SMBHTTPBridge {
                 guard buffer.count <= 16384, error == nil else { connection.cancel(); return }
                 if let range = buffer.range(of: Data("\r\n\r\n".utf8)),
                    let header = String(data: buffer[..<range.lowerBound], encoding: .utf8) {
-                    await self.respond(connection, id: id, header: header)
+                    self.responseTasks[id] = Task { @MainActor in
+                        await self.respond(connection, id: id, header: header)
+                    }
                 } else if done { connection.cancel() }
                 else { self.receiveHeaders(connection, id: id, buffer: buffer) }
             }
@@ -121,7 +145,10 @@ final class SMBHTTPBridge {
     }
 
     private func respond(_ connection: NWConnection, id: UUID, header: String) async {
-        defer { connection.cancel() }
+        defer {
+            responseTasks[id] = nil
+            connection.cancel()
+        }
         let lines = header.components(separatedBy: "\r\n")
         let request = (lines.first ?? "").split(separator: " ")
         guard request.count == 3, request[0] == "GET" || request[0] == "HEAD" else {
@@ -147,8 +174,8 @@ final class SMBHTTPBridge {
             guard request[0] != "HEAD" else { return }
             var offset = range.lowerBound
             while offset < range.upperBound {
-                guard connections[id] != nil, entries[token] != nil else { return }
-                let end = min(offset + 256 * 1024, range.upperBound)
+                guard !Task.isCancelled, connections[id] != nil, entries[token] != nil else { return }
+                let end = min(offset + entry.chunkSize, range.upperBound)
                 let data = try await entry.read(offset..<end)
                 guard !data.isEmpty else { return } // Truncated transfer is not a successful download.
                 try await send(data, to: connection)

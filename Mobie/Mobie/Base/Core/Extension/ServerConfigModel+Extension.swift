@@ -14,6 +14,7 @@ extension ServerConfigModel {
     /// 访问子文件夹的标题
     public func pageTitle() -> String {
         if let user = smbUser { return user.title + " (" + user.host + ")" }
+        if let user = ftpUser { return user.title + " (" + user.host + ")" }
         if let user = megaUser { return user.email.isEmpty ? "MEGA" : user.email }
         if let user = yandexUser { return user.login.isEmpty ? "Yandex Disk" : user.login }
         if let user = pan123User { return user.name.isEmpty ? "Pan123.Name".localStr() : user.name }
@@ -62,6 +63,7 @@ extension ServerConfigModel {
             return parts.isEmpty ? nil : parts.joined(separator: " · ")
         }
         if let user = smbUser { return details(user.host, user.username) }
+        if let user = ftpUser { return details(user.host, user.username) }
         if let user = megaUser { return details(user.name, user.email) ?? "MEGA" }
         if let user = yandexUser { return details(user.name, user.login) ?? "Yandex Disk" }
         if let user = pan123User { return details(user.name, user.email, user.phone) ?? "Pan123.Name".localStr() }

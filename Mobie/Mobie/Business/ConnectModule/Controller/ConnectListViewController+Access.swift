@@ -19,6 +19,10 @@ extension ConnectListViewController {
             self.navigationController?.pushViewController(SMBDriveFileListController(loginModel: user), animated: true)
             return
         }
+        if let user = serverModel.ftpUser {
+            self.navigationController?.pushViewController(FTPDriveFileListController(loginModel: user), animated: true)
+            return
+        }
         if let user = serverModel.megaUser {
             self.navigationController?.pushViewController(MEGADriveFileListController(loginModel: user), animated: true)
             return

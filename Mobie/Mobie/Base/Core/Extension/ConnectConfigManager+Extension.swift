@@ -70,6 +70,9 @@ extension ConnectConfigManager {
             if let user = serverModel.smbUser, subFolder.smbFile != nil {
                 subFolder.smbFile?.smbUser = user
             }
+            if let user = serverModel.ftpUser, subFolder.ftpFile != nil {
+                subFolder.ftpFile?.ftpUser = user
+            }
             if let user = serverModel.megaUser, subFolder.megaFile != nil {
                 subFolder.megaFile?.megaUser = user
             }
@@ -123,6 +126,9 @@ extension ConnectConfigManager {
             }
             if let user = serverModel.smbUser, subMusic.smbFile != nil {
                 subMusic.smbFile?.smbUser = user
+            }
+            if let user = serverModel.ftpUser, subMusic.ftpFile != nil {
+                subMusic.ftpFile?.ftpUser = user
             }
             if let user = serverModel.megaUser, subMusic.megaFile != nil {
                 subMusic.megaFile?.megaUser = user
@@ -191,6 +197,17 @@ extension ConnectConfigManager {
             player.tempMusicArray = player.tempMusicArray.filter { $0.smbFile?.smbUser != user }
             if player.nextPlayMusic?.smbFile?.smbUser == user { player.nextPlayMusic = nil }
             if player.playingMusic?.smbFile?.smbUser == user {
+                player.resetToPausedDemo(clearRemotePlaylist: false)
+            }
+        }
+        if let user = serverModel.ftpUser {
+            FTPDriveService.shared.unlink(user)
+            self.lastPlaylist = self.lastPlaylist.filter { $0.ftpFile?.ftpUser != user }
+            let player = KakaMusicPlayer.shared
+            player.musicArray = player.musicArray.filter { $0.ftpFile?.ftpUser != user }
+            player.tempMusicArray = player.tempMusicArray.filter { $0.ftpFile?.ftpUser != user }
+            if player.nextPlayMusic?.ftpFile?.ftpUser == user { player.nextPlayMusic = nil }
+            if player.playingMusic?.ftpFile?.ftpUser == user {
                 player.resetToPausedDemo(clearRemotePlaylist: false)
             }
         }
@@ -272,7 +289,7 @@ extension ConnectConfigManager {
         
         // 首先检查是否已经存在该模型
         var newModel = model
-        if model.pcloudFile != nil || model.megaFile != nil || model.yandexFile != nil || model.guangyaFile != nil || model.pan123File != nil || model.boxFile != nil {
+        if model.pcloudFile != nil || model.megaFile != nil || model.yandexFile != nil || model.guangyaFile != nil || model.pan123File != nil || model.boxFile != nil || model.ftpFile != nil {
             newModel.isFavorite = !tempArray.contains(model)
         } else {
             newModel.isFavorite.toggle()
@@ -326,7 +343,7 @@ extension ConnectConfigManager {
                 if let _ = subModel.dropboxFile {
                     musicSet.insert(subModel)
                 }
-                if subModel.pcloudFile != nil || subModel.megaFile != nil || subModel.yandexFile != nil || subModel.guangyaFile != nil || subModel.pan123File != nil || subModel.boxFile != nil {
+                if subModel.pcloudFile != nil || subModel.megaFile != nil || subModel.yandexFile != nil || subModel.guangyaFile != nil || subModel.pan123File != nil || subModel.boxFile != nil || subModel.ftpFile != nil {
                     musicSet.insert(subModel)
                 }
                 
@@ -444,6 +461,9 @@ extension ConnectConfigManager {
             if let file = subModel.smbFile, let user = serverModel?.smbUser {
                 return file.smbUser == user
             }
+            if let file = subModel.ftpFile, let user = serverModel?.ftpUser {
+                return file.ftpUser == user
+            }
             if let file = subModel.megaFile, let user = serverModel?.megaUser {
                 return file.megaUser == user
             }
@@ -503,6 +523,9 @@ extension ConnectConfigManager {
             }
             if let file = subModel.smbFile, let user = serverModel?.smbUser {
                 return file.smbUser == user
+            }
+            if let file = subModel.ftpFile, let user = serverModel?.ftpUser {
+                return file.ftpUser == user
             }
             if let file = subModel.megaFile, let user = serverModel?.megaUser {
                 return file.megaUser == user
@@ -565,6 +588,14 @@ extension ConnectConfigManager {
             if let _ = subModel.dropboxFile {
                 selectedFolders.insert(subModel, at: 0)
             }
+            if let file = subModel.ftpFile, let account = file.ftpUser?.identity {
+                // The endpoint may have changed while the account ID stayed
+                // stable. Replace the old favorite at the same relative path.
+                selectedFolders.removeAll {
+                    $0.ftpFile?.ftpUser?.identity == account && $0.ftpFile?.path == file.path
+                }
+                selectedFolders.insert(subModel, at: 0)
+            }
             if subModel.pcloudFile != nil || subModel.megaFile != nil || subModel.yandexFile != nil || subModel.guangyaFile != nil || subModel.pan123File != nil || subModel.boxFile != nil {
                 selectedFolders.insert(subModel, at: 0)
             }
@@ -613,6 +644,12 @@ extension ConnectConfigManager {
             }
             
             if let _ = subModel.dropboxFile {
+                selectedMusics.insert(subModel, at: 0)
+            }
+            if let file = subModel.ftpFile, let account = file.ftpUser?.identity {
+                selectedMusics.removeAll {
+                    $0.ftpFile?.ftpUser?.identity == account && $0.ftpFile?.path == file.path
+                }
                 selectedMusics.insert(subModel, at: 0)
             }
             if subModel.pcloudFile != nil || subModel.megaFile != nil || subModel.yandexFile != nil || subModel.guangyaFile != nil || subModel.pan123File != nil || subModel.boxFile != nil {

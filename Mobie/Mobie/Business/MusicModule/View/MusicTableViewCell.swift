@@ -252,6 +252,10 @@ class MusicTableViewCell: UITableViewCell {
             let isSupport = AudioExtension.audioSuffixs.contains(smbFile.fileExtension())
             isSupportType = !smbFile.isDirectory() && isSupport
         }
+        if let ftpFile = musicModel.ftpFile {
+            let isSupport = AudioExtension.audioSuffixs.contains(ftpFile.fileExtension())
+            isSupportType = !ftpFile.isDirectory() && isSupport
+        }
         if let megaFile = musicModel.megaFile {
             let isSupport = AudioExtension.audioSuffixs.contains(megaFile.fileExtension())
             isSupportType = !megaFile.isDirectory() && isSupport
@@ -363,6 +367,10 @@ class MusicTableViewCell: UITableViewCell {
             loadArtwork(musicModel)
             nameLabel.text = file.name
             self.descLabel.text = file.isDirectory() ? "SMB" : musicModel.durationTimeStr()
+        }else if let file = musicModel.ftpFile {
+            loadArtwork(musicModel)
+            nameLabel.text = file.name
+            self.descLabel.text = file.isDirectory() ? "FTP" : musicModel.durationTimeStr()
         }else if let file = musicModel.megaFile {
             loadArtwork(musicModel)
             nameLabel.text = file.name

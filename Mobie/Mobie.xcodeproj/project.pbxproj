@@ -717,6 +717,12 @@
 		C02300000000000000000003 /* SMBFileListStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02300000000000000000002 /* SMBFileListStatus.swift */; };
 		C02400000000000000000001 /* SMBProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02400000000000000000002 /* SMBProtocol.swift */; };
 		C02400000000000000000003 /* SMBProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02400000000000000000002 /* SMBProtocol.swift */; };
+		F70000000000000000000002 /* AuthFTPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70000000000000000000001 /* AuthFTPViewController.swift */; };
+		F70000000000000000000003 /* AuthFTPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70000000000000000000001 /* AuthFTPViewController.swift */; };
+		F70000000000000000000005 /* FTPDriveFileListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70000000000000000000004 /* FTPDriveFileListController.swift */; };
+		F70000000000000000000006 /* FTPDriveFileListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70000000000000000000004 /* FTPDriveFileListController.swift */; };
+		F70000000000000000000008 /* FTPDriveService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70000000000000000000007 /* FTPDriveService.swift */; };
+		F70000000000000000000009 /* FTPDriveService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70000000000000000000007 /* FTPDriveService.swift */; };
 		C03000000000000000000001 /* AMSMB2 in Frameworks */ = {isa = PBXBuildFile; productRef = C03000000000000000000003 /* AMSMB2 */; };
 		C03000000000000000000002 /* AMSMB2 in Frameworks */ = {isa = PBXBuildFile; productRef = C03000000000000000000004 /* AMSMB2 */; };
 		C03000000000000000000006 /* AMSMB2 in Embed Frameworks */ = {isa = PBXBuildFile; productRef = C03000000000000000000003 /* AMSMB2 */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -1156,6 +1162,9 @@
 		C02100000000000000000002 /* SMBHTTPBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMBHTTPBridge.swift; sourceTree = "<group>"; };
 		C02300000000000000000002 /* SMBFileListStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMBFileListStatus.swift; sourceTree = "<group>"; };
 		C02400000000000000000002 /* SMBProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMBProtocol.swift; sourceTree = "<group>"; };
+		F70000000000000000000001 /* AuthFTPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthFTPViewController.swift; sourceTree = "<group>"; };
+		F70000000000000000000004 /* FTPDriveFileListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTPDriveFileListController.swift; sourceTree = "<group>"; };
+		F70000000000000000000007 /* FTPDriveService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTPDriveService.swift; sourceTree = "<group>"; };
 		C04100000000000000000002 /* MEGADriveService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MEGADriveService.swift; sourceTree = "<group>"; };
 		C04100000000000000000005 /* MEGADriveFileListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MEGADriveFileListController.swift; sourceTree = "<group>"; };
 		C04100000000000000000008 /* KakaMusicPlayer+MEGA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KakaMusicPlayer+MEGA.swift"; sourceTree = "<group>"; };
@@ -1344,6 +1353,7 @@
 				226C9C222D200734003A3CE8 /* AuthWebdavViewController.swift */,
 				226DFB6D2D657E0F00E3BE06 /* AuthNavidromeController.swift */,
 				22C287B030540A4500801D66 /* AuthSMBViewController.swift */,
+				F70000000000000000000001 /* AuthFTPViewController.swift */,
 				C04300000000000000000002 /* AuthMEGAViewController.swift */,
 				228A13BB2CA0633400E2948E /* FreeStreamViewController.swift */,
 				228A13C52CA0633400E2948E /* VideoConverterViewController.swift */,
@@ -1475,6 +1485,7 @@
 				DA1000000000000000000005 /* YandexDriveFileListController.swift */,
 				C04100000000000000000005 /* MEGADriveFileListController.swift */,
 				C02000000000000000000005 /* SMBDriveFileListController.swift */,
+				F70000000000000000000004 /* FTPDriveFileListController.swift */,
 				2217E0FC2EBC74E000C724F6 /* OneDriveFileListController.swift */,
 				224B43DD2E2D3F88007F3E89 /* Drive115FileListController.swift */,
 				2257955B2D79DC7A005479EA /* SelectPlaylistController.swift */,
@@ -1871,6 +1882,7 @@
 				C04100000000000000000002 /* MEGADriveService.swift */,
 				D66F570949C24DA19E444002 /* MEGASystemProxy.swift */,
 				C02000000000000000000002 /* SMBDriveService.swift */,
+				F70000000000000000000007 /* FTPDriveService.swift */,
 				AD83AA7A4F144287924ABEF2 /* SMBDiscovery.swift */,
 				C02100000000000000000002 /* SMBHTTPBridge.swift */,
 				C02400000000000000000002 /* SMBProtocol.swift */,
@@ -2520,6 +2532,7 @@
 				DA1000000000000000000006 /* YandexDriveFileListController.swift in Sources */,
 				C04100000000000000000006 /* MEGADriveFileListController.swift in Sources */,
 				C02000000000000000000006 /* SMBDriveFileListController.swift in Sources */,
+				F70000000000000000000006 /* FTPDriveFileListController.swift in Sources */,
 				C10E00000000000000000003 /* PCloudFileListStatus.swift in Sources */,
 				B01100000000000000000003 /* BoxFileListStatus.swift in Sources */,
 				CA1100000000000000000003 /* GuangyaFileListStatus.swift in Sources */,
@@ -2613,6 +2626,7 @@
 				22C25741302D937200A68C1B /* MusicConfigManager+Action.swift in Sources */,
 				225F58612D85B2AB0055BDFF /* ProfileViewController.swift in Sources */,
 				22C287B230540A4500801D66 /* AuthSMBViewController.swift in Sources */,
+				F70000000000000000000003 /* AuthFTPViewController.swift in Sources */,
 				C0DE09170000000000000013 /* DownloadManager+Tasks.swift in Sources */,
 				C0DE09170000000000000003 /* WebDAVAddress.swift in Sources */,
 				C04300000000000000000003 /* AuthMEGAViewController.swift in Sources */,
@@ -2633,6 +2647,7 @@
 				C04100000000000000000003 /* MEGADriveService.swift in Sources */,
 				D66F570949C24DA19E444003 /* MEGASystemProxy.swift in Sources */,
 				C02000000000000000000003 /* SMBDriveService.swift in Sources */,
+				F70000000000000000000009 /* FTPDriveService.swift in Sources */,
 				AD83AA7A4F144287924ABEF3 /* SMBDiscovery.swift in Sources */,
 				C02100000000000000000003 /* SMBHTTPBridge.swift in Sources */,
 				C02400000000000000000003 /* SMBProtocol.swift in Sources */,
@@ -2864,6 +2879,7 @@
 				DA1000000000000000000004 /* YandexDriveFileListController.swift in Sources */,
 				C04100000000000000000004 /* MEGADriveFileListController.swift in Sources */,
 				C02000000000000000000004 /* SMBDriveFileListController.swift in Sources */,
+				F70000000000000000000005 /* FTPDriveFileListController.swift in Sources */,
 				C10E00000000000000000001 /* PCloudFileListStatus.swift in Sources */,
 				B01100000000000000000001 /* BoxFileListStatus.swift in Sources */,
 				CA1100000000000000000001 /* GuangyaFileListStatus.swift in Sources */,
@@ -2957,6 +2973,7 @@
 				22C25742302D937200A68C1B /* MusicConfigManager+Action.swift in Sources */,
 				228A14682CA0633400E2948E /* ProfileViewController.swift in Sources */,
 				22C287B130540A4500801D66 /* AuthSMBViewController.swift in Sources */,
+				F70000000000000000000002 /* AuthFTPViewController.swift in Sources */,
 				C0DE09170000000000000012 /* DownloadManager+Tasks.swift in Sources */,
 				C0DE09170000000000000002 /* WebDAVAddress.swift in Sources */,
 				C04300000000000000000001 /* AuthMEGAViewController.swift in Sources */,
@@ -2977,6 +2994,7 @@
 				C04100000000000000000001 /* MEGADriveService.swift in Sources */,
 				D66F570949C24DA19E444001 /* MEGASystemProxy.swift in Sources */,
 				C02000000000000000000001 /* SMBDriveService.swift in Sources */,
+				F70000000000000000000008 /* FTPDriveService.swift in Sources */,
 				AD83AA7A4F144287924ABEF1 /* SMBDiscovery.swift in Sources */,
 				C02100000000000000000001 /* SMBHTTPBridge.swift in Sources */,
 				C02400000000000000000001 /* SMBProtocol.swift in Sources */,
@@ -3122,7 +3140,7 @@
 				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "You can use your camera to take live music videos and then convert them to music, with your permission.";
 				INFOPLIST_KEY_NSFileProviderPresenceUsageDescription = "Your permission is required to read music files from the Files app";
-				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Wake Music accesses SMB servers on your local network to browse, play, and download your audio files.";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Wake Music accesses NAS devices and other servers on your local network to browse, play, and download your audio files.";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "You can use your camera to take live music videos and then convert them to music, with your permission.";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Your album access is required to save song covers";
 				INFOPLIST_KEY_NSUserTrackingUsageDescription = "This identifier will be used to verify your ad source, accurately sync your subscription status, and optimize your purchase and customer support experience.";
@@ -3177,7 +3195,7 @@
 				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "You can use your camera to take live music videos and then convert them to music, with your permission.";
 				INFOPLIST_KEY_NSFileProviderPresenceUsageDescription = "Your permission is required to read music files from the Files app";
-				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Wake Music accesses SMB servers on your local network to browse, play, and download your audio files.";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Wake Music accesses NAS devices and other servers on your local network to browse, play, and download your audio files.";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "You can use your camera to take live music videos and then convert them to music, with your permission.";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Your album access is required to save song covers";
 				INFOPLIST_KEY_NSUserTrackingUsageDescription = "This identifier will be used to verify your ad source, accurately sync your subscription status, and optimize your purchase and customer support experience.";
@@ -3356,7 +3374,7 @@
 				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "You can use your camera to take live music videos and then convert them to music, with your permission.";
 				INFOPLIST_KEY_NSFileProviderPresenceUsageDescription = "Your permission is required to read music files from the Files app";
-				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Wake Music accesses SMB servers on your local network to browse, play, and download your audio files.";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Wake Music accesses NAS devices and other servers on your local network to browse, play, and download your audio files.";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "You can use your camera to take live music videos and then convert them to music, with your permission.";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Your album access is required to save song covers";
 				INFOPLIST_KEY_NSUserTrackingUsageDescription = "This identifier will be used to verify your ad source, accurately sync your subscription status, and optimize your purchase and customer support experience.";
@@ -3410,7 +3428,7 @@
 				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "You can use your camera to take live music videos and then convert them to music, with your permission.";
 				INFOPLIST_KEY_NSFileProviderPresenceUsageDescription = "Your permission is required to read music files from the Files app";
-				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Wake Music accesses SMB servers on your local network to browse, play, and download your audio files.";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Wake Music accesses NAS devices and other servers on your local network to browse, play, and download your audio files.";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "You can use your camera to take live music videos and then convert them to music, with your permission.";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Your album access is required to save song covers";
 				INFOPLIST_KEY_NSUserTrackingUsageDescription = "This identifier will be used to verify your ad source, accurately sync your subscription status, and optimize your purchase and customer support experience.";
