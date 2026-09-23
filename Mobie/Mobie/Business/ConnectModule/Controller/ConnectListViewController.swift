@@ -20,6 +20,17 @@ import SafariServices
 
 // 已添加的服务器列表
 class ConnectListViewController: SuperViewController {
+    private struct ConnectedEntry {
+        let sourceIndex: Int
+        let server: ServerConfigModel
+    }
+
+    private struct ConnectSection {
+        let group: ImportGroupType
+        let availableTypes: [ImportFileType]
+        let connectedEntries: [ConnectedEntry]
+    }
+
     override func preSetupSubViews() {
         super.preSetupSubViews()
         contentView.addSubview(tableView)
@@ -83,9 +94,48 @@ class ConnectListViewController: SuperViewController {
         return [ServerConfigModel]()
     }()
     
-    lazy var avalibleArray: [ImportFileType] = {
-        return ImportFileType.serverDriveArray() + ImportFileType.cloudDriveArray()
-    }()
+    private lazy var availableServerTypes = ImportFileType.serverDriveArray()
+    private lazy var availableCloudTypes = ImportFileType.cloudDriveArray()
+
+    /// Keep the persisted account order untouched. The presentation order follows
+    /// the same localized provider order as Import, with original order as a tie-breaker.
+    private var connectSections: [ConnectSection] {
+        if connectArray.isEmpty {
+            return [
+                ConnectSection(group: .remoteServerGroup, availableTypes: availableServerTypes, connectedEntries: []),
+                ConnectSection(group: .remoteCloudGroup, availableTypes: availableCloudTypes, connectedEntries: [])
+            ]
+        }
+
+        let entries = connectArray.enumerated().map { ConnectedEntry(sourceIndex: $0.offset, server: $0.element) }
+        let serverEntries = sortedEntries(entries.filter { isServerType($0.server.serverType) }, by: availableServerTypes)
+        let cloudEntries = sortedEntries(entries.filter { !isServerType($0.server.serverType) }, by: availableCloudTypes)
+        var sections: [ConnectSection] = []
+        if !serverEntries.isEmpty {
+            sections.append(ConnectSection(group: .remoteServerGroup, availableTypes: [], connectedEntries: serverEntries))
+        }
+        if !cloudEntries.isEmpty {
+            sections.append(ConnectSection(group: .remoteCloudGroup, availableTypes: [], connectedEntries: cloudEntries))
+        }
+        return sections
+    }
+
+    private func isServerType(_ type: ImportFileType) -> Bool {
+        switch type {
+        case .fromWebDAV, .fromNavidrome, .fromSMB, .fromFTP, .fromJellyfin, .fromEmby, .fromPlex:
+            return true
+        default:
+            return false
+        }
+    }
+
+    private func sortedEntries(_ entries: [ConnectedEntry], by providerOrder: [ImportFileType]) -> [ConnectedEntry] {
+        entries.sorted { left, right in
+            let leftRank = providerOrder.firstIndex(of: left.server.serverType) ?? Int.max
+            let rightRank = providerOrder.firstIndex(of: right.server.serverType) ?? Int.max
+            return leftRank == rightRank ? left.sourceIndex < right.sourceIndex : leftRank < rightRank
+        }
+    }
     
     // MARK:  懒加载
     lazy var tableView: UITableView = {
@@ -191,22 +241,23 @@ class ConnectListViewController: SuperViewController {
 extension ConnectListViewController: UITableViewDataSource, UITableViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return connectArray.count == 0 ? self.avalibleArray.count : connectArray.count
+        connectSections.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        let group = connectSections[section]
+        return connectArray.isEmpty ? group.availableTypes.count : group.connectedEntries.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if connectArray.count == 0 {
-            let subType = self.avalibleArray[indexPath.section]
+            let subType = connectSections[indexPath.section].availableTypes[indexPath.row]
             let cell = tableView.dequeueReusableCell(withIdentifier: "ImportTableViewCell", for: indexPath) as! ImportTableViewCell
             cell.updateItemType(itemType: subType)
             return cell
         }else{
             let cell = tableView.dequeueReusableCell(withIdentifier: "ConnectListTableCell", for: indexPath) as! ConnectListTableCell
-            let server = connectArray[indexPath.section]
+            let server = connectSections[indexPath.section].connectedEntries[indexPath.row].server
             cell.serverModel = server
             return cell
         }
@@ -226,16 +277,17 @@ extension ConnectListViewController: UITableViewDataSource, UITableViewDelegate 
         
         if connectArray.count == 0 {
             // 首次连接
-            let itemType = self.avalibleArray[indexPath.section]
+            let itemType = connectSections[indexPath.section].availableTypes[indexPath.row]
             self.connectNewServer(itemType)
         }else{
             // 访问网盘
-            var subModel = self.connectArray[indexPath.section]
+            let entry = connectSections[indexPath.section].connectedEntries[indexPath.row]
+            var subModel = entry.server
             subModel.isSelected = true
         
-            let tempArray = self.connectArray.map {
-                var tempModel = $0
-                tempModel.isSelected = $0 == subModel ? true : false
+            let tempArray = self.connectArray.enumerated().map { index, server in
+                var tempModel = server
+                tempModel.isSelected = index == entry.sourceIndex
                 return tempModel
             }
             
@@ -246,30 +298,24 @@ extension ConnectListViewController: UITableViewDataSource, UITableViewDelegate 
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if connectArray.count == 0 {
-            return UITableView.automaticDimension
-        }else{
-            return UITableView.automaticDimension
-        }
+        UITableView.automaticDimension
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        let sumCount = connectArray.count == 0 ? self.avalibleArray.count : self.connectArray.count
-        if sumCount - 1 == section && connectArray.isEmpty {
-            return UITableView.automaticDimension
-        }else{
-            return UITableView.automaticDimension
-        }
+        UITableView.automaticDimension
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        let sumCount = connectArray.count == 0 ? self.avalibleArray.count : self.connectArray.count
-        if sumCount - 1 == section && connectArray.isEmpty {
+        if connectArray.isEmpty && section == connectSections.count - 1 {
             return connectionFeedbackFooter(feedbackAction: #selector(handleWithEmail))
         }else{
             return nil
         }
         
+    }
+
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        connectSections[section].group.localizedTitle
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -281,14 +327,13 @@ extension ConnectListViewController: UITableViewDataSource, UITableViewDelegate 
             return nil
         }
         
-        let subServer = connectArray[indexPath.section]
+        let subServer = connectSections[indexPath.section].connectedEntries[indexPath.row].server
         
         // 删除
         let deleteAction = UIContextualAction(style: .normal, title: nil) { [weak self] action, view, finish in
             guard let wSelf = self else { return }
             wSelf.showTwoAlert(message: "Are you sure to delete it?".localStr(), confirm: "Delete".localStr(), cancle: "Cancel".localStr(), style: kaka_IsiPhone() ? .actionSheet : .alert) {
-                let model = wSelf.connectArray[indexPath.section]
-                self?.deleteConnectServer(serverModel: model)
+                wSelf.deleteConnectServer(serverModel: subServer)
                 finish(true)
             }
         }

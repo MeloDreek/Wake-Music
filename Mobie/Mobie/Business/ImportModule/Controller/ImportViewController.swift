@@ -13,7 +13,8 @@ import MessageUI
 
 /*
  1、本地（文件、文件夹、视频转音乐、USB、Wi-Fi）
- 2、远程（服务器、网盘）
+ 2、远程 - NAS & 服务器
+ 3、远程 - 网盘
  */
 class ImportViewController: SuperViewController {
     var isAwaitingDropboxAuthorization = false
@@ -123,11 +124,11 @@ class ImportViewController: SuperViewController {
         loclArray.append(contentsOf: [.fromUSB, .fromWiFi])
 #endif
         let localFooter = String(format: "Locally imported songs appear in %@ and %@.".localStr(), KakaTabbarType.musics.formatStr(), KakaTabbarType.collection.formatStr())
-        let model1 = ImportGroupModel(group: .localGroup, headTitle: "Local".localStr(), itemArray: loclArray, footTitle: localFooter)
+        let model1 = ImportGroupModel(group: .localGroup, headTitle: ImportGroupType.localGroup.localizedTitle, itemArray: loclArray, footTitle: localFooter)
         tempArray.append(model1)
-                
-        let model3 = ImportGroupModel(group: .remoteGroup, headTitle: "Remote".localStr(), itemArray: ImportFileType.serverDriveArray() + ImportFileType.cloudDriveArray(), footTitle: nil)
-        tempArray.append(model3)
+
+        tempArray.append(ImportGroupModel(group: .remoteServerGroup, headTitle: ImportGroupType.remoteServerGroup.localizedTitle, itemArray: ImportFileType.serverDriveArray(), footTitle: nil))
+        tempArray.append(ImportGroupModel(group: .remoteCloudGroup, headTitle: ImportGroupType.remoteCloudGroup.localizedTitle, itemArray: ImportFileType.cloudDriveArray(), footTitle: nil))
                 
         return tempArray
     }()

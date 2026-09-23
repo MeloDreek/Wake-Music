@@ -12,7 +12,19 @@ import AppGroupKit
 
 enum ImportGroupType: Int {
     case localGroup = 0
-    case remoteGroup = 1
+    case remoteServerGroup = 1
+    case remoteCloudGroup = 2
+
+    var localizedTitle: String {
+        switch self {
+        case .localGroup:
+            return "Local".localStr()
+        case .remoteServerGroup:
+            return "\("Remote".localStr()) - NAS & \("Server".localStr())"
+        case .remoteCloudGroup:
+            return "\("Remote".localStr()) - \("Cloud Drive".localStr())"
+        }
+    }
 }
 
 struct ImportGroupModel {
@@ -241,25 +253,23 @@ extension ImportFileType {
     
     // 可用的网盘服务
     static func cloudDriveArray() -> [ImportFileType] {
-        let language = PhoneSetManager.formatLanguage()
-        
 #if canImport(MSAL)
-        let commonArray: [ImportFileType] = [.fromGoogleDrive, .fromDropboxDrive, .fromOneDrive, .fromePCloud, .fromBoxDrive, .fromMEGADrive, .fromYandexDrive]
+        let internationalArray: [ImportFileType] = [.fromGoogleDrive, .fromDropboxDrive, .fromOneDrive, .fromePCloud, .fromBoxDrive, .fromMEGADrive, .fromYandexDrive]
 #else
-        let commonArray: [ImportFileType] = [.fromGoogleDrive, .fromDropboxDrive, .fromePCloud, .fromBoxDrive, .fromMEGADrive, .fromYandexDrive]
+        let internationalArray: [ImportFileType] = [.fromGoogleDrive, .fromDropboxDrive, .fromePCloud, .fromBoxDrive, .fromMEGADrive, .fromYandexDrive]
 #endif
-        let chineseArray: [ImportFileType] = [.fromYidongDrive, .from123Drive, .fromBaiduDrive, .fromAliyunDrive, .from115Drive, .fromGuangyaDrive]
-        let russaArray: [ImportFileType] = []
-        
-        switch language {
-        case .chinese_simplified:
-            return chineseArray + commonArray + russaArray
-        case .chinese_traditional:
-            return commonArray + chineseArray + russaArray
+        let mainlandChinaArray: [ImportFileType] = [.from123Drive, .fromYidongDrive, .fromAliyunDrive, .fromBaiduDrive, .from115Drive, .fromGuangyaDrive]
+
+        // The device region is more relevant here than the UI language: an
+        // English-language user in China still needs the local services first.
+        // Keep the international order as the default for all other regions.
+        switch PhoneSetManager.localPhoneCountry() {
+        case .chinese:
+            return mainlandChinaArray + internationalArray
         case .russian:
-            return russaArray + commonArray + chineseArray
+            return [.fromYandexDrive] + internationalArray.filter { $0 != .fromYandexDrive } + mainlandChinaArray
         default:
-            return commonArray + russaArray + chineseArray
+            return internationalArray + mainlandChinaArray
         }
     }
     
