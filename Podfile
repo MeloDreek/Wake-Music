@@ -63,7 +63,6 @@ target 'Mobie_Pro' do
   pod 'AppGroupKit',                :path => './LocalSDK/AppGroupKit'
   pod 'KakaPhotoBrowser',          :path => './LocalSDK/KakaPhotoBrowser'
   pod 'WakeMusicPlayer',            :path => './LocalSDK/WakeMusicPlayer'
-# MEGASdk is linked via Xcode's local Swift package: LocalSDK/MEGASDK
 
   
 #  pod 'Firebase'#, '~> 12.2.0'
