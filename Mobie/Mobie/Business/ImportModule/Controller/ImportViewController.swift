@@ -336,7 +336,7 @@ extension ImportViewController: MFMailComposeViewControllerDelegate, SFSafariVie
         let appVersion = ((Bundle.main.infoDictionary!["CFBundleShortVersionString"] as? String) ?? "") + "_" + "\(UserInfoManager.shared.isVIP() ? "1" : "0")"
 
         return """
-        ServerType: "ImportViewController"
+        ServerType: "Import"
         App Name: \("Wakemusic".localStr())
         App Version: \(appVersion)
         Device Model: \(model)

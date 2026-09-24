@@ -326,14 +326,12 @@ extension ConnectListViewController: UITableViewDataSource, UITableViewDelegate 
         editAction.image = Reasource.systemNamed("square.and.pencil", color: .white)
         editAction.backgroundColor = UIColor.systemBlue
                 
-        let actions = subServer.serverType == .fromNavidrome && UserInfoManager.shared.isVIP() ? [deleteAction, editAction] : [deleteAction]
+        let actions = subServer.serverType == .fromNavidrome ? [deleteAction, editAction] : [deleteAction]
         return UISwipeActionsConfiguration(actions: actions)
     }
     
     // 编辑配置Nav配置
     func configNavidromeClick(_ navUser: NavidromeUserModel?) {
-        guard requireRemoteConnectionAccess() else { return }
-        
         guard let navUser = navUser else { return }
         
         let webVC = AuthNavidromeController(navUser)
@@ -425,7 +423,7 @@ extension ConnectListViewController: MFMailComposeViewControllerDelegate, SFSafa
         let appVersion = ((Bundle.main.infoDictionary!["CFBundleShortVersionString"] as? String) ?? "") + "_" + "\(UserInfoManager.shared.isVIP() ? "1" : "0")"
 
         return """
-        ServerType: "ConnectListViewController"
+        ServerType: "ConnectList"
         App Name: \("Wakemusic".localStr())
         App Version: \(appVersion)
         Device Model: \(model)

@@ -27,7 +27,7 @@ final class AuthFTPViewController: SuperViewController, UITableViewDataSource, U
                   .username: user?.username ?? "", .password: ""]
 #if DEBUG
         if user == nil {
-            values = [.title: "FTP", .host: "39.98.202.131", .port: "21", .path: "/",
+            values = [.title: "My FTP".localStr(), .host: "39.98.202.131", .port: "21", .path: "/",
                       .username: "ftplcc", .password: "cBytbhCzCyXXHDdz"]
         }
 #endif
@@ -71,9 +71,14 @@ final class AuthFTPViewController: SuperViewController, UITableViewDataSource, U
     }
 
     @objc private func questionBtnClick() {
-        guard let url = URL(string: "https://en.wikipedia.org/wiki/File_Transfer_Protocol") else { return }
+        let searchURL = String(format: SearchEngineType.defaultEngine().searchUrl(), "FTP")
+        guard let url = URL(string: searchURL) else { return }
         if kaka_IsMacOS() { UIApplication.shared.open(url) }
-        else { present(SFSafariViewController(url: url), animated: true) }
+        else {
+            let browser = SFSafariViewController(url: url)
+            browser.preferredControlTintColor = appMainColor
+            present(browser, animated: true)
+        }
     }
 
     private lazy var tableView: UITableView = {

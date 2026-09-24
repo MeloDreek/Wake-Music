@@ -231,7 +231,7 @@ class PurchaseViewController: SuperViewController {
         let selectedLifetime = selectModel?.productIdentifier == PurchaseStoreID.lifetime198.rawValue ||
             selectModel?.productIdentifier == PurchaseStoreID.lifetime298.rawValue
         isFamilySharingEnabled.toggle()
-        if selectedLifetime {
+        if isFamilySharingEnabled || selectedLifetime {
             let id = isFamilySharingEnabled ? PurchaseStoreID.lifetime298 : .lifetime198
             selectModel = visibleProducts.first { $0.productIdentifier == id.rawValue }
         }
@@ -516,6 +516,7 @@ private final class PurchaseFamilySharingFooter: UITableViewHeaderFooterView {
         toggleButton.configuration = configuration
         toggleButton.titleLabel?.numberOfLines = 0
         toggleButton.titleLabel?.textAlignment = .center
+        toggleButton.titleLabel?.adjustsFontForContentSizeCategory = true
         let stack = UIStackView(arrangedSubviews: [explanation, toggleButton])
         stack.axis = .vertical
         stack.spacing = 4
@@ -534,7 +535,11 @@ private final class PurchaseFamilySharingFooter: UITableViewHeaderFooterView {
 
     func configure(isEnabled: Bool, isPurchasing: Bool) {
         explanation.isHidden = !isEnabled
-        toggleButton.configuration?.title = (isEnabled ? "Purchase.DisableFamilySharing" : "Purchase.EnableFamilySharing").localStr()
+        let title = (isEnabled ? "Purchase.DisableFamilySharing" : "Purchase.EnableFamilySharing").localStr()
+        toggleButton.configuration?.attributedTitle = AttributedString(NSAttributedString(string: title, attributes: [
+            .font: UIFont.preferredFont(forTextStyle: .footnote),
+            .underlineStyle: NSUnderlineStyle.single.rawValue
+        ]))
         toggleButton.isEnabled = !isPurchasing
     }
 }

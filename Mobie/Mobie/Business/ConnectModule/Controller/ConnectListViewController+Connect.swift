@@ -21,7 +21,11 @@ extension ConnectListViewController {
     
     // 连接新服务器
     func connectNewServer(_ itemType: ImportFileType) {
-        guard requireRemoteConnectionAccess() else { return }
+        // Let users inspect server forms; the Connect action checks Premium access.
+        let formServices: [ImportFileType] = [.fromNavidrome, .fromWebDAV, .fromSMB, .fromFTP]
+        if !formServices.contains(itemType) {
+            guard requireRemoteConnectionAccess() else { return }
+        }
         
         if itemType == .fromWebDAV {
             self.importfromWebDAV()
