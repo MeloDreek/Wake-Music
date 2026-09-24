@@ -5,6 +5,7 @@ import KakaFoundation
 import Kingfisher
 
 enum PlayerMoreActionID {
+    static let favorite = UIAction.Identifier("player.favorite")
     static let showAudioInformation = UIAction.Identifier("player.showAudioInformation")
     static let showMiniLyrics = UIAction.Identifier("player.showMiniLyrics")
 }
@@ -116,14 +117,12 @@ final class PlayerMoreConfigCollectCell: UICollectionViewCell, UITableViewDataSo
         artistLabel.text = model?.showArtistName()
         artistLabel.isHidden = artistLabel.text?.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty != false
         layoutSongHeader()
-        sections = []
+        let spectrumAction = UIAction(title: "Spectrum.Title".localStr(), image: UIImage(systemName: "waveform.path.ecg")) { [weak self] _ in
+            self?.onSpectrum?()
+        }
+        sections = [Section(rows: [spectrumAction])]
         for group in definition.children.compactMap({ $0 as? UIMenu }) {
-            var rows = group.children.filter { ($0 as? UIAction)?.attributes.contains(.hidden) != true }
-            if sections.isEmpty {
-                rows.insert(UIAction(title: "Spectrum.Title".localStr(), image: UIImage(systemName: "waveform.path.ecg")) { [weak self] _ in
-                    self?.onSpectrum?()
-                }, at: 0)
-            }
+            let rows = group.children.filter { ($0 as? UIAction)?.attributes.contains(.hidden) != true }
             if !rows.isEmpty { sections.append(Section(rows: rows)) }
         }
         tableView.reloadData()
@@ -163,7 +162,8 @@ final class PlayerMoreConfigCollectCell: UICollectionViewCell, UITableViewDataSo
         cell.tintColor = color
         // Reset both accessories on reuse: rate uses its own compact selector.
         cell.accessoryView = nil
-        let isBoolean = action?.identifier == PlayerMoreActionID.showAudioInformation ||
+        let isBoolean = action?.identifier == PlayerMoreActionID.favorite ||
+            action?.identifier == PlayerMoreActionID.showAudioInformation ||
             action?.identifier == PlayerMoreActionID.showMiniLyrics
         if isBoolean {
             cell.accessoryType = action?.state == .on ? .checkmark : .none

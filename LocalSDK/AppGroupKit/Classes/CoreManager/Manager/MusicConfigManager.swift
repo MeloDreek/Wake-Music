@@ -200,14 +200,6 @@ public class MusicConfigManager: ObservableObject, SmartCodableX {
         }
     }
     
-    /// 预加载缓存大小
-    @SmartPublished
-    public var preDownloadSize = PreDownloadSize.GB8 {
-        didSet {
-            save()
-        }
-    }
-    
     /// 播放器背景配置
     @SmartPublished
     public var playbackModel = PlayBackgroundModel.init() {
@@ -218,7 +210,7 @@ public class MusicConfigManager: ObservableObject, SmartCodableX {
     
     /// 播放器样式
     @SmartPublished
-    public var playerStyle = kaka_IsiPhone() ? PlayerUIStyle.defaultRect : PlayerUIStyle.defaultCircle {
+    public var playerStyle = PlayerUIStyle.defaultCircle {
         didSet {
             save()
         }

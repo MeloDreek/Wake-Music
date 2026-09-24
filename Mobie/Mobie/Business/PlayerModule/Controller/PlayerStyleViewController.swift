@@ -54,6 +54,12 @@ class PlayerStyleViewController: SuperViewController {
         let playbackground = PlayBackgroundListController()
         self.navigationController?.pushViewController(playbackground, animated: true)
     }
+
+    private func showStylePremiumGuidance() {
+        showTwoAlert(title: "Unlock Premium".localStr(), message: "PlayerStyle.PremiumPrompt".localStr(), confirm: "Unlock Premium".localStr()) { [weak self] in
+            self?.vipCenterClick()
+        }
+    }
         
     override func viewWillTransition(to size: CGSize, with coordinator: any UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
@@ -130,7 +136,7 @@ extension PlayerStyleViewController: UITableViewDataSource, UITableViewDelegate 
             cell.tapeArray = self.tapeArray
             cell.onClickCallBack = { [weak self] (style) in
                 guard UserInfoManager.shared.isVIP() else {
-                    self?.vipCenterClick()
+                    self?.showStylePremiumGuidance()
                     return
                 }
                 
@@ -150,7 +156,7 @@ extension PlayerStyleViewController: UITableViewDataSource, UITableViewDelegate 
             cell.vinyArray = self.vinyArray
             cell.onClickCallBack = { [weak self] (style) in
                 guard UserInfoManager.shared.isVIP() else {
-                    self?.vipCenterClick()
+                    self?.showStylePremiumGuidance()
                     return
                 }
                 

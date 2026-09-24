@@ -54,7 +54,7 @@ extension ImportFileType {
         let speedTags = showSpeed ? ["ConnectionTag.NoSpeedLimit".localStr()] : []
         switch self {
         case .fromSMB: return ["NAS", "ConnectionTag.Computer".localStr(), "ConnectionTag.LocalNetwork".localStr()]
-        case .fromFTP: return ["NAS", "ConnectionTag.SelfHosted".localStr()]
+        case .fromFTP: return ["NAS", "Server".localStr(), "ConnectionTag.SelfHosted".localStr()]
         case .fromWebDAV: return ["NAS", "ConnectionTag.PrivateCloud".localStr(), "Cloud Drive".localStr()]
         case .fromNavidrome: return ["NAS", "ConnectionTag.MusicServer".localStr(), "ConnectionTag.SelfHosted".localStr()]
         case .fromGoogleDrive: return ["ConnectionTag.Free15GBShared".localStr()] + speedTags

@@ -440,7 +440,7 @@ class PlayControlDefaultView: UIView, UIGestureRecognizerDelegate {
         let likeType = isLike ? MusicActionType.removeFavirote : MusicActionType.addFavirote
         let likeImage = UIImage(systemName: isLike ? "heart.fill" : "heart")
         
-        let likeAction = UIAction(title: likeType.titleStr(), image: likeImage, attributes: isLocal ? [] : [.disabled], state: .off,) { [weak self] _ in
+        let likeAction = UIAction(title: likeType.titleStr(), image: likeImage, identifier: PlayerMoreActionID.favorite, discoverabilityTitle: nil, attributes: isLocal ? [] : [.disabled], state: isLike ? .on : .off) { [weak self] _ in
             guard let wSelf = self else { return }
             wSelf.delegate?.playerSubViewDidClickFavorite(baseView: wSelf)
         }

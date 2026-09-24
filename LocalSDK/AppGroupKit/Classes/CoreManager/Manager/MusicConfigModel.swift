@@ -34,19 +34,6 @@ public enum MusicPlayMode: Int, SmartCaseDefaultable {
     case game  = 1
 }
 
-public enum PreDownloadSize: Int, SmartCaseDefaultable {
-    case GB2 = 2
-    case GB4 = 4
-    case GB8 = 8
-    case GB16 = 16
-    case GB32 = 32
-    case GB64 = 64
-    
-    public func formatStr() -> String {
-        return String(format: "\(self.rawValue)GB")
-    }
-}
-
 /// Navidrome最大比特率
 public enum NavidromeMaxBitRate: Int, SmartCaseDefaultable {
     case bitRate0 = 0        // 不转码

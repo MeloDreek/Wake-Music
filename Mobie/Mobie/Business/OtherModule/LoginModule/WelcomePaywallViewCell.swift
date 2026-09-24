@@ -122,7 +122,7 @@ final class WelcomePaywallViewCell: UICollectionViewCell {
     }
 
     func configure(product: StoreProduct?, trialDays: Int?, isLoading: Bool) {
-        productTitle.text = "Purchase.Monthly.Title".localStr()
+        productTitle.text = product?.paywallTitle ?? "Purchase.Monthly.Title".localStr()
         priceLabel.text = product?.paywallBillingSummary
         priceLabel.isHidden = product == nil
         spinner.isHidden = !isLoading

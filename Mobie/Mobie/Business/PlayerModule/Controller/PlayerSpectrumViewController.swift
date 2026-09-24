@@ -10,6 +10,7 @@ final class PlayerSpectrumViewController: UIViewController {
     private let stack = UIStackView()
     private let status = UILabel()
     private let progress = UIProgressView(progressViewStyle: .default)
+    private let shareButton = UIButton(type: .system)
     private var reportView: SpectrumReportView?
 
     init(model: MusicItemModel) {
@@ -25,9 +26,6 @@ final class PlayerSpectrumViewController: UIViewController {
         title = "Spectrum.Title".localStr()
         view.backgroundColor = UIColor(white: 0.055, alpha: 1)
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(close))
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(share))
-        navigationItem.rightBarButtonItem?.isEnabled = false
-        navigationItem.rightBarButtonItem?.accessibilityLabel = "Spectrum.Share".localStr()
         scroll.translatesAutoresizingMaskIntoConstraints = false
         scroll.alwaysBounceVertical = true
         view.addSubview(scroll)
@@ -52,6 +50,20 @@ final class PlayerSpectrumViewController: UIViewController {
         let card = SpectrumReportView(title: model.showTitleName(), artist: model.showArtistName(), report: nil)
         reportView = card
         stack.addArrangedSubview(card)
+        var shareConfiguration = UIButton.Configuration.filled()
+        shareConfiguration.title = "Spectrum.Share".localStr()
+        shareConfiguration.image = UIImage(systemName: "square.and.arrow.up")
+        shareConfiguration.imagePadding = 10
+        shareConfiguration.baseBackgroundColor = SpectrumReportView.amber
+        shareConfiguration.baseForegroundColor = UIColor(white: 0.08, alpha: 1)
+        shareConfiguration.cornerStyle = .large
+        shareConfiguration.contentInsets = NSDirectionalEdgeInsets(top: 16, leading: 20, bottom: 16, trailing: 20)
+        shareButton.configuration = shareConfiguration
+        shareButton.titleLabel?.numberOfLines = 0
+        shareButton.titleLabel?.textAlignment = .center
+        shareButton.addTarget(self, action: #selector(share), for: .touchUpInside)
+        shareButton.isHidden = true
+        stack.addArrangedSubview(shareButton)
         status.font = .preferredFont(forTextStyle: .footnote)
         status.adjustsFontForContentSizeCategory = true
         status.textColor = .secondaryLabel
@@ -86,7 +98,7 @@ final class PlayerSpectrumViewController: UIViewController {
                 self.reportView = card
                 self.stack.insertArrangedSubview(card, at: 0)
                 self.status.isHidden = true
-                self.navigationItem.rightBarButtonItem?.isEnabled = true
+                self.shareButton.isHidden = false
             case .failure:
                 self.status.text = "Spectrum.Error".localStr()
             }
@@ -100,7 +112,7 @@ final class PlayerSpectrumViewController: UIViewController {
     @objc private func close() { analyzer.cancel(); dismiss(animated: true) }
 
     @objc private func share() {
-        guard let report else { return }
+        guard let report, presentedViewController == nil else { return }
         let poster = SpectrumReportView(title: model.showTitleName(), artist: model.showArtistName(), report: report)
         poster.overrideUserInterfaceStyle = .dark
         let width: CGFloat = 640
@@ -110,11 +122,26 @@ final class PlayerSpectrumViewController: UIViewController {
         poster.layoutIfNeeded()
         let format = UIGraphicsImageRendererFormat()
         format.scale = 2
-        format.opaque = true
-        let image = UIGraphicsImageRenderer(size: size, format: format).image { poster.layer.render(in: $0.cgContext) }
-        let activity = UIActivityViewController(activityItems: [image], applicationActivities: nil)
-        activity.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
-        present(activity, animated: true)
+        format.opaque = false
+        let png = UIGraphicsImageRenderer(size: size, format: format).pngData { context in
+            UIBezierPath(roundedRect: poster.bounds, cornerRadius: poster.layer.cornerRadius).addClip()
+            poster.layer.render(in: context.cgContext)
+        }
+        // Sharing the PNG file preserves its format and transparent rounded corners.
+        let fileURL = FileManager.default.temporaryDirectory
+            .appendingPathComponent("Wakemusic-Spectrum-\(UUID().uuidString).png")
+        do {
+            try png.write(to: fileURL, options: .atomic)
+            let activity = UIActivityViewController(activityItems: [fileURL], applicationActivities: nil)
+            activity.popoverPresentationController?.sourceView = shareButton
+            activity.popoverPresentationController?.sourceRect = shareButton.bounds
+            activity.completionWithItemsHandler = { _, _, _, _ in
+                try? FileManager.default.removeItem(at: fileURL)
+            }
+            present(activity, animated: true)
+        } catch {
+            showOneAlert(message: error.localizedDescription)
+        }
     }
 }
 
@@ -220,7 +247,7 @@ final class SpectrumReportView: UIView {
         logo.heightAnchor.constraint(equalToConstant: 34).isActive = true
         brand.addArrangedSubview(logo)
         brand.addArrangedSubview(Self.label("Powered by Wakemusic".localStr(), size: 13, color: .white))
-        stack.addArrangedSubview(brand)
+        if report != nil { stack.addArrangedSubview(brand) }
     }
     required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     override func layoutSubviews() {

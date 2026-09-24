@@ -13,11 +13,11 @@ final class PlayerQueueCollectCell: UICollectionViewCell, UITableViewDataSource,
         didSet { if oldValue != bottomReservedHeight { setNeedsLayout() } }
     }
     let tableView = UITableView(frame: .zero, style: .plain)
+    private let queueHeader = UITableViewHeaderFooterView(reuseIdentifier: nil)
     private let artwork = UIImageView()
     private let songTitle = UILabel()
     private let artist = UILabel()
     private let heading = UILabel()
-    private let hint = UILabel()
     private let empty = UILabel()
     private let modes = UIStackView()
     private var buttons: [UIButton] = []
@@ -33,7 +33,9 @@ final class PlayerQueueCollectCell: UICollectionViewCell, UITableViewDataSource,
         backgroundColor = .clear
         contentView.backgroundColor = .clear
         overrideUserInterfaceStyle = .dark
-        [artwork, songTitle, artist, modes, heading, hint, tableView].forEach { contentView.addSubview($0) }
+        contentView.addSubview(tableView)
+        queueHeader.backgroundConfiguration = .clear()
+        [artwork, songTitle, artist, modes, heading].forEach { queueHeader.contentView.addSubview($0) }
         artwork.contentMode = .scaleAspectFill
         artwork.clipsToBounds = true
         artwork.layer.cornerRadius = 10
@@ -58,14 +60,11 @@ final class PlayerQueueCollectCell: UICollectionViewCell, UITableViewDataSource,
         }
         heading.font = .systemFont(ofSize: 22, weight: .bold)
         heading.textColor = .white
-        hint.font = .systemFont(ofSize: 12)
-        hint.textColor = .white.withAlphaComponent(0.6)
-        hint.numberOfLines = 2
-        hint.text = "Queue.DragHint".localStr()
         tableView.backgroundColor = .clear
         tableView.separatorStyle = .none
         tableView.indicatorStyle = .white
         tableView.contentInsetAdjustmentBehavior = .never
+        tableView.tableHeaderView = queueHeader
         tableView.dataSource = self
         tableView.delegate = self
         tableView.dragDelegate = self
@@ -99,12 +98,15 @@ final class PlayerQueueCollectCell: UICollectionViewCell, UITableViewDataSource,
         artist.frame = rect(titleX, songTitle.frame.maxY + 1, titleWidth, 22)
         modes.frame = CGRect(x: margin + 4, y: top + cover + (compact ? 10 : 24), width: width - margin * 2 - 8, height: compact ? 34 : 40)
         heading.frame = rect(margin, modes.frame.maxY + (compact ? 10 : 20), width - margin * 2, 29)
-        hint.isHidden = compact
-        hint.frame = CGRect(x: margin, y: heading.frame.maxY + 3, width: width - margin * 2, height: compact ? 0 : 32)
+        let headerSize = CGSize(width: width, height: heading.frame.maxY + (compact ? 10 : 18))
+        if queueHeader.frame.size != headerSize {
+            queueHeader.frame = CGRect(origin: .zero, size: headerSize)
+            // UITableView only recalculates tableHeaderView's height when it is reassigned.
+            tableView.tableHeaderView = queueHeader
+        }
         let bottom = bottomReservedHeight + 8
-        let tableTop = hint.frame.maxY + 8
         // Keep the scroll indicator at the page edge; inset row content, not the table.
-        tableView.frame = CGRect(x: 0, y: tableTop, width: width, height: max(0, bounds.height - bottom - tableTop))
+        tableView.frame = CGRect(x: 0, y: 0, width: width, height: max(0, bounds.height - bottom))
     }
 
     override func didMoveToWindow() {

@@ -16,7 +16,8 @@ public let PremiumEntitlID = "premium"
 
 extension StoreProduct {
     var paywallTitle: String {
-        PurchaseStoreID(rawValue: productIdentifier)?.formatStr() ?? localizedTitle
+        let title = localizedTitle.trimmingCharacters(in: .whitespacesAndNewlines)
+        return title.isEmpty ? (PurchaseStoreID(rawValue: productIdentifier)?.formatStr() ?? "") : title
     }
 
     var paywallDetail: String {

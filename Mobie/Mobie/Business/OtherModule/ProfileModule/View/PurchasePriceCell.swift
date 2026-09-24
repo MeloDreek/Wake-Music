@@ -22,8 +22,10 @@ class PurchasePriceCell: UITableViewCell {
         selectionImage.contentMode = .scaleAspectFit
         selectionImage.tintColor = appMainColor
         titleStack.axis = .vertical
+        titleStack.alignment = .leading
         titleStack.spacing = 4
         titleStack.addArrangedSubview(nameLabel)
+        titleStack.addArrangedSubview(recommendationView)
         titleStack.addArrangedSubview(detailLabel)
         nameLabel.font = .preferredFont(forTextStyle: .headline)
         detailLabel.font = .preferredFont(forTextStyle: .subheadline)
@@ -42,17 +44,18 @@ class PurchasePriceCell: UITableViewCell {
         detailLabel.textAlignment = .natural
         recommendationView.addSubview(recommendationLabel)
         recommendationLabel.translatesAutoresizingMaskIntoConstraints = false
+        let badgeBottom = recommendationLabel.bottomAnchor.constraint(equalTo: recommendationView.bottomAnchor, constant: -3)
+        badgeBottom.priority = .defaultHigh
         NSLayoutConstraint.activate([
             recommendationLabel.leadingAnchor.constraint(equalTo: recommendationView.leadingAnchor, constant: 7),
             recommendationLabel.trailingAnchor.constraint(equalTo: recommendationView.trailingAnchor, constant: -7),
             recommendationLabel.topAnchor.constraint(equalTo: recommendationView.topAnchor, constant: 3),
-            recommendationLabel.bottomAnchor.constraint(equalTo: recommendationView.bottomAnchor, constant: -3)
+            badgeBottom
         ])
         priceStack.axis = .vertical
         priceStack.alignment = .trailing
         priceStack.spacing = 5
         priceStack.addArrangedSubview(priceLabel)
-        priceStack.addArrangedSubview(recommendationView)
         priceStack.setContentHuggingPriority(.required, for: .horizontal)
         priceStack.setContentCompressionResistancePriority(.required, for: .horizontal)
         rowStack.axis = .horizontal
@@ -117,7 +120,7 @@ class PurchasePriceCell: UITableViewCell {
         detailLabel.text = detail
         detailLabel.isHidden = detail?.isEmpty != false
         priceLabel.text = model.localizedPriceString
-        let isRecommended = model.productIdentifier == PurchaseStoreID.lifetime198.rawValue
+        let isRecommended = model.productIdentifier == PurchaseStoreID.yearly.rawValue
         recommendationLabel.text = isRecommended ? "Purchase.BestChoice".localStr() : nil
         recommendationView.isHidden = !isRecommended
         accessibilityLabel = [model.paywallTitle, detail, model.localizedPriceString, recommendationLabel.text]

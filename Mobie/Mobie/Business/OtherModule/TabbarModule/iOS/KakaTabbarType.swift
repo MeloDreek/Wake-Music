@@ -31,7 +31,7 @@ enum KakaTabbarType: Int {
     func normalImage() -> UIImage? {
         switch self {
         case .musics:
-            return UIImage(systemName: "shippingbox")
+            return UIImage(systemName: "music.note.house")
         case .collection:
             return UIImage(systemName: "rectangle.stack")
         case .connect:
@@ -44,7 +44,7 @@ enum KakaTabbarType: Int {
     func selectImage() -> UIImage? {
         switch self {
         case .musics:
-            return Reasource.systemNamed("shippingbox.fill")
+            return Reasource.systemNamed("music.note.house.fill")
         case .collection:
             return Reasource.systemNamed("rectangle.stack.fill")
         case .connect:

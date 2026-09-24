@@ -116,8 +116,6 @@
 		2252C7582F8A132400A8DDE5 /* AliyunDriveFileListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2252C7572F8A132400A8DDE5 /* AliyunDriveFileListController.swift */; };
 		2252C7592F8A132400A8DDE5 /* AliyunDriveFileListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2252C7572F8A132400A8DDE5 /* AliyunDriveFileListController.swift */; };
 		22534F892CD78CC500A9795C /* MusicTagEditorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22534F882CD78CC500A9795C /* MusicTagEditorController.swift */; };
-		225378312DF1744A00023F1A /* PlayerMoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225378302DF1744A00023F1A /* PlayerMoreViewController.swift */; };
-		225378322DF1744B00023F1A /* PlayerMoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225378302DF1744A00023F1A /* PlayerMoreViewController.swift */; };
 		225378342DF1776A00023F1A /* PlayerMoreCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225378332DF1776A00023F1A /* PlayerMoreCellModel.swift */; };
 		225378352DF1776A00023F1A /* PlayerMoreCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225378332DF1776A00023F1A /* PlayerMoreCellModel.swift */; };
 		225378372DF17A4100023F1A /* LyricAnimationTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225378362DF17A4100023F1A /* LyricAnimationTableCell.swift */; };
@@ -569,10 +567,6 @@
 		22BEE394305BAC9800C8A175 /* MusicServerLibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BEE38E305BAC9800C8A175 /* MusicServerLibraryViewController.swift */; };
 		22BEE395305BAC9800C8A175 /* MusicServerCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BEE38C305BAC9800C8A175 /* MusicServerCells.swift */; };
 		22BEE398305BAC9800C8A175 /* MusicServerBrowseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BEE38B305BAC9800C8A175 /* MusicServerBrowseViewController.swift */; };
-		B5DCA9AD9480470FB01A0101 /* MusicServerArtistDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DCA9AD9480470FB01A0100 /* MusicServerArtistDetailViewController.swift */; };
-		B5DCA9AD9480470FB01A0301 /* NavidromeDownloadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DCA9AD9480470FB01A0300 /* NavidromeDownloadViewController.swift */; };
-		B5DCA9AD9480470FB01A0302 /* NavidromeDownloadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DCA9AD9480470FB01A0300 /* NavidromeDownloadViewController.swift */; };
-		B5DCA9AD9480470FB01A0201 /* MusicServerSongActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DCA9AD9480470FB01A0200 /* MusicServerSongActions.swift */; };
 		22BEE399305BAC9800C8A175 /* MusicServerSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BEE385305BAC9800C8A175 /* MusicServerSession.swift */; };
 		22BEE39A305BAC9800C8A175 /* AppModeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BEE388305BAC9800C8A175 /* AppModeCoordinator.swift */; };
 		22BEE39B305BAC9800C8A175 /* MusicServerHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BEE384305BAC9800C8A175 /* MusicServerHistory.swift */; };
@@ -581,8 +575,6 @@
 		22BEE39E305BAC9800C8A175 /* MusicServerLibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BEE38E305BAC9800C8A175 /* MusicServerLibraryViewController.swift */; };
 		22BEE39F305BAC9800C8A175 /* MusicServerCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BEE38C305BAC9800C8A175 /* MusicServerCells.swift */; };
 		22BEE3A2305BAC9800C8A175 /* MusicServerBrowseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BEE38B305BAC9800C8A175 /* MusicServerBrowseViewController.swift */; };
-		B5DCA9AD9480470FB01A0102 /* MusicServerArtistDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DCA9AD9480470FB01A0100 /* MusicServerArtistDetailViewController.swift */; };
-		B5DCA9AD9480470FB01A0202 /* MusicServerSongActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DCA9AD9480470FB01A0200 /* MusicServerSongActions.swift */; };
 		22BEE3A3305BAC9800C8A175 /* MusicServerSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BEE385305BAC9800C8A175 /* MusicServerSession.swift */; };
 		22BEE3A4305BAC9800C8A175 /* AppModeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BEE388305BAC9800C8A175 /* AppModeCoordinator.swift */; };
 		22C2572C302D721400A68C1B /* AudioMatchTagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C2572B302D721400A68C1B /* AudioMatchTagViewController.swift */; };
@@ -704,6 +696,12 @@
 		B01100000000000000000003 /* BoxFileListStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01100000000000000000002 /* BoxFileListStatus.swift */; };
 		B01200000000000000000001 /* BoxDriveAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01200000000000000000002 /* BoxDriveAPI.swift */; };
 		B01200000000000000000003 /* BoxDriveAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01200000000000000000002 /* BoxDriveAPI.swift */; };
+		B5DCA9AD9480470FB01A0101 /* MusicServerArtistDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DCA9AD9480470FB01A0100 /* MusicServerArtistDetailViewController.swift */; };
+		B5DCA9AD9480470FB01A0102 /* MusicServerArtistDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DCA9AD9480470FB01A0100 /* MusicServerArtistDetailViewController.swift */; };
+		B5DCA9AD9480470FB01A0201 /* MusicServerSongActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DCA9AD9480470FB01A0200 /* MusicServerSongActions.swift */; };
+		B5DCA9AD9480470FB01A0202 /* MusicServerSongActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DCA9AD9480470FB01A0200 /* MusicServerSongActions.swift */; };
+		B5DCA9AD9480470FB01A0301 /* NavidromeDownloadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DCA9AD9480470FB01A0300 /* NavidromeDownloadViewController.swift */; };
+		B5DCA9AD9480470FB01A0302 /* NavidromeDownloadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DCA9AD9480470FB01A0300 /* NavidromeDownloadViewController.swift */; };
 		B722076D49924DE6B6E3D9AD /* ArtworkPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7809854B8022201FCA666119 /* ArtworkPalette.swift */; };
 		C02000000000000000000001 /* SMBDriveService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02000000000000000000002 /* SMBDriveService.swift */; };
 		C02000000000000000000003 /* SMBDriveService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02000000000000000000002 /* SMBDriveService.swift */; };
@@ -717,12 +715,6 @@
 		C02300000000000000000003 /* SMBFileListStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02300000000000000000002 /* SMBFileListStatus.swift */; };
 		C02400000000000000000001 /* SMBProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02400000000000000000002 /* SMBProtocol.swift */; };
 		C02400000000000000000003 /* SMBProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C02400000000000000000002 /* SMBProtocol.swift */; };
-		F70000000000000000000002 /* AuthFTPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70000000000000000000001 /* AuthFTPViewController.swift */; };
-		F70000000000000000000003 /* AuthFTPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70000000000000000000001 /* AuthFTPViewController.swift */; };
-		F70000000000000000000005 /* FTPDriveFileListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70000000000000000000004 /* FTPDriveFileListController.swift */; };
-		F70000000000000000000006 /* FTPDriveFileListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70000000000000000000004 /* FTPDriveFileListController.swift */; };
-		F70000000000000000000008 /* FTPDriveService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70000000000000000000007 /* FTPDriveService.swift */; };
-		F70000000000000000000009 /* FTPDriveService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70000000000000000000007 /* FTPDriveService.swift */; };
 		C03000000000000000000001 /* AMSMB2 in Frameworks */ = {isa = PBXBuildFile; productRef = C03000000000000000000003 /* AMSMB2 */; };
 		C03000000000000000000002 /* AMSMB2 in Frameworks */ = {isa = PBXBuildFile; productRef = C03000000000000000000004 /* AMSMB2 */; };
 		C03000000000000000000006 /* AMSMB2 in Embed Frameworks */ = {isa = PBXBuildFile; productRef = C03000000000000000000003 /* AMSMB2 */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -799,6 +791,12 @@
 		E09190000000000000000120 /* AudioSpectrumAnalyzer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09190000000000000000100 /* AudioSpectrumAnalyzer.swift */; };
 		E09190000000000000000210 /* PlayerSpectrumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09190000000000000000200 /* PlayerSpectrumViewController.swift */; };
 		E09190000000000000000220 /* PlayerSpectrumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09190000000000000000200 /* PlayerSpectrumViewController.swift */; };
+		F70000000000000000000002 /* AuthFTPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70000000000000000000001 /* AuthFTPViewController.swift */; };
+		F70000000000000000000003 /* AuthFTPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70000000000000000000001 /* AuthFTPViewController.swift */; };
+		F70000000000000000000005 /* FTPDriveFileListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70000000000000000000004 /* FTPDriveFileListController.swift */; };
+		F70000000000000000000006 /* FTPDriveFileListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70000000000000000000004 /* FTPDriveFileListController.swift */; };
+		F70000000000000000000008 /* FTPDriveService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70000000000000000000007 /* FTPDriveService.swift */; };
+		F70000000000000000000009 /* FTPDriveService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F70000000000000000000007 /* FTPDriveService.swift */; };
 		FD00ACDE888B441591ABD001 /* PlaybackQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD00ACDE888B441591ABD000 /* PlaybackQueue.swift */; };
 		FD00ACDE888B441591ABD002 /* PlaybackQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD00ACDE888B441591ABD000 /* PlaybackQueue.swift */; };
 		FD00ACDE888B441591ABD011 /* PlayerQueueCollectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD00ACDE888B441591ABD010 /* PlayerQueueCollectCell.swift */; };
@@ -884,7 +882,6 @@
 		225100712CCA4E8B005AFD62 /* FullScreenNavController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenNavController.swift; sourceTree = "<group>"; };
 		2252C7572F8A132400A8DDE5 /* AliyunDriveFileListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AliyunDriveFileListController.swift; sourceTree = "<group>"; };
 		22534F882CD78CC500A9795C /* MusicTagEditorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicTagEditorController.swift; sourceTree = "<group>"; };
-		225378302DF1744A00023F1A /* PlayerMoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerMoreViewController.swift; sourceTree = "<group>"; };
 		225378332DF1776A00023F1A /* PlayerMoreCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerMoreCellModel.swift; sourceTree = "<group>"; };
 		225378362DF17A4100023F1A /* LyricAnimationTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LyricAnimationTableCell.swift; sourceTree = "<group>"; };
 		2254174D2CC2BFD600F00343 /* MusicViewModel+Singer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MusicViewModel+Singer.swift"; sourceTree = "<group>"; };
@@ -1096,9 +1093,6 @@
 		22BEE388305BAC9800C8A175 /* AppModeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModeCoordinator.swift; sourceTree = "<group>"; };
 		22BEE389305BAC9800C8A175 /* MusicServerRootControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicServerRootControllers.swift; sourceTree = "<group>"; };
 		22BEE38B305BAC9800C8A175 /* MusicServerBrowseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicServerBrowseViewController.swift; sourceTree = "<group>"; };
-		B5DCA9AD9480470FB01A0100 /* MusicServerArtistDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicServerArtistDetailViewController.swift; sourceTree = "<group>"; };
-		B5DCA9AD9480470FB01A0300 /* NavidromeDownloadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavidromeDownloadViewController.swift; sourceTree = "<group>"; };
-		B5DCA9AD9480470FB01A0200 /* MusicServerSongActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicServerSongActions.swift; sourceTree = "<group>"; };
 		22BEE38C305BAC9800C8A175 /* MusicServerCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicServerCells.swift; sourceTree = "<group>"; };
 		22BEE38E305BAC9800C8A175 /* MusicServerLibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicServerLibraryViewController.swift; sourceTree = "<group>"; };
 		22C2572B302D721400A68C1B /* AudioMatchTagViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioMatchTagViewController.swift; sourceTree = "<group>"; };
@@ -1155,6 +1149,9 @@
 		B01000000000000000000008 /* KakaMusicPlayer+Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KakaMusicPlayer+Box.swift"; sourceTree = "<group>"; };
 		B01100000000000000000002 /* BoxFileListStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxFileListStatus.swift; sourceTree = "<group>"; };
 		B01200000000000000000002 /* BoxDriveAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxDriveAPI.swift; sourceTree = "<group>"; };
+		B5DCA9AD9480470FB01A0100 /* MusicServerArtistDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicServerArtistDetailViewController.swift; sourceTree = "<group>"; };
+		B5DCA9AD9480470FB01A0200 /* MusicServerSongActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicServerSongActions.swift; sourceTree = "<group>"; };
+		B5DCA9AD9480470FB01A0300 /* NavidromeDownloadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavidromeDownloadViewController.swift; sourceTree = "<group>"; };
 		BD30271AF1F6DF33916F8A97 /* Pods-Mobie_Pro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mobie_Pro.release.xcconfig"; path = "Target Support Files/Pods-Mobie_Pro/Pods-Mobie_Pro.release.xcconfig"; sourceTree = "<group>"; };
 		C02000000000000000000002 /* SMBDriveService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMBDriveService.swift; sourceTree = "<group>"; };
 		C02000000000000000000005 /* SMBDriveFileListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMBDriveFileListController.swift; sourceTree = "<group>"; };
@@ -1162,9 +1159,6 @@
 		C02100000000000000000002 /* SMBHTTPBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMBHTTPBridge.swift; sourceTree = "<group>"; };
 		C02300000000000000000002 /* SMBFileListStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMBFileListStatus.swift; sourceTree = "<group>"; };
 		C02400000000000000000002 /* SMBProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMBProtocol.swift; sourceTree = "<group>"; };
-		F70000000000000000000001 /* AuthFTPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthFTPViewController.swift; sourceTree = "<group>"; };
-		F70000000000000000000004 /* FTPDriveFileListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTPDriveFileListController.swift; sourceTree = "<group>"; };
-		F70000000000000000000007 /* FTPDriveService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTPDriveService.swift; sourceTree = "<group>"; };
 		C04100000000000000000002 /* MEGADriveService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MEGADriveService.swift; sourceTree = "<group>"; };
 		C04100000000000000000005 /* MEGADriveFileListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MEGADriveFileListController.swift; sourceTree = "<group>"; };
 		C04100000000000000000008 /* KakaMusicPlayer+MEGA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KakaMusicPlayer+MEGA.swift"; sourceTree = "<group>"; };
@@ -1200,6 +1194,9 @@
 		E09180000000000000000300 /* PlayerEqualizerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerEqualizerViewController.swift; sourceTree = "<group>"; };
 		E09190000000000000000100 /* AudioSpectrumAnalyzer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioSpectrumAnalyzer.swift; sourceTree = "<group>"; };
 		E09190000000000000000200 /* PlayerSpectrumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerSpectrumViewController.swift; sourceTree = "<group>"; };
+		F70000000000000000000001 /* AuthFTPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthFTPViewController.swift; sourceTree = "<group>"; };
+		F70000000000000000000004 /* FTPDriveFileListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTPDriveFileListController.swift; sourceTree = "<group>"; };
+		F70000000000000000000007 /* FTPDriveService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTPDriveService.swift; sourceTree = "<group>"; };
 		FBD07F657408F494AEAD6A1B /* Pods-Mobie_Pro.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mobie_Pro.debug.xcconfig"; path = "Target Support Files/Pods-Mobie_Pro/Pods-Mobie_Pro.debug.xcconfig"; sourceTree = "<group>"; };
 		FC044DCD42AEE7FFFB8D29DE /* Pods_Mobie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mobie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD00ACDE888B441591ABD000 /* PlaybackQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackQueue.swift; sourceTree = "<group>"; };
@@ -1673,7 +1670,6 @@
 				2247DC112D1A7DF50082F76D /* PlayerStyleViewController.swift */,
 				22D16A642DDC8123008A5F8B /* PlayBackgroundListController.swift */,
 				22497AF12DDE0807001D8338 /* PlayBackgroundListController+Upload.swift */,
-				225378302DF1744A00023F1A /* PlayerMoreViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2666,7 +2662,6 @@
 				22C707802DCB9F4300A1B79A /* LargeImageViewController.swift in Sources */,
 				22EA9D862DCCB34800D64EEA /* MacTabbarViewController+Play.swift in Sources */,
 				224C9BC72DD0A0DB000CCA6C /* MusicReleaseImage.swift in Sources */,
-				225378322DF1744B00023F1A /* PlayerMoreViewController.swift in Sources */,
 				2258ACF12DE565D400F5754B /* PlayerGroupStyle.swift in Sources */,
 				225F586E2D85B2AB0055BDFF /* MusicViewModel+Music.swift in Sources */,
 				225F58702D85B2AB0055BDFF /* KakaAppStoreManager+Jump.swift in Sources */,
@@ -3013,7 +3008,6 @@
 				22C707812DCB9F4300A1B79A /* LargeImageViewController.swift in Sources */,
 				22EA9D852DCCB34800D64EEA /* MacTabbarViewController+Play.swift in Sources */,
 				224C9BC82DD0A0DB000CCA6C /* MusicReleaseImage.swift in Sources */,
-				225378312DF1744A00023F1A /* PlayerMoreViewController.swift in Sources */,
 				2258ACF02DE565D400F5754B /* PlayerGroupStyle.swift in Sources */,
 				225417522CC2D79400F00343 /* MusicViewModel+Music.swift in Sources */,
 				228A14942CA0633400E2948E /* KakaAppStoreManager+Jump.swift in Sources */,

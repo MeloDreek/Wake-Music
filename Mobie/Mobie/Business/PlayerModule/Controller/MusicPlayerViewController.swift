@@ -425,11 +425,11 @@ extension MusicPlayerViewController: PanModalPresentable {
         }
         let table = cell.tableView
         guard !table.hasActiveDrag, !table.hasActiveDrop else { return false }
-        // Reserve the queue and transport for their own gestures. Dismiss from the header.
-        // Evaluate the gesture's origin, so crossing the boundary cannot strand the sheet.
-        let point = panModalGestureRecognizer.location(in: cell)
-        let translation = panModalGestureRecognizer.translation(in: cell)
-        return point.y - translation.y < table.frame.minY
+        // The queue header now scrolls with its table. Only the separate grabber dismisses the sheet.
+        let point = panModalGestureRecognizer.location(in: contentView)
+        let translation = panModalGestureRecognizer.translation(in: contentView)
+        let origin = CGPoint(x: point.x - translation.x, y: point.y - translation.y)
+        return !grayView.isHidden && grayView.frame.insetBy(dx: -24, dy: -18).contains(origin)
     }
 
     var orientation: PanModalOrientation {

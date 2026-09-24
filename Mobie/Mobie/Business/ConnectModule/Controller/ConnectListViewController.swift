@@ -26,7 +26,7 @@ class ConnectListViewController: SuperViewController {
     }
 
     private struct ConnectSection {
-        let group: ImportGroupType
+        let group: ImportGroupType?
         let availableTypes: [ImportFileType]
         let connectedEntries: [ConnectedEntry]
     }
@@ -97,8 +97,8 @@ class ConnectListViewController: SuperViewController {
     private lazy var availableServerTypes = ImportFileType.serverDriveArray()
     private lazy var availableCloudTypes = ImportFileType.cloudDriveArray()
 
-    /// Keep the persisted account order untouched. The presentation order follows
-    /// the same localized provider order as Import, with original order as a tie-breaker.
+    /// Show provider categories only before the first connection. Once connected,
+    /// each saved account gets its own section in the persisted order.
     private var connectSections: [ConnectSection] {
         if connectArray.isEmpty {
             return [
@@ -107,33 +107,9 @@ class ConnectListViewController: SuperViewController {
             ]
         }
 
-        let entries = connectArray.enumerated().map { ConnectedEntry(sourceIndex: $0.offset, server: $0.element) }
-        let serverEntries = sortedEntries(entries.filter { isServerType($0.server.serverType) }, by: availableServerTypes)
-        let cloudEntries = sortedEntries(entries.filter { !isServerType($0.server.serverType) }, by: availableCloudTypes)
-        var sections: [ConnectSection] = []
-        if !serverEntries.isEmpty {
-            sections.append(ConnectSection(group: .remoteServerGroup, availableTypes: [], connectedEntries: serverEntries))
-        }
-        if !cloudEntries.isEmpty {
-            sections.append(ConnectSection(group: .remoteCloudGroup, availableTypes: [], connectedEntries: cloudEntries))
-        }
-        return sections
-    }
-
-    private func isServerType(_ type: ImportFileType) -> Bool {
-        switch type {
-        case .fromWebDAV, .fromNavidrome, .fromSMB, .fromFTP, .fromJellyfin, .fromEmby, .fromPlex:
-            return true
-        default:
-            return false
-        }
-    }
-
-    private func sortedEntries(_ entries: [ConnectedEntry], by providerOrder: [ImportFileType]) -> [ConnectedEntry] {
-        entries.sorted { left, right in
-            let leftRank = providerOrder.firstIndex(of: left.server.serverType) ?? Int.max
-            let rightRank = providerOrder.firstIndex(of: right.server.serverType) ?? Int.max
-            return leftRank == rightRank ? left.sourceIndex < right.sourceIndex : leftRank < rightRank
+        return connectArray.enumerated().map { index, server in
+            ConnectSection(group: nil, availableTypes: [],
+                           connectedEntries: [ConnectedEntry(sourceIndex: index, server: server)])
         }
     }
     
@@ -315,7 +291,7 @@ extension ConnectListViewController: UITableViewDataSource, UITableViewDelegate 
     }
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        connectSections[section].group.localizedTitle
+        connectSections[section].group?.localizedTitle
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

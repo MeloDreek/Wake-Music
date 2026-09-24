@@ -121993,6 +121993,264 @@
         }
       }
     },
+    "PlayerStyle.PremiumPrompt" : {
+      "comment" : "Premium upsell shown when selecting the cassette or vinyl player style.",
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "قم بالترقية إلى Premium لاستخدام نمطي مشغّل الكاسيت والأسطوانة."
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Passa a Premium per fer servir els estils de reproductor de casset i vinil."
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Přejděte na Premium a používejte styly přehrávače s kazetou a vinylovou deskou."
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Opgrader til Premium for at bruge kassette- og vinylstilen i afspilleren."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mit Premium kannst du den Kassetten- und Schallplattenspieler-Stil nutzen."
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Αναβαθμίστε σε Premium για να χρησιμοποιήσετε τις εμφανίσεις κασέτας και βινυλίου."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Upgrade to Premium to use the cassette and vinyl player styles."
+          }
+        },
+        "en-AU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Upgrade to Premium to use the cassette and vinyl player styles."
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Upgrade to Premium to use the cassette and vinyl player styles."
+          }
+        },
+        "en-IN" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Upgrade to Premium to use the cassette and vinyl player styles."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pásate a Premium para usar los estilos de reproductor de casete y vinilo."
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pásate a Premium para usar los estilos de reproductor de casete y vinilo."
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pásate a Premium para usar los estilos de reproductor de casete y vinilo."
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Päivitä Premiumiin, niin voit käyttää kasetti- ja vinyylisoittimen ulkoasuja."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Passez à Premium pour utiliser les styles de lecteur cassette et vinyle."
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Passez à Premium pour utiliser les styles de lecteur cassette et vinyle."
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "שדרגו ל-Premium כדי להשתמש בסגנונות הנגן של קלטת ותקליט ויניל."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "कैसेट और विनाइल प्लेयर शैली इस्तेमाल करने के लिए Premium में अपग्रेड करें।"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nadogradite na Premium za korištenje izgleda reproduktora s kazetom i vinilnom pločom."
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Váltson Premiumra a kazettás és bakelitlemezes lejátszóstílusok használatához."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Upgrade ke Premium untuk menggunakan tampilan pemutar kaset dan piringan hitam."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Passa a Premium per usare gli stili del lettore a cassetta e vinile."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "カセットとレコードのプレーヤースタイルを使うには、Premiumにアップグレードしてください。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "카세트 및 레코드 플레이어 스타일을 사용하려면 Premium으로 업그레이드하세요."
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Naik taraf ke Premium untuk menggunakan gaya pemain kaset dan piring hitam."
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Oppgrader til Premium for å bruke spillerstilene kassett og vinyl."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Upgrade naar Premium om de cassette- en vinylspelerstijl te gebruiken."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Przejdź na Premium, aby korzystać ze stylów odtwarzacza kasetowego i winylowego."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Assine o Premium para usar os estilos de toca-fitas e toca-discos."
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Adira ao Premium para usar os estilos de leitor de cassetes e gira-discos."
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Treci la Premium pentru a folosi stilurile de player cu casetă și vinil."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Перейдите на Premium, чтобы использовать стили плеера с кассетой и виниловой пластинкой."
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prejdite na Premium a používajte štýly prehrávača s kazetou a vinylovou platňou."
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nadgradite na Premium za uporabo videza kasetnega in gramofonskega predvajalnika."
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Uppgradera till Premium för att använda kassett- och vinylspelarlägena."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "อัปเกรดเป็น Premium เพื่อใช้รูปแบบเครื่องเล่นเทปคาสเซ็ตและแผ่นเสียง"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kaset ve plak çalar görünümlerini kullanmak için Premium’a yükseltin."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Перейдіть на Premium, щоб користуватися стилями програвача з касетою та вініловою платівкою."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nâng cấp lên Premium để dùng giao diện trình phát băng cassette và đĩa than."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "升级至高级版，即可使用磁带和黑胶唱片播放器样式。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "升級至高級版，即可使用卡式帶和黑膠唱片播放器樣式。"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "升級至高級版，即可使用卡式帶和黑膠唱片播放器樣式。"
+          }
+        }
+      }
+    },
     "Playlist" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -134224,6 +134482,520 @@
         }
       }
     },
+    "Purchase.DisableFamilySharing" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "إلغاء المشاركة العائلية"
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Desactiva En família"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vypnout rodinné sdílení"
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Slå Familiedeling fra"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Familienfreigabe deaktivieren"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Απενεργοποίηση Οικογενειακής κοινής χρήσης"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Disable Family Sharing"
+          }
+        },
+        "en-AU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Disable Family Sharing"
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Disable Family Sharing"
+          }
+        },
+        "en-IN" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Disable Family Sharing"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Desactivar En familia"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Desactivar En familia"
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Desactivar En familia"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Poista Perhejako käytöstä"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Désactiver le partage familial"
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Désactiver le partage familial"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ביטול שיתוף משפחתי"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "पारिवारिक साझाकरण बंद करें"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Isključi dijeljenje s obitelji"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Családi megosztás kikapcsolása"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nonaktifkan Keluarga Berbagi"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Disattiva In famiglia"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ファミリー共有を解除"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "가족 공유 끄기"
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nyahaktifkan Perkongsian Keluarga"
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Slå av Familiedeling"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Delen met gezin uitschakelen"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wyłącz Chmurę rodzinną"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Desativar Compartilhamento Familiar"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Desativar Partilha com a família"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dezactivează Partajare familială"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Отключить семейный доступ"
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vypnúť Rodinné zdieľanie"
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Izklopi družinsko skupno rabo"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inaktivera Familjedelning"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ปิดการแชร์กันในครอบครัว"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aile Paylaşımı’nı Kapat"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Вимкнути сімейний доступ"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tắt Chia sẻ trong gia đình"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "取消家人共享"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "取消家庭共享"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "取消家人共享"
+          }
+        }
+      }
+    },
+    "Purchase.EnableFamilySharing" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تفعيل المشاركة العائلية"
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Activa En família"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zapnout rodinné sdílení"
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Slå Familiedeling til"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Familienfreigabe aktivieren"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ενεργοποίηση Οικογενειακής κοινής χρήσης"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enable Family Sharing"
+          }
+        },
+        "en-AU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enable Family Sharing"
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enable Family Sharing"
+          }
+        },
+        "en-IN" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enable Family Sharing"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Activar En familia"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Activar En familia"
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Activar En familia"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ota Perhejako käyttöön"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Activer le partage familial"
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Activer le partage familial"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "הפעלת שיתוף משפחתי"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "पारिवारिक साझाकरण चालू करें"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Uključi dijeljenje s obitelji"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Családi megosztás bekapcsolása"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aktifkan Keluarga Berbagi"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Attiva In famiglia"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ファミリー共有を有効にする"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "가족 공유 켜기"
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aktifkan Perkongsian Keluarga"
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Slå på Familiedeling"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Delen met gezin inschakelen"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Włącz Chmurę rodzinną"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ativar Compartilhamento Familiar"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ativar Partilha com a família"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Activează Partajare familială"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Включить семейный доступ"
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zapnúť Rodinné zdieľanie"
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vklopi družinsko skupno rabo"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aktivera Familjedelning"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "เปิดใช้การแชร์กันในครอบครัว"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aile Paylaşımı’nı Aç"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Увімкнути сімейний доступ"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bật Chia sẻ trong gia đình"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "開啟家人共享"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "开启家庭共享"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "開啟家人共享"
+          }
+        }
+      }
+    },
     "Purchase.FamilySharingFooter" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -136287,259 +137059,259 @@
       }
     },
     "Purchase.RemoteAccessMessage" : {
-      "comment" : "Premium upgrade guidance. Upcoming platform support is explicitly future functionality; no lowest-price claim.",
+      "comment" : "Premium upgrade guidance. Premium guidance shown before opening the paywall for remote services; describes current functionality only.",
       "extractionState" : "manual",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "قم بالترقية إلى Premium لفتح جميع الميزات البعيدة، بالإضافة إلى الدعم المرتقب لـ Apple Watch وCarPlay الأصلي."
+            "value" : "قم بالترقية إلى Premium لتوصيل مساحات التخزين السحابي وأجهزة NAS وخوادم الموسيقى وتشغيل موسيقاك."
           }
         },
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Passa a Premium per desbloquejar totes les funcions remotes i el proper suport per a Apple Watch i CarPlay natiu."
+            "value" : "Passa a Premium per connectar els teus espais al núvol, dispositius NAS i servidors de música i reproduir la teva música."
           }
         },
         "cs" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Přejděte na Premium a odemkněte všechny vzdálené funkce i připravovanou podporu Apple Watch a nativního CarPlay."
+            "value" : "Přejděte na Premium a připojte cloudová úložiště, NAS a hudební servery, abyste mohli přehrávat svou hudbu."
           }
         },
         "da" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Opgrader til Premium og lås op for alle fjernfunktioner samt kommende understøttelse af Apple Watch og indbygget CarPlay."
+            "value" : "Opgrader til Premium for at tilslutte cloudlager, NAS og musikservere og afspille din musik."
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Hol dir Premium und schalte alle Fernzugriffsfunktionen sowie die kommende Unterstützung für Apple Watch und natives CarPlay frei."
+            "value" : "Mit Premium kannst du Cloud-Speicher, NAS und Musikserver verbinden und deine Musik abspielen."
           }
         },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Αναβαθμίστε σε Premium για να ξεκλειδώσετε όλες τις απομακρυσμένες λειτουργίες και την επερχόμενη υποστήριξη για Apple Watch και εγγενές CarPlay."
+            "value" : "Αναβαθμίστε σε Premium για να συνδέσετε αποθηκευτικούς χώρους cloud, NAS και διακομιστές μουσικής και να ακούσετε τη μουσική σας."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Upgrade to Premium to unlock all remote features, plus upcoming Apple Watch and native CarPlay support."
+            "value" : "Upgrade to Premium to connect cloud drives, NAS devices, and music servers and play your music."
           }
         },
         "en-AU" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Upgrade to Premium to unlock all remote features, plus upcoming Apple Watch and native CarPlay support."
+            "value" : "Upgrade to Premium to connect cloud drives, NAS devices, and music servers and play your music."
           }
         },
         "en-GB" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Upgrade to Premium to unlock all remote features, plus upcoming Apple Watch and native CarPlay support."
+            "value" : "Upgrade to Premium to connect cloud drives, NAS devices, and music servers and play your music."
           }
         },
         "en-IN" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Upgrade to Premium to unlock all remote features, plus upcoming Apple Watch and native CarPlay support."
+            "value" : "Upgrade to Premium to connect cloud drives, NAS devices, and music servers and play your music."
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Pásate a Premium para desbloquear todas las funciones remotas y la próxima compatibilidad con Apple Watch y CarPlay nativo."
+            "value" : "Pásate a Premium para conectar tus unidades en la nube, dispositivos NAS y servidores de música y reproducir tu música."
           }
         },
         "es-419" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Pásate a Premium para desbloquear todas las funciones remotas y la próxima compatibilidad con Apple Watch y CarPlay nativo."
+            "value" : "Pásate a Premium para conectar tus unidades en la nube, dispositivos NAS y servidores de música y reproducir tu música."
           }
         },
         "es-US" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Pásate a Premium para desbloquear todas las funciones remotas y la próxima compatibilidad con Apple Watch y CarPlay nativo."
+            "value" : "Pásate a Premium para conectar tus unidades en la nube, dispositivos NAS y servidores de música y reproducir tu música."
           }
         },
         "fi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Päivitä Premiumiin ja avaa kaikki etätoiminnot sekä tuleva Apple Watch- ja natiivi CarPlay-tuki."
+            "value" : "Päivitä Premiumiin, niin voit yhdistää pilvitallennustilat, NAS-laitteet ja musiikkipalvelimet ja kuunnella musiikkiasi."
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Passez à Premium pour débloquer toutes les fonctionnalités à distance, ainsi que la prise en charge à venir de l’Apple Watch et de CarPlay natif."
+            "value" : "Passez à Premium pour connecter vos espaces cloud, vos NAS et vos serveurs de musique et écouter votre musique."
           }
         },
         "fr-CA" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Passez à Premium pour débloquer toutes les fonctionnalités à distance, ainsi que la prise en charge à venir de l’Apple Watch et de CarPlay natif."
+            "value" : "Passez à Premium pour connecter vos espaces cloud, vos NAS et vos serveurs de musique et écouter votre musique."
           }
         },
         "he" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "שדרגו ל-Premium כדי לפתוח את כל התכונות המרוחקות, לצד תמיכה עתידית ב-Apple Watch וב-CarPlay מובנה."
+            "value" : "שדרגו ל-Premium כדי לחבר אחסון בענן, התקני NAS ושרתי מוזיקה ולהאזין למוזיקה שלכם."
           }
         },
         "hi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Premium में अपग्रेड करके सभी रिमोट सुविधाएँ और जल्द आने वाला Apple Watch व नेटिव CarPlay सपोर्ट अनलॉक करें।"
+            "value" : "क्लाउड ड्राइव, NAS और संगीत सर्वर कनेक्ट करके अपना संगीत सुनने के लिए Premium में अपग्रेड करें।"
           }
         },
         "hr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nadogradite na Premium i otključajte sve udaljene značajke te nadolazeću podršku za Apple Watch i izvorni CarPlay."
+            "value" : "Nadogradite na Premium kako biste povezali pohranu u oblaku, NAS uređaje i glazbene poslužitelje te slušali svoju glazbu."
           }
         },
         "hu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Váltson Premiumra és oldja fel az összes távoli funkciót, valamint a hamarosan érkező Apple Watch- és natív CarPlay-támogatást."
+            "value" : "Váltson Premiumra, és csatlakoztassa felhőtárhelyeit, NAS-eszközeit és zenei szervereit, hogy lejátszhassa zenéit."
           }
         },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Upgrade ke Premium untuk membuka semua fitur jarak jauh, serta dukungan Apple Watch dan CarPlay native yang akan datang."
+            "value" : "Upgrade ke Premium untuk menghubungkan penyimpanan cloud, NAS, dan server musik lalu memutar musik Anda."
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Passa a Premium per sbloccare tutte le funzionalità remote e il supporto in arrivo per Apple Watch e CarPlay nativo."
+            "value" : "Passa a Premium per collegare spazi cloud, dispositivi NAS e server musicali e ascoltare la tua musica."
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Premiumにアップグレードすると、すべてのリモート機能と、今後追加予定のApple WatchおよびネイティブCarPlayサポートをご利用いただけます。"
+            "value" : "Premiumにアップグレードすると、クラウドストレージ、NAS、音楽サーバーを接続して音楽を再生できます。"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Premium으로 업그레이드하여 모든 원격 기능과 곧 출시될 Apple Watch 및 네이티브 CarPlay 지원을 이용하세요."
+            "value" : "Premium으로 업그레이드하면 클라우드 드라이브, NAS, 음악 서버를 연결해 음악을 재생할 수 있습니다."
           }
         },
         "ms" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Naik taraf ke Premium untuk membuka semua ciri jauh serta sokongan Apple Watch dan CarPlay natif yang akan datang."
+            "value" : "Naik taraf ke Premium untuk menyambungkan storan awan, NAS dan pelayan muzik serta memainkan muzik anda."
           }
         },
         "nb" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Oppgrader til Premium og lås opp alle fjernfunksjoner samt kommende støtte for Apple Watch og innebygd CarPlay."
+            "value" : "Oppgrader til Premium for å koble til skylagring, NAS og musikkservere og spille av musikken din."
           }
         },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Upgrade naar Premium en ontgrendel alle functies voor externe toegang, plus de aankomende ondersteuning voor Apple Watch en native CarPlay."
+            "value" : "Upgrade naar Premium om cloudopslag, NAS-apparaten en muziekservers te verbinden en je muziek af te spelen."
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Przejdź na Premium, aby odblokować wszystkie funkcje zdalne oraz nadchodzącą obsługę Apple Watch i natywnego CarPlay."
+            "value" : "Przejdź na Premium, aby połączyć dyski w chmurze, urządzenia NAS i serwery muzyczne oraz odtwarzać swoją muzykę."
           }
         },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Assine o Premium para desbloquear todos os recursos remotos e o futuro suporte ao Apple Watch e ao CarPlay nativo."
+            "value" : "Assine o Premium para conectar seus armazenamentos na nuvem, dispositivos NAS e servidores de música e ouvir suas músicas."
           }
         },
         "pt-PT" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Adira ao Premium para desbloquear todas as funcionalidades remotas e o futuro suporte para Apple Watch e CarPlay nativo."
+            "value" : "Adira ao Premium para ligar os seus serviços de armazenamento na nuvem, dispositivos NAS e servidores de música e ouvir a sua música."
           }
         },
         "ro" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Treci la Premium pentru a debloca toate funcțiile la distanță, plus viitorul suport pentru Apple Watch și CarPlay nativ."
+            "value" : "Treci la Premium ca să conectezi spații de stocare în cloud, dispozitive NAS și servere de muzică și să îți asculți muzica."
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Перейдите на Premium, чтобы открыть все функции удалённого доступа, а также предстоящую поддержку Apple Watch и нативного CarPlay."
+            "value" : "Перейдите на Premium, чтобы подключить облачные хранилища, NAS и музыкальные серверы и слушать свою музыку."
           }
         },
         "sk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Prejdite na Premium a odomknite všetky vzdialené funkcie aj pripravovanú podporu Apple Watch a natívneho CarPlay."
+            "value" : "Prejdite na Premium a pripojte cloudové úložiská, zariadenia NAS a hudobné servery, aby ste mohli počúvať svoju hudbu."
           }
         },
         "sl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nadgradite na Premium in odklenite vse oddaljene funkcije ter prihajajočo podporo za Apple Watch in izvorni CarPlay."
+            "value" : "Nadgradite na Premium, povežite shrambe v oblaku, naprave NAS in glasbene strežnike ter poslušajte svojo glasbo."
           }
         },
         "sv" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Uppgradera till Premium och lås upp alla fjärrfunktioner samt kommande stöd för Apple Watch och inbyggt CarPlay."
+            "value" : "Uppgradera till Premium för att ansluta molnlagring, NAS-enheter och musikservrar och spela upp din musik."
           }
         },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "อัปเกรดเป็น Premium เพื่อปลดล็อกฟีเจอร์ระยะไกลทั้งหมด พร้อมการรองรับ Apple Watch และ CarPlay แบบเนทีฟที่กำลังจะเปิดตัว"
+            "value" : "อัปเกรดเป็น Premium เพื่อเชื่อมต่อไดรฟ์คลาวด์ อุปกรณ์ NAS และเซิร์ฟเวอร์เพลง แล้วเล่นเพลงของคุณ"
           }
         },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Tüm uzaktan erişim özelliklerinin ve yakında sunulacak Apple Watch ile yerel CarPlay desteğinin kilidini açmak için Premium’a yükseltin."
+            "value" : "Bulut depolama, NAS cihazları ve müzik sunucularını bağlayıp müziğinizi dinlemek için Premium’a yükseltin."
           }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Перейдіть на Premium, щоб розблокувати всі функції віддаленого доступу, а також майбутню підтримку Apple Watch і нативного CarPlay."
+            "value" : "Перейдіть на Premium, щоб підключити хмарні сховища, NAS і музичні сервери та слухати свою музику."
           }
         },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Nâng cấp lên Premium để mở khóa tất cả tính năng từ xa cùng hỗ trợ Apple Watch và CarPlay gốc sắp ra mắt."
+            "value" : "Nâng cấp lên Premium để kết nối ổ đĩa đám mây, thiết bị NAS và máy chủ nhạc, rồi phát nhạc của bạn."
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "升级到高级版，解锁所有远程功能，以及即将上线的 Apple Watch 和原生 CarPlay 支持。"
+            "value" : "升级至高级版，即可连接网盘、NAS 和音乐服务器，畅听自己的音乐。"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "升級至高級版，解鎖所有遠端功能，以及即將推出的 Apple Watch 和原生 CarPlay 支援。"
+            "value" : "升級至高級版，即可連接雲端硬碟、NAS 和音樂伺服器，暢聽自己的音樂。"
           }
         },
         "zh-HK" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "升級至高級版，解鎖所有遠端功能，以及即將推出的 Apple Watch 和原生 CarPlay 支援。"
+            "value" : "升級至高級版，即可連接雲端硬碟、NAS 和音樂伺服器，暢聽自己的音樂。"
           }
         }
       }
@@ -136791,263 +137563,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "夸克網盤"
-          }
-        }
-      }
-    },
-    "Queue.DragHint" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "اسحب لإعادة الترتيب في وضع التشغيل المتسلسل."
-          }
-        },
-        "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Arrossega per reordenar en el mode seqüencial."
-          }
-        },
-        "cs" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "V režimu postupného přehrávání změňte pořadí přetažením."
-          }
-        },
-        "da" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Træk for at ændre rækkefølgen ved sekventiel afspilning."
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Bei sequenzieller Wiedergabe zum Umsortieren ziehen."
-          }
-        },
-        "el" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Σύρετε για αλλαγή σειράς στη διαδοχική αναπαραγωγή."
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Drag to reorder in sequential mode."
-          }
-        },
-        "en-AU" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Drag to reorder in sequential mode."
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Drag to reorder in sequential mode."
-          }
-        },
-        "en-IN" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Drag to reorder in sequential mode."
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Arrastra para reordenar en el modo secuencial."
-          }
-        },
-        "es-419" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Arrastra para reordenar en el modo secuencial."
-          }
-        },
-        "es-US" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Arrastra para reordenar en el modo secuencial."
-          }
-        },
-        "fi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Muuta järjestystä vetämällä järjestyksessä toistettaessa."
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Faites glisser pour réorganiser en lecture séquentielle."
-          }
-        },
-        "fr-CA" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Faites glisser pour réorganiser en lecture séquentielle."
-          }
-        },
-        "he" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "גררו לשינוי הסדר במצב נגינה רציפה."
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "क्रमिक मोड में क्रम बदलने के लिए खींचें।"
-          }
-        },
-        "hr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Povucite za promjenu redoslijeda u slijednom načinu."
-          }
-        },
-        "hu" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sorrendi lejátszásnál húzással módosíthatja a sorrendet."
-          }
-        },
-        "id" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Seret untuk mengubah urutan dalam mode berurutan."
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Trascina per riordinare nella modalità sequenziale."
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "順番に再生するモードでは、ドラッグで並べ替えできます。"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "순차 재생 모드에서 드래그하여 순서를 바꿀 수 있습니다."
-          }
-        },
-        "ms" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Seret untuk menyusun semula dalam mod berurutan."
-          }
-        },
-        "nb" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Dra for å endre rekkefølgen ved sekvensiell avspilling."
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sleep om de volgorde te wijzigen bij opeenvolgend afspelen."
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Przeciągnij, aby zmienić kolejność w trybie sekwencyjnym."
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Arraste para reordenar no modo sequencial."
-          }
-        },
-        "pt-PT" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Arraste para reordenar no modo sequencial."
-          }
-        },
-        "ro" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Trage pentru a reordona în modul secvențial."
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Перетаскивайте для сортировки в режиме воспроизведения по порядку."
-          }
-        },
-        "sk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "V režime postupného prehrávania zmeňte poradie potiahnutím."
-          }
-        },
-        "sl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Povlecite za spremembo vrstnega reda v zaporednem načinu."
-          }
-        },
-        "sv" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Dra för att ändra ordningen vid sekventiell uppspelning."
-          }
-        },
-        "th" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ลากเพื่อจัดลำดับใหม่ในโหมดเล่นตามลำดับ"
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sıralı modda sıralamayı değiştirmek için sürükleyin."
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Перетягуйте для зміни порядку в послідовному режимі."
-          }
-        },
-        "vi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Kéo để sắp xếp lại trong chế độ phát theo thứ tự."
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "顺序播放时，可长按拖动调整顺序。"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "順序播放時，可長按拖曳調整順序。"
-          }
-        },
-        "zh-HK" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "順序播放時，可長按拖曳調整順序。"
           }
         }
       }
@@ -159697,253 +160212,253 @@
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "مشاركة ملصق الطيف"
+            "value" : "حفظ هذه البطاقة أو مشاركتها"
           }
         },
         "ca" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Comparteix el pòster de l’espectre"
+            "value" : "Desa o comparteix aquesta targeta"
           }
         },
         "cs" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Sdílet plakát spektra"
+            "value" : "Uložit nebo sdílet tuto kartu"
           }
         },
         "da" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Del spektrumplakat"
+            "value" : "Gem eller del dette kort"
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Spektrum als Poster teilen"
+            "value" : "Diese Karte speichern oder teilen"
           }
         },
         "el" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Κοινοποίηση αφίσας φάσματος"
+            "value" : "Αποθήκευση ή κοινοποίηση κάρτας"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Share Spectrum Poster"
+            "value" : "Save or Share This Card"
           }
         },
         "en-AU" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Share Spectrum Poster"
+            "value" : "Save or Share This Card"
           }
         },
         "en-GB" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Share Spectrum Poster"
+            "value" : "Save or Share This Card"
           }
         },
         "en-IN" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Share Spectrum Poster"
+            "value" : "Save or Share This Card"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Compartir póster del espectro"
+            "value" : "Guardar o compartir esta tarjeta"
           }
         },
         "es-419" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Compartir póster del espectro"
+            "value" : "Guardar o compartir esta tarjeta"
           }
         },
         "es-US" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Compartir póster del espectro"
+            "value" : "Guardar o compartir esta tarjeta"
           }
         },
         "fi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Jaa spektrijuliste"
+            "value" : "Tallenna tai jaa tämä kortti"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Partager l’affiche du spectre"
+            "value" : "Enregistrer ou partager cette carte"
           }
         },
         "fr-CA" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Partager l’affiche du spectre"
+            "value" : "Enregistrer ou partager cette carte"
           }
         },
         "he" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "שיתוף פוסטר הספקטרום"
+            "value" : "שמירה או שיתוף של הכרטיס"
           }
         },
         "hi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "स्पेक्ट्रम पोस्टर साझा करें"
+            "value" : "यह कार्ड सहेजें या शेयर करें"
           }
         },
         "hr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Podijeli plakat spektra"
+            "value" : "Spremi ili podijeli ovu karticu"
           }
         },
         "hu" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Spektrumposzter megosztása"
+            "value" : "Kártya mentése vagy megosztása"
           }
         },
         "id" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Bagikan Poster Spektrum"
+            "value" : "Simpan atau Bagikan Kartu Ini"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Condividi il poster dello spettro"
+            "value" : "Salva o condividi questa scheda"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "スペクトルポスターを共有"
+            "value" : "このカードを保存・共有"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "스펙트럼 포스터 공유"
+            "value" : "이 카드 저장 또는 공유"
           }
         },
         "ms" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Kongsi Poster Spektrum"
+            "value" : "Simpan atau Kongsi Kad Ini"
           }
         },
         "nb" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Del spektrumplakat"
+            "value" : "Lagre eller del dette kortet"
           }
         },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Spectrumposter delen"
+            "value" : "Bewaar of deel deze kaart"
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Udostępnij plakat widma"
+            "value" : "Zapisz lub udostępnij tę kartę"
           }
         },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Compartilhar pôster do espectro"
+            "value" : "Salvar ou compartilhar este cartão"
           }
         },
         "pt-PT" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Partilhar cartaz do espectro"
+            "value" : "Guardar ou partilhar este cartão"
           }
         },
         "ro" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Distribuie posterul spectrului"
+            "value" : "Salvează sau partajează acest card"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Поделиться постером спектра"
+            "value" : "Сохранить карточку или поделиться"
           }
         },
         "sk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Zdieľať plagát spektra"
+            "value" : "Uložiť alebo zdieľať túto kartu"
           }
         },
         "sl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Deli plakat spektra"
+            "value" : "Shrani ali deli to kartico"
           }
         },
         "sv" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Dela spektrumposter"
+            "value" : "Spara eller dela det här kortet"
           }
         },
         "th" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "แชร์โปสเตอร์สเปกตรัม"
+            "value" : "บันทึกหรือแชร์การ์ดนี้"
           }
         },
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Spektrum Posterini Paylaş"
+            "value" : "Bu Kartı Kaydet veya Paylaş"
           }
         },
         "uk" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Поділитися постером спектра"
+            "value" : "Зберегти картку або поділитися"
           }
         },
         "vi" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Chia sẻ áp phích phổ âm thanh"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "分享频谱海报"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "分享頻譜海報"
+            "value" : "Lưu hoặc chia sẻ thẻ này"
           }
         },
         "zh-HK" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "分享頻譜海報"
+            "value" : "儲存或分享此卡片"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "保存或分享此卡片"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "儲存或分享此卡片"
           }
         }
       }

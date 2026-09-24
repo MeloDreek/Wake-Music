@@ -80,8 +80,10 @@ class PurchaseViewController: SuperViewController {
         isLoadingProducts = true
         tableView.reloadData()
         AppStoreKitManager.shared.refresRemoteProductsPrice { [weak self] models in
-            self?.isLoadingProducts = false
-            self?.handlePriceGoods(models)
+            DispatchQueue.main.async {
+                self?.isLoadingProducts = false
+                self?.handlePriceGoods(models)
+            }
         }
     }
 
@@ -90,9 +92,10 @@ class PurchaseViewController: SuperViewController {
         priceArray = PurchaseStoreID.paywallProducts.compactMap { id in
             models.first { $0.productIdentifier == id.rawValue }
         }
-        selectModel = priceArray.first { $0.productIdentifier == selectedID }
-            ?? priceArray.first { $0.productIdentifier == PurchaseStoreID.yearly.rawValue }
-            ?? priceArray.first
+        if !canToggleFamilySharing { isFamilySharingEnabled = false }
+        selectModel = visibleProducts.first { $0.productIdentifier == selectedID }
+            ?? visibleProducts.first { $0.productIdentifier == PurchaseStoreID.yearly.rawValue }
+            ?? visibleProducts.first
         refreshTrialEligibility()
         tableView.reloadData()
     }
@@ -101,12 +104,14 @@ class PurchaseViewController: SuperViewController {
         let generation = UUID()
         eligibilityRequestID = generation
         trialEligibleProductIDs.removeAll()
+        updatePurchaseButton()
         let ids = priceArray.filter { $0.introductoryDiscount?.paymentMode == .freeTrial }.map(\.productIdentifier)
         guard !ids.isEmpty else { return }
         Purchases.shared.checkTrialOrIntroDiscountEligibility(productIdentifiers: ids) { [weak self] result in
             DispatchQueue.main.async {
                 guard let self, self.eligibilityRequestID == generation else { return }
                 self.trialEligibleProductIDs = Set(ids.filter { result[$0]?.status == .eligible })
+                self.updatePurchaseButton()
                 self.tableView.reloadSections(IndexSet(integer: 1), with: .none)
             }
         }
@@ -178,18 +183,60 @@ class PurchaseViewController: SuperViewController {
         let isFamilyUpgrade = ownedID == .lifetime198 && product.productIdentifier == PurchaseStoreID.lifetime298.rawValue
         let alreadyCovered = ownsSelection || (ownsLifetime && !isFamilyUpgrade)
         buyoutButton.isEnabled = !alreadyCovered && !isPurchasing
-        buyoutButton.setTitle(alreadyCovered ? "You have purchased".localStr() : "Continue".localStr(), for: .normal)
+        let buttonTitle: String
+        if alreadyCovered {
+            buttonTitle = "You have purchased".localStr()
+        } else if trialEligibleProductIDs.contains(product.productIdentifier), let days = product.onboardingTrialDays {
+            buttonTitle = String(format: "Free Trial for %d Days".localStr(), days)
+        } else {
+            buttonTitle = "Continue".localStr()
+        }
+        buyoutButton.setTitle(buttonTitle, for: .normal)
         tipsLabel.text = product.productType == .autoRenewableSubscription
             ? "Auto-renewable. Cancel anytime.".localStr()
             : "One time purchase, valid forever".localStr()
     }
 
     var isPurchasing = false {
-        didSet { updatePurchaseButton() }
+        didSet {
+            updatePurchaseButton()
+            familySharingFooter.toggleButton.isEnabled = !isPurchasing
+        }
     }
     private var isLoadingProducts = false
     private var eligibilityRequestID = UUID()
     private var trialEligibleProductIDs = Set<String>()
+    private var isFamilySharingEnabled = false
+
+    private var canToggleFamilySharing: Bool {
+        priceArray.contains { $0.productIdentifier == PurchaseStoreID.lifetime198.rawValue } &&
+        priceArray.contains { $0.productIdentifier == PurchaseStoreID.lifetime298.rawValue }
+    }
+
+    private var visibleProducts: [StoreProduct] {
+        let lifetimeID: PurchaseStoreID = isFamilySharingEnabled ? .lifetime298 : .lifetime198
+        return [PurchaseStoreID.monthly, .yearly, lifetimeID].compactMap { id in
+            priceArray.first { $0.productIdentifier == id.rawValue }
+        }
+    }
+
+    private lazy var familySharingFooter: PurchaseFamilySharingFooter = {
+        let footer = PurchaseFamilySharingFooter(reuseIdentifier: nil)
+        footer.toggleButton.addTarget(self, action: #selector(toggleFamilySharing), for: .touchUpInside)
+        return footer
+    }()
+
+    @objc private func toggleFamilySharing() {
+        guard !isPurchasing, canToggleFamilySharing else { return }
+        let selectedLifetime = selectModel?.productIdentifier == PurchaseStoreID.lifetime198.rawValue ||
+            selectModel?.productIdentifier == PurchaseStoreID.lifetime298.rawValue
+        isFamilySharingEnabled.toggle()
+        if selectedLifetime {
+            let id = isFamilySharingEnabled ? PurchaseStoreID.lifetime298 : .lifetime198
+            selectModel = visibleProducts.first { $0.productIdentifier == id.rawValue }
+        }
+        tableView.reloadSections(IndexSet(integer: 1), with: .none)
+    }
         
     // 原始的屏幕亮度
     var firstBrightness = 0.5
@@ -207,6 +254,7 @@ class PurchaseViewController: SuperViewController {
         view.dataSource = self
         view.delegate = self
         view.rowHeight = 50.ckValue()
+        view.estimatedSectionFooterHeight = 64
         view.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: additionalSafeAreaInsets.bottom + 30.ckValue(), right: 0)
         view.contentInsetAdjustmentBehavior = .automatic
         view.register(PurchaseHeadCell.self, forCellReuseIdentifier: "PurchaseHeadCell")
@@ -293,7 +341,7 @@ extension PurchaseViewController: UITableViewDataSource, UITableViewDelegate, Pu
         if section == 0 {
             return 1
         }else if section == 1 {
-            return max(1, priceArray.count)
+            return max(1, visibleProducts.count)
         }else if section == 2 {
             return benefitArray.count
         }else{
@@ -306,7 +354,7 @@ extension PurchaseViewController: UITableViewDataSource, UITableViewDelegate, Pu
             let cell = tableView.dequeueReusableCell(withIdentifier: "PurchaseHeadCell", for: indexPath) as! PurchaseHeadCell
             return cell
         }else if indexPath.section == 1 {
-            if priceArray.isEmpty {
+            if visibleProducts.isEmpty {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "PriceTableViewCell", for: indexPath)
                 var config = UIListContentConfiguration.cell()
                 config.text = isLoadingProducts ? "Processing...".localStr() : "Purchase.ProductsUnavailable".localStr()
@@ -316,7 +364,7 @@ extension PurchaseViewController: UITableViewDataSource, UITableViewDelegate, Pu
                 return cell
             }
             // 订阅产品
-            let model = priceArray[indexPath.row]
+            let model = visibleProducts[indexPath.row]
             let cell = tableView.dequeueReusableCell(withIdentifier: "PurchasePriceCell", for: indexPath) as! PurchasePriceCell
             cell.update(model: model,
                         isSelect: model.productIdentifier == self.selectModel?.productIdentifier,
@@ -358,11 +406,11 @@ extension PurchaseViewController: UITableViewDataSource, UITableViewDelegate, Pu
         
         if indexPath.section == 1 {
             guard !isPurchasing else { return }
-            guard !priceArray.isEmpty else {
+            guard !visibleProducts.isEmpty else {
                 reloadProducts()
                 return
             }
-            self.selectModel = self.priceArray[indexPath.row]
+            self.selectModel = self.visibleProducts[indexPath.row]
             tableView.reloadSections(IndexSet(integer: 1), with: .none)
         }
         
@@ -382,13 +430,14 @@ extension PurchaseViewController: UITableViewDataSource, UITableViewDelegate, Pu
         return UITableView.automaticDimension
     }
     
-    func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
-        if section == 1 {
-            return priceArray.contains { $0.productIdentifier == PurchaseStoreID.lifetime298.rawValue }
-                ? "Purchase.FamilySharingFooter".localStr() : nil
-        }else{
-            return nil
-        }
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        guard section == 1, canToggleFamilySharing else { return nil }
+        familySharingFooter.configure(isEnabled: isFamilySharingEnabled, isPurchasing: isPurchasing)
+        return familySharingFooter
+    }
+
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        section == 1 && canToggleFamilySharing ? UITableView.automaticDimension : 12
     }
     
     // 恢复购买
@@ -447,6 +496,47 @@ extension PurchaseViewController: UITableViewDataSource, UITableViewDelegate, Pu
     
     
     
+}
+
+private final class PurchaseFamilySharingFooter: UITableViewHeaderFooterView {
+    let toggleButton = UIButton(type: .system)
+    private let explanation = UILabel()
+
+    override init(reuseIdentifier: String?) {
+        super.init(reuseIdentifier: reuseIdentifier)
+        backgroundConfiguration = .clear()
+        explanation.font = .preferredFont(forTextStyle: .footnote)
+        explanation.adjustsFontForContentSizeCategory = true
+        explanation.textColor = .secondaryLabel
+        explanation.numberOfLines = 0
+        explanation.text = "Purchase.FamilySharingFooter".localStr()
+        var configuration = UIButton.Configuration.plain()
+        configuration.baseForegroundColor = appMainColor
+        configuration.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 12, bottom: 10, trailing: 12)
+        toggleButton.configuration = configuration
+        toggleButton.titleLabel?.numberOfLines = 0
+        toggleButton.titleLabel?.textAlignment = .center
+        let stack = UIStackView(arrangedSubviews: [explanation, toggleButton])
+        stack.axis = .vertical
+        stack.spacing = 4
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        contentView.addSubview(stack)
+        NSLayoutConstraint.activate([
+            stack.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+            stack.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
+            stack.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 12),
+            stack.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8),
+            toggleButton.heightAnchor.constraint(greaterThanOrEqualToConstant: 44)
+        ])
+    }
+
+    required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
+
+    func configure(isEnabled: Bool, isPurchasing: Bool) {
+        explanation.isHidden = !isEnabled
+        toggleButton.configuration?.title = (isEnabled ? "Purchase.DisableFamilySharing" : "Purchase.EnableFamilySharing").localStr()
+        toggleButton.isEnabled = !isPurchasing
+    }
 }
 
 #endif
