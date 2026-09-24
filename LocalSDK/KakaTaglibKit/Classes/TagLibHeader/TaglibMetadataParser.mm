@@ -1,987 +1,629 @@
-//
-//  TaglibMetadataParser.m
-//  KakaTaglibKit
-//
-//  Created by 张文 on 11/5/24.
-//
-
+// WaketagLibKit — Apple-platform wrapper around TagLib.
 #import "TaglibMetadataParser.h"
-#import <tag.h>
-#import <tstring.h>
-#import <fileref.h>
-#import <tpropertymap.h>
-#import <id3v1tag.h>
-#import <id3v2tag.h>
-#import <audioproperties.h>
-#import <apetag.h>
-#import <tvariant.h>
-#import <attachedpictureframe.h>
+#import <ImageIO/ImageIO.h>
+#include <fileref.h>
+#include <tpropertymap.h>
+#include <tvariant.h>
+#include <id3v2tag.h>
+#include <id3v1tag.h>
+#include <synchronizedlyricsframe.h>
+#include <unsynchronizedlyricsframe.h>
+#include <mpegfile.h>
+#include <mpegproperties.h>
+#include <flacfile.h>
+#include <xiphcomment.h>
+#include <wavfile.h>
+#include <infotag.h>
+#include <aifffile.h>
+#include <dsffile.h>
+#include <dsdifffile.h>
+#include <trueaudiofile.h>
+#include <apefile.h>
+#include <apetag.h>
+#include <apeitem.h>
+#include <mp4tag.h>
+#include <asftag.h>
+#include <asfattribute.h>
+#include <modtag.h>
+#include <matroskatag.h>
+#include <mpcfile.h>
+#include <wavpackfile.h>
+#include <array>
+#include <mutex>
+#include <algorithm>
+#include <climits>
+#include <cmath>
+#include <cstring>
 
-#import <synchronizedlyricsframe.h>
-#import <unsynchronizedlyricsframe.h>
+namespace {
+constexpr NSUInteger MaxArtworkBytes = 32 * 1024 * 1024;
+constexpr NSUInteger MaxLyricsBytes = 4 * 1024 * 1024;
+constexpr NSUInteger MaxLyricLines = 20000;
 
-#import <apefile.h>
-#import <asffile.h>
-#import <dsdifffile.h>
-#import <dsffile.h>
-#import <flacfile.h>
-#import <itfile.h>
-#import <modfile.h>
-#import <mp4file.h>
-#import <mpcfile.h>
-#import <mpegfile.h>
-#import <oggfile.h>
-#import <opusfile.h>
-#import <speexfile.h>
-#import <vorbisfile.h>
-#import <rifffile.h>
-#import <wavfile.h>
-#import <aifffile.h>
-#import <s3mfile.h>
-#import <apeitem.h>
-#import <trueaudiofile.h>
-#import <wavpackfile.h>
-#import <xmfile.h>
+// Bound lock memory during large scans; serialize edits/reads of the same path.
+std::array<std::mutex, 64> fileLocks;
+class FileAccess {
+public:
+    explicit FileAccess(NSURL *url) : url_(url), scoped_(url && url.isFileURL && [url startAccessingSecurityScopedResource]) {}
+    ~FileAccess() { if(scoped_) [url_ stopAccessingSecurityScopedResource]; }
+private:
+    NSURL *__strong url_;
+    bool scoped_;
+};
 
+template<typename Result, typename Action>
+Result WithFile(NSURL *url, bool writing, bool audioProperties, Result failure, Action action) {
+    if(!url || !url.isFileURL || !url.path.length) return failure;
+    FileAccess access(url);
+    NSURL *canonical = url.URLByResolvingSymlinksInPath.URLByStandardizingPath;
+    std::lock_guard<std::mutex> lock(fileLocks[canonical.path.hash % fileLocks.size()]);
+    NSNumber *regular = nil;
+    if(![canonical getResourceValue:&regular forKey:NSURLIsRegularFileKey error:nil] || !regular.boolValue) return failure;
+    NSNumber *fileSize = nil;
+    if(![canonical getResourceValue:&fileSize forKey:NSURLFileSizeKey error:nil] || fileSize.unsignedLongLongValue == 0) return failure;
+    if(writing && ![[NSFileManager defaultManager] isWritableFileAtPath:canonical.path]) return failure;
+    const char *path = canonical.fileSystemRepresentation;
+    if(!path) return failure;
+    try {
+        TagLib::FileRef file(path, audioProperties || writing, TagLib::AudioProperties::Average);
+        if(file.isNull() || !file.file()->isValid() || !file.tag() || (writing && file.file()->readOnly())) return failure;
+        // Tracker tags silently ignore most setters. Read them, but do not
+        // report a successful edit when the format cannot store the field.
+        if(writing && dynamic_cast<TagLib::Mod::Tag *>(file.tag())) return failure;
+        // TagLib accepts empty/tag-only MPEG containers; these are not audio
+        // files and must not be "repaired" into a successful tag write.
+        if(auto mpeg = dynamic_cast<TagLib::MPEG::File *>(file.file()); mpeg && mpeg->firstFrameOffset() < 0) return failure;
+        if(dynamic_cast<TagLib::RIFF::WAV::File *>(file.file()) || dynamic_cast<TagLib::RIFF::AIFF::File *>(file.file())) {
+            if(audioProperties || writing) {
+                auto props = file.audioProperties();
+                if(!props || props->sampleRate() <= 0 || props->channels() <= 0) return failure;
+            }
+        }
+        return action(file);
+    } catch(const std::exception &) { return failure; }
+      catch(...) { return failure; }
+}
+
+NSString *StringFromTag(const TagLib::String &value) {
+    const auto utf8 = value.to8Bit(true);
+    return [[NSString alloc] initWithBytes:utf8.data() length:utf8.size() encoding:NSUTF8StringEncoding] ?: @"";
+}
+TagLib::String StringToTag(NSString *value) {
+    NSData *data = [value dataUsingEncoding:NSUTF8StringEncoding];
+    if(!data.length) return TagLib::String();
+    return TagLib::String(std::string(static_cast<const char *>(data.bytes), data.length), TagLib::String::UTF8);
+}
+double FiniteNumber(NSString *value) {
+    double number = value.doubleValue;
+    return std::isfinite(number) ? number : 0;
+}
+bool Save(TagLib::FileRef &file, bool id3Only = false) {
+    if(id3Only) {
+        if(auto f = dynamic_cast<TagLib::MPEG::File *>(file.file()))
+            return f->save(TagLib::MPEG::File::ID3v2, TagLib::File::StripNone,
+                           TagLib::ID3v2::v4, TagLib::File::DoNotDuplicate);
+    }
+    if(auto flac = dynamic_cast<TagLib::FLAC::File *>(file.file())) {
+        // FLAC uses a 24-bit metadata-block length. Upstream drops an
+        // oversized block while still returning success; refuse before save.
+        constexpr unsigned int MaxFLACBlockBytes = 0xFFFFFF;
+        if(auto xiph = flac->xiphComment(false); xiph && xiph->render(false).size() > MaxFLACBlockBytes) return false;
+        for(auto picture : flac->pictureList())
+            if(picture->render().size() > MaxFLACBlockBytes) return false;
+    }
+    TagLib::ID3v1::Tag *legacy = nullptr;
+    if(auto f = dynamic_cast<TagLib::MPEG::File *>(file.file())) legacy = f->ID3v1Tag(false);
+    else if(auto f = dynamic_cast<TagLib::FLAC::File *>(file.file())) legacy = f->ID3v1Tag(false);
+    else if(auto f = dynamic_cast<TagLib::APE::File *>(file.file())) legacy = f->ID3v1Tag(false);
+    else if(auto f = dynamic_cast<TagLib::MPC::File *>(file.file())) legacy = f->ID3v1Tag(false);
+    else if(auto f = dynamic_cast<TagLib::WavPack::File *>(file.file())) legacy = f->ID3v1Tag(false);
+    else if(auto f = dynamic_cast<TagLib::TrueAudio::File *>(file.file())) legacy = f->ID3v1Tag(false);
+    // TagLib serializes ID3v1.1 with only 28 comment characters. Refuse an
+    // unsafe legacy rewrite instead of silently losing a v1.0 comment tail.
+    if(legacy && legacy->track() == 0 && legacy->comment().size() > 28) return false;
+    // Default MPEG save duplicates ID3v2 into ID3v1, potentially overwriting
+    // unrelated fields. Preserve independent containers instead.
+    if(auto f = dynamic_cast<TagLib::MPEG::File *>(file.file()))
+        return f->save(TagLib::MPEG::File::AllTags, TagLib::File::StripNone,
+                       TagLib::ID3v2::v4, TagLib::File::DoNotDuplicate);
+    return file.save();
+}
+TagLib::ID3v2::Tag *ID3Tag(TagLib::FileRef &file, bool create) {
+    if(auto f = dynamic_cast<TagLib::MPEG::File *>(file.file())) return f->ID3v2Tag(create);
+    if(auto f = dynamic_cast<TagLib::RIFF::WAV::File *>(file.file())) return f->ID3v2Tag();
+    if(auto f = dynamic_cast<TagLib::RIFF::AIFF::File *>(file.file())) return f->tag();
+    if(auto f = dynamic_cast<TagLib::DSF::File *>(file.file())) return f->tag();
+    if(auto f = dynamic_cast<TagLib::DSDIFF::File *>(file.file())) return f->ID3v2Tag(create);
+    if(auto f = dynamic_cast<TagLib::TrueAudio::File *>(file.file())) return f->ID3v2Tag(create);
+    if(auto f = dynamic_cast<TagLib::FLAC::File *>(file.file())) return f->ID3v2Tag(false);
+    return nullptr;
+}
+TagLib::Tag *NativeLyricsTag(TagLib::FileRef &file, bool create) {
+    if(auto f = dynamic_cast<TagLib::FLAC::File *>(file.file())) return f->xiphComment(create);
+    if(auto f = dynamic_cast<TagLib::APE::File *>(file.file())) return f->APETag(create);
+    if(auto f = dynamic_cast<TagLib::MPC::File *>(file.file())) return f->APETag(create);
+    if(auto f = dynamic_cast<TagLib::WavPack::File *>(file.file())) return f->APETag(create);
+    if(auto tag = ID3Tag(file, create)) return tag;
+    return file.tag();
+}
+void FinishTimedLyrics(NSMutableArray<LyricInfo *> *lines) {
+    [lines sortUsingComparator:^NSComparisonResult(LyricInfo *a, LyricInfo *b) {
+        if(a.startTimestamp == b.startTimestamp) return NSOrderedSame;
+        return a.startTimestamp < b.startTimestamp ? NSOrderedAscending : NSOrderedDescending;
+    }];
+    // Equal timestamps share the next distinct time; linear even for duplicates.
+    NSTimeInterval nextTime = 0, previousTime = -1;
+    for(NSInteger index = (NSInteger)lines.count - 1; index >= 0; --index) {
+        LyricInfo *line = lines[(NSUInteger)index];
+        if(previousTime < 0) nextTime = line.startTimestamp + 3000;
+        else if(line.startTimestamp < previousTime) nextTime = previousTime;
+        line.endTimestamp = nextTime;
+        previousTime = line.startTimestamp;
+    }
+}
+LyricLineModel *UsableLyrics(NSString *text, bool timedOnly = false) {
+    LyricLineModel *lyrics = [TaglibMetadataParser parseSynchronizedLyrics:text];
+    if(timedOnly && lyrics.isNoneTime) return nil;
+    static NSRegularExpression *brokenTimeOnly;
+    static dispatch_once_t once;
+    dispatch_once(&once, ^{
+        brokenTimeOnly = [NSRegularExpression regularExpressionWithPattern:@"^(?:\\[\\d{1,4}:[^\\]]*\\]\\s*)+$" options:0 error:nil];
+    });
+    // Timestamp-only/whitespace placeholders must not mask another real lyric.
+    for(LyricInfo *line in lyrics.lyrics) {
+        NSString *value = [line.realLyric stringByTrimmingCharactersInSet:NSCharacterSet.whitespaceAndNewlineCharacterSet];
+        if(value.length && ![brokenTimeOnly firstMatchInString:value options:0 range:NSMakeRange(0, value.length)]) return lyrics;
+    }
+    return nil;
+}
+bool IsLyricsKey(const TagLib::String &key) {
+    auto source = key.upper().to8Bit(true);
+    source.erase(std::remove_if(source.begin(), source.end(), [](char c) {
+        return c == ' ' || c == '_' || c == '-';
+    }), source.end());
+    return source == "LYRICS" || source == "UNSYNCEDLYRICS" || source == "LYRICSUNSYNCR"
+        || source == "UNSYNCHRONIZEDLYRICS" || source == "SYNCEDLYRICS" || source == "SYNCHRONIZEDLYRICS";
+}
+LyricLineModel *ReadLyrics(TagLib::FileRef &file) {
+    auto readTag = [](TagLib::Tag *tag) -> LyricLineModel * {
+        if(!tag) return nil;
+        if(auto asf = dynamic_cast<TagLib::ASF::Tag *>(tag)) {
+            for(const char *key : {"WM/Lyrics", "WM/LYRICS"}) {
+                for(const auto &attribute : asf->attributeListMap().value(key)) {
+                    if(auto lyrics = UsableLyrics(StringFromTag(attribute.toString()))) return lyrics;
+                }
+            }
+        }
+        // Language variants must not be concatenated into one lyric stream.
+        if(auto id3 = dynamic_cast<TagLib::ID3v2::Tag *>(tag)) {
+            const auto frames = id3->frameList("USLT");
+            for(bool preferred : {true, false}) {
+                for(auto frame : frames) {
+                    auto uslt = dynamic_cast<TagLib::ID3v2::UnsynchronizedLyricsFrame *>(frame);
+                    if(!uslt) continue;
+                    bool primary = uslt->description().isEmpty() || uslt->description().upper() == "LYRICS";
+                    if(primary != preferred) continue;
+                    if(auto lyrics = UsableLyrics(StringFromTag(uslt->text()))) return lyrics;
+                }
+            }
+        }
+        // Read the standard atom directly: a freeform atom with the same
+        // property name must not overwrite it in the generic property map.
+        if(auto mp4 = dynamic_cast<TagLib::MP4::Tag *>(tag)) {
+            for(const auto &value : mp4->item("\251lyr").toStringList())
+                if(auto lyrics = UsableLyrics(StringFromTag(value))) return lyrics;
+            for(const auto &[key, item] : mp4->itemMap()) {
+                NSString *name = StringFromTag(key);
+                if(![name hasPrefix:@"----:"] || !IsLyricsKey(StringToTag([name componentsSeparatedByString:@":"].lastObject))) continue;
+                for(const auto &value : item.toStringList())
+                    if(auto lyrics = UsableLyrics(StringFromTag(value))) return lyrics;
+            }
+        }
+        const auto props = tag->properties();
+        // Prefer canonical LYRICS over aliases, preserving separate values.
+        for(bool canonical : {true, false}) {
+            for(const auto &[key, values] : props) {
+                if((key == "LYRICS") != canonical || !IsLyricsKey(key)) continue;
+                for(const auto &value : values)
+                    if(auto lyrics = UsableLyrics(StringFromTag(value))) return lyrics;
+            }
+        }
+        return nil;
+    };
+    if(auto lyrics = readTag(NativeLyricsTag(file, false))) return lyrics;
+    auto id3 = ID3Tag(file, false);
+    if(auto lyrics = readTag(id3)) return lyrics;
+    if(id3) {
+        for(auto frame : id3->frameList("SYLT")) {
+            auto sylt = dynamic_cast<TagLib::ID3v2::SynchronizedLyricsFrame *>(frame);
+            if(!sylt || sylt->type() != TagLib::ID3v2::SynchronizedLyricsFrame::Lyrics) continue;
+            double scale = 1.0;
+            if(sylt->timestampFormat() == TagLib::ID3v2::SynchronizedLyricsFrame::AbsoluteMpegFrames) {
+                auto props = dynamic_cast<TagLib::MPEG::Properties *>(file.audioProperties());
+                if(!props || props->sampleRate() <= 0) continue;
+                int samples = props->layer() == 1 ? 384 :
+                    (props->layer() == 3 && props->version() != TagLib::MPEG::Header::Version1 ? 576 : 1152);
+                scale = samples * 1000.0 / props->sampleRate();
+            } else if(sylt->timestampFormat() != TagLib::ID3v2::SynchronizedLyricsFrame::AbsoluteMilliseconds) continue;
+            NSMutableArray<LyricInfo *> *lines = [NSMutableArray array];
+            NSUInteger textBytes = 0;
+            bool tooLarge = false;
+            for(const auto &entry : sylt->synchedText()) {
+                LyricInfo *line = [LyricInfo new];
+                line.fullLyric = line.realLyric = StringFromTag(entry.text);
+                textBytes += [line.fullLyric lengthOfBytesUsingEncoding:NSUTF8StringEncoding];
+                if(lines.count >= MaxLyricLines || textBytes > MaxLyricsBytes) { tooLarge = true; break; }
+                line.startTimestamp = entry.time * scale;
+                if([line.realLyric stringByTrimmingCharactersInSet:NSCharacterSet.whitespaceAndNewlineCharacterSet].length) [lines addObject:line];
+            }
+            if(!tooLarge && lines.count) {
+                FinishTimedLyrics(lines);
+                LyricLineModel *model = [LyricLineModel new];
+                model.isNoneTime = NO; model.lyrics = lines;
+                return model;
+            }
+        }
+    }
+    if(auto f = dynamic_cast<TagLib::MPEG::File *>(file.file()))
+        if(auto lyrics = readTag(f->APETag(false))) return lyrics;
+    if(auto lyrics = readTag(file.tag())) return lyrics;
+    if(auto wav = dynamic_cast<TagLib::RIFF::WAV::File *>(file.file())) {
+        // Nonstandard but explicitly lyric-labelled RIFF INFO field.
+        if(auto lyrics = UsableLyrics(StringFromTag(wav->InfoTag()->fieldText("ILYR")))) return lyrics;
+        if(auto lyrics = UsableLyrics(StringFromTag(wav->InfoTag()->comment()), true)) return lyrics;
+    }
+    // Some older editors stored LRC in comments. Only accept real timed LRC;
+    // ordinary descriptions, copyright notices and arbitrary text are not lyrics.
+    if(id3) {
+        for(const auto &[key, values] : id3->properties()) {
+            auto name = key.upper();
+            if(name != "COMMENT" && !name.startsWith("COMMENT:")) continue;
+            for(const auto &value : values)
+                if(auto lyrics = UsableLyrics(StringFromTag(value), true)) return lyrics;
+        }
+    }
+    return UsableLyrics(StringFromTag(file.tag()->comment()), true);
+}
+NSString *ImageMIME(NSData *data, bool reading = false) {
+    if(!data.length || data.length > MaxArtworkBytes) return nil;
+    CGImageSourceRef source = CGImageSourceCreateWithData((__bridge CFDataRef)data, nullptr);
+    if(!source) return nil;
+    NSString *type = (__bridge NSString *)CGImageSourceGetType(source);
+    NSString *mime = [type isEqualToString:@"public.png"] ? @"image/png" :
+        ([type isEqualToString:@"public.jpeg"] ? @"image/jpeg" :
+        ([type isEqualToString:@"com.compuserve.gif"] ? @"image/gif" :
+        ([type isEqualToString:@"com.microsoft.bmp"] ? @"image/bmp" : nil)));
+    // Reading is not limited to our four portable write formats. ImageIO can
+    // also decode existing TIFF/HEIF/WebP artwork on supported OS versions.
+    if(!mime && reading && type.length) mime = @"application/octet-stream";
+    NSDictionary *properties = CFBridgingRelease(CGImageSourceCopyPropertiesAtIndex(source, 0, nullptr));
+    double width = [properties[(__bridge NSString *)kCGImagePropertyPixelWidth] doubleValue];
+    double height = [properties[(__bridge NSString *)kCGImagePropertyPixelHeight] doubleValue];
+    if(width <= 0 || height <= 0 || width * height > 100000000
+       || CGImageSourceGetStatusAtIndex(source, 0) != kCGImageStatusComplete) mime = nil;
+    CFRelease(source);
+    return mime;
+}
+KakaImage *ArtworkImage(NSData *data);
+NSData *ReadCoverData(TagLib::FileRef &file, KakaImage *__strong *decodedImage = nullptr) {
+    auto pictures = file.complexProperties("PICTURE");
+    auto appendAPE = [&](TagLib::APE::Tag *ape) {
+        if(!ape) return;
+        pictures.append(ape->complexProperties("PICTURE"));
+        // A few editors omit the filename/NUL prefix from APE picture items.
+        // TagLib recognizes raw JPEG/PNG, but not raw GIF/BMP/TIFF headers.
+        // Try only the two explicit artwork fields, never arbitrary binary data.
+        for(const char *key : {"COVER ART (FRONT)", "COVER ART (BACK)"}) {
+            const auto item = ape->itemListMap().value(key);
+            if(item.type() != TagLib::APE::Item::Binary) continue;
+            const auto bytes = item.binaryData();
+            if(bytes.isEmpty() || bytes.size() > MaxArtworkBytes) continue;
+            NSData *raw = [NSData dataWithBytes:bytes.data() length:bytes.size()];
+            if(!ImageMIME(raw, true)) continue;
+            TagLib::VariantMap picture;
+            picture["data"] = bytes;
+            picture["pictureType"] = TagLib::String(strcmp(key, "COVER ART (FRONT)") == 0 ? "Front Cover" : "Back Cover");
+            pictures.append(picture);
+        }
+    };
+    if(auto flac = dynamic_cast<TagLib::FLAC::File *>(file.file())) {
+        // FLAC::File returns only native PICTURE blocks, not pictures stored
+        // in its Vorbis comments or older ID3v2 tag.
+        if(auto xiph = flac->xiphComment(false)) pictures.append(xiph->complexProperties("PICTURE"));
+        if(auto id3 = flac->ID3v2Tag(false)) pictures.append(id3->complexProperties("PICTURE"));
+    }
+    if(auto mpeg = dynamic_cast<TagLib::MPEG::File *>(file.file())) {
+        appendAPE(mpeg->APETag(false));
+    } else if(auto ape = dynamic_cast<TagLib::APE::Tag *>(NativeLyricsTag(file, false))) appendAPE(ape);
+    // Never interpret other binary fields (e.g. GEOB) as cover art.
+    for(bool frontOnly : {true, false}) {
+        for(const auto &picture : pictures) {
+            if(frontOnly && picture.value("pictureType").toString() != "Front Cover") continue;
+            auto value = picture.value("data");
+            if(value.type() != TagLib::Variant::ByteVector) continue;
+            const auto bytes = value.value<TagLib::ByteVector>();
+            if(bytes.isEmpty() || bytes.size() > MaxArtworkBytes) continue;
+            NSData *data = [NSData dataWithBytes:bytes.data() length:bytes.size()];
+            if(!ImageMIME(data, true)) continue;
+            if(decodedImage) {
+                KakaImage *image = ArtworkImage(data);
+                if(!image) continue; // A damaged first picture must not mask a good later picture.
+                *decodedImage = image;
+            }
+            return data;
+        }
+    }
+    return nil;
+}
+KakaImage *ArtworkImage(NSData *data) {
+    if(!data) return nil;
+    CGImageSourceRef source = CGImageSourceCreateWithData((__bridge CFDataRef)data, nullptr);
+    if(!source) return nil;
+    NSDictionary *options = @{
+        (__bridge NSString *)kCGImageSourceCreateThumbnailFromImageAlways: @YES,
+        (__bridge NSString *)kCGImageSourceCreateThumbnailWithTransform: @YES,
+        (__bridge NSString *)kCGImageSourceThumbnailMaxPixelSize: @2048
+    };
+    CGImageRef image = CGImageSourceCreateThumbnailAtIndex(source, 0, (__bridge CFDictionaryRef)options);
+    CFRelease(source);
+    if(!image) return nil;
+#if TARGET_OS_OSX
+    KakaImage *result = [[NSImage alloc] initWithCGImage:image size:NSZeroSize];
+#else
+    KakaImage *result = [UIImage imageWithCGImage:image];
+#endif
+    CGImageRelease(image);
+    return result;
+}
+template<typename Setter>
+BOOL SetText(NSString *value, NSURL *url, Setter setter) {
+    if(!value || ![value canBeConvertedToEncoding:NSUTF8StringEncoding]) return NO;
+    return WithFile<BOOL>(url, true, false, NO, [&](TagLib::FileRef &file) {
+        auto tag = NativeLyricsTag(file, true);
+        if(!tag) return (BOOL)NO;
+        setter(tag, StringToTag(value)); return (BOOL)Save(file, true);
+    });
+}
+}
 
 @implementation TaglibMetadataParser
-
 + (MetadataTagModel *)readMetadataWithFileURL:(NSURL *)fileURL readType:(TaglibReaderType)readType {
-    if (!fileURL.isFileURL) {
-        NSLog(@"Error: The provided URL is not a file URL.");
-        return nil;
-    }
-    
-    const char *filePath = [fileURL.path UTF8String];
-    TagLib::FileRef file(filePath);
-    
-    if (!file.isNull() && file.tag()) {
-        
-        TagLib::Tag *tag = file.tag();
-        
-        MetadataTagModel *metadataModel = [[MetadataTagModel alloc] init];
-        metadataModel.fileURL = fileURL;
-        
-        // 1️⃣基础标签
-        metadataModel.title = [NSString stringWithCString:tag->title().toCString(true) encoding:NSUTF8StringEncoding];
-        metadataModel.artist = [NSString stringWithCString:tag->artist().toCString(true) encoding:NSUTF8StringEncoding];
-        metadataModel.album = [NSString stringWithCString:tag->album().toCString(true) encoding:NSUTF8StringEncoding];
-        metadataModel.genre = [NSString stringWithCString:tag->genre().toCString(true) encoding:NSUTF8StringEncoding];
-        metadataModel.comment = [NSString stringWithCString:tag->comment().toCString(true) encoding:NSUTF8StringEncoding];
-        
-        metadataModel.year = tag->year();
-        metadataModel.track = tag->track();
-        
-        // 2️⃣获取音频属性（比特率、采样率、时长）
-        if (file.audioProperties()) {
-            TagLib::AudioProperties *properties = file.audioProperties();
-            metadataModel.bitrate = properties->bitrate() * 1000;
-            metadataModel.sampleRate = properties->sampleRate();
-            metadataModel.durationSeconds = properties->lengthInSeconds();
-            metadataModel.channel = properties->channels();
+    return WithFile<MetadataTagModel *>(fileURL, false, true, nil, [&](TagLib::FileRef &file) {
+        MetadataTagModel *model = [MetadataTagModel new]; model.fileURL = fileURL;
+        auto tag = file.tag();
+        model.title = StringFromTag(tag->title()); model.artist = StringFromTag(tag->artist());
+        model.album = StringFromTag(tag->album()); model.genre = StringFromTag(tag->genre());
+        model.comment = StringFromTag(tag->comment()); model.year = tag->year(); model.track = tag->track();
+        if(auto props = file.audioProperties()) {
+            model.bitrate = (NSUInteger)std::max(0, props->bitrate()) * 1000;
+            model.sampleRate = std::max(0, props->sampleRate());
+            model.durationSeconds = std::max(0, props->lengthInSeconds());
+            model.channel = std::max(0, props->channels());
         }
-        
-        if (readType == TaglibReaderTypeAll) {
-            // 封面
-            metadataModel.coverArt = [self extractCoverArtFromURL:fileURL];
-            
-            // 歌词
-            metadataModel.lyricModel = [self extractLyricsFromURL:fileURL];
-        }else if (readType == TaglibReaderTypeBasicCover) {
-            // 封面
-            metadataModel.coverArt = [self extractCoverArtFromURL:fileURL];
-            
-        }else if (readType == TaglibReaderTypeBasicLyrics) {
-            metadataModel.lyricModel = [self extractLyricsFromURL:fileURL];
-        }else if (readType == TaglibReaderTypeBasic) {
-            
+        if(readType == TaglibReaderTypeAll || readType == TaglibReaderTypeBasicCover) {
+            KakaImage *image = nil;
+            model.coverArtData = ReadCoverData(file, &image); model.coverArt = image;
         }
-        
-        return metadataModel;
-    } else {
-        NSLog(@"Error: Failed to read metadata from file.");
-        return nil;
-    }
+        if(readType == TaglibReaderTypeAll || readType == TaglibReaderTypeBasicLyrics) model.lyricModel = ReadLyrics(file);
+        return model;
+    });
 }
-
-/*
- else if (auto itFile = dynamic_cast<TagLib::IT::File *>(file.file())) {
-    //        id3v2Tag = itFile->tag();
-} else if (auto modFile = dynamic_cast<TagLib::Mod::File *>(file.file())) {
-    //        id3v2Tag = modFile->tag();
-} else if (auto s3mFile = dynamic_cast<TagLib::S3M::File *>(file.file())) {
-    //        id3v2Tag = s3mFile->tag();
-} else if (auto xmFile = dynamic_cast<TagLib::XM::File *>(file.file())) {
-    //        id3v2Tag = xmFile->tag();
++ (NSData *)extractCoverArtDataFromURL:(NSURL *)fileURL {
+    return WithFile<NSData *>(fileURL, false, false, nil, [](TagLib::FileRef &file) { return ReadCoverData(file); });
 }
-*/
-
-// 解析歌词
-+ (LyricLineModel *)extractLyricsFromURL:(NSURL *)fileURL {
-    
-    if (!fileURL.isFileURL) {
-        NSLog(@"Error: The provided URL is not a file URL.");
-        return nil;
-    }
-    
-    const char *filePath = [fileURL.path UTF8String];
-    TagLib::FileRef file(filePath);
-    
-    if (file.isNull() || !file.tag()) {
-        return nil;
-    }
-    
-    LyricLineModel *lyricModel = [LyricLineModel new];
-    
-    TagLib::ID3v1::Tag *id3v1Tag = nullptr;
-    TagLib::ID3v2::Tag *id3v2Tag = nullptr;
-    TagLib::APE::Tag *apeTag = nullptr;
-    
-    if (auto apeFile = dynamic_cast<TagLib::APE::File *>(file.file())) {
-        // 7️⃣ APE
-        if (apeFile->hasAPETag()) {
-            apeTag = apeFile->APETag();
-        }else if (apeFile->hasID3v1Tag()) {
-            id3v1Tag = apeFile->ID3v1Tag();
-        }
-    }else if (auto mpegFile = dynamic_cast<TagLib::MPEG::File *>(file.file())) {
-        // 1️⃣ MPEG
-        if (mpegFile->hasID3v2Tag()) {
-            id3v2Tag = mpegFile->ID3v2Tag();
-        }else if (mpegFile->hasID3v1Tag()) {
-            id3v1Tag = mpegFile->ID3v1Tag();
-        }
-    } else if (auto flacFile = dynamic_cast<TagLib::FLAC::File *>(file.file())) {
-        // 2️⃣ FLAC
-        if (flacFile->hasID3v2Tag()) {
-            id3v2Tag = flacFile->ID3v2Tag();
-        }else if (flacFile->hasXiphComment()){
-            if (auto vorbisTag = flacFile->xiphComment()) {
-                TagLib::String lyrics = vorbisTag->fieldListMap()["LYRICS"].toString();
-                if (!lyrics.isEmpty()) { // 检查歌词是否为空
-                    NSString *unsyncedLyrics = [NSString stringWithCString:lyrics.toCString(true) encoding:NSUTF8StringEncoding];
-                    lyricModel = [self parseSynchronizedLyrics:unsyncedLyrics];
-                }
-                
-                return lyricModel;
-            }
-        }else if (flacFile->hasID3v1Tag()) {
-            id3v1Tag = flacFile->ID3v1Tag();
-        }
-    }else if (auto wavFile = dynamic_cast<TagLib::RIFF::WAV::File *>(file.file())) {
-        // 3️⃣ WAV
-        if (wavFile->hasID3v2Tag()) {
-            id3v2Tag = wavFile->ID3v2Tag();
-        }else if (auto infoTag = wavFile->InfoTag()) {
-            TagLib::String lyrics = infoTag->fieldListMap()["LYRICS"].toCString();
-            if (lyrics.isEmpty()) {
-                lyrics = infoTag->fieldListMap()["ICMT"].toCString();
-                NSString *onString = [NSString stringWithCString:lyrics.toCString(true) encoding:NSUTF8StringEncoding];
-                lyricModel = [self parseSynchronizedLyrics:onString];
-            }else{
-                NSString *unsyncedLyrics = [NSString stringWithCString:lyrics.toCString(true) encoding:NSUTF8StringEncoding];
-                lyricModel = [self parseSynchronizedLyrics:unsyncedLyrics];
-            }
-            
-            return lyricModel;
-        }
-    } else if (auto dsdFile = dynamic_cast<TagLib::DSDIFF::File *>(file.file())) {
-        // 4️⃣ DSDIFF
-        if (dsdFile->hasID3v2Tag()) {
-            id3v2Tag = dsdFile->ID3v2Tag();
-        }else if (dsdFile->hasDIINTag()) {
-            
-        }
-    }  else if (auto aiffFile = dynamic_cast<TagLib::RIFF::AIFF::File *>(file.file())) {
-        // 5️⃣ AIFF
-        if (aiffFile->hasID3v2Tag()) {
-            id3v2Tag = aiffFile->tag();
-        }
-    } else if (auto trueFile = dynamic_cast<TagLib::TrueAudio::File *>(file.file())) {
-        // 6️⃣ TrueAudio
-        if (trueFile->hasID3v2Tag()) {
-            id3v2Tag = trueFile->ID3v2Tag();
-        }else if (trueFile->hasID3v1Tag()) {
-            id3v1Tag = trueFile->ID3v1Tag();
-        }
-        
-    }else if (auto dsfFile = dynamic_cast<TagLib::DSF::File *>(file.file())) {
-        // 7️⃣ DSF
-        id3v2Tag = dsfFile->tag();
-    } else if (auto mpcFile = dynamic_cast<TagLib::MPC::File *>(file.file())) {
-        // 8️⃣ MPC
-        if (mpcFile->hasID3v1Tag()) {
-            id3v1Tag = mpcFile->ID3v1Tag();
-        }
-    } else if (auto wavpackFile = dynamic_cast<TagLib::WavPack::File *>(file.file())) {
-        // 9️⃣ WavPack
-        if (wavpackFile->hasID3v1Tag()) {
-            id3v1Tag = wavpackFile->ID3v1Tag();
-        }
-    }else if (auto mp4File = dynamic_cast<TagLib::MP4::File *>(file.file())) {
-        // 1️⃣0️⃣ MP4（ALAC、AAC）
-        TagLib::MP4::Tag *mp4Tag = mp4File->tag();
-        if (mp4Tag) {
-            // 1. 检查标准的©lyr标签
-            TagLib::MP4::Item lyricsItem = mp4Tag->item("©lyr");
-            if (lyricsItem.isValid() && lyricsItem.toStringList().size() > 0) {
-                NSString *lyrics = [NSString stringWithUTF8String:lyricsItem.toStringList().toString().toCString(true)];
-                lyricModel = [self parseSynchronizedLyrics:lyrics];
-                NSLog(@"✅MP4歌词1 = %@", lyrics);
-            } else {
-                // 2. 如果©lyr为空，检查自定义标签
-                const TagLib::MP4::ItemMap &items = mp4Tag->itemMap();
-                for (const auto &itemPair : items) {
-                    const TagLib::String &key = itemPair.first;
-                    TagLib::MP4::Item item = itemPair.second;
-
-                    NSString *keyString = [NSString stringWithUTF8String:key.toCString(true)];
-                    if (item.isValid() && item.toStringList().size() > 0) {
-                        NSString *valueString = [NSString stringWithUTF8String:item.toStringList().toString().toCString(true)];
-                        if ([keyString isEqualToString:@"©lyr"]) {
-                            lyricModel = [self parseSynchronizedLyrics:valueString];
-                        }
-//                        NSLog(@"✅MP4歌词2 Key: %@, Value: %@", keyString, valueString);
-                    }
-                }
-            }
-            
-            return lyricModel;
-        }
-    }else if (auto oggFile = dynamic_cast<TagLib::Ogg::File *>(file.file())) {
-        // 1️⃣1️⃣ OGG（Vorbis、Opus、Speex）
-        if (auto vorbisTag = dynamic_cast<TagLib::Ogg::Vorbis::File *>(oggFile)) {
-                // 处理 Vorbis 格式的 OGG 文件
-                if (auto tag = vorbisTag->tag()) {
-                    const TagLib::String &lyrics = tag->properties()["LYRICS"].toString();
-                    if (!lyrics.isEmpty()) {
-                        NSString *lyricsString = [NSString stringWithUTF8String:lyrics.toCString(true)];
-//                        NSLog(@"✅OGG Vorbis 歌词 = %@", lyricsString);
-                        lyricModel = [self parseSynchronizedLyrics:lyricsString];
-                    }
-                }
-            } else if (auto opusTag = dynamic_cast<TagLib::Ogg::Opus::File *>(oggFile)) {
-                // 处理 Opus 格式的 OGG 文件
-                if (auto tag = opusTag->tag()) {
-                    const TagLib::String &lyrics = tag->properties()["LYRICS"].toString();
-                    if (!lyrics.isEmpty()) {
-                        NSString *lyricsString = [NSString stringWithUTF8String:lyrics.toCString(true)];
-                        NSLog(@"✅OGG Opus 歌词 = %@", lyricsString);
-                        lyricModel = [self parseSynchronizedLyrics:lyricsString];
-                    }
-                }
-            } else if (auto speexFile = dynamic_cast<TagLib::Ogg::Speex::File *>(oggFile)) {
-                // 处理 Speex 格式的 OGG 文件
-                if (auto tag = speexFile->tag()) {
-                    const TagLib::String &lyrics = tag->properties()["LYRICS"].toString();
-                    if (!lyrics.isEmpty()) {
-                        NSString *lyricsString = [NSString stringWithUTF8String:lyrics.toCString(true)];
-//                        NSLog(@"✅OGG Speex 歌词 = %@", lyricsString);
-                        lyricModel = [self parseSynchronizedLyrics:lyricsString];
-                    }
-                }
-            } else {
-                NSLog(@"Unsupported OGG subtype.");
-            }
-            return lyricModel;
-    }else if (auto asfFile = dynamic_cast<TagLib::ASF::File *>(file.file())) {
-        // 1️⃣2️⃣ ASF
-        const TagLib::ASF::Tag *tag = asfFile->tag();
-        const TagLib::ASF::AttributeListMap &attributes = tag->attributeListMap();
-        for (const auto &attributePair : attributes) {
-            const TagLib::String &key = attributePair.first; // 键名
-            const TagLib::ASF::AttributeList &values = attributePair.second; // 值列表
-
-            // 可能的歌词键
-            if (key == "WM/LYRICS" || key == "WM/Lyrics") {
-                // 取第一个值作为歌词
-                if (!values.isEmpty()) {
-                    const TagLib::String &lyricString = values.front().toString();
-                    NSString *lyrics = [NSString stringWithUTF8String:lyricString.toCString(true)];
-//                    NSLog(@"✅ASF 歌词 = %@", lyrics);
-
-                    // 转换为模型格式
-                    lyricModel = [self parseSynchronizedLyrics:lyrics];
-                    return lyricModel;
-                }
-            }
-        }
-    }
-//    else if (auto itFile = dynamic_cast<TagLib::IT::File *>(file.file())) {
-//        const TagLib::IT::Properties *itProperties = dynamic_cast<const TagLib::IT::Properties *>(itFile->audioProperties());
-//
-//        if (itProperties && (itProperties->special() & TagLib::IT::Properties::MessageAttached)) {
-//            // 检查是否附加了消息
-//            TagLib::ByteVector message = itFile->message(); // 获取 IT 文件的 Message 字段
-//            if (!message.isEmpty()) {
-//                // 转换 Message 字段为 NSString 格式
-//                NSString *lyrics = [NSString stringWithUTF8String:message.toCString()];
-//                lyricModel = [self parseSynchronizedLyrics:lyrics];
-//                NSLog(@"✅ IT 文件解析歌词: %@", lyrics);
-//            } else {
-//                NSLog(@"❌ IT 文件的 Message 字段为空。");
-//            }
-//        } else {
-//            NSLog(@"❌ IT 文件没有附加消息字段。");
-//        }
-//    }
-
-    
-    
-    // 解析IDV2标签的数据
-    if (id3v2Tag) {
-        const TagLib::String &lyrics = id3v2Tag->properties()["LYRICS"].toString();
-        if (!lyrics.isEmpty()) {
-            NSString *lyricsString = [NSString stringWithUTF8String:lyrics.toCString(true)];
-//            NSLog(@"✅IDV2 歌词 = %@", lyricsString);
-            lyricModel = [self parseSynchronizedLyrics:lyricsString];
-            return lyricModel;
-        }
-        
-        // 1.1 读取 SYLT 框架（同步歌词）
-        auto syltFrames = id3v2Tag->frameList("SYLT");
-        if (!syltFrames.isEmpty()) {
-            if (auto syltFrame = dynamic_cast<TagLib::ID3v2::SynchronizedLyricsFrame *>(syltFrames.front())) {
-                const auto &lyricsList = syltFrame->synchedText();
-                
-                for (size_t i = 0; i < lyricsList.size(); ++i) {
-                    const auto &lyricEntry = lyricsList[i];
-                    
-                    NSMutableArray <LyricInfo *>*lyricArray = [NSMutableArray array];
-                    if (!lyricEntry.text.isEmpty()) { // 检查歌词是否为空
-                        
-                        lyricModel.isNoneTime = NO;
-
-                        LyricInfo *info = [LyricInfo new];
-                        NSString *fullLyric = [NSString stringWithCString:lyricEntry.text.toCString(true) encoding:NSUTF8StringEncoding];
-                        
-                        info.fullLyric = fullLyric;
-                        info.realLyric = fullLyric;
-                        info.startTimestamp = lyricEntry.time; // 毫秒
-                        
-                        if (i + 1 < lyricsList.size()) {
-                            info.endTimestamp = lyricsList[i + 1].time; // 下一行的开始时间作为结束时间
-                        } else {
-                            info.endTimestamp = lyricArray.lastObject.startTimestamp + 3000.0;
-                        }
-                        
-                        [lyricArray addObject:info];
-                    }
-                    lyricModel.lyrics = lyricArray;
-                }
-            }
-            
-            return lyricModel;
-        }
-        
-        
-        // 1.2 读取 USLT 框架（非同步歌词），如果没有找到 SYLT 同步歌词
-        if ((lyricModel.lyrics.count) == 0) {
-            auto usltFrames = id3v2Tag->frameList("USLT");
-            if (!usltFrames.isEmpty()) {
-                if (auto usltFrame = dynamic_cast<TagLib::ID3v2::UnsynchronizedLyricsFrame *>(usltFrames.front())) {
-                    TagLib::String lyricsText = usltFrame->text();
-                    if (!lyricsText.isEmpty()) { // 检查歌词是否为空
-                        NSString *lyricStr = [NSString stringWithCString:lyricsText.toCString(true) encoding:NSUTF8StringEncoding];
-                        lyricModel = [self parseSynchronizedLyrics:lyricStr];
-                    }
-                }
-            }
-            
-            return lyricModel;
-        }
-        
-    }
-    
-    if (apeTag) {
-        // 尝试读取歌词字段
-        TagLib::String lyrics = apeTag->itemListMap().value("LYRICS").toString();
-        if (lyrics.isEmpty()) {
-            lyrics = apeTag->itemListMap().value("LYRICS_UNSYNCR").toString();
-        }
-        
-        if (!lyrics.isEmpty()) {
-            NSString *lyricStr = [NSString stringWithCString:lyrics.toCString(true) encoding:NSUTF8StringEncoding];
-            lyricModel = [self parseSynchronizedLyrics:lyricStr];
-            NSLog(@"✅ APE 歌词 = %@", lyricStr);
-        }
-        
-        return lyricModel;
-    }
-
-    
-    // 最后才尝试IDV1标签
-    if (id3v1Tag) {
-        // 1. IDV1读取评论数据
-        TagLib::String lyricsText = id3v1Tag->comment();
-        if (!lyricsText.isEmpty()) { // 检查歌词是否为空
-            NSString *lyricStr = [NSString stringWithCString:lyricsText.toCString(true) encoding:NSUTF8StringEncoding];
-            lyricModel = [self parseSynchronizedLyrics:lyricStr];
-        }
-        
-        return lyricModel;
-    }
-    
-    return lyricModel;
-}
-
-
-
-/// 读取封面
 + (KakaImage *)extractCoverArtFromURL:(NSURL *)fileURL {
-    if (!fileURL.isFileURL) {
-        NSLog(@"Error: The provided URL is not a file URL.");
-        return nil;
-    }
-    
-    const char *filePath = [fileURL.path UTF8String];
-    TagLib::FileRef file(filePath);
-    
-    if (!file.isNull() && file.tag()) {
-        TagLib::Tag *tag = file.tag();
-        
-        // 尝试从文件的元数据中获取封面图
-        TagLib::PropertyMap properties = file.properties();
-        TagLib::StringList names = file.complexPropertyKeys();
-        
-        KakaImage *coverImage;
-        
-        for (const auto &name : names) {
-            const auto& propertiesList = file.complexProperties(name);
-            for (const auto &property : propertiesList) {
-                for (const auto &[key, value] : property) {
-                    
-                    if (value.type() == TagLib::Variant::ByteVector) {
-                        // 获取封面图字节流
-                        TagLib::ByteVector pictureData = value.value<TagLib::ByteVector>();
-                        NSData *imageData = [NSData dataWithBytes:pictureData.data() length:pictureData.size()];
-#if TARGET_OS_OSX
-                        coverImage = [[NSImage alloc] initWithData:imageData];
-#else
-                        coverImage = [UIImage imageWithData:imageData];
-#endif
-                        break;
-                    }
-                    
-                }
-            }
-        }
-        
-        return coverImage;
-    }else{
-        NSLog(@"Error: Failed to extract cover art from the file.");
-        return nil;  // 如果没有封面图，返回 nil
-    }
-    
+    return WithFile<KakaImage *>(fileURL, false, false, nil, [](TagLib::FileRef &file) {
+        KakaImage *image = nil; ReadCoverData(file, &image); return image;
+    });
 }
-
-
-/*
- 1. [分钟:秒.毫秒] 歌词
- 2. [分钟:秒] 歌词
- 3. [分钟:秒:毫秒] 歌词
- */
++ (LyricLineModel *)extractLyricsFromURL:(NSURL *)fileURL {
+    return WithFile<LyricLineModel *>(fileURL, false, true, nil, [](TagLib::FileRef &file) { return ReadLyrics(file); });
+}
 + (LyricLineModel *)parseSynchronizedLyrics:(NSString *)lyricsText {
-    if (lyricsText.length < 3) {
-        return nil;
+    if(!lyricsText.length || [lyricsText lengthOfBytesUsingEncoding:NSUTF8StringEncoding] > MaxLyricsBytes) return nil;
+    // A UTF-8 BOM commonly survives in text copied from an external LRC file.
+    if([lyricsText hasPrefix:@"\uFEFF"]) lyricsText = [lyricsText substringFromIndex:1];
+    // Bound tokenization as well as resulting objects. Splitting a 4 MiB
+    // newline-only payload first could allocate millions of temporary strings.
+    NSUInteger breaks = 0, brackets = 0;
+    for(NSUInteger index = 0; index < lyricsText.length; ++index) {
+        unichar c = [lyricsText characterAtIndex:index];
+        if((c == '\n' || c == '\r') && ++breaks > MaxLyricLines * 2) return nil;
+        if(c == '[' && ++brackets > MaxLyricLines + 512) return nil;
     }
-    
-    NSMutableArray<LyricInfo *> *lyricArray = [NSMutableArray array];
-    NSArray<NSString *> *lines = [lyricsText componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]];
-    // 支持更广泛时间戳格式的正则表达式
-    NSRegularExpression *timeRegex = [NSRegularExpression regularExpressionWithPattern:@"\\[(\\d{2}):(\\d{2})(\\.\\d+)?\\]|\\[(\\d{2})\\.(\\d+)\\]" options:0 error:nil];
-    
-    LyricLineModel *lyricModel = [[LyricLineModel alloc] init];
-    
-    for (NSString *line in lines) {
-        if ([line isEqualToString:@""] || line.length == 0) {
-            continue;
+    static NSRegularExpression *timeRegex, *metadataRegex;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        timeRegex = [NSRegularExpression regularExpressionWithPattern:@"\\[(\\d{1,4}):([0-5]?\\d)(?:[.:](\\d{1,3}))?\\]" options:0 error:nil];
+        metadataRegex = [NSRegularExpression regularExpressionWithPattern:@"^\\[([a-zA-Z_]+):(.*)\\]$" options:0 error:nil];
+    });
+    LyricLineModel *model = [LyricLineModel new];
+    NSMutableArray<LyricInfo *> *timed = [NSMutableArray array], *plain = [NSMutableArray array];
+    for(NSString *raw in [lyricsText componentsSeparatedByCharactersInSet:NSCharacterSet.newlineCharacterSet]) {
+        NSString *line = [raw stringByTrimmingCharactersInSet:NSCharacterSet.whitespaceAndNewlineCharacterSet];
+        if(!line.length) continue;
+        NSTextCheckingResult *meta = [metadataRegex firstMatchInString:line options:0 range:NSMakeRange(0, line.length)];
+        if(meta) {
+            NSString *key = [[line substringWithRange:[meta rangeAtIndex:1]] lowercaseString];
+            NSString *value = [line substringWithRange:[meta rangeAtIndex:2]];
+            if([key isEqualToString:@"ar"]) model.artist = value;
+            else if([key isEqualToString:@"ti"]) model.title = value;
+            else if([key isEqualToString:@"al"]) model.album = value;
+            else if([key isEqualToString:@"by"]) model.creater = value;
+            else if([key isEqualToString:@"offset"]) model.offset = (int)std::clamp(FiniteNumber(value), (double)INT_MIN, (double)INT_MAX);
+            else if([key isEqualToString:@"t_time"]) model.totalTime = std::max(0.0, FiniteNumber(value));
+            else if([key isEqualToString:@"length"]) {
+                NSArray<NSString *> *parts = [value componentsSeparatedByString:@":"];
+                if(parts.count == 2) model.totalTime = std::max(0.0, FiniteNumber(parts[0]) * 60 + FiniteNumber(parts[1])) * 1000;
+            }
+            else if([@[@"re", @"ve", @"id", @"au", @"la", @"language", @"encoding", @"tool"] containsObject:key]) {
+                // Recognized informational LRC tags, not displayed lyric lines.
+            }
+            else {
+                // Bracketed lyric text such as [Chorus: repeat] is not LRC
+                // metadata. Do not silently discard an unfamiliar label.
+                meta = nil;
+            }
+            if(meta) continue;
         }
-        
-        // 处理文件标签
-        if ([line hasPrefix:@"[ar:"]) {
-            lyricModel.artist = [line substringWithRange:NSMakeRange(4, line.length - 5)];
-        } else if ([line hasPrefix:@"[ti:"]) {
-            lyricModel.title = [line substringWithRange:NSMakeRange(4, line.length - 5)];
-        } else if ([line hasPrefix:@"[al:"]) {
-            lyricModel.album = [line substringWithRange:NSMakeRange(4, line.length - 5)];
-        } else if ([line hasPrefix:@"[by:"]) {
-            lyricModel.creater = [line substringWithRange:NSMakeRange(4, line.length - 5)];
-        } else if ([line hasPrefix:@"offset:"]) {
-            lyricModel.offset = [[line substringFromIndex:7] doubleValue]; // 转换为毫秒
-        } else if ([line hasPrefix:@"[offset:"]) {
-            lyricModel.offset = [[line substringFromIndex:8] doubleValue]; // 转换为毫秒
-        } else if ([line hasPrefix:@"t_time:"] || [line hasPrefix:@"[t_time:"]) {
-            BOOL isSeconds = [line containsString:@"[t_time"];
-            int count = isSeconds ? 8 : 7;
-            lyricModel.totalTime = [[line substringFromIndex:count] doubleValue] * (isSeconds ? 1 : 1000); // 总时长毫秒
-        } else if ([line hasPrefix:@"[kuwo:"] || [line hasPrefix:@"[ver:"] || [line isEqualToString:@"[offset:0]"]) {
-            // 过滤掉无用标签
-        } else {
-            NSArray<NSTextCheckingResult *> *matches = [timeRegex matchesInString:line options:0 range:NSMakeRange(0, line.length)];
-            
-            LyricInfo *lyric = [[LyricInfo alloc] init];
-            
-            if (matches.count == 0) {
-                // 处理无时间戳的歌词
-                lyricModel.isNoneTime = YES;
-                lyric.fullLyric = [line stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-                [lyricArray addObject:lyric];
-                continue;
-            } else {
-                // 处理带时间戳的歌词
-                lyricModel.isNoneTime = NO;
-                NSMutableArray<NSNumber *> *parsedTimes = [NSMutableArray array];
-                for (NSTextCheckingResult *match in matches) {
-                    double time = 0.0;
-                    
-                    if ([match rangeAtIndex:1].location != NSNotFound) { // [mm:ss(.sss)] 格式
-                        NSString *minute = [line substringWithRange:[match rangeAtIndex:1]];
-                        NSString *second = [line substringWithRange:[match rangeAtIndex:2]];
-                        NSString *fraction = ([match rangeAtIndex:3].location != NSNotFound) ? [line substringWithRange:[match rangeAtIndex:3]] : @"";
-                        time = (minute.doubleValue * 60) + second.doubleValue + fraction.doubleValue;
-                    } else if ([match rangeAtIndex:4].location != NSNotFound) { // [mm.ss(.sss)] 格式
-                        NSString *minute = [line substringWithRange:[match rangeAtIndex:4]];
-                        NSString *secondFraction = [line substringWithRange:[match rangeAtIndex:5]];
-                        time = minute.doubleValue * 60 + secondFraction.doubleValue / pow(10, secondFraction.length);
-                    }
-                    
-                    [parsedTimes addObject:@(time)];
-                }
-                
-                // 设置开始时间和结束时间
-                if (parsedTimes.count > 0) {
-                    lyric.startTimestamp = parsedTimes[0].doubleValue * 1000;
-                    if (parsedTimes.count > 1) {
-                        lyric.endTimestamp = parsedTimes[1].doubleValue * 1000; // 下一个时间戳作为结束时间
-                    } else {
-                        lyric.endTimestamp = lyric.startTimestamp + 3000.0; // 假设持续时间为3秒
-                    }
-                }
-                
-                // 提取歌词文本
-                NSRange lastMatchRange = matches.lastObject.range;
-                NSString *lyricText = [line substringFromIndex:NSMaxRange(lastMatchRange)];
-                lyric.fullLyric = [lyricText stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-            }
-            
-            NSString *fullLyric = [lyric.fullLyric stringByReplacingOccurrencesOfString:@" " withString:@""];
-            if (fullLyric.length > 0) {
-                [lyricArray addObject:lyric];
-            }
+        if([line hasPrefix:@"offset:"]) { model.offset = (int)std::clamp(FiniteNumber([line substringFromIndex:7]), (double)INT_MIN, (double)INT_MAX); continue; }
+        if([line hasPrefix:@"t_time:"]) { model.totalTime = std::max(0.0, FiniteNumber([line substringFromIndex:7]) * 1000); continue; }
+        NSArray<NSTextCheckingResult *> *matches = [timeRegex matchesInString:line options:0 range:NSMakeRange(0, line.length)];
+        NSMutableArray<NSTextCheckingResult *> *prefixes = [NSMutableArray array];
+        NSUInteger cursor = 0;
+        for(NSTextCheckingResult *match in matches) {
+            if(match.range.location != cursor) break;
+            [prefixes addObject:match]; cursor = NSMaxRange(match.range);
+        }
+        NSString *text = [[line substringFromIndex:cursor] stringByTrimmingCharactersInSet:NSCharacterSet.whitespaceCharacterSet];
+        if(!prefixes.count) {
+            if(plain.count >= MaxLyricLines) return nil;
+            LyricInfo *info = [LyricInfo new]; info.fullLyric = info.realLyric = text; [plain addObject:info]; continue;
+        }
+        for(NSTextCheckingResult *match in prefixes) {
+            if(timed.count >= MaxLyricLines) return nil;
+            double seconds = [[line substringWithRange:[match rangeAtIndex:1]] doubleValue] * 60
+                           + [[line substringWithRange:[match rangeAtIndex:2]] doubleValue];
+            NSRange fraction = [match rangeAtIndex:3];
+            if(fraction.location != NSNotFound) seconds += [[line substringWithRange:fraction] doubleValue] / std::pow(10.0, fraction.length);
+            LyricInfo *info = [LyricInfo new]; info.fullLyric = info.realLyric = text;
+            info.startTimestamp = seconds * 1000; [timed addObject:info];
         }
     }
-    
-    lyricModel.lyrics = lyricArray;
-    return lyricModel;
+    if(timed.count) { FinishTimedLyrics(timed); model.lyrics = timed; model.isNoneTime = NO; }
+    else { model.lyrics = plain; model.isNoneTime = YES; }
+    return model;
 }
-
-
-
-+ (BOOL)setTitle:(NSString *)title toFileURL:(NSURL *)fileURL {
-    const char *filePath = [fileURL.path UTF8String];
-    TagLib::FileRef file(filePath);
-    if (file.isNull() || !file.tag()) {
-        NSLog(@"Error: Unable to access file or tag.");
-        return NO;
-    }
-    
-    TagLib::String tagTitle(title.UTF8String, TagLib::String::UTF8);
-
-    file.tag()->setTitle(tagTitle);
-    bool success = file.save();
-    return success;
++ (BOOL)setTitle:(NSString *)v toFileURL:(NSURL *)url { return SetText(v, url, [](TagLib::Tag *t, const TagLib::String &s) { t->setTitle(s); }); }
++ (BOOL)setArtist:(NSString *)v toFileURL:(NSURL *)url { return SetText(v, url, [](TagLib::Tag *t, const TagLib::String &s) { t->setArtist(s); }); }
++ (BOOL)setAlbum:(NSString *)v toFileURL:(NSURL *)url { return SetText(v, url, [](TagLib::Tag *t, const TagLib::String &s) { t->setAlbum(s); }); }
++ (BOOL)setGenre:(NSString *)v toFileURL:(NSURL *)url { return SetText(v, url, [](TagLib::Tag *t, const TagLib::String &s) { t->setGenre(s); }); }
++ (BOOL)setComment:(NSString *)v toFileURL:(NSURL *)url { return SetText(v, url, [](TagLib::Tag *t, const TagLib::String &s) { t->setComment(s); }); }
++ (BOOL)setTrack:(int)v toFileURL:(NSURL *)url {
+    if(v < 0) return NO;
+    return WithFile<BOOL>(url, true, false, NO, [&](TagLib::FileRef &file) {
+        auto tag = NativeLyricsTag(file, true); if(!tag) return (BOOL)NO;
+        tag->setTrack(v); return (BOOL)Save(file, true);
+    });
 }
-
-+ (BOOL)setArtist:(NSString *)artist toFileURL:(NSURL *)fileURL {
-    const char *filePath = [fileURL.path UTF8String];
-    TagLib::FileRef file(filePath);
-    if (file.isNull() || !file.tag()) {
-        NSLog(@"Error: Unable to access file or tag.");
-        return NO;
-    }
-
-    TagLib::String tagTitle(artist.UTF8String, TagLib::String::UTF8);
-
-    file.tag()->setArtist(tagTitle);
-    bool success = file.save();
-    return success;
++ (BOOL)setYear:(int)v toFileURL:(NSURL *)url {
+    if(v < 0) return NO;
+    return WithFile<BOOL>(url, true, false, NO, [&](TagLib::FileRef &file) {
+        auto tag = NativeLyricsTag(file, true); if(!tag) return (BOOL)NO;
+        tag->setYear(v); return (BOOL)Save(file, true);
+    });
 }
-
-+ (BOOL)setAlbum:(NSString *)album toFileURL:(NSURL *)fileURL {
-    const char *filePath = [fileURL.path UTF8String];
-    TagLib::FileRef file(filePath);
-    if (file.isNull() || !file.tag()) {
-        NSLog(@"Error: Unable to access file or tag.");
-        return NO;
-    }
-
-    TagLib::String tagTitle(album.UTF8String, TagLib::String::UTF8);
-
-    file.tag()->setAlbum(tagTitle);
-    bool success = file.save();
-    return success;
++ (BOOL)setCoverArtData:(NSData *)data toFileURL:(NSURL *)url {
+    NSString *mime = ImageMIME(data); if(!mime) return NO;
+    return WithFile<BOOL>(url, true, false, NO, [&](TagLib::FileRef &file) {
+        // Matroska's generic attachment API rewrites unrelated metadata;
+        // leave this uncommon write path unsupported until preservation tested.
+        if(dynamic_cast<TagLib::Matroska::Tag *>(file.tag())) return (BOOL)NO;
+        TagLib::VariantMap front;
+        front["data"] = TagLib::ByteVector(static_cast<const char *>(data.bytes), (unsigned int)data.length);
+        front["mimeType"] = StringToTag(mime); front["pictureType"] = TagLib::String("Front Cover");
+        // A legacy-only file may have no native writable tag yet. Target that
+        // native tag explicitly rather than broadcasting into a TagUnion.
+        const bool nativeFLAC = dynamic_cast<TagLib::FLAC::File *>(file.file()) != nullptr;
+        auto tag = nativeFLAC ? nullptr : NativeLyricsTag(file, true);
+        if(auto ape = dynamic_cast<TagLib::APE::Tag *>(tag)) {
+            // Rebuilding all APE pictures would normalize (and can damage)
+            // a filename-less back picture. Change only the front item.
+            TagLib::ByteVector bytes(1, '\0');
+            bytes.append(front.value("data").value<TagLib::ByteVector>());
+            ape->setItem("COVER ART (FRONT)", TagLib::APE::Item("Cover Art (Front)", bytes, true));
+            return (BOOL)Save(file, true);
+        }
+        auto existing = tag ? tag->complexProperties("PICTURE") : file.complexProperties("PICTURE");
+        TagLib::List<TagLib::VariantMap> pictures; pictures.append(front);
+        bool replacedUntyped = false;
+        for(const auto &picture : existing) {
+            auto type = picture.value("pictureType").toString();
+            if(type == "Front Cover") continue;
+            // MP4 has no roles. Replace its first artwork, preserve the rest.
+            if(type.isEmpty() && !replacedUntyped) { replacedUntyped = true; continue; }
+            pictures.append(picture);
+        }
+        bool changed = tag ? tag->setComplexProperties("PICTURE", pictures) : file.setComplexProperties("PICTURE", pictures);
+        return (BOOL)(changed && Save(file, true));
+    });
 }
-
-+ (BOOL)setComment:(NSString *)comment toFileURL:(NSURL *)fileURL {
-    const char *filePath = [fileURL.path UTF8String];
-    TagLib::FileRef file(filePath);
-    if (file.isNull() || !file.tag()) {
-        NSLog(@"Error: Unable to access file or tag.");
-        return NO;
-    }
-
-    TagLib::String tagTitle(comment.UTF8String, TagLib::String::UTF8);
-
-    file.tag()->setComment(tagTitle);
-    bool success = file.save();
-    return success;
-}
-
-+ (BOOL)setTrack:(int)track toFileURL:(NSURL *)fileURL {
-    const char *filePath = [fileURL.path UTF8String];
-    TagLib::FileRef file(filePath);
-    if (file.isNull() || !file.tag()) {
-        NSLog(@"Error: Unable to access file or tag.");
-        return NO;
-    }
-
-    file.tag()->setTrack(track);
-    bool success = file.save();
-    return success;
-}
-
-+ (BOOL)setYear:(int)year toFileURL:(NSURL *)fileURL {
-    const char *filePath = [fileURL.path UTF8String];
-    TagLib::FileRef file(filePath);
-    if (file.isNull() || !file.tag()) {
-        NSLog(@"Error: Unable to access file or tag.");
-        return NO;
-    }
-
-    file.tag()->setYear(year);
-    bool success = file.save();
-    return success;
-}
-
-+ (BOOL)setGenre:(NSString *)genre toFileURL:(NSURL *)fileURL {
-    const char *filePath = [fileURL.path UTF8String];
-    TagLib::FileRef file(filePath);
-    if (file.isNull() || !file.tag()) {
-        NSLog(@"Error: Unable to access file or tag.");
-        return NO;
-    }
-
-    TagLib::String tagTitle(genre.UTF8String, TagLib::String::UTF8);
-
-    file.tag()->setGenre(tagTitle);
-    bool success = file.save();
-    return success;
-}
-
-+ (BOOL)setCoverArt:(KakaImage *)coverImage toFileURL:(NSURL *)fileURL {
-    if (!fileURL.isFileURL) {
-        NSLog(@"Error: The provided URL is not a file URL.");
-        return NO;
-    }
-    
-    const char *filePath = [fileURL.path UTF8String];
-    TagLib::FileRef file(filePath);
-
-    if (file.isNull() || !file.tag()) {
-        NSLog(@"Error: Unable to access file or tag.");
-        return NO;
-    }
-    
++ (BOOL)setCoverArt:(KakaImage *)image toFileURL:(NSURL *)url {
+    if(!image) return NO;
 #if TARGET_OS_OSX
-    // macOS 适配
-    NSBitmapImageRep *bitmapRep = [coverImage representations].firstObject;
-    NSData *imageData = [bitmapRep representationUsingType:NSBitmapImageFileTypeJPEG properties:@{NSImageCompressionFactor: @(0.1)}];
+    CGImageRef cgImage = [image CGImageForProposedRect:nullptr context:nil hints:nil];
 #else
-    // iOS 版本
-    NSData *imageData = UIImageJPEGRepresentation(coverImage, 0.1);
+    // Normalize rotation/mirroring and CIImage-backed artwork before encoding.
+    CGFloat width = image.size.width * image.scale, height = image.size.height * image.scale;
+    if(!std::isfinite(width) || !std::isfinite(height) || width <= 0 || height <= 0 || width > 10000 || height > 10000) return NO;
+    UIImage *normalized = image;
+    if(!image.CGImage || image.imageOrientation != UIImageOrientationUp) {
+#if TARGET_OS_WATCH
+        // UIGraphicsImageRenderer is unavailable on watchOS.
+        UIGraphicsBeginImageContextWithOptions(image.size, NO, image.scale);
+        [image drawInRect:(CGRect){CGPointZero, image.size}];
+        normalized = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+#else
+        UIGraphicsImageRendererFormat *format = [UIGraphicsImageRendererFormat preferredFormat];
+        format.scale = image.scale;
+        UIGraphicsImageRenderer *renderer = [[UIGraphicsImageRenderer alloc] initWithSize:image.size format:format];
+        normalized = [renderer imageWithActions:^(UIGraphicsImageRendererContext *context) {
+            [image drawInRect:(CGRect){CGPointZero, image.size}];
+        }];
 #endif
-    
-    if (imageData.length == 0) { return NO; }
-    // FFmpeg uses the MIME type to recognize APIC artwork. Data alone is not enough.
-    TagLib::VariantMap pictureProperty;
-    pictureProperty["data"] = TagLib::ByteVector((const char *)[imageData bytes], [imageData length]);
-    pictureProperty["mimeType"] = TagLib::String("image/jpeg");
-    pictureProperty["pictureType"] = TagLib::String("Front Cover");
-
-    TagLib::List<TagLib::VariantMap> pictureList;
-    pictureList.append(pictureProperty);
-    
-    bool isSuccess = false;
-        
-    if (auto mpegFile = dynamic_cast<TagLib::MPEG::File *>(file.file())) {
-        isSuccess = mpegFile->setComplexProperties("PICTURE", pictureList);
-        mpegFile->save();
-    } else if (auto flacFile = dynamic_cast<TagLib::FLAC::File *>(file.file())) {
-        isSuccess = flacFile->setComplexProperties("PICTURE", pictureList);
-        flacFile->save();
-    } else if (auto dsdiffFile = dynamic_cast<TagLib::DSDIFF::File *>(file.file())) {
-        isSuccess = dsdiffFile->setComplexProperties("PICTURE", pictureList);
-        dsdiffFile->save();
-    } else if (auto trueFile = dynamic_cast<TagLib::TrueAudio::File *>(file.file())) {
-        isSuccess = trueFile->setComplexProperties("PICTURE", pictureList);
-        trueFile->save();
-    } else if (auto riffFile = dynamic_cast<TagLib::RIFF::AIFF::File *>(file.file())) {
-        isSuccess = riffFile->setComplexProperties("PICTURE", pictureList);
-        riffFile->save();
-    } else if (auto dsdiffFile = dynamic_cast<TagLib::DSDIFF::File *>(file.file())) {
-        isSuccess = dsdiffFile->setComplexProperties("PICTURE", pictureList);
-        dsdiffFile->save();
-    } else if (auto dsfFile = dynamic_cast<TagLib::DSF::File *>(file.file())) {
-        isSuccess = dsfFile->setComplexProperties("PICTURE", pictureList);
-        dsfFile->save();
-    } else if (auto wavFile = dynamic_cast<TagLib::RIFF::WAV::File *>(file.file())) {
-        isSuccess = wavFile->setComplexProperties("PICTURE", pictureList);
-        wavFile->save();
-    } else if (auto aiffFile = dynamic_cast<TagLib::RIFF::AIFF::File *>(file.file())) {
-        isSuccess = aiffFile->setComplexProperties("PICTURE", pictureList);
-        aiffFile->save();
-    } else if (auto apeFile = dynamic_cast<TagLib::APE::File *>(file.file())) {
-        isSuccess = apeFile->setComplexProperties("PICTURE", pictureList);
-        apeFile->save();
-    } else if (auto asfFile = dynamic_cast<TagLib::ASF::File *>(file.file())) {
-        isSuccess = asfFile->setComplexProperties("PICTURE", pictureList);
-        asfFile->save();
-    } else if (auto oggFile = dynamic_cast<TagLib::Ogg::File *>(file.file())) {
-        isSuccess = oggFile->setComplexProperties("PICTURE", pictureList);
-        oggFile->save();
-    } else if (auto wavpackFile = dynamic_cast<TagLib::WavPack::File *>(file.file())) {
-        isSuccess = wavpackFile->setComplexProperties("PICTURE", pictureList);
-        wavpackFile->save();
-    } else if (auto xmFile = dynamic_cast<TagLib::XM::File *>(file.file())) {
-        isSuccess = xmFile->setComplexProperties("PICTURE", pictureList);
-        xmFile->save();
-    } else if (auto s3mFile = dynamic_cast<TagLib::S3M::File *>(file.file())) {
-        isSuccess = s3mFile->setComplexProperties("PICTURE", pictureList);
-        s3mFile->save();
-    } else if (auto itFile = dynamic_cast<TagLib::IT::File *>(file.file())) {
-        isSuccess = itFile->setComplexProperties("PICTURE", pictureList);
-        itFile->save();
-    } else if (auto mpcFile = dynamic_cast<TagLib::MPC::File *>(file.file())) {
-        isSuccess = mpcFile->setComplexProperties("PICTURE", pictureList);
-        mpcFile->save();
-    } else if (auto modFile = dynamic_cast<TagLib::Mod::File *>(file.file())) {
-        isSuccess = modFile->setComplexProperties("PICTURE", pictureList);
-        modFile->save();
-    } else if (auto mp4File = dynamic_cast<TagLib::MP4::File *>(file.file())) {
-        isSuccess = mp4File->setComplexProperties("PICTURE", pictureList);
-        mp4File->save();
     }
-    
-    
-    if (isSuccess) {
-        return isSuccess;
-    }else{
-        if (file.tag()->setComplexProperties("PICTURE", pictureList)) {
-            file.save();
-            return YES;
-        }else{
-            NSLog(@"Error: Failed to set cover art.");
-            return NO;
-        }
-    }
-
+    CGImageRef cgImage = normalized.CGImage;
+#endif
+    if(!cgImage || CGImageGetWidth(cgImage) > 10000 || CGImageGetHeight(cgImage) > 10000) return NO;
+    CGImageRetain(cgImage);
+    NSMutableData *data = [NSMutableData data];
+    CGImageDestinationRef dest = CGImageDestinationCreateWithData((__bridge CFMutableDataRef)data, CFSTR("public.png"), 1, nullptr);
+    if(!dest) { CGImageRelease(cgImage); return NO; }
+    CGImageDestinationAddImage(dest, cgImage, nullptr);
+    CGImageRelease(cgImage);
+    BOOL success = CGImageDestinationFinalize(dest); CFRelease(dest);
+    return success && [self setCoverArtData:data toFileURL:url];
 }
-
-/// 写入歌词
-+ (BOOL)setLyris:(NSString *)lyric toFileURL:(NSURL *)fileURL {
-    if (!fileURL.isFileURL) {
-        NSLog(@"Error: The provided URL is not a file URL.");
-        return NO;
-    }
-    
-    const char *filePath = [fileURL.path UTF8String];
-    TagLib::FileRef file(filePath);
-    
-    if (file.isNull() || !file.tag()) {
-        NSLog(@"Error: Unable to read the file or tag.");
-        return NO;
-    }
-    
-    // 识别文件类型并获取相应的标签
-    TagLib::ID3v1::Tag *id3v1Tag = nullptr;
-    TagLib::ID3v2::Tag *id3v2Tag = nullptr;
-    TagLib::APE::Tag *apeTag = nullptr;
-    
-    TagLib::String lyricsTag(lyric.UTF8String, TagLib::String::UTF8);
-    
-    if (auto apeFile = dynamic_cast<TagLib::APE::File *>(file.file())) {
-        // 7️⃣ APE
-        if (apeFile->hasAPETag()) {
-            apeTag = apeFile->APETag();
-        }else if (apeFile->hasID3v1Tag()) {
-            id3v1Tag = apeFile->ID3v1Tag();
-        }
-    }else if (auto mpegFile = dynamic_cast<TagLib::MPEG::File *>(file.file())) {
-        // 1️⃣ MPEG
-        if (mpegFile->hasID3v2Tag()) {
-            id3v2Tag = mpegFile->ID3v2Tag();
-        }else if (mpegFile->hasID3v1Tag()) {
-            id3v1Tag = mpegFile->ID3v1Tag();
-        }
-    } else if (auto flacFile = dynamic_cast<TagLib::FLAC::File *>(file.file())) {
-        // 2️⃣ FLAC
-        if (flacFile->hasID3v2Tag()) {
-            id3v2Tag = flacFile->ID3v2Tag();
-        }else if (flacFile->hasXiphComment()){
-            if (auto vorbisTag = flacFile->xiphComment()) {
-                vorbisTag->removeFields("LYRICS");
-                vorbisTag->addField("LYRICS", lyricsTag);
-                
-                bool success = file.save();
-                return success;
++ (BOOL)setLyrics:(NSString *)lyrics toFileURL:(NSURL *)url {
+    if(!lyrics || ![lyrics canBeConvertedToEncoding:NSUTF8StringEncoding] || [lyrics lengthOfBytesUsingEncoding:NSUTF8StringEncoding] > MaxLyricsBytes) return NO;
+    return WithFile<BOOL>(url, true, false, NO, [&](TagLib::FileRef &file) {
+        auto tag = NativeLyricsTag(file, true); if(!tag) return (BOOL)NO;
+        if(auto id3 = dynamic_cast<TagLib::ID3v2::Tag *>(tag)) {
+            TagLib::ID3v2::UnsynchronizedLyricsFrame *primary = nullptr;
+            // Modify only the first default-language frame when replacing text.
+            // Clearing lyrics removes default frames, not comments/SYLT/other descriptions.
+            const auto frames = id3->frameList("USLT");
+            for(auto frame : frames) {
+                auto uslt = dynamic_cast<TagLib::ID3v2::UnsynchronizedLyricsFrame *>(frame);
+                if(!uslt || (!uslt->description().isEmpty() && uslt->description().upper() != "LYRICS")) continue;
+                if(!lyrics.length) id3->removeFrame(frame);
+                else if(!primary) primary = uslt;
             }
-        }else if (flacFile->hasID3v1Tag()) {
-            id3v1Tag = flacFile->ID3v1Tag();
-        }
-    }else if (auto wavFile = dynamic_cast<TagLib::RIFF::WAV::File *>(file.file())) {
-        // 3️⃣ WAV
-        if (wavFile->hasID3v2Tag()) {
-            id3v2Tag = wavFile->ID3v2Tag();
-        }else if (auto infoTag = wavFile->InfoTag()) {
-            infoTag->fieldListMap()["LYRICS"] = lyricsTag;
-            // 保存文件
-            bool success = file.save();
-            return success;
-        }
-    } else if (auto mp4File = dynamic_cast<TagLib::MP4::File *>(file.file())) {
-        // 4️⃣ MP4
-        TagLib::MP4::Tag *mp4Tag = mp4File->tag();
-        mp4Tag->setItem("\251lyr", TagLib::MP4::Item(lyricsTag));
-        bool success = mp4File->save();
-        return success;
-    } else if (auto dsdFile = dynamic_cast<TagLib::DSDIFF::File *>(file.file())) {
-        // 5️⃣ DSDIFF
-        if (dsdFile->hasID3v2Tag()) {
-            id3v2Tag = dsdFile->ID3v2Tag();
-        }
-    }  else if (auto aiffFile = dynamic_cast<TagLib::RIFF::AIFF::File *>(file.file())) {
-        // 6️⃣ AIFF
-        if (aiffFile->hasID3v2Tag()) {
-            id3v2Tag = aiffFile->tag();
-        }
-    } else if (auto trueFile = dynamic_cast<TagLib::TrueAudio::File *>(file.file())) {
-        // 7️⃣ TrueAudio
-        if (trueFile->hasID3v2Tag()) {
-            id3v2Tag = trueFile->ID3v2Tag();
-        }else if (trueFile->hasID3v1Tag()) {
-            id3v1Tag = trueFile->ID3v1Tag();
-        }
-        
-    } else if (auto dsfFile = dynamic_cast<TagLib::DSF::File *>(file.file())) {
-        // 8️⃣ DSF
-        id3v2Tag = dsfFile->tag();
-    } else if (auto mpcFile = dynamic_cast<TagLib::MPC::File *>(file.file())) {
-        // 9️⃣ MPC
-        if (mpcFile->hasID3v1Tag()) {
-            id3v1Tag = mpcFile->ID3v1Tag();
-        }
-    } else if (auto wavpackFile = dynamic_cast<TagLib::WavPack::File *>(file.file())) {
-        // 1️⃣0️⃣ WavPack
-        if (wavpackFile->hasID3v1Tag()) {
-            id3v1Tag = wavpackFile->ID3v1Tag();
-        }
-    } else if (auto oggFile = dynamic_cast<TagLib::Ogg::File *>(file.file())) {
-        // 1️⃣1️⃣ OGG(Opus、Opus、Speex)
-        if (auto vorbisFile = dynamic_cast<TagLib::Ogg::Vorbis::File *>(oggFile)) {
-            // Vorbis 格式
-            if (auto tag = vorbisFile->tag()) {
-                tag->addField("LYRICS", lyricsTag, true); // 添加或更新歌词字段
-                bool success = file.save();
-                NSLog(@"✅OGG Vorbis 写入歌词 = %@", @(success));
-                return success;
+            if(lyrics.length) {
+                if(!primary) { primary = new TagLib::ID3v2::UnsynchronizedLyricsFrame(TagLib::String::UTF8); id3->addFrame(primary); }
+                primary->setTextEncoding(TagLib::String::UTF8);
+                primary->setText(StringToTag(lyrics));
             }
-        } else if (auto opusFile = dynamic_cast<TagLib::Ogg::Opus::File *>(oggFile)) {
-            // Opus 格式
-            if (auto tag = opusFile->tag()) {
-                tag->addField("LYRICS", lyricsTag, true); // 添加或更新歌词字段
-                bool success = file.save();
-                NSLog(@"✅OGG Opus 写入歌词 = %@", @(success));
-                return success;
-            }
-        } else if (auto speexFile = dynamic_cast<TagLib::Ogg::Speex::File *>(oggFile)) {
-            // Speex 格式
-            if (auto tag = speexFile->tag()) {
-                tag->addField("LYRICS", lyricsTag, true); // 添加或更新歌词字段
-                bool success = file.save();
-                NSLog(@"✅OGG Speex 写入歌词 = %@", @(success));
-                return success;
-            }
-        } else {
-            return NO;
-            NSLog(@"Unsupported OGG subtype for writing lyrics.");
+            return (BOOL)Save(file, true);
         }
-    }else if (auto asfFile = dynamic_cast<TagLib::ASF::File *>(file.file())) {
-        // 1️⃣2️⃣ ASF
-        TagLib::ASF::Tag *tag = asfFile->tag();
-        if (tag) {
-            // 写入歌词到 WM/LYRICS 字段
-            TagLib::ASF::Attribute lyricsAttribute(lyricsTag);
-
-            // 设置到自定义属性 WM/LYRICS
-            tag->setAttribute("WM/LYRICS", lyricsAttribute);
-
-            // 保存文件
-            bool success = asfFile->save();
-            NSLog(@"ASF 写入歌词成功: %@", @(success));
-            return success;
-        }
-    }
-    
-    // 写入歌词逻辑
-    if (id3v2Tag) {
-        // 检查是否已有 USLT 框架，若有则移除，避免重复
-        auto usltFrames = id3v2Tag->frameList("USLT");
-        
-        if (!usltFrames.isEmpty()) {
-            // 如果存在 "USLT"，移除旧的框架并写入新的歌词
-            for (auto frame : usltFrames) {
-                id3v2Tag->removeFrame(frame);
-            }
-            
-            // 创建新的 USLT 框架并设置歌词文本
-            auto usltFrame = new TagLib::ID3v2::UnsynchronizedLyricsFrame();
-            usltFrame->setText(lyricsTag);
-            
-            // 将新的 USLT 框架添加到 ID3v2 标签中
-            id3v2Tag->addFrame(usltFrame);
-        }else{
-            // 如果不存在 "USLT"，写入到 "LYRICS" 属性
-            TagLib::PropertyMap properties = id3v2Tag->properties();
-            properties.replace("LYRICS", lyricsTag);
-            id3v2Tag->setProperties(properties);
-            NSLog(@"✅ 写入到 LYRICS 属性");
-        }
-                
-        // 保存文件
-        bool success = file.save();
-        return success;
-                    
-    } else if (apeTag) {
-        // 设置APE歌词
-        TagLib::APE::Item lyricItem("LYRICS", TagLib::StringList{lyricsTag});
-        apeTag->setItem(lyricItem.key(), lyricItem);
-        
-        // 保存文件
-        bool success = file.save();
-        return success;
-    } else if (id3v1Tag) {
-        // 写入 ID3v1 标签的评论
-        id3v1Tag->setComment(lyricsTag);
-        
-        // 保存文件
-        bool success = file.save();
-        return success;
-    }else{
-        return NO;
-    }
-    
+        // Touch only the native lyrics field. A property-map round trip can
+        // flatten ASF language/stream metadata or unrelated Matroska tags.
+        if(auto xiph = dynamic_cast<TagLib::Ogg::XiphComment *>(tag)) {
+            xiph->removeFields("LYRICS");
+            if(lyrics.length) xiph->addField("LYRICS", StringToTag(lyrics));
+        } else if(auto ape = dynamic_cast<TagLib::APE::Tag *>(tag)) {
+            ape->removeItem("LYRICS");
+            if(lyrics.length) ape->setItem("LYRICS", TagLib::APE::Item("LYRICS", TagLib::StringList(StringToTag(lyrics))));
+        } else if(auto mp4 = dynamic_cast<TagLib::MP4::Tag *>(tag)) {
+            mp4->removeItem("\251lyr");
+            if(lyrics.length) mp4->setItem("\251lyr", TagLib::MP4::Item(TagLib::StringList(StringToTag(lyrics))));
+        } else if(auto asf = dynamic_cast<TagLib::ASF::Tag *>(tag)) {
+            asf->removeItem("WM/Lyrics"); asf->removeItem("WM/LYRICS");
+            if(lyrics.length) asf->setAttribute("WM/Lyrics", TagLib::ASF::Attribute(StringToTag(lyrics)));
+        } else { return (BOOL)NO; }
+        return (BOOL)Save(file, true);
+    });
 }
-
-
++ (BOOL)setLyris:(NSString *)lyrics toFileURL:(NSURL *)url { return [self setLyrics:lyrics toFileURL:url]; }
 @end

@@ -8,6 +8,8 @@
 #ifndef TagLibHeader_h
 #define TagLibHeader_h
 
+#import <Foundation/Foundation.h>
+
 // Logger.h
 #ifdef DEBUG
 #define DebugLog(s, ...) NSLog(s, ##__VA_ARGS__)

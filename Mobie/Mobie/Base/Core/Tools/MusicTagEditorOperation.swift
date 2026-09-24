@@ -7,7 +7,7 @@
 
 import KakaFoundation
 import AppGroupKit
-import KakaTaglibKit
+import WaketagLibKit
 import Kingfisher
 
 /// 单个音乐文件处理的独立任务

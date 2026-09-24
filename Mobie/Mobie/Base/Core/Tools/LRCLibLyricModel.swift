@@ -7,7 +7,7 @@
 
 import SmartCodable
 import AppGroupKit
-import KakaTaglibKit
+import WaketagLibKit
 
 /// LRCLib接口的模型
 struct LRCLibLyricModel: SmartCodableX {

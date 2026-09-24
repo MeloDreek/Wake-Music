@@ -6,33 +6,36 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <TargetConditionals.h>
 #import "LyricLineModel.h"
 
 #if TARGET_OS_OSX
+#import <AppKit/AppKit.h>
 #define KakaImage NSImage
 #else
+#import <UIKit/UIKit.h>
 #define KakaImage UIImage
 #endif
 
 @interface MetadataTagModel : NSObject
 
 /// 文件URL
-@property (nonatomic, strong) NSURL *fileURL;
+@property (nonatomic, strong, null_unspecified) NSURL *fileURL;
 
 /// 歌名
-@property (nonatomic, copy) NSString *title;
+@property (nonatomic, copy, null_unspecified) NSString *title;
 
 /// 艺术家
-@property (nonatomic, copy) NSString *artist;
+@property (nonatomic, copy, null_unspecified) NSString *artist;
 
 /// 专辑
-@property (nonatomic, copy) NSString *album;
+@property (nonatomic, copy, null_unspecified) NSString *album;
 
 /// 音乐流派
-@property (nonatomic, copy) NSString *genre;
+@property (nonatomic, copy, null_unspecified) NSString *genre;
 
 /// 评论
-@property (nonatomic, copy) NSString *comment;
+@property (nonatomic, copy, null_unspecified) NSString *comment;
 
 /// 年代
 @property (nonatomic, assign) NSUInteger year;
@@ -53,10 +56,13 @@
 @property (nonatomic, assign) NSUInteger channel;
 
 /// 封面
-@property (nonatomic, strong) KakaImage *coverArt;
+@property (nonatomic, strong, null_unspecified) KakaImage *coverArt;
+
+/// 原始封面数据；适合缓存、传输，或按需解码为平台图像。
+@property (nonatomic, copy, nullable) NSData *coverArtData;
 
 /// 歌词信息
-@property (nonatomic, strong) LyricLineModel *lyricModel;
+@property (nonatomic, strong, null_unspecified) LyricLineModel *lyricModel;
 
 
 @end

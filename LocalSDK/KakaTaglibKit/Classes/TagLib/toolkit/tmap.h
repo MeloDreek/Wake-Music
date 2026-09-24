@@ -245,6 +245,6 @@ namespace TagLib {
 // Since GCC doesn't support the "export" keyword, we have to include the
 // implementation.
 
-#include "tmap_impl.h"
+#include "tmap.tcc"
 
 #endif

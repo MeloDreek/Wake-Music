@@ -9,7 +9,7 @@ import KakaFoundation
 import KakaUIKit
 import AppGroupKit
 import Combine
-import KakaTaglibKit
+import WaketagLibKit
 
 class PlayBackgroundView: UIView {
     

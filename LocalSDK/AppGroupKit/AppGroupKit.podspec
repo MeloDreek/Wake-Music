@@ -26,6 +26,5 @@ Pod::Spec.new do |s|
   s.dependency 'KakaFoundation'
   s.dependency 'KakaUIKit'
   s.dependency 'KakaObjcKit'
-  s.dependency 'KakaTaglibKit'
   
 end

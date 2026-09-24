@@ -32,6 +32,14 @@
 using namespace TagLib;
 using TagLib::FLAC::Properties;
 
+namespace {
+  constexpr int MAX_OGG_FLAC_METADATA_BLOCK_COUNT = 1024;
+  // FLAC metadata payloads use a 24-bit length. The first Ogg FLAC packet
+  // also contains 13 mapping bytes and a 4-byte FLAC metadata header.
+  constexpr unsigned int MAX_OGG_FLAC_METADATA_PACKET_SIZE =
+    (1U << 24) + 17;
+}
+
 class Ogg::FLAC::File::FilePrivate
 {
 public:
@@ -46,6 +54,7 @@ public:
 
   bool hasXiphComment { false };
   int commentPacket { 0 };
+  int lastHeaderPacket { 0 };
 };
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -106,6 +115,11 @@ Properties *Ogg::FLAC::File::audioProperties() const
 
 bool Ogg::FLAC::File::save()
 {
+  if (d->commentPacket == 0) {
+    debug("Ogg::FLAC::File::save() -- Invalid, file has no Vorbis comment metadata block.");
+    return false;
+  }
+
   d->xiphCommentData = d->comment->render(false);
 
   // Create FLAC metadata-block:
@@ -113,10 +127,27 @@ bool Ogg::FLAC::File::save()
   // Put the size in the first 32 bit (I assume no more than 24 bit are used)
 
   ByteVector v = ByteVector::fromUInt(d->xiphCommentData.size());
+  if(v[0] != 0) {
+    // Block size uses more than 24 bits, try again with pictures removed.
+    d->comment->removeAllPictures();
+    d->xiphCommentData = d->comment->render(false);
+    v = ByteVector::fromUInt(d->xiphCommentData.size());
+    if(v[0] != 0) {
+      debug("Ogg::FLAC::File::save() -- Invalid, metadata block is too large.");
+      return false;
+    }
+    debug("Ogg::FLAC::File::save() -- Metadata block is too large, pictures removed.");
+  }
 
   // Set the type of the metadata-block to be a Xiph / Vorbis comment
 
   v[0] = 4;
+
+  // If the comment block is the last one, set the corresponding bit
+
+  if (d->commentPacket == d->lastHeaderPacket) {
+    v[0] = static_cast<char>(0x84);
+  }
 
   // Append the comment-data after the 32 bit header
 
@@ -200,9 +231,11 @@ void Ogg::FLAC::File::scan()
     return;
 
   int ipacket = 0;
+  int blockCount = 1;
   offset_t overhead = 0;
 
-  ByteVector metadataHeader = packet(ipacket);
+  ByteVector metadataHeader =
+    packet(ipacket, MAX_OGG_FLAC_METADATA_PACKET_SIZE);
   if(metadataHeader.isEmpty())
     return;
 
@@ -228,7 +261,7 @@ void Ogg::FLAC::File::scan()
   }
   else {
     // FLAC 1.1.0 & 1.1.1
-    metadataHeader = packet(++ipacket);
+    metadataHeader = packet(++ipacket, MAX_OGG_FLAC_METADATA_PACKET_SIZE);
   }
 
   ByteVector header = metadataHeader.mid(0, 4);
@@ -264,11 +297,21 @@ void Ogg::FLAC::File::scan()
   // Search through the remaining metadata
 
   while(!lastBlock) {
-    metadataHeader = packet(++ipacket);
+    if(blockCount++ >= MAX_OGG_FLAC_METADATA_BLOCK_COUNT) {
+      debug("Ogg::FLAC::File::scan() -- Maximum metadata block count exceeded");
+      return;
+    }
+    metadataHeader = packet(++ipacket, MAX_OGG_FLAC_METADATA_PACKET_SIZE);
     header = metadataHeader.mid(0, 4);
     if(header.size() != 4) {
       debug("Ogg::FLAC::File::scan() -- Invalid Ogg/FLAC metadata header");
       return;
+    }
+
+    if(((header[0] & 0xff) == 0xff) && ((header[1] & 0xff) == 0xf8)) {
+      ipacket--;
+      debug("Ogg::FLAC::File::scan() -- Found frame sync marker, possibly missing last block marker");
+      break;
     }
 
     blockType = header[0] & 0x7f;
@@ -279,16 +322,32 @@ void Ogg::FLAC::File::scan()
     if(blockType == 1) {
       // debug("Ogg::FLAC::File::scan() -- Padding found");
     }
+    else if(blockType == 2) {
+      // debug("Ogg::FLAC::File::scan() -- Application block found");
+    }
+    else if(blockType == 3) {
+      // debug("Ogg::FLAC::File::scan() -- Seek table found");
+    }
     else if(blockType == 4) {
       // debug("Ogg::FLAC::File::scan() -- Vorbis-comments found");
       d->xiphCommentData = metadataHeader.mid(4, length);
       d->hasXiphComment = true;
       d->commentPacket = ipacket;
     }
-    else if(blockType > 5) {
+    else if(blockType == 5) {
+      // debug("Ogg::FLAC::File::scan() -- Cuesheet found");
+    }
+    else if(blockType == 6) {
+      // debug("Ogg::FLAC::File::scan() -- Picture found");
+    }
+    else if(blockType == 127) {
+      debug("Ogg::FLAC::File::scan() -- Forbidden block type found");
+    }
+    else if(blockType > 6) {
       debug("Ogg::FLAC::File::scan() -- Unknown metadata block");
     }
   }
+  d->lastHeaderPacket = ipacket;
 
   // End of metadata, now comes the datastream
   d->streamStart = overhead;

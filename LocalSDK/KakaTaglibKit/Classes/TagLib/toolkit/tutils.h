@@ -30,6 +30,7 @@
 
 #ifndef DO_NOT_DOCUMENT  // tell Doxygen not to document this header
 
+#include <cstdint>
 #include <cstdio>
 #include <cstdarg>
 #include <cstring>
@@ -58,9 +59,32 @@ namespace TagLib
     {
 
       /*!
+       * Returns the String::Type denoted by \a c, the text encoding byte at the
+       * start of an ID3v2 frame, or String::Latin1 if it denotes nothing.
+       *
+       * The byte comes from the file, so it cannot simply be cast: loading an
+       * enumeration object whose value is outside the enumeration is undefined, and
+       * String::data() switches on the type without a default case. Latin1 is what
+       * the frames already declare as their default encoding.
+       */
+      inline String::Type textEncodingFromByte(char c)
+      {
+        switch(static_cast<unsigned char>(c)) {
+        case String::Latin1:
+        case String::UTF16:
+        case String::UTF16BE:
+        case String::UTF8:
+        case String::UTF16LE:
+          return static_cast<String::Type>(static_cast<unsigned char>(c));
+        default:
+          return String::Latin1;
+        }
+      }
+
+      /*!
        * Reverses the order of bytes in a 16-bit integer.
        */
-      inline unsigned short byteSwap(unsigned short x)
+      inline uint16_t byteSwap(uint16_t x)
       {
 #if defined(HAVE_GCC_BYTESWAP)
 
@@ -92,7 +116,7 @@ namespace TagLib
       /*!
        * Reverses the order of bytes in a 32-bit integer.
        */
-      inline unsigned int byteSwap(unsigned int x)
+      inline uint32_t byteSwap(uint32_t x)
       {
 #if defined(HAVE_GCC_BYTESWAP)
 
@@ -127,7 +151,7 @@ namespace TagLib
       /*!
        * Reverses the order of bytes in a 64-bit integer.
        */
-      inline unsigned long long byteSwap(unsigned long long x)
+      inline uint64_t byteSwap(uint64_t x)
       {
 #if defined(HAVE_GCC_BYTESWAP)
 

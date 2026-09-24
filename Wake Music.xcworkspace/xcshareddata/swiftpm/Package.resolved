@@ -1,5 +1,5 @@
 {
-  "originHash" : "267f7db5b09d61faec6c336a10e1092c628b3cac2eeeba3c2505255725e4a26d",
+  "originHash" : "71d4e83c43da92a34e8a12cf7b16558ec30dc7b90bb9d848ece5c3e0449bb66f",
   "pins" : [
     {
       "identity" : "abseil-cpp-binary",
@@ -143,6 +143,15 @@
       "state" : {
         "revision" : "869129b7bf4ecc57b97d0193ad29690ca2134750",
         "version" : "1.8.1"
+      }
+    },
+    {
+      "identity" : "waketaglibkit",
+      "kind" : "remoteSourceControl",
+      "location" : "ssh://git@github.com/MeloDreek/WaketagLibKit.git",
+      "state" : {
+        "revision" : "2410d9b039204032ff24f749d205f62aa056137c",
+        "version" : "2.3.3"
       }
     }
   ],

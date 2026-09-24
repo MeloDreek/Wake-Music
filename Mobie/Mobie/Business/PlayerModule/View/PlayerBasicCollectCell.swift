@@ -9,7 +9,7 @@ import KakaFoundation
 import KakaUIKit
 import AppGroupKit
 import MarqueeLabel
-import KakaTaglibKit
+import WaketagLibKit
 import Combine
 import KSPlayer
 

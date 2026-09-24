@@ -12,7 +12,6 @@ PODS:
   - AppGroupKit (1.0.0):
     - KakaFoundation
     - KakaObjcKit
-    - KakaTaglibKit
     - KakaUIKit
   - FLAnimatedImage (1.0.17)
   - GoogleSignIn (9.0.0):
@@ -80,7 +79,6 @@ PODS:
   - KakaPhotoBrowser (1.0.0):
     - SDWebImage (~> 5.19.1)
     - SDWebImageFLPlugin (~> 0.6.0)
-  - KakaTaglibKit (2.0.2)
   - KakaUIKit (1.0.0):
     - KakaFoundation
     - NVActivityIndicatorView
@@ -112,7 +110,6 @@ DEPENDENCIES:
   - KakaFoundation (from `./LocalSDK/KakaFoundation`)
   - KakaObjcKit (from `./LocalSDK/KakaObjcKit`)
   - KakaPhotoBrowser (from `./LocalSDK/KakaPhotoBrowser`)
-  - KakaTaglibKit (from `./LocalSDK/KakaTaglibKit`)
   - KakaUIKit (from `./LocalSDK/KakaUIKit`)
   - ProgressHUD (~> 14.1.1)
   - SwiftyDropbox (~> 10.2.4)
@@ -156,8 +153,6 @@ EXTERNAL SOURCES:
     :path: "./LocalSDK/KakaObjcKit"
   KakaPhotoBrowser:
     :path: "./LocalSDK/KakaPhotoBrowser"
-  KakaTaglibKit:
-    :path: "./LocalSDK/KakaTaglibKit"
   KakaUIKit:
     :path: "./LocalSDK/KakaUIKit"
   WakeMusicPlayer:
@@ -166,7 +161,7 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   AppAuth: 1c1a8afa7e12f2ec3a294d9882dfa5ab7d3cb063
   AppCheckCore: cc8fd0a3a230ddd401f326489c99990b013f0c4f
-  AppGroupKit: 3b3d2dec739ef581c065f1324d565894eb64d7d0
+  AppGroupKit: fdf203ea69ae151ca2702de4f08290891bccb561
   FLAnimatedImage: bbf914596368867157cc71b38a8ec834b3eeb32b
   GoogleSignIn: c7f09cfbc85a1abf69187be091997c317cc33b77
   GoogleUtilities: 00c88b9a86066ef77f0da2fab05f65d7768ed8e1
@@ -181,11 +176,10 @@ SPEC CHECKSUMS:
   IQTextInputViewNotification: 3b9fb27a16e7ee8958cc9092cfb07a1a9e1fd559
   IQTextView: ae13b4922f22e6f027f62c557d9f4f236b19d5c7
   JXSegmentedView: cd73555ce2134d1656db2cb383ba9c2f36fb5078
-  KakaFoundation: 95dba58a9a3d901da770e67fdedd4aefc376d7b1
-  KakaObjcKit: 6c034e9016ec6001aeb050154e6b9e7ad1f6b75b
-  KakaPhotoBrowser: 802a1b6a5d1b898450474dcc8d16d48255a5a765
-  KakaTaglibKit: 27007d2892630af7fdf60e0c4d958d38826335ae
-  KakaUIKit: 3dc82c8742d53aba7aa95d189b1ff5639ca6d03a
+  KakaFoundation: 2a7a93f8be66c3a19d77919c8c7429617788da9a
+  KakaObjcKit: acc349b73447debdff90afb5a1d2290c900243af
+  KakaPhotoBrowser: 81a48cb231611eee407ab4dbc57276029efcbb3e
+  KakaUIKit: f2e0fd38ab9b772a7211e93a3e40272e897c9ade
   NVActivityIndicatorView: fe52a6a68664c2df8991d7d9e3d86d8d19453c53
   ProgressHUD: abb9136ae23c85204236828562cb9a8ec98efb44
   PromisesObjC: f5707f49cb48b9636751c5b2e7d227e43fba9f47
@@ -194,9 +188,9 @@ SPEC CHECKSUMS:
   SmartCodable: b423095dd1041f8b0bacbdcc251814e5d5f583f8
   SnapKit: d612e99e678a2d3b95bf60b0705ed0a35c03484a
   SwiftyDropbox: 3dbb9cb3dc28220e6b7b492d97b9160730e5ca81
-  WakeMusicPlayer: 6d7ff038405541492944454e1a56cff5de9e5ce7
+  WakeMusicPlayer: 736808c1f3a6e4dfd427cfad7034033a8265c1d7
   YandexLoginSDK: ea15fc6d5afc2869a320180b0e33ce55937a9783
 
-PODFILE CHECKSUM: 845cae7ce60f0dbd008de90b8d9d68cb135f637f
+PODFILE CHECKSUM: 16acf4067d903c517ad8b4c405bbd19b05730b53
 
 COCOAPODS: 1.16.2

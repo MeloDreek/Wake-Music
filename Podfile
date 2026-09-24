@@ -22,7 +22,7 @@ target 'Mobie' do
   pod 'KakaObjcKit',                :path => './LocalSDK/KakaObjcKit'
   pod 'AppGroupKit',                :path => './LocalSDK/AppGroupKit'
   pod 'KakaPhotoBrowser',          :path => './LocalSDK/KakaPhotoBrowser'
-  pod 'KakaTaglibKit',              :path => './LocalSDK/KakaTaglibKit'
+  # WaketagLibKit is linked through the remote Swift package in the app project.
   pod 'WakeMusicPlayer',            :path => './LocalSDK/WakeMusicPlayer'
 # MEGASdk is linked via Xcode's local Swift package: ../../本地公开库/MEGASDK
   
@@ -64,7 +64,7 @@ target 'Mobie_Pro' do
   pod 'KakaObjcKit',                :path => './LocalSDK/KakaObjcKit'
   pod 'AppGroupKit',                :path => './LocalSDK/AppGroupKit'
   pod 'KakaPhotoBrowser',          :path => './LocalSDK/KakaPhotoBrowser'
-  pod 'KakaTaglibKit',              :path => './LocalSDK/KakaTaglibKit'
+  # WaketagLibKit is linked through the remote Swift package in the app project.
   pod 'WakeMusicPlayer',            :path => './LocalSDK/WakeMusicPlayer'
 # MEGASdk is linked via Xcode's local Swift package: ../../本地公开库/MEGASDK
 

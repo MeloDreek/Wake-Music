@@ -10,7 +10,7 @@ import KakaUIKit
 import AppGroupKit
 import PanModal
 import KSPlayer
-import KakaTaglibKit
+import WaketagLibKit
 import KakaPhotoBrowser
 import PhotosUI
 import KakaObjcKit

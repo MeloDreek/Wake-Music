@@ -7,7 +7,7 @@
 
 import KakaFoundation
 import AppGroupKit
-import KakaTaglibKit
+import WaketagLibKit
 
 final class MusicParseOperation: Operation, @unchecked Sendable {
     

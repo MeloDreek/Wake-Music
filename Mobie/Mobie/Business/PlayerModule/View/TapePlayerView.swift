@@ -10,7 +10,7 @@ import KakaUIKit
 import AppGroupKit
 import Combine
 import KSPlayer
-import KakaTaglibKit
+import WaketagLibKit
 
 
 class TapePlayerView: UIView {

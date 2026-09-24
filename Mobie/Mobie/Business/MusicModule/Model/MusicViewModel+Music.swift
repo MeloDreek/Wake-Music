@@ -7,7 +7,7 @@
 
 import KakaFoundation
 import AppGroupKit
-import KakaTaglibKit
+import WaketagLibKit
 
 enum MusicKeyTitle: Equatable, Hashable, Comparable {
     case folder

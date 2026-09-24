@@ -11,7 +11,7 @@ import KSPlayer
 import MarqueeLabel
 import NVActivityIndicatorView
 import Combine
-import KakaTaglibKit
+import WaketagLibKit
 
 
 var playingHeight: CGFloat {

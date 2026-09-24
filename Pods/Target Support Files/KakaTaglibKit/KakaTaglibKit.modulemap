@@ -1,6 +1,0 @@
-framework module KakaTaglibKit {
-  umbrella header "KakaTaglibKit-umbrella.h"
-
-  export *
-  module * { export * }
-}

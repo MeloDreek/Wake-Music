@@ -10,7 +10,7 @@ import KakaUIKit
 import AppGroupKit
 import PanModal
 import ProgressHUD
-import KakaTaglibKit
+import WaketagLibKit
 import Kingfisher
 
 

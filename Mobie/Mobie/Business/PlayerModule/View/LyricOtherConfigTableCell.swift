@@ -7,7 +7,7 @@
 
 import KakaFoundation
 import AppGroupKit
-import KakaTaglibKit
+import WaketagLibKit
 
 class LyricOtherConfigTableCell: UITableViewCell {
     

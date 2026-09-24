@@ -11,7 +11,7 @@ import AVFAudio
 import Toast
 import MediaPlayer
 import KSPlayer
-import KakaTaglibKit
+import WaketagLibKit
 
 extension KakaMusicPlayer {
     

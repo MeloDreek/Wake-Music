@@ -11,7 +11,7 @@ import AppGroupKit
 import NVActivityIndicatorView
 import Combine
 import DominantColors
-import KakaTaglibKit
+import WaketagLibKit
 
 class MusicPlaylistView: UIView {
     

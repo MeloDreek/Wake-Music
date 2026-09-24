@@ -10,7 +10,7 @@ import AppGroupKit
 import AVFoundation
 import AVKit
 import Photos
-import KakaTaglibKit
+import WaketagLibKit
 import AudioToolbox
 import StoreKit
 import KSPlayer

@@ -10,7 +10,7 @@ import KakaUIKit
 import AppGroupKit
 import KakaPhotoBrowser
 import ZLImageEditor
-import KakaTaglibKit
+import WaketagLibKit
 import Kingfisher
 import StoreKit
 import KSPlayer

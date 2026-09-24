@@ -6,7 +6,7 @@
 //
 
 import KakaFoundation
-import KakaTaglibKit
+import WaketagLibKit
 import Kingfisher
 import AppGroupKit
 

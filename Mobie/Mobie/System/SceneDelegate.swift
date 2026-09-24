@@ -8,7 +8,7 @@
 import KakaFoundation
 import AppGroupKit
 import KakaObjcKit
-import KakaTaglibKit
+import WaketagLibKit
 import SwiftyDropbox
 import SmartCodable
 import AliyunpanSDK

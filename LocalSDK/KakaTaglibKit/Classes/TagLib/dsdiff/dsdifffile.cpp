@@ -65,12 +65,18 @@ namespace
     if(name.size() != 4)
       return false;
 
-    for(int i = 0; i < 4; i++) {
-      if(name[i] < 32 || name[i] > 126)
-        return false;
-    }
+    return std::none_of(name.cbegin(), name.cend(),
+                        [](unsigned char c) { return c < 32 || c > 126; });
+  }
 
-    return true;
+  bool chunkFits(offset_t offset, unsigned long long size,
+                 unsigned long long end)
+  {
+    if(offset < 0)
+      return false;
+
+    const auto position = static_cast<unsigned long long>(offset);
+    return position <= end && size <= end - position;
   }
 
   enum {
@@ -316,7 +322,7 @@ void DSDIFF::File::removeRootChunk(unsigned int i)
     unsigned long long chunkSize = d->chunks[i].size + d->chunks[i].padding + 12;
 
     d->size -= chunkSize;
-    insert(ByteVector::fromLongLong(d->size, d->endianness == BigEndian), 4, 8);
+    insert(ByteVector::fromULongLong(d->size, d->endianness == BigEndian), 4, 8);
 
     removeBlock(d->chunks[i].offset - 12, chunkSize);
 
@@ -350,7 +356,7 @@ void DSDIFF::File::setRootChunkData(unsigned int i, const ByteVector &data)
   // First we update the global size
 
   d->size += ((data.size() + 1) & ~1) - (d->chunks[i].size + d->chunks[i].padding);
-  insert(ByteVector::fromLongLong(d->size, d->endianness == BigEndian), 4, 8);
+  insert(ByteVector::fromULongLong(d->size, d->endianness == BigEndian), 4, 8);
 
   // Now update the specific chunk
 
@@ -387,7 +393,7 @@ void DSDIFF::File::setRootChunkData(const ByteVector &name, const ByteVector &da
 
   // First we update the global size
   d->size += (offset & 1) + ((data.size() + 1) & ~1) + 12;
-  insert(ByteVector::fromLongLong(d->size, d->endianness == BigEndian), 4, 8);
+  insert(ByteVector::fromULongLong(d->size, d->endianness == BigEndian), 4, 8);
 
   // Now add the chunk to the file
   const unsigned long long fileLength = length();
@@ -414,12 +420,12 @@ void DSDIFF::File::removeChildChunk(unsigned int i, unsigned int childChunkNum)
 
     unsigned long long removedChunkTotalSize = childChunks[i].size + childChunks[i].padding + 12;
     d->size -= removedChunkTotalSize;
-    insert(ByteVector::fromLongLong(d->size, d->endianness == BigEndian), 4, 8);
+    insert(ByteVector::fromULongLong(d->size, d->endianness == BigEndian), 4, 8);
 
     // Update child chunk size
 
     d->chunks[d->childChunkIndex[childChunkNum]].size -= removedChunkTotalSize;
-    insert(ByteVector::fromLongLong(d->chunks[d->childChunkIndex[childChunkNum]].size,
+    insert(ByteVector::fromULongLong(d->chunks[d->childChunkIndex[childChunkNum]].size,
                                     d->endianness == BigEndian),
            d->chunks[d->childChunkIndex[childChunkNum]].offset - 8, 8);
     // Remove the chunk
@@ -466,13 +472,13 @@ void DSDIFF::File::setChildChunkData(unsigned int i,
 
   d->size += ((data.size() + 1) & ~1) - (childChunks[i].size + childChunks[i].padding);
 
-  insert(ByteVector::fromLongLong(d->size, d->endianness == BigEndian), 4, 8);
+  insert(ByteVector::fromULongLong(d->size, d->endianness == BigEndian), 4, 8);
 
   // And the PROP chunk size
 
   d->chunks[d->childChunkIndex[childChunkNum]].size +=
     ((data.size() + 1) & ~1) - (childChunks[i].size + childChunks[i].padding);
-  insert(ByteVector::fromLongLong(d->chunks[d->childChunkIndex[childChunkNum]].size,
+  insert(ByteVector::fromULongLong(d->chunks[d->childChunkIndex[childChunkNum]].size,
                                   d->endianness == BigEndian),
          d->chunks[d->childChunkIndex[childChunkNum]].offset - 8, 8);
 
@@ -542,13 +548,13 @@ void DSDIFF::File::setChildChunkData(const ByteVector &name,
   // First we update the global size
 
   d->size += (offset & 1) + ((data.size() + 1) & ~1) + 12;
-  insert(ByteVector::fromLongLong(d->size, d->endianness == BigEndian), 4, 8);
+  insert(ByteVector::fromULongLong(d->size, d->endianness == BigEndian), 4, 8);
 
   // And the child chunk size
 
   d->chunks[d->childChunkIndex[childChunkNum]].size += (offset & 1)
     + ((data.size() + 1) & ~1) + 12;
-  insert(ByteVector::fromLongLong(d->chunks[d->childChunkIndex[childChunkNum]].size,
+  insert(ByteVector::fromULongLong(d->chunks[d->childChunkIndex[childChunkNum]].size,
                                   d->endianness == BigEndian),
          d->chunks[d->childChunkIndex[childChunkNum]].offset - 8, 8);
 
@@ -610,14 +616,15 @@ void DSDIFF::File::read(bool readProperties, Properties::ReadStyle propertiesSty
   bool bigEndian = d->endianness == BigEndian;
 
   d->type = readBlock(4);
-  d->size = readBlock(8).toLongLong(bigEndian);
+  d->size = readBlock(8).toULongLong(bigEndian);
   d->format = readBlock(4);
 
   // + 12: chunk header at least, fix for additional junk bytes
 
-  while(tell() + 12 <= length()) {
+  const auto fileLength = static_cast<unsigned long long>(length());
+  while(chunkFits(tell(), 12, fileLength)) {
     ByteVector chunkName = readBlock(4);
-    unsigned long long chunkSize = readBlock(8).toLongLong(bigEndian);
+    unsigned long long chunkSize = readBlock(8).toULongLong(bigEndian);
 
     if(!isValidChunkID(chunkName)) {
       debug("DSDIFF::File::read() -- Chunk '" + chunkName + "' has invalid ID");
@@ -625,8 +632,7 @@ void DSDIFF::File::read(bool readProperties, Properties::ReadStyle propertiesSty
       break;
     }
 
-    if(static_cast<unsigned long long>(tell()) + chunkSize >
-       static_cast<unsigned long long>(length())) {
+    if(!chunkFits(tell(), chunkSize, fileLength)) {
       debug("DSDIFF::File::read() -- Chunk '" + chunkName
             + "' has invalid size (larger than the file size)");
       setValid(false);
@@ -670,14 +676,14 @@ void DSDIFF::File::read(bool readProperties, Properties::ReadStyle propertiesSty
     }
     else if(d->chunks[i].name == "DST ") {
       // Now decode the chunks inside the DST chunk to read the DST Frame Information one
-      long long dstChunkEnd = d->chunks[i].offset + d->chunks[i].size;
+      unsigned long long dstChunkEnd = d->chunks[i].offset + d->chunks[i].size;
       seek(d->chunks[i].offset);
 
       audioDataSizeinBytes = d->chunks[i].size;
 
-      while(tell() + 12 <= dstChunkEnd) {
+      while(chunkFits(tell(), 12, dstChunkEnd)) {
         ByteVector dstChunkName = readBlock(4);
-        long long dstChunkSize = readBlock(8).toLongLong(bigEndian);
+        unsigned long long dstChunkSize = readBlock(8).toULongLong(bigEndian);
 
         if(!isValidChunkID(dstChunkName)) {
           debug("DSDIFF::File::read() -- DST Chunk '" + dstChunkName + "' has invalid ID");
@@ -685,7 +691,7 @@ void DSDIFF::File::read(bool readProperties, Properties::ReadStyle propertiesSty
           break;
         }
 
-        if(static_cast<long long>(tell()) + dstChunkSize > dstChunkEnd) {
+        if(!chunkFits(tell(), dstChunkSize, dstChunkEnd)) {
           debug("DSDIFF::File::read() -- DST Chunk '" + dstChunkName
                 + "' has invalid size (larger than the DST chunk)");
           setValid(false);
@@ -712,14 +718,14 @@ void DSDIFF::File::read(bool readProperties, Properties::ReadStyle propertiesSty
       }
     }
     else if(d->chunks[i].name == "PROP") {
-      d->childChunkIndex[PROPChunk] = i;
+      d->childChunkIndex[PROPChunk] = static_cast<int>(i);
       // Now decodes the chunks inside the PROP chunk
-      long long propChunkEnd = d->chunks[i].offset + d->chunks[i].size;
+      unsigned long long propChunkEnd = d->chunks[i].offset + d->chunks[i].size;
       // +4 to remove the 'SND ' marker at beginning of 'PROP' chunk
       seek(d->chunks[i].offset + 4);
-      while(tell() + 12 <= propChunkEnd) {
+      while(chunkFits(tell(), 12, propChunkEnd)) {
         ByteVector propChunkName = readBlock(4);
-        long long propChunkSize = readBlock(8).toLongLong(bigEndian);
+        unsigned long long propChunkSize = readBlock(8).toULongLong(bigEndian);
 
         if(!isValidChunkID(propChunkName)) {
           debug("DSDIFF::File::read() -- PROP Chunk '" + propChunkName + "' has invalid ID");
@@ -727,7 +733,7 @@ void DSDIFF::File::read(bool readProperties, Properties::ReadStyle propertiesSty
           break;
         }
 
-        if(static_cast<long long>(tell()) + propChunkSize > propChunkEnd) {
+        if(!chunkFits(tell(), propChunkSize, propChunkEnd)) {
           debug("DSDIFF::File::read() -- PROP Chunk '" + propChunkName
                 + "' has invalid size (larger than the PROP chunk)");
           setValid(false);
@@ -755,17 +761,17 @@ void DSDIFF::File::read(bool readProperties, Properties::ReadStyle propertiesSty
       }
     }
     else if(d->chunks[i].name == "DIIN") {
-      d->childChunkIndex[DIINChunk] = i;
+      d->childChunkIndex[DIINChunk] = static_cast<int>(i);
       d->hasDiin = true;
 
       // Now decode the chunks inside the DIIN chunk
 
-      long long diinChunkEnd = d->chunks[i].offset + d->chunks[i].size;
+      unsigned long long diinChunkEnd = d->chunks[i].offset + d->chunks[i].size;
       seek(d->chunks[i].offset);
 
-      while(tell() + 12 <= diinChunkEnd) {
+      while(chunkFits(tell(), 12, diinChunkEnd)) {
         ByteVector diinChunkName = readBlock(4);
-        long long diinChunkSize = readBlock(8).toLongLong(bigEndian);
+        unsigned long long diinChunkSize = readBlock(8).toULongLong(bigEndian);
 
         if(!isValidChunkID(diinChunkName)) {
           debug("DSDIFF::File::read() -- DIIN Chunk '" + diinChunkName + "' has invalid ID");
@@ -773,7 +779,7 @@ void DSDIFF::File::read(bool readProperties, Properties::ReadStyle propertiesSty
           break;
         }
 
-        if(static_cast<long long>(tell()) + diinChunkSize > diinChunkEnd) {
+        if(!chunkFits(tell(), diinChunkSize, diinChunkEnd)) {
           debug("DSDIFF::File::read() -- DIIN Chunk '" + diinChunkName
                 + "' has invalid size (larger than the DIIN chunk)");
           setValid(false);
@@ -829,7 +835,7 @@ void DSDIFF::File::read(bool readProperties, Properties::ReadStyle propertiesSty
     if(d->childChunks[PROPChunk][i].name == "ID3 " ||
        d->childChunks[PROPChunk][i].name == "id3 ") {
       if(d->hasID3v2) {
-        d->duplicateID3V2chunkIndex = i;
+        d->duplicateID3V2chunkIndex = static_cast<int>(i);
         // ID3V2 tag has already been found at root level
         continue;
       }
@@ -917,7 +923,7 @@ void DSDIFF::File::writeChunk(const ByteVector &name, const ByteVector &data,
     combined.append(ByteVector(leadingPadding, '\x00'));
 
   combined.append(name);
-  combined.append(ByteVector::fromLongLong(data.size(), d->endianness == BigEndian));
+  combined.append(ByteVector::fromULongLong(data.size(), d->endianness == BigEndian));
   combined.append(data);
   if((data.size() & 0x01) != 0)
     combined.append('\x00');

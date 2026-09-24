@@ -8,7 +8,7 @@
 import KakaFoundation
 import AppGroupKit
 import KSPlayer
-import KakaTaglibKit
+import WaketagLibKit
 import FFmpegKit
 import AVFoundation
 import Kingfisher

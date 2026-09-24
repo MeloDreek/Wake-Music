@@ -10,7 +10,7 @@ import KakaUIKit
 import AppGroupKit
 import Combine
 import MorphingLabel
-import KakaTaglibKit
+import WaketagLibKit
 
 
 /// 横向大歌词

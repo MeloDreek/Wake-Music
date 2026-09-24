@@ -11,7 +11,7 @@ import KSPlayer
 import MediaPlayer
 import StoreKit
 import Kingfisher
-import KakaTaglibKit
+import WaketagLibKit
 import Alamofire
 import ImageIO
 

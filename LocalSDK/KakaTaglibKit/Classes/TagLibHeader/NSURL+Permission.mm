@@ -6,34 +6,37 @@
 //
 
 #import "NSURL+Permission.h"
-#include <sys/_types/_s_ifmt.h>
+#include <sys/stat.h>
 
 @implementation NSURL (Permission)
 
 - (BOOL)isReadOnly {
+    if (!self.isFileURL || self.path.length == 0) return YES;
     NSError *error = nil;
     NSDictionary *attributes = [[NSFileManager defaultManager] attributesOfItemAtPath:self.path error:&error];
     
     if (error) {
         DebugLog(@"Error getting file attributes: %@", error.localizedDescription);
-        return NO; // 如果无法获取属性，默认认为不是只读
+        return YES; // 无法检查权限时，不假定可以写入
     }
     
     NSNumber *filePermissions = attributes[NSFilePosixPermissions];
     if (filePermissions) {
         NSInteger permissions = filePermissions.integerValue;
         // 1、检查 owner 是否有写权限
-        BOOL isWritable = (permissions & S_IWUSR) != 0;
+        BOOL isWritable = (permissions & (S_IWUSR | S_IWGRP | S_IWOTH)) != 0 &&
+            [[NSFileManager defaultManager] isWritableFileAtPath:self.path];
         
 //         2、检查 owner、staff、everyone 是否有写权限
 //        BOOL isWritable = permissions & S_IWUSR || permissions & S_IWGRP || permissions & S_IWOTH;
         return !isWritable; // 如果不可写，则为只读
     }
     
-    return NO; // 如果没有权限信息，默认认为不是只读
+    return YES;
 }
 
 - (BOOL)setReadableAndWritable {
+    if (!self.isFileURL || self.path.length == 0) return NO;
     NSError *error = nil;
     NSDictionary *attributes = [[NSFileManager defaultManager] attributesOfItemAtPath:self.path error:&error];
     

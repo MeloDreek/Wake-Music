@@ -9,7 +9,7 @@
 import KakaFoundation
 import KakaUIKit
 import AppGroupKit
-import KakaTaglibKit
+import WaketagLibKit
 
 
 /// 手动编辑歌词内容

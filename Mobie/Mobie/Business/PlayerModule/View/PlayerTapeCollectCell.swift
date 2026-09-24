@@ -10,7 +10,7 @@ import KakaUIKit
 import AppGroupKit
 import Combine
 import MarqueeLabel
-import KakaTaglibKit
+import WaketagLibKit
 import KSPlayer
 
 /// 播放器-磁带样式

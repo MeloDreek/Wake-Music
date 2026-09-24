@@ -11,7 +11,7 @@ import KSPlayer
 import AVFAudio
 import MediaPlayer
 import PanModal
-import KakaTaglibKit
+import WaketagLibKit
 import Combine
 import Alamofire
 

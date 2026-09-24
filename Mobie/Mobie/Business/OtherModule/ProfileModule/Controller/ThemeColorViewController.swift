@@ -9,7 +9,7 @@ import KakaFoundation
 import KakaUIKit
 import AppGroupKit
 import StoreKit
-import KakaTaglibKit
+import WaketagLibKit
 import SafariServices
 
 /// 切换主题颜色

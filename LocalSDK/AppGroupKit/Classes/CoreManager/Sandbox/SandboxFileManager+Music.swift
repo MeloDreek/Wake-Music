@@ -7,7 +7,6 @@
 
 import KakaFoundation
 import KakaUIKit
-import KakaTaglibKit
 import CryptoKit
 import Darwin
 
@@ -413,38 +412,6 @@ extension SandboxFileManager {
         newModel.mediaPlayURL = targetURL
         completion?(newModel)
         
-    }
-    
-    /// 修改歌名的标签，同时修改封面的地址
-    /// - Parameters:
-    ///   - oldModel: 文件
-    ///   - newTitle: 新歌名
-    /// - Returns: 修改状态
-    public func updateTitleTag(oldModel: MusicItemModel, newTitle: String) -> Bool {
-        let success = TaglibMetadataParser.setTitle(newTitle, toFileURL: oldModel.mediaPlayURL)
-        if !success {
-            return false
-        }
-        
-        // Artwork keys are independent of editable tags; no file rename needed.
-        
-        return success
-    }
-    
-    /// 修改艺术家的标签，同时修改封面的地址
-    /// - Parameters:
-    ///   - oldModel: 文件
-    ///   - newArtist: 新艺术家
-    /// - Returns: 修改状态
-    public func updateArtistTag(oldModel: MusicItemModel, newArtist: String) -> Bool {
-        let success = TaglibMetadataParser.setArtist(newArtist, toFileURL: oldModel.mediaPlayURL)
-        if !success {
-            return false
-        }
-        
-        // Artwork keys are independent of editable tags; no file rename needed.
-        
-        return success
     }
     
     /// 保存LRC歌词文件

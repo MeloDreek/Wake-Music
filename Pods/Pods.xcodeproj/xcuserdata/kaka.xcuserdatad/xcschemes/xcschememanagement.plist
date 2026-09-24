@@ -174,11 +174,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>KakaTaglibKit.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>KakaUIKit.xcscheme</key>
 		<dict>
 			<key>isShown</key>

@@ -11,7 +11,7 @@ import AppGroupKit
 import MarqueeLabel
 import Combine
 import KSPlayer
-import KakaTaglibKit
+import WaketagLibKit
 import MorphingLabel
 
 /// 播放器-黑胶样式

@@ -10,7 +10,7 @@ import AppGroupKit
 import KakaObjcKit
 import SafariServices
 import StoreKit
-import KakaTaglibKit
+import WaketagLibKit
 import AVFoundation
 
 enum iTunesChannel: Int {

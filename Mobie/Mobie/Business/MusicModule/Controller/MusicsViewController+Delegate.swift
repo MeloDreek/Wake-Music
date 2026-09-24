@@ -11,7 +11,7 @@ import StoreKit
 import MediaPlayer
 import KSPlayer
 import Kingfisher
-import KakaTaglibKit
+import WaketagLibKit
 import MessageUI
 import ProgressHUD
 

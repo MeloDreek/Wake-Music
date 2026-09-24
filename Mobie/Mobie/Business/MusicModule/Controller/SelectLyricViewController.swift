@@ -8,7 +8,7 @@
 import KakaFoundation
 import KakaUIKit
 import AppGroupKit
-import KakaTaglibKit
+import WaketagLibKit
 import NVActivityIndicatorView
 import StoreKit
 

@@ -1,7 +1,7 @@
 import UIKit
 import AppGroupKit
 import KakaFoundation
-import KakaTaglibKit
+import WaketagLibKit
 import Alamofire
 import Combine
 import UserNotifications
