@@ -226,12 +226,12 @@ class MusicTableViewCell: UITableViewCell {
         }
         
         if let baiduFile = musicModel.baiduFileModel {
-            let isSupport = AudioExtension.audioSuffixs.contains(baiduFile.fileExtension())
+            let isSupport = AudioExtension.isPlayableAudioExtension(baiduFile.fileExtension())
             isSupportType = !baiduFile.isDirectory() && isSupport
         }
         
         if let aliFileModel = musicModel.aliFileModel {
-            let isSupport = AudioExtension.audioSuffixs.contains(aliFileModel.fileExtension())
+            let isSupport = AudioExtension.isPlayableAudioExtension(aliFileModel.fileExtension())
             isSupportType = !aliFileModel.isDirectory() && isSupport
         }
         
@@ -240,49 +240,49 @@ class MusicTableViewCell: UITableViewCell {
         }
         
         if let googleFile = musicModel.googleFile {
-            let isSupport = AudioExtension.audioSuffixs.contains(googleFile.fileExtension())
+            let isSupport = AudioExtension.isPlayableAudioExtension(googleFile.fileExtension())
             isSupportType = !googleFile.isDirectory() && isSupport
         }
         
         if let dropboxFile = musicModel.dropboxFile {
-            let isSupport = AudioExtension.audioSuffixs.contains(dropboxFile.fileExtension())
+            let isSupport = AudioExtension.isPlayableAudioExtension(dropboxFile.fileExtension())
             isSupportType = !dropboxFile.isDirectory() && isSupport
         }
         if let smbFile = musicModel.smbFile {
-            let isSupport = AudioExtension.audioSuffixs.contains(smbFile.fileExtension())
+            let isSupport = AudioExtension.isPlayableAudioExtension(smbFile.fileExtension())
             isSupportType = !smbFile.isDirectory() && isSupport
         }
         if let ftpFile = musicModel.ftpFile {
-            let isSupport = AudioExtension.audioSuffixs.contains(ftpFile.fileExtension())
+            let isSupport = AudioExtension.isPlayableAudioExtension(ftpFile.fileExtension())
             isSupportType = !ftpFile.isDirectory() && isSupport
         }
         if let megaFile = musicModel.megaFile {
-            let isSupport = AudioExtension.audioSuffixs.contains(megaFile.fileExtension())
+            let isSupport = AudioExtension.isPlayableAudioExtension(megaFile.fileExtension())
             isSupportType = !megaFile.isDirectory() && isSupport
         }
         if let yandexFile = musicModel.yandexFile {
-            let isSupport = AudioExtension.audioSuffixs.contains(yandexFile.fileExtension())
+            let isSupport = AudioExtension.isPlayableAudioExtension(yandexFile.fileExtension())
             isSupportType = !yandexFile.isDirectory() && isSupport
         }
         if let pan123File = musicModel.pan123File {
-            let isSupport = AudioExtension.audioSuffixs.contains(pan123File.fileExtension())
+            let isSupport = AudioExtension.isPlayableAudioExtension(pan123File.fileExtension())
             isSupportType = !pan123File.isDirectory() && isSupport
         }
         if let guangyaFile = musicModel.guangyaFile {
-            let isSupport = AudioExtension.audioSuffixs.contains(guangyaFile.fileExtension())
+            let isSupport = AudioExtension.isPlayableAudioExtension(guangyaFile.fileExtension())
             isSupportType = !guangyaFile.isDirectory() && isSupport
         }
         if let boxFile = musicModel.boxFile {
-            let isSupport = AudioExtension.audioSuffixs.contains(boxFile.fileExtension())
+            let isSupport = AudioExtension.isPlayableAudioExtension(boxFile.fileExtension())
             isSupportType = !boxFile.isDirectory() && isSupport
         }
         if let pcloudFile = musicModel.pcloudFile {
-            let isSupport = AudioExtension.audioSuffixs.contains(pcloudFile.fileExtension())
+            let isSupport = AudioExtension.isPlayableAudioExtension(pcloudFile.fileExtension())
             isSupportType = !pcloudFile.isDirectory() && isSupport
         }
         
         if let onedriveFile = musicModel.onedriveFile {
-            let isSupport = AudioExtension.audioSuffixs.contains(onedriveFile.fileExtension())
+            let isSupport = AudioExtension.isPlayableAudioExtension(onedriveFile.fileExtension())
             isSupportType = !onedriveFile.isDirectory() && isSupport
         }
         

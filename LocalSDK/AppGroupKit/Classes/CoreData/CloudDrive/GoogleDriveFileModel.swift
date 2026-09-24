@@ -79,7 +79,7 @@ extension GoogleDriveFileModel {
     /// 是否为音乐
     public func isMusic() -> Bool {
         let suffix = self.fileExtension()
-        return AudioExtensionType.allCases.map({ $0.rawValue }).contains(suffix.lowercased())
+        return AudioExtension.isPlayableAudioExtension(suffix)
     }
     
     /// 是否为视频

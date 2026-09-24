@@ -68,7 +68,7 @@ extension AliyunpanFileModel {
     /// 是否为音乐
     public func isMusic() -> Bool {
         let suffix = self.fileExtension()
-        return self.category == "audio" || AudioExtensionType.allCases.map({ $0.rawValue }).contains(suffix.lowercased())
+        return self.category == "audio" || AudioExtension.isPlayableAudioExtension(suffix)
     }
     
     /// 是否为视频

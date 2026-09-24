@@ -14,23 +14,20 @@ extension AudioLevelType {
     func headStr() -> String {
         switch self {
         case .SACD:
-            return "Super Lossless".localStr()
+            return "DSD"
         case .lossless:
             return "Lossless".localStr()
         case .normal:
             return "Lossy".localStr()
+        case .other:
+            return "Others".localStr()
         }
     }
     
-    func footStr() -> String {
-        switch self {
-        case .SACD:
-            return "Original master recordings or studio CDs, the sample rates up to 2.8 million Hz or 5.6 million Hz, usually include 5.1 surround sound, 7.1 surround sound, or Dolby Atmos. This is the ultimate audio format for music enthusiasts!".localStr()
-        case .lossless:
-            return "Regular lossless audio, which loses a small amount of audio data during compression, typically has a sample rate of 44.1kHz, 48.1kHz, or 96kHz.".localStr()
-        case .normal:
-            return "Lossy audio uses higher compression to reduce file size, at the cost of audio quality.".localStr()
-        }
+    func footStr() -> String? {
+        // Container extensions cannot establish sample rate, channel count,
+        // master quality, or whether the source was originally lossless.
+        self == .normal ? "Lossy audio uses higher compression to reduce file size, at the cost of audio quality.".localStr() : nil
     }
     
 }
@@ -56,7 +53,7 @@ class SupportTypeViewController: SuperViewController {
     
     // MARK:  GET && SET
     lazy var dataArray: [AudioLevelType] = {
-        return [.SACD, .lossless, .normal]
+        return [.SACD, .lossless, .normal, .other]
     }()
     
     // MARK:  懒加载
@@ -126,7 +123,7 @@ extension SupportTypeViewController: UITableViewDataSource, UITableViewDelegate,
         
         if kaka_IsMacOS() { return }
         
-        let coverImage = UIImage(named: "\(audio.rawValue)_icon")
+        let coverImage = UIImage(named: "\(audio.rawValue)_icon") ?? UIImage(named: "music_place")
         let coverImgView = UIImageView(image: coverImage)
         coverImgView.frame = CGRectMake((self.view.width - 1) / 2, (self.view.height - 1) / 2, 1, 1)
         coverImgView.contentMode = .scaleAspectFit
@@ -171,7 +168,7 @@ class TagsTableViewCell: UITableViewCell {
     
     func update(audio: AudioExtensionType) {
         var cellConfig = UIListContentConfiguration.cell()
-        cellConfig.image = UIImage(named: "\(audio.rawValue)_icon")
+        cellConfig.image = UIImage(named: "\(audio.rawValue)_icon") ?? UIImage(named: "music_place")
         cellConfig.text = audio.rawValue.uppercased()
         cellConfig.imageProperties.cornerRadius = 20.ckValue()
         cellConfig.imageProperties.maximumSize = CGSizeMake(40.ckValue(), 40.ckValue())

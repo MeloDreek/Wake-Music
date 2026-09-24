@@ -21,7 +21,12 @@ enum Reasource {
     }
 }
 enum AudioExtension {
-    static let audioSuffixs = ["dsd","dsf","dff","dts","flac","m4a","wav","ape","asf","aifc","aiff","alac","aif","au","caf","tta","wma","wave","wv","wvc","mp3","aac","ogg","opus","mod","xm","mqa","3gp","s3m","m4r","ogv","amr"]
+    // Mirrors the audio-oriented metadata extensions in AppGroupKit.
+    static let audioSuffixs = [
+        "dsf", "dff", "dsdiff", "mp3", "mp2", "aac", "ogg", "oga", "opus", "spx", "mpc",
+        "mod", "module", "nst", "wow", "it", "xm", "s3m", "m4a", "m4b", "m4p", "m4r", "mka",
+        "wav", "asf", "aif", "afc", "aifc", "aiff", "wma", "wv", "flac", "ape", "tta", "shn"
+    ]
 }
 class SuperViewController: UIViewController {
     let contentView = UIView()

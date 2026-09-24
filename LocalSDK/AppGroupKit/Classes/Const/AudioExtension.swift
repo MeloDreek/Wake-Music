@@ -12,15 +12,21 @@ public enum AudioLevelType: Int {
     case SACD = 0
     case lossless = 1
     case normal = 2
+    case other = 3
     
     public func audioArray() -> [AudioExtensionType] {
         switch self {
         case .SACD:
-            return [.dsd, .dsf, .dff]
+            return [.dsf, .dff, .dsdiff]
         case .lossless:
-            return [.dts, .flac, .m4a, .wav, .ape, .asf, .aifc, .aiff, .alac, .aif, .au, .caf, .tta, .wma, .wave, .wv, .wvc]
+            return [.flac, .ape, .tta, .shn]
         case .normal:
-            return [.mp3, .aac, .ogg, .opus, .mod, .xm, .mqa, .gp3, .s3m, .m4r, .ogv, .amr]
+            return [.mp3, .mp2, .aac, .ogg, .opus, .spx, .mpc]
+        case .other:
+            // A container/extension cannot establish audio quality. WAV may
+            // contain DTS; MP4/ASF/WavPack can contain lossy or lossless audio.
+            let classified = Self.SACD.audioArray() + Self.lossless.audioArray() + Self.normal.audioArray()
+            return AudioExtensionType.allCases.filter { !classified.contains($0) }
         }
     }
     
@@ -30,55 +36,66 @@ public enum AudioLevelType: Int {
     
 }
 
+/// Audio-oriented extensions registered by WaketagLibKit 2.3.3 / TagLib 2.3.2.
+/// This is metadata parser coverage, not a promise of every tag's read/write
+/// capability or every codec's playback support. Video-oriented containers are
+/// kept separate in AudioExtension.taglibVideoContainerSuffixs.
 public enum AudioExtensionType: String, CaseIterable {
-    
-    // 高分辨率无损格式
-    case dsd = "dsd" // Direct Stream Digital
+    // DSD containers
     case dsf = "dsf" // DSD Stream File
     case dff = "dff" // DSD Interchange File Format
-    
-    // 有损格式
+    case dsdiff = "dsdiff"
+
+    // MPEG / Ogg / Musepack
     case mp3 = "mp3"
+    case mp2 = "mp2"
     case aac = "aac"
     case ogg = "ogg"
+    case oga = "oga"
     case opus = "opus"
+    case spx = "spx"
+    case mpc = "mpc"
+
+    // Tracker formats: readable metadata; tag writing is not supported.
     case mod = "mod"
+    case module = "module"
+    case nst = "nst"
+    case wow = "wow"
+    case it = "it"
     case xm = "xm"
-    case mqa = "mqa"
-    case gp3 = "3gp"
     case s3m = "s3m"
-    case m4r = "m4r"
-    case ogv = "ogv"
-    case amr = "amr"
-    
-    // 无损格式
-    case flac = "flac"
-    case wav = "wav"
-    case alac = "alac"
+
+    // Audio containers (quality depends on the enclosed codec)
     case m4a = "m4a"
+    case m4b = "m4b"
+    case m4p = "m4p"
+    case m4r = "m4r"
+    case mka = "mka"
+    case wav = "wav"
     case asf = "asf"
-    case dts = "dts"
-    case ape = "ape" // Monkey's Audio
     case aif = "aif"
+    case afc = "afc"
     case aifc = "aifc"
     case aiff = "aiff"
-    case au = "au"
-    case caf = "caf"
-    case tta = "tta"
     case wma = "wma" // 包括有和无损
-    case wave = "wave"
     case wv = "wv"
-    case wvc = "wvc" // WavPack 的纠错文件，通常不单独使用
+
+    // Lossless codecs
+    case flac = "flac"
+    case ape = "ape"
+    case tta = "tta"
+    case shn = "shn"
     
     public static func premiumExtensions() -> [String] {
-        let extensions: [AudioExtensionType] = [.dsd, .dsf, .dff, .ape, .dts, .ape, .opus]
-        return extensions.map { $0.rawValue }
+        let extensions: [AudioExtensionType] = [.dsf, .dff, .dsdiff, .ape, .opus]
+        // Preserve the existing playback entitlement for legacy DSD/DTS files.
+        return extensions.map { $0.rawValue } + ["dsd", "dts"]
     }
     
-    /// 是否可以无需第三方库、直接通过系统 AVFoundation/CoreAudio 解码并送入 ShazamKit 识别
+    /// Common system-decoder candidates for fingerprinting and tag editing.
+    /// Actual codec support is checked when opening the file, not by suffix.
     public static var supportAutoEditArray: [AudioExtensionType] {
-        return [.mp3, .aac, .flac, .wav, .m4a, .alac, .m4r, .gp3, .amr,
-                .wave, .aif, .aiff, .aifc, .caf, .au]
+        return [.mp3, .aac, .flac, .wav, .m4a, .m4b, .m4r, .aif, .aiff, .aifc, .afc]
     }
 }
 
@@ -92,6 +109,7 @@ public enum VideoExtensionType: String, CaseIterable {
     case avi = "avi" // Audio Video Interleave
     case flv = "flv" // Flash Video
     case m4v = "m4v" // MPEG-4 Video with Video
+    case gp2 = "3g2" // 3GPP2 audio/video container
     case ts = "ts" // MPEG Transport Stream
     case iso = "iso"
     
@@ -122,13 +140,27 @@ public class AudioExtension {
     /// 支持的文件类型
     public static let videoUTTypes: [UTType] = [.movie, .video, .mpeg2Video, .mpeg, .mpeg4Movie, .appleProtectedMPEG4Video, .quickTimeMovie, .mpeg2TransportStream, .avi]
         
-    /// 支持的音频后缀
-    public static var audioSuffixs: [String] {
-        get {
-            let array: [AudioExtensionType] = AudioLevelType.SACD.audioArray() + AudioLevelType.lossless.audioArray() + AudioLevelType.normal.audioArray()
-            
-            return array.map { $0.rawValue }
-        }
+    /// Audio-oriented metadata extensions, used by format counts and UI.
+    public static let audioSuffixs = AudioExtensionType.allCases.map(\.rawValue)
+
+    /// These TagLib containers may contain video; do not classify them as
+    /// ordinary music files just because TagLib can read their metadata.
+    public static let taglibVideoContainerSuffixs = ["3g2", "mp4", "m4v", "mkv", "webm"]
+
+    /// Exact defaultFileExtensions() coverage of the pinned WaketagLibKit.
+    public static let taglibMetadataSuffixs = audioSuffixs + taglibVideoContainerSuffixs
+
+    /// Previously accepted playback-only extensions. Keep existing libraries,
+    /// downloads and remote listings working without advertising metadata
+    /// support that WaketagLibKit does not declare. WVC is a correction sidecar,
+    /// and OGV remains a video format, so neither belongs in this list.
+    public static let playbackOnlyAudioSuffixs = ["dsd", "dts", "alac", "au", "caf", "wave", "mqa", "3gp", "amr"]
+    public static let playableAudioSuffixs = audioSuffixs + playbackOnlyAudioSuffixs
+
+    public static func isPlayableAudioExtension(_ suffix: String) -> Bool {
+        let normalized = suffix.trimmingCharacters(in: .whitespacesAndNewlines)
+            .trimmingCharacters(in: CharacterSet(charactersIn: ".")).lowercased()
+        return playableAudioSuffixs.contains(normalized)
     }
     
     /// 支持的视频格式
@@ -144,4 +176,3 @@ public class AudioExtension {
     public static let forbiddenExtensions: [String] = ["ncm", "kgm", "kwm", "band"]
     
 }
-

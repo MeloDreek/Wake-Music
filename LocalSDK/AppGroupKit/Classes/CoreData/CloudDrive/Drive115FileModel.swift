@@ -214,7 +214,7 @@ extension Drive115FileModel {
         // File classification is independent of the provider's streaming support.
         if isUnsupportedStreamingAudio { return true }
         let suffix = self.fileExtension()
-        return  AudioExtensionType.allCases.map({ $0.rawValue }).contains(suffix.lowercased())
+        return AudioExtension.isPlayableAudioExtension(suffix)
     }
 
     /// 115 download links are unreliable for DSD streaming. This restriction
@@ -222,7 +222,7 @@ extension Drive115FileModel {
     public var isUnsupportedStreamingAudio: Bool {
         guard !isDirectory() else { return false }
         let filenameSuffix = (fileName() as NSString).pathExtension.lowercased()
-        return [fileExtension(), filenameSuffix].contains { $0 == "dsf" || $0 == "dff" }
+        return [fileExtension(), filenameSuffix].contains { $0 == "dsf" || $0 == "dff" || $0 == "dsdiff" }
     }
     
     /// 是否为视频

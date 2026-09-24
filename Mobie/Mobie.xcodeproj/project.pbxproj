@@ -7,10 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FD2400010000000000000001 /* CatalogMetadataMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD2400010000000000000003 /* CatalogMetadataMatcher.swift */; };
-		FD2400010000000000000002 /* CatalogMetadataMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD2400010000000000000003 /* CatalogMetadataMatcher.swift */; };
-		FD2400020000000000000001 /* AppleCatalogMetadataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD2400020000000000000003 /* AppleCatalogMetadataService.swift */; };
-		FD2400020000000000000002 /* AppleCatalogMetadataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD2400020000000000000003 /* AppleCatalogMetadataService.swift */; };
 		01F75346B3745539580B69EB /* Pods_Mobie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC044DCD42AEE7FFFB8D29DE /* Pods_Mobie.framework */; };
 		02B57660DD995BBB02E0E76A /* CollectionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132CAFD74F21CC80A0EE1C8C /* CollectionDetailViewController.swift */; };
 		22059B832CAE9378006F6E7A /* SocialMediaType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22059B822CAE9378006F6E7A /* SocialMediaType.swift */; };
@@ -57,24 +53,17 @@
 		2235E0592D19494300ED0231 /* ColorFontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2235E0582D19494300ED0231 /* ColorFontManager.swift */; };
 		2237276D2DE3121000A2FC1C /* PlayBackCoverTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2237276C2DE3121000A2FC1C /* PlayBackCoverTableCell.swift */; };
 		2237276E2DE3121000A2FC1C /* PlayBackCoverTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2237276C2DE3121000A2FC1C /* PlayBackCoverTableCell.swift */; };
-		223A49852D7FD811003B3886 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 223A49842D7FD811003B3886 /* Kingfisher */; };
-		223A49902D7FE13F003B3886 /* MarqueeLabel in Frameworks */ = {isa = PBXBuildFile; productRef = 223A498F2D7FE13F003B3886 /* MarqueeLabel */; };
-		223A49932D7FE1BD003B3886 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = 223A49922D7FE1BD003B3886 /* Toast */; };
 		223A49992D7FE399003B3886 /* ZLImageEditor in Frameworks */ = {isa = PBXBuildFile; productRef = 223A49982D7FE399003B3886 /* ZLImageEditor */; };
-		223A499C2D7FE402003B3886 /* FilesProvider in Frameworks */ = {isa = PBXBuildFile; productRef = 223A499B2D7FE402003B3886 /* FilesProvider */; };
 		223A499E2D7FE6A4003B3886 /* ServerConfigModel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223A499D2D7FE6A4003B3886 /* ServerConfigModel+Extension.swift */; };
-		223A49A12D7FE709003B3886 /* FilesProvider in Frameworks */ = {isa = PBXBuildFile; productRef = 223A49A02D7FE709003B3886 /* FilesProvider */; };
 		223D47362CC69D5D00F12826 /* URL+Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223D47352CC69D5D00F12826 /* URL+Parser.swift */; };
 		223E51A5302B291A00FEF1E4 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 223E51A4302B291A00FEF1E4 /* FirebaseAnalytics */; };
 		223E51A7302B291A00FEF1E4 /* FirebaseAnalyticsCore in Frameworks */ = {isa = PBXBuildFile; productRef = 223E51A6302B291A00FEF1E4 /* FirebaseAnalyticsCore */; };
 		223E51A9302B291A00FEF1E4 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 223E51A8302B291A00FEF1E4 /* FirebaseCrashlytics */; };
 		223FDA622E04148200079731 /* MorphingLabel in Frameworks */ = {isa = PBXBuildFile; productRef = 223FDA612E04148200079731 /* MorphingLabel */; };
-		223FDA642E0414D600079731 /* MorphingLabel in Frameworks */ = {isa = PBXBuildFile; productRef = 223FDA632E0414D600079731 /* MorphingLabel */; };
 		223FDA662E0414E800079731 /* MorphingLabel in Frameworks */ = {isa = PBXBuildFile; productRef = 223FDA652E0414E800079731 /* MorphingLabel */; };
 		223FEAB72DF7FE3800FD4452 /* LyricOtherConfigTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223FEAB62DF7FE3800FD4452 /* LyricOtherConfigTableCell.swift */; };
 		223FEAB82DF7FE3800FD4452 /* LyricOtherConfigTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223FEAB62DF7FE3800FD4452 /* LyricOtherConfigTableCell.swift */; };
 		2242159A2F88DA4F00766F40 /* AliyunpanSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 224215992F88DA4F00766F40 /* AliyunpanSDK */; };
-		2242159D2F88DAAF00766F40 /* AliyunpanSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 2242159C2F88DAAF00766F40 /* AliyunpanSDK */; };
 		2242159F2F88DAE600766F40 /* AliyunpanSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 2242159E2F88DAE600766F40 /* AliyunpanSDK */; };
 		2242A1FF2DEEA2410081D23D /* TapePlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2242A1FE2DEEA2410081D23D /* TapePlayerView.swift */; };
 		2242A2002DEEA2420081D23D /* TapePlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2242A1FE2DEEA2410081D23D /* TapePlayerView.swift */; };
@@ -370,7 +359,6 @@
 		226C9C232D200734003A3CE8 /* AuthWebdavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226C9C222D200734003A3CE8 /* AuthWebdavViewController.swift */; };
 		226DFB6E2D657E0F00E3BE06 /* AuthNavidromeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226DFB6D2D657E0F00E3BE06 /* AuthNavidromeController.swift */; };
 		226DFB742D675FBF00E3BE06 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226DFB732D675FBF00E3BE06 /* APIManager.swift */; };
-		226DFB7A2D67648C00E3BE06 /* PanModal in Frameworks */ = {isa = PBXBuildFile; productRef = 226DFB792D67648C00E3BE06 /* PanModal */; };
 		226EF7C52CA40D3D004630B0 /* AudioSuffixViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226EF7C42CA40D3D004630B0 /* AudioSuffixViewCell.swift */; };
 		226EF7C72CA41C93004630B0 /* VideoConverterViewController+Crop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226EF7C62CA41C93004630B0 /* VideoConverterViewController+Crop.swift */; };
 		226FEC5D2D374E5C007ADA70 /* MusicPlaylistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226FEC5C2D374E5B007ADA70 /* MusicPlaylistView.swift */; };
@@ -378,7 +366,6 @@
 		227310222D1E33EB00EB7842 /* MusicViewModel+Change.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227310212D1E33EB00EB7842 /* MusicViewModel+Change.swift */; };
 		227310262D1EAD8200EB7842 /* ArtistCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227310252D1EAD8200EB7842 /* ArtistCollectionCell.swift */; };
 		227310282D1ED9CB00EB7842 /* GenreCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227310272D1ED9CB00EB7842 /* GenreCollectionCell.swift */; };
-		227427F12DE6E173000DB946 /* DominantColors in Frameworks */ = {isa = PBXBuildFile; productRef = 227427F02DE6E173000DB946 /* DominantColors */; };
 		227427F32DE6E3E7000DB946 /* DominantColors in Frameworks */ = {isa = PBXBuildFile; productRef = 227427F22DE6E3E7000DB946 /* DominantColors */; };
 		2275AC6D2D265D8E00D125B2 /* ConnectListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2275AC6C2D265D8E00D125B2 /* ConnectListViewController.swift */; };
 		227607F42DF2D75A00B6776E /* OrientationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227607F32DF2D75A00B6776E /* OrientationManager.swift */; };
@@ -394,15 +381,9 @@
 		227FD01F2E8471350076B773 /* DominantColors in Frameworks */ = {isa = PBXBuildFile; productRef = 227FD01E2E8471350076B773 /* DominantColors */; };
 		227FD0222E8471420076B773 /* FilesProvider in Frameworks */ = {isa = PBXBuildFile; productRef = 227FD0212E8471420076B773 /* FilesProvider */; };
 		227FD0272E8471B40076B773 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 227FD0262E8471B40076B773 /* Kingfisher */; };
-		227FD02A2E8471D00076B773 /* MorphingLabel in Frameworks */ = {isa = PBXBuildFile; productRef = 227FD0292E8471D00076B773 /* MorphingLabel */; };
-		227FD02C2E8471EA0076B773 /* MarqueeLabel in Frameworks */ = {isa = PBXBuildFile; productRef = 227FD02B2E8471EA0076B773 /* MarqueeLabel */; };
 		227FD02F2E8471FA0076B773 /* PanModal in Frameworks */ = {isa = PBXBuildFile; productRef = 227FD02E2E8471FA0076B773 /* PanModal */; };
 		227FD03A2E84723D0076B773 /* Reachability in Frameworks */ = {isa = PBXBuildFile; productRef = 227FD0392E84723D0076B773 /* Reachability */; };
-		227FD03C2E8472500076B773 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = 227FD03B2E8472500076B773 /* Toast */; };
-		227FD03F2E8472600076B773 /* ZLImageEditor in Frameworks */ = {isa = PBXBuildFile; productRef = 227FD03E2E8472600076B773 /* ZLImageEditor */; };
 		227FD0422E8472750076B773 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = 227FD0412E8472750076B773 /* Toast */; };
-		227FD0452E8473540076B773 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 227FD0442E8473540076B773 /* Kingfisher */; };
-		227FD0482E8473680076B773 /* PanModal in Frameworks */ = {isa = PBXBuildFile; productRef = 227FD0472E8473680076B773 /* PanModal */; };
 		22814C502DD1BEF100565CBC /* MusicPlaylistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22814C4F2DD1BEF100565CBC /* MusicPlaylistViewController.swift */; };
 		22814C512DD1BEF100565CBC /* MusicPlaylistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22814C4F2DD1BEF100565CBC /* MusicPlaylistViewController.swift */; };
 		22814C532DD1CDBE00565CBC /* MusicTableViewCell+Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22814C522DD1CDBE00565CBC /* MusicTableViewCell+Menu.swift */; };
@@ -411,7 +392,6 @@
 		22814C572DD1FF0300565CBC /* CoverGalleryCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22814C552DD1FF0300565CBC /* CoverGalleryCellModel.swift */; };
 		228220AC2D899DE900D1DD4F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 228A13672CA00F5800E2948E /* Assets.xcassets */; };
 		228220AD2D89AD8100D1DD4F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 228A13672CA00F5800E2948E /* Assets.xcassets */; };
-		22822C7B2DF42B8D00183445 /* PanModal in Frameworks */ = {isa = PBXBuildFile; productRef = 22822C7A2DF42B8D00183445 /* PanModal */; };
 		22822C7D2DF42BA100183445 /* PanModal in Frameworks */ = {isa = PBXBuildFile; productRef = 22822C7C2DF42BA100183445 /* PanModal */; };
 		228624362CBFC2DD00472448 /* ScanUSBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228624352CBFC2DD00472448 /* ScanUSBViewController.swift */; };
 		228888A62DD3853D00358231 /* DownloadPoolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228888A52DD3853D00358231 /* DownloadPoolView.swift */; };
@@ -673,18 +653,8 @@
 		82D834BFAC8F3A17A778E93D /* Pods_Mobie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC044DCD42AEE7FFFB8D29DE /* Pods_Mobie.framework */; };
 		870B35FFC850D1C18BA65AAF /* CollectionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132CAFD74F21CC80A0EE1C8C /* CollectionDetailViewController.swift */; };
 		9C59B94A22559628B11B9185 /* Pods_Mobie_Pro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2024258CB3388C84E94183D3 /* Pods_Mobie_Pro.framework */; };
-		A76381482EDEA4000040A84D /* DominantColors in Frameworks */ = {isa = PBXBuildFile; productRef = A76381472EDEA4000040A84D /* DominantColors */; };
-		A763814B2EDEA40F0040A84D /* FilesProvider in Frameworks */ = {isa = PBXBuildFile; productRef = A763814A2EDEA40F0040A84D /* FilesProvider */; };
-		A763814E2EDEA4200040A84D /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = A763814D2EDEA4200040A84D /* Kingfisher */; };
-		A76381512EDEA4320040A84D /* KSPlayer in Frameworks */ = {isa = PBXBuildFile; productRef = A76381502EDEA4320040A84D /* KSPlayer */; };
 		A76381532EDEA4320040A84D /* MPVPlayer in Frameworks */ = {isa = PBXBuildFile; productRef = A76381522EDEA4320040A84D /* MPVPlayer */; };
-		A76381562EDEA44B0040A84D /* MorphingLabel in Frameworks */ = {isa = PBXBuildFile; productRef = A76381552EDEA44B0040A84D /* MorphingLabel */; };
 		A76381592EDEA4570040A84D /* MarqueeLabel in Frameworks */ = {isa = PBXBuildFile; productRef = A76381582EDEA4570040A84D /* MarqueeLabel */; };
-		A763815C2EDEA4650040A84D /* PanModal in Frameworks */ = {isa = PBXBuildFile; productRef = A763815B2EDEA4650040A84D /* PanModal */; };
-		A76381682EDEA48C0040A84D /* Reachability in Frameworks */ = {isa = PBXBuildFile; productRef = A76381672EDEA48C0040A84D /* Reachability */; };
-		A763816B2EDEA4970040A84D /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = A763816A2EDEA4970040A84D /* Toast */; };
-		A76381712EDEAA710040A84D /* ZLImageEditor in Frameworks */ = {isa = PBXBuildFile; productRef = A76381702EDEAA710040A84D /* ZLImageEditor */; };
-		A76381792EDEB6A80040A84D /* RevenueCat in Frameworks */ = {isa = PBXBuildFile; productRef = A76381782EDEB6A80040A84D /* RevenueCat */; };
 		A763817D2EDEB7770040A84D /* MPVPlayer in Frameworks */ = {isa = PBXBuildFile; productRef = A763817C2EDEB7770040A84D /* MPVPlayer */; };
 		A76381FF2EDED27C0040A84D /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = A76381FE2EDED27C0040A84D /* Alamofire */; };
 		A76382012EDED2E60040A84D /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = A76382002EDED2E60040A84D /* Alamofire */; };
@@ -811,6 +781,10 @@
 		FD00ACDE888B441591ABD012 /* PlayerQueueCollectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD00ACDE888B441591ABD010 /* PlayerQueueCollectCell.swift */; };
 		FD00ACDE888B441591ABD021 /* PlayerMoreConfigCollectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD00ACDE888B441591ABD020 /* PlayerMoreConfigCollectCell.swift */; };
 		FD00ACDE888B441591ABD022 /* PlayerMoreConfigCollectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD00ACDE888B441591ABD020 /* PlayerMoreConfigCollectCell.swift */; };
+		FD2400010000000000000001 /* CatalogMetadataMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD2400010000000000000003 /* CatalogMetadataMatcher.swift */; };
+		FD2400010000000000000002 /* CatalogMetadataMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD2400010000000000000003 /* CatalogMetadataMatcher.swift */; };
+		FD2400020000000000000001 /* AppleCatalogMetadataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD2400020000000000000003 /* AppleCatalogMetadataService.swift */; };
+		FD2400020000000000000002 /* AppleCatalogMetadataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD2400020000000000000003 /* AppleCatalogMetadataService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -839,8 +813,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		FD2400010000000000000003 /* CatalogMetadataMatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogMetadataMatcher.swift; sourceTree = "<group>"; };
-		FD2400020000000000000003 /* AppleCatalogMetadataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleCatalogMetadataService.swift; sourceTree = "<group>"; };
 		132CAFD74F21CC80A0EE1C8C /* CollectionDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionDetailViewController.swift; sourceTree = "<group>"; };
 		2024258CB3388C84E94183D3 /* Pods_Mobie_Pro.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mobie_Pro.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		22059B822CAE9378006F6E7A /* SocialMediaType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialMediaType.swift; sourceTree = "<group>"; };
@@ -1213,6 +1185,8 @@
 		FD00ACDE888B441591ABD000 /* PlaybackQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackQueue.swift; sourceTree = "<group>"; };
 		FD00ACDE888B441591ABD010 /* PlayerQueueCollectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerQueueCollectCell.swift; sourceTree = "<group>"; };
 		FD00ACDE888B441591ABD020 /* PlayerMoreConfigCollectCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerMoreConfigCollectCell.swift; sourceTree = "<group>"; };
+		FD2400010000000000000003 /* CatalogMetadataMatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogMetadataMatcher.swift; sourceTree = "<group>"; };
+		FD2400020000000000000003 /* AppleCatalogMetadataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleCatalogMetadataService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1257,55 +1231,29 @@
 				227FD02F2E8471FA0076B773 /* PanModal in Frameworks */,
 				227FD03A2E84723D0076B773 /* Reachability in Frameworks */,
 				22953EFA30359265001B0546 /* SwiftyUploader in Frameworks */,
-				A763815C2EDEA4650040A84D /* PanModal in Frameworks */,
 				223FDA622E04148200079731 /* MorphingLabel in Frameworks */,
 				220F66273002838600915384 /* RevenueCat in Frameworks */,
 				223A49992D7FE399003B3886 /* ZLImageEditor in Frameworks */,
 				2242159A2F88DA4F00766F40 /* AliyunpanSDK in Frameworks */,
 				22A801DD302B284D000FB581 /* FirebaseAnalyticsCore in Frameworks */,
-				A76381562EDEA44B0040A84D /* MorphingLabel in Frameworks */,
 				227FD0222E8471420076B773 /* FilesProvider in Frameworks */,
-				226DFB7A2D67648C00E3BE06 /* PanModal in Frameworks */,
-				2242159D2F88DAAF00766F40 /* AliyunpanSDK in Frameworks */,
 				227FD01F2E8471350076B773 /* DominantColors in Frameworks */,
-				223FDA642E0414D600079731 /* MorphingLabel in Frameworks */,
 				A76381592EDEA4570040A84D /* MarqueeLabel in Frameworks */,
 				A76381FF2EDED27C0040A84D /* Alamofire in Frameworks */,
 				227FD0272E8471B40076B773 /* Kingfisher in Frameworks */,
-				A76381792EDEB6A80040A84D /* RevenueCat in Frameworks */,
 				227FD0422E8472750076B773 /* Toast in Frameworks */,
-				227FD03C2E8472500076B773 /* Toast in Frameworks */,
-				227FD03F2E8472600076B773 /* ZLImageEditor in Frameworks */,
 				A76381532EDEA4320040A84D /* MPVPlayer in Frameworks */,
-				223A499C2D7FE402003B3886 /* FilesProvider in Frameworks */,
-				227FD02A2E8471D00076B773 /* MorphingLabel in Frameworks */,
 				220F66293002838600915384 /* RevenueCatUI in Frameworks */,
-				A76381482EDEA4000040A84D /* DominantColors in Frameworks */,
 				220F66253002838600915384 /* ReceiptParser in Frameworks */,
-				A763816B2EDEA4970040A84D /* Toast in Frameworks */,
-				227FD0452E8473540076B773 /* Kingfisher in Frameworks */,
-				223A49852D7FD811003B3886 /* Kingfisher in Frameworks */,
-				223A49932D7FE1BD003B3886 /* Toast in Frameworks */,
 				22C287AA30530BAE00801D66 /* PCloudSDKSwift in Frameworks */,
 				C03000000000000000000001 /* AMSMB2 in Frameworks */,
 				C04000000000000000000001 /* MEGASdk in Frameworks */,
-				22822C7B2DF42B8D00183445 /* PanModal in Frameworks */,
-				223A49A12D7FE709003B3886 /* FilesProvider in Frameworks */,
-				A76381712EDEAA710040A84D /* ZLImageEditor in Frameworks */,
-				223A49902D7FE13F003B3886 /* MarqueeLabel in Frameworks */,
 				22A801DB302B284D000FB581 /* FirebaseAnalytics in Frameworks */,
 				01F75346B3745539580B69EB /* Pods_Mobie.framework in Frameworks */,
 				227FD0192E8471180076B773 /* KSPlayer in Frameworks */,
 				228A13752CA01FB400E2948E /* StoreKit.framework in Frameworks */,
-				227FD0482E8473680076B773 /* PanModal in Frameworks */,
-				227FD02C2E8471EA0076B773 /* MarqueeLabel in Frameworks */,
-				A76381682EDEA48C0040A84D /* Reachability in Frameworks */,
-				A763814B2EDEA40F0040A84D /* FilesProvider in Frameworks */,
-				A76381512EDEA4320040A84D /* KSPlayer in Frameworks */,
 				82D834BFAC8F3A17A778E93D /* Pods_Mobie.framework in Frameworks */,
 				22A801DF302B284D000FB581 /* FirebaseCrashlytics in Frameworks */,
-				227427F12DE6E173000DB946 /* DominantColors in Frameworks */,
-				A763814E2EDEA4200040A84D /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2082,6 +2030,29 @@
 			name = Mobie_Pro;
 			packageProductDependencies = (
 				E82400000000000000000006 /* WaketagLibKit */,
+				22526E092E84F59C00C32DBF /* KSPlayer */,
+				220F6632300283AF00915384 /* RevenueCatUI */,
+				22822C7C2DF42BA100183445 /* PanModal */,
+				223E51A8302B291A00FEF1E4 /* FirebaseCrashlytics */,
+				223FDA652E0414E800079731 /* MorphingLabel */,
+				227427F22DE6E3E7000DB946 /* DominantColors */,
+				225F58DF2D85B5C70055BDFF /* Toast */,
+				225F58E12D85B5EA0055BDFF /* MarqueeLabel */,
+				223E51A6302B291A00FEF1E4 /* FirebaseAnalyticsCore */,
+				220F662C300283AF00915384 /* ReceiptParser */,
+				225F58DD2D85B5BB0055BDFF /* FilesProvider */,
+				22C287AB30530BC200801D66 /* PCloudSDKSwift */,
+				C03000000000000000000004 /* AMSMB2 */,
+				C04000000000000000000004 /* MEGASdk */,
+				220F662E300283AF00915384 /* RevenueCat */,
+				A76382002EDED2E60040A84D /* Alamofire */,
+				225F58D72D85B5A10055BDFF /* Kingfisher */,
+				22526E0B2E84F5AD00C32DBF /* Reachability */,
+				22953EFB30359278001B0546 /* SwiftyUploader */,
+				225F58E72D85B6000055BDFF /* ZLImageEditor */,
+				A763817C2EDEB7770040A84D /* MPVPlayer */,
+				223E51A4302B291A00FEF1E4 /* FirebaseAnalytics */,
+				2242159E2F88DAE600766F40 /* AliyunpanSDK */,
 			);
 			productName = Mobie;
 			productReference = 225F58D12D85B2AB0055BDFF /* WakemusicPro.app */;
@@ -2107,6 +2078,29 @@
 			name = Mobie;
 			packageProductDependencies = (
 				E82400000000000000000005 /* WaketagLibKit */,
+				227FD02E2E8471FA0076B773 /* PanModal */,
+				227FD0392E84723D0076B773 /* Reachability */,
+				22953EF930359265001B0546 /* SwiftyUploader */,
+				223FDA612E04148200079731 /* MorphingLabel */,
+				220F66263002838600915384 /* RevenueCat */,
+				223A49982D7FE399003B3886 /* ZLImageEditor */,
+				224215992F88DA4F00766F40 /* AliyunpanSDK */,
+				22A801DC302B284D000FB581 /* FirebaseAnalyticsCore */,
+				227FD0212E8471420076B773 /* FilesProvider */,
+				227FD01E2E8471350076B773 /* DominantColors */,
+				A76381582EDEA4570040A84D /* MarqueeLabel */,
+				A76381FE2EDED27C0040A84D /* Alamofire */,
+				227FD0262E8471B40076B773 /* Kingfisher */,
+				227FD0412E8472750076B773 /* Toast */,
+				A76381522EDEA4320040A84D /* MPVPlayer */,
+				220F66283002838600915384 /* RevenueCatUI */,
+				220F66243002838600915384 /* ReceiptParser */,
+				22C287A930530BAE00801D66 /* PCloudSDKSwift */,
+				C03000000000000000000003 /* AMSMB2 */,
+				C04000000000000000000003 /* MEGASdk */,
+				22A801DA302B284D000FB581 /* FirebaseAnalytics */,
+				227FD0182E8471180076B773 /* KSPlayer */,
+				22A801DE302B284D000FB581 /* FirebaseCrashlytics */,
 			);
 			productName = Mobie;
 			productReference = 228A135B2CA00F5600E2948E /* Wakemusic.app */;
@@ -2178,25 +2172,25 @@
 			);
 			mainGroup = 228A13522CA00F5600E2948E;
 			packageReferences = (
+				090F0D9170216A6E380AF2D0 /* XCRemoteSwiftPackageReference "purchases-ios" */,
+				0A73E9D61D41BB0EC0E8A61D /* XCRemoteSwiftPackageReference "aliyunpan-ios-sdk" */,
+				964C38AC088176710967634D /* XCRemoteSwiftPackageReference "Reachability.swift" */,
+				22953EF830359265001B0546 /* XCRemoteSwiftPackageReference "GCDWebServer_Swift" */,
+				3115BF4E19CC43E5CD90FB63 /* XCRemoteSwiftPackageReference "AMSMB2" */,
+				FBC2DD3B5DB5B9772D5778E4 /* XCRemoteSwiftPackageReference "pcloud-sdk-swift" */,
+				2E5CF1F389345E20713BDAB9 /* XCRemoteSwiftPackageReference "DominantColors" */,
+				37EEB7F8AB568E15E27D19BB /* XCRemoteSwiftPackageReference "FileProvider" */,
+				24CE1A1E4699A3D8BDCA38D5 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				885B57A913BB8CB413776B6E /* XCRemoteSwiftPackageReference "LTMorphingLabel" */,
+				692BDD2E0FAA972A6702D5E2 /* XCRemoteSwiftPackageReference "MarqueeLabel" */,
+				75E6BEBD89A2B8760B239B82 /* XCRemoteSwiftPackageReference "PanModal" */,
+				7290A40FEE8880B9D7A86900 /* XCRemoteSwiftPackageReference "Toast-Swift" */,
+				359627E8ED7B8B56C8AF7110 /* XCRemoteSwiftPackageReference "ZLImageEditor" */,
+				CEDCB842D82E0F908A910EB1 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				E82400000000000000000004 /* XCRemoteSwiftPackageReference "WaketagLibKit" */,
 				C04000000000000000000005 /* XCLocalSwiftPackageReference "MEGASDK" */,
-				A76381462EDEA4000040A84D /* XCLocalSwiftPackageReference "DominantColors" */,
-				A76381492EDEA40F0040A84D /* XCLocalSwiftPackageReference "FileProvider" */,
-				A763814C2EDEA4200040A84D /* XCLocalSwiftPackageReference "Kingfisher" */,
 				A763814F2EDEA4320040A84D /* XCLocalSwiftPackageReference "KSPlayer" */,
-				A76381542EDEA44B0040A84D /* XCLocalSwiftPackageReference "LTMorphingLabel" */,
-				A76381572EDEA4570040A84D /* XCLocalSwiftPackageReference "MarqueeLabel" */,
-				A763815A2EDEA4650040A84D /* XCLocalSwiftPackageReference "PanModal" */,
-				A76381662EDEA48C0040A84D /* XCLocalSwiftPackageReference "Reachability.swift" */,
-				A76381692EDEA4970040A84D /* XCLocalSwiftPackageReference "Toast-Swift" */,
-				A763816F2EDEAA710040A84D /* XCLocalSwiftPackageReference "ZLImageEditor" */,
-				A76381FD2EDED27C0040A84D /* XCLocalSwiftPackageReference "Alamofire" */,
-				2242159B2F88DAAF00766F40 /* XCLocalSwiftPackageReference "aliyunpan-ios-sdk" */,
-				220F66233002838600915384 /* XCLocalSwiftPackageReference "purchases-ios" */,
 				22A801D9302B284D000FB581 /* XCLocalSwiftPackageReference "firebase-ios-sdk" */,
-				22953EF830359265001B0546 /* XCLocalSwiftPackageReference "SwiftyUploader" */,
-				22C287A830530BAE00801D66 /* XCLocalSwiftPackageReference "pcloud-sdk-swift" */,
-				22A859793054203F00D3CD47 /* XCLocalSwiftPackageReference "AMSMB2" */,
 			);
 			productRefGroup = 228A135C2CA00F5600E2948E /* Products */;
 			projectDirPath = "";
@@ -2300,7 +2294,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# 1. 本地 SPM 共享库中 Crashlytics 的 run 脚本绝对路径\nRUN_SCRIPT=\"/Users/kaka/Documents/本地公开库/firebase-ios-sdk/Crashlytics/run\"\n\n# 2. 项目内 GoogleService-Info.plist 的绝对路径\nGSP_PATH=\"/Users/kaka/Documents/商业项目/维克音乐/Mobie/Mobie/System/GoogleService-Info.plist\"\n\nif [ -f \"$RUN_SCRIPT\" ]; then\n    echo \"✅ 找到本地 Firebase 脚本，开始自动上传 dSYM...\"\n    \"$RUN_SCRIPT\" -gsp \"$GSP_PATH\"\nelse\n    echo \"❌ 错误: 未能在本地公开库找到 run 脚本，请检查路径: $RUN_SCRIPT\"\nfi\n";
+			shellScript = "# 1. 本地 SPM 共享库中 Crashlytics 的 run 脚本绝对路径\nRUN_SCRIPT=\"${SRCROOT}/../../../本地公开库/firebase-ios-sdk/Crashlytics/run\"\n\n# 2. 项目内 GoogleService-Info.plist 的绝对路径\nGSP_PATH=\"${SRCROOT}/Mobie/System/GoogleService-Info.plist\"\n\nif [ -f \"$RUN_SCRIPT\" ]; then\n    echo \"✅ 找到本地 Firebase 脚本，开始自动上传 dSYM...\"\n    \"$RUN_SCRIPT\" -gsp \"$GSP_PATH\"\nelse\n    echo \"❌ 错误: 未能在本地公开库找到 run 脚本，请检查路径: $RUN_SCRIPT\"\nfi\n";
 		};
 		4E695A8868B26F28CF75D190 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -3495,175 +3489,131 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		220F66233002838600915384 /* XCLocalSwiftPackageReference "purchases-ios" */ = {
-			isa = XCLocalSwiftPackageReference;
-			relativePath = "../../../本地公开库/purchases-ios";
-		};
-		2242159B2F88DAAF00766F40 /* XCLocalSwiftPackageReference "aliyunpan-ios-sdk" */ = {
-			isa = XCLocalSwiftPackageReference;
-			relativePath = "../../../本地公开库/aliyunpan-ios-sdk";
-		};
-		227FD0172E8471180076B773 /* XCLocalSwiftPackageReference "KSPlayer" */ = {
-			isa = XCLocalSwiftPackageReference;
-			relativePath = "../../../本地公开库/KSPlayer";
-		};
-		227FD0382E84723D0076B773 /* XCLocalSwiftPackageReference "Reachability.swift" */ = {
-			isa = XCLocalSwiftPackageReference;
-			relativePath = "../../../本地公开库/Reachability.swift";
-		};
-		22953EF830359265001B0546 /* XCLocalSwiftPackageReference "SwiftyUploader" */ = {
-			isa = XCLocalSwiftPackageReference;
-			relativePath = "../../../本地公开库/SwiftyUploader";
-		};
 		22A801D9302B284D000FB581 /* XCLocalSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = "../../../本地公开库/firebase-ios-sdk";
-		};
-		22A859793054203F00D3CD47 /* XCLocalSwiftPackageReference "AMSMB2" */ = {
-			isa = XCLocalSwiftPackageReference;
-			relativePath = "../../../本地公开库/AMSMB2";
-		};
-		22C287A830530BAE00801D66 /* XCLocalSwiftPackageReference "pcloud-sdk-swift" */ = {
-			isa = XCLocalSwiftPackageReference;
-			relativePath = "../../../本地公开库/pcloud-sdk-swift";
-		};
-		A76381462EDEA4000040A84D /* XCLocalSwiftPackageReference "DominantColors" */ = {
-			isa = XCLocalSwiftPackageReference;
-			relativePath = "../../../本地公开库/DominantColors";
-		};
-		A76381492EDEA40F0040A84D /* XCLocalSwiftPackageReference "FileProvider" */ = {
-			isa = XCLocalSwiftPackageReference;
-			relativePath = "../../../本地公开库/FileProvider";
-		};
-		A763814C2EDEA4200040A84D /* XCLocalSwiftPackageReference "Kingfisher" */ = {
-			isa = XCLocalSwiftPackageReference;
-			relativePath = "../../../本地公开库/Kingfisher";
 		};
 		A763814F2EDEA4320040A84D /* XCLocalSwiftPackageReference "KSPlayer" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = "../../../本地公开库/KSPlayer";
 		};
-		A76381542EDEA44B0040A84D /* XCLocalSwiftPackageReference "LTMorphingLabel" */ = {
-			isa = XCLocalSwiftPackageReference;
-			relativePath = "../../../本地公开库/LTMorphingLabel";
-		};
-		A76381572EDEA4570040A84D /* XCLocalSwiftPackageReference "MarqueeLabel" */ = {
-			isa = XCLocalSwiftPackageReference;
-			relativePath = "../../../本地公开库/MarqueeLabel";
-		};
-		A763815A2EDEA4650040A84D /* XCLocalSwiftPackageReference "PanModal" */ = {
-			isa = XCLocalSwiftPackageReference;
-			relativePath = "../../../本地公开库/PanModal";
-		};
-		A76381662EDEA48C0040A84D /* XCLocalSwiftPackageReference "Reachability.swift" */ = {
-			isa = XCLocalSwiftPackageReference;
-			relativePath = "../../../本地公开库/Reachability.swift";
-		};
-		A76381692EDEA4970040A84D /* XCLocalSwiftPackageReference "Toast-Swift" */ = {
-			isa = XCLocalSwiftPackageReference;
-			relativePath = "../../../本地公开库/Toast-Swift";
-		};
-		A763816F2EDEAA710040A84D /* XCLocalSwiftPackageReference "ZLImageEditor" */ = {
-			isa = XCLocalSwiftPackageReference;
-			relativePath = "../../../本地公开库/ZLImageEditor";
-		};
-		A76381FD2EDED27C0040A84D /* XCLocalSwiftPackageReference "Alamofire" */ = {
-			isa = XCLocalSwiftPackageReference;
-			relativePath = "../../../本地公开库/Alamofire";
-		};
 		C04000000000000000000005 /* XCLocalSwiftPackageReference "MEGASDK" */ = {
 			isa = XCLocalSwiftPackageReference;
-			relativePath = "../../../本地公开库/MEGASDK";
+			relativePath = "../LocalSDK/MEGASDK";
 		};
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		223A49832D7FD811003B3886 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+		22953EF830359265001B0546 /* XCRemoteSwiftPackageReference "GCDWebServer_Swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			repositoryURL = "https://github.com/MeloDreek/GCDWebServer_Swift.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 8.3.0;
+				kind = exactVersion;
+				version = 1.0.0;
 			};
 		};
-		223A498E2D7FE13F003B3886 /* XCRemoteSwiftPackageReference "MarqueeLabel" */ = {
+		090F0D9170216A6E380AF2D0 /* XCRemoteSwiftPackageReference "purchases-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/cbpowell/MarqueeLabel";
+			repositoryURL = "https://github.com/RevenueCat/purchases-ios.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 4.5.0;
+				kind = revision;
+				revision = 474a29a694ba9f09b8e8e9d9592ed546f51c9301;
 			};
 		};
-		223A49912D7FE1BD003B3886 /* XCRemoteSwiftPackageReference "Toast-Swift" */ = {
+		0A73E9D61D41BB0EC0E8A61D /* XCRemoteSwiftPackageReference "aliyunpan-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/scalessec/Toast-Swift";
+			repositoryURL = "https://github.com/alibaba/aliyunpan-ios-sdk.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.1.1;
+				kind = revision;
+				revision = 66cdb2679e9cbacd7f682e43e784cf481f200a5a;
 			};
 		};
-		223A49972D7FE399003B3886 /* XCRemoteSwiftPackageReference "ZLImageEditor" */ = {
+		24CE1A1E4699A3D8BDCA38D5 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/longitachi/ZLImageEditor";
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.0.3;
+				kind = revision;
+				revision = 8648fe649c5d62be38721110f835821906e9242a;
 			};
 		};
-		223A499A2D7FE402003B3886 /* XCRemoteSwiftPackageReference "FileProvider" */ = {
+		2E5CF1F389345E20713BDAB9 /* XCRemoteSwiftPackageReference "DominantColors" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/amosavian/FileProvider";
+			repositoryURL = "https://github.com/DenDmitriev/DominantColors.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.26.0;
+				kind = revision;
+				revision = a05327d36092c47e9ddc77ce565eb35a5b4a4a6e;
 			};
 		};
-		223A499F2D7FE709003B3886 /* XCRemoteSwiftPackageReference "FileProvider" */ = {
+		3115BF4E19CC43E5CD90FB63 /* XCRemoteSwiftPackageReference "AMSMB2" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/amosavian/FileProvider";
+			repositoryURL = "https://github.com/amosavian/AMSMB2.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.26.0;
+				kind = revision;
+				revision = 1726aaaf7adf63d7d1d2a0c5d1b0e635028215c0;
 			};
 		};
-		223FDA602E04148200079731 /* XCRemoteSwiftPackageReference "LTMorphingLabel" */ = {
+		359627E8ED7B8B56C8AF7110 /* XCRemoteSwiftPackageReference "ZLImageEditor" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/lexrus/LTMorphingLabel";
+			repositoryURL = "https://github.com/longitachi/ZLImageEditor.git";
 			requirement = {
-				branch = master;
-				kind = branch;
+				kind = revision;
+				revision = d0bd245e02c68f2a7da21d8683a9caf11e28cc14;
 			};
 		};
-		224215982F88DA4F00766F40 /* XCRemoteSwiftPackageReference "aliyunpan-ios-sdk" */ = {
+		37EEB7F8AB568E15E27D19BB /* XCRemoteSwiftPackageReference "FileProvider" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/alibaba/aliyunpan-ios-sdk";
+			repositoryURL = "https://github.com/amosavian/FileProvider.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.1.7;
+				kind = revision;
+				revision = 5d31778376af168ac917e0b1e8d2c4ee64cb246c;
 			};
 		};
-		226DFB782D67648C00E3BE06 /* XCRemoteSwiftPackageReference "PanModal" */ = {
+		692BDD2E0FAA972A6702D5E2 /* XCRemoteSwiftPackageReference "MarqueeLabel" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/slackhq/PanModal";
+			repositoryURL = "https://github.com/cbpowell/MarqueeLabel.git";
 			requirement = {
-				branch = master;
-				kind = branch;
+				kind = revision;
+				revision = c6b4da400c00dfd5db7a4f6e4915ca531d95fc49;
 			};
 		};
-		227427EF2DE6E173000DB946 /* XCRemoteSwiftPackageReference "DominantColors" */ = {
+		7290A40FEE8880B9D7A86900 /* XCRemoteSwiftPackageReference "Toast-Swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/DenDmitriev/DominantColors";
+			repositoryURL = "https://github.com/scalessec/Toast-Swift.git";
 			requirement = {
-				branch = main;
-				kind = branch;
+				kind = revision;
+				revision = d780ff8fe55659b4fddf1fbfaf930d967f35d9ea;
 			};
 		};
-		22822C792DF42B8D00183445 /* XCRemoteSwiftPackageReference "PanModal" */ = {
+		75E6BEBD89A2B8760B239B82 /* XCRemoteSwiftPackageReference "PanModal" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/ppamorim/PanModal";
+			repositoryURL = "https://github.com/ppamorim/PanModal.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.2.8;
+				kind = revision;
+				revision = ac6d7427ef985515e1fe98f7c20242dcdaa3f7ba;
+			};
+		};
+		885B57A913BB8CB413776B6E /* XCRemoteSwiftPackageReference "LTMorphingLabel" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/lexrus/LTMorphingLabel.git";
+			requirement = {
+				kind = revision;
+				revision = bf629bd1ea03d92a1a2673bb2689a4ed2981e7b7;
+			};
+		};
+		964C38AC088176710967634D /* XCRemoteSwiftPackageReference "Reachability.swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ashleymills/Reachability.swift.git";
+			requirement = {
+				kind = revision;
+				revision = 21d1dc412cfecbe6e34f1f4c4eb88d3f912654a6;
+			};
+		};
+		CEDCB842D82E0F908A910EB1 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = revision;
+				revision = bda9ed57d72988a3a2ada33d824583541f86eac6;
 			};
 		};
 		E82400000000000000000004 /* XCRemoteSwiftPackageReference "WaketagLibKit" */ = {
@@ -3674,65 +3624,51 @@
 				version = 2.3.3;
 			};
 		};
+		FBC2DD3B5DB5B9772D5778E4 /* XCRemoteSwiftPackageReference "pcloud-sdk-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pCloud/pcloud-sdk-swift.git";
+			requirement = {
+				kind = revision;
+				revision = cc81e0250a9f378019470c78ce9a8bb501dcaeda;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
 		220F66243002838600915384 /* ReceiptParser */ = {
 			isa = XCSwiftPackageProductDependency;
+			package = 090F0D9170216A6E380AF2D0 /* XCRemoteSwiftPackageReference "purchases-ios" */;
 			productName = ReceiptParser;
 		};
 		220F66263002838600915384 /* RevenueCat */ = {
 			isa = XCSwiftPackageProductDependency;
+			package = 090F0D9170216A6E380AF2D0 /* XCRemoteSwiftPackageReference "purchases-ios" */;
 			productName = RevenueCat;
 		};
 		220F66283002838600915384 /* RevenueCatUI */ = {
 			isa = XCSwiftPackageProductDependency;
+			package = 090F0D9170216A6E380AF2D0 /* XCRemoteSwiftPackageReference "purchases-ios" */;
 			productName = RevenueCatUI;
 		};
 		220F662C300283AF00915384 /* ReceiptParser */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 220F66233002838600915384 /* XCLocalSwiftPackageReference "purchases-ios" */;
+			package = 090F0D9170216A6E380AF2D0 /* XCRemoteSwiftPackageReference "purchases-ios" */;
 			productName = ReceiptParser;
 		};
 		220F662E300283AF00915384 /* RevenueCat */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 220F66233002838600915384 /* XCLocalSwiftPackageReference "purchases-ios" */;
+			package = 090F0D9170216A6E380AF2D0 /* XCRemoteSwiftPackageReference "purchases-ios" */;
 			productName = RevenueCat;
 		};
 		220F6632300283AF00915384 /* RevenueCatUI */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 220F66233002838600915384 /* XCLocalSwiftPackageReference "purchases-ios" */;
+			package = 090F0D9170216A6E380AF2D0 /* XCRemoteSwiftPackageReference "purchases-ios" */;
 			productName = RevenueCatUI;
-		};
-		223A49842D7FD811003B3886 /* Kingfisher */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 223A49832D7FD811003B3886 /* XCRemoteSwiftPackageReference "Kingfisher" */;
-			productName = Kingfisher;
-		};
-		223A498F2D7FE13F003B3886 /* MarqueeLabel */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 223A498E2D7FE13F003B3886 /* XCRemoteSwiftPackageReference "MarqueeLabel" */;
-			productName = MarqueeLabel;
-		};
-		223A49922D7FE1BD003B3886 /* Toast */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 223A49912D7FE1BD003B3886 /* XCRemoteSwiftPackageReference "Toast-Swift" */;
-			productName = Toast;
 		};
 		223A49982D7FE399003B3886 /* ZLImageEditor */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 223A49972D7FE399003B3886 /* XCRemoteSwiftPackageReference "ZLImageEditor" */;
+			package = 359627E8ED7B8B56C8AF7110 /* XCRemoteSwiftPackageReference "ZLImageEditor" */;
 			productName = ZLImageEditor;
-		};
-		223A499B2D7FE402003B3886 /* FilesProvider */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 223A499A2D7FE402003B3886 /* XCRemoteSwiftPackageReference "FileProvider" */;
-			productName = FilesProvider;
-		};
-		223A49A02D7FE709003B3886 /* FilesProvider */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 223A499F2D7FE709003B3886 /* XCRemoteSwiftPackageReference "FileProvider" */;
-			productName = FilesProvider;
 		};
 		223E51A4302B291A00FEF1E4 /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -3751,222 +3687,148 @@
 		};
 		223FDA612E04148200079731 /* MorphingLabel */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 223FDA602E04148200079731 /* XCRemoteSwiftPackageReference "LTMorphingLabel" */;
-			productName = MorphingLabel;
-		};
-		223FDA632E0414D600079731 /* MorphingLabel */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 223FDA602E04148200079731 /* XCRemoteSwiftPackageReference "LTMorphingLabel" */;
+			package = 885B57A913BB8CB413776B6E /* XCRemoteSwiftPackageReference "LTMorphingLabel" */;
 			productName = MorphingLabel;
 		};
 		223FDA652E0414E800079731 /* MorphingLabel */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 223FDA602E04148200079731 /* XCRemoteSwiftPackageReference "LTMorphingLabel" */;
+			package = 885B57A913BB8CB413776B6E /* XCRemoteSwiftPackageReference "LTMorphingLabel" */;
 			productName = MorphingLabel;
 		};
 		224215992F88DA4F00766F40 /* AliyunpanSDK */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 224215982F88DA4F00766F40 /* XCRemoteSwiftPackageReference "aliyunpan-ios-sdk" */;
-			productName = AliyunpanSDK;
-		};
-		2242159C2F88DAAF00766F40 /* AliyunpanSDK */ = {
-			isa = XCSwiftPackageProductDependency;
+			package = 0A73E9D61D41BB0EC0E8A61D /* XCRemoteSwiftPackageReference "aliyunpan-ios-sdk" */;
 			productName = AliyunpanSDK;
 		};
 		2242159E2F88DAE600766F40 /* AliyunpanSDK */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 2242159B2F88DAAF00766F40 /* XCLocalSwiftPackageReference "aliyunpan-ios-sdk" */;
+			package = 0A73E9D61D41BB0EC0E8A61D /* XCRemoteSwiftPackageReference "aliyunpan-ios-sdk" */;
 			productName = AliyunpanSDK;
 		};
 		22526E092E84F59C00C32DBF /* KSPlayer */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 227FD0172E8471180076B773 /* XCLocalSwiftPackageReference "KSPlayer" */;
+			package = A763814F2EDEA4320040A84D /* XCLocalSwiftPackageReference "KSPlayer" */;
 			productName = KSPlayer;
 		};
 		22526E0B2E84F5AD00C32DBF /* Reachability */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 227FD0382E84723D0076B773 /* XCLocalSwiftPackageReference "Reachability.swift" */;
+			package = 964C38AC088176710967634D /* XCRemoteSwiftPackageReference "Reachability.swift" */;
 			productName = Reachability;
 		};
 		225F58D72D85B5A10055BDFF /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 223A49832D7FD811003B3886 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			package = 24CE1A1E4699A3D8BDCA38D5 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
 		};
 		225F58DD2D85B5BB0055BDFF /* FilesProvider */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 223A499F2D7FE709003B3886 /* XCRemoteSwiftPackageReference "FileProvider" */;
+			package = 37EEB7F8AB568E15E27D19BB /* XCRemoteSwiftPackageReference "FileProvider" */;
 			productName = FilesProvider;
 		};
 		225F58DF2D85B5C70055BDFF /* Toast */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 223A49912D7FE1BD003B3886 /* XCRemoteSwiftPackageReference "Toast-Swift" */;
+			package = 7290A40FEE8880B9D7A86900 /* XCRemoteSwiftPackageReference "Toast-Swift" */;
 			productName = Toast;
 		};
 		225F58E12D85B5EA0055BDFF /* MarqueeLabel */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 223A498E2D7FE13F003B3886 /* XCRemoteSwiftPackageReference "MarqueeLabel" */;
+			package = 692BDD2E0FAA972A6702D5E2 /* XCRemoteSwiftPackageReference "MarqueeLabel" */;
 			productName = MarqueeLabel;
 		};
 		225F58E72D85B6000055BDFF /* ZLImageEditor */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 223A49972D7FE399003B3886 /* XCRemoteSwiftPackageReference "ZLImageEditor" */;
+			package = 359627E8ED7B8B56C8AF7110 /* XCRemoteSwiftPackageReference "ZLImageEditor" */;
 			productName = ZLImageEditor;
-		};
-		226DFB792D67648C00E3BE06 /* PanModal */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 226DFB782D67648C00E3BE06 /* XCRemoteSwiftPackageReference "PanModal" */;
-			productName = PanModal;
-		};
-		227427F02DE6E173000DB946 /* DominantColors */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 227427EF2DE6E173000DB946 /* XCRemoteSwiftPackageReference "DominantColors" */;
-			productName = DominantColors;
 		};
 		227427F22DE6E3E7000DB946 /* DominantColors */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 227427EF2DE6E173000DB946 /* XCRemoteSwiftPackageReference "DominantColors" */;
+			package = 2E5CF1F389345E20713BDAB9 /* XCRemoteSwiftPackageReference "DominantColors" */;
 			productName = DominantColors;
 		};
 		227FD0182E8471180076B773 /* KSPlayer */ = {
 			isa = XCSwiftPackageProductDependency;
+			package = A763814F2EDEA4320040A84D /* XCLocalSwiftPackageReference "KSPlayer" */;
 			productName = KSPlayer;
 		};
 		227FD01E2E8471350076B773 /* DominantColors */ = {
 			isa = XCSwiftPackageProductDependency;
+			package = 2E5CF1F389345E20713BDAB9 /* XCRemoteSwiftPackageReference "DominantColors" */;
 			productName = DominantColors;
 		};
 		227FD0212E8471420076B773 /* FilesProvider */ = {
 			isa = XCSwiftPackageProductDependency;
+			package = 37EEB7F8AB568E15E27D19BB /* XCRemoteSwiftPackageReference "FileProvider" */;
 			productName = FilesProvider;
 		};
 		227FD0262E8471B40076B773 /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
+			package = 24CE1A1E4699A3D8BDCA38D5 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
-		};
-		227FD0292E8471D00076B773 /* MorphingLabel */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = MorphingLabel;
-		};
-		227FD02B2E8471EA0076B773 /* MarqueeLabel */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = MarqueeLabel;
 		};
 		227FD02E2E8471FA0076B773 /* PanModal */ = {
 			isa = XCSwiftPackageProductDependency;
+			package = 75E6BEBD89A2B8760B239B82 /* XCRemoteSwiftPackageReference "PanModal" */;
 			productName = PanModal;
 		};
 		227FD0392E84723D0076B773 /* Reachability */ = {
 			isa = XCSwiftPackageProductDependency;
+			package = 964C38AC088176710967634D /* XCRemoteSwiftPackageReference "Reachability.swift" */;
 			productName = Reachability;
-		};
-		227FD03B2E8472500076B773 /* Toast */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = Toast;
-		};
-		227FD03E2E8472600076B773 /* ZLImageEditor */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = ZLImageEditor;
 		};
 		227FD0412E8472750076B773 /* Toast */ = {
 			isa = XCSwiftPackageProductDependency;
+			package = 7290A40FEE8880B9D7A86900 /* XCRemoteSwiftPackageReference "Toast-Swift" */;
 			productName = Toast;
-		};
-		227FD0442E8473540076B773 /* Kingfisher */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = Kingfisher;
-		};
-		227FD0472E8473680076B773 /* PanModal */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = PanModal;
-		};
-		22822C7A2DF42B8D00183445 /* PanModal */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 22822C792DF42B8D00183445 /* XCRemoteSwiftPackageReference "PanModal" */;
-			productName = PanModal;
 		};
 		22822C7C2DF42BA100183445 /* PanModal */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 22822C792DF42B8D00183445 /* XCRemoteSwiftPackageReference "PanModal" */;
+			package = 75E6BEBD89A2B8760B239B82 /* XCRemoteSwiftPackageReference "PanModal" */;
 			productName = PanModal;
 		};
 		22953EF930359265001B0546 /* SwiftyUploader */ = {
 			isa = XCSwiftPackageProductDependency;
+			package = 22953EF830359265001B0546 /* XCRemoteSwiftPackageReference "GCDWebServer_Swift" */;
 			productName = SwiftyUploader;
 		};
 		22953EFB30359278001B0546 /* SwiftyUploader */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 22953EF830359265001B0546 /* XCLocalSwiftPackageReference "SwiftyUploader" */;
+			package = 22953EF830359265001B0546 /* XCRemoteSwiftPackageReference "GCDWebServer_Swift" */;
 			productName = SwiftyUploader;
 		};
 		22A801DA302B284D000FB581 /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
+			package = 22A801D9302B284D000FB581 /* XCLocalSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAnalytics;
 		};
 		22A801DC302B284D000FB581 /* FirebaseAnalyticsCore */ = {
 			isa = XCSwiftPackageProductDependency;
+			package = 22A801D9302B284D000FB581 /* XCLocalSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAnalyticsCore;
 		};
 		22A801DE302B284D000FB581 /* FirebaseCrashlytics */ = {
 			isa = XCSwiftPackageProductDependency;
+			package = 22A801D9302B284D000FB581 /* XCLocalSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseCrashlytics;
 		};
 		22C287A930530BAE00801D66 /* PCloudSDKSwift */ = {
 			isa = XCSwiftPackageProductDependency;
+			package = FBC2DD3B5DB5B9772D5778E4 /* XCRemoteSwiftPackageReference "pcloud-sdk-swift" */;
 			productName = PCloudSDKSwift;
 		};
 		22C287AB30530BC200801D66 /* PCloudSDKSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 22C287A830530BAE00801D66 /* XCLocalSwiftPackageReference "pcloud-sdk-swift" */;
+			package = FBC2DD3B5DB5B9772D5778E4 /* XCRemoteSwiftPackageReference "pcloud-sdk-swift" */;
 			productName = PCloudSDKSwift;
-		};
-		A76381472EDEA4000040A84D /* DominantColors */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = DominantColors;
-		};
-		A763814A2EDEA40F0040A84D /* FilesProvider */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = FilesProvider;
-		};
-		A763814D2EDEA4200040A84D /* Kingfisher */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = Kingfisher;
-		};
-		A76381502EDEA4320040A84D /* KSPlayer */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = KSPlayer;
 		};
 		A76381522EDEA4320040A84D /* MPVPlayer */ = {
 			isa = XCSwiftPackageProductDependency;
+			package = A763814F2EDEA4320040A84D /* XCLocalSwiftPackageReference "KSPlayer" */;
 			productName = MPVPlayer;
-		};
-		A76381552EDEA44B0040A84D /* MorphingLabel */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = MorphingLabel;
 		};
 		A76381582EDEA4570040A84D /* MarqueeLabel */ = {
 			isa = XCSwiftPackageProductDependency;
+			package = 692BDD2E0FAA972A6702D5E2 /* XCRemoteSwiftPackageReference "MarqueeLabel" */;
 			productName = MarqueeLabel;
-		};
-		A763815B2EDEA4650040A84D /* PanModal */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = PanModal;
-		};
-		A76381672EDEA48C0040A84D /* Reachability */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = Reachability;
-		};
-		A763816A2EDEA4970040A84D /* Toast */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = Toast;
-		};
-		A76381702EDEAA710040A84D /* ZLImageEditor */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = ZLImageEditor;
-		};
-		A76381782EDEB6A80040A84D /* RevenueCat */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = RevenueCat;
 		};
 		A763817C2EDEB7770040A84D /* MPVPlayer */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -3975,21 +3837,22 @@
 		};
 		A76381FE2EDED27C0040A84D /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
+			package = CEDCB842D82E0F908A910EB1 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
 		};
 		A76382002EDED2E60040A84D /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = A76381FD2EDED27C0040A84D /* XCLocalSwiftPackageReference "Alamofire" */;
+			package = CEDCB842D82E0F908A910EB1 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
 		};
 		C03000000000000000000003 /* AMSMB2 */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 22A859793054203F00D3CD47 /* XCLocalSwiftPackageReference "AMSMB2" */;
+			package = 3115BF4E19CC43E5CD90FB63 /* XCRemoteSwiftPackageReference "AMSMB2" */;
 			productName = AMSMB2;
 		};
 		C03000000000000000000004 /* AMSMB2 */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 22A859793054203F00D3CD47 /* XCLocalSwiftPackageReference "AMSMB2" */;
+			package = 3115BF4E19CC43E5CD90FB63 /* XCRemoteSwiftPackageReference "AMSMB2" */;
 			productName = AMSMB2;
 		};
 		C04000000000000000000003 /* MEGASdk */ = {

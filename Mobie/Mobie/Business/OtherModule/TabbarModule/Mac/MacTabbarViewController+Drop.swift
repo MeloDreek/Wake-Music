@@ -23,7 +23,7 @@ extension MacTabbarViewController: UIDropInteractionDelegate {
     func dropInteraction(_ interaction: UIDropInteraction, canHandle session: UIDropSession) -> Bool {
         // 允许处理文件和文件夹
         let allUTTypes = [UTType.data, UTType.text]
-        let identifiers = allUTTypes.map({ $0.identifier }) + AudioExtension.audioSuffixs
+        let identifiers = allUTTypes.map({ $0.identifier }) + AudioExtension.playableAudioSuffixs
         return session.hasItemsConforming(toTypeIdentifiers: identifiers) || session.items.contains { item in
             item.itemProvider.hasItemConformingToTypeIdentifier(UTType.folder.identifier)
         }
@@ -93,7 +93,7 @@ extension MacTabbarViewController: UIDropInteractionDelegate {
             let supportArray = musicArray.filter { $0.isSupportMusicFile(true) || $0.hasDirectoryPath }
             
             if supportArray.count == 0 {
-                let audios = AudioExtension.audioSuffixs.map { $0.uppercased() }
+                let audios = AudioExtension.playableAudioSuffixs.map { $0.uppercased() }
                 let fileStr = audios.joined(separator: ", ")
                 self?.showOneAlert(title: "Please check your file format".localStr(), message: fileStr)
                 return
@@ -133,4 +133,3 @@ extension MacTabbarViewController: UIDropInteractionDelegate {
     }
     
 }
-

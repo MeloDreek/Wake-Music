@@ -47,7 +47,7 @@ extension MusicsViewController: UIDocumentPickerDelegate {
         let supportArray = urls.filter { $0.isSupportMusicFile(true) || $0.hasDirectoryPath }
         
         if supportArray.count == 0 {
-            let audios = (["LRC"] + AudioExtension.audioSuffixs).map { $0.uppercased() }
+            let audios = (["LRC"] + AudioExtension.playableAudioSuffixs).map { $0.uppercased() }
             let fileStr = audios.joined(separator: ", ")
             self.showOneAlert(title: "Please check your file format".localStr(), message: fileStr)
             return

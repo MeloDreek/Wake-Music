@@ -32,7 +32,7 @@ public struct BoxDriveFileModel: SmartCodableX, Hashable, Sendable {
     public func hash(into hasher: inout Hasher) { hasher.combine(identity) }
     public func isDirectory() -> Bool { isFolder }
     public func fileExtension() -> String { (name as NSString).pathExtension.lowercased() }
-    public func isMusic() -> Bool { !isFolder && AudioExtensionType.allCases.contains { $0.rawValue == fileExtension() } }
+    public func isMusic() -> Bool { !isFolder && AudioExtension.isPlayableAudioExtension(fileExtension()) }
     public func isVideo() -> Bool { !isFolder && VideoExtensionType.allCases.contains { $0.rawValue == fileExtension() } }
     /// Not a cached download link. Resolve /files/:id/content before every network use.
     public func mediaPlayURL() -> URL {

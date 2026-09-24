@@ -472,9 +472,23 @@ final class PlayerEqualizerViewController: SuperViewController {
     }
 }
 
-/// Three rows of five inside a horizontal viewport, sized to the longest title.
+/// Three rows of five; compact on iOS and expanded to fill Mac windows.
 private final class EQPresetGrid: UIView {
     let scrollView: UIScrollView = HorizontalScrollView()
+    // Desktop windows have enough room for all five columns. Keep the compact,
+    // horizontally scrolling layout on iPhone and iPad.
+    var fillsAvailableWidth: Bool = {
+        #if targetEnvironment(macCatalyst)
+        return true
+        #else
+        return false
+        #endif
+    }() {
+        didSet {
+            invalidateIntrinsicContentSize()
+            setNeedsLayout()
+        }
+    }
     private var buttonRows: [[UIButton]] = Array(repeating: [], count: 3)
     private var measuredWidth: CGFloat = 0
     private var previousDirection: UIUserInterfaceLayoutDirection?
@@ -523,13 +537,16 @@ private final class EQPresetGrid: UIView {
         let rows = buttonRows.count
         let columns = buttonRows.map(\.count).max() ?? 0
         let spacing: CGFloat = 8
-        // UIButton includes the title's current font and the configured horizontal
-        // padding (16 pt per side). Do not stretch short titles to fill the viewport.
+        // UIButton includes the title's current font and horizontal padding
+        // (16 pt per side). On Mac, equally distribute any spare width across
+        // the five columns; long translations can still scroll without clipping.
         let naturalWidth = buttons.reduce(CGFloat(44)) { result, button in
             max(result, ceil(button.sizeThatFits(UIView.layoutFittingExpandedSize).width))
         }
+        let availableColumnWidth = (width - CGFloat(max(0, columns - 1)) * spacing) / CGFloat(max(1, columns))
+        let preferredWidth = fillsAvailableWidth ? max(naturalWidth, availableColumnWidth) : naturalWidth
         // Allow wrapping only when a large accessibility title cannot fit on screen.
-        let columnWidth = min(max(44, width), naturalWidth)
+        let columnWidth = min(max(44, width), preferredWidth)
         let rowHeight = buttons.reduce(CGFloat(44)) { height, button in
             max(height, ceil(button.sizeThatFits(CGSize(width: columnWidth, height: .greatestFiniteMagnitude)).height))
         }

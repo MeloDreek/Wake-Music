@@ -21,6 +21,13 @@ Each band ranges from −12 to +12 dB. The preamp offers up to 12 dB additional 
 
 The page uses a dark native rack design and a generated raster icon. Presets occupy exactly three horizontally scrolling rows, with Custom first and Bass Boost beside it in the first row (mirrored for RTL). Dynamic Type grows row height without adding rows. The fourteen factory curves combine practical listening adjustments with selected genres. They are starting points, not reference responses or definitive settings for a genre. Fresh settings select Bass Boost, but EQ remains off until enabled. The original Bass Boost curve is unchanged: +6/+5/+4/+2 dB at 32/64/125/250 Hz, zero for the remaining bands, with the existing automatic headroom policy. Previously saved choices and custom curves are not overwritten. Manual band or preamp adjustments update the custom snapshot, which can be recalled after trying another preset. Original persisted preset IDs remain decodable; a retired genre preset retains its saved sound as Custom rather than silently changing the user's curve. Reset restores flat bands and zero preamp, retaining the custom snapshot.
 
+On Mac Catalyst, the five columns expand evenly to fill the available preset
+width, with the longest localized title plus padding as a minimum. Narrow
+windows, long translations and accessibility sizes can still scroll
+horizontally. iPhone/iPad retain content-sized columns. The grid stays three
+rows of five; Custom is first, followed by Bass Boost, Bass Reduce, Treble Boost
+and Treble Reduce.
+
 A localized note below the presets explains this starting-point approach and Custom saving. The footer above Reset explains frequency ranges, gentle adjustment and distortion reduction; processing never changes the original audio files. The top-right audio-engine button opens the existing PlayerEngineViewController. When opened from EQ, selecting an engine returns to the EQ page instead of dismissing its entire presentation.
 
 Faders use vertical gestures; horizontal gestures browse the frequency strip or preset rows. Vertical swipes over presets remain available for scrolling the page. All controls have accessibility labels/values and entitlement-gated VoiceOver adjustments. EQ copy, including the six listening-adjustment names, Custom and preset guidance, is translated in all forty-two supported locales. Catalyst retains the native preamp slider without unsupported track tint or custom thumb images; iOS keeps the metallic styling.

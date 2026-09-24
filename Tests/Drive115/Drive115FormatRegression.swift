@@ -33,6 +33,7 @@ enum Drive115FormatRegression {
         }
 
         for (name, icon) in [("song.dsf", "dsf"), ("song.DFF", "DFF"),
+                             ("song.DSDIFF", ""), ("song", "dsdiff"),
                              ("song.DSF", ""), ("song.dff", " .DFF "),
                              ("song.DSF", "mp3"), ("song", "dsf"), ("song.dff", "bin")] {
             let model = file(name, icon: icon)

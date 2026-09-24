@@ -106,7 +106,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
         
         // 0️⃣ 处理本地文件打开（音乐文件）
-        if AudioExtension.audioSuffixs.contains(firstURL.pathExtension.lowercased()) {
+        if AudioExtension.isPlayableAudioExtension(firstURL.pathExtension) {
             self.handleLocalMusicFiles(URLContexts)
         }
         

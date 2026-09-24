@@ -56,7 +56,7 @@ public struct PCloudDriveFileModel: SmartCodableX, Hashable, Equatable, Sendable
     public func isDirectory() -> Bool { isFolder }
     public func fileExtension() -> String { (name as NSString).pathExtension.lowercased() }
     public func isMusic() -> Bool {
-        !isFolder && AudioExtensionType.allCases.contains { $0.rawValue == fileExtension() }
+        !isFolder && AudioExtension.isPlayableAudioExtension(fileExtension())
     }
     public func isVideo() -> Bool {
         !isFolder && VideoExtensionType.allCases.contains { $0.rawValue == fileExtension() }

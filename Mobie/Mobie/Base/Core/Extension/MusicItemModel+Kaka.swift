@@ -213,8 +213,8 @@ extension MusicItemModel {
                 return KakaImage(named: "file_place")!
             }
         }else{
-            if AudioExtensionType.allCases.map({ $0.rawValue }).contains(self.mediaPlayURL.pathExtension.lowercased()) {
-                return KakaImage(named: "\(self.mediaPlayURL.pathExtension.lowercased())_icon") ?? UIImage(named: "video_place")!
+            if AudioExtension.isPlayableAudioExtension(self.mediaPlayURL.pathExtension) {
+                return KakaImage(named: "\(self.mediaPlayURL.pathExtension.lowercased())_icon") ?? UIImage(named: "music_place")!
             }else if VideoExtensionType.allCases.map({ $0.rawValue }).contains(self.mediaPlayURL.pathExtension.lowercased()) {
                 return UIImage(named: "video_place")!
             } else{

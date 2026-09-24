@@ -1,5 +1,5 @@
 {
-  "originHash" : "71d4e83c43da92a34e8a12cf7b16558ec30dc7b90bb9d848ece5c3e0449bb66f",
+  "originHash" : "296eb27adf8258b6575044a4824549af4757bd5a8fddbce576b92b91bd4eaa60",
   "pins" : [
     {
       "identity" : "abseil-cpp-binary",
@@ -11,12 +11,61 @@
       }
     },
     {
+      "identity" : "alamofire",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Alamofire/Alamofire.git",
+      "state" : {
+        "revision" : "bda9ed57d72988a3a2ada33d824583541f86eac6"
+      }
+    },
+    {
+      "identity" : "aliyunpan-ios-sdk",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/alibaba/aliyunpan-ios-sdk.git",
+      "state" : {
+        "revision" : "66cdb2679e9cbacd7f682e43e784cf481f200a5a"
+      }
+    },
+    {
+      "identity" : "amsmb2",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/amosavian/AMSMB2.git",
+      "state" : {
+        "revision" : "1726aaaf7adf63d7d1d2a0c5d1b0e635028215c0"
+      }
+    },
+    {
       "identity" : "app-check",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/google/app-check.git",
       "state" : {
         "revision" : "3e33dd27dd4c69bd81c7c81fe61d8ccf58846902",
         "version" : "11.3.1"
+      }
+    },
+    {
+      "identity" : "dominantcolors",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/DenDmitriev/DominantColors.git",
+      "state" : {
+        "revision" : "a05327d36092c47e9ddc77ce565eb35a5b4a4a6e"
+      }
+    },
+    {
+      "identity" : "fileprovider",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/amosavian/FileProvider.git",
+      "state" : {
+        "revision" : "5d31778376af168ac917e0b1e8d2c4ee64cb246c"
+      }
+    },
+    {
+      "identity" : "gcdwebserver_swift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/MeloDreek/GCDWebServer_Swift.git",
+      "state" : {
+        "revision" : "032c945867ac0f036fd1e30215edd02d7f349db1",
+        "version" : "1.0.0"
       }
     },
     {
@@ -83,12 +132,36 @@
       }
     },
     {
+      "identity" : "kingfisher",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/onevcat/Kingfisher.git",
+      "state" : {
+        "revision" : "8648fe649c5d62be38721110f835821906e9242a"
+      }
+    },
+    {
       "identity" : "leveldb",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/firebase/leveldb.git",
       "state" : {
         "revision" : "a0bc79961d7be727d258d33d5a6b2f1023270ba1",
         "version" : "1.22.5"
+      }
+    },
+    {
+      "identity" : "ltmorphinglabel",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/lexrus/LTMorphingLabel.git",
+      "state" : {
+        "revision" : "bf629bd1ea03d92a1a2673bb2689a4ed2981e7b7"
+      }
+    },
+    {
+      "identity" : "marqueelabel",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/cbpowell/MarqueeLabel.git",
+      "state" : {
+        "revision" : "c6b4da400c00dfd5db7a4f6e4915ca531d95fc49"
       }
     },
     {
@@ -101,12 +174,44 @@
       }
     },
     {
+      "identity" : "panmodal",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/ppamorim/PanModal.git",
+      "state" : {
+        "revision" : "ac6d7427ef985515e1fe98f7c20242dcdaa3f7ba"
+      }
+    },
+    {
+      "identity" : "pcloud-sdk-swift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/pCloud/pcloud-sdk-swift.git",
+      "state" : {
+        "revision" : "cc81e0250a9f378019470c78ce9a8bb501dcaeda"
+      }
+    },
+    {
       "identity" : "promises",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/google/promises.git",
       "state" : {
         "revision" : "f4a19a3c313dc2616c70bb49d29a799fb16be837",
         "version" : "2.4.1"
+      }
+    },
+    {
+      "identity" : "purchases-ios",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/RevenueCat/purchases-ios.git",
+      "state" : {
+        "revision" : "474a29a694ba9f09b8e8e9d9592ed546f51c9301"
+      }
+    },
+    {
+      "identity" : "reachability.swift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/ashleymills/Reachability.swift.git",
+      "state" : {
+        "revision" : "21d1dc412cfecbe6e34f1f4c4eb88d3f912654a6"
       }
     },
     {
@@ -132,8 +237,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/apple/swift-nio.git",
       "state" : {
-        "revision" : "0b18836bd8b0162e7e17a995a3fbee20ed8f3b2b",
-        "version" : "2.101.3"
+        "revision" : "a931f2c1de8dd49381ce3bf2e279d033f68d8865",
+        "version" : "2.102.0"
       }
     },
     {
@@ -146,12 +251,28 @@
       }
     },
     {
+      "identity" : "toast-swift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/scalessec/Toast-Swift.git",
+      "state" : {
+        "revision" : "d780ff8fe55659b4fddf1fbfaf930d967f35d9ea"
+      }
+    },
+    {
       "identity" : "waketaglibkit",
       "kind" : "remoteSourceControl",
       "location" : "ssh://git@github.com/MeloDreek/WaketagLibKit.git",
       "state" : {
         "revision" : "2410d9b039204032ff24f749d205f62aa056137c",
         "version" : "2.3.3"
+      }
+    },
+    {
+      "identity" : "zlimageeditor",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/longitachi/ZLImageEditor.git",
+      "state" : {
+        "revision" : "d0bd245e02c68f2a7da21d8683a9caf11e28cc14"
       }
     }
   ],

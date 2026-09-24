@@ -18,7 +18,7 @@ checks = {
   'Mobie/Mobie/Business/MusicModule/View/MusicTableViewCell.swift' => 'isSupportType = drive115Model.isMusic()',
   'Mobie/Mobie/Business/ConnectModule/Controller/Drive115FileListController.swift' => 'guard subModel.drive115Model?.isMusic() == true',
   'Mobie/Mobie/Base/Music/KakaMusicPlayer+Play.swift' => 'if model.drive115Model?.isUnsupportedStreamingAudio == true',
-  'Mobie/Mobie/Base/Music/KakaMusicPlayer.swift' => 'guard nextPlayMusic.drive115Model?.isUnsupportedStreamingAudio != true'
+  'Mobie/Mobie/Base/Music/KakaMusicPlayer.swift' => 'next.drive115Model?.isUnsupportedStreamingAudio != true'
 }
 checks.each { |file, snippet| abort "Missing 115 policy wiring: #{file}" unless File.read(File.join(root, file)).include?(snippet) }
 puts "#{checks.count} 115 policy wiring checks passed"

@@ -126,7 +126,7 @@ private final class DownloadExecution: NSObject, UNUserNotificationCenterDelegat
             var result: [URL] = []
             for folder in migrationFolders {
                 result += PreDownloadedAudioFile.migrateLegacyFiles(from: folder, to: root,
-                    extensions: Set(AudioExtension.audioSuffixs.map { $0.lowercased() })) { source, target in
+                    extensions: Set(AudioExtension.playableAudioSuffixs.map { $0.lowercased() })) { source, target in
                     movedPaths[source.standardizedFileURL.path] = target
                 }
             }

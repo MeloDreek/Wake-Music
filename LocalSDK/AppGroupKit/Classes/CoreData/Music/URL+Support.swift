@@ -5,21 +5,14 @@
 //  Created by Melo on 7/26/24.
 //
 
-import KakaFoundation
-import AVKit
+import Foundation
 
 extension URL {
     /// 检测是否为支持的格式或后缀
     public func isSupportMusicFile(_ isLRC: Bool) -> Bool {
         let fileExtension = self.pathExtension.lowercased()
         
-        var supportArr = AudioExtension.audioSuffixs
-        if isLRC {
-            supportArr = supportArr + ["LRC", "lrc"]
-        }
-        let isSupport = supportArr.contains(fileExtension)
-        
-        return isSupport
+        return AudioExtension.isPlayableAudioExtension(fileExtension) || (isLRC && fileExtension == "lrc")
     }
 }
 

@@ -15,13 +15,23 @@ enum PresetLayoutProbe {
             for width: CGFloat in [240, 320, 600, 840] {
                 for category: UIContentSizeCategory in [.large, .accessibilityExtraExtraExtraLarge] {
                     for rtl in [false, true] {
-                        let (grid, buttons) = makeGrid(width: width, category: category, rtl: rtl, labels: labels)
+                      for fillsAvailableWidth in [false, true] {
+                        let (grid, buttons) = makeGrid(width: width, category: category, rtl: rtl,
+                                                      labels: labels, fillsAvailableWidth: fillsAvailableWidth)
                         checks += checkLayout(grid, buttons: buttons, rtl: rtl)
                         precondition(Set(buttons.map { $0.frame.minY }).count == 3, "Exactly three rows")
                         precondition(buttons.prefix(5).allSatisfy { $0.frame.minY == 0 })
                         precondition(buttons[5].frame.minY > 0, "Flat starts the next row")
                         let naturalWidth = buttons.map { ceil($0.sizeThatFits(UIView.layoutFittingExpandedSize).width) }.max()!
-                        precondition(buttons.allSatisfy { abs($0.frame.width - min(width, max(44, naturalWidth))) < 0.1 }, "Equal widths follow the longest title plus padding, not viewport fractions")
+                        let availableWidth = (width - 4 * 8) / 5
+                        let desiredWidth = fillsAvailableWidth ? max(naturalWidth, availableWidth) : naturalWidth
+                        precondition(buttons.allSatisfy { abs($0.frame.width - min(width, max(44, desiredWidth))) < 0.1 }, "Equal widths must follow the title minimum and fill the desktop viewport")
+                        if fillsAvailableWidth && naturalWidth <= availableWidth {
+                            precondition(abs(grid.scrollView.contentSize.width - width) < 0.1, "Desktop columns should exactly fill the available width")
+                            precondition(abs((buttons.prefix(5).map(\.frame.maxX).max() ?? 0) - width) < 0.1)
+                            precondition(abs(buttons.prefix(5).map(\.frame.minX).min() ?? 0) < 0.1)
+                            checks += 3
+                        }
                         let scroll = grid.scrollView
                         let maximum = max(0, scroll.contentSize.width - scroll.bounds.width)
                         precondition(abs(scroll.contentOffset.x - (rtl ? maximum : 0)) < 0.1, "Start at reading-direction leading edge")
@@ -34,7 +44,11 @@ enum PresetLayoutProbe {
                         grid.layoutIfNeeded()
                         checks += checkLayout(grid, buttons: buttons, rtl: rtl)
                         precondition(Set(buttons.map { $0.frame.minY }).count == 3, "Resize must preserve three rows")
+                        let resizedWidth = width * 0.7
+                        let resizedDesired = fillsAvailableWidth ? max(naturalWidth, (resizedWidth - 4 * 8) / 5) : naturalWidth
+                        precondition(buttons.allSatisfy { abs($0.frame.width - min(resizedWidth, max(44, resizedDesired))) < 0.1 }, "Window resize must update every equal-width column")
                         checks += 5
+                      }
                     }
                 }
             }
@@ -44,8 +58,10 @@ enum PresetLayoutProbe {
     }
 
     @MainActor private static func makeGrid(width: CGFloat, category: UIContentSizeCategory,
-                                            rtl: Bool, labels: [String: String]) -> (EQPresetGrid, [UIButton]) {
+                                            rtl: Bool, labels: [String: String],
+                                            fillsAvailableWidth: Bool = false) -> (EQPresetGrid, [UIButton]) {
         let grid = EQPresetGrid(frame: CGRect(x: 0, y: 0, width: width, height: 0))
+        grid.fillsAvailableWidth = fillsAvailableWidth
         grid.semanticContentAttribute = rtl ? .forceRightToLeft : .forceLeftToRight
         let traits = UITraitCollection(preferredContentSizeCategory: category)
         var buttons: [UIButton] = []

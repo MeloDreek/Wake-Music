@@ -200,7 +200,7 @@ class WiFiServerViewController: SuperViewController {
     let baseURL = SandboxFileManager.shared.basePublicFileURL()
     
     lazy var webServer: SwiftyUploader = {
-        let auduoTypes: [String] = (["LRC"] + AudioExtension.audioSuffixs).map({ $0.lowercased() })
+        let auduoTypes: [String] = (["LRC"] + AudioExtension.playableAudioSuffixs).map({ $0.lowercased() })
         let footStr = auduoTypes.map({ $0.uppercased() }).joined(separator: ", ") + "..."
         
         let title = Application.wakeMusic.appTitle()
@@ -353,7 +353,7 @@ extension WiFiServerViewController: UITableViewDataSource, UITableViewDelegate, 
         if section == 0 {
             return "Please make sure the current device is connected to the same Wi-Fi as your computer or Android phone, and keep the screen on during transmission❗️".localStr()
         }else{
-            let auduoTypes: [String] = (["LRC"] + AudioExtension.audioSuffixs).map({ $0.lowercased() })
+            let auduoTypes: [String] = (["LRC"] + AudioExtension.playableAudioSuffixs).map({ $0.lowercased() })
             let footStr = auduoTypes.map({ $0.uppercased() }).joined(separator: ", ") + "..."
             return footStr
         }
