@@ -20,7 +20,20 @@ class DownloadViewController: SuperViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         tableView.frame = contentView.bounds
+        if dataArray.isEmpty {
+            let geometry = [tableView.bounds.width, tableView.bounds.height,
+                            tableView.adjustedContentInset.top, tableView.adjustedContentInset.bottom,
+                            tableView.adjustedContentInset.left, tableView.adjustedContentInset.right]
+            if geometry != lastEmptyLayoutGeometry {
+                lastEmptyLayoutGeometry = geometry
+                tableView.reloadData()
+            }
+        } else {
+            lastEmptyLayoutGeometry = []
+        }
     }
+
+    private var lastEmptyLayoutGeometry: [CGFloat] = []
     
     override func preSetupHandleBuness() {
         super.preSetupHandleBuness()
@@ -107,7 +120,7 @@ class DownloadViewController: SuperViewController {
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.navigationBar.barTintColor = .clear
         
-        if kaka_safeAreaInsets().top > 20 || kaka_IsiPad() {
+        if kaka_safeAreaInsets(in: view).top > 20 || kaka_IsiPad() {
             self.navigationController?.navigationBar.prefersLargeTitles = true
             self.navigationItem.largeTitleDisplayMode = .automatic
         }else{
@@ -271,14 +284,18 @@ extension DownloadViewController: UITableViewDataSource, UITableViewDelegate, Em
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         guard dataArray.count > 0 else {
-            let navHeight = app_navHeight
-            let tabHeight = self.tabBarController?.tabBar.bounds.height ?? 0
-            
-            let cellHeight = self.view.height - navHeight - kStatusBarHeight - tabHeight - 70.ckValue()
-            return cellHeight
+            return EmptyTableViewCell.preferredHeight(
+                in: tableView,
+                message: "Download music from your cloud drive or server for the best offline listening experience.".localStr()
+            )
         }
         
         return UITableView.automaticDimension
+    }
+
+    func scrollViewDidChangeAdjustedContentInset(_ scrollView: UIScrollView) {
+        guard scrollView.superview != nil, isViewLoaded, dataArray.isEmpty else { return }
+        view.setNeedsLayout()
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {

@@ -49,20 +49,20 @@ class PlayerLyricCollectCell: UICollectionViewCell {
 
         let isLandscape = OrientationManager.shared.isLandscape
         let btnSize = 44.ckValue()
-        let isPhoneLandscape = kaka_IsiPhone() && OrientationManager.shared.isLandscape
+        let isPhoneLandscape = OrientationManager.shared.isCompactLandscape
         
         var lyricSetLeft = contentView.bounds.width - btnSize - 20.ckValue()
         if isRTL {
             lyricSetLeft = 15.ckValue()
         }
-        lyricSetButton.frame = CGRectMake(lyricSetLeft, isPhoneLandscape ? 26 : kStatusBarHeight + 10.ckValue(), btnSize, btnSize)
+        lyricSetButton.frame = CGRectMake(lyricSetLeft, isPhoneLandscape ? 26 : OrientationManager.shared.safeAreaInsets.top + 10.ckValue(), btnSize, btnSize)
         rotateButton.frame = CGRectMake(20, lyricSetButton.top, btnSize, btnSize)
         
         let tableTop = isPhoneLandscape ? 21 : CGRectGetMaxY(lyricSetButton.frame) + 10.ckValue()
-        let bottomHeight = (isLandscape || !isShowControl) ? -kaka_safeAreaInsets().bottom / 2 : OrientationManager.shared.playerControlHeight
-        tableView.frame = CGRectMake(0, tableTop, contentView.bounds.width, contentView.bounds.height - tableTop - bottomHeight)
+        let bottomHeight = (isLandscape || !isShowControl) ? OrientationManager.shared.safeAreaInsets.bottom : OrientationManager.shared.playerControlHeight
+        tableView.frame = CGRectMake(0, tableTop, contentView.bounds.width, max(0, contentView.bounds.height - tableTop - bottomHeight))
         
-        noneView.frame = CGRectMake(0, rotateButton.frame.maxY, contentView.bounds.width, contentView.height - rotateButton.frame.maxY - OrientationManager.shared.playerControlHeight)
+        noneView.frame = CGRectMake(0, rotateButton.frame.maxY, contentView.bounds.width, max(0, contentView.height - rotateButton.frame.maxY - bottomHeight))
         
         loadingView.frame = CGRectMake((contentView.width - loadingView.width) / 2, (contentView.height - loadingView.height) / 2, loadingView.width, loadingView.height)
         
@@ -165,6 +165,17 @@ class PlayerLyricCollectCell: UICollectionViewCell {
         }
         
         if !self.isShowLyric { return }
+
+        // At the initial paused position there is no current lyric to center.
+        // Centering row 0 here scrolls the artwork header partly offscreen on first presentation.
+        guard KakaMusicPlayer.shared.currentTime > 0 else {
+            if playingIndex != nil {
+                playingIndex = nil
+                tableView.reloadData()
+            }
+            if !isTracking { tableView.contentOffset = .zero }
+            return
+        }
         
         self.lastTime = millisecond
         
@@ -191,7 +202,8 @@ class PlayerLyricCollectCell: UICollectionViewCell {
 //        if playingIndex == 0 || playingIndex == 1 { return }
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.01) { [weak self] in
-            guard let self = self else { return }
+            guard let self = self, KakaMusicPlayer.shared.currentTime > 0,
+                  self.playingIndex == playingIndex, !self.isTracking else { return }
             let indexPath = IndexPath(row: playingIndex, section: 0)
             
             if self.tableView.numberOfSections > 0,
@@ -312,7 +324,7 @@ class PlayerLyricCollectCell: UICollectionViewCell {
         view.alwaysBounceHorizontal = false
         view.alwaysBounceVertical = true
         view.overrideUserInterfaceStyle = .dark
-        view.contentInsetAdjustmentBehavior = .always
+        view.contentInsetAdjustmentBehavior = .never
         view.rowHeight = UITableView.automaticDimension
         view.register(PlayerLyricsCell.self, forCellReuseIdentifier: "PlayerLyricsCell")
         return view

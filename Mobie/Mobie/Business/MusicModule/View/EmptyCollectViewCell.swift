@@ -12,6 +12,25 @@ import NVActivityIndicatorView
 
 
 class EmptyCollectViewCell: UICollectionViewCell {
+
+    private static let sizingCell = EmptyCollectViewCell(frame: .zero)
+
+    static func preferredSize(in collectionView: UICollectionView) -> CGSize {
+        let insets = collectionView.adjustedContentInset
+        let sectionInsets = (collectionView.collectionViewLayout as? UICollectionViewFlowLayout)?.sectionInset ?? .zero
+        let width = max(1, EmptyContentLayout.availableLength(collectionView.bounds.width,
+                                                            leading: insets.left + sectionInsets.left,
+                                                            trailing: insets.right + sectionInsets.right))
+        let fitted = sizingCell.contentView.systemLayoutSizeFitting(
+            CGSize(width: width > 40 ? width : 320, height: 0),
+            withHorizontalFittingPriority: .required,
+            verticalFittingPriority: .fittingSizeLevel
+        )
+        let viewport = EmptyContentLayout.availableLength(collectionView.bounds.height,
+                                                         leading: insets.top + sectionInsets.top,
+                                                         trailing: insets.bottom + sectionInsets.bottom)
+        return CGSize(width: width, height: ceil(EmptyContentLayout.height(viewport: viewport, content: fitted.height)))
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -44,11 +63,13 @@ class EmptyCollectViewCell: UICollectionViewCell {
         case .macOS: capeWidth = 400.ckValue()
         }
         
-        let value = emptyImgView.image!.size.height / emptyImgView.image!.size.width
+        let imageSize = emptyImgView.image?.size ?? CGSize(width: 1, height: 1)
+        let value = imageSize.height / max(1, imageSize.width)
         emptyImgView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.top.equalToSuperview()
-            make.width.equalTo(capeWidth)
+            make.width.equalTo(capeWidth).priority(999)
+            make.width.lessThanOrEqualToSuperview()
             make.height.equalTo(emptyImgView.snp.width).multipliedBy(value)
         }
         
@@ -96,6 +117,8 @@ class EmptyCollectViewCell: UICollectionViewCell {
         middleView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.centerY.equalToSuperview()
+            make.top.greaterThanOrEqualToSuperview().offset(20.ckValue())
+            make.bottom.lessThanOrEqualToSuperview().offset(-20.ckValue())
             make.width.equalTo(contentView).multipliedBy(0.9) // 可根据需要调整
         }
         
@@ -118,7 +141,7 @@ class EmptyCollectViewCell: UICollectionViewCell {
     
     // MARK:  GET && SET
     
-    var delegate: EmptyContentCellDelegate?
+    weak var delegate: EmptyContentCellDelegate?
     
     // 监听 tintColor 的变化
     @objc func appModeStyleChanged(_ noti: Notification) {

@@ -29,7 +29,8 @@ class MusicPlayerViewController: SuperViewController {
                 
         self.darkAppearanceClick()
                 
-        contentView.addSubview(backView)
+        // Only the artwork background is full bleed; interactive content stays inside safe edges.
+        view.insertSubview(backView, belowSubview: contentView)
         contentView.addSubview(collectionView)
         
         contentView.addSubview(grayView)
@@ -42,14 +43,14 @@ class MusicPlayerViewController: SuperViewController {
                 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        OrientationManager.shared.updateLayout(in: view)
+        backView.frame = view.bounds
+        collectionView.frame = contentView.bounds
         
         let isRTL = UIView.userInterfaceLayoutDirection(for: self.view.semanticContentAttribute) == .rightToLeft
 
         let btnSize = 44.ckValue()
 #if targetEnvironment(macCatalyst)
-        backView.frame = contentView.bounds
-        collectionView.frame = contentView.bounds
-        
         contentView.addSubview(resizeButton)
         var resizeLeft = OrientationManager.shared.isLandscape ? contentView.width - btnSize * 2 - 30.ckValue() : contentView.width - btnSize - 20.ckValue()
         if isRTL {
@@ -57,26 +58,28 @@ class MusicPlayerViewController: SuperViewController {
         }
         resizeButton.frame =  CGRectMake(resizeLeft, 10, btnSize, btnSize)
         
-#else
-        contentView.frame = CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height)
-        backView.frame = contentView.bounds
-        collectionView.frame = contentView.bounds
 #endif
         
         let isFullScreen = OrientationManager.shared.isLandscape
         let controlWidth = contentView.width / (isFullScreen ? 2 : 1)
         let controlHeight = OrientationManager.shared.playerControlHeight
                                 
-        grayView.frame = CGRectMake((contentView.width - grayView.width) / 2, kStatusBarHeight + 10.ckValue(), grayView.width, grayView.height)
+        grayView.isHidden = OrientationManager.shared.isCompactLandscape || kaka_IsMacOS()
+        grayView.frame = CGRectMake((contentView.width - grayView.width) / 2, view.safeAreaInsets.top + 10.ckValue(), grayView.width, grayView.height)
         nameLabel.frame = CGRectMake((contentView.width - nameLabel.width) / 2, 18.ckValue(), nameLabel.width, nameLabel.height)
                 
         playDefaultControl.frame = CGRectMake(isRTL && isFullScreen ? contentView.width / 2 : 0, contentView.height - controlHeight, controlWidth, controlHeight)
         playTapeControl.frame = CGRectMake(isRTL && isFullScreen ? contentView.width / 2 : 0, contentView.height - controlHeight, controlWidth, controlHeight)
         layoutAuxiliaryControls()
 //        playVinylControl.frame = CGRectMake(isRTL && isFullScreen ? contentView.width / 2 : 0, contentView.height - controlHeight, controlWidth, controlHeight)
-        if lastPlayerLayoutSize != contentView.bounds.size {
+        if lastPlayerLayoutSize != contentView.bounds.size || lastPlayerSafeAreaInsets != view.safeAreaInsets {
+            let wasShowingLyrics = !isShowingPlaylist && !isShowingMoreConfig &&
+                flowLayout.itemSize.width > 0 && abs(collectionView.contentOffset.x - flowLayout.itemSize.width) < 10
             lastPlayerLayoutSize = contentView.bounds.size
+            lastPlayerSafeAreaInsets = view.safeAreaInsets
             refreshUIViewAction()
+            collectionView.layoutIfNeeded()
+            collectionView.contentOffset = CGPoint(x: !isFullScreen && wasShowingLyrics && dataArray.contains(.listLyric) ? flowLayout.itemSize.width : 0, y: 0)
         }
         
     }
@@ -160,19 +163,24 @@ class MusicPlayerViewController: SuperViewController {
     
     override func viewWillTransition(to size: CGSize, with coordinator: any UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
-        coordinator.animate { context in
-#if !targetEnvironment(macCatalyst)
-            let isLandscape = size.width > size.height
-            if kaka_IsiPhone() {
-                OrientationManager.shared.forceUpdate(to: isLandscape)
-            }else{
-                OrientationManager.shared.forceUpdate(to: isLandscape)
-                OrientationManager.shared.isShowBigLyric = isLandscape
-            }
-            debugPrint("切换完成！当前方向：\(isLandscape ? "横屏" : "竖屏")")
-#endif
-        } completion: { context in
-            
+        coordinator.animate { [weak self] _ in
+            self?.view.setNeedsLayout()
+            self?.view.layoutIfNeeded()
+        } completion: { [weak self] _ in
+            self?.view.setNeedsLayout()
+        }
+    }
+
+    override func viewSafeAreaInsetsDidChange() {
+        super.viewSafeAreaInsetsDidChange()
+        view.setNeedsLayout()
+    }
+
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        if previousTraitCollection?.horizontalSizeClass != traitCollection.horizontalSizeClass ||
+            previousTraitCollection?.verticalSizeClass != traitCollection.verticalSizeClass {
+            view.setNeedsLayout()
         }
     }
     
@@ -254,6 +262,7 @@ class MusicPlayerViewController: SuperViewController {
     var isShowingMoreConfig = false
     var returnToLyricsAfterQueue = false
     private var lastPlayerLayoutSize: CGSize = .zero
+    private var lastPlayerSafeAreaInsets: UIEdgeInsets = .zero
         
     lazy var dataArray: [PlayerGroupStyle] = {
         return [PlayerGroupStyle]()
@@ -299,7 +308,7 @@ class MusicPlayerViewController: SuperViewController {
         view.alwaysBounceVertical = false
         view.showsHorizontalScrollIndicator = false
         view.showsVerticalScrollIndicator = false
-        view.contentInsetAdjustmentBehavior = .automatic
+        view.contentInsetAdjustmentBehavior = .never
         view.semanticContentAttribute = PhoneSetManager.isArabicLanguage() ? UISemanticContentAttribute.forceRightToLeft : UISemanticContentAttribute.forceLeftToRight
         view.register(PlayerBasicCollectCell.self, forCellWithReuseIdentifier: "PlayerBasicCollectCell")
         view.register(PlayerTapeCollectCell.self, forCellWithReuseIdentifier: "PlayerTapeCollectCell")

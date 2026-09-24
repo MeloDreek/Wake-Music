@@ -86,9 +86,13 @@ final class PlayerQueueCollectCell: UICollectionViewCell, UITableViewDataSource,
     override func layoutSubviews() {
         super.layoutSubviews()
         let width = contentView.bounds.width
+        let bottom = bottomReservedHeight + 8
+        // Resize the table before assigning its header; otherwise UIKit can restore
+        // the old table width during an Open/Closed transition.
+        tableView.frame = CGRect(x: 0, y: 0, width: width, height: max(0, bounds.height - bottom))
         let margin: CGFloat = width > 500 ? 38 : 24
         let compact = bounds.height < 500
-        let top: CGFloat = compact ? 32 : (kaka_IsMacOS() ? 72 : max(safeAreaInsets.top, kStatusBarHeight) + 64)
+        let top: CGFloat = compact ? 32 : (kaka_IsMacOS() ? 72 : safeAreaInsets.top + 64)
         let cover: CGFloat = compact ? 44 : 64
         let rtl = effectiveUserInterfaceLayoutDirection == .rightToLeft
         func rect(_ x: CGFloat, _ y: CGFloat, _ w: CGFloat, _ h: CGFloat) -> CGRect {
@@ -107,9 +111,9 @@ final class PlayerQueueCollectCell: UICollectionViewCell, UITableViewDataSource,
             // UITableView only recalculates tableHeaderView's height when it is reassigned.
             tableView.tableHeaderView = queueHeader
         }
-        let bottom = bottomReservedHeight + 8
         // Keep the scroll indicator at the page edge; inset row content, not the table.
-        tableView.frame = CGRect(x: 0, y: 0, width: width, height: max(0, bounds.height - bottom))
+        queueHeader.setNeedsLayout()
+        queueHeader.layoutIfNeeded()
     }
 
     override func didMoveToWindow() {

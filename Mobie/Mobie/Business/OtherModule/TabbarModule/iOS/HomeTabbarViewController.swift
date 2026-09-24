@@ -13,6 +13,7 @@ import Kingfisher
 import Combine
 
 class HomeTabbarViewController: UITabBarController {
+    private var minibarLayout: PlayerMinibarLayout?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +23,6 @@ class HomeTabbarViewController: UITabBarController {
         }
         
         self.preSetupSubViews()
-        self.viewDidLayoutSubviews()
         self.preSetupHandleBuness()
     }
     
@@ -32,7 +32,12 @@ class HomeTabbarViewController: UITabBarController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-       
+        minibarLayout?.update(avoiding: tabBar)
+    }
+
+    override func viewSafeAreaInsetsDidChange() {
+        super.viewSafeAreaInsetsDidChange()
+        minibarLayout?.update(avoiding: tabBar)
     }
     
     private func preSetupHandleBuness() {
@@ -43,48 +48,19 @@ class HomeTabbarViewController: UITabBarController {
         
         self.fileWatcher.startWatching()
         
-        /*
-        self.view.addSubview(toolbarView)
-        toolbarView.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview()
-            if kaka_IsiPhone() {
-                if #available(iOS 26.0, *) {
-                    make.bottom.equalTo(self.tabBar.snp.top).offset(-5.ckValue())
-                }else{
-                    make.bottom.equalTo(self.tabBar.snp.top)
-                }
-            }else{
-                make.bottom.equalToSuperview().offset(-app_tabbarHeight)
-            }
-            make.height.equalTo(toolbarView.bounds.height)
-        }
-        */
-        
-        self.perform(#selector(setupPlayerMinibar), with: nil, afterDelay: 0.5)
+        setupPlayerMinibar()
     }
     
     @objc func setupPlayerMinibar() {
-        self.view.addSubview(toolbarView)
-        toolbarView.snp.makeConstraints { make in
-            make.leading.trailing.equalToSuperview()
-            
-            if kaka_IsiPhone() {
-                if #available(iOS 26.0, *) {
-                    make.bottom.equalTo(self.tabBar.snp.top).offset(-5.ckValue())
-                }else{
-                    make.bottom.equalTo(self.tabBar.snp.top)
-                }
-            }else{
-                make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-app_tabbarHeight)
-            }
-            make.height.equalTo(toolbarView.bounds.height)
-        }
+        guard minibarLayout == nil else { return }
+        minibarLayout = PlayerMinibarLayout(toolbar: toolbarView, in: view)
+        minibarLayout?.update(avoiding: tabBar)
     }
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
-        guard let userInterfaceStyle = previousTraitCollection?.userInterfaceStyle else { return }
-        self.handleAppSwitchedMode(userInterfaceStyle == .dark ? .light : .dark)
+        guard previousTraitCollection?.userInterfaceStyle != traitCollection.userInterfaceStyle else { return }
+        self.handleAppSwitchedMode(traitCollection.userInterfaceStyle)
     }
     
     // 切换黑白模式的通知

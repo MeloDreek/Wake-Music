@@ -88,7 +88,7 @@ extension HomeTabbarViewController {
     // 回到欢迎页面
     func switchAppKeyWindow() {
         let tabbarVC = WelcomeViewController()
-        let scene = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate
+        let scene = view.window?.windowScene?.delegate as? SceneDelegate
         scene?.window?.rootViewController = tabbarVC
         scene?.window?.makeKeyAndVisible()
     }

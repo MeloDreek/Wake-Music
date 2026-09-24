@@ -49,7 +49,7 @@ class PlayControlTapeView: UIView, UIGestureRecognizerDelegate {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        let isPhoneLandscape = kaka_IsiPhone() && OrientationManager.shared.isLandscape
+        let isPhoneLandscape = OrientationManager.shared.isCompactLandscape
         var centerSpace = 0.0
         switch kaka_osType() {
         case .iOS: centerSpace = UIDevice.current.isSmalliPhone() ? 25.ckValue() : -10.ckValue()
@@ -195,11 +195,9 @@ class PlayControlTapeView: UIView, UIGestureRecognizerDelegate {
                 return min(maxSize, btnWidth)
             case .iPadOS:
                 let contentWidth = self.bounds.width
-                return (contentWidth * 0.72) / 5.0
+                return min(90.ckValue(), (contentWidth * 0.72) / 5.0)
             case .iOS:
-                let isLandscape = OrientationManager.shared.isLandscape
-                let screenWidth = min(UIScreen.main.bounds.width, UIScreen.main.bounds.height)
-                return isLandscape ? screenWidth * 0.8 / 5.0 : (screenWidth - 50) / 5.0
+                return max(0, min(90.ckValue(), (bounds.width - 50) / 5.0))
             }
         }
     }

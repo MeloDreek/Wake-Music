@@ -47,7 +47,6 @@ extension MusicPlayerViewController {
         OrientationManager.shared.$isLandscape
             .receive(on: DispatchQueue.main)
             .sink { [weak self] isLandscape in
-                self?.grayView.isHidden = (isLandscape && kaka_IsiPhone()) || kaka_IsMacOS()
                 self?.deviceOrienChanged()
             }
             .store(in: &cancellables)
@@ -63,7 +62,7 @@ extension MusicPlayerViewController {
     
     @objc func deviceOrienChanged() {
         self.collectionView.collectionViewLayout.invalidateLayout()
-        self.viewDidLayoutSubviews()
+        self.view.setNeedsLayout()
         self.refreshUIViewAction()
 #if !targetEnvironment(macCatalyst)
         self.panModalSetNeedsLayoutUpdate()
@@ -93,6 +92,7 @@ extension MusicPlayerViewController {
     
     // 布局变化了
     func refreshUIViewAction() {
+        guard contentView.bounds.width > 0, contentView.bounds.height > 0 else { return }
         
         let isFullScreen = OrientationManager.shared.isLandscape
         let isShowBigLyric = OrientationManager.shared.isShowBigLyric
@@ -250,9 +250,8 @@ extension MusicPlayerViewController {
     @objc func forceSetDeviceOrientation() {
         
 #if !targetEnvironment(macCatalyst)
-        let isLandscape = OrientationManager.shared.isLandscape
-
-        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene else { return }
+        guard let windowScene = view.window?.windowScene else { return }
+        let isLandscape = windowScene.interfaceOrientation.isLandscape
 
         let targetScape = isLandscape ? UIInterfaceOrientationMask.portrait : UIInterfaceOrientationMask.landscape
         windowScene.requestGeometryUpdate(.iOS(interfaceOrientations: targetScape)) { error in

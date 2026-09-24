@@ -48,34 +48,41 @@ class HorizonLyricsViewCell: UICollectionViewCell {
     private func setupAutoLayout() {
         
         let btnSize = 44.ckValue()
-        let leftSpace = kaka_safeAreaInsets().left
-        let rightSpace = kaka_safeAreaInsets().right
-        let isPhoneLandscape = kaka_IsiPhone() && OrientationManager.shared.isLandscape
+        let leftSpace: CGFloat = 0 // Parent already excludes asymmetric horizontal safe areas.
+        let rightSpace: CGFloat = 0
+        let bottom = safeAreaInsets.bottom
+        let isPhoneLandscape = OrientationManager.shared.isCompactLandscape
+        let rippleSize = max(0, min(bounds.width, bounds.height))
         
         rippleView1.snp.remakeConstraints { make in
             make.centerX.equalTo(self.snp.left)
             make.centerY.equalToSuperview()
-            make.size.equalTo(rippleView1.size)
+            make.size.equalTo(rippleSize)
         }
         
         rippleView2.snp.remakeConstraints { make in
             make.centerX.equalTo(self.snp.right)
             make.centerY.equalToSuperview()
-            make.size.equalTo(rippleView1.size)
+            make.size.equalTo(rippleSize)
         }
         
         leftControl.frame = CGRectMake(0, 0, contentView.width / 2, contentView.height)
         rightControl.frame = CGRectMake(CGRectGetMaxX(leftControl.frame), 0, contentView.width / 2, contentView.height)
         
-        aniLyricLabel.frame = CGRectMake(leftSpace, kaka_safeAreaInsets().bottom, contentView.bounds.width - leftSpace - rightSpace, contentView.bounds.height - kaka_safeAreaInsets().bottom)
+        aniLyricLabel.frame = CGRectMake(leftSpace, bottom, contentView.bounds.width - leftSpace - rightSpace, max(0, contentView.bounds.height - bottom))
 
         let expireHeight = expiredLabel.font.lineHeight * 2
         expiredLabel.frame = CGRectMake(leftSpace, (contentView.bounds.height - expireHeight) / 2, contentView.bounds.width - leftSpace - rightSpace, expireHeight)
         
-        lyricSetButton.frame = CGRectMake(contentView.bounds.width - btnSize - 20.ckValue(), isPhoneLandscape ? 26 : kStatusBarHeight + 10.ckValue(), btnSize, btnSize)
+        lyricSetButton.frame = CGRectMake(contentView.bounds.width - btnSize - 20.ckValue(), isPhoneLandscape ? 26 : safeAreaInsets.top + 10.ckValue(), btnSize, btnSize)
         rotateButton.frame = CGRectMake(20.ckValue(), lyricSetButton.top, btnSize, btnSize)
         
-        nameLabel.frame = CGRectMake((contentView.width - nameLabel.size.width) / 2, kaka_IsiPhone() ? aniLyricLabel.top : self.bounds.height - nameLabel.height - kaka_safeAreaInsets().bottom - 5, nameLabel.size.width, nameLabel.height)
+        nameLabel.frame = CGRectMake((contentView.width - nameLabel.size.width) / 2, kaka_IsiPhone() ? aniLyricLabel.top : self.bounds.height - nameLabel.height - bottom - 5, nameLabel.size.width, nameLabel.height)
+    }
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        setupAutoLayout()
     }
     
     private func setupCusBuness() {
@@ -253,13 +260,13 @@ class HorizonLyricsViewCell: UICollectionViewCell {
     }()
     
     lazy var rippleView1: RippleAnimationView = {
-        let width = min(UIScreen.main.bounds.width, UIScreen.main.bounds.height)
+        let width = max(0, min(bounds.width, bounds.height))
         let view = RippleAnimationView(frame: CGRectMake(0, 0, width, width))
         return view
     }()
     
     lazy var rippleView2: RippleAnimationView = {
-        let width = min(UIScreen.main.bounds.width, UIScreen.main.bounds.height)
+        let width = max(0, min(bounds.width, bounds.height))
         let view = RippleAnimationView(frame: CGRectMake(0, 0, width, width))
         return view
     }()

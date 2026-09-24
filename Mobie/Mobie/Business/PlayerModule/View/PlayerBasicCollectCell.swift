@@ -43,13 +43,14 @@ class PlayerBasicCollectCell: UICollectionViewCell {
         super.layoutSubviews()
         
         let controlHeight = OrientationManager.shared.playerControlHeight
-        let isPhoneLandscape = kaka_IsiPhone() && OrientationManager.shared.isLandscape
+        let isPhoneLandscape = OrientationManager.shared.isCompactLandscape
+        toptagView.isHidden = !AppLocalManager.shared.isShowAudioTag || isPhoneLandscape
         
         toptagView.frame = CGRectMake(0, isPhoneLandscape ? 30 : topSpace, self.bounds.width, 33.ckValue())
         
         musicInfoView.frame = CGRectMake(0, self.bounds.height - controlHeight - musicInfoHeight, self.bounds.width, musicInfoHeight)
         
-        coverMiddleView.frame = CGRectMake(0, CGRectGetMaxY(toptagView.frame), self.bounds.width, self.bounds.height - CGRectGetMaxY(toptagView.frame) - musicInfoHeight - controlHeight)
+        coverMiddleView.frame = CGRectMake(0, CGRectGetMaxY(toptagView.frame), self.bounds.width, max(0, self.bounds.height - CGRectGetMaxY(toptagView.frame) - musicInfoHeight - controlHeight))
         
         coverImgView.frame = CGRect(
             x: (coverMiddleView.bounds.width - coverImgSize) / 2,
@@ -119,7 +120,7 @@ class PlayerBasicCollectCell: UICollectionViewCell {
         AppLocalManager.shared.$isShowAudioTag
             .receive(on: DispatchQueue.main)
             .sink { [weak self] isShowAudioTag in
-                let isPhoneLandscape = kaka_IsiPhone() && OrientationManager.shared.isLandscape
+                let isPhoneLandscape = OrientationManager.shared.isCompactLandscape
                 self?.toptagView.isHidden = !isShowAudioTag || isPhoneLandscape
             }.store(in: &cancellables)
         
@@ -132,24 +133,28 @@ class PlayerBasicCollectCell: UICollectionViewCell {
     
     weak var delegate: PlayerSubViewDelegate?
     
-    let topSpace = kStatusBarHeight + 15.ckValue() + 40.ckValue()
+    var topSpace: CGFloat { OrientationManager.shared.safeAreaInsets.top + 55.ckValue() }
     
     let musicInfoHeight = 60.ckValue()
     
     
     var coverImgSize: CGFloat {
         get {
+            let preferredSize: CGFloat
             switch kaka_osType() {
             case .macOS:
-                return 360.ckValue()
+                preferredSize = 360.ckValue()
             case .iPadOS:
-                let isFullScreen = UIScreen.main.bounds.width > UIScreen.main.bounds.height
-                return self.bounds.width * (isFullScreen ? 0.45 : 0.6)
+                preferredSize = self.bounds.width * 0.7
             case .iOS:
-                let isPhoneLandscape = kaka_IsiPhone() && OrientationManager.shared.isLandscape
+                let isPhoneLandscape = OrientationManager.shared.isCompactLandscape
                 let screenWidth = self.bounds.width
-                return isPhoneLandscape ? screenWidth * 0.4 : screenWidth - 50
+                preferredSize = isPhoneLandscape ? screenWidth * 0.4 : screenWidth - 50
             }
+            let availableHeight = bounds.height - topSpace - 33.ckValue() -
+                musicInfoHeight - OrientationManager.shared.playerControlHeight
+            // Reserve vertical breathing room too; a wide window is not necessarily tall.
+            return max(0, min(preferredSize, bounds.width - 32, availableHeight * 0.9))
         }
     }
     
@@ -180,7 +185,7 @@ class PlayerBasicCollectCell: UICollectionViewCell {
     lazy var coverMiddleView: UIView = {
         let controlHeight = OrientationManager.shared.playerControlHeight
 
-        let view = UIView(frame: CGRectMake(0, CGRectGetMaxY(toptagView.frame), self.bounds.width, self.bounds.height - CGRectGetMaxY(toptagView.frame) - musicInfoHeight - controlHeight))
+        let view = UIView(frame: CGRectMake(0, CGRectGetMaxY(toptagView.frame), self.bounds.width, max(0, self.bounds.height - CGRectGetMaxY(toptagView.frame) - musicInfoHeight - controlHeight)))
         view.isUserInteractionEnabled = true
         view.backgroundColor = .clear
         return view

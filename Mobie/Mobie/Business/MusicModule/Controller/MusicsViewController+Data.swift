@@ -192,15 +192,18 @@ extension MusicsViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if isNoneMusic {
-            let navHeight = app_navHeight
-            let tabHeight = self.tabBarController?.tabBar.bounds.height ?? 0
-            
-            let cellHeight = self.view.height - navHeight - kStatusBarHeight - tabHeight - 70.ckValue()
-            return cellHeight
+            return EmptyTableViewCell.preferredHeight(in: tableView)
         }else{
             return UITableView.automaticDimension
         }
                         
+    }
+
+    func scrollViewDidChangeAdjustedContentInset(_ scrollView: UIScrollView) {
+        // This callback can run inside the lazy tableView initializer. Do not
+        // access that property until UIKit has attached the completed view.
+        guard scrollView.superview != nil, isViewLoaded, isNoneMusic else { return }
+        view.setNeedsLayout()
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -359,5 +362,3 @@ extension MusicsViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
 }
-
-

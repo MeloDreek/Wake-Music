@@ -21,7 +21,11 @@ class GenreListViewController: SuperViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        let previousSize = collectionView.bounds.size
         collectionView.frame = contentView.bounds
+        if previousSize != collectionView.bounds.size {
+            collectionView.collectionViewLayout.invalidateLayout()
+        }
     }
     
     override func preSetupHandleBuness() {
@@ -85,7 +89,7 @@ class GenreListViewController: SuperViewController {
     
     var isLandscape: Bool {
         get {
-            let isLandscape = (UIApplication.shared.connectedScenes.first as? UIWindowScene)?.interfaceOrientation.isLandscape ?? false
+            let isLandscape = view.bounds.width > view.bounds.height
             return isLandscape
         }
     }
@@ -228,14 +232,8 @@ extension GenreListViewController: UICollectionViewDataSource, UICollectionViewD
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        let navHeight = app_navHeight
-        let tabHeight = self.tabBarController?.tabBar.bounds.height ?? 0
-        
         if isNoneMusic {
-            // 注意这里要减去 safeAreaInsets
-            let safeInsets = collectionView.safeAreaInsets
-            let emptyHeight = collectionView.bounds.height - navHeight - kStatusBarHeight - tabHeight - safeInsets.top - safeInsets.bottom
-            return CGSize(width: collectionView.bounds.width - safeInsets.left - safeInsets.right, height: emptyHeight)
+            return EmptyCollectViewCell.preferredSize(in: collectionView)
         } else {
             var columnCount: Int = 2
             if isLandscape || kaka_IsMacOS() {
@@ -244,13 +242,22 @@ extension GenreListViewController: UICollectionViewDataSource, UICollectionViewD
             
             // ✅ 用 collectionView 的可用宽度
             let safeInsets = collectionView.adjustedContentInset
-            let availableWidth = collectionView.bounds.width - safeInsets.left - safeInsets.right
+            let availableWidth = max(1, EmptyContentLayout.availableLength(collectionView.bounds.width,
+                                                                          leading: safeInsets.left,
+                                                                          trailing: safeInsets.right))
+            columnCount = max(1, min(columnCount, Int(availableWidth / 120)))
             let totalW = availableWidth - CGFloat(columnCount - 1) * self.flowLayout.minimumInteritemSpacing
-            let singleW = totalW / CGFloat(columnCount) - 0.01
+            let singleW = max(1, totalW / CGFloat(columnCount) - 0.01)
             return CGSize(width: singleW, height: singleW * 0.8 + 50.ckValue())
         }
     }
     
+    func scrollViewDidChangeAdjustedContentInset(_ scrollView: UIScrollView) {
+        guard let collectionView = scrollView as? UICollectionView,
+              collectionView.superview != nil else { return }
+        collectionView.collectionViewLayout.invalidateLayout()
+    }
+
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let contentOffY = scrollView.contentOffset.y
                 

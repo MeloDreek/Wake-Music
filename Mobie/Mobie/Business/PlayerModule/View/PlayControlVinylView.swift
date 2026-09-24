@@ -48,7 +48,7 @@ class PlayControlVinylView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        let isPhoneLandscape = kaka_IsiPhone() && OrientationManager.shared.isLandscape
+        let isPhoneLandscape = OrientationManager.shared.isCompactLandscape
         
         playButton.snp.remakeConstraints { make in
             make.centerX.equalToSuperview()
@@ -183,7 +183,7 @@ class PlayControlVinylView: UIView {
                 let btnWidth = (contentWidth * 0.68) / 5.0
                 return CGSizeMake(btnWidth, btnWidth * imagevalue)
             case .iOS:
-                let screenWidth = min(UIScreen.main.bounds.width, UIScreen.main.bounds.height)
+                let screenWidth = self.bounds.width
                 let btnWidth = (screenWidth - btnSpace * 6) / 5.0
                 return CGSizeMake(btnWidth, btnWidth * imagevalue)
             }

@@ -42,7 +42,8 @@ class PlayerVinylCollectCell: UICollectionViewCell {
         super.layoutSubviews()
         
         let controlHeight = OrientationManager.shared.playerControlHeight
-        let isPhoneLandscape = kaka_IsiPhone() && OrientationManager.shared.isLandscape
+        let isPhoneLandscape = OrientationManager.shared.isCompactLandscape
+        toptagView.isHidden = !AppLocalManager.shared.isShowAudioTag || isPhoneLandscape
         
         toptagView.frame = CGRectMake(0, topSpace, self.bounds.width, 33.ckValue())
 
@@ -54,7 +55,7 @@ class PlayerVinylCollectCell: UICollectionViewCell {
         coverImgView.frame = CGRectMake((vinylImgView.width - coverSize) / 2, (vinylImgView.height - coverSize) / 2, coverSize, coverSize)
         
         let miniLyricTop = isPhoneLandscape ? vinylImgView.frame.maxY + 5.ckValue() : vinylImgView.frame.maxY + 20.ckValue()
-        let miniLyricHeight = isPhoneLandscape ? self.bounds.height - miniLyricTop - controlHeight : self.bounds.height - miniLyricTop - controlHeight + 50.ckValue()
+        let miniLyricHeight = max(0, self.bounds.height - miniLyricTop - controlHeight)
         miniLyricView.frame = CGRectMake(0, miniLyricTop, self.bounds.width, miniLyricHeight)
         
         self.checkPlayStatus()
@@ -73,7 +74,7 @@ class PlayerVinylCollectCell: UICollectionViewCell {
     
     weak var delegate: PlayerSubViewDelegate?
     
-    let topSpace = kStatusBarHeight + 15.ckValue() + 40.ckValue()
+    var topSpace: CGFloat { OrientationManager.shared.safeAreaInsets.top + 55.ckValue() }
     
     /// 播放中的索引
     var playingIndex: Int?
@@ -81,19 +82,23 @@ class PlayerVinylCollectCell: UICollectionViewCell {
     /// 黑胶的尺寸
     var vinylBackSize: CGFloat {
         get {
+            let preferredSize: CGFloat
             switch kaka_osType() {
             case .macOS:
                 let screenWidth = self.bounds.size.width * 0.65
                 let maxSize = 430.ckValue()
-                return min(screenWidth, maxSize)
+                preferredSize = min(screenWidth, maxSize)
             case .iPadOS:
                 let screenWidth = self.bounds.size.width
-                return screenWidth * 0.7
+                preferredSize = screenWidth * 0.7
             case .iOS:
-                let isLandscape = OrientationManager.shared.isLandscape
+                let isLandscape = OrientationManager.shared.isCompactLandscape
                 let screenWidth = self.bounds.size.width
-                return screenWidth * (isLandscape ? 0.5 : 0.9)
+                preferredSize = screenWidth * (isLandscape ? 0.5 : 0.9)
             }
+            let top = OrientationManager.shared.isCompactLandscape ? 23.ckValue() : topSpace + 43.ckValue()
+            let availableHeight = bounds.height - top - OrientationManager.shared.playerControlHeight - 90.ckValue()
+            return max(0, min(preferredSize, availableHeight))
         }
     }
     
@@ -167,7 +172,7 @@ class PlayerVinylCollectCell: UICollectionViewCell {
     lazy var miniLyricView: MiniPlayerLyricView = {
         let controlHeight = OrientationManager.shared.playerControlHeight
 
-        let view = MiniPlayerLyricView(frame: CGRectMake(0, CGRectGetMaxY(vinylImgView.frame), self.bounds.width, self.bounds.height - CGRectGetMaxY(vinylImgView.frame) - controlHeight + 50.ckValue()))
+        let view = MiniPlayerLyricView(frame: CGRectMake(0, CGRectGetMaxY(vinylImgView.frame), self.bounds.width, max(0, self.bounds.height - CGRectGetMaxY(vinylImgView.frame) - controlHeight)))
         
         let doubleTap = UITapGestureRecognizer(target: self, action: #selector(doubleTapClick))
         doubleTap.numberOfTapsRequired = 2
@@ -223,7 +228,7 @@ extension PlayerVinylCollectCell {
         AppLocalManager.shared.$isShowAudioTag
             .receive(on: DispatchQueue.main)
             .sink { [weak self] isShowAudioTag in
-                let isPhoneLandscape = kaka_IsiPhone() && OrientationManager.shared.isLandscape
+                let isPhoneLandscape = OrientationManager.shared.isCompactLandscape
                 self?.toptagView.isHidden = !isShowAudioTag || isPhoneLandscape
             }.store(in: &cancellables)
         

@@ -15,7 +15,7 @@ class DownloadPoolView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: CGRect(x: 0, y: 0, width: fullSize.width, height: fullSize.height))
-        self.beginPoint = CGPointMake((screenW / fullSize.width) / 2, (screenH / fullSize.height) / 2)
+        self.beginPoint = center
         self.setupSubViews()
         self.setupAutoLayout()
         self.setupCusBuness()
@@ -82,41 +82,24 @@ class DownloadPoolView: UIView {
     /// 悬浮view 大小
     private(set) var fullSize = CGSize(width: 80.ckValue(), height: 80.ckValue())
     
-    /// 屏幕宽度
-    private var screenW: CGFloat {
-        get {
-            return UIScreen.main.bounds.size.width
-        }
-    }
-    /// 屏幕高度
-    private var screenH: CGFloat {
-        get {
-            return UIScreen.main.bounds.size.height
-        }
-    }
-    
     /// 拖动开始时 位置
     private var beginPoint: CGPoint = CGPoint.zero
-    
-    /// 顶部最小 margin
-    private var topMinMargin: CGFloat {
-        get {
-            return kStatusBarHeight
-        }
-    }
-    
-    /// 底部最小 margin
-    private var bottomMinMargin: CGFloat {
-        get {
-            return app_tabbarHeight
-        }
-    }
     
     /// 左边最小 margin
     private let leftMinMargin: CGFloat = 5.ckValue()
     
     /// 右边最小 magin
     private let rightMinMargin: CGFloat = 5.ckValue()
+
+    override func didMoveToSuperview() {
+        super.didMoveToSuperview()
+        correctLocation(animated: false)
+    }
+
+    override func safeAreaInsetsDidChange() {
+        super.safeAreaInsetsDidChange()
+        correctLocation(animated: false)
+    }
     
     
     // MARK:  懒加载
@@ -224,29 +207,21 @@ extension DownloadPoolView {
         }
     }
     /// 修正位置
-    func correctLocation() {
-    
-        var endCenter = center
-        let point = self.frame.origin
-        
-        if point.x < leftMinMargin {
-            endCenter.x = leftMinMargin + fullSize.width / 2
-        }
-
-        if point.x + fullSize.width > screenW {
-            endCenter.x = screenW - fullSize.width / 2 - rightMinMargin
-        }
-
-        if point.y < topMinMargin {
-            endCenter.y = topMinMargin + fullSize.height / 2
-        }
-
-        if point.y + fullSize.height > screenH - bottomMinMargin {
-            endCenter.y = screenH - fullSize.height / 2 - bottomMinMargin
-        }
-        
-        UIView.animate(withDuration: 0.25) { [weak self] () in
-            self?.center = endCenter
+    func correctLocation(animated: Bool = true) {
+        guard let container = superview, !container.bounds.isEmpty else { return }
+        let safeBounds = container.bounds.inset(by: container.safeAreaInsets)
+        let minX = safeBounds.minX + leftMinMargin + bounds.width / 2
+        let maxX = safeBounds.maxX - rightMinMargin - bounds.width / 2
+        let minY = safeBounds.minY + bounds.height / 2
+        let maxY = safeBounds.maxY - bounds.height / 2
+        let endCenter = CGPoint(
+            x: maxX >= minX ? min(max(center.x, minX), maxX) : safeBounds.midX,
+            y: maxY >= minY ? min(max(center.y, minY), maxY) : safeBounds.midY
+        )
+        if animated {
+            UIView.animate(withDuration: 0.25) { self.center = endCenter }
+        } else {
+            center = endCenter
         }
     }
 }

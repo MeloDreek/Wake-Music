@@ -67,15 +67,20 @@ final class PlayerMoreConfigCollectCell: UICollectionViewCell, UITableViewDataSo
     override func layoutSubviews() {
         super.layoutSubviews()
         let compact = bounds.height < 500
-        let top: CGFloat = compact ? 24 : (kaka_IsMacOS() ? 32 : max(safeAreaInsets.top, kStatusBarHeight) + 32)
+        let top: CGFloat = compact ? 24 : (kaka_IsMacOS() ? 32 : safeAreaInsets.top + 32)
         tableView.frame = CGRect(x: 0, y: top, width: bounds.width,
             height: max(0, bounds.height - bottomReservedHeight - 12 - top))
         layoutSongHeader()
     }
 
     private func layoutSongHeader() {
-        let width = songHeader.contentView.width
+        // UITableView does not resize a custom tableHeaderView's content before this
+        // callback. Its previous width must never be the source of the next width.
+        let width = tableView.bounds.width
         guard width > 0 else { return }
+        songHeader.frame.size.width = width
+        songHeader.setNeedsLayout()
+        songHeader.layoutIfNeeded()
         let compact = bounds.height < 500
         let size: CGFloat = compact ? 72 : 140
         artwork.frame = CGRect(x: (width - size) / 2, y: compact ? 20 : 32, width: size, height: size)
@@ -90,6 +95,8 @@ final class PlayerMoreConfigCollectCell: UICollectionViewCell, UITableViewDataSo
             songHeader.frame = CGRect(origin: .zero, size: headerSize)
             tableView.tableHeaderView = songHeader
         }
+        songHeader.setNeedsLayout()
+        songHeader.layoutIfNeeded()
     }
 
     override func didMoveToWindow() {

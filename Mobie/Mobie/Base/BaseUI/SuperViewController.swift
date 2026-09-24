@@ -10,14 +10,14 @@ import KakaFoundation
 import AppGroupKit
 import PanModal
 
-/// 电池栏高度
+/// Legacy top clearance. A status bar can be vertical on adaptive displays, so
+/// statusBarFrame.height must not be treated as a top inset.
 var kStatusBarHeight: CGFloat {
     get {
         if kaka_IsMacOS() {
             return 0
         }else{
-            let height = (UIApplication.shared.connectedScenes.first as? UIWindowScene)?.statusBarManager?.statusBarFrame.height ?? 47
-            return height == 0 ? 21 : height
+            return kaka_safeAreaInsets().top
         }
     }
 }
@@ -84,7 +84,7 @@ public class SuperViewController: UIViewController {
         contentView.frame = CGRect(
             x: insets.left,
             y: 0,
-            width: view.bounds.width - insets.left - insets.right,
+            width: max(0, view.bounds.width - insets.left - insets.right),
             height: view.bounds.height
         )
         

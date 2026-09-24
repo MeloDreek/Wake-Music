@@ -44,10 +44,28 @@ class MusicsViewController: SuperViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
                 
-        deleteToolBar.frame = CGRectMake(0, self.view.height - 49.ckValue() - kaka_safeAreaInsets().bottom, self.view.width, 49.ckValue())
+        let safeInsets = view.safeAreaInsets
+        deleteToolBar.frame = CGRect(x: safeInsets.left,
+                                     y: max(0, view.bounds.height - 49.ckValue() - safeInsets.bottom),
+                                     width: max(0, view.bounds.width - safeInsets.left - safeInsets.right),
+                                     height: 49.ckValue())
         tableView.frame = contentView.bounds
-        
+        if isNoneMusic {
+            let geometry = [tableView.bounds.width, tableView.bounds.height,
+                            tableView.adjustedContentInset.top, tableView.adjustedContentInset.bottom,
+                            tableView.adjustedContentInset.left, tableView.adjustedContentInset.right]
+            if geometry != lastEmptyLayoutGeometry {
+                lastEmptyLayoutGeometry = geometry
+                // Height delegates are not necessarily reevaluated when only
+                // the window height/safe area changes during folding.
+                tableView.reloadData()
+            }
+        } else {
+            lastEmptyLayoutGeometry = []
+        }
     }
+
+    private var lastEmptyLayoutGeometry: [CGFloat] = []
     
     override func preSetupHandleBuness() {
         super.preSetupHandleBuness()
@@ -140,7 +158,7 @@ class MusicsViewController: SuperViewController {
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.navigationBar.barTintColor = .clear
         
-        if kaka_safeAreaInsets().top > 20 || kaka_IsiPad() {
+        if kaka_safeAreaInsets(in: view).top > 20 || kaka_IsiPad() {
             self.navigationController?.navigationBar.prefersLargeTitles = true
             self.navigationItem.largeTitleDisplayMode = .automatic
         }else{
@@ -381,7 +399,7 @@ class MusicsViewController: SuperViewController {
     
     lazy var deleteToolBar: UIToolbar = {
         // 分享，已选择 88 项，更多
-        let frame = CGRectMake(0, self.view.height - 49.ckValue() - kaka_safeAreaInsets().bottom, self.view.width, 49.ckValue())
+        let frame = CGRectMake(0, self.view.height - 49.ckValue() - kaka_safeAreaInsets(in: view).bottom, self.view.width, 49.ckValue())
         let view = UIToolbar(frame: frame)
         let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         let fixedSpace = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: nil, action: nil)

@@ -20,6 +20,82 @@ var playingHeight: CGFloat {
     }
 }
 
+/// Pure geometry kept independent of screen globals and device identifiers.
+enum PlayerMinibarGeometry {
+    static func frame(in bounds: CGRect, safeFrame: CGRect, barFrame: CGRect?,
+        height: CGFloat, gap: CGFloat) -> CGRect? {
+        guard bounds.width > 0, bounds.height > 0,
+              [bounds.minX, bounds.minY, bounds.width, bounds.height,
+               safeFrame.minX, safeFrame.minY, safeFrame.width, safeFrame.height, height, gap]
+                .allSatisfy(\.isFinite) else { return nil }
+        var usable = safeFrame.intersection(bounds)
+        guard !usable.isNull, !usable.isEmpty else { return nil }
+        if let barFrame {
+            let bar = barFrame.intersection(bounds)
+            if !bar.isNull, !bar.isEmpty {
+                if bar.width > bar.height, bar.midY > bounds.midY {
+                    // A floating bottom bar need not reach the bottom edge.
+                    usable.size.height = max(0, min(usable.maxY, bar.minY) - usable.minY)
+                } else if bar.height > bar.width {
+                    // Physical left/right coordinates also cover RTL rails.
+                    if bar.midX < bounds.midX {
+                        let edge = max(usable.minX, bar.maxX)
+                        usable = CGRect(x: edge, y: usable.minY,
+                            width: max(0, usable.maxX - edge), height: usable.height)
+                    } else {
+                        usable.size.width = max(0, min(usable.maxX, bar.minX) - usable.minX)
+                    }
+                }
+            }
+        }
+        let bottom = max(usable.minY, usable.maxY - max(0, gap))
+        let actualHeight = min(max(0, height), bottom - usable.minY)
+        return CGRect(x: usable.minX, y: bottom - actualHeight,
+            width: usable.width, height: actualHeight)
+    }
+}
+
+/// The tab bar can be at the bottom, at the top, or on a vertical edge. Anchor
+/// playback chrome in this window's usable content instead of to tabBar.top.
+@MainActor
+final class PlayerMinibarLayout {
+    private weak var container: UIView?
+    private let left: NSLayoutConstraint
+    private let right: NSLayoutConstraint
+    private let bottom: NSLayoutConstraint
+    private let height: NSLayoutConstraint
+
+    init(toolbar: PlayerControlToolBarView, in container: UIView) {
+        self.container = container
+        toolbar.translatesAutoresizingMaskIntoConstraints = false
+        container.addSubview(toolbar)
+        left = toolbar.leftAnchor.constraint(equalTo: container.leftAnchor)
+        right = toolbar.rightAnchor.constraint(equalTo: container.rightAnchor)
+        bottom = toolbar.bottomAnchor.constraint(equalTo: container.bottomAnchor)
+        height = toolbar.heightAnchor.constraint(equalToConstant: playingHeight)
+        NSLayoutConstraint.activate([left, right, bottom, height])
+    }
+
+    func update(avoiding tabBar: UITabBar? = nil) {
+        guard let container else { return }
+        let bar: CGRect?
+        if let tabBar, tabBar.window != nil, !tabBar.isHidden, tabBar.alpha > 0.01 {
+            bar = tabBar.convert(tabBar.bounds, to: container)
+        } else {
+            bar = nil
+        }
+        let gap: CGFloat
+        if #available(iOS 26.0, *) { gap = 5 } else { gap = 0 }
+        guard let frame = PlayerMinibarGeometry.frame(in: container.bounds,
+            safeFrame: container.safeAreaLayoutGuide.layoutFrame, barFrame: bar,
+            height: playingHeight, gap: gap) else { return }
+        left.constant = frame.minX - container.bounds.minX
+        right.constant = frame.maxX - container.bounds.maxX
+        bottom.constant = frame.maxY - container.bounds.maxY
+        height.constant = frame.height
+    }
+}
+
 
 protocol PlayingControlViewDelegate: AnyObject {
     

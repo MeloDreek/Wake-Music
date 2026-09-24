@@ -50,10 +50,20 @@ func UIFontNumber(_ value: CGFloat) -> UIFont {
 }
 
 
-func kaka_safeAreaInsets() -> UIEdgeInsets {
-    let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
-    let edgeInsets = windowScene?.windows.first?.safeAreaInsets ?? UIWindow().safeAreaInsets
-    return edgeInsets
+/// Prefer the caller's window. The first connected scene may be a background window.
+func kaka_layoutWindow(for view: UIView? = nil) -> UIWindow? {
+    if let window = view?.window { return window }
+    let scenes = UIApplication.shared.connectedScenes.compactMap { $0 as? UIWindowScene }
+    let active = scenes.filter { $0.activationState == .foregroundActive }
+    let visible = active.isEmpty ? scenes.filter { $0.activationState == .foregroundInactive } : active
+    let windows = visible.flatMap(\.windows)
+    return windows.first(where: \.isKeyWindow)
+        ?? windows.first(where: { !$0.isHidden && $0.windowLevel == .normal })
+}
+
+func kaka_safeAreaInsets(in view: UIView? = nil) -> UIEdgeInsets {
+    if let view { return view.safeAreaInsets }
+    return kaka_layoutWindow()?.safeAreaInsets ?? .zero
 }
 
 extension UIDevice {
@@ -77,9 +87,13 @@ extension UIDevice {
             "iPhone14,6"  // iPhone SE (3rd gen)
         ]
         let isSE = iPhoneSEModels.contains(deviceModel)
-        let isOld = kaka_safeAreaInsets().bottom == 0
-        
-        return isSE || isOld
+        // A zero bottom inset also occurs on large/folded displays and is not a
+        // reliable indication of an older, small iPhone.
+        guard userInterfaceIdiom == .phone else { return false }
+        let size = kaka_layoutWindow()?.bounds.size ?? .zero
+        let isCompactScreen = size.width > 0 && size.height > 0
+            && min(size.width, size.height) <= 375 && max(size.width, size.height) <= 667
+        return isSE || isCompactScreen
     }
     
 }

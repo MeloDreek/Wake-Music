@@ -110,6 +110,11 @@ final class AppModeCoordinator {
         activeServer = user
         let session = MusicServerSession(user: user)
         let exit: () -> Void = { [weak self] in self?.requestExitToClassic() }
+        if #available(iOS 18.0, *), !kaka_IsMacOS() {
+            // One shell survives compact/regular transitions, including an
+            // iPhone that gains a regular-width inner display.
+            return MusicServerAdaptiveRootController(session: session, onExit: exit)
+        }
         if UIDevice.current.userInterfaceIdiom == .pad || kaka_IsMacOS() {
             return MusicServerSplitViewController(session: session, onExit: exit)
         }

@@ -39,7 +39,7 @@ class PlayerTapeCollectCell: UICollectionViewCell {
         super.layoutSubviews()
         
         let controlHeight = OrientationManager.shared.playerControlHeight
-        let isPhoneLandscape = kaka_IsiPhone() && OrientationManager.shared.isLandscape
+        let isPhoneLandscape = OrientationManager.shared.isCompactLandscape
 
         toptagView.frame = CGRectMake(0, topSpace, self.bounds.width, 33.ckValue())
 
@@ -49,7 +49,9 @@ class PlayerTapeCollectCell: UICollectionViewCell {
         let tapeTop = isPhoneLandscape ? 20 : soundIconView.frame.maxY + tapeTopSpace + (kaka_IsMacOS() ? -10 : 0)
         tapeView.frame = CGRectMake((self.bounds.width - tapeImgWidth) / 2, tapeTop, tapeImgWidth, tapeImgWidth * tapeValue)
         
-        miniLyricView.frame = CGRectMake(0, CGRectGetMaxY(tapeView.frame) + (isPhoneLandscape ? -20 : 0), self.bounds.width, self.bounds.height - tapeView.frame.maxY - controlHeight)
+        miniLyricView.frame = CGRectMake(0, CGRectGetMaxY(tapeView.frame) + (isPhoneLandscape ? -20 : 0), self.bounds.width, max(0, self.bounds.height - tapeView.frame.maxY - controlHeight))
+        toptagView.isHidden = !AppLocalManager.shared.isShowAudioTag || isPhoneLandscape
+        soundIconView.isHidden = AppLocalManager.shared.isShowAudioTag || isPhoneLandscape
     }
     
     private func setupCusBuness() {
@@ -58,7 +60,7 @@ class PlayerTapeCollectCell: UICollectionViewCell {
         AppLocalManager.shared.$isShowAudioTag
             .receive(on: DispatchQueue.main)
             .sink { [weak self] isShowAudioTag in
-                let isPhoneLandscape = kaka_IsiPhone() && OrientationManager.shared.isLandscape
+                let isPhoneLandscape = OrientationManager.shared.isCompactLandscape
 
                 self?.toptagView.isHidden = !isShowAudioTag || isPhoneLandscape
                 self?.soundIconView.isHidden = isShowAudioTag || isPhoneLandscape
@@ -87,19 +89,24 @@ class PlayerTapeCollectCell: UICollectionViewCell {
     
     var tapeImgWidth: CGFloat {
         get {
+            let preferredWidth: CGFloat
             switch kaka_osType() {
             case .macOS:
                 let screenWidth = self.bounds.size.width * 0.75
                 let maxSize = 500.ckValue()
-                return min(screenWidth, maxSize)
+                preferredWidth = min(screenWidth, maxSize)
             case .iPadOS:
                 let contentWidth = self.bounds.width
-                return contentWidth * 0.75
+                preferredWidth = contentWidth * 0.75
             case .iOS:
-                let isLandscape = OrientationManager.shared.isLandscape
+                let isLandscape = OrientationManager.shared.isCompactLandscape
                 let contentWidth = self.bounds.width
-                return isLandscape ? contentWidth * 0.65 : contentWidth - 30
+                preferredWidth = isLandscape ? contentWidth * 0.65 : contentWidth - 30
             }
+            let top = OrientationManager.shared.isCompactLandscape ? 20 :
+                topSpace + soundIconSize + tapeTopSpace + (kaka_IsMacOS() ? -10 : 0)
+            let availableHeight = max(0, bounds.height - top - OrientationManager.shared.playerControlHeight - 70.ckValue())
+            return max(0, min(preferredWidth, availableHeight * tapeImage.size.width / tapeImage.size.height))
         }
     }
     
@@ -113,7 +120,7 @@ class PlayerTapeCollectCell: UICollectionViewCell {
             case .iPadOS:
                 return OrientationManager.shared.isLandscape ? 80.ckValue() : 130.ckValue()
             case .iOS:
-                let isLandscape = OrientationManager.shared.isLandscape
+                let isLandscape = OrientationManager.shared.isCompactLandscape
                 return isLandscape ? 0 : 80.ckValue()
             }
         }
@@ -133,7 +140,7 @@ class PlayerTapeCollectCell: UICollectionViewCell {
     }
     
     
-    let topSpace = kStatusBarHeight + 15.ckValue() + 40.ckValue()
+    var topSpace: CGFloat { OrientationManager.shared.safeAreaInsets.top + 55.ckValue() }
     
     let tapeImage: UIImage = UIImage(named: "tape_back")!
     

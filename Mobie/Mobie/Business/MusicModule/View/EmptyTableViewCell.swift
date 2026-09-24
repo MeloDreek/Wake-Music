@@ -18,7 +18,44 @@ protocol EmptyContentCellDelegate: AnyObject {
     func emptyContentViewDidClickFormats(cell: UIView)
 }
 
+/// Scroll views already include system bars in their adjusted insets. Subtract
+/// those insets once, and let short windows scroll instead of clipping content.
+enum EmptyContentLayout {
+    static func availableLength(_ length: CGFloat, leading: CGFloat, trailing: CGFloat) -> CGFloat {
+        guard length.isFinite, leading.isFinite, trailing.isFinite else { return 0 }
+        return max(0, length - leading - trailing)
+    }
+
+    static func height(viewport: CGFloat, content: CGFloat) -> CGFloat {
+        max(1, viewport.isFinite ? viewport : 0, content.isFinite ? content : 0)
+    }
+}
+
 class EmptyTableViewCell: UITableViewCell {
+
+    // This is a sizing instance, never dequeued while UIKit is asking for height.
+    private static let sizingCell = EmptyTableViewCell(style: .default, reuseIdentifier: nil)
+
+    static func preferredHeight(in tableView: UITableView, message: String? = nil) -> CGFloat {
+        let insets = tableView.adjustedContentInset
+        let availableWidth = EmptyContentLayout.availableLength(tableView.bounds.width,
+                                                                leading: insets.left, trailing: insets.right)
+        // Inset-grouped rows are narrower than the table's viewport.
+        let rowMargins = tableView.style == .plain ? 0 : tableView.layoutMargins.left + tableView.layoutMargins.right
+        let width = availableWidth > rowMargins ? availableWidth - rowMargins : 320
+        let cell = sizingCell
+        cell.messaleLabel.text = message ?? cell.normalMsg
+        let fitted = cell.contentView.systemLayoutSizeFitting(
+            CGSize(width: width, height: 0),
+            withHorizontalFittingPriority: .required,
+            verticalFittingPriority: .fittingSizeLevel
+        )
+        let viewport = EmptyContentLayout.availableLength(tableView.bounds.height,
+                                                         leading: insets.top, trailing: insets.bottom)
+            - (tableView.tableHeaderView?.bounds.height ?? 0)
+            - (tableView.tableFooterView?.bounds.height ?? 0)
+        return ceil(EmptyContentLayout.height(viewport: viewport, content: fitted.height))
+    }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -52,11 +89,13 @@ class EmptyTableViewCell: UITableViewCell {
         case .macOS: capeWidth = 400.ckValue()
         }
         
-        let value = emptyImgView.image!.size.height / emptyImgView.image!.size.width
+        let imageSize = emptyImgView.image?.size ?? CGSize(width: 1, height: 1)
+        let value = imageSize.height / max(1, imageSize.width)
         emptyImgView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.top.equalToSuperview()
-            make.width.equalTo(capeWidth)
+            make.width.equalTo(capeWidth).priority(999)
+            make.width.lessThanOrEqualToSuperview()
             make.height.equalTo(emptyImgView.snp.width).multipliedBy(value)
         }
         
@@ -104,6 +143,8 @@ class EmptyTableViewCell: UITableViewCell {
         middleView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.centerY.equalToSuperview().offset(-15.ckValue())
+            make.top.greaterThanOrEqualToSuperview().offset(20.ckValue())
+            make.bottom.lessThanOrEqualToSuperview().offset(-20.ckValue())
             make.width.equalTo(contentView).multipliedBy(0.9) // 可根据需要调整
         }
         
@@ -135,7 +176,7 @@ class EmptyTableViewCell: UITableViewCell {
     
     // MARK:  GET && SET 
     
-    var delegate: EmptyContentCellDelegate?
+    weak var delegate: EmptyContentCellDelegate?
     
     let normalMsg = "The ultimate player for your local music library. Enjoy embedded artwork and lyrics, and seamlessly connect to your cloud storage when you need more space.".localStr()
     

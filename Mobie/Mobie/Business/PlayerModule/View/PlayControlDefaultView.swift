@@ -47,7 +47,14 @@ class PlayControlDefaultView: UIView, UIGestureRecognizerDelegate {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        let isPhoneLandscape = kaka_IsiPhone() && OrientationManager.shared.isLandscape
+        let isPhoneLandscape = OrientationManager.shared.isCompactLandscape
+        bottomBar.isHidden = isPhoneLandscape
+        equalizerButton.isHidden = isPhoneLandscape
+        playlistButton.isHidden = isPhoneLandscape
+        moreButton.isHidden = isPhoneLandscape
+        sliderView.isHidden = isPhoneLandscape
+        currentTimeLabel.isHidden = isPhoneLandscape
+        totalTimeLabel.isHidden = isPhoneLandscape
         
         let sliderLeading = kaka_IsMacOS() ? 30 : 10.ckValue()
         let timeLeading = kaka_IsMacOS() ? 36 : 15.ckValue()
@@ -156,7 +163,7 @@ class PlayControlDefaultView: UIView, UIGestureRecognizerDelegate {
         OrientationManager.shared.$isLandscape
             .receive(on: DispatchQueue.main)
             .sink { [weak self] isLandscape in
-                let isPhoneLandScape = isLandscape && kaka_IsiPhone()
+                let isPhoneLandScape = OrientationManager.shared.isCompactLandscape
                 self?.equalizerButton.isHidden = isPhoneLandScape
                 self?.playlistButton.isHidden = isPhoneLandScape
                 self?.moreButton.isHidden = isPhoneLandScape
@@ -256,8 +263,8 @@ class PlayControlDefaultView: UIView, UIGestureRecognizerDelegate {
         
     var playSize: CGFloat {
         get {
-            let isPhoneLandscape = kaka_IsiPhone() && OrientationManager.shared.isLandscape
-            return isPhoneLandscape ? 45.ckValue() : 75.ckValue()
+            let isPhoneLandscape = OrientationManager.shared.isCompactLandscape
+            return min(isPhoneLandscape ? 45.ckValue() : 75.ckValue(), max(0, bounds.width / 4))
         }
     }
     
