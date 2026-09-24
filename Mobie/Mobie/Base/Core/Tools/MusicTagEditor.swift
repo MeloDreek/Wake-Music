@@ -29,7 +29,11 @@ extension MusicTagEditor {
     // 1️⃣使用iTunes查询
     func requestITunesAlbumImages(title: String, artist: String, completion: @escaping (Result<[MusicReleaseModel], KakaError>) -> Void) {
         let keyword = "\(artist) \(title)"
-        let urlStr = "https://itunes.apple.com/search?term=\(keyword)&entity=song&limit=\(Self.maxImageCount)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+        var components = URLComponents(string: "https://itunes.apple.com/search")!
+        components.queryItems = [URLQueryItem(name: "term", value: keyword),
+                                 URLQueryItem(name: "entity", value: "song"),
+                                 URLQueryItem(name: "limit", value: String(Self.maxImageCount))]
+        guard let urlStr = components.url?.absoluteString else { completion(.failure(.emptyData)); return }
         debugPrint("iTunes接口 = \(urlStr)")
         
         APIManager.shared.GET(requestURL: urlStr, parameters: [:]) { data in
@@ -49,7 +53,8 @@ extension MusicTagEditor {
                 return model
             }
             
-            let sortArray = Array(Set(modelArray)) // 去重
+            var seen = Set<MusicReleaseModel>()
+            let sortArray = modelArray.filter { seen.insert($0).inserted }
             completion(.success(sortArray))
             
         } fail: { error in

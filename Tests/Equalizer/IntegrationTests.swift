@@ -164,7 +164,12 @@ final class AudioEngineDynamicsPlayer {}
         ]
         expect(PlayerEqualizerPreset.factoryPresets == expectedPresets, "curated listening goals before selected musical starting points")
         expect(!PlayerEqualizerPreset.factoryPresets.contains(.custom), "custom is not a factory preset")
-        expect(PlayerEqualizerPreset.displayedPresets == [.custom, .bass] + expectedPresets.filter { $0 != .bass }, "Custom is first, followed by Bass Boost, with no duplicates")
+        expect(PlayerEqualizerPreset.displayedPresetRows.count == 3, "picker retains exactly three horizontal rows")
+        expect(PlayerEqualizerPreset.displayedPresetRows.allSatisfy { $0.count == 5 }, "each preset row has five choices")
+        expect(PlayerEqualizerPreset.displayedPresetRows[0] == [.custom, .bass, .bassReduction, .treble, .trebleReduction], "custom starts the first row before bass and treble boosts/cuts")
+        expect(PlayerEqualizerPreset.displayedPresets.filter { $0 == .custom }.count == 1, "custom recall remains available once")
+        expect(Set(PlayerEqualizerPreset.displayedPresets) == Set(expectedPresets + [.custom]), "all curated presets remain available")
+        expect(Set(PlayerEqualizerPreset.displayedPresets).count == PlayerEqualizerPreset.displayedPresets.count, "no duplicate presets")
         let curves = PlayerEqualizerPreset.factoryPresets.compactMap(\.curve)
         expect(Set(curves).count == curves.count, "factory presets have distinct curves")
         for raw in ["flat", "bass", "vocal", "rock", "jazz", "acoustic", "custom"] {

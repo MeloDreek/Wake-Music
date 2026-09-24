@@ -11,595 +11,572 @@ import AVFoundation
 import ShazamKit
 import Alamofire
 
-/// 音频指纹识别器
+/// Local decoding is bounded and off the main thread. Every request owns its session and
+/// metadata context: identical signatures, batch edits and microphone matches cannot mix results.
 class AudioFingerprintMatcher: NSObject, SHSessionDelegate {
-    
-    private lazy var session: SHSession = {
-        return SHSession()
+    private typealias Completion = (Result<AudioFingerprintModel, KakaError>) -> Void
+
+    private final class Request {
+        let id = UUID()
+        let model: MusicItemModel?
+        let requestsLyrics: Bool
+        let completion: Completion
+        let generation: UInt
+        let isLocal: Bool
+        var session: SHSession?
+        var signatures: [SHSignature] = []
+        var nextSignature = 0
+        var timeout: DispatchWorkItem?
+
+        init(model: MusicItemModel?, requestsLyrics: Bool, generation: UInt,
+             isLocal: Bool = true, completion: @escaping Completion) {
+            self.model = model
+            self.requestsLyrics = requestsLyrics
+            self.generation = generation
+            self.isLocal = isLocal
+            self.completion = completion
+        }
+    }
+
+    private static let decodingQueue: OperationQueue = {
+        let queue = OperationQueue()
+        queue.name = "com.wakemusic.fingerprint-decoding"
+        queue.qualityOfService = .userInitiated
+        queue.maxConcurrentOperationCount = 2
+        return queue
     }()
-    
-    private var isLyrics: Bool = true
-    
-    private var model: MusicItemModel?
-    
-    // 一般错误
+
+    // Requests, delegates and callbacks are confined to main. The generation also protects
+    // already-enqueued starts and conversion work when cancellation originates off-main.
+    private var requests: [UUID: Request] = [:]
+    private let generationLock = NSLock()
+    private var generation: UInt = 0
+
     private let normalError = "Audio fingerprint generated, but no matching track was found in global music databases. It may be an unreleased edit or remix, often related to unique waveform characteristics. Please edit manually.".localStr()
-    
-    // 格式问题
     private let formatError = "This specific audio format is not supported for fingerprinting. We highly recommend using modern popular formats such as FLAC, M4A, WAV, or MP3. Please edit manually.".localStr()
 
-    // 关键改动：使用字典通过“指纹的 ID”作为 key 来管理多个并发的回调，防止批量识别时闭包被覆盖
-    private var completions: [String: (Result<AudioFingerprintModel, KakaError>) -> Void] = [:]
-    
-    override init() {
-        super.init()
-
-        self.session.delegate = self
-    }
-    
-    // MARK: - 麦克风识曲专用私有属性
     private let audioEngine = AVAudioEngine()
     private var signatureGeneratorForMic: SHSignatureGenerator?
-    private let micSignatureKey = "KAKA_MIC_RECOGNITION_KEY" // 独家固定的 Key，用于从 completions 中存取麦克风的回调
+    private var microphoneCompletion: Completion?
+    private var microphoneGeneration = UUID()
+    private let microphoneLock = NSLock()
 
-
-    
-    /// 传入本地音频模型的 URL 进行音频指纹识别，回调返回 元数据模型
-    /// - Parameters:
-    ///   - model: 音频模型
-    ///   - isRequestLyrics: 是否请求歌词，不请求则快很多
-    ///   - completion: 回调的元数据
-    func matchLocalAudio(model: MusicItemModel, isRequestLyrics: Bool = true, completion: @escaping (Result<AudioFingerprintModel, KakaError>) -> Void) {
-        
-        self.model = model
-        self.isLyrics = isRequestLyrics
-        
-        // 0. 特殊处理：拦截 DSD 等非 PCM 编码的超级发烧级音频格式
-        // 因为这类文件的后缀和底层编码 AVAudioFile 无法直接处理，提前拦截能给予用户最精准的引导
-        let pathExtension = model.mediaPlayURL.pathExtension.lowercased()
-        if pathExtension == "dsf" || pathExtension == "dff" || pathExtension == "ape" {
-            completion(.failure(.custom(self.formatError)))
-            return
+    deinit {
+        for request in requests.values {
+            request.timeout?.cancel()
+            request.session?.delegate = nil
         }
-        
-        // 1. 读取音频文件
-        guard let audioFile = try? AVAudioFile(forReading: model.mediaPlayURL) else {
-            debugPrint("无法读取音频文件")
-            // 细化读文件失败的提示：可能是权限、文件损坏，或者系统不支持该格式
-            completion(.failure(.custom(self.formatError)))
-            return
+        if audioEngine.isRunning {
+            audioEngine.inputNode.removeTap(onBus: 0)
+            audioEngine.stop()
         }
-        
-        // 2. 配置 ShazamKit 标准格式
-        guard let targetFormat = AVAudioFormat(standardFormatWithSampleRate: 44100, channels: 1) else {
-            completion(.failure(.custom(self.formatError)))
-            return
-        }
-        
-        // 3. 初始化指纹生成器与 Converter
-        let signatureGenerator = SHSignatureGenerator()
-        guard let converter = AVAudioConverter(from: audioFile.processingFormat, to: targetFormat) else {
-            // 如果 Converter 初始化失败，多半是因为源音频编码太特殊（如非标准多声道或极高位深）
-            completion(.failure(.custom("Unsupported audio encoding channel or sample rate. Please edit it manually.".localStr())))
-            return
-        }
-        
-        // 4. 读取与转码
-        let bufferSize = 44100 * 12
-        guard let inputBuffer = AVAudioPCMBuffer(pcmFormat: audioFile.processingFormat, frameCapacity: AVAudioFrameCount(bufferSize)),
-              let outputBuffer = AVAudioPCMBuffer(pcmFormat: targetFormat, frameCapacity: AVAudioFrameCount(bufferSize)) else {
-            completion(.failure(.custom("System memory is insufficient to process this audio file. This is usually due to temporary high system overhead. Please edit it manually.".localStr())))
-            return
-        }
-        
-        do {
-            try audioFile.read(into: inputBuffer, frameCount: AVAudioFrameCount(bufferSize))
-            
-            var error: NSError?
-            let status = converter.convert(to: outputBuffer, error: &error) { inNumPackages, outStatus in
-                outStatus.pointee = .haveData
-                return inputBuffer
-            }
-            
-            if status == .haveData && error == nil {
-                let time = AVAudioTime(sampleTime: 0, atRate: targetFormat.sampleRate)
-                try signatureGenerator.append(outputBuffer, at: time)
-            } else {
-                debugPrint("音频格式转换失败: \(String(describing: error))")
-                completion(.failure(.custom("Audio format conversion failed. The media container could not be processed. Please edit it manually.".localStr())))
-                return
-            }
-        } catch {
-            debugPrint("读取或转换时出错: \(error)")
-            // 兜底捕获异常，比如不可预测的硬件解密失败
-            completion(.failure(.custom("\(error.localizedDescription) ❌")))
-            return
-        }
-        
-        // 5. 生成指纹
-        let signature = signatureGenerator.signature()
-        
-        // 将 signature 的底层数据转为 Base64 字符串作为唯一 Key
-        let signatureKey = signature.dataRepresentation.base64EncodedString()
-        self.completions[signatureKey] = completion
-        
-        // 提交匹配
-        self.session.match(signature)
     }
-    
-    // MARK: - SHSessionDelegate 代理回调
-    // 识别成功
-    func session(_ session: SHSession, didFind match: SHMatch) {
-        DispatchQueue.main.async {
-            let signature = match.querySignature
-            let signatureKey = signature.dataRepresentation.base64EncodedString()
-            guard let completion = self.completions[signatureKey] else {
-                debugPrint("⚠️ 严重警告：成功回调了，但字典里找不到对应的 Key！")
-                return
+
+    private func currentGeneration() -> UInt {
+        generationLock.lock()
+        defer { generationLock.unlock() }
+        return generation
+    }
+
+    /// Cancels local work without calling its completion. Callers cancelling an Operation
+    /// should finish that operation themselves. In particular, cancellation is not a failed
+    /// fingerprint and must not launch a catalog-search fallback or metadata writes.
+    func cancelLocalMatching() {
+        generationLock.lock()
+        generation &+= 1
+        generationLock.unlock()
+        DispatchQueue.main.async { [weak self] in
+            guard let self else { return }
+            for request in Array(self.requests.values)
+                where request.isLocal && request.generation != self.currentGeneration() {
+                self.remove(request)
             }
-            
-            self.completions.removeValue(forKey: signatureKey)
-            
-            guard let firstTrack = match.mediaItems.first else {
-                completion(.failure(.unknowError))
-                return
+        }
+    }
+
+    func matchLocalAudio(model: MusicItemModel, isRequestLyrics: Bool = true,
+                         completion: @escaping (Result<AudioFingerprintModel, KakaError>) -> Void) {
+        let request = Request(model: model, requestsLyrics: isRequestLyrics,
+                              generation: currentGeneration(), completion: completion)
+        DispatchQueue.main.async { [weak self] in
+            guard let self, request.generation == self.currentGeneration() else { return }
+            self.requests[request.id] = request
+            self.scheduleTimeout(for: request, seconds: 45) { [weak self] request in
+                guard let self else { return }
+                self.finish(request, with: .failure(.custom(self.normalError)))
             }
-            
-            let audioModel = firstTrack.convertAudioModel()
-            if self.isLyrics {
-                
-                self.fetchLRCLyricArray(audioModel: audioModel, model: self.model) { result in
+            let catalog = SHSession().catalog
+            let minimum = catalog.minimumQuerySignatureDuration
+            let maximum = min(12, catalog.maximumQuerySignatureDuration)
+            Self.decodingQueue.addOperation { [weak self] in
+                guard let self, self.currentGeneration() == request.generation else { return }
+                let result: Result<[SHSignature], KakaError>
+                do {
+                    result = .success(try self.makeSignatures(url: model.mediaPlayURL,
+                        minimumDuration: minimum, maximumDuration: maximum,
+                        isCancelled: { self.currentGeneration() != request.generation }))
+                } catch let error as KakaError {
+                    result = .failure(error)
+                } catch {
+                    result = .failure(.custom(self.formatError))
+                }
+                DispatchQueue.main.async { [weak self] in
+                    guard let self, self.isActive(request) else { return }
                     switch result {
-                    case .success(let lyrics):
-                        var newModel = audioModel
-                        newModel.lyrics = lyrics
-                        completion(.success(newModel))
-                        break
-                    case .failure(_):
-                        completion(.success(audioModel))
-                        break
+                    case .success(let signatures):
+                        request.signatures = signatures
+                        self.submitNextSignature(request)
+                    case .failure(let error):
+                        self.finish(request, with: .failure(error))
                     }
                 }
-//                self.requestFingerLRCLyricLib(audioModel: audioModel) { result in
-//                    switch result {
-//                    case .success(let newModel):
-//                        completion(.success(newModel))
-//                        break
-//                    case .failure(_):
-//                        completion(.success(audioModel))
-//                        break
-//                    }
-//                }
-            }else{
-                completion(.success(audioModel))
             }
         }
     }
-    
-    // 没找到匹配，或者识别失败
-    func session(_ session: SHSession, didNotFindMatchFor signature: SHSignature, error: Error?) {
-        DispatchQueue.main.async {
-            let signatureKey = signature.dataRepresentation.base64EncodedString()
-            guard let completion = self.completions[signatureKey] else {
-                debugPrint("⚠️ 严重警告：失败回调了，但字典里找不到对应的 Key！")
+
+    /// Streams fresh input once, at its actual sample rate, until the converter reaches EOF.
+    /// Returning the same buffer on every converter input callback repeats samples and used
+    /// to truncate high-rate audio (or pad short files with duplicated audio).
+    private func makeSignatures(url: URL, minimumDuration: TimeInterval,
+                                maximumDuration: TimeInterval,
+                                isCancelled: @escaping () -> Bool) throws -> [SHSignature] {
+        guard url.isFileURL else { throw KakaError.custom(formatError) }
+        let scoped = url.startAccessingSecurityScopedResource()
+        defer { if scoped { url.stopAccessingSecurityScopedResource() } }
+        let file = try AVAudioFile(forReading: url)
+        let inputFormat = file.processingFormat
+        guard inputFormat.sampleRate.isFinite, inputFormat.sampleRate > 0,
+              inputFormat.sampleRate <= 768_000,
+              inputFormat.channelCount > 0, inputFormat.channelCount <= 32,
+              file.length > 0,
+              maximumDuration.isFinite, maximumDuration >= minimumDuration,
+              let targetFormat = AVAudioFormat(standardFormatWithSampleRate: 44_100, channels: 1)
+        else { throw KakaError.custom(formatError) }
+
+        let duration = Double(file.length) / inputFormat.sampleRate
+        guard duration >= minimumDuration else {
+            throw KakaError.custom("Audio sample is too short or invalid for fingerprinting. The duration is insufficient for acoustic analysis. Please edit it manually.".localStr())
+        }
+        // Avoid long silent intros on full-length tracks. One other non-overlapping sample
+        // is available only if the first query fails; never upload the whole recording.
+        let firstOffset = duration > 30 ? min(15, duration * 0.1) : 0
+        var offsets = [min(firstOffset, max(0, duration - maximumDuration))]
+        // Cap source decoding at roughly 72 seconds even for long mixes/podcasts.
+        let middleOffset = min(60, duration / 2, max(0, duration - maximumDuration))
+        if middleOffset - offsets[0] >= maximumDuration { offsets.append(middleOffset) }
+
+        var signatures: [SHSignature] = []
+        var sourceFrame: AVAudioFramePosition = 0
+        for offset in offsets {
+            if isCancelled() { throw KakaError.youhaveCanceled }
+            guard let converter = AVAudioConverter(from: inputFormat, to: targetFormat),
+                  let input = AVAudioPCMBuffer(pcmFormat: inputFormat, frameCapacity: 8192),
+                  let output = AVAudioPCMBuffer(pcmFormat: targetFormat, frameCapacity: 4096)
+            else { throw KakaError.custom(formatError) }
+            let startFrame = AVAudioFramePosition(offset * inputFormat.sampleRate)
+            // Some compressed files open successfully but AVAudioFile.framePosition's getter
+            // AND setter raise Objective-C exceptions (not catchable by Swift do/catch).
+            // Count actual decoded frames and advance via bounded reads; never query or seek.
+            while sourceFrame < startFrame {
+                if isCancelled() { throw KakaError.youhaveCanceled }
+                let count = min(AVAudioFramePosition(input.frameCapacity), startFrame - sourceFrame)
+                try file.read(into: input, frameCount: AVAudioFrameCount(count))
+                guard input.frameLength > 0 else { break }
+                sourceFrame += AVAudioFramePosition(input.frameLength)
+            }
+            guard sourceFrame >= startFrame else { continue }
+            let endFrame = min(file.length, startFrame + AVAudioFramePosition(maximumDuration * inputFormat.sampleRate))
+            let generator = SHSignatureGenerator()
+            var outputFrames: AVAudioFramePosition = 0
+            let maximumOutputFrames = AVAudioFramePosition(maximumDuration * targetFormat.sampleRate)
+            var hasAudibleSamples = false
+            var reachedEnd = false
+            var iterations = 0
+            while !reachedEnd && outputFrames < maximumOutputFrames {
+                if isCancelled() { throw KakaError.youhaveCanceled }
+                // A corrupt decoder/converter must not keep a batch edit running forever.
+                iterations += 1
+                guard iterations <= 1024 else { throw KakaError.custom(formatError) }
+                output.frameLength = 0
+                var conversionError: NSError?
+                var readError: Error?
+                let status = converter.convert(to: output, error: &conversionError) { requested, state in
+                    guard !isCancelled(), sourceFrame < endFrame else {
+                        state.pointee = .endOfStream
+                        return nil
+                    }
+                    do {
+                        let count = min(Int64(requested), Int64(input.frameCapacity), endFrame - sourceFrame)
+                        try file.read(into: input, frameCount: AVAudioFrameCount(count))
+                        guard input.frameLength > 0 else {
+                            state.pointee = .endOfStream
+                            return nil
+                        }
+                        sourceFrame += AVAudioFramePosition(input.frameLength)
+                        state.pointee = .haveData
+                        return input
+                    } catch {
+                        readError = error
+                        state.pointee = .endOfStream
+                        return nil
+                    }
+                }
+                if let readError { throw readError }
+                if let conversionError { throw conversionError }
+                guard status != .error else { throw KakaError.custom(formatError) }
+                if output.frameLength > 0 {
+                    output.frameLength = min(output.frameLength, AVAudioFrameCount(maximumOutputFrames - outputFrames))
+                    if let samples = output.floatChannelData?[0], !hasAudibleSamples {
+                        for index in 0..<Int(output.frameLength) where abs(samples[index]) > 0.0001 {
+                            hasAudibleSamples = true
+                            break
+                        }
+                    }
+                    try generator.append(output, at: AVAudioTime(sampleTime: outputFrames, atRate: targetFormat.sampleRate))
+                    outputFrames += AVAudioFramePosition(output.frameLength)
+                }
+                reachedEnd = status == .endOfStream || (status == .inputRanDry && output.frameLength == 0)
+            }
+            let signature = generator.signature()
+            if hasAudibleSamples, signature.duration >= minimumDuration,
+               signature.duration <= maximumDuration + 0.001 {
+                signatures.append(signature)
+            }
+        }
+        guard !signatures.isEmpty else {
+            throw KakaError.custom("Failed to generate a valid acoustic signature. Please check if the audio file is muted or completely silent. Please edit it manually.".localStr())
+        }
+        return signatures
+    }
+
+    private func isActive(_ request: Request) -> Bool {
+        requests[request.id] === request && (!request.isLocal || request.generation == currentGeneration())
+    }
+
+    private func remove(_ request: Request) {
+        request.timeout?.cancel()
+        request.timeout = nil
+        request.session?.delegate = nil
+        request.session = nil
+        requests.removeValue(forKey: request.id)
+    }
+
+    private func finish(_ request: Request, with result: Result<AudioFingerprintModel, KakaError>) {
+        guard isActive(request) else { return }
+        remove(request)
+        request.completion(result)
+    }
+
+    private func scheduleTimeout(for request: Request, seconds: TimeInterval, action: @escaping (Request) -> Void) {
+        request.timeout?.cancel()
+        let work = DispatchWorkItem { [weak self, weak request] in
+            guard let self, let request, self.isActive(request) else { return }
+            action(request)
+        }
+        request.timeout = work
+        DispatchQueue.main.asyncAfter(deadline: .now() + seconds, execute: work)
+    }
+
+    private func submitNextSignature(_ request: Request) {
+        guard isActive(request) else { return }
+        request.session?.delegate = nil
+        guard request.nextSignature < request.signatures.count else {
+            finish(request, with: .failure(.custom(normalError)))
+            return
+        }
+        let signature = request.signatures[request.nextSignature]
+        request.nextSignature += 1
+        // A fresh session per attempt also makes a late delegate from a timed-out request harmless.
+        let session = SHSession()
+        session.delegate = self
+        request.session = session
+        scheduleTimeout(for: request, seconds: 12) { [weak self] request in
+            self?.submitNextSignature(request)
+        }
+        session.match(signature)
+    }
+
+    func session(_ session: SHSession, didFind match: SHMatch) {
+        DispatchQueue.main.async { [weak self] in
+            guard let self, let request = self.requests.values.first(where: { $0.session === session }),
+                  self.isActive(request) else { return }
+            request.session?.delegate = nil
+            request.session = nil
+            guard let first = match.mediaItems.first else {
+                self.submitNextSignature(request)
                 return
             }
-            
-            self.completions.removeValue(forKey: signatureKey)
-            
-            debugPrint("未找到匹配或发生错误: \(String(describing: error))")
-            
-            if let shazamError = error as? SHError {
-                // 更加详尽的 SHError 枚举映射
-                switch shazamError.code {
-                    // 100: 音频格式不被系统识别（如一些非标准编码）
-                case .invalidAudioFormat:
-                    completion(.failure(.custom(self.formatError)))
-                    break
-                    // 101: 音频不连续，可能中间有严重损坏、静音块或者文件断层
-                case .audioDiscontinuity:
-                    completion(.failure(.custom("Audio stream interruption detected. The file may be corrupted or incomplete. Please edit it manually.".localStr())))
-                    break
-                    // 200: 无法从音频生成指纹。最常见的原因是音频文件前十几秒全是静音（没有声音特征）
-                case .signatureInvalid:
-                    completion(.failure(.custom("Failed to generate a valid acoustic signature. Please check if the audio file is muted or completely silent. Please edit it manually.".localStr())))
-                    break
-                    // 201: 生成的指纹时间长度不符合规范（太短或超限）
-                case .signatureDurationInvalid:
-                    completion(.failure(.custom("Audio sample is too short or invalid for fingerprinting. The duration is insufficient for acoustic analysis. Please edit it manually.".localStr())))
-                    break
-                    // 202: 极其高频！Shazam 官方曲库里确实没有这首歌的指纹记录
-                case .matchAttemptFailed:
-                    completion(.failure(.custom(self.normalError)))
-                    break
-                    // 300: 自定义曲库格式错误（App 内未使用自定义曲库时一般不触发）
-                case .customCatalogInvalid:
-                    completion(.failure(.custom("The custom music catalog container is invalid or corrupted. Acoustic signatures cannot be indexed. Please edit it manually.".localStr())))
-                    break
-                    // 301: 自定义曲库的 URL 格式非法
-                case .customCatalogInvalidURL:
-                    completion(.failure(.custom("The URL for the custom music catalog is invalid.".localStr())))
-                    break
-                    // 400: 同步到用户的 Shazam 音乐同步库时失败
-                case .mediaLibrarySyncFailed:
-                    completion(.failure(.custom(self.normalError)))
-                    break
-                    // 500: 框架内部通用未知错误
-                case .internalError:
-                    completion(.failure(.custom(self.normalError)))
-                    break
-                    // 600: 获取一首或多首歌曲的详细媒体信息失败
-                case .mediaItemFetchFailed:
-                    completion(.failure(.custom(self.normalError)))
-                    break
-                @unknown default:
-                    completion(.failure(.custom(self.normalError)))
-                    break
-                }
-            } else {
-                // 其它未知错误
-                debugPrint("❌音频指纹检索失败：\(error?.localizedDescription ?? "")")
-                completion(.failure(.custom(self.normalError)))
+            var audioModel = first.convertAudioModel()
+            if audioModel.duration == nil || audioModel.duration! <= 0, let localModel = request.model {
+                audioModel.duration = TimeInterval(localModel.durationSeconds)
+            }
+            guard request.requestsLyrics else {
+                self.finish(request, with: .success(audioModel))
+                return
+            }
+            let recognized = audioModel
+            // Missing/slow lyrics must never throw away a successful acoustic match.
+            self.scheduleTimeout(for: request, seconds: 18) { [weak self] request in
+                self?.finish(request, with: .success(recognized))
+            }
+            self.fetchLRCLyricArray(audioModel: recognized, model: request.model) { [weak self] result in
+                guard let self, self.isActive(request) else { return }
+                var final = recognized
+                if case .success(let lyrics) = result { final.lyrics = lyrics }
+                self.finish(request, with: .success(final))
             }
         }
-        
     }
-    
+
+    func session(_ session: SHSession, didNotFindMatchFor signature: SHSignature, error: Error?) {
+        DispatchQueue.main.async { [weak self] in
+            guard let self, let request = self.requests.values.first(where: { $0.session === session }),
+                  self.isActive(request) else { return }
+            self.submitNextSignature(request)
+        }
+    }
 }
 
 extension AudioFingerprintMatcher {
-    /// 5.1 启动麦克风“听歌识曲”
-    /// - Parameters:
-    ///   - timeout: 自动截止识别的超时时间（秒），默认 12 秒已足够 Shazam 识别
-    func startTunnelingMicrophone(timeout: TimeInterval = 12.0, completion: @escaping (Result<AudioFingerprintModel, KakaError>) -> Void) {
-        // 1. 如果当前引擎正在运行，先重置
-        if audioEngine.isRunning {
-            self.stopTunnelingMicrophone()
+    func startTunnelingMicrophone(timeout: TimeInterval = 12,
+                                  completion: @escaping (Result<AudioFingerprintModel, KakaError>) -> Void) {
+        guard Thread.isMainThread else {
+            DispatchQueue.main.async { [weak self] in self?.startTunnelingMicrophone(timeout: timeout, completion: completion) }
+            return
         }
-        
-        // 2. 检查并请求麦克风权限（iOS 系统的硬性要求）
-        let permissionStatus = AVCaptureDevice.authorizationStatus(for: .audio)
-        if permissionStatus == .denied || permissionStatus == .restricted {
+        stopTunnelingMicrophone(shouldMatch: false)
+        let permission = AVCaptureDevice.authorizationStatus(for: .audio)
+        if permission == .notDetermined {
+            let token = microphoneGeneration
+            AVCaptureDevice.requestAccess(for: .audio) { [weak self] _ in
+                DispatchQueue.main.async {
+                    guard let self, self.microphoneGeneration == token else { return }
+                    self.startTunnelingMicrophone(timeout: timeout, completion: completion)
+                }
+            }
+            return
+        }
+        guard permission == .authorized else {
             completion(.failure(.custom("Microphone permission denied. Please enable it in Settings to use Live Recognition.".localStr())))
             return
         }
-        
-        // 3. 配置音频会话
-        let audioSession = AVAudioSession.sharedInstance()
         do {
-            try audioSession.setCategory(.playAndRecord, options: [.defaultToSpeaker, .allowBluetoothHFP])
-            try audioSession.setActive(true, options: .notifyOthersOnDeactivation)
+            let session = AVAudioSession.sharedInstance()
+            try session.setCategory(.playAndRecord, options: [.defaultToSpeaker, .allowBluetoothHFP])
+            try session.setActive(true, options: .notifyOthersOnDeactivation)
         } catch {
             completion(.failure(.custom("Failed to initialize system audio hardware interface.".localStr())))
             return
         }
-        
-        // 4. 初始化全新的指纹生成器，并将回调安全寄存
-        self.signatureGeneratorForMic = SHSignatureGenerator()
-        self.completions[micSignatureKey] = completion
-        
-        // 5. 配置 AVAudioEngine 的 Input Node
-        let inputNode = audioEngine.inputNode
-        let bus = 0
-        let inputFormat = inputNode.inputFormat(forBus: bus)
-        
-        // 确保输入格式合法，防止个别蓝牙耳机导致硬件采样率为 0
-        guard inputFormat.sampleRate > 0 else {
+        let input = audioEngine.inputNode
+        let format = input.inputFormat(forBus: 0)
+        guard format.sampleRate > 0, format.channelCount > 0 else {
             completion(.failure(.custom("Invalid audio input hardware sample rate.".localStr())))
             return
         }
-        
-        // 6. 安装音频 Tap 实时捞取麦克风 Buffer 并塞入指纹生成器
-        inputNode.installTap(onBus: bus, bufferSize: 1024, format: inputFormat) { [weak self] buffer, time in
-            guard let self = self else { return }
-            do {
-                try self.signatureGeneratorForMic?.append(buffer, at: time)
-            } catch {
-                debugPrint("麦克风 Buffer 写入指纹生成器失败: \(error)")
-            }
+        let generator = SHSignatureGenerator()
+        signatureGeneratorForMic = generator
+        microphoneCompletion = completion
+        input.installTap(onBus: 0, bufferSize: 1024, format: format) { [weak self] buffer, time in
+            guard let self else { return }
+            self.microphoneLock.lock()
+            defer { self.microphoneLock.unlock() }
+            try? generator.append(buffer, at: time)
         }
-        
-        // 7. 启动音频引擎
         do {
             audioEngine.prepare()
             try audioEngine.start()
         } catch {
-            inputNode.removeTap(onBus: bus)
+            input.removeTap(onBus: 0)
+            signatureGeneratorForMic = nil
+            microphoneCompletion = nil
             completion(.failure(.custom("Failed to start audio engine compiler for recording.".localStr())))
             return
         }
-        
-        // 8. 设定一个定时器，到了超时时间如果用户没手动停止，自动触发识别
-        DispatchQueue.main.asyncAfter(deadline: .now() + timeout) { [weak self] in
-            guard let self = self else { return }
-            if self.audioEngine.isRunning {
-                debugPrint("⏰ 麦克风录音达到上限（\(timeout)秒），开始自动提交检索...")
-                self.stopTunnelingMicrophone(shouldMatch: true)
-            }
+        let token = microphoneGeneration
+        DispatchQueue.main.asyncAfter(deadline: .now() + min(12, max(3, timeout))) { [weak self] in
+            guard let self, self.microphoneGeneration == token, self.audioEngine.isRunning else { return }
+            self.stopTunnelingMicrophone(shouldMatch: true)
         }
     }
-    
-    /// 5.2 停止麦克风录音
-    /// - Parameter shouldMatch: 是否在停止时提交给服务器匹配。如果用户手动点了“取消”，传入 false 即可
+
     func stopTunnelingMicrophone(shouldMatch: Bool = true) {
-        guard audioEngine.isRunning else { return }
-        
-        // 1. 关停引擎并卸载 Tap
-        audioEngine.inputNode.removeTap(onBus: 0)
-        audioEngine.stop()
-        
-        // 恢复系统的底层音频环境（非强制，视你的 App 是否有后台播放需求而定）
-        _ = try? AVAudioSession.sharedInstance().setActive(false, options: .notifyOthersOnDeactivation)
-        
-        guard shouldMatch, let generator = signatureGeneratorForMic else {
-            // 如果不需要匹配（比如用户中途点了取消），彻底清理
-            self.completions.removeValue(forKey: micSignatureKey)
-            self.signatureGeneratorForMic = nil
+        guard Thread.isMainThread else {
+            DispatchQueue.main.async { [weak self] in self?.stopTunnelingMicrophone(shouldMatch: shouldMatch) }
             return
         }
-        
-        // 2. 生成指纹
-        let signature = generator.signature()
-        self.signatureGeneratorForMic = nil
-        
-        // 3. 【高能注意】：因为麦克风流生成的 signatureKey 是随机的，为了让 Delegate 能够无缝兼容，
-        // 我们在提交 match 之前，把之前用固定的 micSignatureKey 存的回调，转移到真实的 signatureKey 字典中
-        let realSignatureKey = signature.dataRepresentation.base64EncodedString()
-        if let micCompletion = self.completions[micSignatureKey] {
-            self.completions[realSignatureKey] = micCompletion
-            self.completions.removeValue(forKey: micSignatureKey) // 功成身退，清除老 Key
+        microphoneGeneration = UUID()
+        if !shouldMatch {
+            for request in Array(requests.values) where !request.isLocal { remove(request) }
         }
-        
-        // 4. 提交给官方云端库匹配
-        self.session.match(signature)
+        if audioEngine.isRunning {
+            audioEngine.inputNode.removeTap(onBus: 0)
+            audioEngine.stop()
+            try? AVAudioSession.sharedInstance().setActive(false, options: .notifyOthersOnDeactivation)
+        }
+        defer {
+            microphoneCompletion = nil
+            signatureGeneratorForMic = nil
+        }
+        guard shouldMatch, let generator = signatureGeneratorForMic, let completion = microphoneCompletion else { return }
+        microphoneLock.lock()
+        let signature = generator.signature()
+        microphoneLock.unlock()
+        let request = Request(model: nil, requestsLyrics: true, generation: currentGeneration(),
+                              isLocal: false, completion: completion)
+        request.signatures = [signature]
+        requests[request.id] = request
+        submitNextSignature(request)
     }
 }
 
 extension AudioFingerprintMatcher {
-    
-    /// 统一处理歌词搜索
-    /// - Parameters:
-    ///   - audioModel: 优先指纹信息
-    ///   - model: 内嵌信息
-    ///   - completion: 去重排序后的歌词数组回调
-    func fetchLRCLyricArray(audioModel: AudioFingerprintModel, model: MusicItemModel?, completion: @escaping (Result<[LyricInfoModel], KakaError>) -> Void) {
-        let dispatchGroup = DispatchGroup()
-        var tempArray = [LRCLibLyricModel]()
-        
-        // 1️⃣ 优先根据指纹信息搜索
-        dispatchGroup.enter()
-        self.requestFingerLRCLyricLib(audioModel: audioModel) { result in
-            switch result {
-            case .success(let lyrics):
-                tempArray.append(contentsOf: lyrics)
-                break
-            case .failure(_):
-                break
+    /// Candidates must identify the same recording before synchronized text receives a small
+    /// preference. A different song's timed lyrics must not outrank this song's plain lyrics.
+    func fetchLRCLyricArray(audioModel: AudioFingerprintModel, model: MusicItemModel?,
+                           completion: @escaping (Result<[LyricInfoModel], KakaError>) -> Void) {
+        guard Thread.isMainThread else {
+            DispatchQueue.main.async { [weak self] in
+                self?.fetchLRCLyricArray(audioModel: audioModel, model: model, completion: completion)
             }
-            dispatchGroup.leave()
-        }
-        
-        // 2️⃣ 其次根据内嵌的信息搜索
-        if (model?.title != audioModel.title) || (model?.artist != audioModel.artist) {
-            dispatchGroup.enter()
-            self.requestEmbedLRCLyricLib(model: model) { result in
-                switch result {
-                case .success(let lyrics):
-                    tempArray.append(contentsOf: lyrics)
-                    break
-                case .failure(_):
-                    break
-                }
-                dispatchGroup.leave()
-            }
-        }
-        
-        dispatchGroup.notify(queue: .main) {
-            
-            guard tempArray.count > 0 else {
-                completion(.failure(.emptyData))
-                return
-            }
-            
-            // 1. 采用高效率的去重方式（保留原厂顺序，不使用无序的 Set）
-            var uniqueLyrics: [LRCLibLyricModel] = [] // 假设这是你的歌词模型类型
-            var seenIds = Set<String>()
-            for lyric in tempArray {
-                // 假设用歌词的 ID 或者标志作为唯一键，如果没有，可以拼个 String: "\(lyric.title ?? "")-\(lyric.artist ?? "")"
-                let uniqueKey = "\(lyric.name)-\(lyric.artistName)-\(lyric.syncedLyrics?.count ?? 0)"
-                if !seenIds.contains(uniqueKey) {
-                    seenIds.insert(uniqueKey)
-                    uniqueLyrics.append(lyric)
-                }
-            }
-
-            // 2. 智能化权重积分排序
-            let sortArray = uniqueLyrics.enumerated().sorted { (item1, item2) -> Bool in
-                let index1 = item1.offset
-                let index2 = item2.offset
-                let model1 = item1.element
-                let model2 = item2.element
-                
-                // 计算 model1 和 model2 的匹配得分
-                let score1 = self.calculateMatchScore(model: model1, target: audioModel)
-                let score2 = self.calculateMatchScore(model: model2, target: audioModel)
-                
-                if score1 != score2 {
-                    return score1 > score2 // 分数高的排前面
-                }
-                
-                // 💡 降级兜底：如果分数一模一样，严格保留 LRCLIB 接口返回的原厂先后顺序（热度高者居前）
-                return index1 < index2
-            }.map { $0.element }
-            
-            let lyricArray = sortArray.compactMap({ $0.convertLyricModel() })
-            completion(.success(lyricArray))
-        }
-    }
-    
-    /// 使用内嵌的信息搜索歌词
-    func requestEmbedLRCLyricLib(model: MusicItemModel?, completion: @escaping (Result<[LRCLibLyricModel], KakaError>) -> Void) {
-        guard let model = model else {
-            completion(.failure(.unknowError))
             return
         }
-        
-        let getUrl = "https://lrclib.net/api/get"
-        let getParameters: Parameters = [
-            "track_name": model.title ?? "",
-            "artist_name": model.artist ?? "",
-            "album_name": model.album ?? "",
-            "duration": model.durationSeconds
-        ]
-        
-        AF.request(getUrl, method: .get, parameters: getParameters).responseData { response in
-            
-            switch response.result {
-            case .success(let data):
-                let dict = try? JSONSerialization.jsonObject(with: data, options: []) as? [String : Any]
-                
-                // 检查是否是 LRCLIB 标准的 404 Track not found
-                if let statusCode = dict?["statusCode"] as? Int, statusCode == 404 {
-                    completion(.failure(.unknowError))
-                    return
+        var completed = false
+        var timeout: DispatchWorkItem?
+        let finish: (Result<[LyricInfoModel], KakaError>) -> Void = { result in
+            guard !completed else { return }
+            completed = true
+            timeout?.cancel()
+            timeout = nil
+            completion(result)
+        }
+        let deadline = DispatchWorkItem { finish(.failure(.emptyData)) }
+        timeout = deadline
+        DispatchQueue.main.asyncAfter(deadline: .now() + 18, execute: deadline)
+        var target = audioModel
+        if Self.normalized(target.title).isEmpty { target.title = model?.title }
+        if Self.normalized(target.artist).isEmpty { target.artist = model?.artist }
+        if target.duration == nil || target.duration! <= 0, let localModel = model {
+            target.duration = TimeInterval(localModel.durationSeconds)
+        }
+        let resolved = target
+        requestFingerLRCLyricLib(audioModel: resolved) { result in
+            switch result {
+            case .failure(let error): finish(.failure(error))
+            case .success(let candidates):
+                var seen = Set<String>()
+                let ranked = candidates.enumerated().compactMap { index, candidate -> (Int, Int, LRCLibLyricModel)? in
+                    guard let score = Self.lyricMatchScore(candidate, target: resolved) else { return nil }
+                    let key = "\(candidate.id)|\(candidate.name)|\(candidate.artistName)|\(candidate.syncedLyrics ?? candidate.plainLyrics ?? "")"
+                    guard seen.insert(key).inserted else { return nil }
+                    return (score, index, candidate)
+                }.sorted { $0.0 == $1.0 ? $0.1 < $1.1 : $0.0 > $1.0 }
+                let lyrics = ranked.compactMap { entry -> LyricInfoModel? in
+                    var candidate = entry.2
+                    // Some responses contain an empty syncedLyrics string alongside usable plainLyrics.
+                    if candidate.syncedLyrics?.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty == true {
+                        candidate.syncedLyrics = nil
+                    }
+                    return candidate.convertLyricModel()
                 }
-                
-                // 正常解析精准匹配到的歌词
-                guard let lyricModel = LRCLibLyricModel.deserialize(from: dict) else {
-                    completion(.failure(.unknowError))
-                    return
-                }
-                
-                debugPrint("✅ 内嵌标题搜索 - 精准匹配(get)成功获取歌词！")
-                completion(.success([lyricModel]))
-                break
-            case .failure(let afError):
-                // 如果是网络彻底断开或超时，直接报网络错误，没必要再走搜索了
-                let errorMsg = afError.errorDescription ?? afError.localizedDescription
-                debugPrint("精准匹配时发生系统级网络错误❌: \(errorMsg)")
-                completion(.failure(KakaError.custom(errorMsg)))
-                break
+                finish(lyrics.isEmpty ? .failure(.emptyData) : .success(lyrics))
             }
         }
     }
-    
-    /// 聚合查询入口：先精准匹配，失败则自动转为模糊搜索
-    func requestFingerLRCLyricLib(audioModel: AudioFingerprintModel, completion: @escaping (Result<[LRCLibLyricModel], KakaError>) -> Void) {
-        
-        // ⚠️ 识别后的标题不一定是真正的标题，可以考虑优先使用本身内嵌的标题
-        let getUrl = "https://lrclib.net/api/get"
-        let getParameters: Parameters = [
-            "track_name": audioModel.title ?? "",
-            "artist_name": audioModel.artist ?? "",
-            "album_name": audioModel.album ?? "",
-            "duration": audioModel.duration ?? 0
-        ]
-        
-        // 🚀 第一道防线：精准匹配
-        AF.request(getUrl, method: .get, parameters: getParameters).responseData { [weak self] response in
-            guard let self = self else { return }
-            
-            switch response.result {
-            case .success(let data):
-                let dict = try? JSONSerialization.jsonObject(with: data, options: []) as? [String : Any]
-                
-                // 检查是否是 LRCLIB 标准的 404 Track not found
-                if let statusCode = dict?["statusCode"] as? Int, statusCode == 404 {
-                    debugPrint("⚠️ 精准匹配(get)未找到歌词(404)，正在自动启动第二防线：模糊搜索(search)...")
-                    self.performBlurrySearch(audioModel: audioModel, completion: completion)
-                    return
-                }
-                
-                // 正常解析精准匹配到的歌词
-                guard let lyricModel = LRCLibLyricModel.deserialize(from: dict) else {
-                    // 如果解析失败，也怀疑是数据异样，降级去搜索试试
-                    self.performBlurrySearch(audioModel: audioModel, completion: completion)
-                    return
-                }
-                
-                debugPrint("✅ 指纹信息搜索 - 精准匹配(get)成功获取歌词！")
-                completion(.success([lyricModel]))
-//                var newModel = audioModel
-//                newModel.lyrics = [lyricModel]
-//                completion(.success(newModel))
-                break
-            case .failure(let afError):
-                // 如果是网络彻底断开或超时，直接报网络错误，没必要再走搜索了
-                let errorMsg = afError.errorDescription ?? afError.localizedDescription
-                debugPrint("精准匹配时发生系统级网络错误❌: \(errorMsg)")
-                completion(.failure(KakaError.custom(errorMsg)))
-                break
-            }
-        }
-    }
-    
-    /// 第二道防线：模糊搜索LRC歌词
-    private func performBlurrySearch(audioModel: AudioFingerprintModel, completion: @escaping (Result<[LRCLibLyricModel], KakaError>) -> Void) {
-        
-        let searchUrl = "https://lrclib.net/api/search"
-        // 将歌名和歌手拼接，作为模糊搜索的核心关键词
-        let query = "\(audioModel.title ?? "") \(audioModel.artist ?? "")"
-        let searchParameters: Parameters = ["q": query]
-        
-        AF.request(searchUrl, method: .get, parameters: searchParameters).responseData { response in
-            switch response.result {
-            case .success(let data):
-                
-                let dictArray = try? JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [[String : Any]]
-                
-                debugPrint("搜索LRC歌词 = \(dictArray ?? [])")
 
-                guard let lyricArray = [LRCLibLyricModel].deserialize(from: dictArray), lyricArray.count > 0 else {
-                    completion(.failure(.custom("No lyrics found in cloud database.")))
-                    return
+    func requestEmbedLRCLyricLib(model: MusicItemModel?, completion: @escaping (Result<[LRCLibLyricModel], KakaError>) -> Void) {
+        guard let model else { completion(.failure(.emptyData)); return }
+        var target = AudioFingerprintModel()
+        target.title = model.title
+        target.artist = model.artist
+        target.album = model.album
+        target.duration = TimeInterval(model.durationSeconds)
+        requestFingerLRCLyricLib(audioModel: target, completion: completion)
+    }
+
+    func requestFingerLRCLyricLib(audioModel: AudioFingerprintModel,
+                                 completion: @escaping (Result<[LRCLibLyricModel], KakaError>) -> Void) {
+        guard !Self.normalized(audioModel.title).isEmpty,
+              !Self.normalized(audioModel.artist).isEmpty else { completion(.failure(.emptyData)); return }
+        var parameters: Parameters = ["track_name": audioModel.title ?? "", "artist_name": audioModel.artist ?? ""]
+        if let album = audioModel.album, !album.isEmpty { parameters["album_name"] = album }
+        if let duration = audioModel.duration, duration.isFinite, duration >= 1, duration <= 3600 {
+            parameters["duration"] = duration
+        }
+        Self.lyricsRequest("get", parameters: parameters).responseData { [weak self] response in
+            guard let self else { return }
+            switch response.result {
+            case .failure(let error): completion(.failure(.custom(error.localizedDescription)))
+            case .success(let data):
+                if response.response?.statusCode == 200,
+                   let dictionary = try? JSONSerialization.jsonObject(with: data) as? [String: Any],
+                   let candidate = LRCLibLyricModel.deserialize(from: dictionary),
+                   Self.lyricMatchScore(candidate, target: audioModel) != nil {
+                    completion(.success([candidate]))
+                } else if response.response?.statusCode == 404 || response.response?.statusCode == 200 {
+                    // Do not turn rate limiting or server failures into additional requests.
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) { [weak self] in
+                        self?.performBlurrySearch(audioModel: audioModel, completion: completion)
+                    }
+                } else {
+                    completion(.failure(.emptyData))
                 }
-                
-                completion(.success(lyricArray))
-                
-                break
-            case .failure(let afError):
-                let errorMsg = afError.errorDescription ?? afError.localizedDescription
-                debugPrint("模糊搜索时发生网络错误❌: \(errorMsg)")
-                completion(.failure(KakaError.custom(errorMsg)))
-                break
             }
         }
     }
-    
-    /// 工业级权重评分机制
-    private func calculateMatchScore(model: LRCLibLyricModel, target: AudioFingerprintModel) -> Int {
-        var score = 0
-        
-        let targetTitle = target.title?.lowercased().trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
-        let targetArtist = target.artist?.lowercased().trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
-        let modelTitle = model.name.lowercased().trimmingCharacters(in: .whitespacesAndNewlines)
-        let modelArtist = model.artistName.lowercased().trimmingCharacters(in: .whitespacesAndNewlines)
-        
-        // 维度 1：歌名与歌手完美匹配 (最高权重)
-        if modelTitle == targetTitle && modelArtist == targetArtist {
-            score += 100
-        } else if modelTitle == targetTitle {
-            score += 40 // 歌名对上了，歌手没对上
-        }
-        
-        // 维度 2：必须优先保障带时间轴的 LRC 歌词！(核心用户体验)
-        // 假设你的 LyricModel 里面有判断是否有同步时间轴的属性，比如 syncedLyricsStr
-        if let syncedLrc = model.syncedLyrics, !syncedLrc.isEmpty {
-            score += 50 // 有时间轴的，无条件加巨分
-        }
-        
-        // 维度 3：时长（Duration）容差校验 (防止原唱与各种短版/翻唱错位)
-        if let targetDuration = target.duration, targetDuration > 0,
-           let modelDuration = model.duration, modelDuration > 0 {
-            let diff = abs(targetDuration - modelDuration)
-            if diff <= 3 {
-                score += 20  // 时长误差在 3 秒内，高度疑似正轨
-            } else if diff <= 10 {
-                score += 5   // 时长误差在 10 秒内
+
+    private static func lyricsRequest(_ endpoint: String, parameters: Parameters) -> DataRequest {
+        let version = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "1"
+        return AF.request("https://lrclib.net/api/\(endpoint)", method: .get, parameters: parameters,
+                          headers: ["User-Agent": "Wakemusic/\(version) (https://passlockapp.com)"])
+            { request in request.timeoutInterval = 8 }
+    }
+
+    private func performBlurrySearch(audioModel: AudioFingerprintModel,
+                                     completion: @escaping (Result<[LRCLibLyricModel], KakaError>) -> Void) {
+        // Structured search avoids a word from the artist accidentally matching only an album name.
+        let parameters: Parameters = ["track_name": audioModel.title ?? "", "artist_name": audioModel.artist ?? ""]
+        Self.lyricsRequest("search", parameters: parameters).responseData { response in
+            switch response.result {
+            case .failure(let error): completion(.failure(.custom(error.localizedDescription)))
+            case .success(let data):
+                guard response.response?.statusCode == 200,
+                      let dictionaries = try? JSONSerialization.jsonObject(with: data) as? [[String: Any]],
+                      let candidates = [LRCLibLyricModel].deserialize(from: dictionaries) else {
+                    completion(.failure(.emptyData))
+                    return
+                }
+                let matches = candidates.filter { Self.lyricMatchScore($0, target: audioModel) != nil }
+                completion(matches.isEmpty ? .failure(.emptyData) : .success(matches))
             }
         }
-        
+    }
+
+    private static func normalized(_ value: String?) -> String {
+        (value ?? "").folding(options: [.caseInsensitive, .diacriticInsensitive, .widthInsensitive],
+                              locale: Locale(identifier: "en_US_POSIX"))
+            .unicodeScalars.filter { CharacterSet.alphanumerics.contains($0) }.map(String.init).joined()
+    }
+
+    private static func lyricMatchScore(_ candidate: LRCLibLyricModel, target: AudioFingerprintModel) -> Int? {
+        let title = normalized(target.title)
+        let candidateTitle = normalized(candidate.trackName.isEmpty ? candidate.name : candidate.trackName)
+        let artist = normalized(target.artist)
+        guard !title.isEmpty, title == candidateTitle, !artist.isEmpty,
+              artist == normalized(candidate.artistName) else { return nil }
+        let synchronized = candidate.syncedLyrics?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+        let plain = candidate.plainLyrics?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+        guard !synchronized.isEmpty || !plain.isEmpty else { return nil }
+        var score = 1000
+        if let expected = target.duration, expected.isFinite, expected > 0,
+           let actual = candidate.duration, actual.isFinite, actual > 0 {
+            let difference = abs(expected - actual)
+            // Synchronization is recording-specific. Prefer no automatic lyric over a different edit.
+            guard difference <= (synchronized.isEmpty ? 8 : 3) else { return nil }
+            score += difference <= 2 ? 30 : 0
+        }
+        if !synchronized.isEmpty { score += 10 }
+        if !normalized(target.album).isEmpty, normalized(target.album) == normalized(candidate.albumName) { score += 5 }
         return score
     }
-    
 }

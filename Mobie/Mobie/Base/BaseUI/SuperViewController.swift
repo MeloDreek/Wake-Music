@@ -153,6 +153,12 @@ public class SuperViewController: UIViewController {
     func connectionFeedbackFooter(feedbackAction: Selector) -> UIView {
         let footer = UITableViewHeaderFooterView()
         let button = UIButton(type: .system)
+        if kaka_IsMacOS() {
+            // Keep this a text link rather than Catalyst's native push button.
+            button.preferredBehavioralStyle = .pad
+            button.backgroundColor = .clear
+            footer.backgroundConfiguration = .clear()
+        }
         button.setAttributedTitle(NSAttributedString(string: "Don't see your connection method? Tell us!".localStr(), attributes: [.font: UIFontLight(13.ckValue()), .foregroundColor: UIColor.systemBlue, .underlineStyle: 1]), for: .normal)
         button.titleLabel?.numberOfLines = 0
         button.titleLabel?.textAlignment = .center

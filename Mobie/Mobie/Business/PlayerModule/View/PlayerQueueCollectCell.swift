@@ -50,8 +50,11 @@ final class PlayerQueueCollectCell: UICollectionViewCell, UITableViewDataSource,
         modes.spacing = 12
         for (index, symbol) in ["shuffle", "repeat", "repeat.1"].enumerated() {
             let button = UIButton(type: .system)
+            // Keep explicit capsule/background and template-icon colors on Mac;
+            // the native Mac button otherwise applies its own symbol rendering.
+            button.preferredBehavioralStyle = .pad
             button.tag = index
-            button.setImage(UIImage(systemName: symbol, withConfiguration: UIImage.SymbolConfiguration(pointSize: 15, weight: .regular)), for: .normal)
+            button.setImage(UIImage(systemName: symbol, withConfiguration: UIImage.SymbolConfiguration(pointSize: 15, weight: .regular))?.withRenderingMode(.alwaysTemplate), for: .normal)
             button.layer.cornerRadius = 20
             button.addTarget(self, action: #selector(changeMode(_:)), for: .touchUpInside)
             button.accessibilityLabel = ["Shuffle", "Queue.Sequential", "Queue.RepeatOne"][index].localStr()

@@ -118,7 +118,13 @@ enum PlayerEqualizerPreset: String, Codable, CaseIterable {
         .flat, .bass, .bassReduction, .treble, .trebleReduction,
         .vocal, .warmth, .clarity, .soft, .rock, .pop, .jazz, .acoustic, .classical
     ]
-    static var displayedPresets: [Self] { [.custom, .bass] + factoryPresets.filter { $0 != .bass } }
+    /// Three rows of five: custom recall first, then tone controls and listening profiles.
+    static let displayedPresetRows: [[Self]] = [
+        [.custom, .bass, .bassReduction, .treble, .trebleReduction],
+        [.flat, .vocal, .warmth, .clarity, .soft],
+        [.rock, .pop, .jazz, .acoustic, .classical],
+    ]
+    static var displayedPresets: [Self] { displayedPresetRows.flatMap { $0 } }
 
     var localizationKey: String {
         switch self {

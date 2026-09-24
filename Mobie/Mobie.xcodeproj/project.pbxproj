@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FD2400010000000000000001 /* CatalogMetadataMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD2400010000000000000003 /* CatalogMetadataMatcher.swift */; };
+		FD2400010000000000000002 /* CatalogMetadataMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD2400010000000000000003 /* CatalogMetadataMatcher.swift */; };
+		FD2400020000000000000001 /* AppleCatalogMetadataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD2400020000000000000003 /* AppleCatalogMetadataService.swift */; };
+		FD2400020000000000000002 /* AppleCatalogMetadataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD2400020000000000000003 /* AppleCatalogMetadataService.swift */; };
 		01F75346B3745539580B69EB /* Pods_Mobie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC044DCD42AEE7FFFB8D29DE /* Pods_Mobie.framework */; };
 		02B57660DD995BBB02E0E76A /* CollectionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132CAFD74F21CC80A0EE1C8C /* CollectionDetailViewController.swift */; };
 		22059B832CAE9378006F6E7A /* SocialMediaType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22059B822CAE9378006F6E7A /* SocialMediaType.swift */; };
@@ -835,6 +839,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		FD2400010000000000000003 /* CatalogMetadataMatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogMetadataMatcher.swift; sourceTree = "<group>"; };
+		FD2400020000000000000003 /* AppleCatalogMetadataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleCatalogMetadataService.swift; sourceTree = "<group>"; };
 		132CAFD74F21CC80A0EE1C8C /* CollectionDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionDetailViewController.swift; sourceTree = "<group>"; };
 		2024258CB3388C84E94183D3 /* Pods_Mobie_Pro.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mobie_Pro.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		22059B822CAE9378006F6E7A /* SocialMediaType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialMediaType.swift; sourceTree = "<group>"; };
@@ -1321,6 +1327,8 @@
 				226DFB732D675FBF00E3BE06 /* APIManager.swift */,
 				22ED75462EF57AB900E92BB3 /* AppleSearchAdsManager.swift */,
 				22F2576C302CBAE600EBCD38 /* AudioFingerprintMatcher.swift */,
+				FD2400010000000000000003 /* CatalogMetadataMatcher.swift */,
+				FD2400020000000000000003 /* AppleCatalogMetadataService.swift */,
 				22F2576F302CBAF500EBCD38 /* AudioFingerprintModel.swift */,
 			);
 			path = Tools;
@@ -2716,6 +2724,8 @@
 				225F58992D85B2AB0055BDFF /* AboutAppTableCell.swift in Sources */,
 				221928693061084C00AF4F2B /* NavidromeFavoriteViewCell.swift in Sources */,
 				22F2576D302CBAE600EBCD38 /* AudioFingerprintMatcher.swift in Sources */,
+				FD2400010000000000000001 /* CatalogMetadataMatcher.swift in Sources */,
+				FD2400020000000000000001 /* AppleCatalogMetadataService.swift in Sources */,
 				225F589B2D85B2AB0055BDFF /* VideoConverterViewController+Action.swift in Sources */,
 				225F589D2D85B2AB0055BDFF /* MusicsViewController+Delegate.swift in Sources */,
 				225F589E2D85B2AB0055BDFF /* SocialMediaType.swift in Sources */,
@@ -3063,6 +3073,8 @@
 				228A146F2CA0633400E2948E /* AboutAppTableCell.swift in Sources */,
 				221928683061084C00AF4F2B /* NavidromeFavoriteViewCell.swift in Sources */,
 				22F2576E302CBAE600EBCD38 /* AudioFingerprintMatcher.swift in Sources */,
+				FD2400010000000000000002 /* CatalogMetadataMatcher.swift in Sources */,
+				FD2400020000000000000002 /* AppleCatalogMetadataService.swift in Sources */,
 				228A14582CA0633400E2948E /* VideoConverterViewController+Action.swift in Sources */,
 				228A14342CA0633400E2948E /* MusicsViewController+Delegate.swift in Sources */,
 				22059B832CAE9378006F6E7A /* SocialMediaType.swift in Sources */,

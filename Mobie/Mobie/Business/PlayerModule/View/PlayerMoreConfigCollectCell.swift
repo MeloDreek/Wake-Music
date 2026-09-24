@@ -157,6 +157,12 @@ final class PlayerMoreConfigCollectCell: UICollectionViewCell, UITableViewDataSo
         config.imageProperties.maximumSize = CGSize(width: 24, height: 24)
         config.directionalLayoutMargins.top = 16
         config.directionalLayoutMargins.bottom = 16
+        if kaka_IsMacOS() {
+            // Mac's default list metrics pack symbols and labels too tightly.
+            config.imageProperties.reservedLayoutSize = CGSize(width: 24, height: 24)
+            config.imageToTextPadding = 18
+            config.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 18, leading: 24, bottom: 18, trailing: 24)
+        }
         cell.contentConfiguration = config
         cell.backgroundColor = .white.withAlphaComponent(0.08)
         cell.tintColor = color

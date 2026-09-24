@@ -48,23 +48,30 @@ extension MusicTagEditor {
         for subModel in models {
             dispatchGroup.enter()
             let operation = MusicTagEditorOperation(model: subModel, config: config) { finalModel, errorTags in
+                // Keep batch result arrays lightweight once the persisted cover
+                // has a current disk thumbnail (the UI already reads that cache).
+                let completedModel: MusicItemModel = {
+                    var compact = finalModel
+                    if MusicParseOperation.hasCurrentCachedArtwork(model: compact) {
+                        compact.coverArt = nil
+                    }
+                    return compact
+                }()
                 
-                var currentCount = 0
                 modelUpdateQueue.sync {
                     
                     // ⚠️串行锁内的代码越少越好
-                    debugPrint("✅完成的文件 = \(finalModel.mediaPlayURL.lastPathComponent)")
+                    debugPrint("✅完成的文件 = \(completedModel.mediaPlayURL.lastPathComponent)")
                     
-                    if !finalModel.isFullMusicTag() {
-                        missingTagModels.append(finalModel)
+                    if !completedModel.isFullMusicTag() || !(errorTags?.isEmpty ?? true) {
+                        missingTagModels.append(completedModel)
                     }
-                    completedModels.append(finalModel)
+                    completedModels.append(completedModel)
                     
-                    currentCount = completedModels.count
-                }
-                
-                DispatchQueue.main.async {
-                    progress(finalModel, currentCount, totalCount)
+                    let currentCount = completedModels.count
+                    DispatchQueue.main.async {
+                        progress(completedModel, currentCount, totalCount)
+                    }
                 }
                 
                 dispatchGroup.leave()
@@ -86,162 +93,180 @@ extension MusicTagEditor {
     }
 
     
-    /// 单个文件：自动填充所有标签
-    /// - Parameters:
-    ///   - model: 文件模型
-    ///   - tagsModel: 元数据信息
-    ///   - config: 配置信息
-    /// - Returns: 更新后的模型及失败的标签类型
+    // Network work may run concurrently; the final disk check and writes may not.
+    private static let embeddingQueue = DispatchQueue(label: "com.musictag.embedding.commit")
+
+    private static func onEmbeddingQueue<T>(_ action: @escaping () -> T) async -> T {
+        await withCheckedContinuation { continuation in
+            embeddingQueue.async { continuation.resume(returning: action()) }
+        }
+    }
+
+    /// Both interactive and batch editing use the same disk-backed decisions.
     @discardableResult
     func embeddedAllMetadata(
         model: MusicItemModel,
         tagsModel: AudioFingerprintModel,
-        config: AutoEditConfig
+        config: AutoEditConfig,
+        allowFileRename: Bool = true,
+        isCancelled: @escaping () -> Bool = { false }
     ) async -> (updatedModel: MusicItemModel, errorTags: [MusicTagType]?) {
-        
-        var newModel = model
-        var errorTags = [MusicTagType]()
-        let fileURL = model.mediaPlayURL
-        let isForcedFill = config.fillMode == .forceOverwrite
-        
-        // 💡 Helper: 通用字段写入逻辑
-        func writeField<T>(
-            value: T?,
-            hasOldValue: Bool,
-            tagType: MusicTagType,
-            action: (T) -> Bool,
-            updateModel: (T) -> Void
-        ) {
-            guard let value = value else { return }
-            if !isForcedFill && hasOldValue {
-                debugPrint("已有旧\(tagType)，且非强刷模式，跳过写入")
-                return
+        let cancellation = MetadataEmbeddingCancellation()
+        return await withTaskCancellationHandler(operation: {
+            let cancelled = { cancellation.isCancelled || isCancelled() }
+            guard !Task.isCancelled, !cancelled() else { return (model, nil) }
+            let fileURL = model.mediaPlayURL
+            let forceOverwrite = config.fillMode == .forceOverwrite && !tagsModel.isCatalogFallback
+            // An unreadable file is not evidence that its tags are absent.
+            guard let initial = await Self.onEmbeddingQueue({
+                TaglibMetadataParser.readMetadata(withFileURL: fileURL, read: .all)
+            }) else {
+                return (model, [.title, .artist, .album, .artWork, .lyrics])
             }
-            if action(value) {
-                updateModel(value)
-            } else {
-                errorTags.append(tagType)
-            }
-        }
-        
-        // 1️⃣ 处理封面
-        if let coverArt = tagsModel.coverArt, !coverArt.isEmpty {
-            var hasOldCover = model.coverArt != nil
-            if !hasOldCover {
-                let metaData = TaglibMetadataParser.readMetadata(withFileURL: fileURL, read: .basicCover)
-                hasOldCover = metaData?.coverArt != nil
-            }
-            
-            if !isForcedFill && hasOldCover {
-                debugPrint("已有旧封面，且非强刷模式，跳过写入")
-            } else {
-                // 直接 await 获取
-                if let image = try? await fetchArtworkImage(coverArt: coverArt) {
-                    if TaglibMetadataParser.setCoverArt(image, toFileURL: fileURL) {
-                        newModel.coverArt = image
-                    } else {
-                        errorTags.append(.artWork)
-                    }
-                } else {
-                    errorTags.append(.artWork)
+
+            var downloadedArtwork: UIImage?
+            if Self.nonblank(tagsModel.coverArt) != nil,
+               forceOverwrite || (initial.coverArtData == nil && initial.coverArt == nil),
+               !cancelled() {
+                do {
+                    downloadedArtwork = try await fetchArtworkImage(coverArt: tagsModel.coverArt!)
+                } catch {
+                    // Report a cover failure only if the final disk check still needs it.
                 }
             }
-        }
-        
-        // 2️⃣ 标题
-        writeField(
-            value: tagsModel.title,
-            hasOldValue: !(model.title?.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty ?? true),
-            tagType: .title,
-            action: { TaglibMetadataParser.setTitle($0, toFileURL: fileURL) },
-            updateModel: { newModel.title = $0 }
-        )
-        
-        // 3️⃣ 艺术家
-        writeField(
-            value: tagsModel.artist,
-            hasOldValue: !(model.artist?.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty ?? true),
-            tagType: .artist,
-            action: { TaglibMetadataParser.setArtist($0, toFileURL: fileURL) },
-            updateModel: { newModel.artist = $0 }
-        )
-        
-        // 4️⃣ 专辑
-        writeField(
-            value: tagsModel.album,
-            hasOldValue: !(model.album?.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty ?? true),
-            tagType: .album,
-            action: { TaglibMetadataParser.setAlbum($0, toFileURL: fileURL) },
-            updateModel: { newModel.album = $0 }
-        )
-        
-        // 5️⃣ 年代
-        if let year = tagsModel.year, year > 0 {
-            writeField(
-                value: Int32(year),
-                hasOldValue: (model.year ?? 0) > 0,
-                tagType: .year,
-                action: { TaglibMetadataParser.setYear($0, toFileURL: fileURL) },
-                updateModel: { _ in newModel.year = year }
-            )
-        }
-        
-        // 6️⃣ 音轨号
-        if let trackNumber = tagsModel.trackNumber, trackNumber > 0 {
-            writeField(
-                value: Int32(trackNumber),
-                hasOldValue: (model.track ?? 0) > 0,
-                tagType: .trackNumber,
-                action: { TaglibMetadataParser.setTrack($0, toFileURL: fileURL) },
-                updateModel: { _ in newModel.track = trackNumber }
-            )
-        }
-        
-        // 7️⃣ 流派
-        writeField(
-            value: tagsModel.genres,
-            hasOldValue: !(model.genre?.isEmpty ?? true),
-            tagType: .genre,
-            action: { TaglibMetadataParser.setGenre($0, toFileURL: fileURL) },
-            updateModel: { newModel.genre = $0 }
-        )
-        
-        // 8️⃣ 歌词
-        if let lyrics = tagsModel.lyrics, !lyrics.isEmpty {
-            let lyricModel = lyrics.first(where: { $0.isSelected }) ?? lyrics[0]
-            writeField(
-                value: lyricModel.toLyricString(),
-                hasOldValue: (model.lyricModel?.lyrics?.count ?? 0) > 0,
-                tagType: .lyrics,
-                action: { TaglibMetadataParser.setLyris($0, toFileURL: fileURL) },
-                updateModel: { _ in newModel.lyricModel = lyricModel }
-            )
-        } else {
-            if !model.isHaveLyric() && config.isSetInstrumental {
-                // 无内嵌歌词 && 也没有匹配歌词时走默认
-                let lyricStr = "[00:00.000]" + "Instrumental · Enjoy the music".localStr()
-                let lyricModel = TaglibMetadataParser.parseSynchronizedLyrics(lyricStr).convertSwiftModel()
-                if TaglibMetadataParser.setLyris(lyricStr, toFileURL: fileURL) {
-                    newModel.lyricModel = lyricModel
+
+            let artwork = downloadedArtwork
+            let result = await Self.onEmbeddingQueue {
+                self.commitMetadata(
+                    model: model, tagsModel: tagsModel, config: config,
+                    artwork: artwork, allowFileRename: allowFileRename,
+                    isCancelled: cancelled
+                )
+            }
+            if result.updatedModel.mediaPlayURL != model.mediaPlayURL {
+                await MainActor.run {
+                    AppLocalManager.shared.updateMediaURL(oldURL: model.mediaPlayURL,
+                                                          newURL: result.updatedModel.mediaPlayURL)
                 }
             }
-        }
-        
-        // 9️⃣ 注释
-        let comment = "Powered by Wakemusic".localStr()
-        if TaglibMetadataParser.setComment(comment, toFileURL: fileURL) {
-            newModel.comment = comment
-        }
-        
-        // 🔟 重命名文件（无缝顺序调用，完美消灭时序隐患）
-        let updatedModel = await modifyFileName(model: newModel, config: config)
-        
-        return (updatedModel, errorTags.isEmpty ? nil : errorTags)
+            return result
+        }, onCancel: {
+            cancellation.cancel()
+        })
     }
-    
+
+    private static func nonblank(_ value: String?) -> String? {
+        guard let text = value?.trimmingCharacters(in: .whitespacesAndNewlines), !text.isEmpty else { return nil }
+        return text
+    }
+
+    /// No suspension points are allowed between this fresh read and the writes.
+    private func commitMetadata(
+        model: MusicItemModel,
+        tagsModel: AudioFingerprintModel,
+        config: AutoEditConfig,
+        artwork: UIImage?,
+        allowFileRename: Bool,
+        isCancelled: () -> Bool
+    ) -> (updatedModel: MusicItemModel, errorTags: [MusicTagType]?) {
+        let fileURL = model.mediaPlayURL
+        guard let disk = TaglibMetadataParser.readMetadata(withFileURL: fileURL, read: .all) else {
+            return (model, isCancelled() ? nil : [.title, .artist, .album, .artWork, .lyrics])
+        }
+        var newModel = disk.mergeTagLibInfo(model)
+        newModel.coverArt = disk.coverArt
+        var errorTags: [MusicTagType] = []
+        let forceOverwrite = config.fillMode == .forceOverwrite && !tagsModel.isCatalogFallback
+        var wroteAnyTag = false
+
+        func writeText(_ proposed: String?, existing: String?, tag: MusicTagType,
+                       action: (String) -> Bool, update: (String) -> Void) {
+            guard !isCancelled(), let value = Self.nonblank(proposed),
+                  forceOverwrite || Self.nonblank(existing) == nil else { return }
+            if action(value) {
+                wroteAnyTag = true
+                update(value)
+            } else { errorTags.append(tag) }
+        }
+
+        if !isCancelled(), Self.nonblank(tagsModel.coverArt) != nil,
+           forceOverwrite || (disk.coverArtData == nil && disk.coverArt == nil) {
+            if let artwork, TaglibMetadataParser.setCoverArt(artwork, toFileURL: fileURL) {
+                wroteAnyTag = true
+                newModel.coverArt = artwork
+            } else { errorTags.append(.artWork) }
+        }
+        writeText(tagsModel.title, existing: disk.title, tag: .title,
+                  action: { TaglibMetadataParser.setTitle($0, toFileURL: fileURL) },
+                  update: { newModel.title = $0 })
+        writeText(tagsModel.artist, existing: disk.artist, tag: .artist,
+                  action: { TaglibMetadataParser.setArtist($0, toFileURL: fileURL) },
+                  update: { newModel.artist = $0 })
+        writeText(tagsModel.album, existing: disk.album, tag: .album,
+                  action: { TaglibMetadataParser.setAlbum($0, toFileURL: fileURL) },
+                  update: { newModel.album = $0 })
+        writeText(tagsModel.genres, existing: disk.genre, tag: .genre,
+                  action: { TaglibMetadataParser.setGenre($0, toFileURL: fileURL) },
+                  update: { newModel.genre = $0 })
+
+        if !isCancelled(), let year = tagsModel.year, year > 0, forceOverwrite || disk.year == 0 {
+            if let value = Int32(exactly: year), TaglibMetadataParser.setYear(value, toFileURL: fileURL) {
+                wroteAnyTag = true
+                newModel.year = year
+            } else { errorTags.append(.year) }
+        }
+        if !isCancelled(), let track = tagsModel.trackNumber, track > 0, forceOverwrite || disk.track == 0 {
+            if let value = Int32(exactly: track), TaglibMetadataParser.setTrack(value, toFileURL: fileURL) {
+                wroteAnyTag = true
+                newModel.track = track
+            } else { errorTags.append(.trackNumber) }
+        }
+
+        let candidates = tagsModel.lyrics ?? []
+        let orderedLyrics = candidates.filter { $0.isSelected } + candidates.filter { !$0.isSelected }
+        let lyricText = orderedLyrics.lazy.compactMap { candidate -> String? in
+            guard let text = Self.nonblank(candidate.toLyricString()),
+                  let parsed = TaglibMetadataParser.parseSynchronizedLyrics(text),
+                  parsed.lyrics?.contains(where: { Self.nonblank($0.realLyric) != nil }) == true else { return nil }
+            return text
+        }.first
+        let hasDiskLyrics = (disk.lyricModel?.lyrics?.count ?? 0) > 0
+        var proposedLyrics = lyricText
+        // Catalog metadata (including artwork-only matches) is not evidence of an instrumental.
+        // Even explicit overwrite must not replace existing lyrics with this placeholder.
+        if proposedLyrics == nil, config.isSetInstrumental, !hasDiskLyrics, !tagsModel.isCatalogFallback {
+            proposedLyrics = "[00:00.000]" + "Instrumental · Enjoy the music".localStr()
+        }
+        if !isCancelled(), let lyrics = proposedLyrics, forceOverwrite || !hasDiskLyrics {
+            if TaglibMetadataParser.setLyrics(lyrics, toFileURL: fileURL) {
+                wroteAnyTag = true
+                newModel.lyricModel = TaglibMetadataParser.parseSynchronizedLyrics(lyrics)?.convertSwiftModel()
+            } else { errorTags.append(.lyrics) }
+        }
+        // Never write branding or synthetic comments during automatic editing.
+
+        // The returned model and thumbnail describe persisted content, not recognition guesses.
+        let persisted = TaglibMetadataParser.readMetadata(withFileURL: fileURL, read: .all)
+        if let persisted {
+            newModel = persisted.mergeTagLibInfo(newModel)
+            newModel.coverArt = persisted.coverArt
+        }
+        let accessed = fileURL.startAccessingSecurityScopedResource()
+        defer { if accessed { fileURL.stopAccessingSecurityScopedResource() } }
+        if !isCancelled(), allowFileRename, !tagsModel.isCatalogFallback, persisted != nil {
+            newModel = renamedMetadataModel(model: newModel, config: config, isCancelled: isCancelled)
+        }
+        if let persisted, let image = persisted.coverArt,
+           wroteAnyTag || newModel.mediaPlayURL != model.mediaPlayURL ||
+               !MusicParseOperation.hasCurrentCachedArtwork(model: newModel) {
+            SandboxFileManager.shared.writeMusicthumbnailImage(model: newModel, image: image)
+        }
+        return (newModel, errorTags.isEmpty ? nil : errorTags)
+    }
+
     // 根据用户配置，修改文件名称
-    func modifyFileName(model: MusicItemModel, config: AutoEditConfig) async -> MusicItemModel {
-        guard config.fileName != .default else { return model }
+    private func renamedMetadataModel(model: MusicItemModel, config: AutoEditConfig, isCancelled: () -> Bool) -> MusicItemModel {
+        guard !isCancelled(), config.fileName != .default else { return model }
         
         let oldFileURL = model.mediaPlayURL
         let fileExtension = oldFileURL.pathExtension
@@ -323,9 +348,8 @@ extension MusicTagEditor {
                 return model
             }
             
+            guard !isCancelled() else { return model }
             try FileManager.default.moveItem(at: oldFileURL, to: targetFileURL)
-            
-            AppLocalManager.shared.updateMediaURL(oldURL: oldFileURL, newURL: targetFileURL)
             
             var newModel = model
             newModel.mediaPlayURL = targetFileURL
@@ -340,7 +364,10 @@ extension MusicTagEditor {
     /// 优先从缓存获取封面图片，若无缓存则自动下载
     func fetchArtworkImage(coverArt: String) async throws -> UIImage {
         // 1. 验证 URL 合法性
-        guard !coverArt.isEmpty, let downloadURL = URL(string: coverArt) else {
+        try Task.checkCancellation()
+        guard let value = Self.nonblank(coverArt), let downloadURL = URL(string: value),
+              ["https", "http"].contains(downloadURL.scheme?.lowercased() ?? ""),
+              downloadURL.host != nil else {
             throw KakaError.custom("invalid artwork url")
         }
         
@@ -348,13 +375,16 @@ extension MusicTagEditor {
         if let cachedValue = try? await ImageCache.default.retrieveImage(forKey: coverArt),
            let cachedImage = cachedValue.image {
             debugPrint("成功获取缓存图片，来源: \(cachedValue.cacheType)")
+            try Task.checkCancellation()
             return cachedImage
         }
         
         // 3. 缓存未命中，启动网络下载
+        try Task.checkCancellation()
         debugPrint("该图片暂无缓存，开始远程下载...")
         do {
             let downloadResult = try await ImageDownloader.default.downloadImage(with: downloadURL, options: nil)
+            try Task.checkCancellation()
             let downloadedImage = downloadResult.image
             debugPrint("远程图片下载成功")
             
@@ -417,5 +447,21 @@ extension MusicTagEditor {
     private struct EmbeddedKey {
         static var kQueueKey: Void?
         static var kMatchKey: Void?
+    }
+}
+
+/// Cancellation is checked on the commit queue as well as in the awaiting task.
+private final class MetadataEmbeddingCancellation: @unchecked Sendable {
+    private let lock = NSLock()
+    private var cancelled = false
+    var isCancelled: Bool {
+        lock.lock()
+        defer { lock.unlock() }
+        return cancelled
+    }
+    func cancel() {
+        lock.lock()
+        cancelled = true
+        lock.unlock()
     }
 }

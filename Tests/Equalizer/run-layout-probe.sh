@@ -27,4 +27,8 @@ RUBY
 eq_sdk="$(xcrun --sdk iphonesimulator --show-sdk-path)"
 xcrun swiftc -parse-as-library -swift-version 5 -target arm64-apple-ios16.0-simulator -sdk "$eq_sdk" \
   -module-cache-path "$eq_build/modules" "$eq_build/LayoutProbe.swift" -o "$eq_build/probe"
+if [[ "${1:-}" == "--build-only" ]]; then
+  printf 'EQ preset layout probe compiled: %s\n' "$eq_build/probe"
+  exit 0
+fi
 xcrun simctl spawn "${EQ_SIMULATOR_UDID:-booted}" "$eq_build/probe" "$eq_build/eq-presets-zh-Hans.png"

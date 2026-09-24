@@ -14,6 +14,8 @@ import StoreKit
 
 /// 选择已经匹配的歌词
 class SelectLyricViewController: SuperViewController {
+    private var matchRequest: MetadataMatchRequest?
+    deinit { matchRequest?.cancel() }
     
     init(music: MusicItemModel, result: AudioFingerprintModel?) {
         super.init(nibName: nil, bundle: nil)
@@ -73,6 +75,8 @@ class SelectLyricViewController: SuperViewController {
     }
     
     func refreshDataAction() {
+        matchRequest?.cancel()
+        musicMatcher.cancelLocalMatching()
         let requestID = UUID()
         self.lyricRequestID = requestID
         self.selectLyricModel = nil
@@ -94,7 +98,7 @@ class SelectLyricViewController: SuperViewController {
             self.embeddedButton.isHidden = true
             self.tableView.reloadData()
             
-            self.musicMatcher.matchLocalAudio(model: self.music) { [weak self] result in
+            self.matchRequest = self.musicMatcher.matchLocalAudioMetadata(model: self.music) { [weak self] result in
                 guard let self = self, self.lyricRequestID == requestID else { return }
                 
                 switch result {

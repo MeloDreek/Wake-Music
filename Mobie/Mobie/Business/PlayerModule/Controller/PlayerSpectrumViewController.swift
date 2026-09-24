@@ -50,6 +50,8 @@ final class PlayerSpectrumViewController: UIViewController {
         let card = SpectrumReportView(title: model.showTitleName(), artist: model.showArtistName(), report: nil)
         reportView = card
         stack.addArrangedSubview(card)
+        // Mac's native button ignores this card's filled appearance and height.
+        shareButton.preferredBehavioralStyle = .pad
         var shareConfiguration = UIButton.Configuration.filled()
         shareConfiguration.title = "Spectrum.Share".localStr()
         shareConfiguration.image = UIImage(systemName: "square.and.arrow.up")
@@ -61,6 +63,8 @@ final class PlayerSpectrumViewController: UIViewController {
         shareButton.configuration = shareConfiguration
         shareButton.titleLabel?.numberOfLines = 0
         shareButton.titleLabel?.textAlignment = .center
+        shareButton.titleLabel?.adjustsFontForContentSizeCategory = true
+        shareButton.heightAnchor.constraint(greaterThanOrEqualToConstant: 52).isActive = true
         shareButton.addTarget(self, action: #selector(share), for: .touchUpInside)
         shareButton.isHidden = true
         stack.addArrangedSubview(shareButton)

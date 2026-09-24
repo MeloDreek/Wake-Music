@@ -20,14 +20,16 @@ enum CoverGalleryStyle: Equatable {
 
 /// 封面库
 class LibraryCoverViewController: SuperViewController, PHPickerViewControllerDelegate, UIDocumentPickerDelegate {
+    private var matchRequest: MetadataMatchRequest?
     
     struct SearchParameter {
         var title: String = ""
         var artist: String = ""
+        var artworkURL: String?
     }
     
     deinit {
-        APIManager.shared.frontSession.cancelAllRequests()
+        matchRequest?.cancel()
     }
     
     init(editStyle: CoverGalleryStyle) {
@@ -83,10 +85,18 @@ class LibraryCoverViewController: SuperViewController, PHPickerViewControllerDel
             self.isRequesting = true
             self.tableView.reloadData()
             
-            self.fetchMusicMeteData { result in
+            self.fetchMusicMeteData { [weak self] result in
+                guard let self else { return }
                 switch result {
                 case .success(let success):
-                    self.refreshDataAction(title: success.title, artist: success.artist, album: model.album)
+                    if let artworkURL = success.artworkURL,
+                       success.title.isEmpty || success.artist.isEmpty {
+                        // A conservative catalog match may establish only the
+                        // cover. Do not discard it or invent missing identity.
+                        self.showArtworkCandidate(artworkURL)
+                    } else {
+                        self.refreshDataAction(title: success.title, artist: success.artist, album: model.album)
+                    }
                     break
                 case .failure(let failure):
                     self.isRequesting = false
@@ -108,9 +118,9 @@ class LibraryCoverViewController: SuperViewController, PHPickerViewControllerDel
         self.isRequesting = true
         self.tableView.reloadData()
         
-        self.requestCoverAction(title: title, artist: artist, album: album) {
-            self.isRequesting = false
-            self.tableView.reloadData()
+        self.requestCoverAction(title: title, artist: artist, album: album) { [weak self] in
+            self?.isRequesting = false
+            self?.tableView.reloadData()
         }
     }
     
@@ -121,9 +131,17 @@ class LibraryCoverViewController: SuperViewController, PHPickerViewControllerDel
             return
         }
         
-        self.musicMatcher.matchLocalAudio(model: model, isRequestLyrics: false) { result in
+        matchRequest?.cancel()
+        musicMatcher.cancelLocalMatching()
+        self.matchRequest = self.musicMatcher.matchLocalAudioMetadata(model: model, isRequestLyrics: false) { [weak self] result in
+            guard let self else { return }
             switch result {
             case .success(let success):
+                if success.metadataSource == "appleCatalogArtwork", let coverArt = success.coverArt,
+                   !coverArt.isEmpty {
+                    completion(.success(SearchParameter(artworkURL: coverArt)))
+                    return
+                }
                 guard let title = success.title, !title.isEmpty, let artist = success.artist, !artist.isEmpty else {
                     completion(.failure(.custom(self.normalError)))
                     return
@@ -138,22 +156,39 @@ class LibraryCoverViewController: SuperViewController, PHPickerViewControllerDel
             }
         }
     }
+
+    private func showArtworkCandidate(_ artworkURL: String) {
+        var catalogSong = ITunesSongModel()
+        catalogSong.artworkUrl100 = artworkURL
+        var candidate = MusicReleaseModel()
+        candidate.id = artworkURL
+        candidate.title = model?.showTitleName() ?? "Cover Library".localStr()
+        candidate.itunesModel = catalogSong
+        installRemoteResults([candidate], artist: model?.showArtistName() ?? "")
+        isRequesting = false
+        tableView.reloadData()
+    }
+
+    private func installRemoteResults(_ results: [MusicReleaseModel], artist: String) {
+        remoteUrlArray = results
+        // Keep the currently embedded image selectable; fallback results are
+        // suggestions and never replace it until the user chooses one.
+        if let coverArt = model?.coverArt {
+            var current = MusicReleaseModel()
+            current.tempImage = coverArt
+            current.title = artist
+            if let year = model?.year { current.date = "\(year)" }
+            remoteUrlArray.insert(current, at: 0)
+        }
+    }
     
     // 首次加载封面
     func requestCoverAction(title: String, artist: String, album: String?, completion: (()->Void)? = nil) {
-        MusicTagEditor.shared.requestITunesAlbumImages(title: title, artist: artist) { result in
+        MusicTagEditor.shared.requestITunesAlbumImages(title: title, artist: artist) { [weak self] result in
+            guard let self else { return }
             switch result {
             case .success(let models):
-                self.remoteUrlArray = models
-                if let coverArt = self.model?.coverArt {
-                    var curModel = MusicReleaseModel()
-                    curModel.tempImage = coverArt
-                    curModel.title = artist
-                    if let year = self.model?.year {
-                        curModel.date = "\(year)"
-                    }
-                    self.remoteUrlArray.insert(curModel, at: 0)
-                }
+                self.installRemoteResults(models, artist: artist)
                 completion?()
             case .failure(_):
                 self.retryRefreshDataAction(album: album, artist: artist, completion: completion)
@@ -164,19 +199,11 @@ class LibraryCoverViewController: SuperViewController, PHPickerViewControllerDel
     
     // 再次加载封面
     func retryRefreshDataAction(album: String?, artist: String, completion: (()->Void)? = nil) {
-        MusicTagEditor.shared.requestITunesAlbumImages(title: album ?? "", artist: artist) { result in
+        MusicTagEditor.shared.requestITunesAlbumImages(title: album ?? "", artist: artist) { [weak self] result in
+            guard let self else { return }
             switch result {
             case .success(let models):
-                self.remoteUrlArray = models
-                if let coverArt = self.model?.coverArt {
-                    var curModel = MusicReleaseModel()
-                    curModel.tempImage = coverArt
-                    curModel.title = artist
-                    if let year = self.model?.year {
-                        curModel.date = "\(year)"
-                    }
-                    self.remoteUrlArray.insert(curModel, at: 0)
-                }
+                self.installRemoteResults(models, artist: artist)
                 completion?()
             case .failure(_):
                 self.isRequesting = false

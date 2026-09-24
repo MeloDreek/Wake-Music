@@ -1,6 +1,522 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "TagMatch.CatalogNotice": {
+      "comment": "Explains conservative filename/catalog fallback, not acoustic recognition.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Matched from Apple’s music catalog using the filename and existing tags, not an audio fingerprint. Automatic embedding only fills missing tags. Review suggestions before applying individual fields."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "未匹配到音频指纹，已根据文件名及已有标签匹配 Apple 音乐目录。自动内嵌仅补全缺失标签；单独应用某项建议前，请先核对。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "未比對到音訊指紋，已根據檔案名稱及現有標籤比對 Apple 音樂目錄。自動嵌入僅補齊缺少的標籤；單獨套用建議前，請先核對。"
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "تمت المطابقة من دليل موسيقى Apple باستخدام اسم الملف والوسوم الحالية، وليس بصمة الصوت. يملأ التضمين التلقائي الوسوم الناقصة فقط. راجع الاقتراحات قبل تطبيق كل حقل."
+          }
+        },
+        "ca": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Coincidència del catàleg musical d’Apple segons el nom del fitxer i les etiquetes, no l’empremta d’àudio. La inserció automàtica només omple les etiquetes buides. Revisa cada suggeriment abans d’aplicar-lo."
+          }
+        },
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Shoda z hudebního katalogu Apple podle názvu souboru a značek, nikoli zvukového otisku. Automatické vložení doplní jen chybějící značky. Před použitím jednotlivých návrhů je zkontrolujte."
+          }
+        },
+        "da": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fundet i Apples musikkatalog ud fra filnavn og tags, ikke et lydfingeraftryk. Automatisk indlejring udfylder kun manglende tags. Kontrollér forslag, før du anvender enkelte felter."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Abgleich mit Apples Musikkatalog anhand von Dateiname und Tags, nicht per Audio-Fingerabdruck. Automatisches Einbetten ergänzt nur fehlende Tags. Prüfe Vorschläge vor der Einzelübernahme."
+          }
+        },
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Αντιστοίχιση από τον μουσικό κατάλογο της Apple βάσει ονόματος αρχείου και ετικετών, όχι ηχητικού αποτυπώματος. Η αυτόματη ενσωμάτωση συμπληρώνει μόνο όσα λείπουν. Ελέγξτε κάθε πρόταση πριν την εφαρμογή."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Coincidencia del catálogo musical de Apple por nombre de archivo y etiquetas, no por huella de audio. La inserción automática solo completa etiquetas vacías. Revisa cada sugerencia antes de aplicarla."
+          }
+        },
+        "fi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Osuma Applen musiikkiluettelosta tiedostonimen ja tunnisteiden perusteella, ei äänisormenjäljellä. Automaattinen upotus täyttää vain puuttuvat tunnisteet. Tarkista ehdotukset ennen yksittäisten kenttien käyttöä."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Correspondance du catalogue musical Apple selon le nom du fichier et les tags, sans empreinte audio. L’intégration automatique complète seulement les tags manquants. Vérifiez chaque suggestion avant de l’appliquer."
+          }
+        },
+        "he": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ההתאמה מקטלוג המוזיקה של Apple מבוססת על שם הקובץ והתגיות, ולא על טביעת אודיו. הטמעה אוטומטית משלימה רק תגיות חסרות. יש לבדוק הצעות לפני החלת שדות בודדים."
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "यह मिलान Apple के संगीत कैटलॉग में फ़ाइल नाम और मौजूदा टैग से मिला है, ऑडियो फ़िंगरप्रिंट से नहीं। अपने-आप एम्बेड करने पर केवल खाली टैग भरे जाते हैं। अलग-अलग सुझाव लागू करने से पहले जाँच लें।"
+          }
+        },
+        "hr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Podudaranje iz Appleova glazbenog kataloga prema nazivu datoteke i oznakama, ne audio otisku. Automatsko ugrađivanje dopunjava samo prazne oznake. Provjerite prijedloge prije primjene pojedinačnih polja."
+          }
+        },
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Találat az Apple zenekatalógusából a fájlnév és a címkék alapján, nem hanglenyomattal. Az automatikus beágyazás csak a hiányzó címkéket tölti ki. Ellenőrizze az egyes javaslatokat alkalmazás előtt."
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cocok dari katalog musik Apple berdasarkan nama file dan tag, bukan sidik jari audio. Penyematan otomatis hanya mengisi tag yang kosong. Periksa saran sebelum menerapkannya satu per satu."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Corrispondenza dal catalogo musicale Apple tramite nome del file e tag, non impronta audio. L’inserimento automatico completa solo i tag mancanti. Verifica i suggerimenti prima di applicarli singolarmente."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "音声指紋ではなく、ファイル名と既存のタグをもとに Apple の音楽カタログから検索しました。自動埋め込みは不足しているタグのみを補完します。個別に適用する前に内容をご確認ください。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "오디오 지문이 아닌 파일 이름과 기존 태그로 Apple 음악 카탈로그에서 찾은 결과입니다. 자동 삽입은 빈 태그만 채웁니다. 개별 항목을 적용하기 전에 확인해 주세요."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Padanan daripada katalog muzik Apple berdasarkan nama fail dan tag, bukan cap jari audio. Pembenaman automatik hanya mengisi tag kosong. Semak cadangan sebelum menerapkannya satu demi satu."
+          }
+        },
+        "nb": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Treff fra Apples musikkatalog basert på filnavn og tagger, ikke lydfingeravtrykk. Automatisk innbygging fyller bare ut manglende tagger. Kontroller forslag før du bruker enkeltfelt."
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gevonden in Apples muziekcatalogus op basis van bestandsnaam en tags, niet via audioherkenning. Automatisch insluiten vult alleen ontbrekende tags aan. Controleer suggesties voordat je losse velden toepast."
+          }
+        },
+        "pl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dopasowanie z katalogu muzycznego Apple według nazwy pliku i tagów, nie odcisku audio. Automatyczne osadzanie uzupełnia tylko brakujące tagi. Sprawdź sugestie przed zastosowaniem pojedynczych pól."
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Correspondência no catálogo musical da Apple pelo nome do arquivo e pelas tags, não pela impressão digital do áudio. A incorporação automática só preenche tags vazias. Confira cada sugestão antes de aplicá-la."
+          }
+        },
+        "pt-PT": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Correspondência no catálogo musical da Apple pelo nome do ficheiro e pelas etiquetas, não pela impressão digital do áudio. A incorporação automática só preenche etiquetas vazias. Reveja cada sugestão antes de a aplicar."
+          }
+        },
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Potrivire din catalogul muzical Apple după numele fișierului și etichete, nu după amprenta audio. Încorporarea automată completează doar etichetele lipsă. Verifică sugestiile înainte de aplicarea individuală."
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Совпадение в музыкальном каталоге Apple найдено по имени файла и тегам, а не по аудиоотпечатку. Автовстраивание заполняет только пустые теги. Проверяйте предложения перед применением отдельных полей."
+          }
+        },
+        "sk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zhoda z hudobného katalógu Apple podľa názvu súboru a značiek, nie zvukového odtlačku. Automatické vloženie doplní len chýbajúce značky. Pred použitím jednotlivé návrhy skontrolujte."
+          }
+        },
+        "sl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ujemanje iz glasbenega kataloga Apple po imenu datoteke in oznakah, ne po zvočnem odtisu. Samodejno vdelovanje dopolni le manjkajoče oznake. Pred uporabo posamezne predloge preverite."
+          }
+        },
+        "sv": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Träff från Apples musikkatalog utifrån filnamn och taggar, inte ljudfingeravtryck. Automatisk inbäddning fyller bara i saknade taggar. Kontrollera förslagen innan du tillämpar enskilda fält."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "พบข้อมูลจากแค็ตตาล็อกเพลงของ Apple โดยใช้ชื่อไฟล์และแท็ก ไม่ใช่ลายนิ้วมือเสียง การฝังอัตโนมัติจะเติมเฉพาะแท็กที่ขาด โปรดตรวจสอบก่อนนำคำแนะนำแต่ละรายการไปใช้"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apple müzik kataloğunda dosya adı ve etiketlerle eşleşti; ses parmak iziyle değil. Otomatik gömme yalnızca eksik etiketleri doldurur. Alanları tek tek uygulamadan önce önerileri kontrol edin."
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Збіг у музичному каталозі Apple знайдено за назвою файлу й тегами, а не аудіовідбитком. Автовбудовування заповнює лише порожні теги. Перевіряйте пропозиції перед застосуванням окремих полів."
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kết quả từ danh mục nhạc Apple dựa trên tên tệp và thẻ, không phải dấu vân tay âm thanh. Tự động nhúng chỉ điền thẻ còn thiếu. Hãy kiểm tra trước khi áp dụng từng đề xuất."
+          }
+        },
+        "en-AU": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Matched from Apple’s music catalog using the filename and existing tags, not an audio fingerprint. Automatic embedding only fills missing tags. Review suggestions before applying individual fields."
+          }
+        },
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Matched from Apple’s music catalog using the filename and existing tags, not an audio fingerprint. Automatic embedding only fills missing tags. Review suggestions before applying individual fields."
+          }
+        },
+        "en-IN": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Matched from Apple’s music catalog using the filename and existing tags, not an audio fingerprint. Automatic embedding only fills missing tags. Review suggestions before applying individual fields."
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Coincidencia del catálogo musical de Apple por nombre de archivo y etiquetas, no por huella de audio. La inserción automática solo completa etiquetas vacías. Revisa cada sugerencia antes de aplicarla."
+          }
+        },
+        "es-US": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Coincidencia del catálogo musical de Apple por nombre de archivo y etiquetas, no por huella de audio. La inserción automática solo completa etiquetas vacías. Revisa cada sugerencia antes de aplicarla."
+          }
+        },
+        "fr-CA": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Correspondance du catalogue musical Apple selon le nom du fichier et les tags, sans empreinte audio. L’intégration automatique complète seulement les tags manquants. Vérifiez chaque suggestion avant de l’appliquer."
+          }
+        },
+        "zh-HK": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "未比對到音訊指紋，已根據檔案名稱及現有標籤比對 Apple 音樂目錄。自動嵌入僅補齊缺少的標籤；單獨套用建議前，請先核對。"
+          }
+        }
+      }
+    },
+    "TagMatch.CatalogArtworkNotice": {
+      "comment": "Explains conservative filename/catalog fallback, not acoustic recognition.",
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Only an artwork suggestion was found in Apple’s music catalog. Other tags were left unchanged because the recording could not be matched confidently."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "已从 Apple 音乐目录找到封面建议，但无法可靠确认录音版本，因此不自动填写其他标签。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "已從 Apple 音樂目錄找到封面建議，但無法可靠確認錄音版本，因此不自動填入其他標籤。"
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "تم العثور على اقتراح للغلاف فقط في دليل موسيقى Apple. لم تتغير الوسوم الأخرى لعدم التأكد من مطابقة التسجيل."
+          }
+        },
+        "ca": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Només s’ha trobat un suggeriment de portada al catàleg d’Apple. Les altres etiquetes no han canviat perquè no s’ha identificat l’enregistrament amb prou certesa."
+          }
+        },
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "V katalogu Apple byl nalezen pouze návrh obalu. Ostatní značky zůstaly beze změny, protože nahrávku nelze spolehlivě určit."
+          }
+        },
+        "da": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Der blev kun fundet et forslag til cover i Apples musikkatalog. Andre tags er uændrede, da optagelsen ikke kunne matches sikkert."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "In Apples Musikkatalog wurde nur ein Covervorschlag gefunden. Andere Tags bleiben unverändert, da die Aufnahme nicht sicher zugeordnet werden konnte."
+          }
+        },
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Βρέθηκε μόνο πρόταση εξωφύλλου στον κατάλογο της Apple. Οι άλλες ετικέτες έμειναν αμετάβλητες, καθώς η ηχογράφηση δεν ταυτοποιήθηκε με βεβαιότητα."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Solo se encontró una sugerencia de portada en el catálogo de Apple. Las demás etiquetas no cambiaron porque no se pudo identificar la grabación con confianza."
+          }
+        },
+        "fi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Applen musiikkiluettelosta löytyi vain kansikuvaehdotus. Muut tunnisteet säilyivät, sillä tallennetta ei voitu tunnistaa luotettavasti."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Seule une pochette a été suggérée par le catalogue Apple. Les autres tags sont inchangés, car l’enregistrement n’a pas été identifié avec certitude."
+          }
+        },
+        "he": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "נמצאה רק הצעת עטיפה בקטלוג Apple. התגיות האחרות לא שונו כי לא ניתן היה לזהות את ההקלטה בוודאות."
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apple के संगीत कैटलॉग में केवल कवर का सुझाव मिला। रिकॉर्डिंग का भरोसेमंद मिलान न होने के कारण अन्य टैग नहीं बदले गए।"
+          }
+        },
+        "hr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "U Appleovu katalogu pronađen je samo prijedlog omota. Ostale oznake nisu promijenjene jer snimka nije pouzdano prepoznata."
+          }
+        },
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Csak borítójavaslat érkezett az Apple katalógusából. A többi címke változatlan maradt, mert a felvételt nem sikerült biztosan azonosítani."
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hanya saran sampul yang ditemukan di katalog Apple. Tag lain tidak diubah karena rekamannya belum dapat dicocokkan dengan yakin."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "È stata trovata solo una copertina suggerita nel catalogo Apple. Gli altri tag restano invariati perché la registrazione non è stata identificata con certezza."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apple の音楽カタログからジャケット候補が見つかりました。録音を確実に特定できないため、その他のタグは変更しません。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apple 음악 카탈로그에서 커버 후보만 찾았습니다. 녹음을 확실히 식별할 수 없어 다른 태그는 변경하지 않습니다."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hanya cadangan kulit album ditemui dalam katalog Apple. Tag lain tidak berubah kerana rakaman tidak dapat dipadankan dengan yakin."
+          }
+        },
+        "nb": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bare et omslagsforslag ble funnet i Apples katalog. Andre tagger er uendret fordi innspillingen ikke kunne identifiseres sikkert."
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Alleen een hoesvoorstel gevonden in Apples catalogus. Andere tags blijven ongewijzigd omdat de opname niet betrouwbaar kon worden herkend."
+          }
+        },
+        "pl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "W katalogu Apple znaleziono tylko propozycję okładki. Inne tagi pozostają bez zmian, ponieważ nie udało się pewnie rozpoznać nagrania."
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Foi encontrada apenas uma sugestão de capa no catálogo da Apple. As outras tags não mudaram porque não foi possível identificar a gravação com segurança."
+          }
+        },
+        "pt-PT": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Foi encontrada apenas uma sugestão de capa no catálogo da Apple. As outras etiquetas não mudaram porque não foi possível identificar a gravação com segurança."
+          }
+        },
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "A fost găsită doar o sugestie de copertă în catalogul Apple. Celelalte etichete nu s-au schimbat, deoarece înregistrarea nu a fost identificată sigur."
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "В каталоге Apple найдена только предлагаемая обложка. Остальные теги не изменены: запись не удалось надёжно определить."
+          }
+        },
+        "sk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "V katalógu Apple sa našiel iba návrh obalu. Ostatné značky zostali nezmenené, pretože nahrávku nebolo možné spoľahlivo určiť."
+          }
+        },
+        "sl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "V katalogu Apple je bil najden le predlog naslovnice. Druge oznake so nespremenjene, saj posnetka ni bilo mogoče zanesljivo prepoznati."
+          }
+        },
+        "sv": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bara ett omslagsförslag hittades i Apples katalog. Övriga taggar är oförändrade eftersom inspelningen inte kunde matchas säkert."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "พบเพียงภาพปกที่แนะนำจากแค็ตตาล็อก Apple แท็กอื่นยังคงเดิม เนื่องจากไม่สามารถระบุเสียงบันทึกได้อย่างมั่นใจ"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apple kataloğunda yalnızca kapak önerisi bulundu. Kayıt güvenilir biçimde eşleştirilemediği için diğer etiketler değiştirilmedi."
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "У каталозі Apple знайдено лише пропозицію обкладинки. Інші теги не змінено, оскільки запис не вдалося надійно визначити."
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Chỉ tìm thấy gợi ý ảnh bìa trong danh mục Apple. Các thẻ khác không thay đổi vì chưa thể xác định chắc chắn bản thu."
+          }
+        },
+        "en-AU": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Only an artwork suggestion was found in Apple’s music catalog. Other tags were left unchanged because the recording could not be matched confidently."
+          }
+        },
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Only an artwork suggestion was found in Apple’s music catalog. Other tags were left unchanged because the recording could not be matched confidently."
+          }
+        },
+        "en-IN": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Only an artwork suggestion was found in Apple’s music catalog. Other tags were left unchanged because the recording could not be matched confidently."
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Solo se encontró una sugerencia de portada en el catálogo de Apple. Las demás etiquetas no cambiaron porque no se pudo identificar la grabación con confianza."
+          }
+        },
+        "es-US": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Solo se encontró una sugerencia de portada en el catálogo de Apple. Las demás etiquetas no cambiaron porque no se pudo identificar la grabación con confianza."
+          }
+        },
+        "fr-CA": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Seule une pochette a été suggérée par le catalogue Apple. Les autres tags sont inchangés, car l’enregistrement n’a pas été identifié avec certitude."
+          }
+        },
+        "zh-HK": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "已從 Apple 音樂目錄找到封面建議，但無法可靠確認錄音版本，因此不自動填入其他標籤。"
+          }
+        }
+      }
+    },
     "Onboarding.Connect.Body": {
       "comment": "Welcome onboarding. Feature/premium presentation.",
       "extractionState": "manual",

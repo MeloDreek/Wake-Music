@@ -70,7 +70,8 @@ class AudioMatchCoverFootView: UITableViewHeaderFooterView {
     }
     
     @objc func clickViewAction() {
-        guard let image = self.coverImgView.image, let attributedText = self.statusLabel.attributedText else {
+        guard let loadedArtworkURL, loadedArtworkURL == model?.coverArt,
+              let image = self.coverImgView.image, let attributedText = self.statusLabel.attributedText else {
             return
         }
         
@@ -86,13 +87,21 @@ class AudioMatchCoverFootView: UITableViewHeaderFooterView {
     
     var model: AudioFingerprintModel?
     var cellType: MeteDataCellItemType?
+    private var loadedArtworkURL: String?
+    private var artworkRequestID = UUID()
     
     let textFont = kaka_IsMacOS() ? UIListContentConfiguration.cell().textProperties.font : UIFontLight(16.ckValue())
     
     let editManuaStr = "Please edit manually".localStr()
     
     func update(cellType: MeteDataCellItemType, model: AudioFingerprintModel?) {
-        
+        let requestID = UUID()
+        artworkRequestID = requestID
+        coverImgView.kf.cancelDownloadTask()
+        loadedArtworkURL = nil
+        coverImgView.image = nil
+        coverImgView.isHidden = true
+        statusLabel.attributedText = nil
         self.cellType = cellType
         self.model = model
         
@@ -105,8 +114,21 @@ class AudioMatchCoverFootView: UITableViewHeaderFooterView {
         
         if let coverURL = URL(string: model.coverArt ?? "") {
             self.coverImgView.isHidden = false
-            self.coverImgView.kf.setImage(with: coverURL, placeholder: UIImage(named: "music_place"))
-            self.statusLabel.attributedText = NSAttributedString(string: "Embed".localStr(), attributes: [.font: textFont, .foregroundColor: UIColor.systemBlue, .underlineStyle: 1])
+            self.loadingView.startAnimating()
+            self.coverImgView.kf.setImage(with: coverURL) { [weak self] result in
+                guard let self, self.artworkRequestID == requestID,
+                      self.model?.coverArt == coverURL.absoluteString else { return }
+                self.loadingView.stopAnimating()
+                switch result {
+                case .success:
+                    self.loadedArtworkURL = coverURL.absoluteString
+                    self.statusLabel.attributedText = NSAttributedString(string: "Embed".localStr(), attributes: [.font: self.textFont, .foregroundColor: UIColor.systemBlue, .underlineStyle: 1])
+                case .failure:
+                    self.loadedArtworkURL = nil
+                    self.coverImgView.image = nil
+                    self.statusLabel.attributedText = NSAttributedString(string: self.editManuaStr, attributes: [.font: self.textFont, .foregroundColor: UIColor.secondaryLabel])
+                }
+            }
             statusLabel.snp.remakeConstraints { make in
                 make.trailing.equalToSuperview().offset(-18.ckValue())
                 make.centerY.equalTo(coverImgView)
@@ -124,6 +146,11 @@ class AudioMatchCoverFootView: UITableViewHeaderFooterView {
     }
     
     func setupFailedStatus() {
+        artworkRequestID = UUID()
+        coverImgView.kf.cancelDownloadTask()
+        loadedArtworkURL = nil
+        coverImgView.image = nil
+        coverImgView.isHidden = true
         self.model = nil
         self.statusLabel.attributedText = NSAttributedString(string: editManuaStr, attributes: [.font: UIFontLight(12.ckValue()), .foregroundColor: UIColor.secondaryLabel])
         self.loadingView.stopAnimating()
@@ -195,5 +222,3 @@ class AudioMatchCoverFootView: UITableViewHeaderFooterView {
 //#endif
     
 }
-
-

@@ -11,6 +11,9 @@ import ShazamKit
 
 /// 音频指纹后的元数据
 struct AudioFingerprintModel: SmartCodableX {
+    /// Nil means acoustic identification. Catalog guesses are always fill-only.
+    var metadataSource: String?
+    var isCatalogFallback: Bool { metadataSource?.hasPrefix("appleCatalog") == true }
     
     /// 标题
     var title: String?

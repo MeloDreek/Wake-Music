@@ -28,8 +28,10 @@ protocol AudioMatchTagDelete: AnyObject {
 /// 自动识别页面
 class AudioMatchTagViewController: SuperViewController {
     private var metadataTask: Task<Void, Never>?
+    private var matchRequest: MetadataMatchRequest?
+    private var matchRequestID = UUID()
 
-    deinit { metadataTask?.cancel() }
+    deinit { metadataTask?.cancel(); matchRequest?.cancel() }
     
     init(_ model: MusicItemModel) {
         super.init(nibName: nil, bundle: nil)
@@ -79,17 +81,27 @@ class AudioMatchTagViewController: SuperViewController {
     }
     
     func refreshDataAction() {
-        
+        matchRequest?.cancel()
+        musicMatcher.cancelLocalMatching()
+        let requestID = UUID()
+        matchRequestID = requestID
+        tagsModel = nil
+        isAutoMatched = nil
+        embeddedButton.isHidden = true
         let metaModel = TaglibMetadataParser.readMetadata(withFileURL: self.model.mediaPlayURL, read: .all)
+        self.model = metaModel?.mergeTagLibInfo(self.model) ?? self.model
         self.coverImage = metaModel?.coverArt
+        updateMatchNotice()
         self.tableView.reloadData()
         
-        self.musicMatcher.matchLocalAudio(model: model) { result in
+        self.matchRequest = self.musicMatcher.matchLocalAudioMetadata(model: model) { [weak self] result in
+            guard let self, self.matchRequestID == requestID else { return }
             switch result {
             case .success(let model):
                 self.isAutoMatched = true
                 self.embeddedButton.isHidden = false
                 self.tagsModel = model
+                self.updateMatchNotice()
                 self.tableView.reloadData()
                 break
             case .failure(let failure):
@@ -100,6 +112,22 @@ class AudioMatchTagViewController: SuperViewController {
                 break
             }
         }
+    }
+
+    private func updateMatchNotice() {
+        guard let tagsModel, tagsModel.isCatalogFallback else { tableView.tableHeaderView = nil; return }
+        let label = UILabel()
+        label.text = (tagsModel.metadataSource == "appleCatalogArtwork" ? "TagMatch.CatalogArtworkNotice" : "TagMatch.CatalogNotice").localStr()
+        label.font = UIFont.preferredFont(forTextStyle: .footnote)
+        label.textColor = .secondaryLabel
+        label.numberOfLines = 0
+        let width = max(240, tableView.bounds.width)
+        let height = label.sizeThatFits(CGSize(width: width - 40, height: .greatestFiniteMagnitude)).height + 28
+        let header = UIView(frame: CGRect(x: 0, y: 0, width: width, height: height))
+        label.frame = header.bounds.insetBy(dx: 20, dy: 14)
+        label.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        header.addSubview(label)
+        tableView.tableHeaderView = header
     }
     
     // 处理内嵌元数据

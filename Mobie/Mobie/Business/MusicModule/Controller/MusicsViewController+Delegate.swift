@@ -148,19 +148,30 @@ extension MusicsViewController: MusicTopBatchEditHeadViewDelegate {
             return
         }
         
+        let generation = UUID()
+        self.batchEmbeddingGeneration = generation
         self.isBatchEditing = true
         self.headMusictagView.state = .matching
         self.headMusictagView.updateProgress(curModel: allModels.first, completed: 1, total: allModels.count)
         let startTime = Date()
         
         self.tagEditor.batchEmbeddedMetadata(models: allModels, config: config) { [weak self] curModel, completed, total in
-            self?.headMusictagView.updateProgress(curModel: curModel, completed: completed, total: total)
+            guard let self, self.batchEmbeddingGeneration == generation, self.isBatchEditing else { return }
+            self.headMusictagView.updateProgress(curModel: curModel, completed: completed, total: total)
         } completion: { [weak self] completedModels, missingTagModels in
+            guard let wSelf = self else { return }
+            guard wSelf.batchEmbeddingGeneration == generation, wSelf.isBatchEditing else {
+                // Cancelled work still drains and may have finished a save.
+                // Refresh its disk state, but never reopen success UI or charge quota.
+                if wSelf.batchEmbeddingGeneration == nil, !wSelf.isBatchEditing {
+                    wSelf.refreshDataAction()
+                }
+                return
+            }
+            wSelf.batchEmbeddingGeneration = nil
             
             let spentTime = Date().timeIntervalSince(startTime)
             let missTagModels = missingTagModels ?? []
-            
-            guard let wSelf = self else { return }
             
             // 更新头部和列表
             let totalCount = allModels.count
@@ -184,20 +195,35 @@ extension MusicsViewController: MusicTopBatchEditHeadViewDelegate {
     
     // 取消队列
     func musicTopHeadViewDidClickCancel(topView: MusicTopBatchEditHeadView) {
+        let generation = self.batchEmbeddingGeneration
         self.showTwoAlert(message: "Are you sure you want to cancel?".localStr()) { [weak self] () in
-            self?.tagEditor.cancelBatchEmbeddedQueue()
-            self?.headMusictagView.state = .normal
-            self?.isBatchEditing = false
-            self?.headMusictagView.matchingView.progressView.update(current: 0, total: 0)
-            self?.view.makeToast(KakaError.youhaveCanceled.errorDescription)
+            guard let self, self.batchEmbeddingGeneration == generation, self.isBatchEditing else { return }
+            self.batchEmbeddingGeneration = nil
+            self.isBatchEditing = false
+            self.tagEditor.cancelBatchEmbeddedQueue()
+            self.headMusictagView.state = .normal
+            self.headMusictagView.matchingView.progressView.update(current: 0, total: 0)
+            self.view.makeToast(KakaError.youhaveCanceled.errorDescription)
         }
     }
     
     // 已完成，用户点击重置
     func musicTopHeadViewDidCompletReset(topView: MusicTopBatchEditHeadView) {
+        self.batchEmbeddingGeneration = nil
         self.headMusictagView.state = .normal
         self.isBatchEditing = false
         self.headMusictagView.matchingView.progressView.update(current: 0, total: 0)
+    }
+}
+
+// UI callbacks are main-queue confined. Each run gets a distinct identity so a
+// cancelled batch cannot update a newly started batch's progress or completion.
+private enum BatchEmbeddingUIKey { static var generation: UInt8 = 0 }
+
+private extension MusicsViewController {
+    var batchEmbeddingGeneration: UUID? {
+        get { (objc_getAssociatedObject(self, &BatchEmbeddingUIKey.generation) as? NSUUID).map { $0 as UUID } }
+        set { objc_setAssociatedObject(self, &BatchEmbeddingUIKey.generation, newValue as NSUUID?, .OBJC_ASSOCIATION_RETAIN_NONATOMIC) }
     }
 }
 

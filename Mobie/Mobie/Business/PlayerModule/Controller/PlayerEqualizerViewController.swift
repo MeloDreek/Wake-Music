@@ -186,6 +186,8 @@ final class PlayerEqualizerViewController: SuperViewController {
             powerLamp.widthAnchor.constraint(equalToConstant: 6),
             powerLamp.heightAnchor.constraint(equalToConstant: 6),
         ])
+        // Preserve the audio-rack's iOS controls in the Mac idiom as well.
+        powerSwitch.preferredStyle = .sliding
         powerSwitch.onTintColor = EQStyle.amber
         powerSwitch.thumbTintColor = EQStyle.silver
         powerSwitch.accessibilityLabel = "EQ.Enabled".localStr()
@@ -201,6 +203,7 @@ final class PlayerEqualizerViewController: SuperViewController {
     }
 
     private func makePremiumButton() -> UIView {
+        premiumButton.preferredBehavioralStyle = .pad
         var configuration = UIButton.Configuration.plain()
         configuration.image = UIImage(systemName: "crown.fill")
         configuration.imagePadding = 9
@@ -225,32 +228,35 @@ final class PlayerEqualizerViewController: SuperViewController {
         let title = EQStyle.sectionTitle("EQ.Presets")
         let grid = presetGrid
         scrollView.panGestureRecognizer.require(toFail: grid.scrollView.panGestureRecognizer)
-        for preset in PlayerEqualizerPreset.displayedPresets {
-            let button = UIButton(type: .system)
-            var configuration = UIButton.Configuration.filled()
-            configuration.title = preset.title
-            configuration.titleLineBreakMode = .byWordWrapping
-            configuration.baseBackgroundColor = EQStyle.recess
-            configuration.baseForegroundColor = EQStyle.secondary
-            configuration.cornerStyle = .fixed
-            configuration.background.cornerRadius = 9
-            configuration.background.strokeWidth = 1
-            configuration.background.strokeColor = EQStyle.edge
-            configuration.contentInsets = NSDirectionalEdgeInsets(top: 12, leading: 16, bottom: 12, trailing: 16)
-            configuration.titleTextAttributesTransformer = UIConfigurationTextAttributesTransformer { attributes in
-                var attributes = attributes
-                attributes.font = UIFontMetrics(forTextStyle: .subheadline).scaledFont(for: .systemFont(ofSize: 14, weight: .semibold))
-                return attributes
+        for (row, presets) in PlayerEqualizerPreset.displayedPresetRows.enumerated() {
+            for preset in presets {
+                let button = UIButton(type: .system)
+                button.preferredBehavioralStyle = .pad
+                var configuration = UIButton.Configuration.filled()
+                configuration.title = preset.title
+                configuration.titleLineBreakMode = .byWordWrapping
+                configuration.baseBackgroundColor = EQStyle.recess
+                configuration.baseForegroundColor = EQStyle.secondary
+                configuration.cornerStyle = .fixed
+                configuration.background.cornerRadius = 9
+                configuration.background.strokeWidth = 1
+                configuration.background.strokeColor = EQStyle.edge
+                configuration.contentInsets = NSDirectionalEdgeInsets(top: 12, leading: 16, bottom: 12, trailing: 16)
+                configuration.titleTextAttributesTransformer = UIConfigurationTextAttributesTransformer { attributes in
+                    var attributes = attributes
+                    attributes.font = UIFontMetrics(forTextStyle: .subheadline).scaledFont(for: .systemFont(ofSize: 14, weight: .semibold))
+                    return attributes
+                }
+                button.configuration = configuration
+                button.titleLabel?.adjustsFontForContentSizeCategory = true
+                button.titleLabel?.numberOfLines = 0
+                button.titleLabel?.textAlignment = .center
+                button.addAction(UIAction { [weak self] _ in
+                    self?.edit { settings in settings.selectPreset(preset) }
+                }, for: .touchUpInside)
+                presetButtons[preset] = button
+                grid.addButton(button, row: row)
             }
-            button.configuration = configuration
-            button.titleLabel?.adjustsFontForContentSizeCategory = true
-            button.titleLabel?.numberOfLines = 0
-            button.titleLabel?.textAlignment = .center
-            button.addAction(UIAction { [weak self] _ in
-                self?.edit { settings in settings.selectPreset(preset) }
-            }, for: .touchUpInside)
-            presetButtons[preset] = button
-            grid.addButton(button)
         }
         let note = EQStyle.label(size: 12, textStyle: .footnote)
         note.text = "EQ.PresetsGuide".localStr()
@@ -342,14 +348,15 @@ final class PlayerEqualizerViewController: SuperViewController {
 
         preampSlider.minimumValue = -12
         preampSlider.maximumValue = 0
-        #if !targetEnvironment(macCatalyst)
-        // Catalyst uses an AppKit-backed slider; track/thumbnail customization
-        // is unsupported there and can raise an Objective-C exception.
-        preampSlider.minimumTrackTintColor = EQStyle.amber.withAlphaComponent(0.8)
-        preampSlider.maximumTrackTintColor = EQStyle.recess
-        preampSlider.setThumbImage(EQStyle.horizontalThumb(), for: .normal)
-        preampSlider.setThumbImage(EQStyle.horizontalThumb(), for: .highlighted)
-        #endif
+        preampSlider.preferredBehavioralStyle = .pad
+        // Never customize an AppKit-backed slider: unsupported track/thumbnail
+        // setters can throw. The explicitly requested iOS control supports them.
+        if preampSlider.behavioralStyle == .pad {
+            preampSlider.minimumTrackTintColor = EQStyle.amber.withAlphaComponent(0.8)
+            preampSlider.maximumTrackTintColor = EQStyle.recess
+            preampSlider.setThumbImage(EQStyle.horizontalThumb(), for: .normal)
+            preampSlider.setThumbImage(EQStyle.horizontalThumb(), for: .highlighted)
+        }
         preampSlider.accessibilityLabel = "EQ.Preamp".localStr()
         preampSlider.authorize = { [weak self] in self?.authorizeEditing() ?? false }
         preampSlider.addTarget(self, action: #selector(preampChanged), for: .valueChanged)
@@ -379,6 +386,7 @@ final class PlayerEqualizerViewController: SuperViewController {
 
     private func makeResetButton() -> UIView {
         let button = UIButton(type: .system)
+        button.preferredBehavioralStyle = .pad
         var configuration = UIButton.Configuration.plain()
         configuration.title = "EQ.Reset".localStr()
         configuration.image = UIImage(systemName: "arrow.counterclockwise")
@@ -464,11 +472,10 @@ final class PlayerEqualizerViewController: SuperViewController {
     }
 }
 
-/// Three rows in reading order, inside a horizontal viewport. Custom and Bass
-/// Boost are adjacent in the first row, including in right-to-left languages.
+/// Three rows of five inside a horizontal viewport, sized to the longest title.
 private final class EQPresetGrid: UIView {
     let scrollView: UIScrollView = HorizontalScrollView()
-    private var buttons: [UIButton] = []
+    private var buttonRows: [[UIButton]] = Array(repeating: [], count: 3)
     private var measuredWidth: CGFloat = 0
     private var previousDirection: UIUserInterfaceLayoutDirection?
 
@@ -483,8 +490,9 @@ private final class EQPresetGrid: UIView {
 
     required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
 
-    func addButton(_ button: UIButton) {
-        buttons.append(button)
+    func addButton(_ button: UIButton, row: Int) {
+        precondition(buttonRows.indices.contains(row))
+        buttonRows[row].append(button)
         scrollView.addSubview(button)
         invalidateIntrinsicContentSize()
         setNeedsLayout()
@@ -510,13 +518,18 @@ private final class EQPresetGrid: UIView {
     }
 
     private func arrange(width: CGFloat, apply: Bool) -> CGFloat {
+        let buttons = buttonRows.flatMap { $0 }
         guard !buttons.isEmpty else { return 0 }
-        let rows = 3
-        let columns = Int(ceil(Double(buttons.count) / Double(rows)))
+        let rows = buttonRows.count
+        let columns = buttonRows.map(\.count).max() ?? 0
         let spacing: CGFloat = 8
-        // Show a partial next column on phones as a scrolling affordance. Long
-        // translations and larger accessibility fonts grow the row, not its count.
-        let columnWidth = min(160, max(104, floor(width * 0.36)))
+        // UIButton includes the title's current font and the configured horizontal
+        // padding (16 pt per side). Do not stretch short titles to fill the viewport.
+        let naturalWidth = buttons.reduce(CGFloat(44)) { result, button in
+            max(result, ceil(button.sizeThatFits(UIView.layoutFittingExpandedSize).width))
+        }
+        // Allow wrapping only when a large accessibility title cannot fit on screen.
+        let columnWidth = min(max(44, width), naturalWidth)
         let rowHeight = buttons.reduce(CGFloat(44)) { height, button in
             max(height, ceil(button.sizeThatFits(CGSize(width: columnWidth, height: .greatestFiniteMagnitude)).height))
         }
@@ -530,11 +543,13 @@ private final class EQPresetGrid: UIView {
                 ? oldMaximum - scrollView.contentOffset.x : scrollView.contentOffset.x
             scrollView.frame = bounds
             scrollView.contentSize = CGSize(width: contentWidth, height: height)
-            for (index, button) in buttons.enumerated() {
-                let x = CGFloat(index % columns) * (columnWidth + spacing)
-                let y = CGFloat(index / columns) * (rowHeight + spacing)
-                button.frame = CGRect(x: rtl ? contentWidth - x - columnWidth : x,
-                                      y: y, width: columnWidth, height: rowHeight)
+            for (row, buttons) in buttonRows.enumerated() {
+                for (column, button) in buttons.enumerated() {
+                    let x = CGFloat(column) * (columnWidth + spacing)
+                    let y = CGFloat(row) * (rowHeight + spacing)
+                    button.frame = CGRect(x: rtl ? contentWidth - x - columnWidth : x,
+                                          y: y, width: columnWidth, height: rowHeight)
+                }
             }
             let maximum = max(0, contentWidth - width)
             let offset = min(maximum, max(0, leadingOffset))

@@ -6,7 +6,8 @@ enum PresetLayoutProbe {
     @MainActor static func main() {
         var checks = 0
         let presets = PlayerEqualizerPreset.displayedPresets
-        precondition(Array(presets.prefix(2)) == [.custom, .bass], "Custom and Bass Boost must lead the first row")
+        precondition(PlayerEqualizerPreset.displayedPresetRows[0] == [.custom, .bass, .bassReduction, .treble, .trebleReduction], "Custom, then bass/treble boosts and cuts must form the first row")
+        precondition(PlayerEqualizerPreset.displayedPresetRows.allSatisfy { $0.count == 5 })
         precondition(presets.filter { $0 == .custom }.count == 1)
         precondition(Set(presets).count == presets.count, "Duplicate presets")
         for locale in EQLayoutLocalizations.labels.keys.sorted() {
@@ -17,12 +18,15 @@ enum PresetLayoutProbe {
                         let (grid, buttons) = makeGrid(width: width, category: category, rtl: rtl, labels: labels)
                         checks += checkLayout(grid, buttons: buttons, rtl: rtl)
                         precondition(Set(buttons.map { $0.frame.minY }).count == 3, "Exactly three rows")
-                        precondition(buttons[0].frame.minY == 0 && buttons[1].frame.minY == 0)
+                        precondition(buttons.prefix(5).allSatisfy { $0.frame.minY == 0 })
+                        precondition(buttons[5].frame.minY > 0, "Flat starts the next row")
+                        let naturalWidth = buttons.map { ceil($0.sizeThatFits(UIView.layoutFittingExpandedSize).width) }.max()!
+                        precondition(buttons.allSatisfy { abs($0.frame.width - min(width, max(44, naturalWidth))) < 0.1 }, "Equal widths follow the longest title plus padding, not viewport fractions")
                         let scroll = grid.scrollView
                         let maximum = max(0, scroll.contentSize.width - scroll.bounds.width)
                         precondition(abs(scroll.contentOffset.x - (rtl ? maximum : 0)) < 0.1, "Start at reading-direction leading edge")
                         scroll.contentOffset.x = rtl ? 0 : maximum
-                        let lastColumn = buttons[4].frame
+                        let lastColumn = (rtl ? buttons.min(by: { $0.frame.minX < $1.frame.minX }) : buttons.max(by: { $0.frame.maxX < $1.frame.maxX }))!.frame
                         precondition(lastColumn.minX >= scroll.contentOffset.x - 0.1 && lastColumn.maxX <= scroll.contentOffset.x + width + 0.1, "Last column reachable by scrolling")
                         grid.frame.size.width = width * 0.7
                         grid.frame.size.height = grid.intrinsicContentSize.height
@@ -45,38 +49,41 @@ enum PresetLayoutProbe {
         grid.semanticContentAttribute = rtl ? .forceRightToLeft : .forceLeftToRight
         let traits = UITraitCollection(preferredContentSizeCategory: category)
         var buttons: [UIButton] = []
-        for preset in PlayerEqualizerPreset.displayedPresets {
-            guard let name = labels[preset.localizationKey], !name.isEmpty else {
-                preconditionFailure("Missing preset translation: \(preset.localizationKey)")
+        for (row, presets) in PlayerEqualizerPreset.displayedPresetRows.enumerated() {
+            for preset in presets {
+                guard let name = labels[preset.localizationKey], !name.isEmpty else {
+                    preconditionFailure("Missing preset translation: \(preset.localizationKey)")
+                }
+                let button = UIButton(type: .system)
+                button.preferredBehavioralStyle = .pad
+                var config = UIButton.Configuration.filled()
+                config.title = name
+                config.titleLineBreakMode = .byWordWrapping
+                config.baseBackgroundColor = UIColor(red: 0.075, green: 0.082, blue: 0.09, alpha: 1)
+                config.baseForegroundColor = UIColor(red: 0.65, green: 0.68, blue: 0.71, alpha: 1)
+                config.cornerStyle = .fixed
+                config.background.cornerRadius = 9
+                config.background.strokeWidth = 1
+                config.background.strokeColor = UIColor(white: 0.26, alpha: 1)
+                config.contentInsets = NSDirectionalEdgeInsets(top: 12, leading: 16, bottom: 12, trailing: 16)
+                config.titleTextAttributesTransformer = UIConfigurationTextAttributesTransformer { values in
+                    var values = values
+                    values.font = UIFontMetrics(forTextStyle: .subheadline).scaledFont(
+                        for: .systemFont(ofSize: 14, weight: .semibold), compatibleWith: traits)
+                    return values
+                }
+                if preset == .bass {
+                    let amber = UIColor(red: 1, green: 0.72, blue: 0.33, alpha: 1)
+                    config.baseForegroundColor = amber
+                    config.baseBackgroundColor = amber.withAlphaComponent(0.15)
+                    config.background.strokeColor = amber.withAlphaComponent(0.6)
+                }
+                button.configuration = config
+                button.titleLabel?.numberOfLines = 0
+                button.titleLabel?.textAlignment = .center
+                grid.addButton(button, row: row)
+                buttons.append(button)
             }
-            let button = UIButton(type: .system)
-            var config = UIButton.Configuration.filled()
-            config.title = name
-            config.titleLineBreakMode = .byWordWrapping
-            config.baseBackgroundColor = UIColor(red: 0.075, green: 0.082, blue: 0.09, alpha: 1)
-            config.baseForegroundColor = UIColor(red: 0.65, green: 0.68, blue: 0.71, alpha: 1)
-            config.cornerStyle = .fixed
-            config.background.cornerRadius = 9
-            config.background.strokeWidth = 1
-            config.background.strokeColor = UIColor(white: 0.26, alpha: 1)
-            config.contentInsets = NSDirectionalEdgeInsets(top: 12, leading: 16, bottom: 12, trailing: 16)
-            config.titleTextAttributesTransformer = UIConfigurationTextAttributesTransformer { values in
-                var values = values
-                values.font = UIFontMetrics(forTextStyle: .subheadline).scaledFont(
-                    for: .systemFont(ofSize: 14, weight: .semibold), compatibleWith: traits)
-                return values
-            }
-            if preset == .bass {
-                let amber = UIColor(red: 1, green: 0.72, blue: 0.33, alpha: 1)
-                config.baseForegroundColor = amber
-                config.baseBackgroundColor = amber.withAlphaComponent(0.15)
-                config.background.strokeColor = amber.withAlphaComponent(0.6)
-            }
-            button.configuration = config
-            button.titleLabel?.numberOfLines = 0
-            button.titleLabel?.textAlignment = .center
-            grid.addButton(button)
-            buttons.append(button)
         }
         grid.frame.size.height = grid.intrinsicContentSize.height
         grid.setNeedsLayout()
