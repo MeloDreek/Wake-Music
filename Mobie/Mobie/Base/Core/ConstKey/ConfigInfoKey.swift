@@ -17,10 +17,10 @@ import AppGroupKit
 
 
 // 联系邮箱
-//let companyEmail = "MeloDreek@gmail.com"
 let companyEmail = "support@kakainc.com"
 let emailAppURL = kaka_IsMacOS() ? "https://mail.google.com/" : "https://apps.apple.com/app/id1108187098"
 let FeedbackURL = URL(string: "https://tally.so/r/jaqN96")!
+
 
 // 隐私政策
 var kPrivacyUrl = "https://kakainc.com/en/wakemusic/legal/app-store/privacy/".localStr()

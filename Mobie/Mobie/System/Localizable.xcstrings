@@ -1,6 +1,1805 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "LyricAI.PersonalUse" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "أنظّم ملفات مجموعتي الموسيقية المحلية للاستخدام الشخصي غير التجاري فقط. المدة الكاملة: %@ (دقائق:ثوانٍ أو ساعات:دقائق:ثوانٍ). طابق التسجيل والتوقيت الصحيحين. إن تعذّر تقديم الكلمات، اقترح مصدر LRC موثوقًا أو ساعد في تنسيق كلمات أقدّمها؛ لا تخمّن التوقيت من المدة وحدها."
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Organitzo la meva col·lecció de música local només per a ús personal, no comercial. Durada total: %@ (minuts:segons o hores:minuts:segons). Comprova la gravació i els temps. Si no pots donar la lletra, ofereix una font LRC fiable o ajuda’m a donar format al text que aporti; no dedueixis els temps només de la durada."
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Uspořádávám svou místní hudební sbírku výhradně pro osobní, nekomerční použití. Celková délka: %@ (minuty:sekundy nebo hodiny:minuty:sekundy). Ověř nahrávku a časování. Pokud nemůžeš poskytnout text, nabídni spolehlivý zdroj LRC nebo pomoz formátovat můj text; neodhaduj značky jen z délky."
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jeg organiserer min lokale musiksamling til privat, ikke-kommerciel brug. Samlet varighed: %@ (minutter:sekunder eller timer:minutter:sekunder). Kontrollér optagelse og timing. Kan du ikke levere teksten, så tilbyd en pålidelig LRC-kilde eller hjælp med tekst, jeg giver dig; gæt ikke tidsstempler ud fra varigheden alene."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ich ordne meine lokale Musiksammlung ausschließlich für private, nicht kommerzielle Zwecke. Gesamtdauer: %@ (Minuten:Sekunden oder Stunden:Minuten:Sekunden). Prüfe Aufnahme und Timing. Falls du keine Liedtexte liefern kannst, nenne eine verlässliche LRC-Quelle oder formatiere von mir bereitgestellten Text; schätze Zeitstempel nicht allein aus der Dauer."
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Οργανώνω την προσωπική μου τοπική μουσική συλλογή μόνο για ιδιωτική, μη εμπορική χρήση. Συνολική διάρκεια: %@ (λεπτά:δευτερόλεπτα ή ώρες:λεπτά:δευτερόλεπτα). Έλεγξε την ηχογράφηση και τον χρονισμό. Αν δεν μπορείς να δώσεις στίχους, πρότεινε αξιόπιστη πηγή LRC ή μορφοποίησε κείμενο που θα δώσω· μην μαντεύεις χρονικές σημάνσεις μόνο από τη διάρκεια."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "I’m organizing music files in my personal local collection, for private, non-commercial use only. Total audio duration: %@ (minutes:seconds, or hours:minutes:seconds). Please match the correct recording and timing. If you cannot provide lyrics, offer a reliable LRC source or help format lyrics I supply; do not guess timestamps from duration alone."
+          }
+        },
+        "en-AU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "I’m organizing music files in my personal local collection, for private, non-commercial use only. Total audio duration: %@ (minutes:seconds, or hours:minutes:seconds). Please match the correct recording and timing. If you cannot provide lyrics, offer a reliable LRC source or help format lyrics I supply; do not guess timestamps from duration alone."
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "I’m organizing music files in my personal local collection, for private, non-commercial use only. Total audio duration: %@ (minutes:seconds, or hours:minutes:seconds). Please match the correct recording and timing. If you cannot provide lyrics, offer a reliable LRC source or help format lyrics I supply; do not guess timestamps from duration alone."
+          }
+        },
+        "en-IN" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "I’m organizing music files in my personal local collection, for private, non-commercial use only. Total audio duration: %@ (minutes:seconds, or hours:minutes:seconds). Please match the correct recording and timing. If you cannot provide lyrics, offer a reliable LRC source or help format lyrics I supply; do not guess timestamps from duration alone."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Organizo mi colección de música local solo para uso personal, no comercial. Duración total: %@ (minutos:segundos u horas:minutos:segundos). Comprueba la grabación y los tiempos. Si no puedes facilitar la letra, ofrece una fuente LRC fiable o ayuda a dar formato a un texto que yo aporte; no deduzcas tiempos solo por la duración."
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Organizo mi colección de música local solo para uso personal, no comercial. Duración total: %@ (minutos:segundos u horas:minutos:segundos). Comprueba la grabación y los tiempos. Si no puedes facilitar la letra, ofrece una fuente LRC fiable o ayuda a dar formato a un texto que yo aporte; no deduzcas tiempos solo por la duración."
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Organizo mi colección de música local solo para uso personal, no comercial. Duración total: %@ (minutos:segundos u horas:minutos:segundos). Comprueba la grabación y los tiempos. Si no puedes facilitar la letra, ofrece una fuente LRC fiable o ayuda a dar formato a un texto que yo aporte; no deduzcas tiempos solo por la duración."
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Järjestän paikallista musiikkikokoelmaani vain yksityiseen, ei-kaupalliseen käyttöön. Kokonaiskesto: %@ (minuutit:sekunnit tai tunnit:minuutit:sekunnit). Tarkista tallenne ja ajoitus. Jos et voi antaa sanoituksia, ehdota luotettavaa LRC-lähdettä tai muotoile antamaani tekstiä; älä arvaa aikaleimoja pelkästä kestosta."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "J’organise ma collection musicale locale à des fins strictement personnelles et non commerciales. Durée totale : %@ (minutes:secondes ou heures:minutes:secondes). Vérifie l’enregistrement et le minutage. Si tu ne peux pas fournir les paroles, propose une source LRC fiable ou aide à formater un texte que je fournis ; ne déduis pas les horodatages de la seule durée."
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "J’organise ma collection musicale locale à des fins strictement personnelles et non commerciales. Durée totale : %@ (minutes:secondes ou heures:minutes:secondes). Vérifie l’enregistrement et le minutage. Si tu ne peux pas fournir les paroles, propose une source LRC fiable ou aide à formater un texte que je fournis ; ne déduis pas les horodatages de la seule durée."
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "אני מארגן את אוסף המוזיקה המקומי האישי שלי לשימוש פרטי ולא מסחרי בלבד. משך כולל: %@ (דקות:שניות או שעות:דקות:שניות). בדוק את ההקלטה והתזמון. אם אי אפשר לספק מילים, הצע מקור LRC אמין או עזור לעצב טקסט שאספק; אל תנחש חותמות זמן על סמך המשך בלבד."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "मैं अपना स्थानीय संगीत संग्रह केवल निजी, गैर-व्यावसायिक उपयोग के लिए व्यवस्थित कर रहा हूँ। कुल अवधि: %@ (मिनट:सेकंड या घंटे:मिनट:सेकंड)। सही रिकॉर्डिंग और समय की पुष्टि करें। बोल न दे सकें तो विश्वसनीय LRC स्रोत बताएं या मेरे दिए बोल को फ़ॉर्मैट करें; केवल अवधि से टाइमस्टैम्प न गढ़ें।"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Uređujem osobnu lokalnu glazbenu zbirku isključivo za privatnu, nekomercijalnu uporabu. Ukupno trajanje: %@ (minute:sekunde ili sati:minute:sekunde). Provjeri snimku i vremena. Ako ne možeš dati stihove, ponudi pouzdan LRC izvor ili oblikuj tekst koji dostavim; ne nagađaj vremenske oznake samo iz trajanja."
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Saját helyi zenegyűjteményemet rendezem, kizárólag személyes, nem kereskedelmi használatra. Teljes hossz: %@ (perc:másodperc vagy óra:perc:másodperc). Ellenőrizd a felvételt és az időzítést. Ha nem adhatsz dalszöveget, ajánlj megbízható LRC-forrást vagy formázd az általam megadott szöveget; ne becsüld az időbélyegeket pusztán a hosszból."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Saya merapikan koleksi musik lokal pribadi hanya untuk penggunaan pribadi, nonkomersial. Durasi total: %@ (menit:detik atau jam:menit:detik). Cocokkan rekaman dan waktunya. Jika lirik tidak dapat diberikan, sarankan sumber LRC tepercaya atau bantu format lirik yang saya berikan; jangan menebak waktu hanya dari durasi."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Organizzo la mia raccolta musicale locale solo per uso personale, non commerciale. Durata totale: %@ (minuti:secondi o ore:minuti:secondi). Verifica registrazione e tempi. Se non puoi fornire i testi, indica una fonte LRC affidabile o formatta il testo che ti fornisco; non dedurre i tempi dalla sola durata."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "個人所有のローカル音楽コレクションを私的な鑑賞のために整理しており、商用利用はしません。音声の総時間：%@（分:秒、または時:分:秒）。録音のバージョンとタイミングを確認してください。歌詞を提供できない場合は、信頼できるLRCの入手先を示すか、私が提供する歌詞の整形を手伝ってください。総時間だけからタイムスタンプを推測しないでください。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "개인 로컬 음악 컬렉션을 사적인 감상 목적으로 정리하고 있으며 상업적으로 사용하지 않습니다. 전체 길이: %@ (분:초 또는 시:분:초). 녹음 버전과 타이밍을 확인해 주세요. 가사를 제공할 수 없다면 신뢰할 수 있는 LRC 출처를 안내하거나 제가 제공하는 가사 정리를 도와주세요. 전체 길이만으로 타임스탬프를 추측하지 마세요."
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Saya menyusun koleksi muzik tempatan peribadi untuk kegunaan persendirian, bukan komersial. Jumlah durasi: %@ (minit:saat atau jam:minit:saat). Semak rakaman dan pemasaan. Jika lirik tidak boleh diberikan, cadangkan sumber LRC yang dipercayai atau bantu format lirik saya; jangan teka cap masa daripada durasi sahaja."
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jeg organiserer min lokale musikksamling kun til privat, ikke-kommersiell bruk. Total varighet: %@ (minutter:sekunder eller timer:minutter:sekunder). Sjekk opptak og timing. Hvis du ikke kan gi teksten, foreslå en pålitelig LRC-kilde eller formater tekst jeg gir deg; ikke gjett tidsstempler ut fra varigheten alene."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ik orden mijn persoonlijke lokale muziekcollectie uitsluitend voor privégebruik, niet commercieel. Totale duur: %@ (minuten:seconden of uren:minuten:seconden). Controleer opname en timing. Kun je geen tekst geven, bied dan een betrouwbare LRC-bron of help mijn eigen tekst opmaken; leid tijdstempels niet alleen af uit de duur."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Porządkuję lokalną kolekcję muzyki wyłącznie do prywatnego, niekomercyjnego użytku. Łączny czas: %@ (minuty:sekundy lub godziny:minuty:sekundy). Sprawdź nagranie i synchronizację. Jeśli nie możesz podać tekstu, wskaż wiarygodne źródło LRC lub sformatuj dostarczony przeze mnie tekst; nie zgaduj znaczników na podstawie samego czasu trwania."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Organizo minha coleção de música local apenas para uso pessoal, não comercial. Duração total: %@ (minutos:segundos ou horas:minutos:segundos). Confira a gravação e os tempos. Se não puder fornecer a letra, indique uma fonte LRC confiável ou formate um texto que eu fornecer; não estime os tempos só pela duração."
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Organizo a minha coleção de música local apenas para uso pessoal, não comercial. Duração total: %@ (minutos:segundos ou horas:minutos:segundos). Confirma a gravação e os tempos. Se não puderes fornecer a letra, indica uma fonte LRC fiável ou formata um texto que eu forneça; não estimes os tempos só pela duração."
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Îmi organizez colecția muzicală locală doar pentru uz personal, necomercial. Durata totală: %@ (minute:secunde sau ore:minute:secunde). Verifică înregistrarea și sincronizarea. Dacă nu poți furniza versuri, oferă o sursă LRC de încredere sau formatează textul meu; nu ghici marcajele doar din durată."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Я упорядочиваю личную локальную музыкальную коллекцию исключительно для частного, некоммерческого использования. Общая длительность: %@ (минуты:секунды или часы:минуты:секунды). Проверь версию записи и синхронизацию. Если нельзя предоставить текст, предложи надёжный источник LRC или помоги оформить мой текст; не угадывай метки лишь по длительности."
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Usporiadavam svoju miestnu hudobnú zbierku len na osobné, nekomerčné použitie. Celková dĺžka: %@ (minúty:sekundy alebo hodiny:minúty:sekundy). Over nahrávku a časovanie. Ak nemôžeš poskytnúť text, ponúkni spoľahlivý zdroj LRC alebo naformátuj môj text; neodhaduj značky len z dĺžky."
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Urejam osebno lokalno glasbeno zbirko izključno za zasebno, nekomercialno uporabo. Skupno trajanje: %@ (minute:sekunde ali ure:minute:sekunde). Preveri posnetek in čase. Če ne moreš podati besedila, ponudi zanesljiv vir LRC ali oblikuj moje besedilo; ne ugibaj oznak le iz trajanja."
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Jag organiserar min lokala musiksamling enbart för privat, icke-kommersiellt bruk. Total längd: %@ (minuter:sekunder eller timmar:minuter:sekunder). Kontrollera inspelning och timing. Om du inte kan ge texten, föreslå en pålitlig LRC-källa eller formatera text jag ger dig; gissa inte tidsstämplar enbart från längden."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ฉันกำลังจัดระเบียบคอลเลกชันเพลงในเครื่องเพื่อฟังส่วนตัวเท่านั้น ไม่ใช้เชิงพาณิชย์ ความยาวรวม: %@ (นาที:วินาที หรือ ชั่วโมง:นาที:วินาที) โปรดตรวจสอบเวอร์ชันและเวลา หากให้เนื้อเพลงไม่ได้ ให้แนะนำแหล่ง LRC ที่เชื่อถือได้หรือช่วยจัดรูปแบบเนื้อเพลงที่ฉันให้ อย่าเดาเวลาจากความยาวรวมเพียงอย่างเดียว"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Yerel müzik koleksiyonumu yalnızca kişisel, ticari olmayan kullanım için düzenliyorum. Toplam süre: %@ (dakika:saniye veya saat:dakika:saniye). Kaydı ve zamanlamayı doğrula. Sözleri veremiyorsan güvenilir bir LRC kaynağı öner veya verdiğim metni biçimlendir; yalnızca toplam süreden zaman damgası tahmin etme."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Я впорядковую особисту локальну музичну колекцію лише для приватного, некомерційного використання. Загальна тривалість: %@ (хвилини:секунди або години:хвилини:секунди). Перевір версію запису та синхронізацію. Якщо не можеш надати текст, запропонуй надійне джерело LRC або допоможи оформити мій текст; не вгадуй позначки лише за тривалістю."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tôi đang sắp xếp bộ sưu tập nhạc cục bộ cá nhân, chỉ để nghe riêng, không dùng thương mại. Tổng thời lượng: %@ (phút:giây hoặc giờ:phút:giây). Hãy kiểm tra bản thu và thời gian. Nếu không thể cung cấp lời, hãy gợi ý nguồn LRC đáng tin hoặc giúp định dạng lời tôi cung cấp; đừng đoán mốc chỉ từ tổng thời lượng."
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "我正在整理個人收藏的本機音樂，僅供私人欣賞，不作商業用途。音訊總長度：%@（分:秒，或時:分:秒）。請核對錄音版本與時間軸。如果無法提供歌詞，請提供可靠的 LRC 來源，或協助整理我提供的歌詞；不要只憑總長度猜測時間戳記。"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "我正在整理个人收藏的本地音乐，仅用于私人欣赏，不用于商业用途。音频总时长：%@（分:秒，或时:分:秒）。请核对录音版本和时间轴。如果无法提供歌词，请给出可靠的 LRC 来源，或协助整理我提供的歌词；不要仅凭总时长猜测时间戳。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "我正在整理個人收藏的本機音樂，僅供私人欣賞，不作商業用途。音訊總長度：%@（分:秒，或時:分:秒）。請核對錄音版本與時間軸。如果無法提供歌詞，請提供可靠的 LRC 來源，或協助整理我提供的歌詞；不要只憑總長度猜測時間戳記。"
+          }
+        }
+      }
+    },
+    "LyricAI.Workflow" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "الصق الطلب في خدمة الذكاء الاصطناعي المختارة، ثم عد للصق كلمات LRC. راجع النتيجة قبل الحفظ."
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enganxa la petició a la IA triada i torna aquí per enganxar la lletra LRC. Revisa el resultat abans de desar."
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vložte zadání do vybrané AI a vraťte se sem vložit text LRC. Před uložením zkontrolujte výsledek."
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Indsæt prompten i din valgte AI, og vend tilbage for at indsætte LRC-teksten. Kontrollér resultatet, før du gemmer."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Füge die Anfrage in die gewählte KI ein und kehre zurück, um den LRC-Text einzufügen. Prüfe das Ergebnis vor dem Speichern."
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Επικολλήστε το αίτημα στο AI που επιλέξατε και επιστρέψτε εδώ για τους στίχους LRC. Ελέγξτε το αποτέλεσμα πριν το αποθηκεύσετε."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Copy the prompt into your chosen AI, then return here to paste the LRC lyrics. Check the result before saving."
+          }
+        },
+        "en-AU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Copy the prompt into your chosen AI, then return here to paste the LRC lyrics. Check the result before saving."
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Copy the prompt into your chosen AI, then return here to paste the LRC lyrics. Check the result before saving."
+          }
+        },
+        "en-IN" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Copy the prompt into your chosen AI, then return here to paste the LRC lyrics. Check the result before saving."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pega la consulta en la IA elegida y vuelve aquí para pegar la letra LRC. Revisa el resultado antes de guardar."
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pega la consulta en la IA elegida y vuelve aquí para pegar la letra LRC. Revisa el resultado antes de guardar."
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pega la consulta en la IA elegida y vuelve aquí para pegar la letra LRC. Revisa el resultado antes de guardar."
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Liitä pyyntö valitsemaasi tekoälyyn ja palaa tänne liittämään LRC-sanoitukset. Tarkista tulos ennen tallentamista."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Collez la demande dans l’IA choisie, puis revenez ici coller les paroles LRC. Vérifiez le résultat avant d’enregistrer."
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Collez la demande dans l’IA choisie, puis revenez ici coller les paroles LRC. Vérifiez le résultat avant d’enregistrer."
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "יש להדביק את הבקשה בשירות ה-AI שנבחר, ואז לחזור לכאן ולהדביק את מילות ה-LRC. יש לבדוק את התוצאה לפני השמירה."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "चुने हुए AI में प्रॉम्प्ट पेस्ट करें, फिर LRC बोल पेस्ट करने के लिए यहां लौटें। सेव करने से पहले परिणाम जांच लें।"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zalijepite upit u odabrani AI, zatim se vratite i zalijepite LRC stihove. Provjerite rezultat prije spremanja."
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Illeszd be a kérést a választott AI-ba, majd térj vissza ide az LRC-szöveg beillesztéséhez. Mentés előtt ellenőrizd az eredményt."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tempel prompt ke AI pilihan Anda, lalu kembali ke sini untuk menempel lirik LRC. Periksa hasilnya sebelum menyimpan."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Incolla la richiesta nell’IA scelta, poi torna qui per incollare il testo LRC. Controlla il risultato prima di salvare."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "選んだAIにプロンプトを貼り付け、LRC歌詞を取得したらここに戻って貼り付けてください。保存前に歌詞とタイミングを確認してください。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "선택한 AI에 프롬프트를 붙여넣고, LRC 가사를 받으면 여기로 돌아와 붙여넣으세요. 저장 전에 가사와 타이밍을 확인하세요."
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tampal arahan dalam AI pilihan anda, kemudian kembali ke sini untuk menampal lirik LRC. Semak hasil sebelum menyimpan."
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lim inn forespørselen i valgt KI, og kom tilbake hit for å lime inn LRC-teksten. Kontroller resultatet før lagring."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Plak de opdracht in de gekozen AI en kom terug om de LRC-tekst te plakken. Controleer het resultaat voordat je opslaat."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wklej polecenie do wybranego AI, a potem wróć tutaj i wklej tekst LRC. Sprawdź wynik przed zapisaniem."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cole o pedido na IA escolhida e volte aqui para colar a letra LRC. Confira o resultado antes de salvar."
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cole o pedido na IA escolhida e volte aqui para colar a letra LRC. Verifique o resultado antes de guardar."
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lipește cererea în AI-ul ales, apoi revino aici pentru a lipi versurile LRC. Verifică rezultatul înainte de salvare."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Вставьте запрос в выбранный ИИ, затем вернитесь сюда и вставьте текст LRC. Проверьте результат перед сохранением."
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vložte zadanie do vybranej AI a vráťte sa sem vložiť text LRC. Pred uložením skontrolujte výsledok."
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prilepite poziv v izbrani AI, nato se vrnite sem in prilepite besedilo LRC. Pred shranjevanjem preverite rezultat."
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Klistra in frågan i vald AI och kom tillbaka hit för att klistra in LRC-texten. Kontrollera resultatet innan du sparar."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "วางคำสั่งใน AI ที่เลือก แล้วกลับมาที่นี่เพื่อวางเนื้อเพลง LRC โปรดตรวจสอบผลลัพธ์ก่อนบันทึก"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "İstemi seçtiğiniz AI hizmetine yapıştırın, ardından LRC sözlerini yapıştırmak için buraya dönün. Kaydetmeden önce sonucu kontrol edin."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Вставте запит у вибраний ШІ, потім поверніться сюди та вставте текст LRC. Перевірте результат перед збереженням."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dán lời nhắc vào AI đã chọn, rồi quay lại đây để dán lời LRC. Kiểm tra kết quả trước khi lưu."
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "將提示詞貼到所選 AI，取得 LRC 歌詞後返回此頁手動貼上。儲存前請核對歌詞與時間軸。"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "将提示词粘贴到所选 AI，获得 LRC 歌词后返回此页手动粘贴。保存前请核对歌词和时间轴。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "將提示詞貼到所選 AI，取得 LRC 歌詞後返回此頁手動貼上。儲存前請核對歌詞與時間軸。"
+          }
+        }
+      }
+    },
+    "LyricAI.Search" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "البحث باستخدام الذكاء الاصطناعي"
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cerca amb IA"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hledat pomocí AI"
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Søg med AI"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mit KI suchen"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Αναζήτηση με AI"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Search with AI"
+          }
+        },
+        "en-AU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Search with AI"
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Search with AI"
+          }
+        },
+        "en-IN" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Search with AI"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Buscar con IA"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Buscar con IA"
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Buscar con IA"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hae tekoälyllä"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rechercher avec l’IA"
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rechercher avec l’IA"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "חיפוש באמצעות AI"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "AI से खोजें"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pretraži uz AI"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Keresés AI-val"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cari dengan AI"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cerca con l’IA"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "AIで検索"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "AI로 검색"
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cari dengan AI"
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Søk med KI"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zoeken met AI"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Szukaj z AI"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Buscar com IA"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pesquisar com IA"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Caută cu AI"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Искать с ИИ"
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hľadať pomocou AI"
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Išči z AI"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sök med AI"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ค้นหาด้วย AI"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "AI ile ara"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Шукати за допомогою ШІ"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tìm bằng AI"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "使用 AI 搜尋"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "使用 AI 搜索"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "使用 AI 搜尋"
+          }
+        }
+      }
+    },
+    "LyricAI.MissingMetadata" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "أدرج عنوان الأغنية واسم الفنان في الملف الصوتي باستخدام محرر الوسوم، ثم حاول مجددًا."
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Incrusta el títol i l’artista al fitxer d’àudio amb l’editor d’etiquetes i torna-ho a provar."
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nejprve vložte název skladby a interpreta do zvukového souboru pomocí editoru tagů a zkuste to znovu."
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Indlejr først sangtitel og kunstner i lydfilen med tag-editoren, og prøv igen."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bette zuerst Titel und Interpret mit dem Tag-Editor in die Audiodatei ein und versuche es erneut."
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ενσωματώστε πρώτα τον τίτλο και τον καλλιτέχνη στο αρχείο ήχου με τον επεξεργαστή ετικετών και δοκιμάστε ξανά."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Please embed both the song title and artist in the audio file using the tag editor, then try again."
+          }
+        },
+        "en-AU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Please embed both the song title and artist in the audio file using the tag editor, then try again."
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Please embed both the song title and artist in the audio file using the tag editor, then try again."
+          }
+        },
+        "en-IN" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Please embed both the song title and artist in the audio file using the tag editor, then try again."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Primero incrusta el título y el artista en el archivo de audio con el editor de etiquetas y vuelve a intentarlo."
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Primero incrusta el título y el artista en el archivo de audio con el editor de etiquetas y vuelve a intentarlo."
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Primero incrusta el título y el artista en el archivo de audio con el editor de etiquetas y vuelve a intentarlo."
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Upota ensin kappaleen nimi ja esittäjä äänitiedostoon tunniste-editorilla ja yritä uudelleen."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Intégrez d’abord le titre et l’artiste au fichier audio avec l’éditeur de tags, puis réessayez."
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Intégrez d’abord le titre et l’artiste au fichier audio avec l’éditeur de tags, puis réessayez."
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "יש להטמיע תחילה את שם השיר והאמן בקובץ השמע באמצעות עורך התגיות, ואז לנסות שוב."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "पहले टैग एडिटर से ऑडियो फ़ाइल में गीत का शीर्षक और कलाकार का नाम एम्बेड करें, फिर दोबारा कोशिश करें।"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Najprije ugradite naslov pjesme i izvođača u audiodatoteku uređivačem oznaka, pa pokušajte ponovno."
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Előbb ágyazd be a dal címét és előadóját a hangfájlba a címkeszerkesztővel, majd próbáld újra."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sematkan judul lagu dan artis ke file audio melalui editor tag terlebih dahulu, lalu coba lagi."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prima incorpora titolo e artista nel file audio con l’editor dei tag, poi riprova."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "先にタグエディタで曲名とアーティスト名を音声ファイルに埋め込み、保存してから再試行してください。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "먼저 태그 편집기에서 곡 제목과 아티스트를 오디오 파일에 내장하고 저장한 후 다시 시도하세요."
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Benamkan tajuk lagu dan artis dalam fail audio melalui editor tag dahulu, kemudian cuba lagi."
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bygg først inn sangtittel og artist i lydfilen med tag-redigeringen, og prøv igjen."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sla eerst de titel en artiest op in het audiobestand met de tageditor en probeer het opnieuw."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Najpierw osadź tytuł utworu i wykonawcę w pliku audio za pomocą edytora tagów, a potem spróbuj ponownie."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Primeiro incorpore o título e o artista no arquivo de áudio usando o editor de tags e tente novamente."
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Primeiro incorpore o título e o artista no ficheiro de áudio com o editor de etiquetas e tente novamente."
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Încorporează mai întâi titlul și artistul în fișierul audio cu editorul de etichete, apoi încearcă din nou."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сначала встройте название песни и исполнителя в аудиофайл через редактор тегов, затем повторите попытку."
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Najprv vložte názov skladby a interpreta do zvukového súboru pomocou editora tagov a skúste to znova."
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Najprej z urejevalnikom oznak v zvočno datoteko vdelajte naslov in izvajalca ter poskusite znova."
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bädda först in låttitel och artist i ljudfilen med taggredigeraren och försök igen."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "โปรดฝังชื่อเพลงและศิลปินลงในไฟล์เสียงด้วยตัวแก้ไขแท็กก่อน แล้วลองอีกครั้ง"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Önce etiket düzenleyiciyi kullanarak şarkı adını ve sanatçıyı ses dosyasına gömün, ardından tekrar deneyin."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Спочатку вбудуйте назву пісні та виконавця в аудіофайл через редактор тегів, потім повторіть спробу."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Trước tiên hãy nhúng tên bài hát và nghệ sĩ vào tệp âm thanh bằng trình sửa thẻ, rồi thử lại."
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "請先在音樂標籤編輯器中，將歌曲標題和藝人名稱內嵌至音訊檔案，儲存後再重試。"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "请先在音乐标签编辑器中，将歌曲标题和艺术家名称内嵌到音频文件，保存后再重试。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "請先在音樂標籤編輯器中，將歌曲標題和藝人名稱內嵌至音訊檔案，儲存後再重試。"
+          }
+        }
+      }
+    },
+    "LyricAI.Prompt" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ابحث عن كلمات LRC متزامنة ومتاحة قانونيًا لأغنية «%@» للفنان «%@». أعد نص LRC باللغة الأصلية مع الطوابع [mm:ss.xx] فقط، دون Markdown. إذا لم تجد مصدرًا موثوقًا، فاذكر ذلك ولا تختلق كلمات أو طوابع زمنية."
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Troba lletres LRC sincronitzades disponibles legalment de «%@», de «%@». Retorna només text LRC en l’idioma original amb marques [mm:ss.xx], sense Markdown. Si no hi ha cap font fiable, indica-ho; no inventis lletres ni marques de temps."
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Najdi legálně dostupný synchronizovaný text LRC pro skladbu „%@“ od „%@“. Vrať pouze LRC v původním jazyce se značkami [mm:ss.xx], bez Markdownu. Pokud není dostupný spolehlivý zdroj, uveď to; nevymýšlej text ani časové značky."
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Find lovligt tilgængelig synkroniseret LRC-sangtekst til ”%@” af ”%@”. Returnér kun LRC på originalsproget med [mm:ss.xx]-tidsstempler, uden Markdown. Hvis der ikke findes en pålidelig kilde, så sig det; opfind ikke tekst eller tidsstempler."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Finde legal verfügbare synchronisierte LRC-Liedtexte für „%@“ von „%@“. Gib nur LRC-Text in der Originalsprache mit [mm:ss.xx]-Zeitstempeln aus, ohne Markdown. Falls keine verlässliche Quelle verfügbar ist, sage das; erfinde weder Texte noch Zeitstempel."
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Βρες νόμιμα διαθέσιμους συγχρονισμένους στίχους LRC για το «%@» από «%@». Επίστρεψε μόνο LRC στην αρχική γλώσσα με χρονικές σημάνσεις [mm:ss.xx], χωρίς Markdown. Αν δεν υπάρχει αξιόπιστη πηγή, δήλωσέ το· μην επινοείς στίχους ή χρονικές σημάνσεις."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Find legally available synchronized LRC lyrics for “%@” by “%@”. Return only LRC text in the original language with [mm:ss.xx] timestamps, without Markdown. If no reliable source is available, say so; do not invent lyrics or timestamps."
+          }
+        },
+        "en-AU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Find legally available synchronized LRC lyrics for “%@” by “%@”. Return only LRC text in the original language with [mm:ss.xx] timestamps, without Markdown. If no reliable source is available, say so; do not invent lyrics or timestamps."
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Find legally available synchronized LRC lyrics for “%@” by “%@”. Return only LRC text in the original language with [mm:ss.xx] timestamps, without Markdown. If no reliable source is available, say so; do not invent lyrics or timestamps."
+          }
+        },
+        "en-IN" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Find legally available synchronized LRC lyrics for “%@” by “%@”. Return only LRC text in the original language with [mm:ss.xx] timestamps, without Markdown. If no reliable source is available, say so; do not invent lyrics or timestamps."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Busca letras LRC sincronizadas disponibles legalmente de «%@», de «%@». Devuelve solo texto LRC en el idioma original con marcas [mm:ss.xx], sin Markdown. Si no hay una fuente fiable, indícalo; no inventes letras ni marcas de tiempo."
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Busca letras LRC sincronizadas disponibles legalmente de «%@», de «%@». Devuelve solo texto LRC en el idioma original con marcas [mm:ss.xx], sin Markdown. Si no hay una fuente fiable, indícalo; no inventes letras ni marcas de tiempo."
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Busca letras LRC sincronizadas disponibles legalmente de «%@», de «%@». Devuelve solo texto LRC en el idioma original con marcas [mm:ss.xx], sin Markdown. Si no hay una fuente fiable, indícalo; no inventes letras ni marcas de tiempo."
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Etsi laillisesti saatavilla olevat synkronoidut LRC-sanoitukset kappaleelle ”%@”, esittäjä ”%@”. Palauta vain LRC-teksti alkuperäiskielellä [mm:ss.xx]-aikaleimoineen, ilman Markdownia. Jos luotettavaa lähdettä ei löydy, kerro siitä; älä keksi sanoja tai aikaleimoja."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Trouve des paroles LRC synchronisées disponibles légalement pour « %@ » de « %@ ». Renvoie uniquement du texte LRC dans la langue d’origine, avec les horodatages [mm:ss.xx], sans Markdown. Sans source fiable, indique-le ; n’invente ni paroles ni horodatages."
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Trouve des paroles LRC synchronisées disponibles légalement pour « %@ » de « %@ ». Renvoie uniquement du texte LRC dans la langue d’origine, avec les horodatages [mm:ss.xx], sans Markdown. Sans source fiable, indique-le ; n’invente ni paroles ni horodatages."
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "מצא מילות LRC מסונכרנות הזמינות כחוק לשיר „%@” מאת „%@”. החזר רק טקסט LRC בשפת המקור עם חותמות זמן [mm:ss.xx], ללא Markdown. אם אין מקור אמין, ציין זאת; אל תמציא מילים או חותמות זמן."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "“%@” गीत, कलाकार “%@”, के कानूनी रूप से उपलब्ध सिंक किए हुए LRC बोल खोजें। केवल मूल भाषा में [mm:ss.xx] टाइमस्टैम्प वाला LRC टेक्स्ट दें, Markdown नहीं। विश्वसनीय स्रोत न मिले तो बताएं; बोल या टाइमस्टैम्प न गढ़ें।"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pronađi zakonito dostupne sinkronizirane LRC stihove za „%@” izvođača „%@”. Vrati samo LRC tekst na izvornom jeziku s oznakama [mm:ss.xx], bez Markdowna. Ako nema pouzdanog izvora, navedi to; ne izmišljaj stihove ni vremenske oznake."
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Keress jogszerűen elérhető, szinkronizált LRC-dalszöveget ehhez: „%@”, előadó: „%@”. Csak LRC-szöveget adj az eredeti nyelven, [mm:ss.xx] időbélyegekkel, Markdown nélkül. Ha nincs megbízható forrás, jelezd; ne találj ki dalszöveget vagy időbélyegeket."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cari lirik LRC tersinkron yang tersedia secara legal untuk “%@” oleh “%@”. Berikan hanya teks LRC dalam bahasa asli dengan penanda waktu [mm:ss.xx], tanpa Markdown. Jika tidak ada sumber tepercaya, katakan demikian; jangan mengarang lirik atau penanda waktu."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Trova testi LRC sincronizzati disponibili legalmente per «%@» di «%@». Restituisci solo testo LRC nella lingua originale con marcature [mm:ss.xx], senza Markdown. Se non trovi una fonte affidabile, dichiaralo; non inventare testi o marcature temporali."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "「%@」（アーティスト：%@）の、合法的に入手できるタイムスタンプ付きLRC歌詞を探してください。[mm:ss.xx]のタイムスタンプを保持し、原語のLRCテキストのみを出力してください。Markdownは不要です。信頼できる出典がない場合はその旨を伝え、歌詞やタイムスタンプを捏造しないでください。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "‘%@’(아티스트: %@)의 합법적으로 이용 가능한 타임스탬프 포함 LRC 가사를 찾아주세요. [mm:ss.xx] 타임스탬프를 유지한 원어 LRC 텍스트만 출력하고 Markdown은 사용하지 마세요. 신뢰할 수 있는 출처가 없으면 없다고 말하고, 가사나 타임스탬프를 지어내지 마세요."
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cari lirik LRC segerak yang tersedia secara sah untuk “%@” oleh “%@”. Berikan hanya teks LRC dalam bahasa asal dengan cap masa [mm:ss.xx], tanpa Markdown. Jika tiada sumber yang boleh dipercayai, nyatakan demikian; jangan mereka lirik atau cap masa."
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Finn lovlig tilgjengelig synkronisert LRC-sangtekst til «%@» av «%@». Returner kun LRC på originalspråket med [mm:ss.xx]-tidsstempler, uten Markdown. Hvis ingen pålitelig kilde finnes, si det; ikke finn på tekst eller tidsstempler."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zoek legaal beschikbare gesynchroniseerde LRC-songteksten voor ‘%@’ van ‘%@’. Geef alleen LRC-tekst in de oorspronkelijke taal met [mm:ss.xx]-tijdstempels, zonder Markdown. Als er geen betrouwbare bron is, zeg dat dan; verzin geen tekst of tijdstempels."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Znajdź legalnie dostępny zsynchronizowany tekst LRC utworu „%@” wykonawcy „%@”. Zwróć tylko LRC w języku oryginału ze znacznikami [mm:ss.xx], bez Markdown. Jeśli nie ma wiarygodnego źródła, powiedz o tym; nie wymyślaj tekstu ani znaczników czasu."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Encontre letras LRC sincronizadas disponíveis legalmente de “%@”, de “%@”. Retorne apenas texto LRC no idioma original com marcações [mm:ss.xx], sem Markdown. Se não houver fonte confiável, informe isso; não invente letras nem marcações de tempo."
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Encontra letras LRC sincronizadas disponíveis legalmente de «%@», de «%@». Devolve apenas texto LRC no idioma original com marcas [mm:ss.xx], sem Markdown. Se não houver fonte fiável, indica-o; não inventes letras nem marcas temporais."
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Găsește versuri LRC sincronizate disponibile legal pentru „%@” de „%@”. Returnează doar text LRC în limba originală cu marcaje [mm:ss.xx], fără Markdown. Dacă nu există o sursă de încredere, spune asta; nu inventa versuri sau marcaje temporale."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Найди законно доступный синхронизированный текст LRC песни «%@», исполнитель «%@». Выведи только LRC на языке оригинала с метками [mm:ss.xx], без Markdown. Если надёжного источника нет, сообщи об этом; не выдумывай текст или временные метки."
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nájdi legálne dostupný synchronizovaný text LRC pre skladbu „%@“ od „%@“. Vráť len LRC v pôvodnom jazyku so značkami [mm:ss.xx], bez Markdownu. Ak nie je dostupný spoľahlivý zdroj, uveď to; nevymýšľaj text ani časové značky."
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Poišči zakonito dostopno sinhronizirano besedilo LRC za »%@« izvajalca »%@«. Vrni samo LRC v izvirnem jeziku s časovnimi oznakami [mm:ss.xx], brez Markdowna. Če ni zanesljivega vira, to povej; ne izmišljaj si besedila ali časovnih oznak."
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hitta lagligt tillgänglig synkroniserad LRC-låttext till ”%@” av ”%@”. Returnera endast LRC på originalspråket med [mm:ss.xx]-tidsstämplar, utan Markdown. Om ingen tillförlitlig källa finns, säg det; hitta inte på text eller tidsstämplar."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ค้นหาเนื้อเพลง LRC ที่ซิงค์เวลาและเข้าถึงได้อย่างถูกกฎหมายสำหรับเพลง “%@” โดย “%@” ส่งเฉพาะข้อความ LRC ในภาษาต้นฉบับพร้อมเวลา [mm:ss.xx] โดยไม่ใช้ Markdown หากไม่มีแหล่งข้อมูลที่เชื่อถือได้ ให้บอกตามตรง อย่าแต่งเนื้อเพลงหรือเวลาขึ้นเอง"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "“%@” adlı şarkı için, sanatçı “%@”, yasal olarak erişilebilen eşzamanlı LRC sözleri bul. Yalnızca özgün dilde [mm:ss.xx] zaman damgalı LRC metni ver, Markdown kullanma. Güvenilir kaynak yoksa belirt; söz veya zaman damgası uydurma."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Знайди законно доступний синхронізований текст LRC пісні «%@», виконавець «%@». Виведи лише LRC мовою оригіналу з позначками [mm:ss.xx], без Markdown. Якщо надійного джерела немає, повідом про це; не вигадуй текст чи часові позначки."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tìm lời LRC đồng bộ có sẵn hợp pháp cho bài “%@” của “%@”. Chỉ trả về văn bản LRC bằng ngôn ngữ gốc với mốc [mm:ss.xx], không dùng Markdown. Nếu không có nguồn đáng tin cậy, hãy nói rõ; đừng bịa lời hoặc mốc thời gian."
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "請尋找歌曲《%@》（藝人：%@）可合法取得的帶時間戳記 LRC 歌詞。只輸出原語言的 LRC 文字，保留 [mm:ss.xx] 時間戳記，不要加入 Markdown。如果找不到可靠來源，請明確說明，不要編造歌詞或時間戳記。"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "请查找歌曲《%@》（艺术家：%@）可合法获取的带时间戳 LRC 歌词。只输出原语言的 LRC 文本，保留 [mm:ss.xx] 时间戳，不要添加 Markdown。如果找不到可靠来源，请明确说明，不要编造歌词或时间戳。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "請尋找歌曲《%@》（藝人：%@）可合法取得的帶時間戳記 LRC 歌詞。只輸出原語言的 LRC 文字，保留 [mm:ss.xx] 時間戳記，不要加入 Markdown。如果找不到可靠來源，請明確說明，不要編造歌詞或時間戳記。"
+          }
+        }
+      }
+    },
+    "LyricAI.CopyAndOpen" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "نسخ وفتح %@"
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Copia i obre %@"
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zkopírovat a otevřít %@"
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kopiér og åbn %@"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kopieren und %@ öffnen"
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Αντιγραφή και άνοιγμα %@"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Copy & Open %@"
+          }
+        },
+        "en-AU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Copy & Open %@"
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Copy & Open %@"
+          }
+        },
+        "en-IN" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Copy & Open %@"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Copiar y abrir %@"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Copiar y abrir %@"
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Copiar y abrir %@"
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kopioi ja avaa %@"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Copier et ouvrir %@"
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Copier et ouvrir %@"
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "העתקה ופתיחת %@"
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "कॉपी करें और %@ खोलें"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kopiraj i otvori %@"
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Másolás és %@ megnyitása"
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Salin & Buka %@"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Copia e apri %@"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "コピーして%@を開く"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "복사 후 %@ 열기"
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Salin & Buka %@"
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kopier og åpne %@"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kopieer en open %@"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kopiuj i otwórz %@"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Copiar e abrir %@"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Copiar e abrir %@"
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Copiază și deschide %@"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Скопировать и открыть %@"
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kopírovať a otvoriť %@"
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kopiraj in odpri %@"
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kopiera och öppna %@"
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "คัดลอกและเปิด %@"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kopyala ve %@ aç"
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Скопіювати й відкрити %@"
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sao chép và mở %@"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "複製並開啟 %@"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "复制并打开 %@"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "複製並開啟 %@"
+          }
+        }
+      }
+    },
+    "LyricAI.OpenFailed" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تم نسخ الطلب. تعذّر فتح الخدمة؛ افتح تطبيقها أو موقعها والصق الطلب."
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "S’ha copiat la petició. No es pot obrir el servei; obre’n l’app o el web i enganxa-la."
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zadání zkopírováno. Službu nelze otevřít; otevřete její aplikaci nebo web a zadání vložte."
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prompten er kopieret. Tjenesten kan ikke åbnes; åbn dens app eller websted, og indsæt prompten."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Anfrage kopiert. Der Dienst lässt sich nicht öffnen; öffne seine App oder Website und füge die Anfrage ein."
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Το αίτημα αντιγράφηκε. Δεν ανοίγει η υπηρεσία· ανοίξτε την εφαρμογή ή τον ιστότοπό της και επικολλήστε το."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prompt copied. Unable to open this service; open its app or website and paste the prompt."
+          }
+        },
+        "en-AU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prompt copied. Unable to open this service; open its app or website and paste the prompt."
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prompt copied. Unable to open this service; open its app or website and paste the prompt."
+          }
+        },
+        "en-IN" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prompt copied. Unable to open this service; open its app or website and paste the prompt."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Se ha copiado la consulta. No se puede abrir el servicio; abre su app o web y pega la consulta."
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Se ha copiado la consulta. No se puede abrir el servicio; abre su app o web y pega la consulta."
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Se ha copiado la consulta. No se puede abrir el servicio; abre su app o web y pega la consulta."
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pyyntö kopioitu. Palvelua ei voi avata; avaa sen sovellus tai sivusto ja liitä pyyntö."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Demande copiée. Impossible d’ouvrir ce service ; ouvrez son app ou son site et collez la demande."
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Demande copiée. Impossible d’ouvrir ce service ; ouvrez son app ou son site et collez la demande."
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "הבקשה הועתקה. לא ניתן לפתוח את השירות; יש לפתוח את היישום או האתר שלו ולהדביק את הבקשה."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "प्रॉम्प्ट कॉपी हो गया। सेवा नहीं खुल सकी; उसका ऐप या वेबसाइट खोलकर प्रॉम्प्ट पेस्ट करें।"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Upit je kopiran. Usluga se ne može otvoriti; otvorite njezinu aplikaciju ili web-stranicu i zalijepite upit."
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A kérés másolva. A szolgáltatás nem nyitható meg; nyisd meg az alkalmazását vagy webhelyét, és illeszd be a kérést."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prompt disalin. Layanan tidak dapat dibuka; buka aplikasi atau situsnya dan tempel prompt."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Richiesta copiata. Impossibile aprire il servizio; apri la sua app o il sito e incolla la richiesta."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "プロンプトをコピーしました。サービスを開けません。アプリまたはWebサイトを開いて貼り付けてください。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "프롬프트를 복사했습니다. 서비스를 열 수 없습니다. 앱이나 웹사이트를 직접 열고 붙여넣으세요."
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Arahan disalin. Perkhidmatan tidak dapat dibuka; buka aplikasi atau laman webnya dan tampal arahan."
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Forespørselen er kopiert. Tjenesten kan ikke åpnes; åpne appen eller nettstedet og lim inn forespørselen."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Opdracht gekopieerd. De dienst kan niet worden geopend; open de app of website en plak de opdracht."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Polecenie skopiowane. Nie można otworzyć usługi; otwórz jej aplikację lub stronę i wklej polecenie."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pedido copiado. Não foi possível abrir o serviço; abra o app ou site e cole o pedido."
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pedido copiado. Não foi possível abrir o serviço; abra a aplicação ou o site e cole o pedido."
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cererea a fost copiată. Serviciul nu poate fi deschis; deschide aplicația sau site-ul și lipește cererea."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Запрос скопирован. Не удалось открыть сервис; откройте его приложение или сайт и вставьте запрос."
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zadanie skopírované. Službu nemožno otvoriť; otvorte jej aplikáciu alebo web a vložte zadanie."
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Poziv je kopiran. Storitve ni mogoče odpreti; odprite njeno aplikacijo ali spletno mesto in prilepite poziv."
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Frågan har kopierats. Tjänsten kan inte öppnas; öppna dess app eller webbplats och klistra in frågan."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "คัดลอกคำสั่งแล้ว ไม่สามารถเปิดบริการได้ โปรดเปิดแอปหรือเว็บไซต์ของบริการแล้ววางคำสั่ง"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "İstem kopyalandı. Hizmet açılamadı; uygulamasını veya sitesini açıp istemi yapıştırın."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Запит скопійовано. Не вдалося відкрити сервіс; відкрийте його застосунок або сайт і вставте запит."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Đã sao chép lời nhắc. Không mở được dịch vụ; hãy mở ứng dụng hoặc trang web rồi dán lời nhắc."
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "提示詞已複製。暫時無法開啟此服務，請手動開啟其應用程式或網頁並貼上。"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "提示词已复制。暂时无法打开此服务，请手动打开其客户端或网页并粘贴。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "提示詞已複製。暫時無法開啟此服務，請手動開啟其應用程式或網頁並貼上。"
+          }
+        }
+      }
+    },
     "Formats.GroupingNote" : {
       "extractionState" : "manual",
       "comment" : "Support-format browsing disclaimer. Three UI groups are not a codec/source quality guarantee.",

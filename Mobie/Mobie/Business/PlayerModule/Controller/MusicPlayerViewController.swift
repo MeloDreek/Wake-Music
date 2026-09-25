@@ -482,7 +482,7 @@ extension MusicPlayerViewController: PanModalPresentable {
     var shouldRoundTopCorners: Bool {
         // The player's independent, container-concentric corners replace
         // PanModal's uniform two-corner layer mask on newer systems.
-        if #available(iOS 26.0, *) { return false }
+        if #available(iOS 27.0, *) { return false }
         return true
     }
     

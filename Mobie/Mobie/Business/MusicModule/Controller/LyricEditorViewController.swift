@@ -10,6 +10,7 @@ import KakaFoundation
 import KakaUIKit
 import AppGroupKit
 import WaketagLibKit
+import SafariServices
 
 
 /// 手动编辑歌词内容
@@ -72,6 +73,89 @@ class LyricEditorViewController: SuperViewController {
     var musicModel: MusicItemModel?
     
     var editCallBack: ((LyricInfoModel)->Void)?
+
+    private var isReadingAITags = false
+
+    private func aiMenu() -> UIMenu {
+        let language = Bundle.main.preferredLocalizations.first ?? "en"
+        let actions = LyricAIProvider.available(language: language).map { provider in
+            UIAction(title: provider.title) { [weak self] _ in
+                self?.prepareAIPrompt(for: provider)
+            }
+        }
+        return UIMenu(children: actions)
+    }
+
+    private func prepareAIPrompt(for provider: LyricAIProvider) {
+        view.endEditing(true)
+        guard !isReadingAITags else { return }
+        // Never use titleStr()/filePathName() or uncommitted editor values.
+        // Only tags actually embedded in the local file qualify.
+        guard let url = musicModel?.mediaPlayURL, url.isFileURL,
+              FileManager.default.fileExists(atPath: url.path) else {
+            showMissingAITags()
+            return
+        }
+        isReadingAITags = true
+        let knownDuration = musicModel?.durationSeconds ?? 0
+        DispatchQueue.global(qos: .userInitiated).async { [weak self] in
+            let scoped = url.startAccessingSecurityScopedResource()
+            let metadata = TaglibMetadataParser.readMetadata(withFileURL: url, read: .basic)
+            let tags = LyricAIProvider.embeddedTags(title: metadata?.title, artist: metadata?.artist)
+            let duration = LyricAIProvider.durationText(seconds: Int(metadata?.durationSeconds ?? 0), fallback: knownDuration)
+            if scoped { url.stopAccessingSecurityScopedResource() }
+            DispatchQueue.main.async { [weak self] in
+                guard let self else { return }
+                self.isReadingAITags = false
+                guard self.viewIfLoaded?.window != nil, self.presentedViewController == nil else { return }
+                guard let tags else {
+                    self.showMissingAITags()
+                    return
+                }
+                let prompt = String(format: "LyricAI.PersonalUse".localStr(), duration ?? "—")
+                    + "\n\n" + String(format: "LyricAI.Prompt".localStr(), tags.title, tags.artist)
+                let alert = UIAlertController(title: provider.title, message: prompt, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Copy".localStr(), style: .default) { _ in
+                    UIPasteboard.general.string = prompt
+                })
+                alert.addAction(UIAlertAction(title: String(format: "LyricAI.CopyAndOpen".localStr(), provider.title), style: .default) { [weak self] _ in
+                    UIPasteboard.general.string = prompt
+                    self?.openAI(provider)
+                })
+                alert.addAction(UIAlertAction(title: "Cancel".localStr(), style: .cancel))
+                self.present(alert, animated: true)
+            }
+        }
+    }
+
+    private func openAI(_ provider: LyricAIProvider) {
+        // Wait for the prompt alert to finish dismissing before browser fallback.
+        if let alert = presentedViewController as? UIAlertController {
+            alert.dismiss(animated: true) { [weak self] in self?.openAI(provider) }
+            return
+        }
+#if targetEnvironment(macCatalyst)
+        // Apple's Catalyst implementation sends Safari view-controller content
+        // to the default browser, without trying the AI's desktop app.
+        present(SFSafariViewController(url: provider.url), animated: true)
+#else
+        // Open the native URL scheme directly. Unlike canOpenURL, open does not
+        // require LSApplicationQueriesSchemes; its completion determines fallback.
+        UIApplication.shared.open(provider.appURL, options: [:]) { [weak self] opened in
+            guard !opened else { return }
+            DispatchQueue.main.async {
+                guard let self, self.viewIfLoaded?.window != nil else { return }
+                self.present(SFSafariViewController(url: provider.url), animated: true)
+            }
+        }
+#endif
+    }
+
+    private func showMissingAITags() {
+        let alert = UIAlertController(title: "LyricAI.Search".localStr(), message: "LyricAI.MissingMetadata".localStr(), preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK".localStr(), style: .default))
+        present(alert, animated: true)
+    }
     
     // MARK:  懒加载
     
@@ -84,6 +168,7 @@ class LyricEditorViewController: SuperViewController {
         view.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 30.ckValue(), right: 0)
         view.register(UITableViewCell.self, forCellReuseIdentifier: "ExportTableViewCell")
         view.register(UITableViewCell.self, forCellReuseIdentifier: "FeedbackQuestionCell")
+        view.register(LyricAISearchCell.self, forCellReuseIdentifier: "LyricAISearchCell")
         return view
     }()
     
@@ -109,11 +194,11 @@ class LyricEditorViewController: SuperViewController {
 
 extension LyricEditorViewController: UITableViewDataSource, UITableViewDelegate, UITextViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
+        return 2
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return section == 0 ? 1 : 3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -135,18 +220,23 @@ extension LyricEditorViewController: UITableViewDataSource, UITableViewDelegate,
                 make.height.greaterThanOrEqualTo(0)
             }
             return cell
+        } else if indexPath.row == 2 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "LyricAISearchCell", for: indexPath) as! LyricAISearchCell
+            cell.menuButton.menu = aiMenu()
+            return cell
         }else{
             let cell = tableView.dequeueReusableCell(withIdentifier: "ExportTableViewCell", for: indexPath)
             var cellConfig = UIListContentConfiguration.cell()
-            cellConfig.text = indexPath.section == 1 ? NoneLyricCellType.textManual.titleStr() : "Import LRC".localStr()
+            cellConfig.text = indexPath.row == 0 ? NoneLyricCellType.textManual.titleStr() : "Import LRC".localStr()
 #if !targetEnvironment(macCatalyst)
             cellConfig.textProperties.font = UIFontBold(17.ckValue())
 #endif
-            cellConfig.textProperties.color = UIColor.white
-            cellConfig.textProperties.alignment = .center
+            cellConfig.textProperties.color = appMainColor
+            cellConfig.image = UIImage(systemName: indexPath.row == 0 ? "doc.on.clipboard" : "doc.badge.plus")
+            cellConfig.imageProperties.tintColor = appMainColor
             cellConfig.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 15, leading: 15, bottom: 15, trailing: 5)
-            cell.backgroundColor = indexPath.section == 1 ? UIColor.systemBlue : UIColor.systemRed
-            cell.accessoryType = .none
+            cell.backgroundColor = .secondarySystemGroupedBackground
+            cell.accessoryType = .disclosureIndicator
             cell.contentConfiguration = cellConfig
             return cell
         }
@@ -157,13 +247,13 @@ extension LyricEditorViewController: UITableViewDataSource, UITableViewDelegate,
         tableView.deselectRow(at: indexPath, animated: true)
         self.view.endEditing(true)
         
-        if indexPath.section == 1 {
+        if indexPath.section == 1 && indexPath.row == 0 {
             guard let text = UIPasteboard.general.string, !text.isEmpty else { return }
             self.textView.text = text
             self.placeLabel.isHidden = true
         }
         
-        if indexPath.section == 2 {
+        if indexPath.section == 1 && indexPath.row == 1 {
             self.selectLocalLyrics()
         }
     }
@@ -225,6 +315,10 @@ extension LyricEditorViewController: UITableViewDataSource, UITableViewDelegate,
     func textViewDidBeginEditing(_ textView: UITextView) {
         self.placeLabel.isHidden = true
     }
+
+    func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        section == 1 ? "LyricAI.Workflow".localStr() : nil
+    }
     
     func textViewDidEndEditing(_ textView: UITextView) {
         self.placeLabel.isHidden = textView.text.count > 0
@@ -237,6 +331,107 @@ extension LyricEditorViewController: UITableViewDataSource, UITableViewDelegate,
 }
 
 
+
+// Foundation-only model, also exercised by the standalone regression tests.
+enum LyricAIProvider: String, CaseIterable {
+    case chatGPT, gemini, grok, claude, doubao, deepSeek, kimi
+
+    static func available(language: String) -> [Self] {
+        let normalized = language.replacingOccurrences(of: "_", with: "-").lowercased()
+        let simplified = normalized == "zh-hans" || normalized.hasPrefix("zh-hans-")
+        return simplified ? allCases : [.chatGPT, .gemini, .grok, .claude]
+    }
+
+    static func embeddedTags(title: String?, artist: String?) -> (title: String, artist: String)? {
+        guard let title = title?.trimmingCharacters(in: .whitespacesAndNewlines), !title.isEmpty,
+              let artist = artist?.trimmingCharacters(in: .whitespacesAndNewlines), !artist.isEmpty else { return nil }
+        return (title, artist)
+    }
+
+    static func durationText(seconds: Int, fallback: Int) -> String? {
+        let duration = seconds > 0 ? seconds : fallback
+        guard duration > 0 else { return nil }
+        if duration >= 3600 {
+            return String(format: "%d:%02d:%02d", duration / 3600, duration / 60 % 60, duration % 60)
+        }
+        return String(format: "%02d:%02d", duration / 60, duration % 60)
+    }
+
+    var title: String {
+        switch self {
+        case .chatGPT: return "ChatGPT"
+        case .gemini: return "Gemini"
+        case .grok: return "Grok"
+        case .claude: return "Claude"
+        case .doubao: return "豆包"
+        case .deepSeek: return "DeepSeek"
+        case .kimi: return "Kimi"
+        }
+    }
+
+    var url: URL {
+        let address: String
+        switch self {
+        case .chatGPT: address = "https://chatgpt.com/"
+        case .gemini: address = "https://gemini.google.com/"
+        case .grok: address = "https://grok.com/"
+        case .claude: address = "https://claude.ai/"
+        case .doubao: address = "https://www.doubao.com/chat/"
+        case .deepSeek: address = "https://chat.deepseek.com/"
+        case .kimi: address = "https://www.kimi.com/"
+        }
+        return URL(string: address)!
+    }
+
+    var appURL: URL {
+        let address: String
+        switch self {
+        case .chatGPT: address = "chatgpt://"
+        case .gemini: address = "googlegemini://"
+        case .grok: address = "grok://"
+        case .claude: address = "claude://"
+        case .doubao: address = "snssdk497858://"
+        case .deepSeek: address = "deepseek://"
+        case .kimi: address = "kimi://"
+        }
+        return URL(string: address)!
+    }
+}
+
+private final class LyricAISearchCell: UITableViewCell {
+    let menuButton = UIButton(type: .custom)
+
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        var config = UIListContentConfiguration.cell()
+        config.text = "LyricAI.Search".localStr()
+        config.textProperties.color = appMainColor
+#if !targetEnvironment(macCatalyst)
+        config.textProperties.font = UIFontBold(17.ckValue())
+#endif
+        config.image = UIImage(systemName: "sparkles")
+        config.imageProperties.tintColor = appMainColor
+        config.directionalLayoutMargins = NSDirectionalEdgeInsets(top: 15, leading: 15, bottom: 15, trailing: 5)
+        contentConfiguration = config
+        selectionStyle = .none
+        accessoryType = .disclosureIndicator
+        // A full-row primary menu action works on tap, keyboard and Catalyst,
+        // without private menu presentation APIs or long-press-only interaction.
+        // Cover the accessory area too, so tapping the chevron opens the menu.
+        addSubview(menuButton)
+        menuButton.snp.makeConstraints { $0.edges.equalToSuperview() }
+        menuButton.showsMenuAsPrimaryAction = true
+        menuButton.accessibilityLabel = "LyricAI.Search".localStr()
+        accessibilityElements = [menuButton]
+    }
+
+    required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        bringSubviewToFront(menuButton)
+    }
+}
 
 extension LyricInfoModel {
     
