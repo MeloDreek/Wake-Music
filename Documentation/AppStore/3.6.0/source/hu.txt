@@ -1,0 +1,70 @@
+A zenéd. A gyűjteményed. Több mint lejátszás.
+
+A Wakemusic összeköti helyi fájljaidat, felhőtárhelyeidet, NAS-odat és Navidrome-könyvtáradat. Hallgasd, fedezd fel és rendszerezd zenéidet a kedvenc számtól a gondosan épített gyűjteményig.
+
+◆◆◆ Helyi zene mindig kéznél
+
+1. MP3, FLAC, WAV, M4A, AAC, APE, AIFF, DSF, DFF és más formátumok a mindennapokra és veszteségmentes gyűjteményekhez.
+2. Importálj fájlokat és mappákat, másolj Wi-Fi-n, vagy nyerj ki hangot videókból.
+3. Böngéssz dalok, előadók, albumok és műfajok szerint. Készíts listákat, ments kedvenceket.
+4. Tölts le zenét internet nélküli hallgatáshoz, ingázáshoz vagy utazáshoz.
+
+◆◆◆ Csatlakozz a gyűjteményedhez
+
+1. Elérheted a Google Drive, Dropbox, Box, pCloud, MEGA, Baidu Netdisk, Aliyun Drive, 115, 123 és Guangya szolgáltatásokat.
+2. Csatlakozz NAS-hoz, számítógéphez vagy szerverhez SMB, WebDAV vagy FTP segítségével.
+3. Streamelj, vagy állítsd sorba a letöltéseket az offline könyvtáradhoz.
+4. Kapcsold be az előzetes letöltést: a hallgatás közben teljesen letöltött dalok a helyi zenemappában maradnak.
+
+◆◆◆ Saját zenei szervered
+
+1. Használd a Navidrome-ot és a kompatibilis Subsonic-szolgáltatásokat külön szervermódban.
+2. Fedezd fel a legutóbb hallgatottakat, kedvenceket, listákat, véletlen válogatásokat és újonnan hozzáadott dalokat.
+3. Böngéssz és keress dalokat, előadókat, albumokat. Tekintsd meg a szerver által biztosított albumadatokat, életrajzokat és hasonló előadókat.
+4. Tölts le dalokat, majd válts klasszikus módra az offline hallgatáshoz.
+
+◆◆◆ Tartós rend a zenéid között
+
+1. Keress daladatokat akusztikus ujjlenyomat-felismeréssel.
+2. Szerkeszd a címeket, előadókat, albumokat, borítókat és dalszövegeket.
+3. Ágyazd a metaadatokat támogatott fájlokba, hogy készülék- vagy lejátszóváltáskor is megmaradjanak.
+4. A felismerés eredménye és az írható címkék a daltól és a formátumtól függenek.
+
+◆◆◆ Formáld a hangzást, lásd a részleteket
+
+1. Állítsd ízlésedre a 10 sávos EQ-t és az előerősítést.
+2. Próbáld ki a basszuskiemelés, ének, rock, jazz és más beállításokat, vagy mentsd a sajátodat.
+3. Elemezd a helyi hang spektrumát; nézd meg a formátumot, méretet, átlagos bitrátát és mintavételi frekvenciát.
+4. Ments vagy ossz meg elemzési kártyát. A spektrum a hang jellemzőit mutatja, de önmagában nem bizonyítja, hogy a felvétel valóban veszteségmentes.
+
+◆◆◆ Hallgasd a saját stílusodban
+
+1. Válassz hanglemez-, kazetta- és más lejátszómegjelenéseket.
+2. Élvezd a borító ihlette háttereket, mini dalszövegeket és hangadatokat.
+3. Véletlen vagy sorrendi lejátszás, egy dal ismétlése, lejátszási sor és elalvásidőzítő.
+
+{{PURCHASE}}
+
+◆◆◆ Jó tudni
+
+A Wakemusic zenét játszik le és rendszerez, de zenét nem szolgáltat. Csak olyan hangot használj, amelyhez hozzáférési jogod van. Külső szolgáltatások hozzáférése, tagságai, átviteli korlátai és funkciói a szolgáltatótól függenek.
+
+Kapcsolat: support@kakainc.com
+
+Adatvédelem:
+{{PRIVACY_URL}}
+
+Felhasználási feltételek:
+{{TERMS_URL}}
+===STANDARD===
+◆◆◆ Premium és vásárlások
+
+1. Távoli kapcsolatokhoz, EQ-állításhoz és egyes funkciókhoz Premium szükséges. Részletek az appban.
+2. Havi vagy éves előfizetés, illetve egyéni vagy Családi megosztásos örökös vásárlás választható.
+3. Ha van ingyenes próba, jogosultsága, hossza és az utána fizetendő ár vásárláskor látható.
+4. Az előfizetés automatikusan megújul. Az Apple-fiók előfizetési beállításaiban kezelhető vagy lemondható. Az örökös csomag egyszeri vásárlás, nem újul meg.
+===PRO===
+◆◆◆ A Pro változatról
+
+1. A Pro további előfizetés nélkül tartalmazza a Premium-funkciókat.
+2. Külső szolgáltatások tagsági és átviteli díjai külön fizetendők, saját feltételeik szerint.

@@ -1,0 +1,63 @@
+Muzica ta. Colecția ta. Mai mult decât redare.
+
+Wakemusic reunește fișiere locale, servicii cloud, NAS și biblioteca Navidrome. Ascultă, descoperă și organizează muzica, de la o piesă preferată la o colecție atent construită.
+
+◆◆◆ Muzică locală, mereu la îndemână
+
+1. Redă MP3, FLAC, WAV, M4A, AAC, APE, AIFF, DSF, DFF și altele, pentru fiecare zi și colecții fără pierderi.
+2. Importă fișiere și dosare, transferă prin Wi-Fi sau extrage sunetul din videoclipuri.
+3. Explorează piese, artiști, albume și genuri. Creează liste și salvează favorite.
+4. Descarcă muzică pentru ascultare offline, pe drum sau în călătorii.
+
+◆◆◆ Conectează-ți colecția
+
+1. Accesează Google Drive, Dropbox, Box, pCloud, MEGA, Baidu Netdisk, Aliyun Drive și serviciile cloud 115, 123 și Guangya.
+2. Conectează NAS-ul, computerul sau serverul prin SMB, WebDAV ori FTP.
+3. Ascultă în streaming sau adaugă descărcări în coadă pentru biblioteca offline.
+4. Activează predescărcarea: piesele descărcate complet în timpul ascultării rămân în dosarul muzical local.
+
+◆◆◆ Serverul tău de muzică
+
+1. Folosește Navidrome și servicii Subsonic compatibile într-un mod dedicat.
+2. Redescoperă redările recente, favoritele, listele, selecțiile aleatorii și adăugările noi.
+3. Explorează și caută piese, artiști și albume. Vezi detalii despre albume, biografii și artiști similari când serverul le furnizează.
+4. Descarcă piese și treci la modul clasic pentru ascultare offline.
+
+◆◆◆ Ordine care durează
+
+1. Găsește informații despre piese prin recunoașterea amprentei audio.
+2. Editează titluri, artiști, albume, coperte și versuri.
+3. Încorporează metadatele în fișiere compatibile, ca să le păstrezi când schimbi dispozitivul sau playerul.
+4. Rezultatele recunoașterii și etichetele care pot fi scrise depind de piesă și format.
+
+◆◆◆ Reglează sunetul, vezi detaliile
+
+1. Ajustează egalizatorul cu 10 benzi și câștigul preamplificatorului.
+2. Încearcă bas amplificat, voce, rock, jazz și alte presetări sau salvează propriile reglaje.
+3. Analizează spectrul audio local și vezi formatul, dimensiunea, rata de biți medie și rata de eșantionare.
+4. Salvează sau distribuie un card de analiză. Spectrul arată caracteristici ale sunetului, dar nu dovedește singur că înregistrarea este cu adevărat fără pierderi.
+
+◆◆◆ Ascultă în stilul tău
+
+1. Alege stiluri de player precum vinilul sau caseta.
+2. Bucură-te de fundaluri inspirate de coperte, mini-versuri și informații audio.
+3. Redare aleatorie, în ordine sau repetarea unei piese, gestionarea cozii și temporizator de somn.
+
+◆◆◆ Premium și achiziții
+
+1. Conexiunile la distanță, reglajele EQ și unele funcții necesită Premium. Detalii în aplicație.
+2. Alege un abonament lunar sau anual, ori o achiziție pe viață individuală sau cu Partajare familială.
+3. Dacă există o perioadă de probă gratuită, eligibilitatea, durata și prețul ulterior apar la cumpărare.
+4. Abonamentele se reînnoiesc automat. Gestionează-le sau anulează-le în configurările de abonamente ale Contului Apple. Planurile pe viață sunt achiziții unice, fără reînnoire.
+
+◆◆◆ Bine de știut
+
+Wakemusic redă și organizează muzică, dar nu furnizează conținut muzical. Folosește audio la care ai drept de acces. Accesul, abonamentele, limitele de transfer și funcțiile terților depind de fiecare furnizor.
+
+Contact: support@kakainc.com
+
+Confidențialitate:
+https://kakainc.com/en/wakemusic/legal/app-store/privacy/
+
+Condiții de utilizare:
+https://kakainc.com/en/wakemusic/legal/app-store/terms/

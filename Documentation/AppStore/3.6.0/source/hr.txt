@@ -1,0 +1,70 @@
+Vaša glazba. Vaša zbirka. Više od reprodukcije.
+
+Wakemusic povezuje lokalne datoteke, oblak, NAS i biblioteku Navidrome. Slušajte, otkrivajte i organizirajte glazbu, od omiljene pjesme do pažljivo prikupljene zbirke.
+
+◆◆◆ Lokalna glazba uvijek pri ruci
+
+1. Reproducirajte MP3, FLAC, WAV, M4A, AAC, APE, AIFF, DSF, DFF i druge formate, za svaki dan i zbirke bez gubitaka.
+2. Uvezite datoteke i mape, prenesite putem Wi-Fi veze ili izdvojite zvuk iz videa.
+3. Pregledavajte pjesme, izvođače, albume i žanrove. Izradite popise i spremite favorite.
+4. Preuzmite glazbu za slušanje bez interneta, na putu do posla ili na putovanju.
+
+◆◆◆ Povežite svoju zbirku
+
+1. Pristupite servisima Google Drive, Dropbox, Box, pCloud, MEGA, Baidu Netdisk, Aliyun Drive, 115, 123 i Guangya.
+2. Povežite NAS, računalo ili poslužitelj putem SMB-a, WebDAV-a ili FTP-a.
+3. Slušajte strujanjem ili dodajte pjesme u red preuzimanja za izvanmrežnu biblioteku.
+4. Uključite preuzimanje unaprijed: pjesme potpuno preuzete tijekom slušanja ostaju u lokalnoj glazbenoj mapi.
+
+◆◆◆ Vaš glazbeni poslužitelj
+
+1. Koristite Navidrome i kompatibilne servise Subsonic u zasebnom načinu rada.
+2. Otkrijte nedavno slušano, favorite, popise, nasumične izbore i nove dodatke.
+3. Pregledavajte i pretražujte pjesme, izvođače i albume. Pogledajte podatke o albumima, biografije i slične izvođače ako ih poslužitelj pruža.
+4. Preuzmite pjesme i prijeđite u klasični način za slušanje bez interneta.
+
+◆◆◆ Red koji ostaje
+
+1. Pronađite podatke o pjesmama prepoznavanjem audiootiska.
+2. Uredite naslove, izvođače, albume, omote i tekstove pjesama.
+3. Ugradite metapodatke u podržane datoteke kako bi ostali uz glazbu pri promjeni uređaja ili reproduktora.
+4. Rezultati prepoznavanja i oznake koje se mogu zapisati ovise o pjesmi i formatu.
+
+◆◆◆ Prilagodite zvuk, pogledajte detalje
+
+1. Namjestite 10-pojasni ekvilizator i pojačanje pretpojačala.
+2. Isprobajte pojačanje basa, vokal, rock, jazz i druge postavke ili spremite vlastite.
+3. Analizirajte spektar lokalnog zvuka: format, veličinu, prosječni bitrate i frekvenciju uzorkovanja.
+4. Spremite ili podijelite karticu analize. Spektar pokazuje značajke zvuka, ali sam ne dokazuje da je snimka doista bez gubitaka.
+
+◆◆◆ Slušajte na svoj način
+
+1. Odaberite izgled reproduktora poput vinila ili kasete.
+2. Uživajte u pozadinama nadahnutim omotom, minitekstovima pjesama i podacima o zvuku.
+3. Nasumično ili redom, ponavljanje jedne pjesme, upravljanje redom i timer za spavanje.
+
+{{PURCHASE}}
+
+◆◆◆ Dobro je znati
+
+Wakemusic reproducira i organizira glazbu, ali ne pruža glazbeni sadržaj. Koristite zvuk kojem smijete pristupiti. Pristup, članstva, ograničenja prijenosa i funkcije vanjskih servisa ovise o pružateljima.
+
+Kontakt: support@kakainc.com
+
+Pravila privatnosti:
+{{PRIVACY_URL}}
+
+Uvjeti korištenja:
+{{TERMS_URL}}
+===STANDARD===
+◆◆◆ Premium i kupnje
+
+1. Udaljene veze, EQ prilagodbe i neke funkcije zahtijevaju Premium. Detalji su u aplikaciji.
+2. Odaberite mjesečnu ili godišnju pretplatu ili doživotnu kupnju za pojedinca ili uz Dijeljenje s obitelji.
+3. Ako je ponuđeno besplatno probno razdoblje, uvjeti, trajanje i kasnija cijena prikazuju se pri kupnji.
+4. Pretplate se automatski obnavljaju. Upravljajte njima ili ih otkažite u postavkama pretplata Apple računa. Doživotni planovi jednokratne su kupnje bez obnove.
+===PRO===
+◆◆◆ O izdanju Pro
+
+1. Pro uključuje Premium funkcije bez dodatne pretplate.
+2. Članarine i naknade za prijenos vanjskih servisa plaćaju se zasebno prema njihovim uvjetima.

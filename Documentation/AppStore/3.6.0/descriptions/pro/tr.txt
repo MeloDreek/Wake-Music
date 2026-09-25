@@ -1,0 +1,61 @@
+Müziğiniz. Koleksiyonunuz. Dinlemekten fazlası.
+
+Wakemusic yerel dosyalarınızı, bulut depolarınızı, NAS ve Navidrome arşivinizi bir araya getirir. Sevdiğiniz bir şarkıdan özenle biriktirdiğiniz koleksiyona kadar müziğinizi dinleyin, keşfedin ve düzenleyin.
+
+◆◆◆ Yerel müzik her an yanınızda
+
+1. MP3, FLAC, WAV, M4A, AAC, APE, AIFF, DSF, DFF ve daha fazlasını çalın; günlük dinlemeden kayıpsız arşivlere.
+2. Dosya ve klasörleri içe aktarın, Wi-Fi ile aktarın veya videodan ses çıkarın.
+3. Şarkı, sanatçı, albüm ve türe göre gezinin. Listeler oluşturun, favorilerinizi kaydedin.
+4. Yolculukta veya bağlantı yokken dinlemek için müzik indirin.
+
+◆◆◆ Koleksiyonunuza bağlanın
+
+1. Google Drive, Dropbox, Box, pCloud, MEGA, Baidu Netdisk, Aliyun Drive, 115, 123 ve Guangya bulutlarına erişin.
+2. SMB, WebDAV veya FTP ile NAS, bilgisayar ya da sunucunuza bağlanın.
+3. Çevrimiçi dinleyin veya çevrimdışı arşiv için indirme kuyruğuna ekleyin.
+4. Ön indirmeyi açın: dinlerken indirmesi tamamlanan şarkılar yerel müzik klasörüne kaydedilir.
+
+◆◆◆ Kişisel müzik sunucunuz
+
+1. Navidrome ve uyumlu Subsonic hizmetlerini özel sunucu modunda kullanın.
+2. Son dinlenenleri, favorileri, listeleri, rastgele seçimleri ve yeni eklenenleri keşfedin.
+3. Şarkı, sanatçı ve albümlere göz atıp arama yapın. Sunucu sağlıyorsa albüm bilgilerini, biyografileri ve benzer sanatçıları görün.
+4. Şarkıları indirip klasik moda geçerek çevrimdışı dinleyin.
+
+◆◆◆ Kalıcı bir düzen
+
+1. Ses parmak izi tanıma ile şarkı bilgilerini bulun.
+2. Başlık, sanatçı, albüm, kapak ve sözleri düzenleyin.
+3. Üst verileri desteklenen dosyalara gömün; cihaz veya oynatıcı değişse de bilgiler müziğinizle kalsın.
+4. Tanıma sonuçları ve yazılabilen etiketler şarkıya ve biçime bağlıdır.
+
+◆◆◆ Sesi ayarlayın, ayrıntıları görün
+
+1. 10 bantlı EQ ve ön amplifikatör kazancını zevkinize göre ayarlayın.
+2. Bas güçlendirme, vokal, rock, caz gibi ön ayarları deneyin veya kendinizinkini kaydedin.
+3. Yerel ses spektrumunu analiz edin; biçim, boyut, ortalama bit hızı ve örnekleme hızını görün.
+4. Analiz kartını kaydedin veya paylaşın. Spektrum sesin özelliklerini gösterir ancak tek başına kaydın gerçekten kayıpsız olduğunu kanıtlayamaz.
+
+◆◆◆ Kendi tarzınızda dinleyin
+
+1. Plak, kaset ve diğer oynatıcı tasarımlarını seçin.
+2. Kapaktan ilham alan arka planlar, mini şarkı sözleri ve ses bilgileriyle dinleyin.
+3. Karışık veya sıralı çalma, tek şarkı tekrarı, kuyruk yönetimi ve uyku zamanlayıcısını kullanın.
+
+◆◆◆ Pro hakkında
+
+1. Pro, ek abonelik gerektirmeden Premium özellikleri içerir.
+2. Üçüncü taraf üyelik ve aktarım ücretleri sağlayıcının koşullarına göre ayrıdır.
+
+◆◆◆ Bilmeniz gerekenler
+
+Wakemusic müzik çalar ve düzenler; müzik içeriği sunmaz. Erişim hakkınız olan sesleri kullanın. Üçüncü taraf erişimi, üyelikleri, aktarım limitleri ve özellikleri sağlayıcıya bağlıdır.
+
+İletişim: support@kakainc.com
+
+Gizlilik Politikası:
+https://kakainc.com/en/wakemusic/legal/app-store/privacy/
+
+Kullanım Koşulları:
+https://kakainc.com/en/wakemusic/legal/app-store/terms/

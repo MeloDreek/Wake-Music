@@ -1,0 +1,70 @@
+Nhạc của bạn. Bộ sưu tập của bạn. Không chỉ để phát.
+
+Wakemusic kết nối tệp cục bộ, kho đám mây, NAS và thư viện Navidrome. Nghe, khám phá và sắp xếp âm nhạc, từ một bài yêu thích đến bộ sưu tập được chăm chút.
+
+◆◆◆ Nhạc cục bộ, luôn sẵn sàng
+
+1. Phát MP3, FLAC, WAV, M4A, AAC, APE, AIFF, DSF, DFF và nhiều định dạng khác, từ nghe hằng ngày đến bộ sưu tập lossless.
+2. Nhập tệp và thư mục, truyền qua Wi-Fi hoặc trích xuất âm thanh từ video.
+3. Duyệt bài hát, nghệ sĩ, album và thể loại. Tạo danh sách phát, lưu bài yêu thích.
+4. Tải nhạc để nghe ngoại tuyến trên đường đi, khi du lịch hoặc không có mạng.
+
+◆◆◆ Kết nối bộ sưu tập
+
+1. Truy cập Google Drive, Dropbox, Box, pCloud, MEGA, Baidu Netdisk, Aliyun Drive và các kho đám mây 115, 123, Guangya.
+2. Kết nối NAS, máy tính hoặc máy chủ qua SMB, WebDAV hay FTP.
+3. Nghe trực tuyến hoặc thêm vào hàng đợi tải xuống để xây dựng thư viện ngoại tuyến.
+4. Bật tải trước: bài hát tải xong trong lúc nghe sẽ được lưu vào thư mục nhạc cục bộ.
+
+◆◆◆ Máy chủ âm nhạc riêng
+
+1. Dùng Navidrome và dịch vụ Subsonic tương thích trong chế độ riêng.
+2. Khám phá bài nghe gần đây, bài yêu thích, danh sách phát, lựa chọn ngẫu nhiên và bài mới thêm.
+3. Duyệt và tìm bài hát, nghệ sĩ, album. Xem chi tiết album, tiểu sử và nghệ sĩ tương tự nếu máy chủ cung cấp.
+4. Tải bài hát rồi chuyển sang chế độ cổ điển để nghe ngoại tuyến.
+
+◆◆◆ Sắp xếp để lưu giữ lâu dài
+
+1. Tìm thông tin bài hát bằng nhận diện dấu vân tay âm thanh.
+2. Sửa tiêu đề, nghệ sĩ, album, ảnh bìa và lời bài hát.
+3. Nhúng siêu dữ liệu vào tệp được hỗ trợ để giữ thông tin khi đổi thiết bị hoặc trình phát.
+4. Kết quả nhận diện và thẻ có thể ghi tùy thuộc bài hát và định dạng.
+
+◆◆◆ Chỉnh âm, xem chi tiết
+
+1. Điều chỉnh EQ 10 dải và độ lợi tiền khuếch đại theo sở thích.
+2. Thử tăng âm trầm, giọng hát, rock, jazz và các cài đặt sẵn khác, hoặc lưu thiết lập riêng.
+3. Phân tích phổ âm thanh cục bộ, xem định dạng, kích thước, tốc độ bit trung bình và tần số lấy mẫu.
+4. Lưu hoặc chia sẻ thẻ phân tích. Phổ thể hiện đặc điểm âm thanh nhưng không thể tự chứng minh bản thu thật sự là lossless.
+
+◆◆◆ Nghe theo phong cách của bạn
+
+1. Chọn giao diện đĩa than, băng cassette và nhiều kiểu trình phát khác.
+2. Thưởng thức nền lấy cảm hứng từ ảnh bìa, lời bài hát thu gọn và thông tin âm thanh.
+3. Phát ngẫu nhiên, tuần tự, lặp một bài, quản lý hàng đợi và hẹn giờ ngủ.
+
+{{PURCHASE}}
+
+◆◆◆ Thông tin cần biết
+
+Wakemusic phát và quản lý nhạc, không cung cấp nội dung âm nhạc. Hãy dùng âm thanh bạn có quyền truy cập. Quyền truy cập, hội viên, hạn mức truyền và tính năng bên thứ ba tùy thuộc nhà cung cấp.
+
+Liên hệ: support@kakainc.com
+
+Chính sách quyền riêng tư:
+{{PRIVACY_URL}}
+
+Điều khoản sử dụng:
+{{TERMS_URL}}
+===STANDARD===
+◆◆◆ Premium và mua hàng
+
+1. Kết nối từ xa, chỉnh EQ và một số tính năng cần Premium. Xem chi tiết trong ứng dụng.
+2. Chọn đăng ký tháng hoặc năm, hoặc mua trọn đời cá nhân hay có Chia sẻ trong gia đình.
+3. Nếu có dùng thử miễn phí, điều kiện, thời hạn và giá sau đó được hiển thị khi mua.
+4. Đăng ký tự động gia hạn. Quản lý hoặc hủy trong cài đặt đăng ký của Tài khoản Apple. Gói trọn đời là mua một lần, không gia hạn.
+===PRO===
+◆◆◆ Về Pro
+
+1. Pro bao gồm các tính năng Premium, không cần đăng ký thêm.
+2. Phí hội viên và truyền dữ liệu bên thứ ba được tính riêng theo nhà cung cấp.

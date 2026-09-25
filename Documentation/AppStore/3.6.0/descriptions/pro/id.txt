@@ -1,0 +1,61 @@
+Musik Anda. Koleksi Anda. Lebih dari sekadar memutar.
+
+Wakemusic menyatukan file lokal, penyimpanan cloud, NAS, dan koleksi Navidrome. Dengarkan, jelajahi, dan rapikan musik Anda, dari lagu favorit hingga koleksi yang dirawat sepenuh hati.
+
+◆◆◆ Musik lokal, siap kapan saja
+
+1. Putar MP3, FLAC, WAV, M4A, AAC, APE, AIFF, DSF, DFF, dan lainnya, untuk sehari-hari maupun koleksi lossless.
+2. Impor file dan folder, transfer lewat Wi-Fi, atau ekstrak audio dari video.
+3. Jelajahi lagu, artis, album, dan genre. Buat daftar putar dan simpan favorit.
+4. Unduh musik untuk didengarkan offline saat bepergian atau tanpa koneksi.
+
+◆◆◆ Hubungkan koleksi Anda
+
+1. Akses Google Drive, Dropbox, Box, pCloud, MEGA, Baidu Netdisk, Aliyun Drive, serta cloud 115, 123, dan Guangya.
+2. Hubungkan NAS, komputer, atau server lewat SMB, WebDAV, atau FTP.
+3. Dengarkan secara streaming atau antrekan unduhan untuk membangun koleksi offline.
+4. Aktifkan praunduh agar lagu yang selesai diunduh saat diputar tersimpan di folder musik lokal.
+
+◆◆◆ Server musik pribadi
+
+1. Gunakan Navidrome dan layanan Subsonic yang kompatibel dalam mode khusus.
+2. Temukan kembali lagu terakhir diputar, favorit, daftar putar, pilihan acak, dan tambahan terbaru.
+3. Jelajahi dan cari lagu, artis, serta album. Lihat detail album, biografi, dan artis serupa jika disediakan server.
+4. Unduh lagu, lalu beralih ke mode klasik untuk mendengarkannya offline.
+
+◆◆◆ Koleksi rapi untuk selamanya
+
+1. Cari informasi lagu melalui pengenalan sidik jari audio.
+2. Edit judul, artis, album, sampul, dan lirik.
+3. Sematkan metadata ke file yang didukung agar tetap bersama musik saat berganti perangkat atau pemutar.
+4. Hasil pengenalan dan tag yang dapat ditulis bergantung pada lagu dan format file.
+
+◆◆◆ Atur suara, lihat detailnya
+
+1. Sesuaikan EQ 10 band dan gain preamp dengan selera Anda.
+2. Coba penguatan bass, vokal, rock, jazz, dan preset lain, atau simpan setelan sendiri.
+3. Analisis spektrum audio lokal dan lihat format, ukuran, bitrate rata-rata, serta laju sampel.
+4. Simpan atau bagikan kartu analisis. Spektrum menunjukkan karakteristik audio, tetapi tidak dapat membuktikan sendiri bahwa rekaman benar-benar lossless.
+
+◆◆◆ Dengarkan dengan gaya Anda
+
+1. Pilih gaya pemutar piringan hitam, kaset, dan lainnya.
+2. Nikmati latar terinspirasi sampul, lirik mini, dan informasi audio.
+3. Gunakan putar acak, berurutan, ulang satu lagu, pengelolaan antrean, dan timer tidur.
+
+◆◆◆ Tentang Pro
+
+1. Pro menyertakan fitur Premium tanpa langganan tambahan.
+2. Biaya keanggotaan dan transfer pihak ketiga terpisah sesuai ketentuan penyedia.
+
+◆◆◆ Perlu diketahui
+
+Wakemusic memutar dan mengelola musik, tetapi tidak menyediakan konten musik. Gunakan audio yang boleh Anda akses. Akses, keanggotaan, batas transfer, dan fitur pihak ketiga mengikuti ketentuan penyedianya.
+
+Hubungi: support@kakainc.com
+
+Kebijakan Privasi:
+https://kakainc.com/en/wakemusic/legal/app-store/privacy/
+
+Ketentuan Penggunaan:
+https://kakainc.com/en/wakemusic/legal/app-store/terms/

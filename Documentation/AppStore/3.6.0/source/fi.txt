@@ -1,0 +1,70 @@
+Sinun musiikkisi. Sinun kokoelmasi. Enemmän kuin toistoa.
+
+Wakemusic yhdistää paikalliset tiedostot, pilvipalvelut, NASin ja Navidromen. Kuuntele, löydä ja järjestä musiikkisi – suosikkikappaleesta huolella koottuun kirjastoon.
+
+◆◆◆ Paikallinen musiikki aina mukana
+
+1. Toista MP3-, FLAC-, WAV-, M4A-, AAC-, APE-, AIFF-, DSF- ja DFF-tiedostoja sekä muita muotoja arkeen ja häviöttömiin kokoelmiin.
+2. Tuo tiedostoja ja kansioita, siirrä Wi-Fin kautta tai poimi ääni videoista.
+3. Selaa kappaleita, artisteja, albumeita ja genrejä. Luo soittolistoja ja tallenna suosikkeja.
+4. Lataa musiikkia kuunneltavaksi ilman verkkoa työmatkalla tai reissussa.
+
+◆◆◆ Yhdistä kokoelmaasi
+
+1. Käytä Google Drive-, Dropbox-, Box-, pCloud-, MEGA-, Baidu Netdisk-, Aliyun Drive-, 115-, 123- ja Guangya-palveluja.
+2. Yhdistä NASiin, tietokoneeseen tai palvelimeen SMB:n, WebDAVin tai FTP:n kautta.
+3. Suoratoista tai lisää kappaleita latausjonoon offline-kirjastoasi varten.
+4. Ota ennakkolataus käyttöön: kuuntelun aikana kokonaan ladatut kappaleet jäävät paikalliseen musiikkikansioon.
+
+◆◆◆ Oma musiikkipalvelimesi
+
+1. Käytä Navidromea ja yhteensopivia Subsonic-palveluja omassa palvelintilassaan.
+2. Löydä viimeksi kuunnellut, suosikit, soittolistat, satunnaiset valinnat ja uudet lisäykset.
+3. Selaa ja hae kappaleita, artisteja ja albumeita. Näe albumitiedot, artistiesittelyt ja samankaltaiset artistit, kun palvelin tarjoaa ne.
+4. Lataa kappaleita ja vaihda klassiseen tilaan kuunnellaksesi ilman verkkoa.
+
+◆◆◆ Järjestys, joka säilyy
+
+1. Etsi kappaletietoja äänen sormenjälkitunnistuksella.
+2. Muokkaa nimiä, artisteja, albumeita, kansikuvia ja sanoituksia.
+3. Upota metatiedot tuettuihin äänitiedostoihin, jotta tiedot kulkevat mukana laitetta tai soitinta vaihtaessa.
+4. Tunnistustulokset ja kirjoitettavat tunnisteet riippuvat kappaleesta ja tiedostomuodosta.
+
+◆◆◆ Säädä ääntä, tutki yksityiskohtia
+
+1. Säädä 10-kaistaista taajuuskorjainta ja esivahvistusta makusi mukaan.
+2. Kokeile bassonkorostusta, laulua, rockia, jazzia ja muita esiasetuksia tai tallenna omasi.
+3. Analysoi paikallisen äänen spektriä ja tarkista muoto, koko, keskimääräinen bittinopeus ja näytteenottotaajuus.
+4. Tallenna tai jaa analyysikortti. Spektri auttaa tutkimaan äänen ominaisuuksia, mutta ei yksin todista tallenteen olevan aidosti häviötön.
+
+◆◆◆ Kuuntele omalla tyylilläsi
+
+1. Valitse vinyyli-, kasetti- tai muu soitintyyli.
+2. Nauti kansikuvista inspiroiduista taustoista, minisanoituksista ja äänitiedoista.
+3. Käytä satunnaistoistoa, järjestyksessä toistoa, yhden kappaleen toistoa, jononhallintaa ja uniajastinta.
+
+{{PURCHASE}}
+
+◆◆◆ Hyvä tietää
+
+Wakemusic toistaa ja hallitsee musiikkia, mutta ei tarjoa musiikkisisältöä. Käytä ääntä, johon sinulla on käyttöoikeus. Ulkoisten palvelujen käyttö, jäsenyydet, siirtorajat ja toiminnot riippuvat palveluntarjoajasta.
+
+Yhteydenotot: support@kakainc.com
+
+Tietosuojakäytäntö:
+{{PRIVACY_URL}}
+
+Käyttöehdot:
+{{TERMS_URL}}
+===STANDARD===
+◆◆◆ Premium ja ostot
+
+1. Etäyhteydet, EQ-säädöt ja osa toiminnoista vaativat Premiumin. Katso tiedot sovelluksesta.
+2. Valitse kuukausi- tai vuositilaus tai elinikäinen osto omaan käyttöön tai Perhejakoon.
+3. Mahdollisen maksuttoman kokeilun kelpoisuus, kesto ja jatkohinta näytetään ostettaessa.
+4. Tilaukset uusiutuvat automaattisesti. Hallitse tai peru ne Apple-tilin tilausasetuksissa. Elinikäiset paketit ovat kertaostoja eivätkä uusiudu.
+===PRO===
+◆◆◆ Tietoa Prosta
+
+1. Pro sisältää Premium-toiminnot ilman lisätilausta.
+2. Ulkoisten palvelujen jäsenyys- ja siirtomaksut veloitetaan erikseen niiden ehtojen mukaan.

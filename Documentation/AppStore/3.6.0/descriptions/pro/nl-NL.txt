@@ -1,0 +1,61 @@
+Jouw muziek. Jouw collectie. Meer dan afspelen.
+
+Wakemusic brengt lokale bestanden, cloudopslag, NAS en Navidrome samen. Luister, ontdek en orden je muziek, van een favoriet nummer tot een zorgvuldig opgebouwde collectie.
+
+◆◆◆ Lokale muziek, altijd bij je
+
+1. Speel MP3, FLAC, WAV, M4A, AAC, APE, AIFF, DSF, DFF en meer af, voor dagelijks luisteren en lossless collecties.
+2. Importeer bestanden en mappen, zet muziek over via wifi of haal audio uit video's.
+3. Blader op nummer, artiest, album en genre. Maak afspeellijsten en bewaar favorieten.
+4. Download muziek om offline te luisteren, onderweg of op reis.
+
+◆◆◆ Verbind je collectie
+
+1. Gebruik Google Drive, Dropbox, Box, pCloud, MEGA, Baidu Netdisk, Aliyun Drive en de clouddiensten 115, 123 en Guangya.
+2. Verbind je NAS, computer of server via SMB, WebDAV of FTP.
+3. Stream muziek of voeg downloads toe aan de wachtrij voor je offline bibliotheek.
+4. Zet vooraf downloaden aan: nummers die tijdens het luisteren volledig zijn gedownload, blijven in je lokale muziekmap.
+
+◆◆◆ Je eigen muziekserver
+
+1. Gebruik Navidrome en compatibele Subsonic-diensten in een aparte servermodus.
+2. Ontdek recent afgespeelde nummers, favorieten, afspeellijsten, willekeurige keuzes en recente toevoegingen.
+3. Blader en zoek in nummers, artiesten en albums. Bekijk albuminformatie, biografieën en vergelijkbare artiesten als de server die levert.
+4. Download nummers en schakel naar de klassieke modus om offline te luisteren.
+
+◆◆◆ Een collectie die op orde blijft
+
+1. Vind nummerinformatie met audiofingerprinting.
+2. Bewerk titels, artiesten, albums, hoezen en songteksten.
+3. Sla metadata op in ondersteunde audiobestanden, zodat je werk meegaat naar andere apparaten en spelers.
+4. Herkenningsresultaten en beschrijfbare tags hangen af van het nummer en bestandsformaat.
+
+◆◆◆ Stel het geluid af, zie de details
+
+1. Pas de 10-bands EQ en voorversterking aan je smaak aan.
+2. Probeer basversterking, zang, rock, jazz en andere presets of bewaar je eigen instellingen.
+3. Analyseer het spectrum van lokale audio en bekijk formaat, grootte, gemiddelde bitrate en samplefrequentie.
+4. Bewaar of deel een analysekaart. Een spectrum toont audiokenmerken, maar bewijst op zichzelf niet dat een opname echt lossless is.
+
+◆◆◆ Luisteren in jouw stijl
+
+1. Kies vinyl, cassette en andere spelerstijlen.
+2. Geniet van achtergronden geïnspireerd op hoezen, mini-songteksten en audioinformatie.
+3. Gebruik shuffle, afspelen op volgorde, één nummer herhalen, wachtrijbeheer en een slaaptimer.
+
+◆◆◆ Over Pro
+
+1. Pro bevat de Premium-functies zonder extra abonnement.
+2. Lidmaatschaps- en overdrachtskosten van externe diensten staan hier los van en volgen de voorwaarden van de aanbieder.
+
+◆◆◆ Goed om te weten
+
+Wakemusic speelt en beheert muziek, maar levert zelf geen muziek. Gebruik audio waartoe je toegang mag hebben. Toegang, lidmaatschappen, overdrachtslimieten en functies van externe diensten hangen af van de aanbieder.
+
+Contact: support@kakainc.com
+
+Privacybeleid:
+https://kakainc.com/en/wakemusic/legal/app-store/privacy/
+
+Gebruiksvoorwaarden:
+https://kakainc.com/en/wakemusic/legal/app-store/terms/

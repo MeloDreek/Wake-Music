@@ -1,0 +1,70 @@
+Votre musique. Votre collection. Bien plus que l'écoute.
+
+Wakemusic réunit vos fichiers locaux, espaces cloud, NAS et bibliothèque Navidrome. Écoutez, explorez et organisez votre musique, du morceau préféré à la collection patiemment constituée.
+
+◆◆◆ Votre musique, même hors ligne
+
+1. Lisez les formats MP3, FLAC, WAV, M4A, AAC, APE, AIFF, DSF, DFF et bien d'autres, pour l'écoute quotidienne ou vos collections sans perte.
+2. Importez fichiers et dossiers, transférez par Wi-Fi ou extrayez le son de vidéos.
+3. Parcourez titres, artistes, albums et genres. Créez des playlists et retrouvez vos favoris.
+4. Téléchargez vos morceaux pour les écouter sans connexion, en trajet ou en voyage.
+
+◆◆◆ Connectez votre collection
+
+1. Accédez à Google Drive, Dropbox, Box, pCloud, MEGA, Baidu Netdisk, Aliyun Drive et aux clouds 115, 123 et Guangya.
+2. Connectez un NAS, un ordinateur ou un serveur via SMB, WebDAV ou FTP.
+3. Écoutez en streaming ou ajoutez des téléchargements à la file d'attente.
+4. Activez le prétéléchargement : les morceaux entièrement téléchargés pendant l'écoute restent dans votre dossier musical local.
+
+◆◆◆ Votre serveur musical personnel
+
+1. Utilisez Navidrome et les services Subsonic compatibles dans un mode dédié.
+2. Retrouvez écoutes récentes, favoris, playlists, sélections aléatoires et ajouts récents.
+3. Parcourez et recherchez titres, artistes et albums. Consultez les détails des albums, biographies et artistes similaires fournis par le serveur.
+4. Téléchargez des titres, puis passez en mode classique pour les écouter hors ligne.
+
+◆◆◆ Une collection bien organisée
+
+1. Retrouvez les informations d'un morceau par reconnaissance d'empreinte audio.
+2. Modifiez titres, artistes, albums, pochettes et paroles.
+3. Intégrez les métadonnées aux fichiers compatibles : elles vous suivent sur d'autres appareils et lecteurs.
+4. Les résultats de reconnaissance et les tags modifiables dépendent du morceau et du format.
+
+◆◆◆ Ajustez le son, observez les détails
+
+1. Réglez l'égaliseur 10 bandes et le gain du préampli selon vos goûts.
+2. Essayez les préréglages basses renforcées, voix, rock, jazz, ou enregistrez vos réglages.
+3. Analysez le spectre des fichiers locaux et consultez format, taille, débit moyen et fréquence d'échantillonnage.
+4. Enregistrez ou partagez une carte d'analyse. Un spectre révèle des caractéristiques audio, mais ne prouve pas à lui seul qu'un enregistrement est réellement sans perte.
+
+◆◆◆ Une écoute à votre image
+
+1. Choisissez un lecteur au style vinyle, cassette ou autre.
+2. Profitez de fonds inspirés des pochettes, de mini-paroles et d'informations audio.
+3. Lecture aléatoire, dans l'ordre ou en boucle sur un titre, gestion de la file et minuterie de veille.
+
+{{PURCHASE}}
+
+◆◆◆ À savoir
+
+Wakemusic lit et organise la musique, mais ne fournit aucun contenu musical. Utilisez des fichiers auxquels vous avez le droit d'accéder. Accès, abonnements, quotas de transfert et fonctions des services tiers dépendent de chaque fournisseur.
+
+Contact : support@kakainc.com
+
+Confidentialité :
+{{PRIVACY_URL}}
+
+Conditions d'utilisation :
+{{TERMS_URL}}
+===STANDARD===
+◆◆◆ Premium et achats
+
+1. Connexions distantes, réglages EQ et certaines fonctions nécessitent Premium. Détails dans l'app.
+2. Abonnements mensuel ou annuel, ou achat à vie individuel ou avec Partage familial.
+3. Si un essai gratuit est proposé, ses conditions, sa durée et le tarif suivant sont indiqués à l'achat.
+4. Les abonnements se renouvellent automatiquement. Gérez-les ou annulez-les dans les réglages d'abonnement du compte Apple. Les offres à vie sont des achats uniques sans renouvellement.
+===PRO===
+◆◆◆ À propos de Pro
+
+1. Pro inclut les fonctions Premium sans abonnement supplémentaire.
+2. Les frais d'adhésion et de transfert des services tiers restent distincts, selon chaque fournisseur.

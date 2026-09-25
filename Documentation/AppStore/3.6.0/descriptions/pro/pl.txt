@@ -1,0 +1,61 @@
+Twoja muzyka. Twoja kolekcja. Więcej niż odtwarzanie.
+
+Wakemusic łączy lokalne pliki, chmury, NAS i bibliotekę Navidrome. Słuchaj, odkrywaj i porządkuj muzykę — od ulubionego utworu po starannie budowaną kolekcję.
+
+◆◆◆ Lokalna muzyka zawsze pod ręką
+
+1. Odtwarzaj MP3, FLAC, WAV, M4A, AAC, APE, AIFF, DSF, DFF i inne formaty, na co dzień i w kolekcjach bezstratnych.
+2. Importuj pliki i foldery, przesyłaj przez Wi-Fi lub wyodrębniaj dźwięk z filmów.
+3. Przeglądaj utwory, wykonawców, albumy i gatunki. Twórz playlisty i zapisuj ulubione.
+4. Pobieraj muzykę do słuchania bez internetu, w drodze i w podróży.
+
+◆◆◆ Połącz się ze swoją kolekcją
+
+1. Korzystaj z Google Drive, Dropbox, Box, pCloud, MEGA, Baidu Netdisk, Aliyun Drive oraz chmur 115, 123 i Guangya.
+2. Łącz się z NAS, komputerem lub serwerem przez SMB, WebDAV albo FTP.
+3. Słuchaj strumieniowo lub dodawaj utwory do kolejki pobierania, budując bibliotekę offline.
+4. Włącz pobieranie z wyprzedzeniem: utwory pobrane w całości podczas słuchania zostaną w lokalnym folderze muzyki.
+
+◆◆◆ Twój serwer muzyczny
+
+1. Korzystaj z Navidrome i zgodnych usług Subsonic w osobnym trybie serwera.
+2. Odkrywaj ostatnio odtwarzane, ulubione, playlisty, losowe propozycje i nowe dodatki.
+3. Przeglądaj i wyszukuj utwory, wykonawców i albumy. Zobacz szczegóły albumów, biografie i podobnych wykonawców, jeśli serwer je udostępnia.
+4. Pobierz utwory i przejdź do trybu klasycznego, aby słuchać offline.
+
+◆◆◆ Porządek na dłużej
+
+1. Znajdź informacje o utworach dzięki rozpoznawaniu odcisku akustycznego.
+2. Edytuj tytuły, wykonawców, albumy, okładki i teksty.
+3. Osadzaj metadane w obsługiwanych plikach, by pozostały z muzyką po zmianie urządzenia lub odtwarzacza.
+4. Wyniki rozpoznawania i zapisywalne tagi zależą od utworu i formatu.
+
+◆◆◆ Dostosuj dźwięk, poznaj szczegóły
+
+1. Dopasuj 10-pasmowy korektor i wzmocnienie przedwzmacniacza.
+2. Wypróbuj wzmocnienie basu, wokal, rock, jazz i inne presety lub zapisz własne ustawienia.
+3. Analizuj widmo lokalnego audio: format, rozmiar, średnią przepływność i częstotliwość próbkowania.
+4. Zapisz lub udostępnij kartę analizy. Widmo pokazuje cechy dźwięku, ale samo nie dowodzi, że nagranie jest naprawdę bezstratne.
+
+◆◆◆ Słuchaj po swojemu
+
+1. Wybierz wygląd odtwarzacza, np. winyl lub kasetę.
+2. Korzystaj z teł inspirowanych okładką, minitekstów piosenek i informacji o audio.
+3. Odtwarzaj losowo, kolejno lub powtarzaj utwór. Zarządzaj kolejką i używaj timera snu.
+
+◆◆◆ O Pro
+
+1. Pro zawiera funkcje Premium bez dodatkowej subskrypcji.
+2. Opłaty za członkostwo i transfer w usługach zewnętrznych są rozliczane osobno przez dostawców.
+
+◆◆◆ Warto wiedzieć
+
+Wakemusic odtwarza i porządkuje muzykę, ale jej nie dostarcza. Używaj audio, do którego masz prawo dostępu. Dostęp, członkostwa, limity transferu i funkcje usług zewnętrznych zależą od dostawców.
+
+Kontakt: support@kakainc.com
+
+Polityka prywatności:
+https://kakainc.com/en/wakemusic/legal/app-store/privacy/
+
+Warunki użytkowania:
+https://kakainc.com/en/wakemusic/legal/app-store/terms/

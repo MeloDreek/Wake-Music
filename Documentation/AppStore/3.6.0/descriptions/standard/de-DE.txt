@@ -1,0 +1,63 @@
+Deine Musik. Deine Sammlung. Mehr als Wiedergabe.
+
+Wakemusic vereint lokale Dateien, Cloud-Speicher, NAS und Navidrome. Entdecke, spiele und ordne deine Musik – vom Lieblingssong bis zur sorgsam gepflegten Sammlung.
+
+◆◆◆ Lokale Musik, jederzeit bereit
+
+1. Spiele MP3, FLAC, WAV, M4A, AAC, APE, AIFF, DSF, DFF und mehr – für den Alltag und verlustfreie Sammlungen.
+2. Importiere Dateien und Ordner, übertrage per WLAN oder extrahiere Ton aus Videos.
+3. Stöbere nach Songs, Künstlern, Alben und Genres. Erstelle Playlists und speichere Favoriten.
+4. Höre heruntergeladene Musik offline, unterwegs oder auf Reisen.
+
+◆◆◆ Verbinde deine Musikquellen
+
+1. Nutze Google Drive, Dropbox, Box, pCloud, MEGA, Baidu Netdisk, Aliyun Drive sowie die Cloud-Dienste 115, 123 und Guangya.
+2. Greife per SMB, WebDAV oder FTP auf NAS, Computer und Server zu.
+3. Streame Musik oder lade sie über die Download-Warteschlange für deine Offline-Sammlung herunter.
+4. Aktiviere den Vorabdownload: Beim Hören vollständig geladene Songs bleiben im lokalen Musikordner.
+
+◆◆◆ Dein persönlicher Musikserver
+
+1. Nutze Navidrome und kompatible Subsonic-Dienste im eigenen Servermodus.
+2. Entdecke zuletzt gehörte Songs, Favoriten, Playlists, Zufallsauswahlen und neue Titel.
+3. Durchsuche Songs, Künstler und Alben. Albumdetails, Künstlerbiografien und ähnliche Künstler werden angezeigt, sofern der Server sie liefert.
+4. Lade Songs herunter und wechsle zum klassischen Modus, um offline weiterzuhören.
+
+◆◆◆ Ordnung, die bleibt
+
+1. Finde Songinformationen per Audio-Fingerabdruckerkennung.
+2. Bearbeite Titel, Künstler, Album, Cover und Liedtexte.
+3. Bette Metadaten in unterstützte Audiodateien ein. So bleiben sie beim Wechsel von Gerät oder Player erhalten.
+4. Erkennungsergebnisse und beschreibbare Tags hängen von Song und Dateiformat ab.
+
+◆◆◆ Klang gestalten, Details sehen
+
+1. Passe den Klang mit 10-Band-EQ und Vorverstärkung an.
+2. Wähle Bassverstärkung, Gesang, Rock, Jazz und weitere Presets oder speichere eigene Einstellungen.
+3. Analysiere das Spektrum lokaler Audiodateien und prüfe Format, Größe, mittlere Bitrate und Abtastrate.
+4. Speichere oder teile eine Analysekarte. Ein Spektrum zeigt Klangeigenschaften, beweist allein aber nicht, dass eine Aufnahme wirklich verlustfrei ist.
+
+◆◆◆ Dein Stil beim Hören
+
+1. Wähle Vinyl-, Kassetten- und andere Player-Designs.
+2. Genieße vom Cover inspirierte Hintergründe, Mini-Liedtexte und Audioinfos.
+3. Nutze Zufallswiedergabe, Wiedergabe der Reihe nach, Titelwiederholung, Warteschlange und Schlaf-Timer.
+
+◆◆◆ Premium und Käufe
+
+1. Remote-Verbindungen, EQ-Anpassungen und weitere Funktionen erfordern Premium. Details findest du in der App.
+2. Wähle ein Monats- oder Jahresabo oder einen lebenslangen Einzel- bzw. Familienfreigabe-Kauf.
+3. Bei angebotenen Gratistests werden Berechtigung, Dauer und Folgepreis beim Kauf angezeigt.
+4. Abos verlängern sich automatisch. Verwalte oder kündige sie in den Aboeinstellungen deines Apple Accounts. Lebenslange Pläne sind Einmalkäufe ohne Verlängerung.
+
+◆◆◆ Gut zu wissen
+
+Wakemusic spielt und verwaltet Musik, stellt aber keine Musik bereit. Nutze nur Audio, auf das du zugreifen darfst. Zugriffsrechte, Mitgliedschaften, Transfervolumen und Funktionen externer Dienste richten sich nach deren Anbietern.
+
+Feedback: support@kakainc.com
+
+Datenschutz:
+https://kakainc.com/de/wakemusic/legal/app-store/privacy/
+
+Nutzungsbedingungen:
+https://kakainc.com/de/wakemusic/legal/app-store/terms/

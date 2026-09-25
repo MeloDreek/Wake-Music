@@ -1,0 +1,70 @@
+Tu música. Tu colección. Mucho más que darle al play.
+
+Wakemusic reúne tus archivos locales, nubes, NAS y biblioteca Navidrome. Escucha, descubre y organiza tu música, desde una canción favorita hasta una colección cuidada al detalle.
+
+◆◆◆ Música local, siempre a mano
+
+1. Reproduce MP3, FLAC, WAV, M4A, AAC, APE, AIFF, DSF, DFF y más, para el día a día o tu colección sin pérdida.
+2. Importa archivos y carpetas, transfiere por Wi-Fi o extrae audio de vídeos.
+3. Explora canciones, artistas, álbumes y géneros. Crea listas y guarda favoritos.
+4. Descarga música y escúchala sin conexión, en tus trayectos o de viaje.
+
+◆◆◆ Conecta tu colección
+
+1. Accede a Google Drive, Dropbox, Box, pCloud, MEGA, Baidu Netdisk, Aliyun Drive y las nubes 115, 123 y Guangya.
+2. Conecta tu NAS, ordenador o servidor mediante SMB, WebDAV o FTP.
+3. Escucha en streaming o añade descargas a la cola para crear tu biblioteca sin conexión.
+4. Activa la descarga anticipada: las canciones descargadas por completo mientras escuchas se guardan en la carpeta de música local.
+
+◆◆◆ Tu servidor de música personal
+
+1. Usa Navidrome y servicios Subsonic compatibles en un modo dedicado.
+2. Redescubre reproducciones recientes, favoritos, listas, selecciones aleatorias y novedades añadidas.
+3. Explora y busca canciones, artistas y álbumes. Consulta detalles de álbumes, biografías y artistas similares si el servidor los proporciona.
+4. Descarga canciones y cambia al modo clásico para escucharlas sin conexión.
+
+◆◆◆ Organiza para conservar
+
+1. Busca información de canciones con reconocimiento de huella acústica.
+2. Edita títulos, artistas, álbumes, portadas y letras.
+3. Incrusta metadatos en archivos compatibles para conservarlos al cambiar de dispositivo o reproductor.
+4. Los resultados y las etiquetas que se pueden escribir dependen de la canción y del formato.
+
+◆◆◆ Ajusta el sonido, observa los detalles
+
+1. Personaliza el sonido con un ecualizador de 10 bandas y ganancia del preamplificador.
+2. Prueba refuerzo de graves, voz, rock, jazz y otros ajustes, o guarda los tuyos.
+3. Analiza el espectro de archivos locales y consulta formato, tamaño, tasa de bits media y frecuencia de muestreo.
+4. Guarda o comparte una tarjeta de análisis. El espectro muestra características del audio, pero no demuestra por sí solo que una grabación sea realmente sin pérdida.
+
+◆◆◆ Escucha a tu manera
+
+1. Elige estilos de reproductor como vinilo o casete.
+2. Disfruta de fondos inspirados en las portadas, miniletras e información del audio.
+3. Usa reproducción aleatoria, en orden o repetición de una canción, cola de reproducción y temporizador de apagado.
+
+{{PURCHASE}}
+
+◆◆◆ Información útil
+
+Wakemusic reproduce y organiza música; no proporciona contenido musical. Usa audio al que tengas derecho a acceder. Los permisos, cuotas, suscripciones y funciones de servicios externos dependen de cada proveedor.
+
+Contacto: support@kakainc.com
+
+Privacidad:
+{{PRIVACY_URL}}
+
+Condiciones de uso:
+{{TERMS_URL}}
+===STANDARD===
+◆◆◆ Premium y compras
+
+1. Las conexiones remotas, ajustes EQ y otras funciones requieren Premium. Consulta los detalles en la app.
+2. Elige suscripción mensual o anual, o compra de por vida individual o con En familia.
+3. Si se ofrece una prueba gratuita, sus requisitos, duración y precio posterior se indican al comprar.
+4. Las suscripciones se renuevan automáticamente. Puedes gestionarlas o cancelarlas en los ajustes de suscripciones de tu cuenta de Apple. Los planes de por vida son pagos únicos sin renovación.
+===PRO===
+◆◆◆ Acerca de Pro
+
+1. Pro incluye las funciones Premium sin suscripción adicional.
+2. Las cuotas y los costes de transferencia de terceros se cobran por separado según el proveedor.

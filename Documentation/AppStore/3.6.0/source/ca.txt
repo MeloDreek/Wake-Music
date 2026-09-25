@@ -1,0 +1,70 @@
+La teva música. La teva col·lecció. Molt més que escoltar.
+
+Wakemusic reuneix fitxers locals, núvols, NAS i la biblioteca Navidrome. Escolta, descobreix i organitza la música, d'una cançó preferida a una col·lecció cuidada al detall.
+
+◆◆◆ Música local, sempre a mà
+
+1. Reprodueix MP3, FLAC, WAV, M4A, AAC, APE, AIFF, DSF, DFF i més, per al dia a dia i col·leccions sense pèrdua.
+2. Importa fitxers i carpetes, transfereix per Wi-Fi o extreu àudio de vídeos.
+3. Explora cançons, artistes, àlbums i gèneres. Crea llistes i desa preferits.
+4. Descarrega música per escoltar-la sense connexió, en els trajectes o de viatge.
+
+◆◆◆ Connecta la teva col·lecció
+
+1. Accedeix a Google Drive, Dropbox, Box, pCloud, MEGA, Baidu Netdisk, Aliyun Drive i als núvols 115, 123 i Guangya.
+2. Connecta el NAS, l'ordinador o el servidor mitjançant SMB, WebDAV o FTP.
+3. Escolta en línia o afegeix descàrregues a la cua per crear la biblioteca fora de línia.
+4. Activa la descàrrega anticipada: les cançons que s'acaben de descarregar mentre escoltes es desen a la carpeta de música local.
+
+◆◆◆ El teu servidor de música
+
+1. Fes servir Navidrome i serveis Subsonic compatibles en un mode dedicat.
+2. Redescobreix reproduccions recents, preferits, llistes, seleccions aleatòries i noves incorporacions.
+3. Explora i cerca cançons, artistes i àlbums. Consulta detalls d'àlbums, biografies i artistes semblants quan el servidor els proporcioni.
+4. Descarrega cançons i passa al mode clàssic per escoltar-les sense connexió.
+
+◆◆◆ Organitza per conservar
+
+1. Troba informació de cançons amb el reconeixement d'empremta acústica.
+2. Edita títols, artistes, àlbums, portades i lletres.
+3. Incrusta metadades als fitxers compatibles perquè es conservin en canviar de dispositiu o reproductor.
+4. Els resultats i les etiquetes que es poden escriure depenen de la cançó i del format.
+
+◆◆◆ Ajusta el so, observa els detalls
+
+1. Personalitza l'equalitzador de 10 bandes i el guany del preamplificador.
+2. Prova reforç de greus, veu, rock, jazz i altres preajustos, o desa els teus.
+3. Analitza l'espectre de l'àudio local: format, mida, taxa de bits mitjana i freqüència de mostreig.
+4. Desa o comparteix una targeta d'anàlisi. L'espectre revela característiques del so, però no demostra tot sol que una gravació sigui realment sense pèrdua.
+
+◆◆◆ Escolta a la teva manera
+
+1. Tria estils de reproductor com el vinil o el casset.
+2. Gaudeix de fons inspirats en les portades, minilletres i informació de l'àudio.
+3. Reproducció aleatòria, en ordre o repetició d'una cançó, gestió de la cua i temporitzador de repòs.
+
+{{PURCHASE}}
+
+◆◆◆ Informació útil
+
+Wakemusic reprodueix i organitza música, però no proporciona contingut musical. Fes servir àudio al qual tinguis dret d'accés. Els permisos, subscripcions, límits de transferència i funcions externes depenen de cada proveïdor.
+
+Contacte: support@kakainc.com
+
+Privacitat:
+{{PRIVACY_URL}}
+
+Condicions d'ús:
+{{TERMS_URL}}
+===STANDARD===
+◆◆◆ Premium i compres
+
+1. Les connexions remotes, els ajustos EQ i algunes funcions requereixen Premium. Consulta els detalls a l'app.
+2. Tria subscripció mensual o anual, o compra de per vida individual o amb En família.
+3. Si s'ofereix una prova gratuïta, els requisits, la durada i el preu posterior s'indiquen en comprar.
+4. Les subscripcions es renoven automàticament. Gestiona-les o cancel·la-les als ajustos de subscripcions del compte d'Apple. Els plans de per vida són pagaments únics sense renovació.
+===PRO===
+◆◆◆ Quant a Pro
+
+1. Pro inclou les funcions Premium sense cap subscripció addicional.
+2. Les quotes i transferències dels serveis externs es cobren a part segons cada proveïdor.

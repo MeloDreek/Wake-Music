@@ -1,0 +1,61 @@
+Sua música. Sua coleção. Muito além de ouvir.
+
+O Wakemusic reúne arquivos locais, nuvens, NAS e sua biblioteca Navidrome. Ouça, descubra e organize sua música, da faixa favorita à coleção montada com carinho.
+
+◆◆◆ Música local, sempre por perto
+
+1. Reproduza MP3, FLAC, WAV, M4A, AAC, APE, AIFF, DSF, DFF e mais, do dia a dia às coleções sem perdas.
+2. Importe arquivos e pastas, transfira por Wi-Fi ou extraia áudio de vídeos.
+3. Explore músicas, artistas, álbuns e gêneros. Crie playlists e salve favoritas.
+4. Baixe músicas para ouvir offline no trajeto, em viagens ou sem conexão.
+
+◆◆◆ Conecte sua coleção
+
+1. Acesse Google Drive, Dropbox, Box, pCloud, MEGA, Baidu Netdisk, Aliyun Drive e as nuvens 115, 123 e Guangya.
+2. Conecte seu NAS, computador ou servidor por SMB, WebDAV ou FTP.
+3. Ouça por streaming ou adicione músicas à fila de downloads para sua biblioteca offline.
+4. Ative o pré-download para guardar na pasta local as músicas cujo download terminar durante a reprodução.
+
+◆◆◆ Seu servidor de música
+
+1. Use Navidrome e serviços Subsonic compatíveis em um modo dedicado.
+2. Redescubra reproduções recentes, favoritas, playlists, seleções aleatórias e adições recentes.
+3. Navegue e pesquise músicas, artistas e álbuns. Veja detalhes de álbuns, biografias e artistas semelhantes fornecidos pelo servidor.
+4. Baixe músicas e mude para o modo clássico para ouvi-las offline.
+
+◆◆◆ Organize para guardar
+
+1. Encontre informações de músicas por reconhecimento de impressão digital de áudio.
+2. Edite títulos, artistas, álbuns, capas e letras.
+3. Incorpore metadados em arquivos compatíveis para mantê-los ao trocar de dispositivo ou player.
+4. Os resultados e as tags que podem ser gravadas variam conforme a música e o formato.
+
+◆◆◆ Ajuste o som, veja os detalhes
+
+1. Personalize o equalizador de 10 bandas e o ganho do pré-amplificador.
+2. Experimente reforço de graves, voz, rock, jazz e outros presets, ou salve seus ajustes.
+3. Analise o espectro de áudio local e veja formato, tamanho, taxa de bits média e taxa de amostragem.
+4. Salve ou compartilhe um cartão de análise. O espectro revela características do áudio, mas sozinho não comprova que a gravação seja realmente sem perdas.
+
+◆◆◆ Ouça do seu jeito
+
+1. Escolha estilos de player como vinil e fita cassete.
+2. Curta fundos inspirados nas capas, miniletras e informações de áudio.
+3. Use reprodução aleatória, em sequência ou repetição de uma faixa, fila de reprodução e timer de sono.
+
+◆◆◆ Sobre o Pro
+
+1. O Pro inclui os recursos Premium sem assinatura adicional.
+2. Taxas de assinatura e transferência de terceiros são cobradas separadamente, conforme cada provedor.
+
+◆◆◆ Bom saber
+
+O Wakemusic reproduz e organiza música, mas não fornece conteúdo musical. Use áudio que você tenha permissão para acessar. Acesso, assinaturas, limites de transferência e funções de terceiros dependem de cada provedor.
+
+Contato: support@kakainc.com
+
+Privacidade:
+https://kakainc.com/pt-br/wakemusic/legal/app-store/privacy/
+
+Termos de uso:
+https://kakainc.com/pt-br/wakemusic/legal/app-store/terms/

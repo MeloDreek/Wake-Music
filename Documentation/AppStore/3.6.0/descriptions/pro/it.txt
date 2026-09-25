@@ -1,0 +1,61 @@
+La tua musica. La tua collezione. Non solo ascolto.
+
+Wakemusic riunisce file locali, cloud, NAS e libreria Navidrome. Ascolta, esplora e organizza la tua musica, dal brano preferito alla collezione curata negli anni.
+
+◆◆◆ Musica locale, sempre con te
+
+1. Riproduci MP3, FLAC, WAV, M4A, AAC, APE, AIFF, DSF, DFF e altro: dall'ascolto quotidiano alle raccolte lossless.
+2. Importa file e cartelle, trasferisci via Wi-Fi o estrai l'audio dai video.
+3. Esplora brani, artisti, album e generi. Crea playlist e salva i preferiti.
+4. Scarica musica da ascoltare offline, negli spostamenti o in viaggio.
+
+◆◆◆ Collega la tua collezione
+
+1. Accedi a Google Drive, Dropbox, Box, pCloud, MEGA, Baidu Netdisk, Aliyun Drive e ai cloud 115, 123 e Guangya.
+2. Collega NAS, computer e server tramite SMB, WebDAV o FTP.
+3. Ascolta in streaming o aggiungi download alla coda per creare una libreria offline.
+4. Attiva il download preventivo: i brani scaricati completamente durante l'ascolto restano nella cartella musicale locale.
+
+◆◆◆ Il tuo server musicale
+
+1. Usa Navidrome e i servizi Subsonic compatibili in una modalità dedicata.
+2. Riscopri ascolti recenti, preferiti, playlist, selezioni casuali e aggiunte recenti.
+3. Sfoglia e cerca brani, artisti e album. Visualizza informazioni sugli album, biografie e artisti simili forniti dal server.
+4. Scarica i brani e passa alla modalità classica per ascoltarli offline.
+
+◆◆◆ Una raccolta che dura
+
+1. Trova informazioni sui brani con il riconoscimento dell'impronta audio.
+2. Modifica titoli, artisti, album, copertine e testi.
+3. Incorpora i metadati nei file compatibili, conservandoli anche quando cambi dispositivo o lettore.
+4. Risultati del riconoscimento e tag scrivibili variano in base al brano e al formato.
+
+◆◆◆ Modella il suono, scopri i dettagli
+
+1. Regola l'equalizzatore a 10 bande e il guadagno del preamplificatore.
+2. Prova bassi potenziati, voce, rock, jazz e altri preset, oppure salva le tue impostazioni.
+3. Analizza lo spettro dell'audio locale e consulta formato, dimensioni, bitrate medio e frequenza di campionamento.
+4. Salva o condividi una scheda di analisi. Lo spettro rivela caratteristiche dell'audio, ma da solo non dimostra che una registrazione sia davvero lossless.
+
+◆◆◆ Ascolta a modo tuo
+
+1. Scegli stili del lettore come vinile e musicassetta.
+2. Goditi sfondi ispirati alle copertine, mini testi e informazioni audio.
+3. Riproduzione casuale, in sequenza o ripetizione singola, gestione della coda e timer di spegnimento.
+
+◆◆◆ Informazioni su Pro
+
+1. Pro include le funzioni Premium senza abbonamenti aggiuntivi.
+2. Eventuali costi di iscrizione e trasferimento dei servizi terzi sono separati e dipendono dal fornitore.
+
+◆◆◆ Da sapere
+
+Wakemusic riproduce e organizza la musica, ma non fornisce contenuti musicali. Usa audio a cui hai diritto di accedere. Accesso, abbonamenti, limiti di trasferimento e funzioni di servizi terzi dipendono dai rispettivi fornitori.
+
+Contatti: support@kakainc.com
+
+Privacy:
+https://kakainc.com/it/wakemusic/legal/app-store/privacy/
+
+Condizioni d'uso:
+https://kakainc.com/it/wakemusic/legal/app-store/terms/

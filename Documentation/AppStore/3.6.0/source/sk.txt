@@ -1,0 +1,70 @@
+Vaša hudba. Vaša zbierka. Viac než prehrávanie.
+
+Wakemusic prepája miestne súbory, cloudy, NAS a knižnicu Navidrome. Počúvajte, objavujte a usporiadajte hudbu od obľúbenej skladby po starostlivo budovanú zbierku.
+
+◆◆◆ Miestna hudba vždy poruke
+
+1. Prehrávajte MP3, FLAC, WAV, M4A, AAC, APE, AIFF, DSF, DFF a ďalšie formáty na bežné počúvanie aj bezstratové zbierky.
+2. Importujte súbory a priečinky, prenášajte cez Wi-Fi alebo extrahujte zvuk z videí.
+3. Prezerajte skladby, interpretov, albumy a žánre. Vytvárajte playlisty a ukladajte obľúbené.
+4. Sťahujte hudbu na počúvanie bez internetu, pri dochádzaní aj na cestách.
+
+◆◆◆ Pripojte svoju zbierku
+
+1. Používajte Google Drive, Dropbox, Box, pCloud, MEGA, Baidu Netdisk, Aliyun Drive a cloudy 115, 123 a Guangya.
+2. Pripojte NAS, počítač alebo server cez SMB, WebDAV či FTP.
+3. Streamujte alebo pridávajte skladby do frontu sťahovania pre offline knižnicu.
+4. Zapnite sťahovanie vopred: skladby stiahnuté celé počas počúvania zostanú v miestnom hudobnom priečinku.
+
+◆◆◆ Váš hudobný server
+
+1. Používajte Navidrome a kompatibilné služby Subsonic v samostatnom režime.
+2. Objavujte nedávno prehrané, obľúbené, playlisty, náhodný výber a nové prírastky.
+3. Prezerajte a hľadajte skladby, interpretov a albumy. Zobrazte údaje o albumoch, životopisy a podobných interpretov, ak ich server poskytuje.
+4. Stiahnite skladby a prepnite do klasického režimu na počúvanie offline.
+
+◆◆◆ Poriadok, ktorý vydrží
+
+1. Nájdite informácie o skladbách pomocou rozpoznávania zvukových odtlačkov.
+2. Upravujte názvy, interpretov, albumy, obaly a texty piesní.
+3. Vložte metadáta do podporovaných súborov, aby zostali s hudbou pri zmene zariadenia či prehrávača.
+4. Výsledky rozpoznávania a zapisovateľné tagy závisia od skladby a formátu.
+
+◆◆◆ Upravte zvuk, preskúmajte detaily
+
+1. Nastavte 10-pásmový ekvalizér a zosilnenie predzosilňovača podľa seba.
+2. Vyskúšajte posilnenie basov, spev, rock, jazz a ďalšie predvoľby alebo uložte vlastné nastavenia.
+3. Analyzujte spektrum miestneho zvuku: formát, veľkosť, priemerný dátový tok a vzorkovaciu frekvenciu.
+4. Uložte či zdieľajte kartu analýzy. Spektrum ukazuje vlastnosti zvuku, ale samo nedokazuje, že nahrávka je skutočne bezstratová.
+
+◆◆◆ Počúvajte vo svojom štýle
+
+1. Vyberte vzhľad prehrávača, napríklad vinyl alebo kazetu.
+2. Užite si pozadie podľa obalu, minitexty piesní a informácie o zvuku.
+3. Náhodné či postupné prehrávanie, opakovanie skladby, správa frontu a časovač vypnutia.
+
+{{PURCHASE}}
+
+◆◆◆ Dôležité informácie
+
+Wakemusic hudbu prehráva a spravuje, ale neposkytuje ju. Používajte zvuk, ku ktorému máte právo pristupovať. Prístup, členstvo, limity prenosu a funkcie externých služieb závisia od poskytovateľa.
+
+Kontakt: support@kakainc.com
+
+Ochrana súkromia:
+{{PRIVACY_URL}}
+
+Podmienky používania:
+{{TERMS_URL}}
+===STANDARD===
+◆◆◆ Premium a nákupy
+
+1. Vzdialené pripojenia, úpravy EQ a niektoré funkcie vyžadujú Premium. Podrobnosti sú v aplikácii.
+2. Zvoľte mesačné či ročné predplatné alebo doživotný nákup pre jednotlivca či s Rodinným zdieľaním.
+3. Ak je ponúkaná skúšobná doba zdarma, nárok, dĺžka a následná cena sú uvedené pri nákupe.
+4. Predplatné sa automaticky obnovuje. Spravujte či rušte ho v nastaveniach predplatného Apple účtu. Doživotné plány sú jednorazové nákupy bez obnovovania.
+===PRO===
+◆◆◆ O verzii Pro
+
+1. Pro zahŕňa funkcie Premium bez ďalšieho predplatného.
+2. Členské a prenosové poplatky externých služieb sa platia osobitne podľa ich podmienok.

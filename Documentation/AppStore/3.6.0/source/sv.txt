@@ -1,0 +1,70 @@
+Din musik. Din samling. Mer än uppspelning.
+
+Wakemusic samlar lokala filer, molnlagring, NAS och Navidrome. Lyssna, upptäck och ordna din musik – från en favoritlåt till en omsorgsfullt byggd samling.
+
+◆◆◆ Lokal musik, alltid nära
+
+1. Spela MP3, FLAC, WAV, M4A, AAC, APE, AIFF, DSF, DFF med mera, för vardagslyssning och förlustfria samlingar.
+2. Importera filer och mappar, överför via Wi-Fi eller extrahera ljud från videor.
+3. Bläddra bland låtar, artister, album och genrer. Skapa spellistor och spara favoriter.
+4. Hämta musik för att lyssna offline, på väg till jobbet eller på resa.
+
+◆◆◆ Anslut din samling
+
+1. Använd Google Drive, Dropbox, Box, pCloud, MEGA, Baidu Netdisk, Aliyun Drive och molntjänsterna 115, 123 och Guangya.
+2. Anslut NAS, dator eller server via SMB, WebDAV eller FTP.
+3. Strömma musik eller lägg hämtningar i kön för ditt offlinebibliotek.
+4. Aktivera förhämtning: låtar som hämtas klart under lyssningen sparas i din lokala musikmapp.
+
+◆◆◆ Din egen musikserver
+
+1. Använd Navidrome och kompatibla Subsonic-tjänster i ett särskilt serverläge.
+2. Upptäck senast spelat, favoriter, spellistor, slumpval och nya tillägg.
+3. Bläddra och sök bland låtar, artister och album. Se albuminformation, biografier och liknande artister när servern tillhandahåller dem.
+4. Hämta låtar och byt till klassiskt läge för att lyssna offline.
+
+◆◆◆ Ordning som består
+
+1. Hitta låtinformation med ljudfingeravtryck.
+2. Redigera titlar, artister, album, omslag och låttexter.
+3. Bädda in metadata i ljudfiler som stöds, så följer informationen med mellan enheter och spelare.
+4. Igenkänningsresultat och skrivbara taggar varierar med låt och filformat.
+
+◆◆◆ Forma ljudet, se detaljerna
+
+1. Justera 10-bands-EQ och förförstärkarens nivå efter din smak.
+2. Prova basförstärkning, sång, rock, jazz och andra förval eller spara egna inställningar.
+3. Analysera lokala ljudspektrum och se format, filstorlek, genomsnittlig bithastighet och samplingsfrekvens.
+4. Spara eller dela ett analyskort. Spektrumet visar ljudets egenskaper, men bevisar inte ensamt att en inspelning verkligen är förlustfri.
+
+◆◆◆ Lyssna på ditt sätt
+
+1. Välj spelarutseenden som vinyl och kassett.
+2. Njut av omslagsinspirerade bakgrunder, minilåttexter och ljudinformation.
+3. Använd slumpmässig eller sekventiell uppspelning, upprepa en låt, köhantering och insomningstimer.
+
+{{PURCHASE}}
+
+◆◆◆ Bra att veta
+
+Wakemusic spelar och ordnar musik men tillhandahåller inte musik. Använd ljud du har rätt att få åtkomst till. Externa tjänsters åtkomst, medlemskap, överföringsgränser och funktioner bestäms av respektive leverantör.
+
+Kontakt: support@kakainc.com
+
+Integritetspolicy:
+{{PRIVACY_URL}}
+
+Användarvillkor:
+{{TERMS_URL}}
+===STANDARD===
+◆◆◆ Premium och köp
+
+1. Fjärranslutningar, EQ-justeringar och vissa funktioner kräver Premium. Läs mer i appen.
+2. Välj månads- eller årsabonnemang, eller livstidsköp för en person eller med Familjedelning.
+3. Om en gratis provperiod erbjuds visas behörighet, längd och efterföljande pris vid köpet.
+4. Abonnemang förnyas automatiskt. Hantera eller avsluta dem i Apple-kontots abonnemangsinställningar. Livstidsplaner är engångsköp utan förnyelse.
+===PRO===
+◆◆◆ Om Pro
+
+1. Pro innehåller Premium-funktionerna utan extra abonnemang.
+2. Externa tjänsters medlems- och överföringsavgifter tillkommer enligt leverantörernas villkor.
