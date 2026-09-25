@@ -185,9 +185,6 @@ extension VideoConverterViewController {
         alertController.addAction(action2)
         alertController.addAction(action3)
         
-        action1.setValue(UIColor.systemBlue, forKey: "_titleTextColor")
-        action2.setValue(UIColor.systemBlue, forKey: "_titleTextColor")
-        action3.setValue(UIColor.systemRed, forKey: "_titleTextColor")
         
         self.present(alertController, animated: true, completion: nil)
         

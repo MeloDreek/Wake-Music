@@ -233,7 +233,6 @@ extension MusicTagEditor {
             APIManager.shared.GET(requestURL: urlStr, parameters: parameters) { data in
                 let dict = try? JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String : Any]
                 
-                debugPrint("🎸歌词Token = \(dict ?? [:])")
                 guard let model = LRCLyricTokenModel.deserialize(from: dict) else {
                     completion(.failure(.emptyData))
                     return

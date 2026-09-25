@@ -212,7 +212,6 @@ class SelectPlaylistController: SuperViewController {
 
         })
         
-        action1.setValue(UIColor.systemBlue, forKey: "_titleTextColor")
         
         editAlertVC.addAction(action1)
         editAlertVC.addAction(action2)

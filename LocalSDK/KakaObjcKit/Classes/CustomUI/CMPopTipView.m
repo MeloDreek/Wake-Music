@@ -605,7 +605,8 @@
 }
 
 - (void)presentPointingAtBarButtonItem:(UIBarButtonItem *)barButtonItem animated:(BOOL)animated {
-    UIView *targetView = (UIView *)[barButtonItem performSelector:@selector(view)];
+    // UIKit exposes customView, not the system item's internal backing view.
+    UIView *targetView = barButtonItem.customView;
     UIView *containerView = targetView.window;
 
     if (nil == containerView) {

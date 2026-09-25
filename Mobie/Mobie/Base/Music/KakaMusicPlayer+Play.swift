@@ -208,7 +208,6 @@ extension KakaMusicPlayer {
                     return
                 }
                 else{
-                    debugPrint("开始播放新URL = \(model.mediaPlayURL)")
                     self.playerView.set(url: model.mediaPlayURL, options: self.audioOption(model))
                 }
             }

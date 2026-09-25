@@ -15,7 +15,7 @@ assert.call(!coordinator.include?('CATransaction.'), 'Do not tie navigation avai
 assert.call(coordinator.include?('defer { self.isSwitching = false }'), 'Always release the switch gate after replacement')
 assert.call(coordinator.index('defer { self.isSwitching = false }') < coordinator.index('guard let window else { return }', coordinator.index('let replace =')), 'Release the gate even if the window disappears')
 assert.call(coordinator.include?('window.layer.removeAnimation(forKey: "musicServerModeTransition")'), 'Replace an in-flight transition on rapid switches')
-assert.call(coordinator.include?('CATransitionType(rawValue: "cube")'), 'Keep the requested cube transition')
+assert.call(coordinator.include?('transition.type = .push'), 'Use a public root transition type')
 assert.call(coordinator.include?('!kaka_IsMacOS() && !UIAccessibility.isReduceMotionEnabled'), 'Mac and Reduce Motion must not animate')
 assert.call(coordinator.include?('returning != rtl'), 'Transition direction must respect RTL')
 assert.call(coordinator.include?('context.cgContext.scaleBy(x: -1, y: 1)'), 'Bake the mirrored SF Symbol before UIBarButtonItem reconfiguration')

@@ -198,7 +198,6 @@ extension KakaMusicPlayer: @preconcurrency PlayerControllerDelegate {
                 self.handleFilePermission(error.localizedDescription)
             }
             else{
-                debugPrint("播放失败 = \(error):\(self.playingMusic!.mediaPlayURL)")
                 DispatchQueue.main.asyncAfter(wallDeadline: .now() + 0.1) { [weak self] () in
                     guard let self, self.acceptsPlaybackRequest(requestID, model: playingModel) else { return }
                     self.isRetry = true
@@ -550,9 +549,6 @@ extension KakaMusicPlayer {
         alertController.addAction(action2)
         alertController.addAction(action3)
         
-        action1.setValue(UIColor.systemRed, forKey: "_titleTextColor")
-        action2.setValue(UIColor.systemRed, forKey: "_titleTextColor")
-        action3.setValue(UIColor.systemBlue, forKey: "_titleTextColor")
         
         self.currentViewController()?.present(alertController, animated: true, completion: nil)
     }

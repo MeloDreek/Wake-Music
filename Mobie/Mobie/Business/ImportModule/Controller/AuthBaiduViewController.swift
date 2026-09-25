@@ -136,7 +136,6 @@ class AuthBaiduViewController: SuperViewController, WKNavigationDelegate {
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction,
                  decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
 
-        debugPrint("⏭️URL = \(navigationAction.request.url?.absoluteString ?? "❌")")
 
         guard let url = navigationAction.request.url,
               url.absoluteString.contains("login_success#"),
@@ -208,7 +207,6 @@ class AuthBaiduViewController: SuperViewController, WKNavigationDelegate {
         AF.request(url, method: .get, parameters: parameters).responseString { response in
             switch response.result {
             case .success(let responseString):
-                debugPrint("百度用户信息: \(responseString)")
                 guard let model = BaiduDriveUserModel.deserialize(from: responseString) else {
                     completion(.failure(KakaError.custom(responseString)))
                     return

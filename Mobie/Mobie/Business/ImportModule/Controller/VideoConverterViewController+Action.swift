@@ -31,25 +31,15 @@ extension VideoConverterViewController: PHPickerViewControllerDelegate, UIDocume
             documentVC.shouldShowFileExtensions = true
             self.present(documentVC, animated: true)
         }else{
-            PHPhotoLibrary.requestAuthorization(for: .readWrite) { status in
-                DispatchQueue.main.async {
-                    if status == .authorized || status == .limited {
-                        var config = PHPickerConfiguration()
-                        config.filter = .videos
-                        config.selectionLimit = 1
-                        config.preferredAssetRepresentationMode = .current
-                        
-                        let picker = PHPickerViewController(configuration: config)
-                        picker.delegate = self
-                        self.present(picker, animated: true)
-                    }else{
-                        self.showOneAlert(message: "You have denied access to the album, please re-enable it.".localStr(), confirm: "Settings".localStr()) {
-                            guard let vURL = URL(string: UIApplication.openSettingsURLString) else { return }
-                            UIApplication.shared.open(vURL)
-                        }
-                    }
-                }
-            }
+            // PHPicker grants access only to the selected video; full-library
+            // authorization is unnecessary, even when Photos access was denied.
+            var config = PHPickerConfiguration()
+            config.filter = .videos
+            config.selectionLimit = 1
+            config.preferredAssetRepresentationMode = .current
+            let picker = PHPickerViewController(configuration: config)
+            picker.delegate = self
+            self.present(picker, animated: true)
         }
     }
     
@@ -137,8 +127,6 @@ extension VideoConverterViewController: PHPickerViewControllerDelegate, UIDocume
         
         let action3: UIAlertAction = UIAlertAction(title: "Cancel".localStr(), style: .cancel)
         
-        action1.setValue(UIColor.systemBlue, forKey: "_titleTextColor")
-        action3.setValue(UIColor.systemBlue, forKey: "_titleTextColor")
         
         alertController.addAction(action1)
         alertController.addAction(action2)
@@ -210,7 +198,6 @@ extension VideoConverterViewController: PHPickerViewControllerDelegate, UIDocume
 
         })
         
-        action1.setValue(UIColor.systemBlue, forKey: "_titleTextColor")
         
         editAlertVC.addAction(action1)
         editAlertVC.addAction(action2)
@@ -252,7 +239,6 @@ extension VideoConverterViewController: PHPickerViewControllerDelegate, UIDocume
 
         })
         
-        action1.setValue(UIColor.systemBlue, forKey: "_titleTextColor")
         
         editAlertVC.addAction(action1)
         editAlertVC.addAction(action2)
@@ -288,7 +274,6 @@ extension VideoConverterViewController: PHPickerViewControllerDelegate, UIDocume
             
         })
         
-        action1.setValue(UIColor.systemBlue, forKey: "_titleTextColor")
         
         editAlertVC.addAction(action1)
         editAlertVC.addAction(action2)
@@ -297,4 +282,3 @@ extension VideoConverterViewController: PHPickerViewControllerDelegate, UIDocume
     }
     
 }
-

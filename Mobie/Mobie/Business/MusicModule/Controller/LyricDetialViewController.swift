@@ -308,10 +308,6 @@ extension LyricDetialViewController {
         alertController.addAction(action3)
         alertController.addAction(action4)
         
-//        action1.setValue(UIColor.systemBlue, forKey: "_titleTextColor")
-//        action2.setValue(UIColor.systemBlue, forKey: "_titleTextColor")
-//        action3.setValue(UIColor.systemRed, forKey: "_titleTextColor")
-//        action4.setValue(UIColor.systemBlue, forKey: "_titleTextColor")
         
         self.present(alertController, animated: true, completion: nil)
     }

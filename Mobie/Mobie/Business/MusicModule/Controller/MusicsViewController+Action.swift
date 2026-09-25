@@ -190,8 +190,6 @@ extension MusicsViewController {
             alertController.addAction(action1)
             alertController.addAction(action2)
             
-            action1.setValue(UIColor.systemRed, forKey: "_titleTextColor")
-            action2.setValue(UIColor.systemBlue, forKey: "_titleTextColor")
             
             self.present(alertController, animated: true, completion: nil)
             return
@@ -218,8 +216,6 @@ extension MusicsViewController {
         alertController.addAction(action1)
         alertController.addAction(action2)
         
-        action1.setValue(UIColor.systemRed, forKey: "_titleTextColor")
-        action2.setValue(UIColor.systemBlue, forKey: "_titleTextColor")
         
         self.present(alertController, animated: true, completion: nil)
         return false

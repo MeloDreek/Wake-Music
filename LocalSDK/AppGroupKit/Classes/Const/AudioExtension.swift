@@ -21,7 +21,7 @@ public enum AudioLevelType: Int, CaseIterable {
             return [.dsf, .dff, .dsdiff]
         case .lossless:
             return [.flac, .wav, .aif, .aiff, .ape, .wv, .tta, .shn,
-                    .m4a, .m4b, .m4r, .aifc, .afc, .wma, .asf, .mka, .oga]
+                    .m4a, .m4b, .m4r, .aifc, .afc, .wma, .mka, .oga]
         case .normal:
             return [.mp3, .mp2, .aac, .ogg, .opus, .spx, .mpc, .m4p,
                     .mod, .module, .nst, .wow, .it, .xm, .s3m]
@@ -70,7 +70,6 @@ public enum AudioExtensionType: String, CaseIterable {
     case m4r = "m4r"
     case mka = "mka"
     case wav = "wav"
-    case asf = "asf"
     case aif = "aif"
     case afc = "afc"
     case aifc = "aifc"
@@ -93,7 +92,7 @@ public enum AudioExtensionType: String, CaseIterable {
         case .wav: return "PCM / DTS / …"
         case .aif, .aiff: return "PCM"
         case .afc, .aifc: return "PCM / …"
-        case .wma, .asf: return "WMA / WMA Lossless"
+        case .wma: return "WMA / WMA Lossless"
         case .mka: return "FLAC / PCM / AAC / …"
         case .oga, .ogg: return "FLAC / Vorbis / …"
         case .wv: return "WavPack"

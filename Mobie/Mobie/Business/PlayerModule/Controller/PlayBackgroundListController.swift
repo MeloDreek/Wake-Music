@@ -114,8 +114,14 @@ class PlayBackgroundListController: SuperViewController {
     }()
     
     lazy var addItem: UIBarButtonItem = {
-        let item = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(uploadCustomBackground))
-        return item
+        let button = UIButton(type: .system)
+        button.setImage(UIImage(systemName: "plus"), for: .normal)
+        button.accessibilityLabel = "Custom Wallpaper".localStr()
+        button.addTarget(self, action: #selector(uploadCustomBackground), for: .touchUpInside)
+        button.frame = CGRect(x: 0, y: 0, width: 44, height: 44)
+        button.widthAnchor.constraint(equalToConstant: 44).isActive = true
+        button.heightAnchor.constraint(equalToConstant: 44).isActive = true
+        return UIBarButtonItem(customView: button)
     }()
     
     lazy var settingArray: [PlayBackgroundEffect] = {

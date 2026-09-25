@@ -268,14 +268,12 @@ public class KakaMusicPlayer: NSObject, ObservableObject {
             option.userAgent = userAgent
             
             option.appendHeader(HTTPHeaders.default.dictionary)
-            debugPrint("播放时的header = \(HTTPHeaders.default.dictionary.description)")
         }
         
         if let file = model.yandexFile {
             option.appendHeader(YandexDriveService.shared.playbackHeaders(for: file, url: model.mediaPlayURL))
         }
         if let googleFile = model.googleFile, let googleUser = googleFile.googleUser {
-            debugPrint("谷歌配置信息 = \(googleUser.toJSONString() ?? "")")
             option.appendHeader(["Authorization": "Bearer \(googleUser.accessToken)"])
         }
         

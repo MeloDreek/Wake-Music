@@ -92,7 +92,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if Pan123DriveService.isCallback(firstURL) { return }
         if GuangyaDriveService.isCallback(firstURL) { return }
         if YandexDriveService.shared.handleCallback(firstURL) { return }
-        debugPrint("跳转回来的URL = \(firstURL)")
         
         // 1️⃣ 处理 Dropbox 授权回调
         if let scheme = firstURL.scheme, scheme.contains(DropBox_ApiKey) {
@@ -160,7 +159,6 @@ extension SceneDelegate {
                                 let dropAccount = DropboxAccount(accountId: account.accountId, name: account.name.displayName, email: account.email, emailVerified: account.emailVerified, profilePhotoUrl: account.profilePhotoUrl, disabled: account.disabled)
                                 let dropboxUser = DropboxDriveUserModel(userID: token.uid, requestTime: Date().timeIntervalSince1970, accessToken: token.accessToken, refreshToken: token.refreshToken, expiresTime: token.tokenExpirationTimestamp ?? 0, account: dropAccount, path: nil)
                                 
-                                debugPrint("✅DropBox授权成功 = \(dropboxUser.toJSONString() ?? "")")
                                                         
                                 let serverModel = ServerConfigModel(serverType: .fromDropboxDrive, dropboxUser: dropboxUser)
                                 ConnectConfigManager.shared.addOrUpdateRemoteServer(serverModel: serverModel)
@@ -174,7 +172,6 @@ extension SceneDelegate {
                         }
                     }else{
                         let dropboxUser = DropboxDriveUserModel(userID: token.uid, requestTime: Date().timeIntervalSince1970, accessToken: token.accessToken, refreshToken: token.refreshToken, expiresTime: token.tokenExpirationTimestamp ?? 0, account: nil, path: nil)
-                        debugPrint("✅DropBox授权成功 = \(dropboxUser.toJSONString() ?? "")")
                                                 
                         let serverModel = ServerConfigModel(serverType: .fromDropboxDrive, dropboxUser: dropboxUser)
                         ConnectConfigManager.shared.addOrUpdateRemoteServer(serverModel: serverModel)

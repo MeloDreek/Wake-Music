@@ -68,10 +68,7 @@ class FullScreenNavController: UINavigationController, PanModalPresentable {
 
 extension UIScreen {
     func cornerRadius() -> CGFloat {
-        guard let cornerRadius = self.value(forKey:"_displayCornerRadius") as? CGFloat else {
-            return 0
-        }
-        
-        return cornerRadius
+        // Design radius, not a query of undocumented hardware properties.
+        return 32
     }
 }

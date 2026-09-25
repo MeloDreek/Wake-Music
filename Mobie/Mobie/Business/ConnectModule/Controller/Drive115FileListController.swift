@@ -25,7 +25,6 @@ class Drive115FileListController: SuperViewController {
     init(loginModel: Drive115UserModel) {
         super.init(nibName: nil, bundle: nil)
         
-        debugPrint("loginModel.access_token = \(loginModel.access_token)")
         
         self.loginModel = loginModel
     }

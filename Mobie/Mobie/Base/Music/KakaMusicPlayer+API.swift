@@ -39,13 +39,11 @@ extension KakaMusicPlayer {
             "limit": limit
         ]
         
-        debugPrint("参数parameters = \(parameters)")
         
         AF.request(url, method: .get, parameters: parameters).responseString { response in
             switch response.result {
             case .success(let responseString):
                 
-                debugPrint("百度文件列表 = \(responseString)")
                                 
                 guard let reponseModel = BaiduResponseModel.deserialize(from: responseString) else {
                     completion(.failure(KakaError.custom(responseString)))
@@ -224,7 +222,6 @@ extension KakaMusicPlayer {
             "type": "M3U8_HLS_MP3_128"
         ]
         
-        debugPrint("百度点播parameters = \(parameters)")
                 
         // 百度要求的 User-Agent 和 Host
         let headers: Alamofire.HTTPHeaders = [
@@ -249,7 +246,6 @@ extension KakaMusicPlayer {
                         }
                         
                         try m3u8String.write(to: fileURL, atomically: true, encoding: .utf8)
-                        debugPrint("m3u8播放地址 = \(fileURL)")
                         completion(.success(fileURL))
                     } catch {
                         debugPrint("❌ 写入 m3u8 文件失败: \(error)")
@@ -611,7 +607,6 @@ extension KakaMusicPlayer {
                     switch response.result {
                     case .success(let responseString):
                         
-                        debugPrint("获取115文件列表(offset=\(offset)) ✅ = \(responseString)")
                         
                         guard let responseModel = Response115FilesModel.deserialize(from: responseString) else {
                             completion(.failure(KakaError.custom(responseString)))
@@ -700,7 +695,6 @@ extension KakaMusicPlayer {
             switch response.result {
             case .success(let data):
                 let responseString = String(data: data, encoding: .utf8) ?? ""
-                debugPrint("刷新115网盘token = \(String(data: data, encoding: .utf8) ?? "")")
 
                 guard let refreshModel = Response115RefreshModel.deserialize(from: responseString) else {
                     completion(.failure(KakaError.custom(responseString)))
@@ -791,13 +785,11 @@ extension KakaMusicPlayer {
         var headers: Alamofire.HTTPHeaders = HTTPHeaders.default
         headers.add(name: "Authorization", value: "Bearer \(drive115User.access_token)")
         
-        debugPrint("下载header = \(headers)")
         
         AF.request(url, method: .post, parameters: parameters, headers: headers).responseData { response in
             switch response.result {
             case .success(let data):
                 
-                debugPrint("获取115生活下载地址 = \(String(data: data, encoding: .utf8) ?? "")")
                 
                 let responseString = String(data: data, encoding: .utf8) ?? ""
                 guard let downloadModel = Response115DownloadModel.deserialize(from: responseString) else {
@@ -869,7 +861,6 @@ func fetch115OnlinePlayURL(file115: Drive115FileModel, completion: @escaping (Re
     AF.request(url, method: .get, parameters: parameters, headers: headers).responseString { response in
         switch response.result {
         case .success(let responseString):
-            debugPrint("获取115生活在线播放地址 = \(responseString)")
         case .failure(let error):
             completion(.failure(NSError(domain: error.errorDescription ?? error.localizedDescription, code: -1)))
         }
@@ -892,7 +883,6 @@ extension KakaMusicPlayer {
             "q": "'\(folderId)' in parents and (mimeType contains 'audio/' or mimeType = 'application/vnd.google-apps.folder')",
         ]
         
-        debugPrint("谷歌查询参数 = \(parameters)")
         
         // 若有上一页 token
         if let pageToken = pageToken, !pageToken.isEmpty {
@@ -910,7 +900,6 @@ extension KakaMusicPlayer {
                 
                 let responseString = String(data: data, encoding: .utf8) ?? ""
                 let jsonObject = (try? JSONSerialization.jsonObject(with: data, options: [])) as? [String: Any]
-                debugPrint("谷歌文件列表 = \(responseString)")
                 
                 guard let fileJsons = jsonObject?["files"] as? [[String: Any]], let fileArray = [GoogleDriveFileModel].deserialize(from: fileJsons) else {
                     // 检查是否 token 失效
@@ -1019,7 +1008,6 @@ extension KakaMusicPlayer {
             case .success(let data):
                 
                 let responseString = String(data: data, encoding: .utf8) ?? ""
-                debugPrint("获取谷歌网盘下载地址 = \(responseString)")
                 
                 guard let model = GoogleDriveFileModel.deserialize(from: responseString), let downloadURL = URL(string: model.webContentLink) else {
                     completion(.failure(KakaError.custom(responseString)))
@@ -1217,7 +1205,6 @@ extension KakaMusicPlayer {
                 return
             }
             
-            debugPrint("获取Dropbox网盘下载地址 = \(downloadURL)")
             completion(.success(downloadURL))
         }
         
@@ -1259,7 +1246,6 @@ extension KakaMusicPlayer {
             case .success(let data):
                 
                 let responseString = String(data: data, encoding: .utf8) ?? ""
-                debugPrint("OneDrive文件列表✅ = \(responseString)")
                 guard let pageModel = OneDriveFilePage.deserialize(from: responseString) else {
                     completion(.failure(KakaError.custom(responseString)))
                     return
@@ -1409,8 +1395,6 @@ extension KakaMusicPlayer {
             switch urlResult {
             case .success(let playURL):
                 
-                debugPrint("旧的播放地址 = \(onedriveFile.mediaPlayURL().absoluteString)")
-                debugPrint("新的播放地址 = \(playURL.absoluteString)")
 
                 // 3. 播放
                 self.playingMusic?.mediaPlayURL = playURL

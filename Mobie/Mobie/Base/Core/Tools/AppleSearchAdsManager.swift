@@ -160,6 +160,9 @@ enum ASAEventType: String {
 }
 
 class AppleSearchAdsManager: NSObject {
+    // Disabled until this processor's data use and privacy disclosures are verified.
+    // This gate applies to installation, purchase, retries and attribution lookup.
+    private static let thirdPartyAttributionEnabled = false
     
     static let shared = AppleSearchAdsManager()
     
@@ -243,6 +246,7 @@ extension AppleSearchAdsManager {
 extension AppleSearchAdsManager {
     // 上报广告归因数据给量江湖
     func postbackAdAttribution(eventType: ASAEventType, eventValue: Double = 0, admodel: ADServerInfoModel?) {
+        guard Self.thirdPartyAttributionEnabled else { return }
         let url = URL(string: "https://cdn4.liangjianghu.com/v2/postback")!
         let header = HTTPHeaders([HTTPHeader(name: "x-api-key", value: LiangjianghuKey)])
         let param = PostbackParameter.parameters(eventType: eventType, eventValue: eventValue, model: admodel)
@@ -291,6 +295,7 @@ extension AppleSearchAdsManager {
 extension AppleSearchAdsManager {
     // 获取关键词信息详细
     func getDetialAdAttribution(_ model: ADServerInfoModel) {
+        guard Self.thirdPartyAttributionEnabled else { return }
         
         let url = URL(string: "https://cdn4.liangjianghu.com/v2/adservices")!
         

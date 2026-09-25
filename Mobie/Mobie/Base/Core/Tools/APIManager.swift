@@ -58,7 +58,6 @@ class APIManager {
                 }
                 
                 if let responseString = String(data: data, encoding: .utf8), var userModel = NavidromeUserModel.deserialize(from: responseString), !userModel.token.isEmpty {
-                    debugPrint("登录Nav = \(responseString)")
                     userModel.username = username
                     userModel.password = password
                     userModel.hostUrl = serverUrl
