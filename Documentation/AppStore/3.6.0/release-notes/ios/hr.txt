@@ -1,0 +1,13 @@
+◆◆◆ Veliko ažuriranje
+
+1. Dodana podrška za iOS 27.1 i iPhone Duo.
+2. Dodana podrška za pCloud, Box, MEGA, Yandex Disk, SMB, FTP te servise u oblaku 123 i Guangya.
+3. Novi 10-pojasni ekvilizator za prilagodbu zvuka vašem ukusu.
+4. Nova analiza zvučnog spektra za istraživanje frekvencijskih svojstava audia.
+5. Poboljšano prepoznavanje audiootiska uz znatno veću uspješnost prepoznavanja pjesama.
+6. Redizajnirano početno predstavljanje funkcija aplikacije.
+7. Preuređen modul Navidrome za osvježeno iskustvo korištenja glazbenog poslužitelja.
+8. Ažurirana pravila privatnosti i uvjeti korištenja.
+9. Ispravljeni drugi poznati problemi.
+
+Ako naiđete na problem, javite nam se na support@kakainc.com.

@@ -8,25 +8,23 @@
 import Foundation
 import UniformTypeIdentifiers
 
-public enum AudioLevelType: Int {
+/// Display groups, not an audio-quality detector. Containers can hold several
+/// codecs, and tracker modules have no lossy/lossless quality tier.
+public enum AudioLevelType: Int, CaseIterable {
     case SACD = 0
     case lossless = 1
     case normal = 2
-    case other = 3
     
     public func audioArray() -> [AudioExtensionType] {
         switch self {
         case .SACD:
             return [.dsf, .dff, .dsdiff]
         case .lossless:
-            return [.flac, .ape, .tta, .shn]
+            return [.flac, .wav, .aif, .aiff, .ape, .wv, .tta, .shn,
+                    .m4a, .m4b, .m4r, .aifc, .afc, .wma, .asf, .mka, .oga]
         case .normal:
-            return [.mp3, .mp2, .aac, .ogg, .opus, .spx, .mpc]
-        case .other:
-            // A container/extension cannot establish audio quality. WAV may
-            // contain DTS; MP4/ASF/WavPack can contain lossy or lossless audio.
-            let classified = Self.SACD.audioArray() + Self.lossless.audioArray() + Self.normal.audioArray()
-            return AudioExtensionType.allCases.filter { !classified.contains($0) }
+            return [.mp3, .mp2, .aac, .ogg, .opus, .spx, .mpc, .m4p,
+                    .mod, .module, .nst, .wow, .it, .xm, .s3m]
         }
     }
     
@@ -85,6 +83,24 @@ public enum AudioExtensionType: String, CaseIterable {
     case ape = "ape"
     case tta = "tta"
     case shn = "shn"
+
+    /// Codec hints for ambiguous containers; these are technical names, not
+    /// claims about a particular file or a replacement for stream inspection.
+    public var supportCodecHint: String? {
+        switch self {
+        case .m4a, .m4b, .m4r: return "AAC / ALAC"
+        case .m4p: return "AAC · DRM"
+        case .wav: return "PCM / DTS / …"
+        case .aif, .aiff: return "PCM"
+        case .afc, .aifc: return "PCM / …"
+        case .wma, .asf: return "WMA / WMA Lossless"
+        case .mka: return "FLAC / PCM / AAC / …"
+        case .oga, .ogg: return "FLAC / Vorbis / …"
+        case .wv: return "WavPack"
+        case .mod, .module, .nst, .wow, .it, .xm, .s3m: return "Tracker"
+        default: return nil
+        }
+    }
     
     public static func premiumExtensions() -> [String] {
         let extensions: [AudioExtensionType] = [.dsf, .dff, .dsdiff, .ape, .opus]

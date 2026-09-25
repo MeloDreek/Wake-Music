@@ -1,0 +1,12 @@
+◆◆◆ Un grande aggiornamento
+
+1. Aggiunto il supporto per pCloud, Box, MEGA, Yandex Disk, SMB, FTP e i servizi cloud 123 e Guangya.
+2. Nuovo equalizzatore a 10 bande per personalizzare il suono.
+3. Nuova analisi dello spettro audio per esplorare le caratteristiche in frequenza dei tuoi file.
+4. Migliorato il riconoscimento tramite impronta audio, con un tasso di identificazione dei brani molto più alto.
+5. Introduzione iniziale ridisegnata per scoprire le funzioni dell'app.
+6. Modulo Navidrome ricostruito per rinnovare l'esperienza con il tuo server musicale.
+7. Aggiornate l'informativa sulla privacy e le condizioni d'uso.
+8. Risolti altri problemi noti.
+
+Se riscontri problemi, contattaci all'indirizzo support@kakainc.com.

@@ -1,0 +1,12 @@
+◆◆◆ Veliko ažuriranje
+
+1. Dodana podrška za pCloud, Box, MEGA, Yandex Disk, SMB, FTP te servise u oblaku 123 i Guangya.
+2. Novi 10-pojasni ekvilizator za prilagodbu zvuka vašem ukusu.
+3. Nova analiza zvučnog spektra za istraživanje frekvencijskih svojstava audia.
+4. Poboljšano prepoznavanje audiootiska uz znatno veću uspješnost prepoznavanja pjesama.
+5. Redizajnirano početno predstavljanje funkcija aplikacije.
+6. Preuređen modul Navidrome za osvježeno iskustvo korištenja glazbenog poslužitelja.
+7. Ažurirana pravila privatnosti i uvjeti korištenja.
+8. Ispravljeni drugi poznati problemi.
+
+Ako naiđete na problem, javite nam se na support@kakainc.com.

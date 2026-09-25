@@ -1,0 +1,12 @@
+◆◆◆ Gran actualització
+
+1. Nou suport per a pCloud, Box, MEGA, Yandex Disk, SMB, FTP i els núvols 123 i Guangya.
+2. Nou equalitzador de 10 bandes per ajustar el so al teu gust.
+3. Nova anàlisi de l'espectre d'àudio per explorar les característiques de freqüència dels fitxers.
+4. Reconeixement per empremta acústica millorat, amb una taxa d'identificació de cançons molt més alta.
+5. Nova experiència de benvinguda per descobrir les funcions de l'app.
+6. Mòdul Navidrome reconstruït per renovar l'experiència amb el servidor musical.
+7. Actualitzades la política de privacitat i les condicions d'ús.
+8. Corregits altres problemes coneguts.
+
+Si trobes cap problema, escriu-nos a support@kakainc.com.

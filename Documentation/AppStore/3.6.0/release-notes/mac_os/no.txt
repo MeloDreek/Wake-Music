@@ -1,0 +1,12 @@
+◆◆◆ Stor oppdatering
+
+1. Ny støtte for pCloud, Box, MEGA, Yandex Disk, SMB, FTP samt skytjenestene 123 og Guangya.
+2. Ny 10-bånds-EQ for å tilpasse lyden etter din smak.
+3. Ny lydspektrumanalyse for å utforske lydens frekvensegenskaper.
+4. Forbedret gjenkjenning med lydfingeravtrykk, med betydelig flere vellykkede sangidentifikasjoner.
+5. Ny utforming av introduksjonen for å hjelpe deg med å oppdage appens funksjoner.
+6. Navidrome-modulen er bygget om for en fornyet musikkserveropplevelse.
+7. Oppdatert personvernerklæring og bruksvilkår.
+8. Andre kjente problemer er rettet.
+
+Ta kontakt på support@kakainc.com hvis du opplever problemer.

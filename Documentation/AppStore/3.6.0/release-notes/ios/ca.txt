@@ -1,0 +1,13 @@
+◆◆◆ Gran actualització
+
+1. S'ha afegit compatibilitat amb iOS 27.1 i iPhone Duo.
+2. Nou suport per a pCloud, Box, MEGA, Yandex Disk, SMB, FTP i els núvols 123 i Guangya.
+3. Nou equalitzador de 10 bandes per ajustar el so al teu gust.
+4. Nova anàlisi de l'espectre d'àudio per explorar les característiques de freqüència dels fitxers.
+5. Reconeixement per empremta acústica millorat, amb una taxa d'identificació de cançons molt més alta.
+6. Nova experiència de benvinguda per descobrir les funcions de l'app.
+7. Mòdul Navidrome reconstruït per renovar l'experiència amb el servidor musical.
+8. Actualitzades la política de privacitat i les condicions d'ús.
+9. Corregits altres problemes coneguts.
+
+Si trobes cap problema, escriu-nos a support@kakainc.com.

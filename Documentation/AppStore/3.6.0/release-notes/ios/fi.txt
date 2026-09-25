@@ -1,0 +1,13 @@
+◆◆◆ Suuri päivitys
+
+1. Lisätty tuki iOS 27.1:lle ja iPhone Duolle.
+2. Lisätty tuki pCloudille, Boxille, MEGAlle, Yandex Diskille, SMB:lle, FTP:lle sekä 123- ja Guangya-pilvipalveluille.
+3. Uusi 10-kaistainen taajuuskorjain äänen säätämiseen oman maun mukaan.
+4. Uusi äänispektrin analyysi äänen taajuusominaisuuksien tutkimiseen.
+5. Parannettu äänen sormenjälkitunnistus tunnistaa kappaleita huomattavasti aiempaa useammin.
+6. Uudistettu aloitusopastus auttaa löytämään sovelluksen toiminnot.
+7. Navidrome-moduuli on rakennettu uudelleen musiikkipalvelimen käyttökokemuksen uudistamiseksi.
+8. Tietosuojakäytäntö ja käyttöehdot on päivitetty.
+9. Muita tunnettuja ongelmia on korjattu.
+
+Jos kohtaat ongelmia, ota yhteyttä: support@kakainc.com.

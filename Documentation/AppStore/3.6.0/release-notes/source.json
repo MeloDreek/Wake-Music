@@ -1,0 +1,512 @@
+{
+  "zh-Hans": {
+    "heading": "重大更新",
+    "ios": "适配 iOS 27.1 和 iPhone Duo。",
+    "items": [
+      "新增 pCloud、Box、MEGA、Yandex Disk、SMB、FTP、123 网盘和光鸭网盘支持。",
+      "新增 10 段 EQ 均衡器，自由调节音乐听感。",
+      "新增音频频谱图分析，查看音频的频谱特征。",
+      "优化音频指纹识别技术，大幅提升歌曲识别成功率。",
+      "全新设计首次使用引导，轻松了解各项功能。",
+      "重构 Navidrome 模块，焕新音乐服务器使用体验。",
+      "更新隐私政策和用户协议。",
+      "修复其他已知问题。"
+    ],
+    "contact": "如果您在使用过程中遇到问题，请通过 support@kakainc.com 联系我们。"
+  },
+  "zh-Hant": {
+    "heading": "重大更新",
+    "ios": "支援 iOS 27.1 與 iPhone Duo。",
+    "items": [
+      "新增 pCloud、Box、MEGA、Yandex Disk、SMB、FTP、123 網盤及光鴨網盤支援。",
+      "新增 10 段 EQ 均衡器，依喜好調整聽感。",
+      "新增音訊頻譜分析，查看音訊的頻譜特徵。",
+      "改善音訊指紋辨識技術，大幅提升歌曲辨識成功率。",
+      "全新設計初次使用導覽，輕鬆認識各項功能。",
+      "重構 Navidrome 模組，帶來全新的音樂伺服器體驗。",
+      "更新隱私權政策與使用條款。",
+      "修正其他已知問題。"
+    ],
+    "contact": "使用時若遇到問題，請透過 support@kakainc.com 聯絡我們。"
+  },
+  "en-US": {
+    "heading": "Major Update",
+    "ios": "Added support for iOS 27.1 and iPhone Duo.",
+    "items": [
+      "Added support for pCloud, Box, MEGA, Yandex Disk, SMB, FTP, 123 cloud drive and Guangya cloud drive.",
+      "New 10-band EQ to fine-tune your listening experience.",
+      "New audio spectrum analysis to explore the spectral characteristics of your audio.",
+      "Improved audio fingerprint recognition with a significantly higher song identification success rate.",
+      "Redesigned onboarding to help you discover the app's features.",
+      "Rebuilt the Navidrome module for a refreshed music server experience.",
+      "Updated our Privacy Policy and Terms of Use.",
+      "Fixed other known issues."
+    ],
+    "contact": "If you run into any issues, please contact us at support@kakainc.com."
+  },
+  "ja": {
+    "heading": "大型アップデート",
+    "ios": "iOS 27.1 と iPhone Duo に対応しました。",
+    "items": [
+      "pCloud、Box、MEGA、Yandex Disk、SMB、FTP、123 および Guangya のクラウドストレージに対応しました。",
+      "10 バンド EQ を追加。好みに合わせて音を調整できます。",
+      "音声スペクトル分析を追加。音源の周波数特性を確認できます。",
+      "音声フィンガープリント認識を改善し、楽曲の認識成功率が大幅に向上しました。",
+      "初回起動時のガイドを一新し、各機能を分かりやすく紹介します。",
+      "Navidrome モジュールを再構築し、音楽サーバーの利用体験を刷新しました。",
+      "プライバシーポリシーと利用規約を更新しました。",
+      "その他の既知の問題を修正しました。"
+    ],
+    "contact": "ご利用中に問題が発生した場合は、support@kakainc.com までお問い合わせください。"
+  },
+  "ko": {
+    "heading": "대규모 업데이트",
+    "ios": "iOS 27.1 및 iPhone Duo를 지원합니다.",
+    "items": [
+      "pCloud, Box, MEGA, Yandex Disk, SMB, FTP, 123 및 Guangya 클라우드 지원을 추가했습니다.",
+      "취향에 맞게 소리를 조절할 수 있는 10밴드 EQ를 추가했습니다.",
+      "오디오의 주파수 특성을 확인하는 스펙트럼 분석 기능을 추가했습니다.",
+      "오디오 지문 인식 기술을 개선해 곡 인식 성공률을 크게 높였습니다.",
+      "주요 기능을 쉽게 살펴볼 수 있도록 첫 사용 안내를 새롭게 디자인했습니다.",
+      "Navidrome 모듈을 재구성해 음악 서버 이용 경험을 개선했습니다.",
+      "개인정보 처리방침과 이용 약관을 업데이트했습니다.",
+      "기타 알려진 문제를 수정했습니다."
+    ],
+    "contact": "이용 중 문제가 발생하면 support@kakainc.com으로 문의해 주세요."
+  },
+  "de-DE": {
+    "heading": "Großes Update",
+    "ios": "Unterstützung für iOS 27.1 und iPhone Duo hinzugefügt.",
+    "items": [
+      "Neu: Unterstützung für pCloud, Box, MEGA, Yandex Disk, SMB, FTP sowie die Cloud-Dienste 123 und Guangya.",
+      "Neuer 10-Band-EQ für deinen persönlichen Klang.",
+      "Neue Audiospektrumanalyse zum Erkunden der Frequenzeigenschaften deiner Musik.",
+      "Verbesserte Audio-Fingerabdruckerkennung mit deutlich höherer Erfolgsquote bei der Songerkennung.",
+      "Neu gestaltete Einführung, mit der du die Funktionen der App kennenlernst.",
+      "Das Navidrome-Modul wurde für ein erneuertes Musikserver-Erlebnis überarbeitet.",
+      "Datenschutzerklärung und Nutzungsbedingungen aktualisiert.",
+      "Weitere bekannte Probleme behoben."
+    ],
+    "contact": "Bei Problemen erreichst du uns unter support@kakainc.com."
+  },
+  "fr-FR": {
+    "heading": "Mise à jour majeure",
+    "ios": "Prise en charge d'iOS 27.1 et de l'iPhone Duo.",
+    "items": [
+      "Ajout de pCloud, Box, MEGA, Yandex Disk, SMB, FTP et des services cloud 123 et Guangya.",
+      "Nouvel égaliseur 10 bandes pour ajuster le son à votre goût.",
+      "Nouvelle analyse du spectre audio pour explorer les caractéristiques fréquentielles de vos fichiers.",
+      "Reconnaissance par empreinte audio améliorée, avec un taux d'identification des morceaux nettement supérieur.",
+      "Parcours de découverte entièrement repensé pour vous présenter les fonctions de l'app.",
+      "Module Navidrome reconstruit pour une expérience de serveur musical renouvelée.",
+      "Mise à jour de la politique de confidentialité et des conditions d'utilisation.",
+      "Correction d'autres problèmes connus."
+    ],
+    "contact": "En cas de problème, contactez-nous à support@kakainc.com."
+  },
+  "es-ES": {
+    "heading": "Gran actualización",
+    "ios": "Añadida compatibilidad con iOS 27.1 y iPhone Duo.",
+    "items": [
+      "Añadido soporte para pCloud, Box, MEGA, Yandex Disk, SMB, FTP y las nubes 123 y Guangya.",
+      "Nuevo ecualizador de 10 bandas para ajustar el sonido a tu gusto.",
+      "Nuevo análisis del espectro de audio para explorar las características de frecuencia de tus archivos.",
+      "Mejorado el reconocimiento por huella acústica, con una tasa de identificación de canciones mucho mayor.",
+      "Nueva experiencia de bienvenida para descubrir las funciones de la app.",
+      "Módulo Navidrome reconstruido para renovar la experiencia con tu servidor musical.",
+      "Actualizadas la política de privacidad y las condiciones de uso.",
+      "Corregidos otros problemas conocidos."
+    ],
+    "contact": "Si encuentras algún problema, escríbenos a support@kakainc.com."
+  },
+  "it": {
+    "heading": "Un grande aggiornamento",
+    "ios": "Aggiunto il supporto per iOS 27.1 e iPhone Duo.",
+    "items": [
+      "Aggiunto il supporto per pCloud, Box, MEGA, Yandex Disk, SMB, FTP e i servizi cloud 123 e Guangya.",
+      "Nuovo equalizzatore a 10 bande per personalizzare il suono.",
+      "Nuova analisi dello spettro audio per esplorare le caratteristiche in frequenza dei tuoi file.",
+      "Migliorato il riconoscimento tramite impronta audio, con un tasso di identificazione dei brani molto più alto.",
+      "Introduzione iniziale ridisegnata per scoprire le funzioni dell'app.",
+      "Modulo Navidrome ricostruito per rinnovare l'esperienza con il tuo server musicale.",
+      "Aggiornate l'informativa sulla privacy e le condizioni d'uso.",
+      "Risolti altri problemi noti."
+    ],
+    "contact": "Se riscontri problemi, contattaci all'indirizzo support@kakainc.com."
+  },
+  "pt-BR": {
+    "heading": "Grande atualização",
+    "ios": "Adicionado suporte ao iOS 27.1 e ao iPhone Duo.",
+    "items": [
+      "Adicionado suporte a pCloud, Box, MEGA, Yandex Disk, SMB, FTP e às nuvens 123 e Guangya.",
+      "Novo equalizador de 10 bandas para ajustar o som ao seu gosto.",
+      "Nova análise de espectro de áudio para explorar as características de frequência dos seus arquivos.",
+      "Reconhecimento por impressão digital de áudio aprimorado, com uma taxa de identificação de músicas muito maior.",
+      "Apresentação inicial redesenhada para ajudar você a conhecer os recursos do app.",
+      "Módulo Navidrome reconstruído para renovar a experiência com seu servidor de música.",
+      "Política de Privacidade e Termos de Uso atualizados.",
+      "Correção de outros problemas conhecidos."
+    ],
+    "contact": "Se tiver algum problema, fale com a gente pelo e-mail support@kakainc.com."
+  },
+  "pt-PT": {
+    "heading": "Grande atualização",
+    "ios": "Adicionado suporte para iOS 27.1 e iPhone Duo.",
+    "items": [
+      "Adicionado suporte para pCloud, Box, MEGA, Yandex Disk, SMB, FTP e as nuvens 123 e Guangya.",
+      "Novo equalizador de 10 bandas para ajustar o som ao seu gosto.",
+      "Nova análise do espectro de áudio para explorar as características de frequência dos seus ficheiros.",
+      "Reconhecimento por impressão digital de áudio melhorado, com uma taxa de identificação de músicas muito superior.",
+      "Apresentação inicial redesenhada para descobrir as funcionalidades da app.",
+      "Módulo Navidrome reconstruído para renovar a experiência com o seu servidor de música.",
+      "Atualização da Política de Privacidade e dos Termos de Utilização.",
+      "Correção de outros problemas conhecidos."
+    ],
+    "contact": "Se encontrar algum problema, contacte-nos através de support@kakainc.com."
+  },
+  "ru": {
+    "heading": "Большое обновление",
+    "ios": "Добавлена поддержка iOS 27.1 и iPhone Duo.",
+    "items": [
+      "Добавлена поддержка pCloud, Box, MEGA, Yandex Disk, SMB, FTP и облачных дисков 123 и Guangya.",
+      "Новый 10-полосный эквалайзер для настройки звука по вашему вкусу.",
+      "Новый анализ звукового спектра для изучения частотных характеристик аудио.",
+      "Улучшено распознавание по акустическому отпечатку: доля успешно определённых песен значительно выросла.",
+      "Полностью обновлено знакомство с приложением при первом запуске.",
+      "Переработан модуль Navidrome для нового опыта работы с музыкальным сервером.",
+      "Обновлены политика конфиденциальности и условия использования.",
+      "Исправлены другие известные проблемы."
+    ],
+    "contact": "Если у вас возникнут проблемы, напишите нам: support@kakainc.com."
+  },
+  "uk": {
+    "heading": "Велике оновлення",
+    "ios": "Додано підтримку iOS 27.1 та iPhone Duo.",
+    "items": [
+      "Додано підтримку pCloud, Box, MEGA, Yandex Disk, SMB, FTP і хмарних дисків 123 та Guangya.",
+      "Новий 10-смуговий еквалайзер для налаштування звуку на ваш смак.",
+      "Новий аналіз звукового спектра для дослідження частотних характеристик аудіо.",
+      "Покращено розпізнавання за аудіовідбитком: частка успішно визначених пісень значно зросла.",
+      "Повністю оновлено ознайомлення із застосунком під час першого запуску.",
+      "Перебудовано модуль Navidrome для оновленої взаємодії з музичним сервером.",
+      "Оновлено політику конфіденційності й умови використання.",
+      "Виправлено інші відомі проблеми."
+    ],
+    "contact": "Якщо виникнуть проблеми, напишіть нам: support@kakainc.com."
+  },
+  "ar-SA": {
+    "heading": "تحديث كبير",
+    "ios": "أضفنا دعم iOS 27.1 وiPhone Duo.",
+    "items": [
+      "أضفنا دعم pCloud وBox وMEGA وYandex Disk وSMB وFTP وخدمتي التخزين السحابي 123 وGuangya.",
+      "معادل صوت جديد من 10 نطاقات لضبط الصوت حسب ذوقك.",
+      "تحليل جديد للطيف الصوتي لاستكشاف خصائص التردد في ملفاتك.",
+      "حسّنا التعرّف على البصمة الصوتية، مع ارتفاع كبير في نسبة نجاح تحديد الأغاني.",
+      "أعدنا تصميم تجربة البدء لتتعرف على ميزات التطبيق بسهولة.",
+      "أعدنا بناء وحدة Navidrome لتجربة متجددة مع خادم الموسيقى.",
+      "حدّثنا سياسة الخصوصية وشروط الاستخدام.",
+      "أصلحنا مشكلات معروفة أخرى."
+    ],
+    "contact": "إذا واجهت أي مشكلة، تواصل معنا عبر support@kakainc.com."
+  },
+  "he": {
+    "heading": "עדכון גדול",
+    "ios": "נוספה תמיכה ב-iOS 27.1 וב-iPhone Duo.",
+    "items": [
+      "נוספה תמיכה ב-pCloud, Box, MEGA, Yandex Disk, SMB, FTP ובשירותי הענן 123 ו-Guangya.",
+      "אקולייזר חדש בן 10 תחומים להתאמת הצליל לטעמך.",
+      "ניתוח ספקטרום חדש לבחינת מאפייני התדרים של האודיו.",
+      "שיפרנו את זיהוי טביעת האצבע האקוסטית, עם עלייה משמעותית בשיעור ההצלחה בזיהוי שירים.",
+      "עיצבנו מחדש את ההדרכה הראשונית להיכרות עם תכונות האפליקציה.",
+      "בנינו מחדש את מודול Navidrome לחוויית שרת מוזיקה מחודשת.",
+      "עדכנו את מדיניות הפרטיות ואת תנאי השימוש.",
+      "תיקנו בעיות מוכרות נוספות."
+    ],
+    "contact": "נתקלת בבעיה? אפשר לפנות אלינו בכתובת support@kakainc.com."
+  },
+  "tr": {
+    "heading": "Büyük güncelleme",
+    "ios": "iOS 27.1 ve iPhone Duo desteği eklendi.",
+    "items": [
+      "pCloud, Box, MEGA, Yandex Disk, SMB, FTP, 123 ve Guangya bulut desteği eklendi.",
+      "Sesi zevkinize göre ayarlamak için yeni 10 bantlı EQ eklendi.",
+      "Ses dosyalarınızın frekans özelliklerini incelemek için spektrum analizi eklendi.",
+      "Ses parmak izi tanıma iyileştirildi; şarkı tanıma başarı oranı önemli ölçüde artırıldı.",
+      "Uygulama özelliklerini keşfetmeniz için ilk kullanım deneyimi yeniden tasarlandı.",
+      "Müzik sunucusu deneyimini yenilemek için Navidrome modülü yeniden yapılandırıldı.",
+      "Gizlilik Politikası ve Kullanım Koşulları güncellendi.",
+      "Bilinen diğer sorunlar giderildi."
+    ],
+    "contact": "Bir sorun yaşarsanız support@kakainc.com adresinden bize ulaşın."
+  },
+  "nl-NL": {
+    "heading": "Grote update",
+    "ios": "Ondersteuning voor iOS 27.1 en iPhone Duo toegevoegd.",
+    "items": [
+      "Ondersteuning toegevoegd voor pCloud, Box, MEGA, Yandex Disk, SMB, FTP en de clouddiensten 123 en Guangya.",
+      "Nieuwe 10-bands EQ om het geluid naar wens af te stellen.",
+      "Nieuwe audiospectrumanalyse om de frequentiekenmerken van je audio te bekijken.",
+      "Verbeterde herkenning via audiofingerprinting, met een aanzienlijk hoger slagingspercentage bij het herkennen van nummers.",
+      "Een vernieuwde introductie om de functies van de app te ontdekken.",
+      "De Navidrome-module is opnieuw opgebouwd voor een vernieuwde muziekserverervaring.",
+      "Privacybeleid en gebruiksvoorwaarden bijgewerkt.",
+      "Andere bekende problemen opgelost."
+    ],
+    "contact": "Loop je tegen een probleem aan? Mail ons op support@kakainc.com."
+  },
+  "sv": {
+    "heading": "Stor uppdatering",
+    "ios": "Stöd för iOS 27.1 och iPhone Duo har lagts till.",
+    "items": [
+      "Nytt stöd för pCloud, Box, MEGA, Yandex Disk, SMB, FTP samt molntjänsterna 123 och Guangya.",
+      "Ny 10-bands-EQ för att anpassa ljudet efter din smak.",
+      "Ny ljudspektrumanalys för att utforska ljudets frekvensegenskaper.",
+      "Förbättrad igenkänning med ljudfingeravtryck, med betydligt fler lyckade låtidentifieringar.",
+      "Omgjord introduktion som hjälper dig att upptäcka appens funktioner.",
+      "Navidrome-modulen har byggts om för en förnyad musikserverupplevelse.",
+      "Uppdaterad integritetspolicy och uppdaterade användarvillkor.",
+      "Övriga kända problem har åtgärdats."
+    ],
+    "contact": "Kontakta oss på support@kakainc.com om du stöter på problem."
+  },
+  "da": {
+    "heading": "Stor opdatering",
+    "ios": "Tilføjet understøttelse af iOS 27.1 og iPhone Duo.",
+    "items": [
+      "Ny understøttelse af pCloud, Box, MEGA, Yandex Disk, SMB, FTP samt cloudtjenesterne 123 og Guangya.",
+      "Ny 10-bånds-EQ til at tilpasse lyden efter din smag.",
+      "Ny lydspektrumanalyse til at undersøge lydens frekvensegenskaber.",
+      "Forbedret genkendelse af lydfingeraftryk med markant flere vellykkede sangidentifikationer.",
+      "Nyt design af introduktionen, så du kan opdage appens funktioner.",
+      "Navidrome-modulet er genopbygget for en fornyet musikserveroplevelse.",
+      "Opdateret anonymitetspolitik og brugsvilkår.",
+      "Andre kendte problemer er rettet."
+    ],
+    "contact": "Hvis du oplever problemer, kan du kontakte os på support@kakainc.com."
+  },
+  "fi": {
+    "heading": "Suuri päivitys",
+    "ios": "Lisätty tuki iOS 27.1:lle ja iPhone Duolle.",
+    "items": [
+      "Lisätty tuki pCloudille, Boxille, MEGAlle, Yandex Diskille, SMB:lle, FTP:lle sekä 123- ja Guangya-pilvipalveluille.",
+      "Uusi 10-kaistainen taajuuskorjain äänen säätämiseen oman maun mukaan.",
+      "Uusi äänispektrin analyysi äänen taajuusominaisuuksien tutkimiseen.",
+      "Parannettu äänen sormenjälkitunnistus tunnistaa kappaleita huomattavasti aiempaa useammin.",
+      "Uudistettu aloitusopastus auttaa löytämään sovelluksen toiminnot.",
+      "Navidrome-moduuli on rakennettu uudelleen musiikkipalvelimen käyttökokemuksen uudistamiseksi.",
+      "Tietosuojakäytäntö ja käyttöehdot on päivitetty.",
+      "Muita tunnettuja ongelmia on korjattu."
+    ],
+    "contact": "Jos kohtaat ongelmia, ota yhteyttä: support@kakainc.com."
+  },
+  "ca": {
+    "heading": "Gran actualització",
+    "ios": "S'ha afegit compatibilitat amb iOS 27.1 i iPhone Duo.",
+    "items": [
+      "Nou suport per a pCloud, Box, MEGA, Yandex Disk, SMB, FTP i els núvols 123 i Guangya.",
+      "Nou equalitzador de 10 bandes per ajustar el so al teu gust.",
+      "Nova anàlisi de l'espectre d'àudio per explorar les característiques de freqüència dels fitxers.",
+      "Reconeixement per empremta acústica millorat, amb una taxa d'identificació de cançons molt més alta.",
+      "Nova experiència de benvinguda per descobrir les funcions de l'app.",
+      "Mòdul Navidrome reconstruït per renovar l'experiència amb el servidor musical.",
+      "Actualitzades la política de privacitat i les condicions d'ús.",
+      "Corregits altres problemes coneguts."
+    ],
+    "contact": "Si trobes cap problema, escriu-nos a support@kakainc.com."
+  },
+  "cs": {
+    "heading": "Velká aktualizace",
+    "ios": "Přidána podpora iOS 27.1 a iPhonu Duo.",
+    "items": [
+      "Přidána podpora pCloud, Box, MEGA, Yandex Disk, SMB, FTP a cloudových služeb 123 a Guangya.",
+      "Nový 10pásmový ekvalizér pro úpravu zvuku podle vašeho vkusu.",
+      "Nová analýza zvukového spektra pro zkoumání frekvenčních vlastností audia.",
+      "Vylepšené rozpoznávání zvukových otisků s výrazně vyšší úspěšností identifikace skladeb.",
+      "Nově navržený úvodní průvodce vám představí funkce aplikace.",
+      "Přepracovaný modul Navidrome pro nové prostředí hudebního serveru.",
+      "Aktualizovány zásady ochrany soukromí a podmínky použití.",
+      "Opraveny další známé problémy."
+    ],
+    "contact": "Pokud narazíte na problém, kontaktujte nás na support@kakainc.com."
+  },
+  "sk": {
+    "heading": "Veľká aktualizácia",
+    "ios": "Pridaná podpora iOS 27.1 a iPhonu Duo.",
+    "items": [
+      "Pridaná podpora pCloud, Box, MEGA, Yandex Disk, SMB, FTP a cloudových služieb 123 a Guangya.",
+      "Nový 10-pásmový ekvalizér na úpravu zvuku podľa vášho vkusu.",
+      "Nová analýza zvukového spektra na skúmanie frekvenčných vlastností audia.",
+      "Vylepšené rozpoznávanie zvukových odtlačkov s výrazne vyššou úspešnosťou identifikácie skladieb.",
+      "Nový úvodný sprievodca vám predstaví funkcie aplikácie.",
+      "Prepracovaný modul Navidrome pre obnovený zážitok z hudobného servera.",
+      "Aktualizované zásady ochrany súkromia a podmienky používania.",
+      "Opravené ďalšie známe problémy."
+    ],
+    "contact": "Ak narazíte na problém, kontaktujte nás na support@kakainc.com."
+  },
+  "pl": {
+    "heading": "Duża aktualizacja",
+    "ios": "Dodano obsługę iOS 27.1 i iPhone’a Duo.",
+    "items": [
+      "Dodano obsługę pCloud, Box, MEGA, Yandex Disk, SMB, FTP oraz chmur 123 i Guangya.",
+      "Nowy 10-pasmowy korektor do dopasowania dźwięku do własnych upodobań.",
+      "Nowa analiza widma audio do poznawania charakterystyki częstotliwościowej plików.",
+      "Ulepszone rozpoznawanie odcisku akustycznego ze znacznie wyższą skutecznością identyfikacji utworów.",
+      "Zaprojektowane na nowo wprowadzenie ułatwiające poznanie funkcji aplikacji.",
+      "Przebudowany moduł Navidrome i odświeżona obsługa serwera muzycznego.",
+      "Zaktualizowano politykę prywatności i warunki użytkowania.",
+      "Naprawiono inne znane problemy."
+    ],
+    "contact": "W razie problemów napisz do nas: support@kakainc.com."
+  },
+  "hr": {
+    "heading": "Veliko ažuriranje",
+    "ios": "Dodana podrška za iOS 27.1 i iPhone Duo.",
+    "items": [
+      "Dodana podrška za pCloud, Box, MEGA, Yandex Disk, SMB, FTP te servise u oblaku 123 i Guangya.",
+      "Novi 10-pojasni ekvilizator za prilagodbu zvuka vašem ukusu.",
+      "Nova analiza zvučnog spektra za istraživanje frekvencijskih svojstava audia.",
+      "Poboljšano prepoznavanje audiootiska uz znatno veću uspješnost prepoznavanja pjesama.",
+      "Redizajnirano početno predstavljanje funkcija aplikacije.",
+      "Preuređen modul Navidrome za osvježeno iskustvo korištenja glazbenog poslužitelja.",
+      "Ažurirana pravila privatnosti i uvjeti korištenja.",
+      "Ispravljeni drugi poznati problemi."
+    ],
+    "contact": "Ako naiđete na problem, javite nam se na support@kakainc.com."
+  },
+  "ro": {
+    "heading": "Actualizare majoră",
+    "ios": "Am adăugat compatibilitate cu iOS 27.1 și iPhone Duo.",
+    "items": [
+      "Suport nou pentru pCloud, Box, MEGA, Yandex Disk, SMB, FTP și serviciile cloud 123 și Guangya.",
+      "Egalizator nou cu 10 benzi pentru a regla sunetul după preferințe.",
+      "Analiză nouă a spectrului audio pentru explorarea caracteristicilor de frecvență.",
+      "Recunoaștere prin amprentă audio îmbunătățită, cu o rată de identificare a pieselor semnificativ mai mare.",
+      "Experiență inițială redesenată pentru a descoperi funcțiile aplicației.",
+      "Modul Navidrome reconstruit pentru o experiență reînnoită cu serverul muzical.",
+      "Am actualizat politica de confidențialitate și condițiile de utilizare.",
+      "Am remediat alte probleme cunoscute."
+    ],
+    "contact": "Dacă întâmpini probleme, scrie-ne la support@kakainc.com."
+  },
+  "hu": {
+    "heading": "Nagy frissítés",
+    "ios": "iOS 27.1- és iPhone Duo-támogatás.",
+    "items": [
+      "Új támogatás a pCloud, Box, MEGA, Yandex Disk, SMB, FTP, valamint a 123 és Guangya felhőszolgáltatásokhoz.",
+      "Új 10 sávos EQ, amellyel ízlésedre szabhatod a hangzást.",
+      "Új hangspektrum-elemzés a hang frekvenciajellemzőinek vizsgálatához.",
+      "Továbbfejlesztett akusztikus ujjlenyomat-felismerés, jelentősen jobb dalazonosítási sikeraránnyal.",
+      "Újratervezett kezdő útmutató az alkalmazás funkcióinak megismeréséhez.",
+      "Újjáépített Navidrome-modul a megújult zeneiszerver-élményért.",
+      "Frissített adatvédelmi szabályzat és felhasználási feltételek.",
+      "További ismert hibák javítása."
+    ],
+    "contact": "Ha problémát tapasztalsz, írj nekünk: support@kakainc.com."
+  },
+  "el": {
+    "heading": "Μεγάλη ενημέρωση",
+    "ios": "Προστέθηκε υποστήριξη για iOS 27.1 και iPhone Duo.",
+    "items": [
+      "Προστέθηκε υποστήριξη για pCloud, Box, MEGA, Yandex Disk, SMB, FTP και τις υπηρεσίες cloud 123 και Guangya.",
+      "Νέο EQ 10 ζωνών για να προσαρμόσεις τον ήχο στο γούστο σου.",
+      "Νέα ανάλυση φάσματος ήχου για να εξερευνήσεις τα χαρακτηριστικά συχνότητας των αρχείων σου.",
+      "Βελτιωμένη αναγνώριση ακουστικού αποτυπώματος, με σημαντικά υψηλότερο ποσοστό επιτυχούς αναγνώρισης τραγουδιών.",
+      "Νέα σχεδίαση της αρχικής εισαγωγής για να γνωρίσεις τις λειτουργίες της εφαρμογής.",
+      "Ανακατασκευή της μονάδας Navidrome για ανανεωμένη εμπειρία μουσικού διακομιστή.",
+      "Ενημερώθηκαν η πολιτική απορρήτου και οι όροι χρήσης.",
+      "Διορθώθηκαν άλλα γνωστά προβλήματα."
+    ],
+    "contact": "Αν αντιμετωπίσεις κάποιο πρόβλημα, γράψε μας στο support@kakainc.com."
+  },
+  "id": {
+    "heading": "Pembaruan besar",
+    "ios": "Menambahkan dukungan untuk iOS 27.1 dan iPhone Duo.",
+    "items": [
+      "Menambahkan dukungan untuk pCloud, Box, MEGA, Yandex Disk, SMB, FTP, serta cloud 123 dan Guangya.",
+      "EQ 10 band baru untuk menyesuaikan suara dengan selera Anda.",
+      "Analisis spektrum audio baru untuk menjelajahi karakteristik frekuensi audio.",
+      "Pengenalan sidik jari audio ditingkatkan, dengan tingkat keberhasilan identifikasi lagu yang jauh lebih tinggi.",
+      "Panduan awal didesain ulang untuk membantu Anda mengenal fitur aplikasi.",
+      "Modul Navidrome dibangun ulang untuk pengalaman server musik yang lebih segar.",
+      "Memperbarui Kebijakan Privasi dan Ketentuan Penggunaan.",
+      "Memperbaiki masalah lain yang diketahui."
+    ],
+    "contact": "Jika mengalami kendala, hubungi kami di support@kakainc.com."
+  },
+  "ms": {
+    "heading": "Kemas kini besar",
+    "ios": "Sokongan untuk iOS 27.1 dan iPhone Duo ditambahkan.",
+    "items": [
+      "Sokongan baharu untuk pCloud, Box, MEGA, Yandex Disk, SMB, FTP serta awan 123 dan Guangya.",
+      "EQ 10 jalur baharu untuk melaraskan bunyi mengikut cita rasa anda.",
+      "Analisis spektrum audio baharu untuk menerokai ciri frekuensi audio.",
+      "Pengecaman cap jari audio dipertingkatkan dengan kadar kejayaan mengenal pasti lagu yang jauh lebih tinggi.",
+      "Panduan permulaan direka semula untuk membantu anda mengenali ciri app.",
+      "Modul Navidrome dibina semula untuk pengalaman pelayan muzik yang diperbaharui.",
+      "Dasar Privasi dan Terma Penggunaan dikemas kini.",
+      "Masalah lain yang diketahui telah dibaiki."
+    ],
+    "contact": "Jika anda menghadapi masalah, hubungi kami di support@kakainc.com."
+  },
+  "vi": {
+    "heading": "Bản cập nhật lớn",
+    "ios": "Bổ sung hỗ trợ iOS 27.1 và iPhone Duo.",
+    "items": [
+      "Bổ sung hỗ trợ pCloud, Box, MEGA, Yandex Disk, SMB, FTP cùng kho đám mây 123 và Guangya.",
+      "EQ 10 dải mới để điều chỉnh âm thanh theo sở thích.",
+      "Phân tích phổ âm thanh mới để khám phá đặc điểm tần số của âm thanh.",
+      "Cải thiện nhận diện dấu vân tay âm thanh, tăng đáng kể tỷ lệ nhận diện bài hát thành công.",
+      "Thiết kế lại hướng dẫn ban đầu để bạn dễ khám phá các tính năng.",
+      "Xây dựng lại mô-đun Navidrome để làm mới trải nghiệm máy chủ âm nhạc.",
+      "Cập nhật Chính sách quyền riêng tư và Điều khoản sử dụng.",
+      "Sửa các lỗi đã biết khác."
+    ],
+    "contact": "Nếu gặp vấn đề khi sử dụng, vui lòng liên hệ support@kakainc.com."
+  },
+  "hi": {
+    "heading": "बड़ा अपडेट",
+    "ios": "iOS 27.1 और iPhone Duo के लिए समर्थन जोड़ा गया।",
+    "items": [
+      "pCloud, Box, MEGA, Yandex Disk, SMB, FTP, 123 और Guangya क्लाउड का समर्थन जोड़ा गया।",
+      "अपनी पसंद से ध्वनि सँवारने के लिए नया 10-बैंड EQ।",
+      "ऑडियो की फ़्रीक्वेंसी विशेषताएँ देखने के लिए नया स्पेक्ट्रम विश्लेषण।",
+      "ऑडियो फ़िंगरप्रिंट पहचान में सुधार से गीत पहचानने की सफलता दर में काफ़ी बढ़ोतरी हुई है।",
+      "ऐप की सुविधाएँ जानने के लिए पहली बार इस्तेमाल करने का मार्गदर्शन नए सिरे से बनाया गया।",
+      "संगीत सर्वर के अनुभव को नया रूप देने के लिए Navidrome मॉड्यूल फिर से बनाया गया।",
+      "गोपनीयता नीति और इस्तेमाल की शर्तें अपडेट की गईं।",
+      "अन्य ज्ञात समस्याएँ ठीक की गईं।"
+    ],
+    "contact": "इस्तेमाल करते समय कोई समस्या हो, तो support@kakainc.com पर हमसे संपर्क करें।"
+  },
+  "th": {
+    "heading": "อัปเดตครั้งใหญ่",
+    "ios": "เพิ่มการรองรับ iOS 27.1 และ iPhone Duo",
+    "items": [
+      "เพิ่มการรองรับ pCloud, Box, MEGA, Yandex Disk, SMB, FTP และคลาวด์ 123 กับ Guangya",
+      "เพิ่ม EQ 10 ย่านเพื่อปรับเสียงตามความชอบ",
+      "เพิ่มการวิเคราะห์สเปกตรัมเสียงเพื่อดูคุณลักษณะด้านความถี่ของเสียง",
+      "ปรับปรุงการรู้จำลายนิ้วมือเสียง เพิ่มอัตราการระบุเพลงสำเร็จได้อย่างมาก",
+      "ออกแบบคำแนะนำการใช้งานครั้งแรกใหม่ เพื่อให้รู้จักฟีเจอร์ต่างๆ ได้ง่ายขึ้น",
+      "ปรับโครงสร้างโมดูล Navidrome ใหม่ เพื่อยกระดับประสบการณ์เซิร์ฟเวอร์เพลง",
+      "อัปเดตนโยบายความเป็นส่วนตัวและข้อกำหนดการใช้งาน",
+      "แก้ไขปัญหาอื่นๆ ที่ทราบแล้ว"
+    ],
+    "contact": "หากพบปัญหาการใช้งาน โปรดติดต่อเราที่ support@kakainc.com"
+  },
+  "no": {
+    "heading": "Stor oppdatering",
+    "ios": "Lagt til støtte for iOS 27.1 og iPhone Duo.",
+    "items": [
+      "Ny støtte for pCloud, Box, MEGA, Yandex Disk, SMB, FTP samt skytjenestene 123 og Guangya.",
+      "Ny 10-bånds-EQ for å tilpasse lyden etter din smak.",
+      "Ny lydspektrumanalyse for å utforske lydens frekvensegenskaper.",
+      "Forbedret gjenkjenning med lydfingeravtrykk, med betydelig flere vellykkede sangidentifikasjoner.",
+      "Ny utforming av introduksjonen for å hjelpe deg med å oppdage appens funksjoner.",
+      "Navidrome-modulen er bygget om for en fornyet musikkserveropplevelse.",
+      "Oppdatert personvernerklæring og bruksvilkår.",
+      "Andre kjente problemer er rettet."
+    ],
+    "contact": "Ta kontakt på support@kakainc.com hvis du opplever problemer."
+  }
+}

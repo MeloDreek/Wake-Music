@@ -1,0 +1,13 @@
+◆◆◆ Duża aktualizacja
+
+1. Dodano obsługę iOS 27.1 i iPhone’a Duo.
+2. Dodano obsługę pCloud, Box, MEGA, Yandex Disk, SMB, FTP oraz chmur 123 i Guangya.
+3. Nowy 10-pasmowy korektor do dopasowania dźwięku do własnych upodobań.
+4. Nowa analiza widma audio do poznawania charakterystyki częstotliwościowej plików.
+5. Ulepszone rozpoznawanie odcisku akustycznego ze znacznie wyższą skutecznością identyfikacji utworów.
+6. Zaprojektowane na nowo wprowadzenie ułatwiające poznanie funkcji aplikacji.
+7. Przebudowany moduł Navidrome i odświeżona obsługa serwera muzycznego.
+8. Zaktualizowano politykę prywatności i warunki użytkowania.
+9. Naprawiono inne znane problemy.
+
+W razie problemów napisz do nas: support@kakainc.com.

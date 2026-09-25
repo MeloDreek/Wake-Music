@@ -1,0 +1,12 @@
+◆◆◆ Suuri päivitys
+
+1. Lisätty tuki pCloudille, Boxille, MEGAlle, Yandex Diskille, SMB:lle, FTP:lle sekä 123- ja Guangya-pilvipalveluille.
+2. Uusi 10-kaistainen taajuuskorjain äänen säätämiseen oman maun mukaan.
+3. Uusi äänispektrin analyysi äänen taajuusominaisuuksien tutkimiseen.
+4. Parannettu äänen sormenjälkitunnistus tunnistaa kappaleita huomattavasti aiempaa useammin.
+5. Uudistettu aloitusopastus auttaa löytämään sovelluksen toiminnot.
+6. Navidrome-moduuli on rakennettu uudelleen musiikkipalvelimen käyttökokemuksen uudistamiseksi.
+7. Tietosuojakäytäntö ja käyttöehdot on päivitetty.
+8. Muita tunnettuja ongelmia on korjattu.
+
+Jos kohtaat ongelmia, ota yhteyttä: support@kakainc.com.

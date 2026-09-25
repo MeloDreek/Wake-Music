@@ -1,0 +1,12 @@
+◆◆◆ Großes Update
+
+1. Neu: Unterstützung für pCloud, Box, MEGA, Yandex Disk, SMB, FTP sowie die Cloud-Dienste 123 und Guangya.
+2. Neuer 10-Band-EQ für deinen persönlichen Klang.
+3. Neue Audiospektrumanalyse zum Erkunden der Frequenzeigenschaften deiner Musik.
+4. Verbesserte Audio-Fingerabdruckerkennung mit deutlich höherer Erfolgsquote bei der Songerkennung.
+5. Neu gestaltete Einführung, mit der du die Funktionen der App kennenlernst.
+6. Das Navidrome-Modul wurde für ein erneuertes Musikserver-Erlebnis überarbeitet.
+7. Datenschutzerklärung und Nutzungsbedingungen aktualisiert.
+8. Weitere bekannte Probleme behoben.
+
+Bei Problemen erreichst du uns unter support@kakainc.com.

@@ -1,0 +1,13 @@
+◆◆◆ Major Update
+
+1. Added support for iOS 27.1 and iPhone Duo.
+2. Added support for pCloud, Box, MEGA, Yandex Disk, SMB, FTP, 123 cloud drive and Guangya cloud drive.
+3. New 10-band EQ to fine-tune your listening experience.
+4. New audio spectrum analysis to explore the spectral characteristics of your audio.
+5. Improved audio fingerprint recognition with a significantly higher song identification success rate.
+6. Redesigned onboarding to help you discover the app's features.
+7. Rebuilt the Navidrome module for a refreshed music server experience.
+8. Updated our Privacy Policy and Terms of Use.
+9. Fixed other known issues.
+
+If you run into any issues, please contact us at support@kakainc.com.

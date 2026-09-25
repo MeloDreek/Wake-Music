@@ -1,0 +1,12 @@
+◆◆◆ Mise à jour majeure
+
+1. Ajout de pCloud, Box, MEGA, Yandex Disk, SMB, FTP et des services infonuagiques 123 et Guangya.
+2. Nouvel égaliseur 10 bandes pour ajuster le son à votre goût.
+3. Nouvelle analyse du spectre audio pour explorer les caractéristiques fréquentielles de vos fichiers.
+4. Reconnaissance par empreinte audio améliorée, avec un taux d'identification des morceaux nettement supérieur.
+5. Parcours de découverte entièrement repensé pour vous présenter les fonctions de l'application.
+6. Module Navidrome reconstruit pour une expérience de serveur musical renouvelée.
+7. Mise à jour de la politique de confidentialité et des conditions d'utilisation.
+8. Correction d'autres problèmes connus.
+
+En cas de problème, contactez-nous à support@kakainc.com.

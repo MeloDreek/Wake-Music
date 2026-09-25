@@ -19,6 +19,8 @@ Private `verified.json` SHA-256: `4f571b51d901ab39def0eef2b3694e9bac0b1d395eca76
 
 ## Ready-to-paste text
 
+The separately requested [localized release notes](release-notes/README.md) have also been synchronized to `whatsNew` for all four targets, without altering these descriptions.
+
 - [Standard edition — Simplified Chinese](descriptions/standard/zh-Hans.txt)
 - [Pro edition — Simplified Chinese](descriptions/pro/zh-Hans.txt)
 - [Standard edition — US English](descriptions/standard/en-US.txt)

@@ -1,0 +1,12 @@
+◆◆◆ Bản cập nhật lớn
+
+1. Bổ sung hỗ trợ pCloud, Box, MEGA, Yandex Disk, SMB, FTP cùng kho đám mây 123 và Guangya.
+2. EQ 10 dải mới để điều chỉnh âm thanh theo sở thích.
+3. Phân tích phổ âm thanh mới để khám phá đặc điểm tần số của âm thanh.
+4. Cải thiện nhận diện dấu vân tay âm thanh, tăng đáng kể tỷ lệ nhận diện bài hát thành công.
+5. Thiết kế lại hướng dẫn ban đầu để bạn dễ khám phá các tính năng.
+6. Xây dựng lại mô-đun Navidrome để làm mới trải nghiệm máy chủ âm nhạc.
+7. Cập nhật Chính sách quyền riêng tư và Điều khoản sử dụng.
+8. Sửa các lỗi đã biết khác.
+
+Nếu gặp vấn đề khi sử dụng, vui lòng liên hệ support@kakainc.com.

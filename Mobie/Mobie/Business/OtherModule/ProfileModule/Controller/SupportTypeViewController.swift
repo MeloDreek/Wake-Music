@@ -14,20 +14,18 @@ extension AudioLevelType {
     func headStr() -> String {
         switch self {
         case .SACD:
-            return "DSD"
+            return "Super Lossless".localStr()
         case .lossless:
             return "Lossless".localStr()
         case .normal:
             return "Lossy".localStr()
-        case .other:
-            return "Others".localStr()
         }
     }
     
     func footStr() -> String? {
         // Container extensions cannot establish sample rate, channel count,
         // master quality, or whether the source was originally lossless.
-        self == .normal ? "Lossy audio uses higher compression to reduce file size, at the cost of audio quality.".localStr() : nil
+        self == .normal ? "Formats.GroupingNote".localStr() : nil
     }
     
 }
@@ -52,9 +50,7 @@ class SupportTypeViewController: SuperViewController {
     }
     
     // MARK:  GET && SET
-    lazy var dataArray: [AudioLevelType] = {
-        return [.SACD, .lossless, .normal, .other]
-    }()
+    let dataArray = AudioLevelType.allCases
     
     // MARK:  懒加载
     lazy var tableView: UITableView = {
@@ -110,14 +106,6 @@ extension SupportTypeViewController: UITableViewDataSource, UITableViewDelegate,
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-#warning("模拟mock数据")
-//#if DEBUG
-//        if let tabbarVC = self.tabBarController as? HomeTabbarViewController {
-//            tabbarVC.tabBar.isHidden = !tabbarVC.tabBar.isHidden
-//            tabbarVC.toolbarView.isHidden = !tabbarVC.toolbarView.isHidden
-//            return
-//        }
-//#endif
         
         let audio = self.dataArray[indexPath.section].audioArray()[indexPath.row]
         
@@ -170,6 +158,7 @@ class TagsTableViewCell: UITableViewCell {
         var cellConfig = UIListContentConfiguration.cell()
         cellConfig.image = UIImage(named: "\(audio.rawValue)_icon") ?? UIImage(named: "music_place")
         cellConfig.text = audio.rawValue.uppercased()
+        cellConfig.secondaryText = audio.supportCodecHint
         cellConfig.imageProperties.cornerRadius = 20.ckValue()
         cellConfig.imageProperties.maximumSize = CGSizeMake(40.ckValue(), 40.ckValue())
         cellConfig.imageToTextPadding = 10.ckValue()

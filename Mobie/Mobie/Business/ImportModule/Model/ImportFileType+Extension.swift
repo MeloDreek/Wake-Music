@@ -259,7 +259,7 @@ extension ImportFileType {
 #else
         let internationalArray: [ImportFileType] = [.fromGoogleDrive, .fromDropboxDrive, .fromePCloud, .fromBoxDrive, .fromMEGADrive, .fromYandexDrive]
 #endif
-        let mainlandChinaArray: [ImportFileType] = [.from123Drive, .fromYidongDrive, .fromAliyunDrive, .fromBaiduDrive, .from115Drive, .fromGuangyaDrive]
+        let mainlandChinaArray: [ImportFileType] = [.from123Drive, .fromAliyunDrive, .fromBaiduDrive, .from115Drive, .fromGuangyaDrive]
 
         // The device region is more relevant here than the UI language: an
         // English-language user in China still needs the local services first.

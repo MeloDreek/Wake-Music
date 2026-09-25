@@ -1,0 +1,13 @@
+◆◆◆ Stor opdatering
+
+1. Tilføjet understøttelse af iOS 27.1 og iPhone Duo.
+2. Ny understøttelse af pCloud, Box, MEGA, Yandex Disk, SMB, FTP samt cloudtjenesterne 123 og Guangya.
+3. Ny 10-bånds-EQ til at tilpasse lyden efter din smag.
+4. Ny lydspektrumanalyse til at undersøge lydens frekvensegenskaber.
+5. Forbedret genkendelse af lydfingeraftryk med markant flere vellykkede sangidentifikationer.
+6. Nyt design af introduktionen, så du kan opdage appens funktioner.
+7. Navidrome-modulet er genopbygget for en fornyet musikserveroplevelse.
+8. Opdateret anonymitetspolitik og brugsvilkår.
+9. Andre kendte problemer er rettet.
+
+Hvis du oplever problemer, kan du kontakte os på support@kakainc.com.

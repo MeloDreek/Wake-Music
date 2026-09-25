@@ -1,0 +1,12 @@
+◆◆◆ Veľká aktualizácia
+
+1. Pridaná podpora pCloud, Box, MEGA, Yandex Disk, SMB, FTP a cloudových služieb 123 a Guangya.
+2. Nový 10-pásmový ekvalizér na úpravu zvuku podľa vášho vkusu.
+3. Nová analýza zvukového spektra na skúmanie frekvenčných vlastností audia.
+4. Vylepšené rozpoznávanie zvukových odtlačkov s výrazne vyššou úspešnosťou identifikácie skladieb.
+5. Nový úvodný sprievodca vám predstaví funkcie aplikácie.
+6. Prepracovaný modul Navidrome pre obnovený zážitok z hudobného servera.
+7. Aktualizované zásady ochrany súkromia a podmienky používania.
+8. Opravené ďalšie známe problémy.
+
+Ak narazíte na problém, kontaktujte nás na support@kakainc.com.

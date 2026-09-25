@@ -1,0 +1,12 @@
+◆◆◆ Büyük güncelleme
+
+1. pCloud, Box, MEGA, Yandex Disk, SMB, FTP, 123 ve Guangya bulut desteği eklendi.
+2. Sesi zevkinize göre ayarlamak için yeni 10 bantlı EQ eklendi.
+3. Ses dosyalarınızın frekans özelliklerini incelemek için spektrum analizi eklendi.
+4. Ses parmak izi tanıma iyileştirildi; şarkı tanıma başarı oranı önemli ölçüde artırıldı.
+5. Uygulama özelliklerini keşfetmeniz için ilk kullanım deneyimi yeniden tasarlandı.
+6. Müzik sunucusu deneyimini yenilemek için Navidrome modülü yeniden yapılandırıldı.
+7. Gizlilik Politikası ve Kullanım Koşulları güncellendi.
+8. Bilinen diğer sorunlar giderildi.
+
+Bir sorun yaşarsanız support@kakainc.com adresinden bize ulaşın.

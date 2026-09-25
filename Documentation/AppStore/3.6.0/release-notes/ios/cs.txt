@@ -1,0 +1,13 @@
+◆◆◆ Velká aktualizace
+
+1. Přidána podpora iOS 27.1 a iPhonu Duo.
+2. Přidána podpora pCloud, Box, MEGA, Yandex Disk, SMB, FTP a cloudových služeb 123 a Guangya.
+3. Nový 10pásmový ekvalizér pro úpravu zvuku podle vašeho vkusu.
+4. Nová analýza zvukového spektra pro zkoumání frekvenčních vlastností audia.
+5. Vylepšené rozpoznávání zvukových otisků s výrazně vyšší úspěšností identifikace skladeb.
+6. Nově navržený úvodní průvodce vám představí funkce aplikace.
+7. Přepracovaný modul Navidrome pro nové prostředí hudebního serveru.
+8. Aktualizovány zásady ochrany soukromí a podmínky použití.
+9. Opraveny další známé problémy.
+
+Pokud narazíte na problém, kontaktujte nás na support@kakainc.com.

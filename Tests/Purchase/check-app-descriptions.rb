@@ -21,7 +21,8 @@ end
 class DescriptionFixture
   attr_accessor :allowed_ids, :state, :wrong_owner, :extra_locale, :concurrent, :fail_after
   attr_reader :writes
-  def initialize
+  def initialize(field='description')
+    @field=field
     @state = 'PREPARE_FOR_SUBMISSION'
     @writes = []
     @rows = AppDescriptionSync::TARGETS.to_h do |t|
@@ -33,7 +34,7 @@ class DescriptionFixture
     if method == 'PATCH'
       raise AppDescriptionSync::Error, 'Simulated uncertain write' if fail_after && writes.length >= fail_after
       data = body.fetch('data')
-      raise 'Unexpected mutation' unless data['attributes'].keys == ['description'] && allowed_ids.include?(data['id'])
+      raise 'Unexpected mutation' unless data['attributes'].keys == [@field] && allowed_ids.include?(data['id'])
       row = @rows.values.flatten.find { |r| r['id'] == data['id'] }
       row['attributes'].merge!(data['attributes'])
       writes << body
@@ -49,7 +50,7 @@ class DescriptionFixture
       { 'id'=>id, 'attributes'=>{ 'versionString'=>'3.6.0', 'platform'=>t[2], 'appStoreState'=>state } }
     when %r{\A/v1/appStoreVersionLocalizations/}
       row=Marshal.load(Marshal.dump(@rows.values.flatten.find { |r| r['id']==id }))
-      row['attributes']['description']='Concurrent edit' if concurrent
+      row['attributes'][@field]='Concurrent edit' if concurrent
       row
     else
       raise "Unexpected path #{path}"
@@ -65,6 +66,9 @@ class DescriptionFixture
     result=Marshal.load(Marshal.dump(@rows.fetch(path.split('/')[3])))
     result << { 'id'=>'extra', 'attributes'=>{ 'locale'=>'sl-SI' } } if extra_locale
     result
+  end
+  def metadata_field
+    @field
   end
 end
 

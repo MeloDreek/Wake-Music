@@ -1,0 +1,13 @@
+◆◆◆ Bản cập nhật lớn
+
+1. Bổ sung hỗ trợ iOS 27.1 và iPhone Duo.
+2. Bổ sung hỗ trợ pCloud, Box, MEGA, Yandex Disk, SMB, FTP cùng kho đám mây 123 và Guangya.
+3. EQ 10 dải mới để điều chỉnh âm thanh theo sở thích.
+4. Phân tích phổ âm thanh mới để khám phá đặc điểm tần số của âm thanh.
+5. Cải thiện nhận diện dấu vân tay âm thanh, tăng đáng kể tỷ lệ nhận diện bài hát thành công.
+6. Thiết kế lại hướng dẫn ban đầu để bạn dễ khám phá các tính năng.
+7. Xây dựng lại mô-đun Navidrome để làm mới trải nghiệm máy chủ âm nhạc.
+8. Cập nhật Chính sách quyền riêng tư và Điều khoản sử dụng.
+9. Sửa các lỗi đã biết khác.
+
+Nếu gặp vấn đề khi sử dụng, vui lòng liên hệ support@kakainc.com.

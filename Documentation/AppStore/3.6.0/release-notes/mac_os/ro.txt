@@ -1,0 +1,12 @@
+◆◆◆ Actualizare majoră
+
+1. Suport nou pentru pCloud, Box, MEGA, Yandex Disk, SMB, FTP și serviciile cloud 123 și Guangya.
+2. Egalizator nou cu 10 benzi pentru a regla sunetul după preferințe.
+3. Analiză nouă a spectrului audio pentru explorarea caracteristicilor de frecvență.
+4. Recunoaștere prin amprentă audio îmbunătățită, cu o rată de identificare a pieselor semnificativ mai mare.
+5. Experiență inițială redesenată pentru a descoperi funcțiile aplicației.
+6. Modul Navidrome reconstruit pentru o experiență reînnoită cu serverul muzical.
+7. Am actualizat politica de confidențialitate și condițiile de utilizare.
+8. Am remediat alte probleme cunoscute.
+
+Dacă întâmpini probleme, scrie-ne la support@kakainc.com.

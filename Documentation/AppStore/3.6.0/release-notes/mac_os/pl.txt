@@ -1,0 +1,12 @@
+◆◆◆ Duża aktualizacja
+
+1. Dodano obsługę pCloud, Box, MEGA, Yandex Disk, SMB, FTP oraz chmur 123 i Guangya.
+2. Nowy 10-pasmowy korektor do dopasowania dźwięku do własnych upodobań.
+3. Nowa analiza widma audio do poznawania charakterystyki częstotliwościowej plików.
+4. Ulepszone rozpoznawanie odcisku akustycznego ze znacznie wyższą skutecznością identyfikacji utworów.
+5. Zaprojektowane na nowo wprowadzenie ułatwiające poznanie funkcji aplikacji.
+6. Przebudowany moduł Navidrome i odświeżona obsługa serwera muzycznego.
+7. Zaktualizowano politykę prywatności i warunki użytkowania.
+8. Naprawiono inne znane problemy.
+
+W razie problemów napisz do nas: support@kakainc.com.

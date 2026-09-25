@@ -1,0 +1,12 @@
+◆◆◆ Major Update
+
+1. Added support for pCloud, Box, MEGA, Yandex Disk, SMB, FTP, 123 cloud drive and Guangya cloud drive.
+2. New 10-band EQ to fine-tune your listening experience.
+3. New audio spectrum analysis to explore the spectral characteristics of your audio.
+4. Improved audio fingerprint recognition with a significantly higher song identification success rate.
+5. Redesigned onboarding to help you discover the app's features.
+6. Rebuilt the Navidrome module for a refreshed music server experience.
+7. Updated our Privacy Policy and Terms of Use.
+8. Fixed other known issues.
+
+If you run into any issues, please contact us at support@kakainc.com.

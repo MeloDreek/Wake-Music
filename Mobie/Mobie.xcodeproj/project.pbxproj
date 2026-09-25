@@ -550,8 +550,6 @@
 		22BEE393305BAC9800C8A175 /* MusicServerWire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BEE386305BAC9800C8A175 /* MusicServerWire.swift */; };
 		22BEE394305BAC9800C8A175 /* MusicServerLibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BEE38E305BAC9800C8A175 /* MusicServerLibraryViewController.swift */; };
 		22BEE395305BAC9800C8A175 /* MusicServerCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BEE38C305BAC9800C8A175 /* MusicServerCells.swift */; };
-		5DCC20260925000100000002 /* MusicServerAlbumDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCC20260925000100000001 /* MusicServerAlbumDetailViewController.swift */; };
-		5DCC20260925000200000002 /* MusicServerExpandableTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCC20260925000200000001 /* MusicServerExpandableTextView.swift */; };
 		22BEE398305BAC9800C8A175 /* MusicServerBrowseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BEE38B305BAC9800C8A175 /* MusicServerBrowseViewController.swift */; };
 		22BEE399305BAC9800C8A175 /* MusicServerSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BEE385305BAC9800C8A175 /* MusicServerSession.swift */; };
 		22BEE39A305BAC9800C8A175 /* AppModeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BEE388305BAC9800C8A175 /* AppModeCoordinator.swift */; };
@@ -560,8 +558,6 @@
 		22BEE39D305BAC9800C8A175 /* MusicServerWire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BEE386305BAC9800C8A175 /* MusicServerWire.swift */; };
 		22BEE39E305BAC9800C8A175 /* MusicServerLibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BEE38E305BAC9800C8A175 /* MusicServerLibraryViewController.swift */; };
 		22BEE39F305BAC9800C8A175 /* MusicServerCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BEE38C305BAC9800C8A175 /* MusicServerCells.swift */; };
-		5DCC20260925000100000003 /* MusicServerAlbumDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCC20260925000100000001 /* MusicServerAlbumDetailViewController.swift */; };
-		5DCC20260925000200000003 /* MusicServerExpandableTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCC20260925000200000001 /* MusicServerExpandableTextView.swift */; };
 		22BEE3A2305BAC9800C8A175 /* MusicServerBrowseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BEE38B305BAC9800C8A175 /* MusicServerBrowseViewController.swift */; };
 		22BEE3A3305BAC9800C8A175 /* MusicServerSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BEE385305BAC9800C8A175 /* MusicServerSession.swift */; };
 		22BEE3A4305BAC9800C8A175 /* AppModeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22BEE388305BAC9800C8A175 /* AppModeCoordinator.swift */; };
@@ -654,6 +650,10 @@
 		5DCC20260920000100000003 /* MusicServerArtistsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCC20260920000100000001 /* MusicServerArtistsViewController.swift */; };
 		5DCC20260920000200000002 /* MusicServerLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCC20260920000200000001 /* MusicServerLoadingView.swift */; };
 		5DCC20260920000200000003 /* MusicServerLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCC20260920000200000001 /* MusicServerLoadingView.swift */; };
+		5DCC20260925000100000002 /* MusicServerAlbumDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCC20260925000100000001 /* MusicServerAlbumDetailViewController.swift */; };
+		5DCC20260925000100000003 /* MusicServerAlbumDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCC20260925000100000001 /* MusicServerAlbumDetailViewController.swift */; };
+		5DCC20260925000200000002 /* MusicServerExpandableTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCC20260925000200000001 /* MusicServerExpandableTextView.swift */; };
+		5DCC20260925000200000003 /* MusicServerExpandableTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCC20260925000200000001 /* MusicServerExpandableTextView.swift */; };
 		82D834BFAC8F3A17A778E93D /* Pods_Mobie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC044DCD42AEE7FFFB8D29DE /* Pods_Mobie.framework */; };
 		870B35FFC850D1C18BA65AAF /* CollectionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132CAFD74F21CC80A0EE1C8C /* CollectionDetailViewController.swift */; };
 		9C59B94A22559628B11B9185 /* Pods_Mobie_Pro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2024258CB3388C84E94183D3 /* Pods_Mobie_Pro.framework */; };
@@ -1080,8 +1080,6 @@
 		22BEE389305BAC9800C8A175 /* MusicServerRootControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicServerRootControllers.swift; sourceTree = "<group>"; };
 		22BEE38B305BAC9800C8A175 /* MusicServerBrowseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicServerBrowseViewController.swift; sourceTree = "<group>"; };
 		22BEE38C305BAC9800C8A175 /* MusicServerCells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicServerCells.swift; sourceTree = "<group>"; };
-		5DCC20260925000100000001 /* MusicServerAlbumDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicServerAlbumDetailViewController.swift; sourceTree = "<group>"; };
-		5DCC20260925000200000001 /* MusicServerExpandableTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicServerExpandableTextView.swift; sourceTree = "<group>"; };
 		22BEE38E305BAC9800C8A175 /* MusicServerLibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicServerLibraryViewController.swift; sourceTree = "<group>"; };
 		22C2572B302D721400A68C1B /* AudioMatchTagViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioMatchTagViewController.swift; sourceTree = "<group>"; };
 		22C2572E302D723500A68C1B /* AudioMatchCoverFootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioMatchCoverFootView.swift; sourceTree = "<group>"; };
@@ -1129,6 +1127,8 @@
 		529D8BF88D087076D287687A /* Pods-Mobie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mobie.debug.xcconfig"; path = "Target Support Files/Pods-Mobie/Pods-Mobie.debug.xcconfig"; sourceTree = "<group>"; };
 		5DCC20260920000100000001 /* MusicServerArtistsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicServerArtistsViewController.swift; sourceTree = "<group>"; };
 		5DCC20260920000200000001 /* MusicServerLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicServerLoadingView.swift; sourceTree = "<group>"; };
+		5DCC20260925000100000001 /* MusicServerAlbumDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicServerAlbumDetailViewController.swift; sourceTree = "<group>"; };
+		5DCC20260925000200000001 /* MusicServerExpandableTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicServerExpandableTextView.swift; sourceTree = "<group>"; };
 		7809854B8022201FCA666119 /* ArtworkPalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtworkPalette.swift; sourceTree = "<group>"; };
 		886CE6607B0E1400F6276768 /* Pods-Mobie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mobie.release.xcconfig"; path = "Target Support Files/Pods-Mobie/Pods-Mobie.release.xcconfig"; sourceTree = "<group>"; };
 		AD83AA7A4F144287924ABEF2 /* SMBDiscovery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMBDiscovery.swift; sourceTree = "<group>"; };

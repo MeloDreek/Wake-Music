@@ -1,0 +1,13 @@
+◆◆◆ Büyük güncelleme
+
+1. iOS 27.1 ve iPhone Duo desteği eklendi.
+2. pCloud, Box, MEGA, Yandex Disk, SMB, FTP, 123 ve Guangya bulut desteği eklendi.
+3. Sesi zevkinize göre ayarlamak için yeni 10 bantlı EQ eklendi.
+4. Ses dosyalarınızın frekans özelliklerini incelemek için spektrum analizi eklendi.
+5. Ses parmak izi tanıma iyileştirildi; şarkı tanıma başarı oranı önemli ölçüde artırıldı.
+6. Uygulama özelliklerini keşfetmeniz için ilk kullanım deneyimi yeniden tasarlandı.
+7. Müzik sunucusu deneyimini yenilemek için Navidrome modülü yeniden yapılandırıldı.
+8. Gizlilik Politikası ve Kullanım Koşulları güncellendi.
+9. Bilinen diğer sorunlar giderildi.
+
+Bir sorun yaşarsanız support@kakainc.com adresinden bize ulaşın.

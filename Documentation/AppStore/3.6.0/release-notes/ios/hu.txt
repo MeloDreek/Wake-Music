@@ -1,0 +1,13 @@
+◆◆◆ Nagy frissítés
+
+1. iOS 27.1- és iPhone Duo-támogatás.
+2. Új támogatás a pCloud, Box, MEGA, Yandex Disk, SMB, FTP, valamint a 123 és Guangya felhőszolgáltatásokhoz.
+3. Új 10 sávos EQ, amellyel ízlésedre szabhatod a hangzást.
+4. Új hangspektrum-elemzés a hang frekvenciajellemzőinek vizsgálatához.
+5. Továbbfejlesztett akusztikus ujjlenyomat-felismerés, jelentősen jobb dalazonosítási sikeraránnyal.
+6. Újratervezett kezdő útmutató az alkalmazás funkcióinak megismeréséhez.
+7. Újjáépített Navidrome-modul a megújult zeneiszerver-élményért.
+8. Frissített adatvédelmi szabályzat és felhasználási feltételek.
+9. További ismert hibák javítása.
+
+Ha problémát tapasztalsz, írj nekünk: support@kakainc.com.

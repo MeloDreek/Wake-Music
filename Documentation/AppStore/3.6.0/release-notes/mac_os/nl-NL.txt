@@ -1,0 +1,12 @@
+◆◆◆ Grote update
+
+1. Ondersteuning toegevoegd voor pCloud, Box, MEGA, Yandex Disk, SMB, FTP en de clouddiensten 123 en Guangya.
+2. Nieuwe 10-bands EQ om het geluid naar wens af te stellen.
+3. Nieuwe audiospectrumanalyse om de frequentiekenmerken van je audio te bekijken.
+4. Verbeterde herkenning via audiofingerprinting, met een aanzienlijk hoger slagingspercentage bij het herkennen van nummers.
+5. Een vernieuwde introductie om de functies van de app te ontdekken.
+6. De Navidrome-module is opnieuw opgebouwd voor een vernieuwde muziekserverervaring.
+7. Privacybeleid en gebruiksvoorwaarden bijgewerkt.
+8. Andere bekende problemen opgelost.
+
+Loop je tegen een probleem aan? Mail ons op support@kakainc.com.

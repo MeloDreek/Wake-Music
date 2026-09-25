@@ -1,0 +1,423 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>维克音乐 · App Store 3.6.0 · 简体中文</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --paper: #141310;
+      --ivory: #f2efe8;
+      --muted: #aaa69e;
+      --amber: #deb681;
+      --contact-scale: .26;
+      font-family: "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", -apple-system, BlinkMacSystemFont, sans-serif;
+      font-synthesis: none;
+      -webkit-font-smoothing: antialiased;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body { background: #080808; color: var(--ivory); }
+    .sheet { display: grid; grid-template-columns: 1242px; gap: 64px; width: max-content; }
+    .screenshot {
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      width: 1242px;
+      height: 2688px;
+      background: var(--paper);
+    }
+    .screenshot::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      inset: 0;
+      background: radial-gradient(ellipse at 90% 28%, #5544312e 0, transparent 53%),
+                  linear-gradient(140deg, #24231e 0, #141310 42%, #10100e 100%);
+    }
+    .brand {
+      position: absolute;
+      top: 104px;
+      left: 100px;
+      display: flex;
+      align-items: center;
+      gap: 19px;
+      z-index: 5;
+      font-size: 37px;
+      line-height: 1;
+      letter-spacing: 3px;
+      font-weight: 550;
+      color: #e0dcd4;
+    }
+    .brand img { width: 57px; height: 57px; border-radius: 14px; }
+    .page-number {
+      position: absolute;
+      top: 120px;
+      right: 100px;
+      z-index: 5;
+      color: #8c8578;
+      font-size: 24px;
+      font-weight: 400;
+      letter-spacing: 4px;
+      font-variant-numeric: tabular-nums;
+    }
+    .page-number::before { content: ""; display: inline-block; width: 37px; height: 1px; background: #756a57; vertical-align: middle; margin: 0 17px 5px 0; }
+    .copy { position: absolute; top: 275px; left: 100px; right: 76px; z-index: 4; }
+    .eyebrow { margin: 0 0 31px; color: var(--amber); font-size: 29px; letter-spacing: 7px; line-height: 1.3; font-weight: 450; }
+    h1 { margin: 0; font-size: 118px; line-height: 1.22; letter-spacing: -4px; font-weight: 620; color: var(--ivory); }
+    h1 span { display: block; }
+    .subhead { margin: 31px 0 0; font-size: 34px; line-height: 1.65; font-weight: 400; letter-spacing: .3px; color: #bdb8af; white-space: nowrap; }
+    .subhead .dot { color: #8d7350; margin: 0 6px; }
+    .ambient {
+      position: absolute;
+      left: -180px;
+      top: 1000px;
+      width: 1600px;
+      height: 1500px;
+      border-radius: 50%;
+      opacity: .55;
+      background: radial-gradient(ellipse at center, #947d4c26 0, #55473213 40%, transparent 68%);
+      z-index: -1;
+    }
+
+    /* All UI below is an original screenshot. The only additions are device
+       hardware, the captured UIKit batch header, and optional artwork blur. */
+    .device {
+      --screen-width: 860px;
+      --ui-scale: .65151515151515;
+      position: absolute;
+      z-index: 3;
+      width: calc(var(--screen-width) + 28px);
+      left: 177px;
+      top: 748px;
+      padding: 14px;
+      border-radius: var(--outer-radius, 117px);
+      background: linear-gradient(112deg, #b3b3ad 0%, #383936 7%, #9b9c95 10%, #52524c 12%, #20221f 30%, #393a34 70%, #a09f95 91%, #33352f 95%, #a8a79f 100%);
+      box-shadow: inset 0 0 0 2px #e1ddd18a,
+                  inset 0 0 0 5px #151713,
+                  0 22px 10px #0000003b,
+                  0 90px 150px #0000008a;
+    }
+    .device::before {
+      content: "";
+      position: absolute;
+      inset: 7px;
+      border: 1px solid #93958c96;
+      border-radius: calc(var(--outer-radius, 117px) - 7px);
+      pointer-events: none;
+    }
+    .device::after {
+      content: "";
+      position: absolute;
+      inset: 13px;
+      border: 2px solid #020302;
+      border-radius: calc(var(--outer-radius, 117px) - 13px);
+      pointer-events: none;
+    }
+    .screen {
+      position: relative;
+      width: var(--screen-width);
+      aspect-ratio: 1320 / 2868;
+      overflow: hidden;
+      border-radius: calc(var(--outer-radius, 117px) - 14px);
+      background: #111311;
+    }
+    .screen-content {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1320px;
+      height: 2868px;
+      transform: scale(var(--ui-scale));
+      transform-origin: top left;
+    }
+    .raw-ui { display: block; position: absolute; left: 0; top: 0; width: 1320px; height: 2868px; object-fit: contain; }
+    .island {
+      position: absolute;
+      top: 21px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: calc(var(--screen-width) * .21860465);
+      height: calc(var(--screen-width) * .05930232);
+      border-radius: 30px;
+      z-index: 8;
+      background: #020302;
+      box-shadow: inset 0 0 0 1px #000;
+    }
+    .island::after { content: ""; position: absolute; right: 10.6%; top: 31%; width: 9%; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle at 39% 39%, #263346, #0c121a 43%, #000 68%); }
+    .button { position: absolute; display: block; width: 5px; background: linear-gradient(90deg,#9d9e97,#232621); border-radius: 3px; }
+    .button-silent { left: -4px; top: 11.3%; height: 2.85%; }
+    .button-up { left: -4px; top: 17.08%; height: 5.75%; }
+    .button-down { left: -4px; top: 24.57%; height: 5.75%; }
+    .button-power { right: -4px; top: 18.72%; height: 9.12%; }
+
+    /* Blur coordinates use the ORIGINAL 1320×2868 screenshot coordinates.
+       Keep each span only as large as the album/artist artwork; never whole UI.
+       Example: style="--x: 80px; --y: 600px; --w: 150px; --h: 150px".
+       Screenshot 03 already has an app-generated blurred artwork background. */
+    .artwork-blur {
+      position: absolute;
+      z-index: 4;
+      left: var(--x, 0px);
+      top: var(--y, 0px);
+      width: var(--w, 0px);
+      height: var(--h, 0px);
+      border-radius: var(--radius, 16px);
+      overflow: hidden;
+      pointer-events: none;
+    }
+    /* A filtered duplicate of the exact screenshot survives native WebKit
+       snapshots, where backdrop-filter can disappear. The parent clips the
+       duplicate strictly to the artwork shape; all UI outside stays sharp. */
+    .artwork-blur::before {
+      content: "";
+      position: absolute;
+      left: calc(var(--x, 0px) * -1);
+      top: calc(var(--y, 0px) * -1);
+      width: 1320px;
+      height: 2868px;
+      background-image: var(--blur-source);
+      background-size: 1320px 2868px;
+      background-repeat: no-repeat;
+      filter: blur(var(--blur, 22px));
+    }
+    .artwork-blur::after { content: ""; position: absolute; inset: 0; background: var(--blur-tint, #766e6340); }
+
+    /* 01 · Editorial cover / original sound sculpture. */
+    .hero::before { background: radial-gradient(ellipse at 50% 38%, #59432b35, transparent 55%), #15130f; }
+    .hero .copy { top: 278px; }
+    .hero h1 { font-size: 125px; line-height: 1.18; letter-spacing: -5px; }
+    .hero .subhead { margin-top: 39px; }
+    .hero-art {
+      position: absolute;
+      z-index: -1;
+      width: 1242px;
+      height: 1863px;
+      left: 0;
+      top: 285px;
+      object-fit: contain;
+      -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 13%, #000 66%, transparent 97%);
+      mask-image: linear-gradient(to bottom, transparent 0%, #000 13%, #000 66%, transparent 97%);
+    }
+    .hero .offline-note {
+      position: absolute;
+      top: 1589px;
+      left: 100px;
+      right: 100px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      color: #c4b29a;
+      font-size: 29px;
+      letter-spacing: 3px;
+    }
+    .offline-note::before, .offline-note::after { content: ""; height: 1px; background: linear-gradient(90deg, transparent, #665037); flex: 1; }
+    .offline-note::after { transform: rotate(180deg); }
+    .sources { position: absolute; left: 100px; right: 100px; top: 1735px; }
+    .source-label { margin: 0 0 43px; color: #a3937e; font-size: 28px; letter-spacing: 5px; font-weight: 450; }
+    .domestic { display: grid; grid-template-columns: repeat(4,1fr); gap: 20px; }
+    .service { display: flex; align-items: center; }
+    .domestic .service { flex-direction: column; gap: 22px; }
+    .service img { object-fit: contain; }
+    .domestic img { width: 100px; height: 100px; filter: drop-shadow(0 10px 17px #00000050); }
+    .domestic .service-name { font-size: 34px; color: #ded9d0; letter-spacing: 1px; }
+    .nas { margin-top: 65px; padding: 48px 0 51px; border-top: 1px solid #89785840; border-bottom: 1px solid #89785840; }
+    .nas .source-label { margin-bottom: 31px; }
+    .nas-services { display: flex; justify-content: space-between; align-items: center; }
+    .nas .service { gap: 23px; }
+    .nas img { width: 64px; height: 64px; }
+    .nas .service-name { font-size: 35px; font-weight: 450; letter-spacing: -.5px; }
+    .global { display: flex; justify-content: space-between; align-items: center; margin-top: 43px; }
+    .global .service { gap: 13px; }
+    .global img { width: 40px; height: 40px; opacity: .9; }
+    .global .service-name { font-size: 27px; letter-spacing: -.5px; color: #afa99e; }
+
+    /* 02 · Sound controls. A quiet brass halo references the real EQ accent. */
+    .equalizer .ambient { left: -20px; top: 1150px; background: radial-gradient(ellipse at center, #a081392e 0, #6d4a1720 33%, transparent 68%); }
+    .equalizer .device { transform: rotate(-1.1deg); }
+    .equalizer .copy { top: 267px; }
+
+    /* 03 · Immersive lyrics. The screenshot itself supplies the blurred cover. */
+    .lyrics::before { background: radial-gradient(ellipse at 65% 58%, #71665330, transparent 66%), linear-gradient(140deg, #25231e, #141310 50%, #151411); }
+    .lyrics .device-artwork {
+      --screen-width: 608px;
+      --ui-scale: .46060606060606;
+      --outer-radius: 85px;
+      left: 78px;
+      top: 828px;
+      transform: rotate(-6deg);
+      z-index: 2;
+    }
+    .lyrics .device-lyrics {
+      --screen-width: 720px;
+      --ui-scale: .54545454545455;
+      --outer-radius: 101px;
+      left: 398px;
+      top: 1035px;
+      transform: rotate(3deg);
+      z-index: 3;
+    }
+    .lyrics .device-artwork .island { top: 15px; }
+    .lyrics .device-lyrics .island { top: 18px; }
+    .lyrics .cover-blur { --x: 164px; --y: 638px; --w: 992px; --h: 992px; --radius: 50%; --blur: 35px; --blur-tint: #766e6326; --blur-source: url("raw/artwork-player.png"); }
+
+    /* 04 · The transparent 1200×540 header comes from the real UIKit view.
+       Its inner card bounds are (15,23,1170,495), matching the old card exactly
+       after placement at (60,348). The source view shows simulated 4/9 progress. */
+    .batch .screen-content { --batch-header-x: 60px; --batch-header-y: 348px; }
+    .batch-header-reset { position: absolute; z-index: 1; left: 0; top: 340px; width: 1320px; height: 550px; background: #f2f2f7; }
+    .batch-header { position: absolute; z-index: 2; width: 1200px; height: 540px; left: var(--batch-header-x); top: var(--batch-header-y); object-fit: contain; }
+    .batch .artwork-blur { --blur-source: url("raw/batch-list.png"); }
+    .batch .list-cover-blur { --x: 105px; --w: 132px; --h: 132px; --radius: 12px; --blur: 22px; }
+    .batch .mini-cover-blur { --x: 119px; --y: 2441px; --w: 147px; --h: 147px; --radius: 50%; --blur: 22px; }
+    .cover-blur, .mini-cover-blur { clip-path: circle(50% at 50% 50%); }
+    .batch .device { transform: rotate(-.7deg); }
+    .batch h1 { font-size: 112px; }
+
+    /* 05 · Source onboarding is intact, including all supported formats. */
+    .formats::before { background: radial-gradient(ellipse at 56% 65%, #64548128, transparent 64%), linear-gradient(145deg, #24221f, #151310 43%, #131211); }
+    .formats .device { transform: rotate(.9deg); }
+    .formats h1 { font-size: 112px; }
+    .formats .subhead { font-size: 33px; }
+
+    /* 06 · Faint engraved rules echo a studio measurement surface. */
+    .spectrum::after {
+      content: "";
+      position: absolute;
+      inset: 900px -150px 80px;
+      z-index: -1;
+      opacity: .23;
+      background: repeating-linear-gradient(0deg, transparent 0 91px, #a494702b 91px 92px);
+      -webkit-mask-image: radial-gradient(ellipse, #000, transparent 72%);
+      mask-image: radial-gradient(ellipse, #000, transparent 72%);
+    }
+    .spectrum .device { transform: rotate(-.7deg); }
+
+    /* Review only: ?view=contact. Individual captures target #shot-01 … #shot-06.
+       No controls or presentation furniture are inside the export canvases. */
+    body.contact { padding: 28px; }
+    body.contact .sheet { grid-template-columns: repeat(3,calc(1242px * var(--contact-scale))); gap: 24px; }
+    body.contact .shot-wrap { width: calc(1242px * var(--contact-scale)); height: calc(2688px * var(--contact-scale)); }
+    body.contact .screenshot { transform: scale(var(--contact-scale)); transform-origin: top left; }
+    body.single .sheet { display: block; }
+    body.single .shot-wrap { display: none; }
+    body.single .shot-wrap.selected { display: block; }
+    @media print {
+      @page { size: 1242px 2688px; margin: 0; }
+      body { padding: 0 !important; }
+      .sheet { display: block !important; }
+      .shot-wrap { width: 1242px !important; height: 2688px !important; break-after: page; }
+      .screenshot { transform: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <main class="sheet" aria-label="维克音乐 App Store 六张宣传截图">
+    <div class="shot-wrap">
+      <article class="screenshot hero" id="shot-01" data-page="1" aria-label="无网，也有好音乐。">
+        <div class="brand"><img src="assets/app-icon.png" alt="维克音乐图标"><span>维克音乐</span></div>
+        <span class="page-number">01</span>
+        <div class="copy">
+          <p class="eyebrow">随身音乐库</p>
+          <h1><span>无网，</span><span>也有好音乐。</span></h1>
+          <p class="subhead">本地收藏<span class="dot">·</span>网盘串流<span class="dot">·</span>NAS 音乐库</p>
+        </div>
+        <img class="hero-art" src="assets/audio-sculpture.png" alt="原创金属音波雕塑">
+        <div class="offline-note">下载到本地，无网也能听</div>
+        <div class="sources">
+          <p class="source-label">连接你的网盘</p>
+          <div class="domestic">
+            <div class="service"><img src="assets/baidu.png" alt=""><span class="service-name">百度网盘</span></div>
+            <div class="service"><img src="assets/aliyun.png" alt=""><span class="service-name">阿里云盘</span></div>
+            <div class="service"><img src="assets/pan123.png" alt=""><span class="service-name">123 网盘</span></div>
+            <div class="service"><img src="assets/pan115.png" alt=""><span class="service-name">115 网盘</span></div>
+          </div>
+          <div class="nas">
+            <p class="source-label">也连接你的 NAS</p>
+            <div class="nas-services">
+              <div class="service"><img src="assets/webdav.png" alt=""><span class="service-name">WebDAV</span></div>
+              <div class="service"><img src="assets/navidrome.png" alt=""><span class="service-name">Navidrome</span></div>
+              <div class="service"><img src="assets/smb.png" alt=""><span class="service-name">SMB</span></div>
+            </div>
+          </div>
+          <div class="global">
+            <div class="service"><img src="assets/google-drive.png" alt=""><span class="service-name">Google Drive</span></div>
+            <div class="service"><img src="assets/mega.png" alt=""><span class="service-name">MEGA</span></div>
+            <div class="service"><img src="assets/box.png" alt=""><span class="service-name">Box</span></div>
+            <div class="service"><img src="assets/pcloud.png" alt=""><span class="service-name">pCloud</span></div>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <div class="shot-wrap">
+      <article class="screenshot equalizer" id="shot-02" data-page="2" aria-label="好声音，自己调。">
+        <div class="brand"><img src="assets/app-icon.png" alt="维克音乐图标"><span>维克音乐</span></div><span class="page-number">02</span>
+        <div class="copy"><p class="eyebrow">让听感更合心意</p><h1><span>好声音，</span><span>自己调。</span></h1><p class="subhead">10 段均衡器<span class="dot">·</span>丰富预设<span class="dot">·</span>自定义音色</p></div>
+        <div class="ambient"></div>
+        <div class="device"><i class="button button-silent"></i><i class="button button-up"></i><i class="button button-down"></i><i class="button button-power"></i><div class="screen"><div class="screen-content"><img class="raw-ui" src="raw/equalizer.png" alt="真实 App 界面：10 段均衡器及音色预设"></div><div class="island"></div></div></div>
+      </article>
+    </div>
+
+    <div class="shot-wrap">
+      <article class="screenshot lyrics" id="shot-03" data-page="3" aria-label="每一句，都有共鸣。">
+        <div class="brand"><img src="assets/app-icon.png" alt="维克音乐图标"><span>维克音乐</span></div><span class="page-number">03</span>
+        <div class="copy"><p class="eyebrow">听见，也读懂</p><h1><span>每一句，</span><span>都有共鸣。</span></h1><p class="subhead">沉浸歌词<span class="dot">·</span>内嵌封面</p></div>
+        <div class="ambient"></div>
+        <div class="device device-artwork"><i class="button button-silent"></i><i class="button button-up"></i><i class="button button-down"></i><i class="button button-power"></i><div class="screen"><div class="screen-content"><img class="raw-ui" src="raw/artwork-player.png" alt="真实 App 界面：专辑封面播放器"><span class="artwork-blur cover-blur" aria-hidden="true"></span></div><div class="island"></div></div></div>
+        <div class="device device-lyrics"><i class="button button-silent"></i><i class="button button-up"></i><i class="button button-down"></i><i class="button button-power"></i><div class="screen"><div class="screen-content"><img class="raw-ui" src="raw/lyrics.png" alt="真实 App 界面：沉浸歌词与模糊封面背景"></div><div class="island"></div></div></div>
+      </article>
+    </div>
+
+    <div class="shot-wrap">
+      <article class="screenshot batch" id="shot-04" data-page="4" aria-label="识别一次，永久珍藏。">
+        <div class="brand"><img src="assets/app-icon.png" alt="维克音乐图标"><span>维克音乐</span></div><span class="page-number">04</span>
+        <div class="copy"><p class="eyebrow">把收藏整理完整</p><h1><span>识别一次，</span><span>永久珍藏。</span></h1><p class="subhead">音频指纹识别<span class="dot">·</span>批量内嵌元数据</p></div>
+        <div class="ambient"></div>
+        <div class="device"><i class="button button-silent"></i><i class="button button-up"></i><i class="button button-down"></i><i class="button button-power"></i><div class="screen"><div class="screen-content"><img class="raw-ui" src="raw/batch-list.png" alt="真实 App 界面：音乐列表"><span class="batch-header-reset" aria-hidden="true"></span><img class="batch-header" src="raw/batch-header.png" alt="实际 UIKit 批量识别进度视图">
+          <span class="artwork-blur list-cover-blur" style="--y:1038px" aria-hidden="true"></span>
+          <span class="artwork-blur list-cover-blur" style="--y:1242px" aria-hidden="true"></span>
+          <span class="artwork-blur list-cover-blur" style="--y:1446px" aria-hidden="true"></span>
+          <span class="artwork-blur list-cover-blur" style="--y:1650px" aria-hidden="true"></span>
+          <span class="artwork-blur list-cover-blur" style="--y:1854px" aria-hidden="true"></span>
+          <span class="artwork-blur list-cover-blur" style="--y:2058px" aria-hidden="true"></span>
+          <span class="artwork-blur list-cover-blur" style="--y:2262px" aria-hidden="true"></span>
+          <span class="artwork-blur mini-cover-blur" aria-hidden="true"></span>
+        </div><div class="island"></div></div></div>
+      </article>
+    </div>
+
+    <div class="shot-wrap">
+      <article class="screenshot formats" id="shot-05" data-page="5" aria-label="喜欢的格式，尽管听。">
+        <div class="brand"><img src="assets/app-icon.png" alt="维克音乐图标"><span>维克音乐</span></div><span class="page-number">05</span>
+        <div class="copy"><p class="eyebrow">兼容更多音乐格式</p><h1><span>喜欢的格式，</span><span>尽管听。</span></h1><p class="subhead">从 MP3、FLAC 到 DSD，收藏不设限。</p></div>
+        <div class="ambient"></div>
+        <div class="device"><i class="button button-silent"></i><i class="button button-up"></i><i class="button button-down"></i><i class="button button-power"></i><div class="screen"><div class="screen-content"><img class="raw-ui" src="raw/onboarding-formats.png" alt="真实 App 界面：支持 FLAC、MP3、WAV、DSF、DFF 等音频格式"></div><div class="island"></div></div></div>
+      </article>
+    </div>
+
+    <div class="shot-wrap">
+      <article class="screenshot spectrum" id="shot-06" data-page="6" aria-label="让声音，看得见。">
+        <div class="brand"><img src="assets/app-icon.png" alt="维克音乐图标"><span>维克音乐</span></div><span class="page-number">06</span>
+        <div class="copy"><p class="eyebrow">音乐里的每一处细节</p><h1><span>让声音，</span><span>看得见。</span></h1><p class="subhead">真实音频频谱<span class="dot">·</span>专业参数<span class="dot">·</span>一键分享</p></div>
+        <div class="ambient"></div>
+        <div class="device"><i class="button button-silent"></i><i class="button button-up"></i><i class="button button-down"></i><i class="button button-power"></i><div class="screen"><div class="screen-content"><img class="raw-ui" src="raw/spectrum.png" alt="真实 App 界面：音频频谱与参数"><!-- Add artwork-blur spans here using original screenshot coordinates when required. --></div><div class="island"></div></div></div>
+      </article>
+    </div>
+  </main>
+  <script>
+    const params = new URLSearchParams(location.search);
+    if (params.get('view') === 'contact') document.body.classList.add('contact');
+    const page = params.get('page');
+    if (/^[1-6]$/.test(page || '')) {
+      document.body.classList.add('single');
+      document.querySelector('[data-page="' + page + '"]').parentElement.classList.add('selected');
+    }
+    // Read-only export readiness: wait for this flag before the PNG capture.
+    Promise.all([...document.images].map(img => img.complete ? Promise.resolve() : new Promise(resolve => { img.onload = resolve; img.onerror = resolve; })))
+      .then(() => document.fonts.ready)
+      .then(() => { window.screenshotReady = true; });
+  </script>
+</body>
+</html>

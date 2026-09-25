@@ -67,15 +67,18 @@ module AppDescriptionSync
 
   class Client < PurchaseLocalizationSync::Client
     attr_accessor :allowed_ids
+    def metadata_field
+      'description'
+    end
     def request(method, path, body = nil)
       return super if method == 'GET'
       id = path.delete_prefix('/v1/appStoreVersionLocalizations/')
       data = body && body['data']
       unless method == 'PATCH' && path == "/v1/appStoreVersionLocalizations/#{id}" && Array(allowed_ids).include?(id) &&
              body.keys == ['data'] && data.keys.sort == %w[attributes id type] && data['id'] == id &&
-             data['type'] == 'appStoreVersionLocalizations' && data['attributes'].keys == ['description'] &&
-             data['attributes']['description'].is_a?(String) && data['attributes']['description'].length.between?(1, 4000)
-        raise Error, 'Only discovered description PATCH requests are permitted.'
+             data['type'] == 'appStoreVersionLocalizations' && data['attributes'].keys == [metadata_field] &&
+             data['attributes'][metadata_field].is_a?(String) && data['attributes'][metadata_field].length.between?(1, 4000)
+        raise Error, "Only discovered #{metadata_field} PATCH requests are permitted."
       end
       uri = URI("#{ORIGIN}#{path}")
       req = Net::HTTP::Patch.new(uri)
@@ -112,7 +115,9 @@ module AppDescriptionSync
     version
   end
 
-  def self.sync(c, texts, output, apply)
+  def self.sync(c, texts, output, apply, field: 'description', variant_index: 4)
+    raise Error, 'Unsupported metadata field or variant.' unless %w[description whatsNew].include?(field) && [2,4].include?(variant_index)
+    raise Error, 'Client field mismatch.' if c.respond_to?(:metadata_field) && c.metadata_field != field
     raise Error, 'Output must not already exist.' if File.exist?(output)
     FileUtils.mkdir_p(output, mode: 0700)
     snapshot = TARGETS.map do |target|
@@ -126,9 +131,9 @@ module AppDescriptionSync
     plan = snapshot.flat_map do |s|
       s['localizations'].map do |l|
         locale = l.dig('attributes', 'locale')
-        text = texts.fetch(locale).fetch(s['target'][4])
-        { 'versionId'=>s['target'][3], 'id'=>l['id'], 'locale'=>locale, 'description'=>text,
-          'action'=>l.dig('attributes','description') == text ? 'unchanged' : 'update' }
+        text = texts.fetch(locale).fetch(s['target'][variant_index])
+        { 'versionId'=>s['target'][3], 'id'=>l['id'], 'locale'=>locale, field=>text,
+          'action'=>l.dig('attributes',field) == text ? 'unchanged' : 'update' }
       end
     end
     save(output, 'plan.json', plan)
@@ -145,7 +150,7 @@ module AppDescriptionSync
           raise Error, 'Concurrent metadata change; stopped.' unless latest['attributes'] == old['attributes']
           if p['action'] == 'update'
             c.request('PATCH', "/v1/appStoreVersionLocalizations/#{p['id']}",
-                      { 'data'=>{ 'type'=>'appStoreVersionLocalizations', 'id'=>p['id'], 'attributes'=>{ 'description'=>p['description'] } } })
+                      { 'data'=>{ 'type'=>'appStoreVersionLocalizations', 'id'=>p['id'], 'attributes'=>{ field=>p[field] } } })
           end
           completed << p.slice('versionId','id','locale','action')
           puts "#{completed.length}/#{plan.length} #{s['target'][4]} #{s['target'][2]} #{p['locale']}"
@@ -158,13 +163,13 @@ module AppDescriptionSync
         raise Error, 'Localization set changed.' unless rows.map { |l| l['id'] }.sort == s['localizations'].map { |l| l['id'] }.sort
         rows.each do |r|
           before = s['localizations'].find { |l| l['id'] == r['id'] }
-          expected = before.fetch('attributes').merge('description'=>texts.fetch(r.dig('attributes','locale')).fetch(s['target'][4]))
+          expected = before.fetch('attributes').merge(field=>texts.fetch(r.dig('attributes','locale')).fetch(s['target'][variant_index]))
           raise Error, "Verification mismatch: #{r['id']}" unless r['attributes'] == expected
         end
         { 'target'=>s['target'], 'localizations'=>rows }
       end
       save(output, 'verified.json', verified)
-      puts 'VERIFIED: 156 descriptions. No other metadata changed. Not submitted.'
+      puts "VERIFIED: #{plan.length} #{field} values. No other metadata changed. Not submitted."
     ensure
       save(output, 'completed.json', completed)
     end

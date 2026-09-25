@@ -1,0 +1,12 @@
+◆◆◆ Pembaruan besar
+
+1. Menambahkan dukungan untuk pCloud, Box, MEGA, Yandex Disk, SMB, FTP, serta cloud 123 dan Guangya.
+2. EQ 10 band baru untuk menyesuaikan suara dengan selera Anda.
+3. Analisis spektrum audio baru untuk menjelajahi karakteristik frekuensi audio.
+4. Pengenalan sidik jari audio ditingkatkan, dengan tingkat keberhasilan identifikasi lagu yang jauh lebih tinggi.
+5. Panduan awal didesain ulang untuk membantu Anda mengenal fitur aplikasi.
+6. Modul Navidrome dibangun ulang untuk pengalaman server musik yang lebih segar.
+7. Memperbarui Kebijakan Privasi dan Ketentuan Penggunaan.
+8. Memperbaiki masalah lain yang diketahui.
+
+Jika mengalami kendala, hubungi kami di support@kakainc.com.
