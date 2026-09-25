@@ -29,6 +29,29 @@ For Waketag or another app, add this SDK directory as a local Swift package and 
 
 ## Verification
 
+### Mac Catalyst archive dependency repair (2026-09-25)
+
+The vendor curl 8.1.2 Intel Catalyst slice references `nghttp2_*` and `idn2_*`
+without bundling those dependencies. This breaks universal Release archives even
+when an arm64-only Debug build succeeds. The bootstrap now runs
+`LocalSDK/MEGASDK/tools/wake-rebuild-curl-catalyst.sh`: it checksum-verifies the
+official curl 8.1.2 source, disables optional unbundled dependencies, and replaces
+only the x86_64 Catalyst slice. The arm64 slice is verified byte-for-byte unchanged;
+device, simulator and native macOS binaries are not replaced. SecureTransport TLS,
+certificate verification, HTTPS and zlib remain enabled. No MEGA login credentials
+or crypto implementation are changed. HTTP/2 is not enabled in this slice, matching
+the existing arm64 Catalyst binary's HTTP/1.1-only configuration.
+
+`bash Tests/MEGA/check-curl-catalyst.sh` force-links every curl archive object for
+both architectures and performs a credential-free, offline arm64 runtime check.
+This is a build regression check, not a full MEGA service/login test.
+
+Verified after repair: both slices force-linked and initialized curl/TLS (Intel via
+Rosetta), all 40 existing model/sorting/proxy checks passed, and `Mobie` Release
+Mac Catalyst Archive 3.6.0 (52) succeeded with both arm64 and x86_64. The archived
+application also passed `codesign --verify --deep --strict`. No App Store upload
+or export was performed.
+
 2026-09-12: diagnosed a direct-connection timeout while the Mac browser used its
 existing proxy. After the proxy bridge and per-instance database initialization,
 the authorized test account logged in and listed its real folders/audio files on

@@ -58,7 +58,9 @@ build_arch_platform() {
     HOST="${ARCH}-apple-darwin"
   fi
   
-  ./configure --prefix="${PREFIX}" --host=${HOST} --enable-static --disable-shared --with-secure-transport --with-zlib --disable-manual --disable-ftp --disable-file --disable-ldap --disable-ldaps --disable-rtsp --disable-dict --disable-telnet --disable-tftp --disable-pop3 --disable-imap --disable-smtp --disable-gopher --disable-sspi --enable-ipv6 --disable-smb --without-brotli --without-zstd
+  # These optional libraries are not shipped in Package.swift. Auto-detection can
+  # pick up host packages and produce an archive that only links on that machine.
+  ./configure --prefix="${PREFIX}" --host=${HOST} --enable-static --disable-shared --with-secure-transport --with-zlib --disable-manual --disable-ftp --disable-file --disable-ldap --disable-ldaps --disable-rtsp --disable-dict --disable-telnet --disable-tftp --disable-pop3 --disable-imap --disable-smtp --disable-gopher --disable-sspi --enable-ipv6 --disable-smb --without-brotli --without-zstd --without-nghttp2 --without-libidn2 --without-libpsl
 
   make -j${CORES}
   make install
@@ -155,5 +157,4 @@ main() {
 
 # Run the main build process
 main
-
 

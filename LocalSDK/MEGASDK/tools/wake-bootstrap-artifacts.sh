@@ -26,3 +26,7 @@ libuv 97e387c71773766d0673634a3688550226b0ca5ea0ce0fb0c4a66a7e99ddb6a7
 libmediainfo d6fa1c5feb6282057a9b4313e77dec9a4d40d5b4a49c62a6e209fb46951a351c
 libzen 520bd9579d6174c7e4b2eb989b48429961e6bb10e057119db17f8967dfe9b5a2
 MEGA_DEPENDENCIES
+
+# Upstream's Intel Catalyst curl accidentally references unbundled nghttp2/idn2.
+# Reapply the deterministic source rebuild after extracting the verified vendor zip.
+bash "$task_sdk/tools/wake-rebuild-curl-catalyst.sh"
