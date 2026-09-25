@@ -538,6 +538,7 @@ private final class PurchaseFamilySharingFooter: UITableViewHeaderFooterView {
         let title = (isEnabled ? "Purchase.DisableFamilySharing" : "Purchase.EnableFamilySharing").localStr()
         toggleButton.configuration?.attributedTitle = AttributedString(NSAttributedString(string: title, attributes: [
             .font: UIFont.preferredFont(forTextStyle: .footnote),
+            .foregroundColor: UIColor.systemBackground,
             .underlineStyle: NSUnderlineStyle.single.rawValue
         ]))
         toggleButton.isEnabled = !isPurchasing

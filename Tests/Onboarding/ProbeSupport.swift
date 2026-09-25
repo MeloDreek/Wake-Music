@@ -54,7 +54,13 @@ class ReachabilitySwift {
 extension Notification.Name { static let reachabilitySwiftChanged = Notification.Name("fixture.network") }
 class AnalyticsManager { static let shared = AnalyticsManager(); func logEvent(_ event: String) {} }
 class AppleSearchAdsManager { static let shared = AppleSearchAdsManager(); func handleASAAttribution() {} }
-func kaka_IsMacOS() -> Bool { false }
+func kaka_IsMacOS() -> Bool {
+#if targetEnvironment(macCatalyst)
+    return true
+#else
+    return false
+#endif
+}
 let kPrivacyUrl = "https://example.com/privacy"
 let kUseItemUrl = "https://example.com/terms"
 enum ProgressHUD { static func dismiss() {}; static func animate(_ text: String) {} }
@@ -66,6 +72,7 @@ class StoreProduct {
     var productIdentifier = PurchaseStoreID.monthly.rawValue
     var introductoryDiscount: Discount?
     var localizedPriceString = "¥8.00"
+    var paywallTitle: String { "Purchase.Monthly.Title".localStr() }
     var paywallBillingSummary: String { localizedPriceString + " / 月" }
 }
 struct Eligibility { enum Status { case eligible, ineligible, unknown }; let status: Status }

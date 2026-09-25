@@ -20,6 +20,37 @@ func descendants(_ view: UIView) -> [UIView] { [view] + view.subviews.flatMap(de
         }
         let product = StoreProduct()
         AppStoreKitManager.products = [product]
+        // Exercise the actual Continue action (not just direct scrollToItem), then
+        // repeatedly resize the same controller as a Catalyst window would resize.
+        for rtl in [false, true] {
+            let paging = WelcomeViewController()
+            paging.view.semanticContentAttribute = rtl ? .forceRightToLeft : .forceLeftToRight
+            layout(paging, width: 1000, height: 760)
+            precondition(paging.overrideUserInterfaceStyle == .unspecified, "Welcome must not force dark mode")
+            for expected in 1...3 {
+                paging.nextButtonClick()
+                RunLoop.main.run(until: Date().addingTimeInterval(0.6))
+                for size in [CGSize(width: 680, height: 520), CGSize(width: 1400, height: 900), CGSize(width: 880, height: 660)] {
+                    layout(paging, width: size.width, height: size.height)
+                    let viewport = paging.collectionView.bounds
+                    let center = CGPoint(x: viewport.midX, y: viewport.midY)
+                    precondition(paging.currentIndex == expected, "RTL=\(rtl) expected=\(expected) actual=\(paging.currentIndex) viewport=\(viewport) itemSize=\(paging.flowLayout.itemSize) contentSize=\(paging.collectionView.contentSize)")
+                    precondition(paging.collectionView.indexPathForItem(at: center)?.item == expected, "Continue must display the selected page")
+                    let frame = paging.flowLayout.layoutAttributesForItem(at: IndexPath(item: expected, section: 0))!.frame
+                    precondition(frame.size == viewport.size, "Page must match the live window viewport")
+                }
+            }
+            // A delayed native animation/resize callback must not replace the
+            // requested page; a genuine drag should still update the indicator.
+            let target = IndexPath(item: 1, section: 0)
+            paging.collectionView.scrollToItem(at: target, at: .centeredHorizontally, animated: false)
+            paging.scrollViewDidEndScrollingAnimation(paging.collectionView)
+            precondition(paging.currentIndex == 3, "Ignore stale programmatic completion")
+            paging.scrollViewWillBeginDragging(paging.collectionView)
+            paging.scrollViewDidEndDragging(paging.collectionView, willDecelerate: false)
+            precondition(paging.currentIndex == 1, "User scrolling must update the selected page")
+        }
+        print("PASS Continue navigation and repeated live resizing, LTR/RTL, no forced dark mode")
         for locale in ["zh-Hans", "en", "de", "ar"] {
             fixtureLocale = locale
             for size in [CGSize(width: 320, height: 568), CGSize(width: 440, height: 860), CGSize(width: 820, height: 650)] {

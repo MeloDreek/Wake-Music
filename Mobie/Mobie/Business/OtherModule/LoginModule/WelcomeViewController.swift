@@ -22,6 +22,7 @@ class WelcomeViewController: SuperViewController {
     private let gradient = CAGradientLayer()
     private let footer = UIStackView()
     private var lastCollectionSize = CGSize.zero
+    private var isUserPaging = false
     private var reachability: ReachabilitySwift?
     private var hasLoggedFirstOpen = false
 
@@ -53,7 +54,7 @@ class WelcomeViewController: SuperViewController {
 
     override func preSetupHandleBuness() {
         super.preSetupHandleBuness()
-        overrideUserInterfaceStyle = .dark
+        // The artwork supplies its own colors; don't override the user's appearance.
         modalPresentationStyle = .fullScreen
         // Onboarding is informational: do not reset settings, change player style or auto-play.
         if !hasLoggedFirstOpen {
@@ -80,14 +81,15 @@ class WelcomeViewController: SuperViewController {
         CATransaction.setDisableActions(true)
         gradient.frame = view.bounds
         CATransaction.commit()
+        // SuperViewController sizes contentView with a frame. Resolve its children's
+        // constraints before reading the viewport, especially during live Mac resizing.
+        contentView.layoutIfNeeded()
         let size = collectionView.bounds.size
         guard size.width > 0, size.height > 0, size != lastCollectionSize else { return }
         lastCollectionSize = size
-        flowLayout.itemSize = size
         flowLayout.invalidateLayout()
         collectionView.layoutIfNeeded()
-        collectionView.scrollToItem(at: IndexPath(item: currentIndex, section: 0),
-                                    at: .centeredHorizontally, animated: false)
+        alignCurrentPage(animated: false)
     }
 
     override var preferredStatusBarStyle: UIStatusBarStyle { .lightContent }
@@ -114,10 +116,26 @@ class WelcomeViewController: SuperViewController {
 
     private func showPage(_ index: Int) {
         guard dataArray.indices.contains(index), !isProcessingPurchase else { return }
+        isUserPaging = false
         currentIndex = index
         updatePage()
-        collectionView.scrollToItem(at: IndexPath(item: index, section: 0),
-                                    at: .centeredHorizontally, animated: !UIAccessibility.isReduceMotionEnabled)
+        // CTA text can change the footer height. Finish layout before targeting a page.
+        view.setNeedsLayout()
+        view.layoutIfNeeded()
+        collectionView.layoutIfNeeded()
+        let animated = !kaka_IsMacOS() && !UIAccessibility.isReduceMotionEnabled
+        alignCurrentPage(animated: animated)
+        if !animated { announceCurrentPage() }
+    }
+
+    private func alignCurrentPage(animated: Bool) {
+        let indexPath = IndexPath(item: currentIndex, section: 0)
+        guard let attributes = flowLayout.layoutAttributesForItem(at: indexPath) else { return }
+        // Use the resolved frame, not screen width or logical index * width (RTL).
+        // Catalyst's scrollToItem can retarget while its native scroll view resizes.
+        let maxOffset = max(0, collectionView.contentSize.width - collectionView.bounds.width)
+        let x = min(maxOffset, max(0, attributes.center.x - collectionView.bounds.width / 2))
+        collectionView.setContentOffset(CGPoint(x: x, y: 0), animated: animated)
     }
 
     @objc private func pageControlChanged() { showPage(pageControl.currentPage) }
@@ -193,6 +211,7 @@ class WelcomeViewController: SuperViewController {
         // A custom button avoids the system title cross-fade briefly blanking the CTA
         // when the last page or an asynchronously checked trial offer changes its text.
         let button = UIButton(type: .custom)
+        if kaka_IsMacOS() { button.preferredBehavioralStyle = .pad }
         button.backgroundColor = .white
         button.setTitleColor(.rgb(25, 23, 35), for: .normal)
         button.layer.cornerRadius = 18
@@ -237,6 +256,18 @@ class WelcomeViewController: SuperViewController {
 
 final class WelcomePagingLayout: UICollectionViewFlowLayout {
     override var flipsHorizontallyInOppositeLayoutDirection: Bool { true }
+
+    override func prepare() {
+        if let size = collectionView?.bounds.size, size.width > 0, size.height > 0,
+           itemSize != size {
+            itemSize = size
+        }
+        super.prepare()
+    }
+
+    override func shouldInvalidateLayout(forBoundsChange newBounds: CGRect) -> Bool {
+        newBounds.size != collectionView?.bounds.size || super.shouldInvalidateLayout(forBoundsChange: newBounds)
+    }
 }
 
 extension WelcomeViewController: UICollectionViewDataSource, UICollectionViewDelegate {
@@ -253,10 +284,20 @@ extension WelcomeViewController: UICollectionViewDataSource, UICollectionViewDel
         return cell
     }
 
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) { updateVisiblePage() }
-    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) { updateVisiblePage() }
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) { isUserPaging = true }
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) { finishUserPaging() }
+    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
+        // A programmatic scroll already has a selected page. Native resize/scroll
+        // callbacks must not overwrite it with a transient, partially visible page.
+        announceCurrentPage()
+    }
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        if !decelerate { updateVisiblePage() }
+        if !decelerate { finishUserPaging() }
+    }
+    private func finishUserPaging() {
+        guard isUserPaging else { return }
+        isUserPaging = false
+        updateVisiblePage()
     }
     private func updateVisiblePage() {
         // Geometric hit testing respects both LTR and RTL; offset / width does not.
@@ -264,7 +305,10 @@ extension WelcomeViewController: UICollectionViewDataSource, UICollectionViewDel
         guard let index = collectionView.indexPathForItem(at: center)?.item else { return }
         currentIndex = index
         updatePage()
-        UIAccessibility.post(notification: .screenChanged, argument: collectionView.cellForItem(at: IndexPath(item: index, section: 0)))
+        announceCurrentPage()
+    }
+    private func announceCurrentPage() {
+        UIAccessibility.post(notification: .screenChanged, argument: collectionView.cellForItem(at: IndexPath(item: currentIndex, section: 0)))
     }
 }
 
