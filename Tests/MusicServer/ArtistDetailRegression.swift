@@ -55,7 +55,11 @@ enum MusicServerError: Error { case invalidResponse, unavailable }
         precondition(empty.isEmpty)
         fixture.responses["getTopSongs"] = [:]
         do { _ = try await fixture.artistTopSongs(name: "Artist"); fatalError("Malformed response must not look empty") } catch MusicServerError.invalidResponse {}
-        fixture.responses["getArtistInfo2"] = ["artistInfo2": ["similarArtist": [["id": "ar1"], ["id": "ar2", "name": "Other"], ["id": "ar2"], ["id": "-1"], ["id": ""]]]]
+        fixture.responses["getArtistInfo2"] = ["artistInfo2": ["biography": "<p>Artist &amp; biography</p>", "similarArtist": [["id": "ar1"], ["id": "ar2", "name": "Other"], ["id": "ar2"], ["id": "-1"], ["id": ""]]]]
+        let infoStart = fixture.calls.count
+        let profile = try await fixture.artistInfo(id: "ar1")
+        precondition(profile.biography == "Artist & biography" && profile.similarArtists.count == 1)
+        precondition(fixture.calls.count == infoStart + 1, "Biography and similar artists share one response")
         let similar = try await fixture.similarArtists(id: "ar1")
         precondition(similar.count == 1)
         guard case .artist(let other) = similar[0] else { fatalError("Artist mapping") }
@@ -65,6 +69,8 @@ enum MusicServerError: Error { case invalidResponse, unavailable }
         fixture.responses["getArtistInfo2"] = ["artistInfo2": [:]]
         let noSimilar = try await fixture.similarArtists(id: "ar1")
         precondition(noSimilar.isEmpty)
+        let noBiography = try await fixture.artistInfo(id: "ar1")
+        precondition(noBiography.biography == nil)
         fixture.responses["getArtistInfo2"] = [:]
         do { _ = try await fixture.similarArtists(id: "ar1"); fatalError("Invalid similar response") } catch MusicServerError.invalidResponse {}
         print("Artist detail production-method regressions passed: parameters, deduplication, 30-song cap, format, empty/malformed responses, library-only similar artists.")

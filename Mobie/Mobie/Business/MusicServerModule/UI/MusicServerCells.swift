@@ -1,6 +1,35 @@
 import UIKit
 import KakaFoundation
 import Kingfisher
+import AppGroupKit
+
+/// Only the recent-upload section adds a timestamp. Keep normal song menus,
+/// format placeholders and playback updates in the shared music cell.
+final class MusicServerRecentUploadCell: MusicTableViewCell {
+    private var addedAt: Date?
+
+    func configure(song: MusicServerSong, session: MusicServerSession) {
+        addedAt = song.createdAt
+        update(musicModel: session.musicItem(for: song), cellType: .navidromeTrack)
+    }
+
+    override func update(musicModel: MusicItemModel, cellType: MusicCellType) {
+        super.update(musicModel: musicModel, cellType: cellType)
+        guard cellType == .navidromeTrack, let addedAt else { return }
+        // created/createdAt is library addition time, not the file's modification date.
+        let date = addedAt.formatted(date: .abbreviated, time: .shortened)
+        let added = String(format: "MusicServer.Song.AddedAt".localStr(), date)
+        let artist = musicModel.showArtistName().trimmingCharacters(in: .whitespacesAndNewlines)
+        descLabel.text = artist.isEmpty ? added : added + " · " + artist
+        descLabel.lineBreakMode = .byTruncatingTail
+    }
+
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        addedAt = nil
+        descLabel.text = nil
+    }
+}
 
 /// Small, reusable presentation pieces shared by the home previews and full lists.
 class MusicServerItemCell: UITableViewCell {

@@ -13,7 +13,7 @@ import SafariServices
 import ProgressHUD
 
 
-/// 登录Navidrome
+/// Shared login for Navidrome and compatible Subsonic music servers.
 class AuthNavidromeController: SuperViewController {
     private var loginTask: Task<Void, Never>?
     init(_ model: NavidromeUserModel) {

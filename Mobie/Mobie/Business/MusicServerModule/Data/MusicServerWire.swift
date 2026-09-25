@@ -90,6 +90,65 @@ enum MusicServerWire {
            let count = text.split(separator: "/").last.flatMap({ Int($0) }), count >= 0 { return count }
         return nil
     }
+
+    /// Navidrome's createdAt and Subsonic's created are library-added timestamps, not release dates.
+    static func addedDate(_ value: String?) -> Date? {
+        guard let value = value?.trimmingCharacters(in: .whitespacesAndNewlines),
+              value.count <= 64, let year = Int(value.prefix(4)), year > 1,
+              value.range(of: #"^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[+-]\d{2}:?\d{2})$"#, options: .regularExpression) != nil else { return nil }
+        // ISO8601DateFormatter accepts impossible days by rolling into the next month.
+        // Round-trip the calendar portion before accepting a timestamp from a server.
+        let calendar = Calendar(identifier: .gregorian)
+        let fields = value.prefix(10).split(separator: "-").compactMap { Int($0) }
+        let time = value.dropFirst(11).prefix(8).split(separator: ":").compactMap { Int($0) }
+        guard fields.count == 3, let date = calendar.date(from: DateComponents(year: fields[0], month: fields[1], day: fields[2])),
+              calendar.component(.year, from: date) == fields[0], calendar.component(.month, from: date) == fields[1],
+              calendar.component(.day, from: date) == fields[2], time.count == 3,
+              (0..<24).contains(time[0]), (0..<60).contains(time[1]), (0..<60).contains(time[2]) else { return nil }
+        let formatter = ISO8601DateFormatter()
+        formatter.formatOptions = value.contains(".") ? [.withInternetDateTime, .withFractionalSeconds] : [.withInternetDateTime]
+        return formatter.date(from: value)
+    }
+}
+
+/// Render server biographies as bounded plain text. No WebView, HTML importer, remote images,
+/// executable markup or server-supplied links are involved in displaying this content.
+enum MusicServerDescriptionText {
+    static let maximumLength = 8_000
+
+    static func plainText(_ source: String?) -> String? {
+        guard let source else { return nil }
+        var text = String(source.prefix(64_000))
+        text = text.replacingOccurrences(of: #"(?is)<!--.*?(?:-->|$)|<(script|style|iframe|object|head)\b[^>]*>.*?(?:</\1\s*>|$)"#, with: "", options: .regularExpression)
+        text = text.replacingOccurrences(of: #"(?i)<\s*(?:br\s*/?|/?p|/?div|/?li|/?h[1-6])\s*[^>]*>"#, with: "\n", options: .regularExpression)
+        text = text.replacingOccurrences(of: #"<[^>]*(?:>|$)"#, with: "", options: .regularExpression)
+        let entities = ["amp": "&", "lt": "<", "gt": ">", "quot": "\"", "apos": "'", "nbsp": " ",
+                        "ndash": "–", "mdash": "—", "hellip": "…", "lsquo": "‘", "rsquo": "’", "ldquo": "“", "rdquo": "”",
+                        "copy": "©", "reg": "®", "trade": "™", "middot": "·", "bull": "•", "eacute": "é", "Eacute": "É",
+                        "aacute": "á", "oacute": "ó", "iacute": "í", "uacute": "ú", "ouml": "ö", "auml": "ä", "uuml": "ü", "ntilde": "ñ"]
+        if let regex = try? NSRegularExpression(pattern: #"&(#x[0-9a-fA-F]{1,8}|#\d{1,10}|[A-Za-z]{2,12});"#) {
+            let original = text as NSString
+            for match in regex.matches(in: text, range: NSRange(location: 0, length: original.length)).reversed() {
+                let key = original.substring(with: match.range(at: 1))
+                var replacement = entities[key]
+                if key.hasPrefix("#") {
+                    let hex = key.hasPrefix("#x")
+                    if let number = UInt32(key.dropFirst(hex ? 2 : 1), radix: hex ? 16 : 10),
+                       let scalar = UnicodeScalar(number), !CharacterSet.controlCharacters.contains(scalar) {
+                        replacement = String(scalar)
+                    }
+                }
+                if let replacement, let range = Range(match.range, in: text) { text.replaceSubrange(range, with: replacement) }
+            }
+        }
+        text = text.components(separatedBy: .newlines).map {
+            $0.replacingOccurrences(of: #"[\t\p{Zs}]+"#, with: " ", options: .regularExpression)
+                .trimmingCharacters(in: .whitespacesAndNewlines)
+        }.filter { !$0.isEmpty }.joined(separator: "\n\n")
+        text = String(text.unicodeScalars.filter { !CharacterSet.controlCharacters.contains($0) || $0 == "\n" })
+        text = String(text.prefix(maximumLength)).trimmingCharacters(in: .whitespacesAndNewlines)
+        return text.isEmpty ? nil : text
+    }
 }
 
 /// Compact, value-only metadata for a complete artist catalog. Full song metadata and artwork
@@ -255,6 +314,7 @@ struct MusicServerRecord: Decodable {
     let playDate: String?
     let streamURL: String?
     let ownerName: String
+    let createdAt: Date?
 
     private struct Key: CodingKey {
         let stringValue: String
@@ -307,6 +367,7 @@ struct MusicServerRecord: Decodable {
         playDate = string("playDate")
         streamURL = string("streamUrl")
         ownerName = string("ownerName") ?? string("owner") ?? ""
+        createdAt = MusicServerWire.addedDate(string("createdAt")) ?? MusicServerWire.addedDate(string("created"))
     }
 
     var hasBeenPlayed: Bool {

@@ -138,6 +138,7 @@ final class NavidromeHomeViewController: SuperViewController {
         view.contentInsetAdjustmentBehavior = .automatic
         view.register(NavidromeSectionHeadView.self, forHeaderFooterViewReuseIdentifier: "NavidromeSectionHeadView")
         view.register(MusicTableViewCell.self, forCellReuseIdentifier: "MusicTableViewCell")
+        view.register(MusicServerRecentUploadCell.self, forCellReuseIdentifier: "RecentUploadCell")
         view.register(NavidromeOverviewCell.self, forCellReuseIdentifier: "NavidromeOverviewCell")
         view.register(NavidromeRecentViewCell.self, forCellReuseIdentifier: "NavidromeRecentViewCell")
         view.register(NavidromeRecentViewCell.self, forCellReuseIdentifier: "NavidromeRandomViewCell")
@@ -522,6 +523,12 @@ extension NavidromeHomeViewController: UITableViewDataSource, UITableViewDelegat
         }
         if let items = previews[section], items.indices.contains(indexPath.row) {
             if case .song(let song) = items[indexPath.row] {
+                if section == .recentlyAdded {
+                    let cell = tableView.dequeueReusableCell(withIdentifier: "RecentUploadCell", for: indexPath) as! MusicServerRecentUploadCell
+                    cell.delegate = self
+                    cell.configure(song: song, session: session)
+                    return cell
+                }
                 let cell = tableView.dequeueReusableCell(withIdentifier: "MusicTableViewCell", for: indexPath) as! MusicTableViewCell
                 cell.delegate = self
                 cell.update(musicModel: session.musicItem(for: song), cellType: .navidromeTrack)

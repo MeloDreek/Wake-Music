@@ -11,9 +11,9 @@ final class MusicServerLibraryViewController: UITableViewController {
 
     private let session: MusicServerSession
     private let sections: [[Entry]] = [
-        [Entry(title: "Albums", symbol: "square.stack", route: .albums),
+        [Entry(title: "Songs", symbol: "music.note", route: .songs),
          Entry(title: "Artists", symbol: "person.2", route: .artists),
-         Entry(title: "Songs", symbol: "music.note", route: .songs)],
+         Entry(title: "Albums", symbol: "square.stack", route: .albums)],
         [Entry(title: "Favourite Songs", symbol: "heart", route: .favorites),
          Entry(title: "My Playlists", symbol: "music.note.list", route: .playlists),
          Entry(title: "Recently Played", symbol: "clock", route: .recent)],

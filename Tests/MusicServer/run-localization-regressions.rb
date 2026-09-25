@@ -81,4 +81,17 @@ source_paths.each do |path|
   end
 end
 
-puts "Music server localization regressions passed: #{new_keys.length} new keys, #{expected_locales.length} locales, #{assertions} assertions."
+detail_copy = JSON.parse(File.read(File.join(__dir__, 'DetailLocalizations.json')))
+detail_copy.fetch('keys').each_with_index do |key, index|
+  translations = strings.fetch(key).fetch('localizations')
+  check.call(translations.keys.sort == expected_locales, "Incomplete detail locales: #{key}")
+  expected_locales.each do |locale|
+    base = detail_copy.fetch('aliases').fetch(locale, locale)
+    expected = detail_copy.fetch('translations').fetch(base).fetch(index)
+    unit = translations.fetch(locale).fetch('stringUnit')
+    check.call(unit['state'] == 'translated' && unit['value'] == expected, "Detail translation mismatch: #{key}/#{locale}")
+    check.call(unit['value'].scan(/%(?:\d+\$)?[@diuf]/) == (index == 2 ? ['%@'] : []), "Detail placeholder mismatch: #{key}/#{locale}")
+  end
+end
+
+puts "Music server localization regressions passed: #{new_keys.length} original keys + detail copy, #{expected_locales.length} locales, #{assertions} assertions."

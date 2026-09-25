@@ -363,7 +363,7 @@ enum MusicServerSelection {
                 KakaMusicPlayer.shared.startPlayMusic(musics: queue, itemIndex: index)
             }
         case .album(let album):
-            browse(.album(id: album.id), title: item.title, session: session, from: controller)
+            controller.navigationController?.pushViewController(MusicServerAlbumDetailViewController(session: session, album: album), animated: true)
         case .artist(let artist):
             controller.navigationController?.pushViewController(MusicServerArtistDetailViewController(session: session, artist: artist), animated: true)
         case .playlist(let playlist):
@@ -387,6 +387,9 @@ enum MusicServerSelection {
         } else if case .artist(let id) = route {
             destination = MusicServerArtistDetailViewController(session: session,
                 artist: MusicServerArtist(id: id, name: title, albumCount: nil, songCount: nil, coverArt: "ar-" + id))
+        } else if case .album(let id) = route {
+            destination = MusicServerAlbumDetailViewController(session: session,
+                album: MusicServerAlbum(id: id, name: title, artist: "", songCount: nil, coverArt: "al-" + id))
         } else {
             destination = MusicServerBrowseViewController(session: session, route: route, title: title)
         }

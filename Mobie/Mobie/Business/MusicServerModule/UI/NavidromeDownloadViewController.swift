@@ -180,6 +180,11 @@ final class NavidromeDownloadEmptyCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         selectionStyle = .none
+        // insetGrouped supplies a background configuration independently of contentView.
+        // The empty-state illustration belongs directly on the table's native background.
+        backgroundColor = .clear
+        contentView.backgroundColor = .clear
+        backgroundConfiguration = .clear()
         let image = UIImage(named: "empty_music")
         let icon = UIImageView(image: image)
         icon.contentMode = .scaleAspectFit

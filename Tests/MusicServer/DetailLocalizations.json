@@ -1,0 +1,197 @@
+{
+  "keys": [
+    "MusicServer.Description.More",
+    "MusicServer.Description.Less",
+    "MusicServer.Song.AddedAt"
+  ],
+  "aliases": {
+    "en-AU": "en",
+    "en-GB": "en",
+    "en-IN": "en",
+    "es-419": "es",
+    "es-US": "es",
+    "fr-CA": "fr"
+  },
+  "translations": {
+    "en": [
+      "Read More",
+      "Show Less",
+      "Added %@"
+    ],
+    "zh-Hans": [
+      "展开",
+      "收起",
+      "添加于 %@"
+    ],
+    "zh-Hant": [
+      "展開",
+      "收起",
+      "加入於 %@"
+    ],
+    "zh-HK": [
+      "展開",
+      "收起",
+      "加入於 %@"
+    ],
+    "ar": [
+      "قراءة المزيد",
+      "عرض أقل",
+      "أُضيف في %@"
+    ],
+    "ca": [
+      "Llegeix-ne més",
+      "Mostra'n menys",
+      "Afegida el %@"
+    ],
+    "cs": [
+      "Číst dál",
+      "Zobrazit méně",
+      "Přidáno %@"
+    ],
+    "da": [
+      "Læs mere",
+      "Vis mindre",
+      "Tilføjet %@"
+    ],
+    "de": [
+      "Mehr lesen",
+      "Weniger anzeigen",
+      "Hinzugefügt am %@"
+    ],
+    "el": [
+      "Περισσότερα",
+      "Λιγότερα",
+      "Προστέθηκε %@"
+    ],
+    "es": [
+      "Leer más",
+      "Mostrar menos",
+      "Añadida el %@"
+    ],
+    "fi": [
+      "Lue lisää",
+      "Näytä vähemmän",
+      "Lisätty %@"
+    ],
+    "fr": [
+      "Lire la suite",
+      "Réduire",
+      "Ajouté le %@"
+    ],
+    "he": [
+      "קרא עוד",
+      "הצג פחות",
+      "נוסף ב־%@"
+    ],
+    "hi": [
+      "और पढ़ें",
+      "कम दिखाएँ",
+      "%@ को जोड़ा गया"
+    ],
+    "hr": [
+      "Pročitaj više",
+      "Prikaži manje",
+      "Dodano %@"
+    ],
+    "hu": [
+      "Továbbiak",
+      "Kevesebb",
+      "Hozzáadva: %@"
+    ],
+    "id": [
+      "Baca selengkapnya",
+      "Tampilkan lebih sedikit",
+      "Ditambahkan %@"
+    ],
+    "it": [
+      "Leggi di più",
+      "Mostra meno",
+      "Aggiunto il %@"
+    ],
+    "ja": [
+      "続きを読む",
+      "折りたたむ",
+      "追加日時：%@"
+    ],
+    "ko": [
+      "더 보기",
+      "접기",
+      "추가: %@"
+    ],
+    "ms": [
+      "Baca lagi",
+      "Tunjukkan kurang",
+      "Ditambah pada %@"
+    ],
+    "nb": [
+      "Les mer",
+      "Vis mindre",
+      "Lagt til %@"
+    ],
+    "nl": [
+      "Meer lezen",
+      "Minder tonen",
+      "Toegevoegd op %@"
+    ],
+    "pl": [
+      "Czytaj więcej",
+      "Pokaż mniej",
+      "Dodano %@"
+    ],
+    "pt-BR": [
+      "Ler mais",
+      "Mostrar menos",
+      "Adicionada em %@"
+    ],
+    "pt-PT": [
+      "Ler mais",
+      "Mostrar menos",
+      "Adicionada em %@"
+    ],
+    "ro": [
+      "Citește mai mult",
+      "Arată mai puțin",
+      "Adăugat la %@"
+    ],
+    "ru": [
+      "Читать дальше",
+      "Свернуть",
+      "Добавлено %@"
+    ],
+    "sk": [
+      "Čítať viac",
+      "Zobraziť menej",
+      "Pridané %@"
+    ],
+    "sl": [
+      "Preberi več",
+      "Prikaži manj",
+      "Dodano %@"
+    ],
+    "sv": [
+      "Läs mer",
+      "Visa mindre",
+      "Tillagd %@"
+    ],
+    "th": [
+      "อ่านเพิ่มเติม",
+      "แสดงน้อยลง",
+      "เพิ่มเมื่อ %@"
+    ],
+    "tr": [
+      "Devamını oku",
+      "Daha az göster",
+      "Eklenme: %@"
+    ],
+    "uk": [
+      "Читати далі",
+      "Згорнути",
+      "Додано %@"
+    ],
+    "vi": [
+      "Đọc thêm",
+      "Thu gọn",
+      "Đã thêm vào %@"
+    ]
+  }
+}

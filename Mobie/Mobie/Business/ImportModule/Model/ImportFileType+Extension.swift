@@ -107,7 +107,7 @@ extension ImportFileType {
         case .fromWebDAV:
             return Reasource.named("Import_webdav")
         case .fromNavidrome:
-            return Reasource.named("Import_navidrome")
+            return MusicServerConnectionIcon.image
         case .fromSMB:
             return Reasource.named("Import_smb")
         case .fromFTP:
@@ -182,7 +182,7 @@ extension ImportFileType {
         case .fromWebDAV:
             return "WebDAV"
         case .fromNavidrome:
-            return "Navidrome"
+            return "Navidrome/Subsonic"
         case .fromSMB:
             return "SMB"
         case .fromFTP:
@@ -274,5 +274,34 @@ extension ImportFileType {
         }
     }
     
+}
+
+/// Both services use the same compatible-protocol connection; this is branding only.
+/// Keep each official mark intact and cache the composition rather than redrawing per row.
+private enum MusicServerConnectionIcon {
+    static let image: UIImage = {
+        let navidrome = Reasource.named("Import_navidrome")
+        let subsonic = Reasource.named("Import_subsonic")
+        let format = UIGraphicsImageRendererFormat()
+        format.scale = 3
+        format.opaque = false
+        return UIGraphicsImageRenderer(size: CGSize(width: 80, height: 80), format: format).image { context in
+            navidrome.draw(in: CGRect(x: 0, y: 0, width: 58, height: 58))
+            let badge = CGRect(x: 23, y: 33, width: 57, height: 47)
+            context.cgContext.saveGState()
+            context.cgContext.setShadow(offset: CGSize(width: 0, height: 1), blur: 2,
+                                       color: UIColor.black.withAlphaComponent(0.15).cgColor)
+            UIColor.white.setFill()
+            UIBezierPath(roundedRect: badge, cornerRadius: 10).fill()
+            context.cgContext.restoreGState()
+            // The official Subsonic mark is not square. Fit it without stretching or cropping.
+            let inset = badge.insetBy(dx: 3, dy: 3)
+            let aspect = subsonic.size.width / max(1, subsonic.size.height)
+            let width = min(inset.width, inset.height * aspect)
+            let height = width / aspect
+            subsonic.draw(in: CGRect(x: inset.midX - width / 2, y: inset.midY - height / 2,
+                                    width: width, height: height))
+        }.withRenderingMode(.alwaysOriginal)
+    }()
 }
     

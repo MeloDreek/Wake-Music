@@ -38,6 +38,22 @@ enum MusicServerDataRegression {
         expect(standard.starred && !standard.hasBeenPlayed, "Starred is not played")
         let empty = try JSONDecoder().decode(MusicServerRecord.self, from: Data(#"{"id":"3","playDate":"0001-01-01T00:00:00Z"}"#.utf8))
         expect(!empty.hasBeenPlayed && empty.songCount == nil && empty.albumCount == nil, "Empty history and unknown counts preserved")
+        let added = try JSONDecoder().decode(MusicServerRecord.self, from: Data(#"{"id":"4","createdAt":"2026-09-25T12:34:56.123456+08:00","created":"2020-01-01T00:00:00Z"}"#.utf8))
+        let expectedDate = MusicServerWire.addedDate("2026-09-25T04:34:56.123456Z")
+        expect(added.createdAt == expectedDate && added.createdAt != nil, "Native fractional timestamp and timezone preserved")
+        let fallbackDate = try JSONDecoder().decode(MusicServerRecord.self, from: Data(#"{"id":"5","createdAt":"0001-01-01T00:00:00Z","created":"2020-01-01T00:00:00+00:00"}"#.utf8))
+        expect(fallbackDate.createdAt == MusicServerWire.addedDate("2020-01-01T00:00:00Z"), "Protocol timestamp fallback when native date is invalid")
+        for invalid in ["", "bad", "0001-01-01T00:00:00Z", "2026-02-30T00:00:00Z", "2026-13-01T00:00:00Z", "2026-09-25", "2026-09-25T12:00:00", "2026-09-25T24:00:00Z", "2026-09-25T00:60:00Z"] {
+            expect(MusicServerWire.addedDate(invalid) == nil, "Reject unknown/impossible/ambiguous added date: \(invalid)")
+        }
+        expect(empty.createdAt == nil, "Missing timestamp remains absent rather than a fabricated upload time")
+        expect(MusicServerDescriptionText.plainText(nil) == nil, "Absent biography hidden")
+        expect(MusicServerDescriptionText.plainText(" <p> </p><script>alert(1)</script> ") == nil, "Empty and executable markup hidden")
+        expect(MusicServerDescriptionText.plainText("<p>Soul &amp; R&amp;B</p><p>&#x4E2D;&#25991; &quot;music&quot;</p>") == "Soul & R&B\n\n中文 \"music\"", "Paragraphs and HTML entities rendered as plain text")
+        expect(MusicServerDescriptionText.plainText("A <a href=\"https://untrusted.invalid\">biography</a><img src=x>.") == "A biography.", "Links and remote images never enter the displayed plain text")
+        expect(MusicServerDescriptionText.plainText("<style>hidden</style><iframe>hidden</iframe>Visible<script>unterminated") == "Visible", "Remove active blocks including truncated markup")
+        expect(MusicServerDescriptionText.plainText("Singer &rsquo; &#x1F3B5; &nbsp; café") == "Singer ’ 🎵 café", "Typography and Unicode scalar entities")
+        expect(MusicServerDescriptionText.plainText(String(repeating: "长", count: 100_000))?.count == MusicServerDescriptionText.maximumLength, "Bound untrusted input and displayed output")
         expect(MusicServerWire.maximumPageSize == 100, "Hard page limit enforced")
         for kind in MusicServerSearchKind.allCases {
             let parameters = kind.parameters(query: "  周杰伦 + & café  ", offset: 40, limit: 40)

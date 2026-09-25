@@ -6,7 +6,7 @@ ruby - "$artist_root" "$artist_temp" <<'RUBY'
 root, output = ARGV
 source = File.read(File.join(root, 'Mobie/Mobie/Business/MusicServerModule/Data/MusicServerSession.swift'))
 fixture = File.read(File.join(root, 'Tests/MusicServer/ArtistDetailRegression.swift'))
-methods = ['func artistDetails(id:', 'func artistTopSongs(name:', 'func similarArtists(id:', 'private func records(_ response:'].map do |signature|
+methods = ['func artistDetails(id:', 'func artistTopSongs(name:', 'func artistInfo(id:', 'func similarArtists(id:', 'private func records(_ response:'].map do |signature|
   start = source.index(signature) or abort "Missing #{signature}"
   source[start..].split("\n    }", 2).first + "\n    }"
 end

@@ -30,6 +30,7 @@ final class MusicServerArtistDetailViewController: SuperViewController {
     private let header = UIView()
     private let artwork = UIImageView()
     private let nameLabel = UILabel()
+    private let biographyView = MusicServerExpandableTextView()
     private let refreshControl = UIRefreshControl()
     private var items: [Section: [MusicServerItem]] = [:]
     private var failures: [Section: String] = [:]
@@ -85,7 +86,8 @@ final class MusicServerArtistDetailViewController: SuperViewController {
         nameLabel.adjustsFontForContentSizeCategory = true
         nameLabel.numberOfLines = 0
         nameLabel.textAlignment = .center
-        let stack = UIStackView(arrangedSubviews: [artwork, nameLabel])
+        biographyView.onHeightChange = { [weak self] in self?.view.setNeedsLayout() }
+        let stack = UIStackView(arrangedSubviews: [artwork, nameLabel, biographyView])
         stack.axis = .vertical
         stack.alignment = .center
         stack.spacing = 24
@@ -98,7 +100,8 @@ final class MusicServerArtistDetailViewController: SuperViewController {
             stack.trailingAnchor.constraint(equalTo: header.trailingAnchor, constant: -24),
             stack.topAnchor.constraint(equalTo: header.topAnchor, constant: 28),
             stack.bottomAnchor.constraint(equalTo: header.bottomAnchor, constant: -28),
-            nameLabel.widthAnchor.constraint(equalTo: stack.widthAnchor)
+            nameLabel.widthAnchor.constraint(equalTo: stack.widthAnchor),
+            biographyView.widthAnchor.constraint(equalTo: stack.widthAnchor)
         ])
         updateHeader()
         KakaMusicPlayer.shared.$playingMusic.receive(on: DispatchQueue.main).sink { [weak self] _ in self?.refreshPlayback() }.store(in: &subscriptions)
@@ -155,6 +158,7 @@ final class MusicServerArtistDetailViewController: SuperViewController {
         cancelPendingRequests()
         failures.removeAll()
         items.removeAll()
+        biographyView.configure(text: nil)
         for section in Section.allCases { load(section) }
         tableView.reloadData()
     }
@@ -180,7 +184,12 @@ final class MusicServerArtistDetailViewController: SuperViewController {
                 case .topSongs:
                     result = try await session.artistTopSongs(name: artist.name)
                 case .similar:
-                    result = try await session.similarArtists(id: artist.id)
+                    let info = try await session.artistInfo(id: artist.id)
+                    try Task.checkCancellation()
+                    guard generation == expected else { return }
+                    biographyView.configure(text: info.biography)
+                    view.setNeedsLayout()
+                    result = info.similarArtists
                 }
                 try Task.checkCancellation()
                 guard generation == expected else { return }

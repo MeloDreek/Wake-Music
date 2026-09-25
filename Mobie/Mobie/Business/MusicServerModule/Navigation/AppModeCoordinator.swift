@@ -172,6 +172,7 @@ final class AppModeCoordinator {
         (controller as? MusicServerBrowseViewController)?.cancelPendingRequests()
         (controller as? MusicServerArtistsViewController)?.cancelPendingRequests()
         (controller as? MusicServerArtistDetailViewController)?.cancelPendingRequests()
+        (controller as? MusicServerAlbumDetailViewController)?.cancelPendingRequests()
         for child in controller.children { cancelServerRequests(in: child) }
     }
 }

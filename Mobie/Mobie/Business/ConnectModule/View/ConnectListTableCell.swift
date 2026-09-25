@@ -26,7 +26,13 @@ class ConnectListTableCell: UITableViewCell {
                         
             var cellConfig = UIListContentConfiguration.cell()
             cellConfig.text = serverModel.showTitle()
-            cellConfig.secondaryText = serverModel.descString()
+            if serverModel.serverType == .fromNavidrome {
+                // Do not replace the user's server name with the shared protocol label.
+                cellConfig.secondaryText = [serverModel.serverType.titleStr(), serverModel.descString()]
+                    .compactMap { $0 }.joined(separator: " · ")
+            } else {
+                cellConfig.secondaryText = serverModel.descString()
+            }
             cellConfig.secondaryTextProperties.numberOfLines = 0
             cellConfig.image = serverModel.serverType.iconImage()
             cellConfig.imageProperties.maximumSize = CGSize(width: 30.ckValue(), height: 30.ckValue())

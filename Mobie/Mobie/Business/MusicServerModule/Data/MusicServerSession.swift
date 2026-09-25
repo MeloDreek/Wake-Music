@@ -17,6 +17,7 @@ struct MusicServerOverview {
 struct MusicServerSong {
     var value: NavidromeSong
     let bitDepth: Int?
+    var createdAt: Date? = nil
     var id: String { value.id }
     var title: String { value.title }
     var artist: String { value.artist }
@@ -25,7 +26,16 @@ struct MusicServerSong {
 }
 
 struct MusicServerArtist { let id: String; let name: String; let albumCount: Int?; let songCount: Int?; let coverArt: String; var starred: Bool = false }
-struct MusicServerAlbum { let id: String; let name: String; let artist: String; let songCount: Int?; let coverArt: String }
+struct MusicServerAlbum {
+    let id: String
+    let name: String
+    let artist: String
+    let songCount: Int?
+    let coverArt: String
+    var year: Int? = nil
+    var genre: String = ""
+    var duration: Int? = nil
+}
 struct MusicServerPlaylist { let id: String; let name: String; let songCount: Int?; let coverArt: String; let owner: String }
 struct MusicServerRadio { let id: String; let name: String; let streamURL: URL? }
 
@@ -109,6 +119,14 @@ final class MusicServerSession {
     /// Complete metadata only, scoped to this account/session. Explicit pull-to-refresh replaces it.
     private var artistCatalogCache: (accountID: String, artists: [MusicServerArtist])?
     private var artistCatalogLoadID = UUID()
+    private struct AlbumSnapshot {
+        let album: MusicServerAlbum
+        let songs: [MusicServerItem]
+    }
+    // A small account-scoped cache joins header/track requests. getAlbum has no pagination;
+    // never re-download all tracks for every visible page of the same album.
+    private var albumSnapshots: [String: (id: UUID, snapshot: AlbumSnapshot, expiry: Date)] = [:]
+    private var albumFlights: [String: (id: UUID, task: Task<AlbumSnapshot, Error>)] = [:]
 
     var hasCachedArtistCatalog: Bool { artistCatalogCache?.accountID == accountID }
 
@@ -263,6 +281,7 @@ final class MusicServerSession {
             let records = try records(response, container: "randomSongs", key: "song")
             return MusicServerPage(items: records.prefix(size).map { .song(song($0)) }, total: nil, hasMore: false)
         }
+        if case .album = route { return try await compatiblePage(route, offset: start, limit: size) }
         guard nativeAPIAvailable else { return try await compatiblePage(route, offset: start, limit: size) }
         var query = [URLQueryItem(name: "_start", value: String(start)), .init(name: "_end", value: String(start + size))]
         var path: String
@@ -503,6 +522,12 @@ final class MusicServerSession {
         // Only truly pageable protocol endpoints are used; getStarred/getArtists/getPlaylist can
         // return entire libraries and are deliberately not used as a hidden unbounded fallback.
         switch route {
+        case .album(let id):
+            let snapshot = try await albumSnapshot(id: id)
+            let items = Array(snapshot.songs.dropFirst(offset).prefix(limit))
+            let nextOffset = offset + items.count
+            return MusicServerPage(items: items, total: snapshot.songs.count,
+                                   hasMore: nextOffset < snapshot.songs.count, nextOffset: nextOffset)
         case .playlists:
             let playlists = try await allPlaylists()
             let items = Array(playlists.dropFirst(offset).prefix(limit))
@@ -520,6 +545,64 @@ final class MusicServerSession {
     func artworkURL(id: String, size: Int = 160) -> URL? {
         guard !id.isEmpty else { return nil }
         return subsonicURL("getCoverArt", query: [.init(name: "id", value: id), .init(name: "size", value: String(min(max(size, 40), 1200)))])
+    }
+
+    func albumDetails(id: String) async throws -> MusicServerAlbum {
+        try await albumSnapshot(id: id).album
+    }
+
+    /// Optional enrichment is requested independently; its failure must not hide playable songs.
+    func albumDescription(id: String) async throws -> String? {
+        guard !id.isEmpty else { throw MusicServerError.invalidResponse }
+        let response = try await subsonic("getAlbumInfo2", query: [.init(name: "id", value: id)])
+        guard let info = response["albumInfo"] as? [String: Any] else { throw MusicServerError.invalidResponse }
+        return MusicServerDescriptionText.plainText(info["notes"] as? String)
+    }
+
+    func invalidateAlbumDetails(id: String) {
+        albumSnapshots[id] = nil
+        albumFlights[id]?.task.cancel()
+        albumFlights[id] = nil
+    }
+
+    private func albumSnapshot(id: String) async throws -> AlbumSnapshot {
+        try Task.checkCancellation()
+        guard !id.isEmpty else { throw MusicServerError.invalidResponse }
+        if let cached = albumSnapshots[id], cached.expiry > Date() { return cached.snapshot }
+        if let flight = albumFlights[id] {
+            let snapshot = try await flight.task.value
+            try Task.checkCancellation()
+            // The owner may already have moved the completed flight into the cache. Reject
+            // both invalidated and replaced generations even if this waiter resumes later.
+            guard albumFlights[id]?.id == flight.id || albumSnapshots[id]?.id == flight.id else { throw CancellationError() }
+            return snapshot
+        }
+        let flightID = UUID()
+        let task = Task { try await self.fetchAlbumSnapshot(id: id) }
+        albumFlights[id] = (flightID, task)
+        defer {
+            if albumFlights[id]?.id == flightID { albumFlights[id] = nil }
+        }
+        let snapshot = try await task.value
+        guard albumFlights[id]?.id == flightID else { throw CancellationError() }
+        if albumSnapshots.count >= 4, let oldest = albumSnapshots.min(by: { $0.value.expiry < $1.value.expiry })?.key {
+            albumSnapshots[oldest] = nil
+        }
+        albumSnapshots[id] = (flightID, snapshot, Date().addingTimeInterval(120))
+        try Task.checkCancellation()
+        return snapshot
+    }
+
+    private func fetchAlbumSnapshot(id: String) async throws -> AlbumSnapshot {
+        let response = try await subsonic("getAlbum", query: [.init(name: "id", value: id)])
+        guard let object = response["album"] as? [String: Any] else { throw MusicServerError.invalidResponse }
+        let record = try decoder.decode(MusicServerRecord.self, from: JSONSerialization.data(withJSONObject: object))
+        guard record.id == id, case .album(let album) = item(record, route: .albums) else { throw MusicServerError.invalidResponse }
+        var seen = Set<String>()
+        let songs = try records(response, container: "album", key: "song")
+            .filter { !$0.id.isEmpty && seen.insert($0.id).inserted }.map { MusicServerItem.song(song($0)) }
+        try Task.checkCancellation()
+        return AlbumSnapshot(album: album, songs: songs)
     }
 
     /// Artist-scoped protocol data; never download the full song library to build a profile.
@@ -546,14 +629,20 @@ final class MusicServerSession {
             .filter { !$0.id.isEmpty && seen.insert($0.id).inserted }.prefix(count).map { .song(song($0)) }
     }
 
-    func similarArtists(id: String) async throws -> [MusicServerItem] {
+    func artistInfo(id: String) async throws -> (biography: String?, similarArtists: [MusicServerItem]) {
+        guard !id.isEmpty else { throw MusicServerError.invalidResponse }
         let response = try await subsonic("getArtistInfo2", query: [.init(name: "id", value: id),
             .init(name: "count", value: "20"), .init(name: "includeNotPresent", value: "false")])
-        guard response["artistInfo2"] is [String: Any] else { throw MusicServerError.invalidResponse }
+        guard let info = response["artistInfo2"] as? [String: Any] else { throw MusicServerError.invalidResponse }
         var seen: Set<String> = [id]
-        return try records(response, container: "artistInfo2", key: "similarArtist")
+        let similar = try records(response, container: "artistInfo2", key: "similarArtist")
             .filter { !$0.id.isEmpty && $0.id != "-1" && seen.insert($0.id).inserted }
             .prefix(20).map { item($0, route: .artists) }
+        return (MusicServerDescriptionText.plainText(info["biography"] as? String), similar)
+    }
+
+    func similarArtists(id: String) async throws -> [MusicServerItem] {
+        try await artistInfo(id: id).similarArtists
     }
 
     func musicItem(for song: MusicServerSong) -> MusicItemModel {
@@ -598,13 +687,14 @@ final class MusicServerSession {
         song.starred = record.starred
         song.playCount = record.playCount
         song.navUser = user
-        return MusicServerSong(value: song, bitDepth: record.bitDepth)
+        return MusicServerSong(value: song, bitDepth: record.bitDepth, createdAt: record.createdAt)
     }
 
     private func item(_ record: MusicServerRecord, route: MusicServerRoute) -> MusicServerItem {
         switch route {
         case .artists: return .artist(MusicServerArtist(id: record.id, name: record.name, albumCount: record.albumCount, songCount: record.songCount, coverArt: record.coverArt.isEmpty ? "ar-" + record.id : record.coverArt, starred: record.starred))
-        case .albums, .artist: return .album(MusicServerAlbum(id: record.id, name: record.name, artist: record.artist, songCount: record.songCount, coverArt: record.coverArt.isEmpty ? "al-" + record.id : record.coverArt))
+        case .albums, .artist: return .album(MusicServerAlbum(id: record.id, name: record.name, artist: record.artist, songCount: record.songCount, coverArt: record.coverArt.isEmpty ? "al-" + record.id : record.coverArt,
+            year: record.year.flatMap { $0 > 0 ? $0 : nil }, genre: record.genre, duration: record.duration > 0 ? record.duration : nil))
         case .playlists: return .playlist(MusicServerPlaylist(id: record.id, name: record.name, songCount: record.songCount, coverArt: record.coverArt.isEmpty ? "pl-" + record.id : record.coverArt, owner: record.ownerName))
         case .radios: return .radio(MusicServerRadio(id: record.id, name: record.name, streamURL: record.streamURL.flatMap(URL.init(string:))))
         default: return .song(song(record))
