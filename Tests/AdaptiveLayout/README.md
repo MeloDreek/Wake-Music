@@ -37,14 +37,27 @@ ruby Tests/AdaptiveLayout/run-player-layout-regressions.rb
 ruby Tests/AdaptiveLayout/run-minibar-tests.rb
 LAYOUT_SIMULATOR_UDID=<booted-device-id> ruby Tests/AdaptiveLayout/run-empty-cell-probe.rb
 ruby Tests/AdaptiveLayout/run-header-resize-regressions.rb
+LAYOUT_SIMULATOR_UDID=<booted-iOS-26-or-later-device-id> ruby Tests/AdaptiveLayout/run-player-corner-regressions.rb
 ADAPTIVE_SIMULATOR_UDID=<booted-device-id> bash Tests/AdaptiveLayout/run-navigation-probe.sh
 ```
 
 The empty-cell UIKit probe also forces inset callbacks during lazy initialization
 to catch recursive view creation. The header probe exercises consecutive wide /
 narrow sizes using the production queue and settings layout methods. The
-navigation probe extracts the production adaptive root and sidebar, with offline
-session/tab stubs, and verifies real UIKit collapse/expand behavior and retained
-navigation stacks. Its offscreen window is not a full application scene; UIKit
-may emit appearance-transition warnings, so visual/lifecycle acceptance still
-requires running the application itself.
+navigation probe extracts the production destination enum and
+`MusicServerTabBarController`; only business services and destination bodies are
+offline stubs. On a hidden UIKit window it changes compact/regular traits and
+viewport width, checking that the direct tab root, all four navigation stacks,
+selected destination, download badge, and playback-chrome initialization remain
+intact. It rejects an outer navigation/split wrapper and checks ordinary detail
+pop behavior. `run-minibar-tests.rb` additionally checks the production routing:
+iPhone (including Duo) uses the tab root, while iPad/Mac keep their original split
+root. The probe does not open a user account or alter the running application.
+Its offscreen window is not a full application scene; visual/lifecycle acceptance
+still requires running the application itself.
+
+The corner probe extracts the player's production presentation-corner method and
+checks independent top-corner resolution through asymmetric and symmetric parent
+shapes, including changes on the same view. It checks legacy fallback and Catalyst
+exclusion as well. It does not emulate a device's hardware outline: verify the
+actual player in Duo Closed / Book / Open states and after rotation separately.

@@ -104,6 +104,7 @@ extension NavidromeDownloadViewController: UITableViewDataSource, UITableViewDel
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard !tasks.isEmpty else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "empty", for: indexPath) as! NavidromeDownloadEmptyCell
+            cell.contentView.backgroundColor = .clear
             cell.onExit = onExit
             cell.minimumHeight = max(0, tableView.bounds.height - tableView.adjustedContentInset.top - tableView.adjustedContentInset.bottom - 40)
             return cell

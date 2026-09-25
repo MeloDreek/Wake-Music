@@ -43,6 +43,7 @@ class MusicPlayerViewController: SuperViewController {
                 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        updatePresentationCorners()
         OrientationManager.shared.updateLayout(in: view)
         backView.frame = view.bounds
         collectionView.frame = contentView.bounds
@@ -82,6 +83,27 @@ class MusicPlayerViewController: SuperViewController {
             collectionView.contentOffset = CGPoint(x: !isFullScreen && wasShowingLyrics && dataArray.contains(.listLyric) ? flowLayout.itemSize.width : 0, y: 0)
         }
         
+    }
+
+    private func updatePresentationCorners() {
+#if !targetEnvironment(macCatalyst)
+        guard #available(iOS 26.0, *),
+              let presentation = presentationController as? PanModalPresentationController else { return }
+        // PanModal clips its wrapper, not the player's root view. Each top corner
+        // must follow its own container geometry (Duo's hinge edge can be square).
+        // Do not use uniform corners or a minimum radius: either rounds the hinge.
+        let configuration = UICornerConfiguration.corners(
+            topLeftRadius: .containerConcentric(),
+            topRightRadius: .containerConcentric(),
+            bottomLeftRadius: .fixed(0),
+            bottomRightRadius: .fixed(0)
+        )
+        let surface = presentation.presentedView
+        if surface.cornerConfiguration != configuration {
+            surface.cornerConfiguration = configuration
+        }
+        surface.clipsToBounds = true
+#endif
     }
     
     override func preSetupHandleBuness() {
@@ -458,6 +480,9 @@ extension MusicPlayerViewController: PanModalPresentable {
     }
     
     var shouldRoundTopCorners: Bool {
+        // The player's independent, container-concentric corners replace
+        // PanModal's uniform two-corner layer mask on newer systems.
+        if #available(iOS 26.0, *) { return false }
         return true
     }
     

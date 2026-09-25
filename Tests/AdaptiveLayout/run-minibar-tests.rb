@@ -18,17 +18,22 @@ Dir.mktmpdir('wakemusic-minibar-tests-') do |dir|
   system(executable) or abort 'Geometry tests failed'
 end
 
-# Guard the ownership contract: folding must not create sessions/queues or roots.
+# Guard root routing independently of the UIKit probe: iPhone (including wide
+# Duo) stays a direct tab root, while iPad and Mac retain their original split.
 navigation = File.read(File.join(root, 'Mobie/Mobie/Business/MusicServerModule/Navigation/MusicServerRootControllers.swift'))
-adaptive = navigation[/final class MusicServerAdaptiveRootController:.*?(?=\n@MainActor\nfinal class MusicServerSplitViewController)/m] or abort 'Adaptive root not found'
+coordinator = File.read(File.join(root, 'Mobie/Mobie/Business/MusicServerModule/Navigation/AppModeCoordinator.swift'))
+routing = coordinator[/private func makeServerRoot\(.*?\n    \}/m] or abort 'Production root routing not found'
+tabs = navigation[/final class MusicServerTabBarController:.*?\n\}/m] or abort 'Production tab root not found'
+split = navigation[/final class MusicServerSplitViewController:.*?\n\}/m] or abort 'Original split root not found'
+home = File.read(File.join(root, 'Mobie/Mobie/Business/MusicServerModule/UI/NavidromeHomeViewController.swift'))
 checks = {
-  'persistent tab owner' => adaptive.include?('private let tabs: MusicServerTabBarController'),
-  'secondary owns tabs' => adaptive.include?('UINavigationController(rootViewController: tabs)'),
-  'compact chooses secondary' => adaptive.include?('return .secondary'),
-  'selection preserves navigation stacks' => adaptive.include?('tabs.selectedIndex = destination.rawValue'),
-  'both collapse and expansion reconcile UI' => adaptive.include?('splitViewControllerDidCollapse') && adaptive.include?('splitViewControllerDidExpand'),
-  'no root/session/player reset during folding' => !adaptive.match?(/rootViewController\s*=|MusicServerSession\(|resetToPausedDemo|restoreRemoteQueueIfNeeded/),
-  'tab visibility does not rebuild destinations' => adaptive.include?('tabs.setTabBarHidden(hasSidebar, animated: false)')
+  'iPad and Mac keep original split root' => routing.match?(/if UIDevice\.current\.userInterfaceIdiom == \.pad \|\| kaka_IsMacOS\(\)\s*\{\s*return MusicServerSplitViewController\(session: session, onExit: exit\)\s*\}/),
+  'phone returns direct tabs regardless of size class' => routing.match?(/return MusicServerTabBarController\(session: session, onExit: exit\)\s*\}\z/) && !routing.match?(/horizontalSizeClass|traitCollection|#available/),
+  'nested adaptive root is removed' => !navigation.include?('MusicServerAdaptiveRootController') && !routing.include?('MusicServerAdaptiveRootController'),
+  'tabs directly own destination navigation controllers' => tabs.include?('viewControllers = MusicServerDestination.allCases.map') && tabs.include?('KakaNavigationController(rootViewController: controller)'),
+  'no split shell callback or forced tab hiding' => !tabs.match?(/onSelectedDestination|setTabBarHidden|rootViewController\s*=|MusicServerSession\(|resetToPausedDemo/),
+  'original split retains destination navigation cache' => split.include?('private var destinations: [MusicServerDestination: UINavigationController]') && split.include?('if let existing = destinations[destination]'),
+  'home keeps its existing classic exit action' => home.include?('AppModeCoordinator.exitImage') && home.include?('navigationItem.leftBarButtonItem = exit')
 }
 checks.each { |name, passes| abort "FAILED: #{name}" unless passes }
-puts "Passed #{checks.length} adaptive navigation ownership checks"
+puts "Passed #{checks.length} navigation routing/ownership checks"
