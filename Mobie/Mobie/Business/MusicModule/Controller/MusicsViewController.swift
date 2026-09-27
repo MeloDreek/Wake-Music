@@ -260,7 +260,7 @@ class MusicsViewController: SuperViewController {
     var showHeadView: UIView? {
         get {
             if self.viewModel.groupType == .musictagGroup || !self.viewModel.isBaseDoc {
-                return self.headMusictagView
+                return isNoneMusic ? nil : self.headMusictagView
             }else{
                 let folderArray = self.viewModel.folderArray
                 return folderArray.isEmpty ? (kaka_IsMacOS() ? self.headMusictagView : nil) : self.headFolderView
@@ -273,10 +273,6 @@ class MusicsViewController: SuperViewController {
         item.accessibilityLabel = "Unlock Premium".localStr()
         return item
     }()
-    
-    
-    
-
     
     func moreBarItem() -> UIBarButtonItem {
         // 选择
