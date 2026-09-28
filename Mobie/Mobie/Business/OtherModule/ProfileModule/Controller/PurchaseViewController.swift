@@ -186,6 +186,9 @@ class PurchaseViewController: SuperViewController {
         let buttonTitle: String
         if alreadyCovered {
             buttonTitle = "You have purchased".localStr()
+        } else if product.productIdentifier == PurchaseStoreID.lifetime198.rawValue
+                    || product.productIdentifier == PurchaseStoreID.lifetime298.rawValue {
+            buttonTitle = "Get Lifetime Access".localStr()
         } else if trialEligibleProductIDs.contains(product.productIdentifier), let days = product.onboardingTrialDays {
             buttonTitle = String(format: "Free Trial for %d Days".localStr(), days)
         } else {
@@ -499,7 +502,7 @@ extension PurchaseViewController: UITableViewDataSource, UITableViewDelegate, Pu
 }
 
 private final class PurchaseFamilySharingFooter: UITableViewHeaderFooterView {
-    let toggleButton = UIButton(type: .system)
+    let toggleButton = UIButton(type: .custom)
     private let explanation = UILabel()
 
     override init(reuseIdentifier: String?) {
@@ -510,10 +513,8 @@ private final class PurchaseFamilySharingFooter: UITableViewHeaderFooterView {
         explanation.textColor = .secondaryLabel
         explanation.numberOfLines = 0
         explanation.text = "Purchase.FamilySharingFooter".localStr()
-        var configuration = UIButton.Configuration.plain()
-        configuration.baseForegroundColor = appMainColor
-        configuration.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 12, bottom: 10, trailing: 12)
-        toggleButton.configuration = configuration
+        toggleButton.setTitleColor(.label, for: .normal)
+        toggleButton.setTitleColor(.secondaryLabel, for: .disabled)
         toggleButton.titleLabel?.numberOfLines = 0
         toggleButton.titleLabel?.textAlignment = .center
         toggleButton.titleLabel?.adjustsFontForContentSizeCategory = true
@@ -536,11 +537,16 @@ private final class PurchaseFamilySharingFooter: UITableViewHeaderFooterView {
     func configure(isEnabled: Bool, isPurchasing: Bool) {
         explanation.isHidden = !isEnabled
         let title = (isEnabled ? "Purchase.DisableFamilySharing" : "Purchase.EnableFamilySharing").localStr()
-        toggleButton.configuration?.attributedTitle = AttributedString(NSAttributedString(string: title, attributes: [
+        toggleButton.setAttributedTitle(NSAttributedString(string: title, attributes: [
             .font: UIFont.preferredFont(forTextStyle: .footnote),
-            .foregroundColor: UIColor.systemBackground,
+            .foregroundColor: UIColor.label,
             .underlineStyle: NSUnderlineStyle.single.rawValue
-        ]))
+        ]), for: .normal)
+        toggleButton.setAttributedTitle(NSAttributedString(string: title, attributes: [
+            .font: UIFont.preferredFont(forTextStyle: .footnote),
+            .foregroundColor: UIColor.secondaryLabel,
+            .underlineStyle: NSUnderlineStyle.single.rawValue
+        ]), for: .disabled)
         toggleButton.isEnabled = !isPurchasing
     }
 }

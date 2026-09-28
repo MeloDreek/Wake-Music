@@ -77,6 +77,7 @@ class Auth115LifeViewController: SuperViewController {
     private var request: DataRequest?
     private var pollWork: DispatchWorkItem?
     private var webState: String?
+    private var activeWebNavigation: WKNavigation?
     private var isExchanging = false
     private var didFinish = false
     private var pkceModel: Response115_LoginData?
@@ -137,6 +138,7 @@ class Auth115LifeViewController: SuperViewController {
         pollWork?.cancel()
         pollWork = nil
         webView.stopLoading()
+        activeWebNavigation = nil
         webState = nil
         isExchanging = false
         pkceModel = nil
@@ -181,6 +183,18 @@ class Auth115LifeViewController: SuperViewController {
         showTwoAlert(message: message, confirm: "Retry".localStr(), cancle: "Cancel".localStr()) { [weak self] in
             guard let self else { return }
             if self.mode == .web { self.startWebLogin() } else { self.refreshAuthQrCode() }
+        }
+    }
+
+    private func showRedirectDomainFailure() {
+        guard mode == .web, !didFinish, !isExchanging, webState != nil else { return }
+        // Invalidate this attempt before presenting: repeated callbacks must not stack alerts.
+        stopAuthorization()
+        let id = attempt
+        showTwoAlert(message: "Drive115.WebLogin.DomainReview".localStr(),
+                     confirm: "Scan QR Code".localStr(), cancle: "Cancel".localStr()) { [weak self] in
+            guard let self, self.attempt == id, self.mode == .web, !self.didFinish else { return }
+            self.refreshAuthQrCode()
         }
     }
 
@@ -394,8 +408,25 @@ extension Auth115LifeViewController: WKNavigationDelegate, WKUIDelegate {
         return nil
     }
 
+    func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
+        activeWebNavigation = mode == .web ? navigation : nil
+    }
+
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         if !isExchanging { loadingView.stopAnimating() }
+        guard mode == .web, !didFinish, !isExchanging, webState != nil,
+              let navigation, navigation === activeWebNavigation,
+              let pageURL = webView.url, Drive115WebOAuth.isAuthorizationPage(pageURL) else { return }
+        let id = attempt
+        // 115 may deliver an OAuth error as a successful HTML/JSON navigation.
+        // Read only bounded visible text on the official authorization endpoint; never log it.
+        webView.evaluateJavaScript("(document.body && document.body.innerText.length <= 16384) ? document.body.innerText : null") { [weak self, weak webView] value, error in
+            guard let self, let webView, error == nil, self.attempt == id,
+                  navigation === self.activeWebNavigation, webView.url == pageURL,
+                  let body = value as? String,
+                  Drive115WebOAuth.isRedirectDomainFailure(body, pageURL: pageURL) else { return }
+            self.showRedirectDomainFailure()
+        }
     }
     func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
         handleWebError(error)
@@ -414,6 +445,27 @@ extension Auth115LifeViewController: WKNavigationDelegate, WKUIDelegate {
 
 /// Pure URL validation for the in-app HTTPS callback. Does not contain secrets.
 enum Drive115WebOAuth {
+    static func isAuthorizationPage(_ url: URL) -> Bool {
+        url.scheme == "https" && url.host?.lowercased() == "passportapi.115.com"
+            && (url.port ?? 443) == 443 && url.user == nil && url.password == nil
+            && (url.path == "/open/authorize" || url.path == "/open/authorize/")
+    }
+
+    static func isRedirectDomainFailure(_ body: String, pageURL: URL) -> Bool {
+        guard isAuthorizationPage(pageURL), body.utf8.count <= 65536,
+              let data = body.data(using: .utf8),
+              let json = (try? JSONSerialization.jsonObject(with: data)) as? [String: Any] else { return false }
+        func scalar(_ value: Any?) -> String? {
+            if let value = value as? String { return value }
+            return (value as? NSNumber)?.stringValue
+        }
+        // Match the observed provider code, not words such as redirect_uri in a login page.
+        // In particular, 40140133 (client_secret) and network errors are unrelated.
+        let codes = [json["code"], json["errno"]].compactMap { scalar($0) }
+        return scalar(json["state"]) == "0" && !codes.isEmpty
+            && codes.allSatisfy { $0 == "40140131" }
+    }
+
     static func authorizationURL(clientID: String, redirectURI: String, state: String) -> URL? {
         guard !clientID.isEmpty, !state.isEmpty,
               let redirect = URL(string: redirectURI), redirect.scheme == "https", redirect.host != nil else { return nil }

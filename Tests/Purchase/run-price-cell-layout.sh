@@ -8,7 +8,13 @@ root, output = ARGV
 cell = File.read(File.join(root, 'Mobie/Mobie/Business/OtherModule/ProfileModule/View/PurchasePriceCell.swift'))
 cell = cell.gsub(/^import .*\n/, '').sub('class PurchasePriceCell:', 'private class PurchasePriceCell:')
 probe = File.read(File.join(root, 'Tests/Purchase/PriceCellLayoutProbe.swift'))
-File.write(File.join(output, 'PriceCellProbe.swift'), probe + "\n" + cell)
+controller = File.read(File.join(root, 'Mobie/Mobie/Business/OtherModule/ProfileModule/Controller/PurchaseViewController.swift'))
+footer = controller[/private final class PurchaseFamilySharingFooter:.*?(?=\n#endif)/m]
+abort 'Family sharing footer not found' unless footer
+title_logic = controller[/        let buttonTitle: String\n.*?(?=        buyoutButton.setTitle\(buttonTitle)/m]
+abort 'Purchase button title logic not found' unless title_logic
+title_probe = "\n@MainActor private func purchaseButtonTitle(product: StoreProduct, alreadyCovered: Bool, trialEligibleProductIDs: Set<String>) -> String {\n#{title_logic}\nreturn buttonTitle\n}\n"
+File.write(File.join(output, 'PriceCellProbe.swift'), probe + "\n" + cell + "\n" + footer + title_probe)
 RUBY
 purchase_sdk="$(xcrun --sdk iphonesimulator --show-sdk-path)"
 xcrun swiftc -parse-as-library -swift-version 5 -target arm64-apple-ios16.0-simulator -sdk "$purchase_sdk" \

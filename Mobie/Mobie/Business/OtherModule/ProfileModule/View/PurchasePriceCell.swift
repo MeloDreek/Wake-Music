@@ -12,6 +12,8 @@ class PurchasePriceCell: UITableViewCell {
     private let priceLabel = UILabel()
     private let recommendationLabel = UILabel()
     private let recommendationView = UIView()
+    private let familyLabel = UILabel()
+    private let familyBadge = UIView()
     private let titleStack = UIStackView()
     private let priceStack = UIStackView()
     private let rowStack = UIStackView()
@@ -26,6 +28,7 @@ class PurchasePriceCell: UITableViewCell {
         titleStack.spacing = 4
         titleStack.addArrangedSubview(nameLabel)
         titleStack.addArrangedSubview(recommendationView)
+        titleStack.addArrangedSubview(familyBadge)
         titleStack.addArrangedSubview(detailLabel)
         nameLabel.font = .preferredFont(forTextStyle: .headline)
         detailLabel.font = .preferredFont(forTextStyle: .subheadline)
@@ -36,7 +39,12 @@ class PurchasePriceCell: UITableViewCell {
         recommendationLabel.textAlignment = .center
         recommendationView.backgroundColor = .systemRed
         recommendationView.layer.cornerRadius = 5
-        for label in [nameLabel, detailLabel, priceLabel, recommendationLabel] {
+        familyLabel.font = .preferredFont(forTextStyle: .caption2)
+        familyLabel.textColor = .white
+        familyLabel.textAlignment = .center
+        familyBadge.backgroundColor = .systemBlue
+        familyBadge.layer.cornerRadius = 5
+        for label in [nameLabel, detailLabel, priceLabel, recommendationLabel, familyLabel] {
             label.numberOfLines = 0
             label.adjustsFontForContentSizeCategory = true
         }
@@ -51,6 +59,16 @@ class PurchasePriceCell: UITableViewCell {
             recommendationLabel.trailingAnchor.constraint(equalTo: recommendationView.trailingAnchor, constant: -7),
             recommendationLabel.topAnchor.constraint(equalTo: recommendationView.topAnchor, constant: 3),
             badgeBottom
+        ])
+        familyBadge.addSubview(familyLabel)
+        familyLabel.translatesAutoresizingMaskIntoConstraints = false
+        let familyBottom = familyLabel.bottomAnchor.constraint(equalTo: familyBadge.bottomAnchor, constant: -3)
+        familyBottom.priority = .defaultHigh
+        NSLayoutConstraint.activate([
+            familyLabel.leadingAnchor.constraint(equalTo: familyBadge.leadingAnchor, constant: 7),
+            familyLabel.trailingAnchor.constraint(equalTo: familyBadge.trailingAnchor, constant: -7),
+            familyLabel.topAnchor.constraint(equalTo: familyBadge.topAnchor, constant: 3),
+            familyBottom
         ])
         priceStack.axis = .vertical
         priceStack.alignment = .trailing
@@ -75,6 +93,7 @@ class PurchasePriceCell: UITableViewCell {
             selectionImage.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             selectionImage.widthAnchor.constraint(equalToConstant: 19),
             selectionImage.heightAnchor.constraint(equalToConstant: 19),
+            familyBadge.widthAnchor.constraint(lessThanOrEqualTo: titleStack.widthAnchor),
             rowStack.leadingAnchor.constraint(equalTo: selectionImage.trailingAnchor, constant: 12),
             rowStack.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
             rowStack.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 12),
@@ -123,7 +142,10 @@ class PurchasePriceCell: UITableViewCell {
         let isRecommended = model.productIdentifier == PurchaseStoreID.yearly.rawValue
         recommendationLabel.text = isRecommended ? "Purchase.BestChoice".localStr() : nil
         recommendationView.isHidden = !isRecommended
-        accessibilityLabel = [model.paywallTitle, detail, model.localizedPriceString, recommendationLabel.text]
+        let isFamily = model.productIdentifier == PurchaseStoreID.lifetime298.rawValue
+        familyLabel.text = isFamily ? "Purchase.FamilySharingBadge".localStr() : nil
+        familyBadge.isHidden = !isFamily
+        accessibilityLabel = [model.paywallTitle, detail, model.localizedPriceString, recommendationLabel.text, familyLabel.text]
             .compactMap { $0 }
             .filter { !$0.isEmpty }
             .joined(separator: ", ")

@@ -46,6 +46,27 @@ enum WebAuthorizationRegression {
         check(Drive115WebOAuth.authorizationCode(valid, redirectURI: redirect, expectedState: "") == nil, "No code after state consumption")
         check(Drive115WebOAuth.isCallbackHost(URL(string: "https://example.invalid/wrong?code=x")!, redirectURI: redirect), "Cancel malformed callbacks before requesting company's server")
         check(!Drive115WebOAuth.isCallbackHost(URL(string: "https://example.invalid.evil.invalid/")!, redirectURI: redirect), "No host suffix matching")
+        let domainError = #"{"state":0,"code":40140131,"data":{},"message":"redirect_uri\u975e\u6cd5\u57df\u540d","error":"redirect_uri\u975e\u6cd5\u57df\u540d","errno":40140131}"#
+        check(Drive115WebOAuth.isRedirectDomainFailure(domainError, pageURL: request), "Recognize actual escaped 115 domain response")
+        check(Drive115WebOAuth.isRedirectDomainFailure(#"{"state":false,"errno":"40140131"}"#, pageURL: request), "Boolean failure state and string errno")
+        for body in [
+            #"{"state":0,"code":40140133,"message":"client_secret invalid"}"#,
+            #"{"state":0,"code":40140131,"errno":40140133}"#,
+            #"{"state":1,"code":40140131}"#,
+            #"{"state":0,"code":40140131.5}"#,
+            #"{"state":0,"code":0,"message":"redirect_uri"}"#,
+            #"{"state":0,"message":"redirect_uri非法域名"}"#,
+            #"{"code":40140131}"#, "redirect_uri非法域名", "<html>40140131</html>", "[]", "null", "",
+            domainError + String(repeating: " ", count: 65536)
+        ] {
+            check(!Drive115WebOAuth.isRedirectDomainFailure(body, pageURL: request), "Do not misclassify other errors, HTML or invalid payloads")
+        }
+        for url in ["https://passportapi.115.com.evil.invalid/open/authorize",
+                    "https://evil.invalid/open/authorize", "http://passportapi.115.com/open/authorize",
+                    "https://passportapi.115.com:444/open/authorize", "https://passportapi.115.com/open/authCodeToToken",
+                    "https://user@passportapi.115.com/open/authorize"] {
+            check(!Drive115WebOAuth.isRedirectDomainFailure(domainError, pageURL: URL(string: url)!), "Only inspect the official HTTPS authorization page")
+        }
         print("\(count) 115 web authorization checks passed")
     }
 }

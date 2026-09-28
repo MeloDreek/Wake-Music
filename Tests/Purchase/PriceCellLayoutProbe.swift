@@ -4,16 +4,25 @@ import UIKit
 private let appMainColor = UIColor.label
 private enum PurchaseStoreID: String {
     case lifetime198 = "com.OfflineMusic.www.lifetime198"
+    case lifetime298 = "com.OfflineMusic.www.lifetime298"
+    case yearly = "annual"
 }
 private struct StoreProduct {
     let productIdentifier: String
     let paywallTitle: String
     let localizedPriceString: String
+    var onboardingTrialDays: Int? = nil
 }
 private var usesChineseRecommendation = false
 private extension String {
     func localStr() -> String {
-        self == "Purchase.BestChoice" ? (usesChineseRecommendation ? "最推荐" : "Most Recommended") : self
+        switch self {
+        case "Purchase.BestChoice": return usesChineseRecommendation ? "最推荐" : "Most Recommended"
+        case "Purchase.FamilySharingBadge": return usesChineseRecommendation ? "家人共享" : "Family Sharing"
+        case "Purchase.EnableFamilySharing": return usesChineseRecommendation ? "开启家庭共享" : "Enable Family Sharing"
+        case "Purchase.DisableFamilySharing": return usesChineseRecommendation ? "取消家庭共享" : "Disable Family Sharing"
+        default: return self
+        }
     }
 }
 
@@ -48,8 +57,8 @@ private enum PriceCellLayoutProbe {
 
         let cases: [(String, String, String?, Bool)] = [
             ("Monthly Premium", "US$1.99", nil, false),
-            ("Annual Premium", "US$7.99", "US$0.67 / month", false),
-            ("Lifetime Premium", "US$19.99", nil, true),
+            ("Annual Premium", "US$7.99", "US$0.67 / month", true),
+            ("Lifetime Premium", "US$19.99", nil, false),
             ("家庭共享终身高级版", "US$39.99", nil, false),
             ("Monatliche Premium-Mitgliedschaft", "1.999,99 €", "3 Tage kostenlos testen", false),
             ("Premium für die ganze Familie auf Lebenszeit", "1.999,99 €", nil, false),
@@ -71,15 +80,16 @@ private enum PriceCellLayoutProbe {
                             cell.semanticContentAttribute = rtl ? .forceRightToLeft : .forceLeftToRight
                             cell.contentView.semanticContentAttribute = cell.semanticContentAttribute
                             cell.traitCollectionDidChange(nil)
+                            let family = title == "家庭共享终身高级版" || title == "Premium für die ganze Familie auf Lebenszeit"
                             let product = StoreProduct(
-                                productIdentifier: recommended ? PurchaseStoreID.lifetime198.rawValue : "other",
+                                productIdentifier: recommended ? PurchaseStoreID.yearly.rawValue : (family ? PurchaseStoreID.lifetime298.rawValue : "other"),
                                 paywallTitle: title,
                                 localizedPriceString: price
                             )
                             cell.update(model: product, isSelect: true, subtitle: subtitle)
                             let height = size(cell, width: width)
                             let visible = labels(in: cell).filter { isVisible($0) }
-                            check(visible.count == 2 + (subtitle == nil ? 0 : 1) + (recommended ? 1 : 0), "Hidden details/badge must not occupy a line")
+                            check(visible.count == 2 + (subtitle == nil ? 0 : 1) + (recommended ? 1 : 0) + (family ? 1 : 0), "Hidden details/badge must not occupy a line")
                             for label in visible {
                                 let frame = label.convert(label.bounds, to: cell.contentView)
                                 check(frame.width > 0 && frame.height > 0, "Label collapsed: \(title)")
@@ -102,7 +112,17 @@ private enum PriceCellLayoutProbe {
                             if !category.isAccessibilityCategory {
                                 check(rtl ? priceFrame.maxX <= titleFrame.minX : priceFrame.minX >= titleFrame.maxX, "Price must stay in the trailing column: \(title), \(width), \(category.rawValue), rtl=\(rtl), title=\(titleFrame), price=\(priceFrame)")
                             }
-                            if width >= 398 && category == .large && (title == "Monthly Premium" || title == "Annual Premium") {
+                            if family {
+                                let badge = visible.first { $0.text == "Purchase.FamilySharingBadge".localStr() }!
+                                let badgeFrame = badge.convert(badge.bounds, to: cell.contentView)
+                                check(badgeFrame.minY >= titleFrame.maxY, "Family badge belongs below the title")
+                                if !category.isAccessibilityCategory {
+                                    check(rtl ? badgeFrame.minX >= priceFrame.maxX : badgeFrame.maxX <= priceFrame.minX, "Family badge stays in the title column")
+                                    check(abs(priceFrame.midY - cell.contentView.bounds.midY) < 1, "Family price remains vertically centered")
+                                }
+                                check(cell.accessibilityLabel?.contains("Purchase.FamilySharingBadge".localStr()) == true, "VoiceOver announces family sharing")
+                            }
+                            if width >= 398 && category == .large && title == "Monthly Premium" {
                                 check(height <= 76, "Regular-size rows should be compact")
                             }
                             check(cell.accessibilityLabel?.contains(price) == true, "Price must be spoken")
@@ -118,6 +138,34 @@ private enum PriceCellLayoutProbe {
                     }
                 }
             }
+        }
+        for style: UIUserInterfaceStyle in [.light, .dark] {
+            let traits = UITraitCollection(userInterfaceStyle: style)
+            traits.performAsCurrent {
+                let footer = PurchaseFamilySharingFooter(reuseIdentifier: nil)
+                footer.overrideUserInterfaceStyle = style
+                for family in [false, true] {
+                    footer.configure(isEnabled: family, isPurchasing: false)
+                    let title = footer.toggleButton.attributedTitle(for: .normal)!
+                    let color = title.attribute(.foregroundColor, at: 0, effectiveRange: nil) as! UIColor
+                    check(color.resolvedColor(with: traits) == UIColor.label.resolvedColor(with: traits), "Family switch must use readable text in both appearances")
+                    check(color.resolvedColor(with: traits) != UIColor.systemBackground.resolvedColor(with: traits), "Family switch must not disappear into its background")
+                    check(title.attribute(.underlineStyle, at: 0, effectiveRange: nil) != nil, "Preserve underlined button")
+                    check(footer.toggleButton.isEnabled, "Family switch remains tappable")
+                }
+                footer.configure(isEnabled: true, isPurchasing: true)
+                check(!footer.toggleButton.isEnabled, "Do not change plans during purchase")
+            }
+        }
+        for id in [PurchaseStoreID.lifetime198.rawValue, PurchaseStoreID.lifetime298.rawValue] {
+            let product = StoreProduct(productIdentifier: id, paywallTitle: "Lifetime", localizedPriceString: "$49")
+            check(purchaseButtonTitle(product: product, alreadyCovered: false, trialEligibleProductIDs: []) == "Get Lifetime Access", "Both lifetime plans use lifetime CTA")
+            check(purchaseButtonTitle(product: product, alreadyCovered: true, trialEligibleProductIDs: []) == "You have purchased", "Owned lifetime retains disabled purchase copy")
+        }
+        for id in ["monthly", PurchaseStoreID.yearly.rawValue] {
+            let product = StoreProduct(productIdentifier: id, paywallTitle: "Subscription", localizedPriceString: "$1", onboardingTrialDays: 3)
+            check(purchaseButtonTitle(product: product, alreadyCovered: false, trialEligibleProductIDs: []) == "Continue", "Non-trial subscription CTA unchanged")
+            check(purchaseButtonTitle(product: product, alreadyCovered: false, trialEligibleProductIDs: [id]) == "Free Trial for 3 Days", "Eligible subscription retains free trial CTA")
         }
         print("PASS_PURCHASE_PRICE_CELL_LAYOUT assertions=\(assertions)")
         // Optional, isolated rendering of the real cells, not a screenshot of the user's app.
@@ -156,7 +204,7 @@ private enum PriceCellLayoutProbe {
                 ("月度高级版", "US$1.99", nil, "monthly"),
                 ("年度高级版", "US$7.99", "US$0.67 / 月", "annual"),
                 ("终身高级版", "US$19.99", nil, PurchaseStoreID.lifetime198.rawValue),
-                ("家庭共享终身高级版", "US$39.99", nil, "family")
+                ("家庭共享终身高级版", "US$39.99", nil, PurchaseStoreID.lifetime298.rawValue)
             ]
             var y: CGFloat = 0
             for (index, plan) in plans.enumerated() {
@@ -183,7 +231,16 @@ private enum PriceCellLayoutProbe {
                 }
             }
             group.frame.size.height = y
-            let caption = UILabel(frame: CGRect(x: 24, y: group.frame.maxY + 16, width: 382, height: 0))
+            let footer = PurchaseFamilySharingFooter(reuseIdentifier: nil)
+            footer.overrideUserInterfaceStyle = .dark
+            footer.configure(isEnabled: false, isPurchasing: false)
+            footer.frame = CGRect(x: 20, y: group.frame.maxY, width: 390, height: 80)
+            canvas.addSubview(footer)
+            footer.setNeedsLayout()
+            footer.layoutIfNeeded()
+            footer.toggleButton.layoutIfNeeded()
+            print("Family footer geometry: content=\(footer.contentView.frame), button=\(footer.toggleButton.frame)")
+            let caption = UILabel(frame: CGRect(x: 24, y: footer.frame.maxY + 16, width: 382, height: 0))
             caption.text = "真实 PurchasePriceCell 独立渲染。示例价格，未连接商店、未发起购买。"
             caption.font = .systemFont(ofSize: 12)
             caption.textColor = .secondaryLabel
@@ -200,6 +257,15 @@ private enum PriceCellLayoutProbe {
                 view.tintColor = view.tintColor.resolvedColor(with: traits)
                 if let label = view as? UILabel {
                     label.textColor = label.textColor.resolvedColor(with: traits)
+                    if let attributed = label.attributedText {
+                        let resolved = NSMutableAttributedString(attributedString: attributed)
+                        attributed.enumerateAttribute(.foregroundColor, in: NSRange(location: 0, length: attributed.length)) { value, range, _ in
+                            if let color = value as? UIColor {
+                                resolved.addAttribute(.foregroundColor, value: color.resolvedColor(with: traits), range: range)
+                            }
+                        }
+                        label.attributedText = resolved
+                    }
                 }
                 view.subviews.forEach { resolveAppearance(in: $0) }
             }

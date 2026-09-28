@@ -8,6 +8,7 @@ product_keys = products.flat_map { |product| %w[Title Description].map { |kind| 
 billing_keys = %w[Purchase.Billing.Monthly Purchase.Billing.Annual Purchase.Billing.Once]
 placeholder_keys = billing_keys + %w[Purchase.FreeTrialDuration]
 keys = product_keys + billing_keys + %w[Purchase.AllPlans Purchase.ProductsUnavailable Purchase.Recommended Purchase.RemoteAccessMessage Purchase.CrossPlatformBenefit Purchase.BestChoice Purchase.FamilySharingFooter Purchase.FreeTrialDuration]
+keys += %w[Purchase.FamilySharingBadge Purchase.EnableFamilySharing Purchase.DisableFamilySharing]
 
 keys.each do |key|
   translations = strings.fetch(key).fetch('localizations')

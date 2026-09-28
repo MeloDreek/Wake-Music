@@ -1,6 +1,520 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "Purchase.FamilySharingBadge" : {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "المشاركة العائلية"
+          }
+        },
+        "ca": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "En família"
+          }
+        },
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rodinné sdílení"
+          }
+        },
+        "da": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Familiedeling"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Familienfreigabe"
+          }
+        },
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Οικογενειακή κοινή χρήση"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Family Sharing"
+          }
+        },
+        "en-AU": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Family Sharing"
+          }
+        },
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Family Sharing"
+          }
+        },
+        "en-IN": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Family Sharing"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "En familia"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "En familia"
+          }
+        },
+        "es-US": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "En familia"
+          }
+        },
+        "fi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Perhejako"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Partage familial"
+          }
+        },
+        "fr-CA": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Partage familial"
+          }
+        },
+        "he": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "שיתוף משפחתי"
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "पारिवारिक शेयरिंग"
+          }
+        },
+        "hr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dijeljenje s obitelji"
+          }
+        },
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Családi megosztás"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Keluarga Berbagi"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "In famiglia"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ファミリー共有"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "가족 공유"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Perkongsian Keluarga"
+          }
+        },
+        "nb": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Familiedeling"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Delen met gezin"
+          }
+        },
+        "pl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Chmura rodzinna"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Compartilhamento Familiar"
+          }
+        },
+        "pt-PT": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Partilha com a família"
+          }
+        },
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Partajare familială"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Семейный доступ"
+          }
+        },
+        "sk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rodinné zdieľanie"
+          }
+        },
+        "sl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Družinska skupna raba"
+          }
+        },
+        "sv": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Familjedelning"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "การแชร์กันในครอบครัว"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aile Paylaşımı"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Сімейний доступ"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Chia sẻ trong gia đình"
+          }
+        },
+        "zh-HK": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "家人共享"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "家人共享"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "家人共享"
+          }
+        }
+      }
+    },
+    "Drive115.WebLogin.DomainReview" : {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "حدّثنا نطاق شركتنا في لوحة مطوّري 115 وننتظر موافقة فريق 115. تسجيل الدخول عبر الويب غير متاح مؤقتًا. يُرجى استخدام رمز QR لتسجيل الدخول حاليًا. شكرًا لتفهّمك."
+          }
+        },
+        "ca": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hem actualitzat el domini de l’empresa al portal de desenvolupadors de 115 i n’esperem l’aprovació. L’inici de sessió web no està disponible temporalment. De moment, inicia la sessió amb un codi QR. Gràcies per la comprensió."
+          }
+        },
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Změnili jsme firemní doménu v konzoli pro vývojáře 115 a čekáme na schválení týmem 115. Přihlášení přes web je dočasně nedostupné. Zatím se prosím přihlaste pomocí QR kódu. Děkujeme za pochopení."
+          }
+        },
+        "da": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vi har opdateret vores virksomheds domæne i 115’s udviklerportal og afventer godkendelse fra 115. Weblogin er midlertidigt utilgængeligt. Brug venligst QR-kode til at logge ind indtil da. Tak for din forståelse."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Wir haben unsere Unternehmensdomain im Entwicklerportal von 115 geändert und warten auf die Freigabe durch 115. Die Webanmeldung ist vorübergehend nicht verfügbar. Bitte melde dich vorerst per QR-Code an. Vielen Dank für dein Verständnis."
+          }
+        },
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ενημερώσαμε τον εταιρικό μας τομέα στην κονσόλα προγραμματιστών του 115 και περιμένουμε την έγκρισή του. Η σύνδεση μέσω ιστού δεν είναι προσωρινά διαθέσιμη. Χρησιμοποίησε προς το παρόν κωδικό QR για σύνδεση. Ευχαριστούμε για την κατανόηση."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "We’ve updated our company domain in the 115 developer console and are waiting for 115 to approve it. Web sign-in is temporarily unavailable. Please use QR code sign-in for now. Thank you for your understanding."
+          }
+        },
+        "en-AU": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "We’ve updated our company domain in the 115 developer console and are waiting for 115 to approve it. Web sign-in is temporarily unavailable. Please use QR code sign-in for now. Thank you for your understanding."
+          }
+        },
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "We’ve updated our company domain in the 115 developer console and are waiting for 115 to approve it. Web sign-in is temporarily unavailable. Please use QR code sign-in for now. Thank you for your understanding."
+          }
+        },
+        "en-IN": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "We’ve updated our company domain in the 115 developer console and are waiting for 115 to approve it. Web sign-in is temporarily unavailable. Please use QR code sign-in for now. Thank you for your understanding."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hemos actualizado el dominio de nuestra empresa en el portal de desarrolladores de 115 y estamos esperando su aprobación. El inicio de sesión web no está disponible temporalmente. Por ahora, inicia sesión con un código QR. Gracias por tu comprensión."
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hemos actualizado el dominio de nuestra empresa en el portal de desarrolladores de 115 y estamos esperando su aprobación. El inicio de sesión web no está disponible temporalmente. Por ahora, inicia sesión con un código QR. Gracias por tu comprensión."
+          }
+        },
+        "es-US": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hemos actualizado el dominio de nuestra empresa en el portal de desarrolladores de 115 y estamos esperando su aprobación. El inicio de sesión web no está disponible temporalmente. Por ahora, inicia sesión con un código QR. Gracias por tu comprensión."
+          }
+        },
+        "fi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Päivitimme yrityksemme verkkotunnuksen 115:n kehittäjäportaalissa ja odotamme 115:n hyväksyntää. Verkkokirjautuminen on tilapäisesti poissa käytöstä. Kirjaudu toistaiseksi QR-koodilla. Kiitos ymmärryksestäsi."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nous avons modifié le domaine de notre entreprise dans le portail développeur de 115 et attendons sa validation par 115. La connexion web est temporairement indisponible. Veuillez utiliser un code QR pour vous connecter en attendant. Merci de votre compréhension."
+          }
+        },
+        "fr-CA": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nous avons modifié le domaine de notre entreprise dans le portail développeur de 115 et attendons sa validation par 115. La connexion web est temporairement indisponible. Veuillez utiliser un code QR pour vous connecter en attendant. Merci de votre compréhension."
+          }
+        },
+        "he": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "עדכנו את דומיין החברה בפורטל המפתחים של 115 ואנו ממתינים לאישור מצוות 115. ההתחברות דרך האינטרנט אינה זמינה זמנית. בינתיים, יש להתחבר באמצעות קוד QR. תודה על ההבנה."
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "हमने 115 के डेवलपर कंसोल में अपनी कंपनी का डोमेन बदला है और 115 की मंज़ूरी का इंतज़ार कर रहे हैं। वेब से साइन इन फ़िलहाल उपलब्ध नहीं है। कृपया अभी QR कोड से साइन इन करें। समझने के लिए धन्यवाद।"
+          }
+        },
+        "hr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ažurirali smo domenu tvrtke na razvojnom portalu 115 i čekamo odobrenje tima 115. Web-prijava privremeno nije dostupna. Zasad se prijavite QR kodom. Hvala na razumijevanju."
+          }
+        },
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Frissítettük cégünk domainnevét a 115 fejlesztői felületén, és a 115 jóváhagyására várunk. A webes bejelentkezés átmenetileg nem érhető el. Kérjük, addig QR-kóddal jelentkezz be. Köszönjük a megértést."
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kami telah memperbarui domain perusahaan di konsol pengembang 115 dan sedang menunggu persetujuan dari 115. Login web sementara tidak tersedia. Silakan login dengan kode QR untuk saat ini. Terima kasih atas pengertiannya."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Abbiamo aggiornato il dominio della nostra azienda nel portale sviluppatori di 115 e siamo in attesa della sua approvazione. L’accesso web è temporaneamente non disponibile. Nel frattempo, accedi tramite codice QR. Grazie per la comprensione."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "115の開発者管理画面で当社のドメインを変更し、現在115側の審査を待っています。ウェブログインは一時的に利用できません。当面はQRコードでログインしてください。ご理解いただきありがとうございます。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "115 개발자 콘솔에서 회사 도메인을 변경하여 115의 승인을 기다리고 있습니다. 웹 로그인은 일시적으로 사용할 수 없습니다. 당분간 QR 코드로 로그인해 주세요. 양해해 주셔서 감사합니다."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kami telah mengemas kini domain syarikat dalam konsol pembangun 115 dan sedang menunggu kelulusan 115. Log masuk web tidak tersedia buat sementara waktu. Sila gunakan kod QR untuk log masuk buat masa ini. Terima kasih atas pemahaman anda."
+          }
+        },
+        "nb": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vi har oppdatert firmadomenet vårt i utviklerportalen til 115 og venter på godkjenning fra 115. Nettpålogging er midlertidig utilgjengelig. Bruk QR-kode for å logge inn inntil videre. Takk for forståelsen."
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "We hebben ons bedrijfsdomein in het ontwikkelaarsportaal van 115 gewijzigd en wachten op goedkeuring door 115. Inloggen via het web is tijdelijk niet beschikbaar. Log voorlopig in met een QR-code. Bedankt voor je begrip."
+          }
+        },
+        "pl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zmieniliśmy domenę firmy w panelu deweloperskim 115 i czekamy na zatwierdzenie przez zespół 115. Logowanie przez stronę jest tymczasowo niedostępne. Na razie zaloguj się kodem QR. Dziękujemy za wyrozumiałość."
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Atualizamos o domínio da empresa no portal de desenvolvedores do 115 e estamos aguardando a aprovação. O login pela web está temporariamente indisponível. Por enquanto, entre usando um código QR. Agradecemos a compreensão."
+          }
+        },
+        "pt-PT": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Atualizámos o domínio da empresa no portal de programadores do 115 e aguardamos a aprovação. O início de sessão na web está temporariamente indisponível. Entretanto, inicie sessão com um código QR. Agradecemos a compreensão."
+          }
+        },
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Am actualizat domeniul companiei în consola pentru dezvoltatori 115 și așteptăm aprobarea echipei 115. Autentificarea pe web este temporar indisponibilă. Deocamdată, autentifică-te folosind un cod QR. Îți mulțumim pentru înțelegere."
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Мы изменили домен компании в кабинете разработчика 115 и ожидаем одобрения со стороны 115. Вход через веб-страницу временно недоступен. Пока используйте вход по QR-коду. Спасибо за понимание."
+          }
+        },
+        "sk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zmenili sme firemnú doménu v konzole pre vývojárov 115 a čakáme na schválenie tímom 115. Prihlásenie cez web je dočasne nedostupné. Zatiaľ sa prihláste pomocou QR kódu. Ďakujeme za pochopenie."
+          }
+        },
+        "sl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Posodobili smo domeno podjetja v razvijalski konzoli 115 in čakamo na odobritev ekipe 115. Spletna prijava začasno ni na voljo. Za zdaj se prijavite s kodo QR. Hvala za razumevanje."
+          }
+        },
+        "sv": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vi har uppdaterat företagets domän i 115:s utvecklarportal och väntar på godkännande från 115. Webbinloggning är tillfälligt otillgänglig. Logga tills vidare in med QR-kod. Tack för din förståelse."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เราได้เปลี่ยนโดเมนบริษัทในคอนโซลนักพัฒนาของ 115 และกำลังรอทีมงาน 115 อนุมัติ จึงไม่สามารถเข้าสู่ระบบผ่านเว็บได้ชั่วคราว โปรดเข้าสู่ระบบด้วยคิวอาร์โค้ดไปก่อน ขอบคุณที่เข้าใจ"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "115 geliştirici panelinde şirket alan adımızı güncelledik ve 115’in onayını bekliyoruz. Web üzerinden giriş geçici olarak kullanılamıyor. Lütfen şimdilik QR koduyla giriş yapın. Anlayışınız için teşekkür ederiz."
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ми змінили домен компанії в кабінеті розробника 115 й очікуємо на схвалення з боку 115. Вхід через вебсторінку тимчасово недоступний. Поки що використовуйте вхід за QR-кодом. Дякуємо за розуміння."
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Chúng tôi đã cập nhật tên miền công ty trong bảng điều khiển nhà phát triển 115 và đang chờ 115 phê duyệt. Đăng nhập qua web tạm thời không khả dụng. Vui lòng đăng nhập bằng mã QR trong thời gian này. Cảm ơn bạn đã thông cảm."
+          }
+        },
+        "zh-HK": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "由於我們在115網盤管理後台修改了公司網域，尚待115工作人員審核，網頁登入暫時無法使用。請暫時使用 QR Code 登入，感謝您的諒解。"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "由于我们在115网盘管理后台修改了公司域名，需要等待115工作人员审核，网页登录暂不可用，请暂时使用二维码登录，感谢您的理解"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "由於我們在115網盤管理後台修改了公司網域，尚待115工作人員審核，網頁登入暫時無法使用。請暫時使用 QR Code 登入，感謝您的諒解。"
+          }
+        }
+      }
+    },
     "LyricAI.PersonalUse" : {
       "extractionState" : "manual",
       "localizations" : {
