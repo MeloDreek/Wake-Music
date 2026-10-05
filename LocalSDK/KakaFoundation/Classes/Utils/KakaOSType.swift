@@ -75,3 +75,23 @@ public func kaka_IsMacOS() -> Bool {
     return false
 #endif
 }
+
+public func kaka_IsiPhoneDuo() -> Bool {
+#if os(OSX) || targetEnvironment(macCatalyst)
+    return false
+#else
+    var systemInfo = utsname()
+    uname(&systemInfo)
+
+    let identifier = withUnsafePointer(to: &systemInfo.machine) {
+        $0.withMemoryRebound(to: CChar.self, capacity: 1) {
+            String(cString: $0)
+        }
+    }
+
+    return [
+        "iPhoneXX,X",
+        "iPhoneXX,Y"
+    ].contains(identifier)
+#endif
+}
