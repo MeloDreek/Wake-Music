@@ -36,9 +36,6 @@ public class UserInfoManager: SmartCodableX, ObservableObject {
     /// 头像在本地的名称
     public var localAvatarName: String? = avatarDefaultName
     
-    /// 是否为捐赠者
-    public var isDonater: Bool = false
-    
     /// 注册时的日期
     public var registerDate: TimeInterval = Date().timeIntervalSince1970
     

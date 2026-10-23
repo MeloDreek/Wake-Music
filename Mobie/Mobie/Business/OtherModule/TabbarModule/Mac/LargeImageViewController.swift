@@ -18,12 +18,12 @@ public enum ApplicationType: Int {
     case ScanVK = 5
     case ScanRednote = 6
     
-    func applicationID() -> String {
+    func applicationTitle() -> String {
         switch self {
         case .MusicTag:
-            return Application.wakeTag.appstoreID()
+            return Application.wakeTag.appTitle()
         case .WakeMusic:
-            return Application.wakeMusic.appstoreID()
+            return Application.wakeMusic.appTitle()
         default: return ""
         }
     }
@@ -60,7 +60,7 @@ public enum ApplicationType: Int {
     
 }
 
-class LargeImageViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class LargeImageViewController: UIViewController {
     
     init(_ application: ApplicationType) {
         self.appType = application
@@ -93,29 +93,6 @@ class LargeImageViewController: UIViewController, UICollectionViewDataSource, UI
             make.top.equalTo(qrcodeView.snp.bottom).offset(10)
             make.size.greaterThanOrEqualTo(0)
         }
-        
-//        self.view.addSubview(collectionView)
-//        collectionView.snp.makeConstraints { make in
-//            make.centerX.equalToSuperview()
-//            make.top.equalTo(tipsLabel.snp.bottom).offset(30.ckValue())
-//            make.width.equalToSuperview()
-//            make.height.equalTo(self.flowLayout.itemSize.height + self.itemSpace)
-//        }
-                
-        if self.appType == .MusicTag || self.appType == .WakeMusic {
-            self.refreshDataAction()
-        }
-    }
-    
-    @objc func refreshDataAction() {
-        APIManager.shared.requestApplication(appID: self.appType.applicationID()) { appModel in
-            self.appModel = appModel
-            self.tipsLabel.text = appModel.trackName
-            self.collectionView.reloadData()
-        } fail: { errorMsg in
-            
-        }
-
     }
     
     var appType: ApplicationType = .MusicTag
@@ -132,103 +109,10 @@ class LargeImageViewController: UIViewController, UICollectionViewDataSource, UI
     
     lazy var tipsLabel: UILabel = {
         let view = UILabel()
+        view.text = appType.applicationTitle()
         view.textColor = .label
         view.font = UIFontBold(15)
         view.textAlignment = .center
         return view
     }()
-    
-    lazy var appModel: AppStoreInfoModel = {
-        return AppStoreInfoModel()
-    }()
-    
-    let itemSpace = 20.ckValue()
-    
-    lazy var collectionView: UICollectionView = {
-        let view = UICollectionView(frame: self.view.bounds, collectionViewLayout: self.flowLayout)
-        view.backgroundColor = .clear
-        view.dataSource = self
-        view.delegate = self
-        view.selectionFollowsFocus = false
-        view.showsHorizontalScrollIndicator = false
-        view.alwaysBounceHorizontal = true
-        view.contentInsetAdjustmentBehavior = .never
-        view.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        view.semanticContentAttribute = PhoneSetManager.isArabicLanguage() ? .forceRightToLeft : .forceLeftToRight
-        view.register(SingleImageCollectionCell.self, forCellWithReuseIdentifier: "SingleImageCollectionCell")
-        return view
-    }()
-    
-    lazy var flowLayout: BaseCollectionViewFlowLayout = {
-        let layout = BaseCollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
-        layout.minimumLineSpacing = itemSpace / 2
-        layout.minimumInteritemSpacing = 0
-        layout.itemSize = CGSizeMake(100, 150)
-        return layout
-    }()
-    
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.appModel.screenshotUrls.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SingleImageCollectionCell", for: indexPath) as! SingleImageCollectionCell
-        cell.coverImgUrl = self.appModel.screenshotUrls[indexPath.row]
-        return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-    }
-    
 }
-
-class SingleImageCollectionCell: UICollectionViewCell {
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        self.setupSubViews()
-        self.setupAutoLayout()
-        self.setupCusBuness()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    private func setupSubViews() {
-        contentView.addSubview(coverImgView)
-    }
-    
-    private func setupAutoLayout() {
-        coverImgView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
-        }
-    }
-    
-    private func setupCusBuness() {
-        
-    }
-    
-    var coverImgUrl: String? {
-        didSet {
-            coverImgView.kf.setImage(with: URL(string: coverImgUrl ?? ""))
-        }
-    }
-    
-    lazy var coverImgView: UIImageView = {
-        let view = UIImageView()
-        view.backgroundColor = UIColor.secondarySystemFill
-        view.layer.masksToBounds = true
-        view.layer.cornerRadius = 5.ckValue()
-        return view
-    }()
-    
-}
-
-

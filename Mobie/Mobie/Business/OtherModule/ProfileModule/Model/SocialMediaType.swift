@@ -22,9 +22,6 @@ enum SocialMediaType: String {
     
     static func socialArray() -> [SocialMediaType] {
         
-#if DEBUG
-        return [.twitter, .telegram, .line, .russiaVK, .wechat, .redbook, .email]
-#else
         let language = PhoneSetManager.formatLanguage()
         
         switch language {
@@ -41,7 +38,6 @@ enum SocialMediaType: String {
         default:
             return [.telegram, .twitter, .email]
         }
-#endif
         
     }
     

@@ -969,7 +969,6 @@
 		CCBEB2AE43EF57596722CF3AF7D00383 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63C44AC2F4B50893AC23AA28A0264AA3 /* Foundation.framework */; };
 		CD10CF34127F54E99ACB230C9585B6ED /* ResponseParserFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6072B5D4309C4871A2BE97968191B2F /* ResponseParserFactory.swift */; settings = {COMPILER_FLAGS = "-Werror -Wall -Wsign-compare -Wdocumentation-unknown-command -Wdocumentation -Wnewline-eof -Woverriding-method-mismatch -Wsuper-class-method-mismatch"; }; };
 		CD2EBFA5D723CB3196E34ADC80F3A62C /* IQTextInputViewInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C59C8055BBCA0C813635D10FF9E986 /* IQTextInputViewInfoModel.swift */; };
-		CD77EC59914A003637287E679DB4D9F4 /* StarRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F63E4567D0F3E52EFB7D5ABAE39BF36 /* StarRatingView.swift */; };
 		CDC607047CBD7742193468DFDC29470F /* ReconnectionHelpers+Handwritten.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05904206BE3EAA8F5A48488B3F7D73A2 /* ReconnectionHelpers+Handwritten.swift */; };
 		CDD99D438D7F40D12EB92DD5B2614AFB /* ConstraintPriority.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9EC49D1330A4361DA126BE4627C65C2 /* ConstraintPriority.swift */; };
 		CDF9355BCE72F8D1763C9022FAFBBEA3 /* KakaPhotoItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A456DB6A8176061FCA43B4AD99F224AB /* KakaPhotoItem.m */; settings = {COMPILER_FLAGS = "-w -Xanalyzer -analyzer-disable-all-checks"; }; };
@@ -2811,7 +2810,6 @@
 		9EDA57D6E5B71B468E529D3572A18981 /* FBLPromise+Then.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "FBLPromise+Then.m"; path = "Sources/FBLPromises/FBLPromise+Then.m"; sourceTree = "<group>"; };
 		9F0801DB3D41FA79EAC0F2A5BE23BC9D /* JXSegmentedIndicatorProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JXSegmentedIndicatorProtocol.swift; path = Sources/Indicator/JXSegmentedIndicatorProtocol.swift; sourceTree = "<group>"; };
 		9F1590A685D7B9576F1000F29F18CFE9 /* NVActivityIndicatorAnimationLineScalePulseOut.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NVActivityIndicatorAnimationLineScalePulseOut.swift; path = Sources/Base/Animations/NVActivityIndicatorAnimationLineScalePulseOut.swift; sourceTree = "<group>"; };
-		9F63E4567D0F3E52EFB7D5ABAE39BF36 /* StarRatingView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = StarRatingView.swift; sourceTree = "<group>"; };
 		9F7046A6BC9FC3C8071F6915EA9ADD56 /* IQKeyboardToolbarManager+Debug.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "IQKeyboardToolbarManager+Debug.swift"; path = "IQKeyboardToolbarManager/Classes/Debug/IQKeyboardToolbarManager+Debug.swift"; sourceTree = "<group>"; };
 		A01A36FF05E7A4B1E033A92B3BCBE892 /* UIImage+KS.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+KS.h"; path = "KakaPhotoBrowser/UIImage+KS.h"; sourceTree = "<group>"; };
 		A088060A2A5958210A39E8FAE5EA9362 /* IQPlaceholderable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IQPlaceholderable.swift; path = IQKeyboardToolbar/Placeholderable/IQPlaceholderable.swift; sourceTree = "<group>"; };
@@ -5020,7 +5018,6 @@
 				055ED2E787B3166758A09551644BC2BF /* HexagonImageView.swift */,
 				140C5E11609AFFFFBAD21D40CC0E1970 /* KakaGradientView.swift */,
 				13CE5324541FBC01B0E7132A5B11DA7C /* KakaStrechCollectFlowLayout.swift */,
-				9F63E4567D0F3E52EFB7D5ABAE39BF36 /* StarRatingView.swift */,
 				6CC50CF41684BCF95B1EB8BA799BC4CB /* WebViewPrintPageRenderer.swift */,
 			);
 			name = Utils;
@@ -9088,7 +9085,6 @@
 				3623AF7AEA7E4128BA2E6A346529B90B /* RippleAnimationView.swift in Sources */,
 				6576282C6F05D232EEE06C5F3368A91E /* RTLProgressView.swift in Sources */,
 				BFF11418FADC2AB0527FC01BEC5E0C51 /* SliderFeedbackGenerator.swift in Sources */,
-				CD77EC59914A003637287E679DB4D9F4 /* StarRatingView.swift in Sources */,
 				862607843708E17AB8A2F72131D2E3C2 /* TagListView.swift in Sources */,
 				6806EEA5A82E0735057590C1E913A657 /* TagView.swift in Sources */,
 				29766EE50DCB06AE3AFE146553F61233 /* UIImage+Kaka.swift in Sources */,

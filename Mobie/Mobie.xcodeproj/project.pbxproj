@@ -587,8 +587,6 @@
 		22C7077E2DCB9E9100A1B79A /* PrimaryToolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C7077C2DCB9E9100A1B79A /* PrimaryToolViewController.swift */; };
 		22C707802DCB9F4300A1B79A /* LargeImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C7077F2DCB9F4300A1B79A /* LargeImageViewController.swift */; };
 		22C707812DCB9F4300A1B79A /* LargeImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C7077F2DCB9F4300A1B79A /* LargeImageViewController.swift */; };
-		22C707842DCBA00000A1B79A /* AppStoreInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C707832DCBA00000A1B79A /* AppStoreInfoModel.swift */; };
-		22C707852DCBA00000A1B79A /* AppStoreInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C707832DCBA00000A1B79A /* AppStoreInfoModel.swift */; };
 		22C707872DCBA20300A1B79A /* DownloadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C707862DCBA20300A1B79A /* DownloadViewController.swift */; };
 		22C707882DCBA20300A1B79A /* DownloadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C707862DCBA20300A1B79A /* DownloadViewController.swift */; };
 		22C7078A2DCBA20A00A1B79A /* DownloadViewController+Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22C707892DCBA20A00A1B79A /* DownloadViewController+Action.swift */; };
@@ -1087,7 +1085,6 @@
 		22C707792DCB9E8900A1B79A /* PrimaryCellGroupModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryCellGroupModel.swift; sourceTree = "<group>"; };
 		22C7077C2DCB9E9100A1B79A /* PrimaryToolViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryToolViewController.swift; sourceTree = "<group>"; };
 		22C7077F2DCB9F4300A1B79A /* LargeImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeImageViewController.swift; sourceTree = "<group>"; };
-		22C707832DCBA00000A1B79A /* AppStoreInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoreInfoModel.swift; sourceTree = "<group>"; };
 		22C707862DCBA20300A1B79A /* DownloadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadViewController.swift; sourceTree = "<group>"; };
 		22C707892DCBA20A00A1B79A /* DownloadViewController+Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DownloadViewController+Action.swift"; sourceTree = "<group>"; };
 		22C7078E2DCBA3CC00A1B79A /* FAQsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQsViewController.swift; sourceTree = "<group>"; };
@@ -1967,7 +1964,6 @@
 				22C7077F2DCB9F4300A1B79A /* LargeImageViewController.swift */,
 				22C707792DCB9E8900A1B79A /* PrimaryCellGroupModel.swift */,
 				22C7077C2DCB9E9100A1B79A /* PrimaryToolViewController.swift */,
-				22C707832DCBA00000A1B79A /* AppStoreInfoModel.swift */,
 			);
 			path = Mac;
 			sourceTree = "<group>";
@@ -2646,7 +2642,6 @@
 				2243D76E2DE8A5E60010F9FB /* MusicPlayerViewController+Animation.swift in Sources */,
 				220DDAE32EAA6E9A00F50BB3 /* ConnectListViewController+Connect.swift in Sources */,
 				22B1AD482DE0668500DEBED0 /* PlayerStyleDefaultTableCell.swift in Sources */,
-				22C707842DCBA00000A1B79A /* AppStoreInfoModel.swift in Sources */,
 				221928633061075700AF4F2B /* NavidromeSearchViewController.swift in Sources */,
 				224DAE3D2EAE5961003CFAAC /* DriveUserModel+Extension.swift in Sources */,
 				C10D00000000000000000003 /* PCloudDriveService.swift in Sources */,
@@ -2993,7 +2988,6 @@
 				2243D76D2DE8A5E60010F9FB /* MusicPlayerViewController+Animation.swift in Sources */,
 				220DDAE22EAA6E9A00F50BB3 /* ConnectListViewController+Connect.swift in Sources */,
 				22B1AD472DE0668500DEBED0 /* PlayerStyleDefaultTableCell.swift in Sources */,
-				22C707852DCBA00000A1B79A /* AppStoreInfoModel.swift in Sources */,
 				221928623061075700AF4F2B /* NavidromeSearchViewController.swift in Sources */,
 				224DAE3C2EAE5961003CFAAC /* DriveUserModel+Extension.swift in Sources */,
 				C10D00000000000000000001 /* PCloudDriveService.swift in Sources */,

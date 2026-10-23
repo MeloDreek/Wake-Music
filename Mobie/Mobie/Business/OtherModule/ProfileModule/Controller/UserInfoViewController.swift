@@ -200,13 +200,6 @@ extension UserInfoViewController: UITableViewDataSource, UITableViewDelegate, Us
                 cellConfig.secondaryTextProperties.color = isVIP ? self.view.tintColor : UIColor.red
                 cellConfig.secondaryText = UserInfoManager.shared.vipExpirationDate()
             }
-#if !DEBUG
-            if item == .premium {
-                cellConfig.prefersSideBySideTextAndSecondaryText = true
-                cellConfig.secondaryTextProperties.color = .secondaryLabel
-                cellConfig.secondaryText = UserInfoManager.shared.isVIP() ? "Beta" : nil
-            }
-#endif
             cell.contentConfiguration = cellConfig
             cell.accessoryType = .disclosureIndicator
             

@@ -11,10 +11,6 @@ import StoreKit
 
 public enum PurchaseStoreID: String, SmartCaseDefaultable {
     
-//    case option1 = "com.OfflineMusic.www.6"   // 捐赠选项1
-//    case option2 = "com.OfflineMusic.www.12"  // 捐赠选项2
-//    case option3 = "com.OfflineMusic.www.18"  // 捐赠选项3
-    
     case weekly = "com.OfflineMusic.www.Weekly"              // 周会员
     case monthly = "com.OfflineMusic.www.Monthly"            // 月度会员
     case yearly = "com.OfflineMusic.www.Annual"              // 年度VIP

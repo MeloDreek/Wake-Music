@@ -115,17 +115,6 @@ class APIManager {
         }
         
         let url = navUser.hostUrl + endpoint + navUser.subsonicParams()
-#if DEBUG
-        if let parameters = parameters {
-            var requestURL = url
-            for subDict in parameters {
-                let paramStr = "&" + subDict.key + "=" + "\(subDict.value)"
-                requestURL = url + paramStr
-            }
-            
-            debugPrint("parameters = \(parameters),\r\n requestURL = \(requestURL)")
-        }
-#endif
         
         self.frontSession.request(url, method: method, parameters: parameters, encoding: encoding, headers: .default).validate(statusCode: 200..<500).responseData { dataResult in
             switch dataResult.result {
@@ -219,38 +208,6 @@ class APIManager {
             }
         }
         
-    }
-    
-    
-    // 获取应用程序的信息
-    func requestApplication(appID: String, success: ((AppStoreInfoModel)->Void)? = nil, fail:((String?)->Void)? = nil) {
-        let regionCode = PhoneSetManager.regionCode().lowercased()
-        let appstoreUrl = "https://itunes.apple.com/\(regionCode)/lookup?id=\(appID)"
-        debugPrint("获取App信息 = \(appstoreUrl)")
-        guard let vUrl = URL(string: appstoreUrl) else { return }
-
-        self.frontSession.request(vUrl, method: .get, encoding: URLEncoding.queryString).responseData { response in
-            switch response.result {
-            case .success(let data):
-                guard let dict = try? JSONSerialization.jsonObject(with: data) as? [String: Any],
-                      let results = dict["results"] as? [[String: Any]], results.count > 0 else {
-                    
-                    return
-                }
-                
-                guard let model = AppStoreInfoModel.deserialize(from: results.first) else {
-                    fail?(nil)
-                    return
-                }
-                
-                success?(model)
-                
-                break
-            case .failure(let afError):
-                fail?(afError.localizedDescription)
-                break
-            }
-        }
     }
     
 }

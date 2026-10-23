@@ -10,12 +10,8 @@ import KakaUIKit
 import AppGroupKit
 import KakaObjcKit
 import KakaPhotoBrowser
-import StoreKit
 import SafariServices
-import ProgressHUD
-import RevenueCat
 import MessageUI
-import Combine
 
 class ProfileViewController: SuperViewController {
     
@@ -39,48 +35,12 @@ class ProfileViewController: SuperViewController {
         // 购买状态更新后刷新高级版入口
         NotificationCenter.default.addObserver(self, selector: #selector(updateNavigationItem), name: Notification.Name(rawValue: kPurchageSuccessKey), object: nil)
                 
-        // 监听是否填好了兑换码
-        NotificationCenter.default.addObserver(self, selector: #selector(didBecomeActiveNoti), name: UIApplication.didBecomeActiveNotification, object: nil)
-        
         // 监听支付成功
         NotificationCenter.default.addObserver(self, selector: #selector(appModeStyleChanged(_:)), name: Notification.Name(kPurchageSuccessKey), object: nil)
         
         // 播放引擎切换了
         NotificationCenter.default.addObserver(self, selector: #selector(updateNavigationItem), name: Notification.Name(rawValue: kPlayerEngineChangedKey), object: nil)
 
-    }
-    
-    @objc func didBecomeActiveNoti() {
-        if !self.isJumpRedeem { return }
-        
-        self.isJumpRedeem = false
-        self.checkFreecodeStatus()
-    }
-    
-    private func checkFreecodeStatus() {
-        ProgressHUD.animate("Processing...".localStr())
-        AppStoreKitManager.shared.restorePurcharge { [weak self] () in
-            self?.verfityPurchageRecord()
-        } fail: { errorMsg in
-            ProgressHUD.failed(errorMsg)
-        }
-    }
-    
-    // 校验本地购买凭证
-    func verfityPurchageRecord() {
-        
-        Purchases.shared.getCustomerInfo(fetchPolicy: .default) { customerInfo, error in
-            
-            if let activePremium = customerInfo?.entitlements.all[PremiumEntitlID], activePremium.isActive {
-                AppStoreKitManager.shared.handlePayBigModel(activePremium: activePremium)
-                ProgressHUD.succeed("Successful".localStr())
-                self.tableView.reloadData()
-            }else{
-                ProgressHUD.failed(error?.localizedDescription)
-                debugPrint("❌ 支付校验凭证 = \(error?.localizedDescription ?? "")")
-            }
-        }
-        
     }
     
     @objc func updateNavigationItem() {
@@ -113,14 +73,6 @@ class ProfileViewController: SuperViewController {
     }
 
     // MARK:  GET && SET
-    
-    var cancellables = Set<AnyCancellable>()
-    
-    var isJumpRedeem: Bool = false
-        
-    lazy var purchaseManager: AppStoreKitManager = {
-        return AppStoreKitManager()
-    }()
     
     private var dataArray: [SettingGroupCellModel] {
         get {

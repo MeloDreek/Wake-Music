@@ -197,11 +197,7 @@ class ConnectListViewController: SuperViewController {
         self.downloadVC = downloadVC
         
         let navVC = KakaNavigationController(rootViewController: downloadVC)
-#if DEBUG
-        navVC.modalPresentationStyle = .fullScreen
-#else
         navVC.modalPresentationStyle = .automatic
-#endif
         self.currentViewController()?.present(navVC, animated: true)
     }
     

@@ -43,7 +43,6 @@ extension UserInfoManager {
         return true
 #else
     
-//        return false
         return self.isPremium()
 #endif
         

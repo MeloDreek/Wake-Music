@@ -1159,14 +1159,6 @@ class MeteDataDetialViewCell: UITableViewCell {
             view.addGestureRecognizer(clickTap)
         }
         
-#if DEBUG
-        let effectView = UIVisualEffectView(effect: UIBlurEffect(style: .extraLight))
-        effectView.frame = view.bounds
-        effectView.alpha = 0.58
-        effectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        view.addSubview(effectView)
-#endif
-        
         return view
     }
     

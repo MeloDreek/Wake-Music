@@ -11,11 +11,6 @@ import AppGroupKit
 
 
 
-// 搜索App Store：https://itunes.apple.com/search?term=关键词&country=CN&media=software
-// APP详情：https://itunes.apple.com/lookup?id=6444247541
-// APP评论：https://itunes.apple.com/rss/customerreviews/id=6444247541/json
-
-
 // 联系邮箱
 let companyEmail = "support@kakainc.com"
 let emailAppURL = kaka_IsMacOS() ? "https://mail.google.com/" : "https://apps.apple.com/app/id1108187098"

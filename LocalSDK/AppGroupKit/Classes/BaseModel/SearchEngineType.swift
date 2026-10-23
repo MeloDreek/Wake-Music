@@ -110,9 +110,6 @@ public enum SearchEngineType: String, SmartCaseDefaultable {
     
     /// 判断用户是否连接代理
     public static func isHttpProxy() -> Bool {
-        #if DEBUG
-        return false
-        #else
         guard let proxy = CFNetworkCopySystemProxySettings()?.takeUnretainedValue() else { return false }
         guard let dict = proxy as? [String: Any] else { return false }
         guard let HTTPProxy = dict["HTTPProxy"] as? String else { return false }
@@ -120,7 +117,5 @@ public enum SearchEngineType: String, SmartCaseDefaultable {
             return true;
         }
         return false
-        #endif
-        
     }
 }
