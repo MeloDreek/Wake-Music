@@ -1,0 +1,18 @@
+◆◆◆ Suuri päivitys
+
+1. Parannettu mukautuvia asetteluja iPhonessa ja iPadissa, myös iPhone Duon taittamisen ja avaamisen yhteydessä.
+2. Lisätty pCloud-, Box-, MEGA-, Yandex Disk-, SMB-, FTP-, 123 cloud drive- ja Guangya cloud drive -yhteydet musiikin selaamiseen, suoratoistoon ja lataamiseen.
+3. Uudistettu Navidrome-tila tukee yhteensopivia Subsonic-palveluja: viimeksi toistetut, suosikit, soittolistat, uudet lisäykset, koko palvelimen haku ja lataukset. Selaa artisteja ja albumeita sekä elämäkertoja ja lisätietoja, kun palvelin tarjoaa ne.
+4. Uusi 10-kaistainen taajuuskorjain sisältää esiasetuksia, tallennettavan oman käyrän ja esivahvistuksen säädön. Sen käyttöönotto vaihtaa kaikkien formaattien äänimoottoriin. Säädöt eivät muuta alkuperäistä äänitiedostoa.
+5. Uusi paikallisen äänen spektrianalyysi näyttää formaatin, tiedostokoon, keskimääräisen bittinopeuden ja näytteenottotaajuuden. Tulokset tallennetaan välimuistiin ja voidaan jakaa PNG-kortteina. Pelkkä spektri ei voi todistaa äänen olevan aidosti häviötöntä.
+6. Parannettu äänisormenjälkitunnistusta ja metatietojen hakua. Jos sormenjälki ei löydä osumaa, tiedostonimi, olemassa olevat tunnisteet ja kesto auttavat etsimään sopivia ehdokkaita. Saatavilla olevat metatiedot ja kirjoitettavat tunnisteet riippuvat tallenteesta ja tiedostomuodosta.
+7. Parannettu metatietojen upottamista yksittäin ja erissä, kansikuvien lukemista ja pikkukuvien välimuistia suurissa paikallisissa musiikkikirjastoissa.
+8. Uudistettu toistojono ja soittimen asetukset. Vaihda kappaleiden järjestystä järjestyksessä toistettaessa. Parannettu satunnaistoistoa ja korjattu jonon kaksoiskappaleita, taukoilmaisimia ja toistokohdan vaihtamista tauon jälkeen.
+9. Valmiit ennakkolataukset näkyvät nyt paikallisessa musiikkikansiossa, jonne siirretään myös vanhat välimuistitiedostot. Kappaleen vaihtaminen peruuttaa keskeneräiset ennakkolataukset. Käsin jonoon lisätyt lataukset alkavat automaattisesti.
+10. Sanoituseditorissa on uusi valinnainen tekoälyhaun apuri. Kopioi kappaleen tiedot ja keston sisältävä kehote ja avaa valitsemasi ulkopuolinen tekoälysovellus tai -sivusto. Palaa liittämään sanoitus tai tuomaan LRC-tiedosto. Kyseessä ei ole sovelluksen sisäinen tekoälysisällön luontipalvelu.
+11. Uudistettu aloitusopastus ja ostonäkymät: selkeämmät hinnat, maksuttomat kokeilut niihin oikeutetuille ja elinikäinen Perhejako-vaihtoehto.
+12. Päivitetty tietosuojakäytäntö ja käyttöehdot monikielisillä sivuilla osoitteessa kakainc.com sekä korjattu muita yhteys-, toisto- ja käyttöliittymäongelmia.
+
+Etäyhteydet, EQ-säädöt ja tietyt muut ominaisuudet vaativat Premiumin. Ulkopuoliset palveluntarjoajat määrittävät omat jäsenyytensä, tiedonsiirtokiintiönsä ja pääsyrajoituksensa. Wakemusic ei tarjoa musiikkia. Käytä ääntä, johon sinulla on käyttöoikeus.
+
+Kysyttävää tai palautetta? Ota yhteyttä: support@kakainc.com.

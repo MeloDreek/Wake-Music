@@ -1,0 +1,18 @@
+◆◆◆ Grote update
+
+1. Verbeterde adaptieve lay-outs op iPhone en iPad, ook bij het in- en uitvouwen van iPhone Duo.
+2. Verbindingen toegevoegd voor pCloud, Box, MEGA, Yandex Disk, SMB, FTP, 123 cloud drive en Guangya cloud drive om je muziek te bekijken, streamen en downloaden.
+3. Navidrome-modus vernieuwd met ondersteuning voor compatibele Subsonic-diensten: recent afgespeeld, favorieten, afspeellijsten, recente toevoegingen, zoeken op de hele server en downloads. Bekijk artiesten en albums, met biografieën en gerelateerde informatie als je server die levert.
+4. Een 10-bands EQ toegevoegd met luistervoorinstellingen, een opgeslagen eigen curve en voorversterkerregeling. Bij het inschakelen van EQ wordt de audio-engine voor alle formaten gebruikt; aanpassingen wijzigen het oorspronkelijke audiobestand niet.
+5. Spectrumanalyse voor lokale audio toegevoegd, met formaat, bestandsgrootte, gemiddelde bitsnelheid en samplefrequentie. Resultaten worden gecachet en zijn te delen als PNG-kaarten. Een spectrum alleen kan niet bewijzen dat audio werkelijk verliesvrij is.
+6. Herkenning via audiofingerprints en het vinden van bijpassende metadata verbeterd. Als de fingerprint geen match oplevert, helpen bestandsnamen, bestaande tags en de duur geschikte kandidaten te vinden. Beschikbare metadata en schrijfbare tags hangen af van de opname en het bestandsformaat.
+7. Het insluiten van metadata per nummer en in batches, het lezen van albumhoezen en de miniatuurcache verbeterd voor grotere lokale muziekbibliotheken.
+8. De afspeelwachtrij en spelerinstellingen opnieuw ontworpen. Wijzig de volgorde van nummers in de sequentiële modus; verbeterde shuffle en oplossingen voor dubbele items, pauze-indicatoren en het verplaatsen van de afspeelpositie na pauzeren.
+9. Voltooide voorafdownloads verschijnen nu in de lokale muziekmap, samen met gemigreerde oudere caches. Een ander nummer kiezen annuleert onvoltooide voorafdownloads; handmatig in de wachtrij geplaatste downloads starten automatisch.
+10. Een optionele AI-zoekhulp toegevoegd aan de songteksteditor. Kopieer een prompt met nummergegevens en de duur en open de externe AI-app of -website van je keuze. Keer terug om de songtekst te plakken of een LRC-bestand te importeren; dit is geen ingebouwde AI-generatiedienst.
+11. De introductie- en aankoopschermen vernieuwd, met duidelijkere prijzen, gratis proefaanbiedingen voor wie in aanmerking komt en een levenslange optie met Delen met gezin.
+12. Ons privacybeleid en onze gebruiksvoorwaarden bijgewerkt met meertalige pagina’s op kakainc.com en andere problemen met verbindingen, afspelen en de interface opgelost.
+
+Externe verbindingen, EQ-aanpassingen en bepaalde andere functies vereisen Premium. Abonnementen, overdrachtslimieten en toegangsbeperkingen van derden worden door elke aanbieder bepaald. Wakemusic levert geen muziek; gebruik audio waarvoor je toegangsrechten hebt.
+
+Vragen of feedback? Neem contact op via support@kakainc.com.

@@ -7,10 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D02300000000000000000011 /* OneDriveOAuthClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02300000000000000000010 /* OneDriveOAuthClient.swift */; };
-		D02300000000000000000012 /* OneDriveOAuthClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02300000000000000000010 /* OneDriveOAuthClient.swift */; };
-		D02300000000000000000014 /* OneDriveOAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02300000000000000000013 /* OneDriveOAuthManager.swift */; };
-		D02300000000000000000015 /* OneDriveOAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02300000000000000000013 /* OneDriveOAuthManager.swift */; };
 		01F75346B3745539580B69EB /* Pods_Mobie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC044DCD42AEE7FFFB8D29DE /* Pods_Mobie.framework */; };
 		02B57660DD995BBB02E0E76A /* CollectionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132CAFD74F21CC80A0EE1C8C /* CollectionDetailViewController.swift */; };
 		22059B832CAE9378006F6E7A /* SocialMediaType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22059B822CAE9378006F6E7A /* SocialMediaType.swift */; };
@@ -733,6 +729,10 @@
 		CB1100000000000000000003 /* Pan123FileListStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB1100000000000000000002 /* Pan123FileListStatus.swift */; };
 		CB1200000000000000000001 /* Pan123DriveAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB1200000000000000000002 /* Pan123DriveAPI.swift */; };
 		CB1200000000000000000003 /* Pan123DriveAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB1200000000000000000002 /* Pan123DriveAPI.swift */; };
+		D02300000000000000000011 /* OneDriveOAuthClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02300000000000000000010 /* OneDriveOAuthClient.swift */; };
+		D02300000000000000000012 /* OneDriveOAuthClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02300000000000000000010 /* OneDriveOAuthClient.swift */; };
+		D02300000000000000000014 /* OneDriveOAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02300000000000000000013 /* OneDriveOAuthManager.swift */; };
+		D02300000000000000000015 /* OneDriveOAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02300000000000000000013 /* OneDriveOAuthManager.swift */; };
 		D66F570949C24DA19E444001 /* MEGASystemProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66F570949C24DA19E444002 /* MEGASystemProxy.swift */; };
 		D66F570949C24DA19E444003 /* MEGASystemProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66F570949C24DA19E444002 /* MEGASystemProxy.swift */; };
 		DA1000000000000000000001 /* YandexDriveService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1000000000000000000002 /* YandexDriveService.swift */; };
@@ -805,8 +805,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		D02300000000000000000010 /* OneDriveOAuthClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneDriveOAuthClient.swift; sourceTree = "<group>"; };
-		D02300000000000000000013 /* OneDriveOAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneDriveOAuthManager.swift; sourceTree = "<group>"; };
 		132CAFD74F21CC80A0EE1C8C /* CollectionDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionDetailViewController.swift; sourceTree = "<group>"; };
 		2024258CB3388C84E94183D3 /* Pods_Mobie_Pro.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mobie_Pro.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		22059B822CAE9378006F6E7A /* SocialMediaType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialMediaType.swift; sourceTree = "<group>"; };
@@ -1152,6 +1150,8 @@
 		CB1000000000000000000008 /* KakaMusicPlayer+Pan123.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KakaMusicPlayer+Pan123.swift"; sourceTree = "<group>"; };
 		CB1100000000000000000002 /* Pan123FileListStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pan123FileListStatus.swift; sourceTree = "<group>"; };
 		CB1200000000000000000002 /* Pan123DriveAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pan123DriveAPI.swift; sourceTree = "<group>"; };
+		D02300000000000000000010 /* OneDriveOAuthClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneDriveOAuthClient.swift; sourceTree = "<group>"; };
+		D02300000000000000000013 /* OneDriveOAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneDriveOAuthManager.swift; sourceTree = "<group>"; };
 		D66F570949C24DA19E444002 /* MEGASystemProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MEGASystemProxy.swift; sourceTree = "<group>"; };
 		DA1000000000000000000002 /* YandexDriveService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YandexDriveService.swift; sourceTree = "<group>"; };
 		DA1000000000000000000005 /* YandexDriveFileListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YandexDriveFileListController.swift; sourceTree = "<group>"; };
@@ -2176,9 +2176,9 @@
 				359627E8ED7B8B56C8AF7110 /* XCRemoteSwiftPackageReference "ZLImageEditor" */,
 				CEDCB842D82E0F908A910EB1 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				E82400000000000000000004 /* XCRemoteSwiftPackageReference "WaketagLibKit" */,
-				C04000000000000000000005 /* XCLocalSwiftPackageReference "../LocalSDK/MEGASDK" */,
-				A763814F2EDEA4320040A84D /* XCLocalSwiftPackageReference "../../../本地公开库/KSPlayer" */,
-				22A801D9302B284D000FB581 /* XCLocalSwiftPackageReference "../../../本地公开库/firebase-ios-sdk" */,
+				C04000000000000000000005 /* XCLocalSwiftPackageReference "MEGASDK" */,
+				A763814F2EDEA4320040A84D /* XCLocalSwiftPackageReference "KSPlayer" */,
+				22A801D9302B284D000FB581 /* XCLocalSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 228A135C2CA00F5600E2948E /* Products */;
 			projectDirPath = "";
@@ -2253,13 +2253,9 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Mobie/Pods-Mobie-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			inputPaths = (
-			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Mobie/Pods-Mobie-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -2294,13 +2290,9 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Mobie_Pro/Pods-Mobie_Pro-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			inputPaths = (
-			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Mobie_Pro/Pods-Mobie_Pro-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -2359,13 +2351,9 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Mobie_Pro/Pods-Mobie_Pro-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			inputPaths = (
-			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Mobie_Pro/Pods-Mobie_Pro-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -2380,13 +2368,9 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Mobie/Pods-Mobie-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			inputPaths = (
-			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Mobie/Pods-Mobie-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -3345,7 +3329,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Mobie/System/Mobie.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
@@ -3396,7 +3380,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Mobie/System/Mobie.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
@@ -3471,15 +3455,15 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		22A801D9302B284D000FB581 /* XCLocalSwiftPackageReference "../../../本地公开库/firebase-ios-sdk" */ = {
+		22A801D9302B284D000FB581 /* XCLocalSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = "../../../本地公开库/firebase-ios-sdk";
 		};
-		A763814F2EDEA4320040A84D /* XCLocalSwiftPackageReference "../../../本地公开库/KSPlayer" */ = {
+		A763814F2EDEA4320040A84D /* XCLocalSwiftPackageReference "KSPlayer" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = "../../../本地公开库/KSPlayer";
 		};
-		C04000000000000000000005 /* XCLocalSwiftPackageReference "../LocalSDK/MEGASDK" */ = {
+		C04000000000000000000005 /* XCLocalSwiftPackageReference "MEGASDK" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = ../LocalSDK/MEGASDK;
 		};
@@ -3654,17 +3638,17 @@
 		};
 		223E51A4302B291A00FEF1E4 /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 22A801D9302B284D000FB581 /* XCLocalSwiftPackageReference "../../../本地公开库/firebase-ios-sdk" */;
+			package = 22A801D9302B284D000FB581 /* XCLocalSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAnalytics;
 		};
 		223E51A6302B291A00FEF1E4 /* FirebaseAnalyticsCore */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 22A801D9302B284D000FB581 /* XCLocalSwiftPackageReference "../../../本地公开库/firebase-ios-sdk" */;
+			package = 22A801D9302B284D000FB581 /* XCLocalSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAnalyticsCore;
 		};
 		223E51A8302B291A00FEF1E4 /* FirebaseCrashlytics */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 22A801D9302B284D000FB581 /* XCLocalSwiftPackageReference "../../../本地公开库/firebase-ios-sdk" */;
+			package = 22A801D9302B284D000FB581 /* XCLocalSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseCrashlytics;
 		};
 		223FDA612E04148200079731 /* MorphingLabel */ = {
@@ -3689,7 +3673,7 @@
 		};
 		22526E092E84F59C00C32DBF /* KSPlayer */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = A763814F2EDEA4320040A84D /* XCLocalSwiftPackageReference "../../../本地公开库/KSPlayer" */;
+			package = A763814F2EDEA4320040A84D /* XCLocalSwiftPackageReference "KSPlayer" */;
 			productName = KSPlayer;
 		};
 		22526E0B2E84F5AD00C32DBF /* Reachability */ = {
@@ -3729,7 +3713,7 @@
 		};
 		227FD0182E8471180076B773 /* KSPlayer */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = A763814F2EDEA4320040A84D /* XCLocalSwiftPackageReference "../../../本地公开库/KSPlayer" */;
+			package = A763814F2EDEA4320040A84D /* XCLocalSwiftPackageReference "KSPlayer" */;
 			productName = KSPlayer;
 		};
 		227FD01E2E8471350076B773 /* DominantColors */ = {
@@ -3779,17 +3763,17 @@
 		};
 		22A801DA302B284D000FB581 /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 22A801D9302B284D000FB581 /* XCLocalSwiftPackageReference "../../../本地公开库/firebase-ios-sdk" */;
+			package = 22A801D9302B284D000FB581 /* XCLocalSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAnalytics;
 		};
 		22A801DC302B284D000FB581 /* FirebaseAnalyticsCore */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 22A801D9302B284D000FB581 /* XCLocalSwiftPackageReference "../../../本地公开库/firebase-ios-sdk" */;
+			package = 22A801D9302B284D000FB581 /* XCLocalSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAnalyticsCore;
 		};
 		22A801DE302B284D000FB581 /* FirebaseCrashlytics */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 22A801D9302B284D000FB581 /* XCLocalSwiftPackageReference "../../../本地公开库/firebase-ios-sdk" */;
+			package = 22A801D9302B284D000FB581 /* XCLocalSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseCrashlytics;
 		};
 		22C287A930530BAE00801D66 /* PCloudSDKSwift */ = {
@@ -3804,7 +3788,7 @@
 		};
 		A76381522EDEA4320040A84D /* MPVPlayer */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = A763814F2EDEA4320040A84D /* XCLocalSwiftPackageReference "../../../本地公开库/KSPlayer" */;
+			package = A763814F2EDEA4320040A84D /* XCLocalSwiftPackageReference "KSPlayer" */;
 			productName = MPVPlayer;
 		};
 		A76381582EDEA4570040A84D /* MarqueeLabel */ = {
@@ -3814,7 +3798,7 @@
 		};
 		A763817C2EDEB7770040A84D /* MPVPlayer */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = A763814F2EDEA4320040A84D /* XCLocalSwiftPackageReference "../../../本地公开库/KSPlayer" */;
+			package = A763814F2EDEA4320040A84D /* XCLocalSwiftPackageReference "KSPlayer" */;
 			productName = MPVPlayer;
 		};
 		A76381FE2EDED27C0040A84D /* Alamofire */ = {
@@ -3839,22 +3823,22 @@
 		};
 		C04000000000000000000003 /* MEGASdk */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = C04000000000000000000005 /* XCLocalSwiftPackageReference "../LocalSDK/MEGASDK" */;
+			package = C04000000000000000000005 /* XCLocalSwiftPackageReference "MEGASDK" */;
 			productName = MEGASdk;
 		};
 		C04000000000000000000004 /* MEGASdk */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = C04000000000000000000005 /* XCLocalSwiftPackageReference "../LocalSDK/MEGASDK" */;
+			package = C04000000000000000000005 /* XCLocalSwiftPackageReference "MEGASDK" */;
 			productName = MEGASdk;
 		};
 		C05000000000000000000003 /* KSPlayerUI */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = A763814F2EDEA4320040A84D /* XCLocalSwiftPackageReference "../../../本地公开库/KSPlayer" */;
+			package = A763814F2EDEA4320040A84D /* XCLocalSwiftPackageReference "KSPlayer" */;
 			productName = KSPlayerUI;
 		};
 		C05000000000000000000004 /* KSPlayerUI */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = A763814F2EDEA4320040A84D /* XCLocalSwiftPackageReference "../../../本地公开库/KSPlayer" */;
+			package = A763814F2EDEA4320040A84D /* XCLocalSwiftPackageReference "KSPlayer" */;
 			productName = KSPlayerUI;
 		};
 		E82400000000000000000005 /* WaketagLibKit */ = {

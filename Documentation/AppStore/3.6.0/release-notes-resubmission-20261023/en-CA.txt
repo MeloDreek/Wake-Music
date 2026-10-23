@@ -1,0 +1,18 @@
+◆◆◆ Major Update
+
+1. Improved adaptive layouts on iPhone and iPad, including folding and unfolding on iPhone Duo.
+2. Added pCloud, Box, MEGA, Yandex Disk, SMB, FTP, 123 cloud drive, and Guangya cloud drive connections for browsing, streaming, and downloading your music.
+3. Rebuilt Navidrome mode with support for compatible Subsonic services: recent plays, favourites, playlists, recent additions, server-wide search, and downloads. Browse artists and albums, with biographies and related information when supplied by your server.
+4. Added a 10-band EQ with listening presets, a saved custom curve, and preamp control. Enabling EQ switches to the All-Format Audio Engine; adjustments do not change the original audio file.
+5. Added spectrum analysis for local audio, showing format, file size, average bitrate, and sample rate. Results are cached and shareable as PNG cards. A spectrum alone cannot prove that audio is truly lossless.
+6. Improved fingerprint recognition and metadata matching. When fingerprinting finds no match, filenames, existing tags, and duration help find suitable candidates. Available metadata and writable tags depend on the recording and file format.
+7. Improved individual and batch metadata embedding, artwork reading, and thumbnail caching for larger local music libraries.
+8. Redesigned the playback queue and player settings. Reorder tracks in sequential mode; enjoy improved shuffle behavior and fixes for duplicate entries, pause indicators, and seeking after pausing.
+9. Completed pre-downloads now appear in the local music folder, along with migrated older caches. Changing tracks cancels unfinished pre-downloads; manually queued downloads start automatically.
+10. Added an optional AI search helper in the lyrics editor. Copy a prompt containing song details and duration, then open your chosen third-party AI app or website. Return to paste lyrics or import an LRC file; this is not an in-app AI generation service.
+11. Redesigned onboarding and purchase screens, with clearer pricing, eligible free-trial offers, and a Family Sharing lifetime option.
+12. Updated our Privacy Policy and Terms of Use with multilingual pages at kakainc.com, and fixed other connection, playback, and interface issues.
+
+Remote connections, EQ adjustments, and certain other features require Premium. Third-party memberships, transfer allowances, and access restrictions are set by each provider. Wakemusic does not supply music; use audio you have permission to access.
+
+Questions or feedback? Contact support@kakainc.com.

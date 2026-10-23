@@ -1,0 +1,18 @@
+◆◆◆ Großes Update
+
+1. Verbesserte adaptive Layouts auf iPhone und iPad, einschließlich des Zusammen- und Aufklappens beim iPhone Duo.
+2. Neue Verbindungen zu pCloud, Box, MEGA, Yandex Disk, SMB, FTP, 123 cloud drive und Guangya cloud drive zum Durchsuchen, Streamen und Herunterladen deiner Musik.
+3. Neu entwickelter Navidrome-Modus mit Unterstützung kompatibler Subsonic-Dienste: zuletzt gehört, Favoriten, Playlists, neue Titel, serverweite Suche und Downloads. Entdecke Künstler und Alben mit Biografien und weiteren Informationen, sofern dein Server diese bereitstellt.
+4. Neuer 10-Band-EQ mit Klangvoreinstellungen, gespeicherter eigener Kurve und Vorverstärkungsregler. Beim Aktivieren wird auf die Audio-Engine für alle Formate umgeschaltet; die Anpassungen verändern die Originaldatei nicht.
+5. Neue Spektrumanalyse für lokale Audiodateien mit Format, Dateigröße, durchschnittlicher Bitrate und Abtastrate. Ergebnisse werden zwischengespeichert und lassen sich als PNG-Karten teilen. Ein Spektrum allein kann nicht belegen, dass eine Aufnahme tatsächlich verlustfrei ist.
+6. Verbesserte Audio-Fingerprinterkennung und Metadatenzuordnung. Gibt es keinen Fingerprint-Treffer, helfen Dateinamen, vorhandene Tags und Spieldauer bei der Suche nach passenden Kandidaten. Verfügbare Metadaten und beschreibbare Tags hängen von Aufnahme und Dateiformat ab.
+7. Verbesserte Metadaten-Einbettung für einzelne Dateien und im Stapel, Cover-Erkennung und Vorschaubild-Cache für größere lokale Musikbibliotheken.
+8. Neu gestaltete Wiedergabewarteschlange und Player-Einstellungen. Ändere die Titelreihenfolge im sequenziellen Modus. Verbesserte Zufallswiedergabe sowie Korrekturen für doppelte Einträge, Pauseanzeigen und Positionssprünge nach dem Pausieren.
+9. Abgeschlossene Vorabdownloads erscheinen jetzt im lokalen Musikordner, in den auch ältere Cachedateien übertragen werden. Ein Titelwechsel bricht unvollständige Vorabdownloads ab; manuell eingereihte Downloads starten automatisch.
+10. Optionale KI-Suchhilfe im Songtexteditor: Kopiere eine Anfrage mit Titelangaben und Spieldauer und öffne die ausgewählte externe KI-App oder Website. Kehre zurück, um den Text einzufügen oder eine LRC-Datei zu importieren. Dies ist kein in die App integrierter KI-Generierungsdienst.
+11. Neu gestaltete Einführung und Kaufansichten mit klareren Preisen, kostenlosen Probeangeboten für berechtigte Nutzer und einer lebenslangen Option mit Familienfreigabe.
+12. Aktualisierte Datenschutzrichtlinie und Nutzungsbedingungen mit mehrsprachigen Seiten auf kakainc.com sowie weitere Korrekturen bei Verbindungen, Wiedergabe und Oberfläche.
+
+Remote-Verbindungen, EQ-Anpassungen und bestimmte weitere Funktionen erfordern Premium. Mitgliedschaften, Übertragungskontingente und Zugriffsbeschränkungen externer Dienste legt der jeweilige Anbieter fest. Wakemusic stellt keine Musik bereit; nutze nur Audiodateien, auf die du zugreifen darfst.
+
+Fragen oder Feedback? Schreib an support@kakainc.com.

@@ -1,0 +1,18 @@
+◆◆◆ Veľká aktualizácia
+
+1. Vylepšili sme prispôsobivé rozloženia na iPhone a iPade vrátane skladania a rozkladania zariadenia iPhone Duo.
+2. Pridali sme pripojenia k pCloud, Box, MEGA, Yandex Disk, SMB, FTP, 123 cloud drive a Guangya cloud drive na prehliadanie, streamovanie a sťahovanie vašej hudby.
+3. Prepracovali sme režim Navidrome s podporou kompatibilných služieb Subsonic: nedávno prehrané, obľúbené, playlisty, nedávno pridané, vyhľadávanie na celom serveri a sťahovanie. Prehliadajte interpretov a albumy aj so životopismi a súvisiacimi informáciami, ak ich server poskytuje.
+4. Pridali sme 10-pásmový EQ s predvoľbami počúvania, uloženou vlastnou krivkou a ovládaním predzosilnenia. Zapnutie EQ prepne na zvukový modul pre všetky formáty; úpravy nemenia pôvodný zvukový súbor.
+5. Pridali sme spektrálnu analýzu lokálneho zvuku s formátom, veľkosťou súboru, priemerným dátovým tokom a vzorkovacou frekvenciou. Výsledky sa ukladajú do vyrovnávacej pamäte a dajú sa zdieľať ako karty PNG. Samotné spektrum nedokazuje, že zvuk je skutočne bezstratový.
+6. Vylepšili sme rozpoznávanie podľa zvukového odtlačku a párovanie metadát. Ak odtlačok nenájde zhodu, názvy súborov, existujúce značky a dĺžka pomáhajú nájsť vhodné možnosti. Dostupné metadáta a zapisovateľné značky závisia od nahrávky a formátu súboru.
+7. Vylepšili sme vkladanie metadát jednotlivo aj hromadne, čítanie obalov a ukladanie miniatúr do vyrovnávacej pamäte pre väčšie lokálne hudobné knižnice.
+8. Prepracovali sme poradie prehrávania a nastavenia prehrávača. Meňte poradie skladieb v sekvenčnom režime; vylepšili sme náhodné prehrávanie a opravili duplicitné položky, indikátory pozastavenia a posun v skladbe po pozastavení.
+9. Dokončené predbežné sťahovania sa teraz zobrazujú v priečinku lokálnej hudby spolu s prenesenou staršou vyrovnávacou pamäťou. Zmena skladby zruší nedokončené predbežné sťahovania; ručne zaradené sťahovania sa spustia automaticky.
+10. Do editora textov sme pridali voliteľného pomocníka na vyhľadávanie s AI. Skopírujte zadanie s údajmi o skladbe a jej dĺžkou, potom otvorte vybranú aplikáciu alebo web AI tretej strany. Vráťte sa, vložte text alebo importujte súbor LRC; nejde o službu generovania pomocou AI zabudovanú v aplikácii.
+11. Prepracovali sme úvodné a nákupné obrazovky s jasnejšími cenami, bezplatnými skúšobnými ponukami pre oprávnených používateľov a doživotnou možnosťou s Rodinným zdieľaním.
+12. Aktualizovali sme Zásady ochrany osobných údajov a Podmienky používania s viacjazyčnými stránkami na kakainc.com a opravili ďalšie problémy s pripojením, prehrávaním a rozhraním.
+
+Vzdialené pripojenia, úpravy EQ a niektoré ďalšie funkcie vyžadujú Premium. Predplatné, limity prenosu a obmedzenia prístupu tretích strán určuje každý poskytovateľ. Wakemusic neposkytuje hudbu; používajte zvuk, ku ktorému máte oprávnený prístup.
+
+Otázky alebo pripomienky? Napíšte na support@kakainc.com.

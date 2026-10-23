@@ -1,0 +1,18 @@
+◆◆◆ Stor opdatering
+
+1. Forbedrede tilpassede layouts på iPhone og iPad, herunder når iPhone Duo foldes sammen og ud.
+2. Tilføjet forbindelser til pCloud, Box, MEGA, Yandex Disk, SMB, FTP, 123 cloud drive og Guangya cloud drive, så du kan gennemse, streame og downloade din musik.
+3. Navidrome-tilstanden er genopbygget med understøttelse af kompatible Subsonic-tjenester: seneste afspilninger, favoritter, spillelister, nye tilføjelser, søgning på hele serveren og downloads. Udforsk kunstnere og album med biografier og relaterede oplysninger, når serveren leverer dem.
+4. Ny 10-bånds EQ med forudindstillinger, en gemt brugerdefineret kurve og kontrol af forforstærkning. Når EQ aktiveres, skiftes der til lydmotoren til alle formater; justeringerne ændrer ikke den oprindelige lydfil.
+5. Ny spektrumanalyse af lokal lyd med format, filstørrelse, gennemsnitlig bitrate og samplingsfrekvens. Resultater gemmes i cachen og kan deles som PNG-kort. Et spektrum alene kan ikke bevise, at lyd virkelig er tabsfri.
+6. Forbedret genkendelse af lydfingeraftryk og matchning af metadata. Hvis fingeraftrykket ikke giver et match, hjælper filnavne, eksisterende tags og varighed med at finde egnede kandidater. Tilgængelige metadata og skrivbare tags afhænger af optagelsen og filformatet.
+7. Forbedret indlejring af metadata enkeltvis og i grupper, læsning af omslag og caching af miniaturebilleder til større lokale musikbiblioteker.
+8. Afspilningskøen og afspillerindstillingerne er redesignet. Omarranger numre ved afspilning i rækkefølge. Blandingen er forbedret, og fejl med dubletter, pauseindikatorer og søgning i nummeret efter pause er rettet.
+9. Afsluttede forhåndsdownloads vises nu i den lokale musikmappe sammen med flyttede ældre cachefiler. Når du skifter nummer, annulleres ufærdige forhåndsdownloads; manuelt tilføjede downloads starter automatisk.
+10. Ny valgfri AI-søgehjælper i teksteditoren. Kopiér en prompt med nummerets oplysninger og varighed, og åbn den valgte eksterne AI-app eller hjemmeside. Vend tilbage for at indsætte teksten eller importere en LRC-fil; dette er ikke AI-generering inde i appen.
+11. Redesignet introduktion og købsskærme med tydeligere priser, gratis prøveperioder for berettigede brugere og en livstidsmulighed med Familiedeling.
+12. Opdateret anonymitetspolitik og brugsvilkår med flersprogede sider på kakainc.com samt rettet andre problemer med forbindelser, afspilning og grænsefladen.
+
+Fjernforbindelser, EQ-justeringer og visse andre funktioner kræver Premium. Hver ekstern udbyder fastsætter sine egne medlemskaber, overførselskvoter og adgangsbegrænsninger. Wakemusic leverer ikke musik; brug lyd, som du har tilladelse til at tilgå.
+
+Spørgsmål eller feedback? Kontakt support@kakainc.com.

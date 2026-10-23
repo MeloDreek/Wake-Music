@@ -47,7 +47,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     // 重制非VIP的权限
     func resetVIPConfig() {
         
+//#if DEBUG
+//        AppLocalManager.reset()
+//        MusicConfigManager.reset()
+//        ColorFontManager.reset()
+//        ConnectConfigManager.reset()
+//        DownloadManager.reset()
+//#endif
+        
         ConnectConfigManager.updateConnectNewData()
+        AppLocalManager.shared.isGuideFiveStar = false
                         
         if UserInfoManager.shared.isVIP() {
             return

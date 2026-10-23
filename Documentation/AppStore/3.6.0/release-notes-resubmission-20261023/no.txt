@@ -1,0 +1,18 @@
+◆◆◆ Stor oppdatering
+
+1. Forbedret tilpasningsdyktige oppsett på iPhone og iPad, også ved sammen- og utfolding av iPhone Duo.
+2. Lagt til tilkoblinger til pCloud, Box, MEGA, Yandex Disk, SMB, FTP, 123 cloud drive og Guangya cloud drive for å bla gjennom, strømme og laste ned musikken din.
+3. Bygget om Navidrome-modusen med støtte for kompatible Subsonic-tjenester: nylig avspilt, favoritter, spillelister, nylig lagt til, søk på hele serveren og nedlastinger. Bla gjennom artister og album, med biografier og relatert informasjon når serveren leverer dette.
+4. Lagt til en 10-bånds EQ med lytteforvalg, en lagret egendefinert kurve og forforsterkerkontroll. Aktivering av EQ bytter til lydmotoren for alle formater; justeringene endrer ikke den opprinnelige lydfilen.
+5. Lagt til spektrumanalyse av lokal lyd, med format, filstørrelse, gjennomsnittlig bithastighet og samplingsfrekvens. Resultatene mellomlagres og kan deles som PNG-kort. Et spektrum alene kan ikke bevise at lyd virkelig er tapsfri.
+6. Forbedret gjenkjenning med lydfingeravtrykk og matching av metadata. Når fingeravtrykket ikke gir treff, hjelper filnavn, eksisterende tagger og varighet med å finne egnede kandidater. Tilgjengelige metadata og skrivbare tagger avhenger av innspillingen og filformatet.
+7. Forbedret innbygging av metadata enkeltvis og i grupper, lesing av omslagsbilder og mellomlagring av miniatyrbilder for større lokale musikkbiblioteker.
+8. Redesignet avspillingskøen og spillerinnstillingene. Endre rekkefølgen i sekvensiell modus; forbedret tilfeldig avspilling og rettet feil med duplikater, pauseindikatorer og søking i sporet etter pausing.
+9. Fullførte forhåndsnedlastinger vises nå i den lokale musikkmappen, sammen med overført eldre hurtigbuffer. Bytte av spor avbryter uferdige forhåndsnedlastinger; nedlastinger som legges manuelt i kø, starter automatisk.
+10. Lagt til en valgfri KI-søkehjelper i redigeringsverktøyet for sangtekster. Kopier en instruks med sanginformasjon og varighet, og åpne deretter en tredjeparts KI-app eller nettside du velger. Gå tilbake for å lime inn teksten eller importere en LRC-fil; dette er ikke en innebygd tjeneste for KI-generering.
+11. Redesignet introduksjons- og kjøpsskjermene, med tydeligere priser, gratis prøveperioder for kvalifiserte brukere og et livstidsalternativ med Familiedeling.
+12. Oppdatert personvernerklæringen og bruksvilkårene med flerspråklige sider på kakainc.com og rettet andre problemer med tilkobling, avspilling og grensesnitt.
+
+Eksterne tilkoblinger, EQ-justeringer og enkelte andre funksjoner krever Premium. Abonnementer, overføringskvoter og tilgangsbegrensninger hos tredjeparter bestemmes av hver leverandør. Wakemusic leverer ikke musikk; bruk lyd du har tillatelse til å få tilgang til.
+
+Spørsmål eller tilbakemeldinger? Kontakt support@kakainc.com.

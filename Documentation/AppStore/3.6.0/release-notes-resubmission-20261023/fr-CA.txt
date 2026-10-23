@@ -1,0 +1,18 @@
+◆◆◆ Mise à jour majeure
+
+1. Amélioration des interfaces adaptatives sur iPhone et iPad, y compris lors du pliage et du dépliage de l’iPhone Duo.
+2. Ajout des connexions pCloud, Box, MEGA, Yandex Disk, SMB, FTP, 123 cloud drive et Guangya cloud drive pour parcourir, écouter en continu et télécharger votre musique.
+3. Refonte du mode Navidrome, avec prise en charge des services Subsonic compatibles : écoutes récentes, favoris, listes de lecture, ajouts récents, recherche sur tout le serveur et téléchargements. Parcourez artistes et albums, avec biographies et informations associées si votre serveur les fournit.
+4. Ajout d’un égaliseur à 10 bandes avec préréglages d’écoute, courbe personnalisée enregistrée et réglage du préampli. Activer l’EQ fait basculer vers le moteur audio multiformat ; les réglages ne modifient pas le fichier audio d’origine.
+5. Ajout de l’analyse spectrale des fichiers audio locaux, avec format, taille, débit moyen et fréquence d’échantillonnage. Les résultats sont mis en cache et partageables sous forme de cartes PNG. Le spectre seul ne prouve pas qu’un fichier audio est réellement sans perte.
+6. Amélioration de la reconnaissance par empreinte audio et de la recherche de métadonnées. Sans correspondance, les noms de fichiers, les tags existants et la durée aident à trouver des résultats pertinents. Les métadonnées disponibles et les tags inscriptibles dépendent de l’enregistrement et du format du fichier.
+7. Amélioration de l’intégration des métadonnées à l’unité et par lots, de la lecture des pochettes et du cache des miniatures pour les grandes bibliothèques locales.
+8. Refonte de la file d’attente et des réglages du lecteur. Réorganisez les titres en lecture séquentielle ; lecture aléatoire améliorée et corrections des doublons, des indicateurs de pause et du déplacement dans un titre après une pause.
+9. Les prétéléchargements terminés apparaissent désormais dans le dossier de musique locale, avec les anciens caches migrés. Changer de titre annule les prétéléchargements inachevés ; les téléchargements ajoutés manuellement à la file démarrent automatiquement.
+10. Ajout d’une aide facultative à la recherche par IA dans l’éditeur de paroles. Copiez une consigne contenant les informations et la durée du titre, puis ouvrez l’application ou le site d’IA tiers de votre choix. Revenez coller les paroles ou importer un fichier LRC ; il ne s’agit pas d’un service de génération par IA intégré à l’application.
+11. Refonte des écrans d’accueil initial et d’achat, avec des tarifs plus clairs, des essais gratuits selon éligibilité et une formule à vie avec Partage familial.
+12. Mise à jour de la Politique de confidentialité et des Conditions d’utilisation, avec des pages multilingues sur kakainc.com, et correction d’autres problèmes de connexion, de lecture et d’interface.
+
+Les connexions distantes, les réglages d’EQ et certaines autres fonctions nécessitent Premium. Chaque fournisseur fixe ses abonnements, quotas de transfert et restrictions d’accès. Wakemusic ne fournit pas de musique ; utilisez des fichiers audio auxquels vous êtes autorisé à accéder.
+
+Questions ou suggestions ? Contactez support@kakainc.com.

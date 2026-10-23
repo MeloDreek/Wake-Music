@@ -1,0 +1,18 @@
+◆◆◆ Büyük güncelleme
+
+1. iPhone ve iPad’deki uyarlanabilir düzenler, iPhone Duo’nun katlanması ve açılması da dâhil olmak üzere iyileştirildi.
+2. Müziğinize göz atmak, çevrimiçi çalmak ve indirmek için pCloud, Box, MEGA, Yandex Disk, SMB, FTP, 123 cloud drive ve Guangya cloud drive bağlantıları eklendi.
+3. Navidrome modu, uyumlu Subsonic hizmetlerini destekleyecek şekilde yenilendi: son çalınanlar, favoriler, çalma listeleri, son eklenenler, tüm sunucuda arama ve indirmeler. Sunucunuz sağladığında biyografiler ve ilgili bilgilerle birlikte sanatçılara ve albümlere göz atın.
+4. Hazır dinleme ayarları, kaydedilen özel eğri ve ön yükseltici kontrolü içeren 10 bantlı EQ eklendi. EQ açıldığında tüm formatları destekleyen ses motoruna geçilir; ayarlar özgün ses dosyasını değiştirmez.
+5. Yerel ses için format, dosya boyutu, ortalama bit hızı ve örnekleme hızını gösteren spektrum analizi eklendi. Sonuçlar önbelleğe alınır ve PNG kartları olarak paylaşılabilir. Spektrum tek başına sesin gerçekten kayıpsız olduğunu kanıtlamaz.
+6. Ses parmak izi tanıma ve meta veri eşleştirme iyileştirildi. Parmak iziyle eşleşme bulunamazsa dosya adları, mevcut etiketler ve süre uygun adayların bulunmasına yardımcı olur. Kullanılabilir meta veriler ve yazılabilir etiketler, kayda ve dosya formatına bağlıdır.
+7. Daha büyük yerel müzik arşivleri için tekli ve toplu meta veri gömme, kapak okuma ve küçük resim önbelleği iyileştirildi.
+8. Çalma sırası ve oynatıcı ayarları yeniden tasarlandı. Sıralı modda parçaların yerini değiştirin; karışık çalma iyileştirildi, yinelenen öğeler, duraklatma göstergeleri ve duraklatma sonrası parça içinde konum değiştirme sorunları giderildi.
+9. Tamamlanan ön indirmeler artık taşınan eski önbelleklerle birlikte yerel müzik klasöründe görünür. Parça değiştirmek tamamlanmamış ön indirmeleri iptal eder; elle sıraya eklenen indirmeler otomatik başlar.
+10. Şarkı sözü düzenleyicisine isteğe bağlı yapay zekâ arama yardımcısı eklendi. Şarkı bilgilerini ve süresini içeren istemi kopyalayın, ardından seçtiğiniz üçüncü taraf yapay zekâ uygulamasını veya sitesini açın. Sözleri yapıştırmak veya LRC dosyası içe aktarmak için geri dönün; bu, uygulama içi bir yapay zekâ üretim hizmeti değildir.
+11. İlk kullanım ve satın alma ekranları; daha açık fiyatlar, uygun kullanıcılar için ücretsiz deneme teklifleri ve Aile Paylaşımı içeren ömür boyu seçenekle yeniden tasarlandı.
+12. Gizlilik Politikamız ve Kullanım Koşullarımız, kakainc.com’daki çok dilli sayfalarla güncellendi; diğer bağlantı, çalma ve arayüz sorunları giderildi.
+
+Uzak bağlantılar, EQ ayarları ve bazı diğer özellikler Premium gerektirir. Üçüncü taraf üyelikleri, aktarım kotaları ve erişim kısıtlamaları ilgili sağlayıcı tarafından belirlenir. Wakemusic müzik sağlamaz; erişim izniniz olan sesleri kullanın.
+
+Sorularınız veya geri bildirimleriniz için support@kakainc.com adresine yazın.

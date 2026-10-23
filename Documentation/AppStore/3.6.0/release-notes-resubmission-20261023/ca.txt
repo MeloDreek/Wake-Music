@@ -1,0 +1,18 @@
+◆◆◆ Gran actualització
+
+1. Hem millorat els dissenys adaptatius a l’iPhone i l’iPad, inclosos els canvis en plegar i desplegar l’iPhone Duo.
+2. Hem afegit connexions a pCloud, Box, MEGA, Yandex Disk, SMB, FTP, 123 cloud drive i Guangya cloud drive per explorar, reproduir en streaming i baixar la teva música.
+3. Hem renovat el mode Navidrome, amb serveis Subsonic compatibles: reproduccions recents, favorits, llistes, incorporacions recents, cerca a tot el servidor i baixades. Explora artistes i àlbums, amb biografies i informació relacionada quan el servidor les faciliti.
+4. Nou equalitzador de 10 bandes amb preajustos, una corba personalitzada desada i control de preamplificació. En activar-lo, s’utilitza el motor d’àudio multiformat; els ajustos no modifiquen el fitxer d’àudio original.
+5. Nova anàlisi de l’espectre d’àudio local, amb format, mida del fitxer, taxa de bits mitjana i freqüència de mostreig. Els resultats es desen a la memòria cau i es poden compartir en targetes PNG. L’espectre, tot sol, no demostra que l’àudio sigui realment sense pèrdua.
+6. Hem millorat el reconeixement per empremta acústica i la cerca de metadades. Si no hi ha coincidència, el nom del fitxer, les etiquetes existents i la durada ajuden a trobar candidats adequats. Les metadades disponibles i les etiquetes que es poden escriure depenen de la gravació i del format.
+7. Hem millorat la incrustació individual i per lots de metadades, la lectura de portades i la memòria cau de miniatures per a biblioteques locals grans.
+8. Hem redissenyat la cua de reproducció i els ajustos del reproductor. Reordena pistes en mode seqüencial; hem millorat el mode aleatori i corregit elements duplicats, indicadors de pausa i salts de posició després de pausar.
+9. Les baixades anticipades completades apareixen ara a la carpeta de música local, on també es migren les memòries cau antigues. Canviar de pista cancel·la les baixades anticipades incompletes; les afegides manualment a la cua comencen automàticament.
+10. Nou assistent opcional de cerca amb IA a l’editor de lletres. Copia una petició amb les dades i la durada de la cançó, i obre l’app o el web d’IA extern que triïs. Torna per enganxar la lletra o importar un fitxer LRC; no és un servei de generació amb IA integrat.
+11. Hem redissenyat la introducció i les pantalles de compra, amb preus més clars, proves gratuïtes per als usuaris que hi tinguin dret i una opció de per vida amb En família.
+12. Hem actualitzat la Política de privadesa i les Condicions d’ús amb pàgines multilingües a kakainc.com i corregit altres problemes de connexió, reproducció i interfície.
+
+Les connexions remotes, els ajustos d’EQ i algunes altres funcions requereixen Premium. Cada proveïdor extern determina les seves subscripcions, quotes de transferència i restriccions d’accés. Wakemusic no proporciona música; utilitza àudio al qual tinguis permís per accedir.
+
+Dubtes o suggeriments? Escriu a support@kakainc.com.

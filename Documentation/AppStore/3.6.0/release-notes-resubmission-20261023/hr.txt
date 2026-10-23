@@ -1,0 +1,18 @@
+◆◆◆ Veliko ažuriranje
+
+1. Poboljšani su prilagodljivi rasporedi na iPhoneu i iPadu, uključujući sklapanje i rasklapanje iPhonea Duo.
+2. Dodane su veze s uslugama pCloud, Box, MEGA, Yandex Disk, SMB, FTP, 123 cloud drive i Guangya cloud drive za pregledavanje, streaming i preuzimanje vaše glazbe.
+3. Obnovljen je način rada Navidrome uz podršku za kompatibilne usluge Subsonic: nedavno reproducirano, favoriti, popisi za reprodukciju, nove stavke, pretraživanje cijelog poslužitelja i preuzimanja. Pregledavajte izvođače i albume, uz biografije i povezane podatke kada ih poslužitelj pruža.
+4. Dodan je 10-pojasni ekvalizator s unaprijed zadanim postavkama, spremljenom vlastitom krivuljom i kontrolom pretpojačanja. Uključivanjem se prelazi na audiopogon za sve formate; prilagodbe ne mijenjaju izvornu audiodatoteku.
+5. Dodana je analiza spektra lokalnog zvuka s prikazom formata, veličine datoteke, prosječne brzine prijenosa i frekvencije uzorkovanja. Rezultati se pohranjuju u predmemoriju i mogu se dijeliti kao PNG kartice. Sam spektar ne dokazuje da je zvuk doista bez gubitaka.
+6. Poboljšani su prepoznavanje zvučnim otiskom i podudaranje metapodataka. Ako nema podudaranja otiska, nazivi datoteka, postojeće oznake i trajanje pomažu pronaći prikladne rezultate. Dostupni metapodaci i oznake koje se mogu zapisati ovise o snimci i formatu datoteke.
+7. Poboljšani su pojedinačno i skupno ugrađivanje metapodataka, čitanje omota i predmemorija sličica za veće lokalne glazbene medijateke.
+8. Redizajnirani su red reprodukcije i postavke playera. Promijenite redoslijed pjesama u uzastopnom načinu. Poboljšana je nasumična reprodukcija te ispravljeni duplikati, pokazatelji pauze i pomicanje po pjesmi nakon pauziranja.
+9. Dovršena prethodna preuzimanja sada se prikazuju u lokalnoj glazbenoj mapi, kamo se prenosi i starija predmemorija. Promjena pjesme otkazuje nedovršena prethodna preuzimanja; ručno dodana preuzimanja pokreću se automatski.
+10. Uređivač tekstova pjesama ima novog neobaveznog pomoćnika za AI pretraživanje. Kopirajte upit s podacima o pjesmi i trajanjem pa otvorite odabranu vanjsku AI aplikaciju ili web-stranicu. Vratite se zalijepiti tekst ili uvesti LRC datoteku; ovo nije usluga AI generiranja unutar aplikacije.
+11. Redizajnirani su uvod i zasloni za kupnju s jasnijim cijenama, besplatnim probnim ponudama za korisnike koji ispunjavaju uvjete i doživotnom opcijom s Dijeljenjem s obitelji.
+12. Ažurirani su pravila privatnosti i uvjeti korištenja s višejezičnim stranicama na kakainc.com te ispravljeni drugi problemi s povezivanjem, reprodukcijom i sučeljem.
+
+Udaljene veze, prilagodbe EQ-a i neke druge značajke zahtijevaju Premium. Svaki vanjski pružatelj određuje vlastita članstva, kvote prijenosa i ograničenja pristupa. Wakemusic ne pruža glazbu; koristite zvuk kojem imate dopuštenje pristupiti.
+
+Pitanja ili prijedlozi? Javite se na support@kakainc.com.

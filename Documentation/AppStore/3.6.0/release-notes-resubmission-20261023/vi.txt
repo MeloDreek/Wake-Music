@@ -1,0 +1,18 @@
+◆◆◆ Bản cập nhật lớn
+
+1. Cải thiện bố cục thích ứng trên iPhone và iPad, bao gồm khi gập và mở iPhone Duo.
+2. Thêm kết nối pCloud, Box, MEGA, Yandex Disk, SMB, FTP, 123 cloud drive và Guangya cloud drive để duyệt, phát trực tuyến và tải nhạc của bạn.
+3. Xây dựng lại chế độ Navidrome, hỗ trợ các dịch vụ Subsonic tương thích: bài nghe gần đây, yêu thích, danh sách phát, nội dung mới thêm, tìm kiếm toàn máy chủ và tải xuống. Duyệt nghệ sĩ và album, kèm tiểu sử và thông tin liên quan nếu máy chủ cung cấp.
+4. Thêm EQ 10 băng tần với các thiết lập nghe sẵn có, đường cong tùy chỉnh được lưu và điều chỉnh tiền khuếch đại. Bật EQ sẽ chuyển sang bộ máy âm thanh hỗ trợ mọi định dạng; các điều chỉnh không thay đổi tệp âm thanh gốc.
+5. Thêm phân tích phổ cho âm thanh cục bộ, hiển thị định dạng, kích thước tệp, tốc độ bit trung bình và tần số lấy mẫu. Kết quả được lưu đệm và có thể chia sẻ dưới dạng thẻ PNG. Chỉ riêng phổ không thể chứng minh âm thanh thực sự không mất dữ liệu.
+6. Cải thiện nhận dạng dấu vân tay âm thanh và đối chiếu siêu dữ liệu. Khi không tìm thấy dấu vân tay khớp, tên tệp, thẻ hiện có và thời lượng giúp tìm các kết quả phù hợp. Siêu dữ liệu có sẵn và các thẻ có thể ghi tùy thuộc vào bản thu và định dạng tệp.
+7. Cải thiện nhúng siêu dữ liệu từng bài và hàng loạt, đọc ảnh bìa và lưu đệm ảnh thu nhỏ cho thư viện nhạc cục bộ lớn hơn.
+8. Thiết kế lại hàng đợi phát và cài đặt trình phát. Sắp xếp lại bài hát ở chế độ tuần tự; cải thiện phát ngẫu nhiên và sửa lỗi mục trùng lặp, chỉ báo tạm dừng và chuyển vị trí phát sau khi tạm dừng.
+9. Các bản tải trước hoàn tất giờ xuất hiện trong thư mục nhạc cục bộ, cùng với bộ nhớ đệm cũ được chuyển sang. Đổi bài sẽ hủy tải trước chưa hoàn tất; các lượt tải được thêm thủ công vào hàng đợi sẽ tự bắt đầu.
+10. Thêm công cụ hỗ trợ tìm kiếm bằng AI tùy chọn trong trình sửa lời bài hát. Sao chép câu lệnh chứa thông tin và thời lượng bài hát, rồi mở ứng dụng hoặc trang web AI của bên thứ ba mà bạn chọn. Quay lại để dán lời hoặc nhập tệp LRC; đây không phải dịch vụ tạo nội dung bằng AI tích hợp trong ứng dụng.
+11. Thiết kế lại màn hình hướng dẫn ban đầu và mua hàng, với giá rõ ràng hơn, ưu đãi dùng thử miễn phí cho người đủ điều kiện và lựa chọn trọn đời có Chia sẻ trong gia đình.
+12. Cập nhật Chính sách quyền riêng tư và Điều khoản sử dụng với các trang đa ngôn ngữ tại kakainc.com, đồng thời sửa các lỗi kết nối, phát nhạc và giao diện khác.
+
+Kết nối từ xa, điều chỉnh EQ và một số tính năng khác yêu cầu Premium. Gói thành viên, hạn mức truyền dữ liệu và giới hạn truy cập của bên thứ ba do từng nhà cung cấp quy định. Wakemusic không cung cấp nhạc; hãy dùng âm thanh mà bạn được phép truy cập.
+
+Có câu hỏi hoặc góp ý? Liên hệ support@kakainc.com.

@@ -1,0 +1,18 @@
+◆◆◆ Grande aggiornamento
+
+1. Migliorati i layout adattivi su iPhone e iPad, anche durante la chiusura e l’apertura di iPhone Duo.
+2. Aggiunte connessioni a pCloud, Box, MEGA, Yandex Disk, SMB, FTP, 123 cloud drive e Guangya cloud drive per sfogliare, ascoltare in streaming e scaricare la tua musica.
+3. Ricostruita la modalità Navidrome con supporto ai servizi Subsonic compatibili: ascolti recenti, preferiti, playlist, aggiunte recenti, ricerca su tutto il server e download. Esplora artisti e album, con biografie e informazioni correlate quando fornite dal server.
+4. Nuovo EQ a 10 bande con preset, una curva personalizzata salvata e controllo del preamplificatore. Attivandolo si passa al motore audio multiformato; le regolazioni non modificano il file audio originale.
+5. Nuova analisi dello spettro audio locale con formato, dimensione del file, bitrate medio e frequenza di campionamento. I risultati vengono memorizzati nella cache e si possono condividere come schede PNG. Lo spettro da solo non può dimostrare che l’audio sia davvero senza perdita.
+6. Migliorati il riconoscimento tramite impronta audio e l’abbinamento dei metadati. Se l’impronta non trova corrispondenze, nomi dei file, tag esistenti e durata aiutano a cercare candidati adatti. I metadati disponibili e i tag scrivibili dipendono dalla registrazione e dal formato.
+7. Migliorati l’incorporamento dei metadati singolo e in batch, la lettura delle copertine e la cache delle miniature per le librerie musicali locali più grandi.
+8. Ridisegnate la coda di riproduzione e le impostazioni del lettore. Riordina i brani in modalità sequenziale; migliorata la riproduzione casuale e corretti duplicati, indicatori di pausa e spostamenti nella traccia dopo la pausa.
+9. I pre-download completati appaiono ora nella cartella della musica locale, dove vengono trasferite anche le vecchie cache. Cambiare brano annulla i pre-download incompleti; i download aggiunti manualmente alla coda partono automaticamente.
+10. Nuovo assistente opzionale per la ricerca con IA nell’editor dei testi. Copia una richiesta con i dettagli e la durata del brano, poi apri l’app o il sito IA esterno che preferisci. Torna per incollare il testo o importare un file LRC: non è un servizio di generazione IA integrato nell’app.
+11. Ridisegnati l’introduzione e gli schermi di acquisto, con prezzi più chiari, prove gratuite per gli utenti idonei e un’opzione a vita con In famiglia.
+12. Aggiornate l’Informativa sulla privacy e le Condizioni d’uso con pagine multilingue su kakainc.com e corretti altri problemi di connessione, riproduzione e interfaccia.
+
+Le connessioni remote, le regolazioni EQ e alcune altre funzioni richiedono Premium. Abbonamenti, quote di trasferimento e restrizioni di accesso dei servizi esterni sono stabiliti dai rispettivi fornitori. Wakemusic non fornisce musica: usa contenuti audio ai quali sei autorizzato ad accedere.
+
+Domande o suggerimenti? Scrivi a support@kakainc.com.

@@ -1,0 +1,18 @@
+◆◆◆ Jelentős frissítés
+
+1. Javítottuk az alkalmazkodó elrendezéseket iPhone-on és iPaden, beleértve az iPhone Duo összehajtását és kinyitását.
+2. Új pCloud-, Box-, MEGA-, Yandex Disk-, SMB-, FTP-, 123 cloud drive- és Guangya cloud drive-kapcsolatok a zenéid böngészéséhez, streameléséhez és letöltéséhez.
+3. Újjáépítettük a Navidrome módot, kompatibilis Subsonic-szolgáltatások támogatásával: legutóbbi lejátszások, kedvencek, lejátszási listák, új zenék, keresés a teljes szerveren és letöltések. Böngéssz előadókat és albumokat, életrajzokkal és kapcsolódó adatokkal, ha a szerver biztosítja őket.
+4. Új, 10 sávos hangszínszabályzó előbeállításokkal, mentett egyéni görbével és előerősítés-szabályozással. Bekapcsolásakor a minden formátumot kezelő hangmotorra vált; a beállítások nem módosítják az eredeti hangfájlt.
+5. Új spektrumelemzés helyi hangfájlokhoz, a formátum, fájlméret, átlagos bitráta és mintavételi frekvencia megjelenítésével. Az eredményeket gyorsítótárazzuk, és PNG-kártyaként megoszthatók. A spektrum önmagában nem bizonyítja, hogy a hang valóban veszteségmentes.
+6. Javítottuk az akusztikus ujjlenyomat-felismerést és a metaadatok egyeztetését. Ha nincs ujjlenyomat-találat, a fájlnév, a meglévő címkék és az időtartam segít megfelelő jelölteket keresni. Az elérhető metaadatok és írható címkék a felvételtől és a fájlformátumtól függenek.
+7. Javítottuk a metaadatok egyenkénti és kötegelt beágyazását, a borítók olvasását és a bélyegképek gyorsítótárazását nagyobb helyi zenetárakhoz.
+8. Újraterveztük a lejátszási sort és a lejátszó beállításait. Sorrend szerinti módban átrendezheted a számokat. Javítottuk a véletlen lejátszást, a duplikált elemeket, a szünetjelzést és a szüneteltetés utáni pozícióváltást.
+9. A kész előzetes letöltések a helyi zenemappába kerülnek, ahová a korábbi gyorsítótárakat is áthelyezzük. Számváltáskor a befejezetlen előzetes letöltések megszakadnak; a kézzel sorba állított letöltések automatikusan elindulnak.
+10. Választható AI-keresési segéd a dalszövegszerkesztőben. Másold ki a dal adatait és hosszát tartalmazó kérést, majd nyisd meg a választott külső AI-alkalmazást vagy weboldalt. Térj vissza a szöveg beillesztéséhez vagy egy LRC-fájl importálásához; ez nem alkalmazáson belüli AI-generáló szolgáltatás.
+11. Újraterveztük a kezdő útmutatót és a vásárlási képernyőket: egyértelműbb árak, ingyenes próbák a jogosultaknak és élethosszig tartó hozzáférés Családi megosztással.
+12. Frissítettük az adatvédelmi szabályzatot és a használati feltételeket a kakainc.com többnyelvű oldalain, és más kapcsolódási, lejátszási, illetve felületi hibákat is javítottunk.
+
+A távoli kapcsolatok, az EQ-beállítások és néhány más funkció Premiumot igényel. A külső szolgáltatók maguk határozzák meg a tagságokat, adatátviteli kereteket és hozzáférési korlátokat. A Wakemusic nem szolgáltat zenét; csak olyan hanganyagot használj, amelyhez jogosult vagy hozzáférni.
+
+Kérdésed vagy észrevételed van? Írj ide: support@kakainc.com.

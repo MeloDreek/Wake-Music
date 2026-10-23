@@ -1,0 +1,18 @@
+◆◆◆ Kemas Kini Utama
+
+1. Menambah baik susun atur adaptif pada iPhone dan iPad, termasuk apabila iPhone Duo dilipat dan dibuka.
+2. Menambah sambungan pCloud, Box, MEGA, Yandex Disk, SMB, FTP, 123 cloud drive dan Guangya cloud drive untuk menyemak imbas, menstrim dan memuat turun muzik anda.
+3. Membina semula mod Navidrome dengan sokongan perkhidmatan Subsonic yang serasi: lagu yang dimainkan baru-baru ini, kegemaran, senarai main, tambahan terkini, carian seluruh pelayan dan muat turun. Terokai artis dan album, termasuk biografi serta maklumat berkaitan apabila disediakan oleh pelayan.
+4. Menambah EQ 10 jalur dengan praset, lengkung tersuai yang disimpan dan kawalan prapenguat. Mengaktifkan EQ akan beralih kepada Enjin Audio Semua Format; pelarasan tidak mengubah fail audio asal.
+5. Menambah analisis spektrum audio setempat yang memaparkan format, saiz fail, kadar bit purata dan kadar sampel. Hasil dicache dan boleh dikongsi sebagai kad PNG. Spektrum sahaja tidak dapat membuktikan bahawa audio benar-benar tanpa kehilangan.
+6. Menambah baik pengecaman cap jari audio dan padanan metadata. Jika tiada padanan cap jari, nama fail, tag sedia ada dan tempoh membantu mencari calon yang sesuai. Metadata yang tersedia dan tag yang boleh ditulis bergantung pada rakaman dan format fail.
+7. Menambah baik pembenaman metadata secara individu dan kelompok, pembacaan kulit album serta cache imej kecil untuk pustaka muzik setempat yang lebih besar.
+8. Mereka bentuk semula baris gilir main balik dan tetapan pemain. Susun semula lagu dalam mod berjujukan; nikmati main kocok yang lebih baik serta pembetulan entri berulang, penunjuk jeda dan peralihan kedudukan selepas menjeda.
+9. Pramuat turun yang selesai kini muncul dalam folder muzik setempat bersama cache lama yang dipindahkan. Menukar lagu membatalkan pramuat turun yang belum selesai; muat turun yang dimasukkan secara manual ke baris gilir bermula secara automatik.
+10. Menambah pembantu carian AI pilihan dalam editor lirik. Salin gesaan yang mengandungi butiran lagu dan tempohnya, kemudian buka aplikasi atau laman web AI pihak ketiga pilihan anda. Kembali untuk menampal lirik atau mengimport fail LRC; ini bukan perkhidmatan penjanaan AI dalam aplikasi.
+11. Mereka bentuk semula panduan permulaan dan skrin pembelian dengan harga lebih jelas, tawaran percubaan percuma untuk pengguna yang layak serta pilihan seumur hidup dengan Perkongsian Keluarga.
+12. Mengemas kini Dasar Privasi dan Terma Penggunaan dengan halaman berbilang bahasa di kakainc.com serta membetulkan masalah sambungan, main balik dan antara muka yang lain.
+
+Sambungan jauh, pelarasan EQ dan ciri tertentu yang lain memerlukan Premium. Keahlian, kuota pemindahan dan sekatan akses pihak ketiga ditetapkan oleh setiap penyedia. Wakemusic tidak menyediakan muzik; gunakan audio yang anda mempunyai kebenaran untuk akses.
+
+Ada soalan atau maklum balas? Hubungi support@kakainc.com.

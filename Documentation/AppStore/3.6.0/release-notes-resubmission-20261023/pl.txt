@@ -1,0 +1,18 @@
+◆◆◆ Duża aktualizacja
+
+1. Ulepszono układy dostosowujące się do ekranu iPhone’a i iPada, także podczas składania i rozkładania modelu iPhone Duo.
+2. Dodano połączenia z pCloud, Box, MEGA, Yandex Disk, SMB, FTP, 123 cloud drive i Guangya cloud drive do przeglądania, strumieniowania i pobierania własnej muzyki.
+3. Przebudowano tryb Navidrome z obsługą zgodnych usług Subsonic: ostatnio odtwarzane, ulubione, playlisty, ostatnio dodane, wyszukiwanie na całym serwerze i pobieranie. Przeglądaj wykonawców i albumy wraz z biografiami i powiązanymi informacjami, jeśli udostępnia je serwer.
+4. Dodano 10-pasmowy EQ z gotowymi ustawieniami, zapisywaną własną krzywą i regulacją przedwzmacniacza. Włączenie EQ przełącza odtwarzanie na silnik audio obsługujący wszystkie formaty; regulacja nie zmienia oryginalnego pliku audio.
+5. Dodano analizę widma lokalnego audio z formatem, rozmiarem pliku, średnią przepływnością i częstotliwością próbkowania. Wyniki są buforowane i można je udostępniać jako karty PNG. Samo widmo nie dowodzi, że dźwięk jest rzeczywiście bezstratny.
+6. Ulepszono rozpoznawanie odcisków akustycznych i dopasowywanie metadanych. Gdy odcisk nie daje dopasowania, nazwy plików, istniejące tagi i czas trwania pomagają znaleźć odpowiednie propozycje. Dostępne metadane i tagi możliwe do zapisania zależą od nagrania i formatu pliku.
+7. Ulepszono osadzanie metadanych pojedynczo i zbiorczo, odczyt okładek i buforowanie miniatur dla większych lokalnych bibliotek muzycznych.
+8. Przeprojektowano kolejkę i ustawienia odtwarzacza. Zmieniaj kolejność utworów w trybie sekwencyjnym; ulepszono odtwarzanie losowe i naprawiono duplikaty, wskaźniki pauzy oraz zmianę pozycji w utworze po wstrzymaniu.
+9. Ukończone pobrania wstępne pojawiają się teraz w lokalnym folderze muzyki wraz z przeniesioną starszą pamięcią podręczną. Zmiana utworu anuluje nieukończone pobrania wstępne; pobieranie ręcznie dodane do kolejki rozpoczyna się automatycznie.
+10. Dodano opcjonalną pomoc w wyszukiwaniu z AI w edytorze tekstów. Skopiuj polecenie z informacjami o utworze i jego długością, a następnie otwórz wybraną aplikację lub stronę AI innej firmy. Wróć, aby wkleić tekst lub zaimportować plik LRC; nie jest to usługa generowania przez AI wbudowana w aplikację.
+11. Przeprojektowano ekrany wprowadzenia i zakupu, z czytelniejszymi cenami, bezpłatnymi okresami próbnymi dla uprawnionych użytkowników oraz opcją dożywotnią z Chmurą rodzinną.
+12. Zaktualizowano Politykę prywatności i Warunki użytkowania, dodając wielojęzyczne strony w kakainc.com, oraz naprawiono inne problemy z połączeniami, odtwarzaniem i interfejsem.
+
+Połączenia zdalne, regulacja EQ i niektóre inne funkcje wymagają Premium. Abonamenty, limity transferu i ograniczenia dostępu ustalają poszczególni dostawcy zewnętrzni. Wakemusic nie dostarcza muzyki; korzystaj z audio, do którego masz prawo dostępu.
+
+Pytania lub uwagi? Napisz na support@kakainc.com.

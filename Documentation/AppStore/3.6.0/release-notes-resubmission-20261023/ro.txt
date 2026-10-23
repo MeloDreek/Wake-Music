@@ -1,0 +1,18 @@
+◆◆◆ Actualizare majoră
+
+1. Am îmbunătățit interfețele adaptive pe iPhone și iPad, inclusiv la plierea și deschiderea iPhone Duo.
+2. Am adăugat conexiuni la pCloud, Box, MEGA, Yandex Disk, SMB, FTP, 123 cloud drive și Guangya cloud drive pentru a răsfoi, reda în streaming și descărca muzica ta.
+3. Am reconstruit modul Navidrome cu suport pentru servicii Subsonic compatibile: redări recente, favorite, liste de redare, adăugări recente, căutare pe întregul server și descărcări. Răsfoiește artiști și albume, cu biografii și informații conexe când sunt furnizate de server.
+4. Am adăugat un EQ cu 10 benzi, presetări de audiție, o curbă personalizată salvată și controlul preamplificării. Activarea EQ comută la motorul audio pentru toate formatele; ajustările nu modifică fișierul audio original.
+5. Am adăugat analiza spectrală a fișierelor audio locale, cu formatul, dimensiunea, rata de biți medie și rata de eșantionare. Rezultatele sunt memorate în cache și pot fi partajate ca fișe PNG. Spectrul singur nu poate demonstra că un fișier audio este cu adevărat fără pierderi.
+6. Am îmbunătățit recunoașterea amprentei audio și potrivirea metadatelor. Dacă amprenta nu găsește o potrivire, numele fișierelor, etichetele existente și durata ajută la găsirea unor variante potrivite. Metadatele disponibile și etichetele care pot fi scrise depind de înregistrare și de formatul fișierului.
+7. Am îmbunătățit încorporarea metadatelor individual și în lot, citirea coperților și cache-ul miniaturilor pentru biblioteci muzicale locale mai mari.
+8. Am reproiectat coada de redare și setările playerului. Reordonează piesele în modul secvențial; am îmbunătățit redarea aleatorie și am remediat intrările duplicate, indicatorii de pauză și schimbarea poziției în piesă după pauză.
+9. Predescărcările finalizate apar acum în dosarul de muzică locală, alături de fișierele cache vechi migrate. Schimbarea piesei anulează predescărcările neterminate; descărcările adăugate manual în coadă încep automat.
+10. Am adăugat un ajutor opțional pentru căutarea cu AI în editorul de versuri. Copiază o instrucțiune cu detaliile și durata piesei, apoi deschide aplicația sau site-ul AI terț ales. Revino pentru a lipi versurile sau a importa un fișier LRC; acesta nu este un serviciu de generare AI integrat în aplicație.
+11. Am reproiectat ecranele de introducere și achiziție, cu prețuri mai clare, perioade de încercare gratuite pentru utilizatorii eligibili și o opțiune pe viață cu Partajare familială.
+12. Am actualizat Politica de confidențialitate și Condițiile de utilizare cu pagini multilingve pe kakainc.com și am remediat alte probleme de conexiune, redare și interfață.
+
+Conexiunile la distanță, ajustările EQ și anumite alte funcții necesită Premium. Abonamentele, limitele de transfer și restricțiile de acces ale terților sunt stabilite de fiecare furnizor. Wakemusic nu furnizează muzică; folosește fișiere audio pe care ai permisiunea să le accesezi.
+
+Întrebări sau sugestii? Scrie la support@kakainc.com.
