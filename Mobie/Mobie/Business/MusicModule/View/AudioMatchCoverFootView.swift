@@ -30,8 +30,6 @@ class AudioMatchCoverFootView: UITableViewHeaderFooterView {
         contentView.addSubview(statusLabel)
         contentView.addSubview(loadingView)
         
-#warning("模拟mock数据")
-//        coverImgView.addSubview(blurEffectView)
     }
     
     func setupContains() {
@@ -46,10 +44,6 @@ class AudioMatchCoverFootView: UITableViewHeaderFooterView {
             make.size.equalTo(60.ckValue())
         }
         
-#warning("模拟mock数据")
-//        blurEffectView.snp.makeConstraints { make in
-//            make.edges.equalToSuperview()
-//        }
         
         statusLabel.snp.makeConstraints { make in
             make.trailing.equalToSuperview().offset(-18.ckValue())
@@ -209,16 +203,5 @@ class AudioMatchCoverFootView: UITableViewHeaderFooterView {
         return view
     }()
     
-#warning("模拟mock数据")
-//#if DEBUG
-//    lazy var blurEffectView: UIVisualEffectView = {
-//        let blurEffect = UIBlurEffect(style: .extraLight)
-//        let view = UIVisualEffectView(effect: blurEffect)
-//        view.frame = self.coverImgView.bounds
-//        view.alpha = 0.5
-//        view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-//        return view
-//    }()
-//#endif
     
 }

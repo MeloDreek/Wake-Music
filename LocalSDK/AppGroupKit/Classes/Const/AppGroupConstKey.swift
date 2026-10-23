@@ -18,8 +18,6 @@ public let avatarDefaultName = "user_place"
 // 应用包名
 public let AppBundleID = "com.OfflineMusic.www"
 
-// 量江湖的key
-public let LiangjianghuKey = "Pl45uU41UU9UjI6zes7yx1WqG6PyQzgj3BI4P0M0"
 
 // 百度网盘
 public let BaiduDriveAppKey = "ZYJ2Gq1u2F0WmxjVyZbo1g1VpGOPmInJ"
@@ -55,9 +53,7 @@ public let DropBox_Scopes = [
 
 // OneDrive
 public let OneDrive_ClientID = "e4941369-cd73-4f3c-8e48-c1404e373719"
-public let OneDrive_Authority = "https://login.microsoftonline.com/common/oauth2/v2.0"
 public let OneDrive_GraphEndpoint = "https://graph.microsoft.com/"
-public let OneDrive_Scopes = ["User.Read", "Files.Read"]
 public var OneDrive_RedirectUri: String {
     get {
         let bundleID = (Bundle.main.infoDictionary?["CFBundleIdentifier"] as? String) ?? ""

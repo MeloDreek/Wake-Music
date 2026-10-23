@@ -37,7 +37,6 @@ target 'Mobie' do
   pod 'ProgressHUD', '~> 14.1.1'
   
   pod 'IQKeyboardManagerSwift', '~> 8.0.3'
-#  pod 'MSAL', '~> 2.4.1'
   
 end
 
@@ -70,7 +69,6 @@ target 'Mobie_Pro' do
   pod 'ProgressHUD', '~> 14.1.1'
   
   pod 'IQKeyboardManagerSwift', '~> 8.0.3'
-#  pod 'MSAL', '~> 2.4.1'
 
   
 end

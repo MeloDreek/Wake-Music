@@ -103,14 +103,6 @@ extension MusicsViewController: MusicTopBatchEditHeadViewDelegate {
             return
         }
         
-#warning("模拟mock数据")
-//#if DEBUG
-//        self.headMusictagView.state = .matching
-//        var cureModel = allModels.last
-//        cureModel?.mediaPlayURL = SandboxFileManager.shared.basePublicFileURL().appendingPathComponent("Drake  - God's Plan.flac")
-//        self.headMusictagView.updateProgress(curModel: cureModel, completed: 185, total: 365)
-//        return
-//#endif
         
         if !UserInfoManager.shared.isVIP() {
             let message = "Say goodbye to tedious manual typing! Upgrade to Premium to automatically fix tags, fetch 4K artwork, and download lyrics via instant audio fingerprinting. Or, you can choose to continue editing manually.".localStr()

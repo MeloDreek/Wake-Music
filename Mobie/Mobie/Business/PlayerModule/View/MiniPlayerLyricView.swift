@@ -79,12 +79,6 @@ class MiniPlayerLyricView: UIView {
                 self?.updateLyricConfig()
             }.store(in: &cancellables)
         
-//#warning("模拟mock数据")
-//#if DEBUG
-//        DispatchQueue.main.asyncAfter(wallDeadline: .now() + 1) {
-//            self.aniLyricLabel.text = "Wakemusic".localStr()
-//        }
-//#endif
     }
     
     // 无歌词、动画歌词、歌词体验过期

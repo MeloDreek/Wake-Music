@@ -12,7 +12,7 @@ import ShazamKit
 import Alamofire
 
 /// Local decoding is bounded and off the main thread. Every request owns its session and
-/// metadata context: identical signatures, batch edits and microphone matches cannot mix results.
+/// metadata context: identical signatures and concurrent batch edits cannot mix results.
 class AudioFingerprintMatcher: NSObject, SHSessionDelegate {
     private typealias Completion = (Result<AudioFingerprintModel, KakaError>) -> Void
 
@@ -22,18 +22,16 @@ class AudioFingerprintMatcher: NSObject, SHSessionDelegate {
         let requestsLyrics: Bool
         let completion: Completion
         let generation: UInt
-        let isLocal: Bool
         var session: SHSession?
         var signatures: [SHSignature] = []
         var nextSignature = 0
         var timeout: DispatchWorkItem?
 
         init(model: MusicItemModel?, requestsLyrics: Bool, generation: UInt,
-             isLocal: Bool = true, completion: @escaping Completion) {
+             completion: @escaping Completion) {
             self.model = model
             self.requestsLyrics = requestsLyrics
             self.generation = generation
-            self.isLocal = isLocal
             self.completion = completion
         }
     }
@@ -55,20 +53,10 @@ class AudioFingerprintMatcher: NSObject, SHSessionDelegate {
     private let normalError = "Audio fingerprint generated, but no matching track was found in global music databases. It may be an unreleased edit or remix, often related to unique waveform characteristics. Please edit manually.".localStr()
     private let formatError = "This specific audio format is not supported for fingerprinting. We highly recommend using modern popular formats such as FLAC, M4A, WAV, or MP3. Please edit manually.".localStr()
 
-    private let audioEngine = AVAudioEngine()
-    private var signatureGeneratorForMic: SHSignatureGenerator?
-    private var microphoneCompletion: Completion?
-    private var microphoneGeneration = UUID()
-    private let microphoneLock = NSLock()
-
     deinit {
         for request in requests.values {
             request.timeout?.cancel()
             request.session?.delegate = nil
-        }
-        if audioEngine.isRunning {
-            audioEngine.inputNode.removeTap(onBus: 0)
-            audioEngine.stop()
         }
     }
 
@@ -88,7 +76,7 @@ class AudioFingerprintMatcher: NSObject, SHSessionDelegate {
         DispatchQueue.main.async { [weak self] in
             guard let self else { return }
             for request in Array(self.requests.values)
-                where request.isLocal && request.generation != self.currentGeneration() {
+                where request.generation != self.currentGeneration() {
                 self.remove(request)
             }
         }
@@ -250,7 +238,7 @@ class AudioFingerprintMatcher: NSObject, SHSessionDelegate {
     }
 
     private func isActive(_ request: Request) -> Bool {
-        requests[request.id] === request && (!request.isLocal || request.generation == currentGeneration())
+        requests[request.id] === request && request.generation == currentGeneration()
     }
 
     private func remove(_ request: Request) {
@@ -334,99 +322,6 @@ class AudioFingerprintMatcher: NSObject, SHSessionDelegate {
                   self.isActive(request) else { return }
             self.submitNextSignature(request)
         }
-    }
-}
-
-extension AudioFingerprintMatcher {
-    func startTunnelingMicrophone(timeout: TimeInterval = 12,
-                                  completion: @escaping (Result<AudioFingerprintModel, KakaError>) -> Void) {
-        guard Thread.isMainThread else {
-            DispatchQueue.main.async { [weak self] in self?.startTunnelingMicrophone(timeout: timeout, completion: completion) }
-            return
-        }
-        stopTunnelingMicrophone(shouldMatch: false)
-        let permission = AVCaptureDevice.authorizationStatus(for: .audio)
-        if permission == .notDetermined {
-            let token = microphoneGeneration
-            AVCaptureDevice.requestAccess(for: .audio) { [weak self] _ in
-                DispatchQueue.main.async {
-                    guard let self, self.microphoneGeneration == token else { return }
-                    self.startTunnelingMicrophone(timeout: timeout, completion: completion)
-                }
-            }
-            return
-        }
-        guard permission == .authorized else {
-            completion(.failure(.custom("Microphone permission denied. Please enable it in Settings to use Live Recognition.".localStr())))
-            return
-        }
-        do {
-            let session = AVAudioSession.sharedInstance()
-            try session.setCategory(.playAndRecord, options: [.defaultToSpeaker, .allowBluetoothHFP])
-            try session.setActive(true, options: .notifyOthersOnDeactivation)
-        } catch {
-            completion(.failure(.custom("Failed to initialize system audio hardware interface.".localStr())))
-            return
-        }
-        let input = audioEngine.inputNode
-        let format = input.inputFormat(forBus: 0)
-        guard format.sampleRate > 0, format.channelCount > 0 else {
-            completion(.failure(.custom("Invalid audio input hardware sample rate.".localStr())))
-            return
-        }
-        let generator = SHSignatureGenerator()
-        signatureGeneratorForMic = generator
-        microphoneCompletion = completion
-        input.installTap(onBus: 0, bufferSize: 1024, format: format) { [weak self] buffer, time in
-            guard let self else { return }
-            self.microphoneLock.lock()
-            defer { self.microphoneLock.unlock() }
-            try? generator.append(buffer, at: time)
-        }
-        do {
-            audioEngine.prepare()
-            try audioEngine.start()
-        } catch {
-            input.removeTap(onBus: 0)
-            signatureGeneratorForMic = nil
-            microphoneCompletion = nil
-            completion(.failure(.custom("Failed to start audio engine compiler for recording.".localStr())))
-            return
-        }
-        let token = microphoneGeneration
-        DispatchQueue.main.asyncAfter(deadline: .now() + min(12, max(3, timeout))) { [weak self] in
-            guard let self, self.microphoneGeneration == token, self.audioEngine.isRunning else { return }
-            self.stopTunnelingMicrophone(shouldMatch: true)
-        }
-    }
-
-    func stopTunnelingMicrophone(shouldMatch: Bool = true) {
-        guard Thread.isMainThread else {
-            DispatchQueue.main.async { [weak self] in self?.stopTunnelingMicrophone(shouldMatch: shouldMatch) }
-            return
-        }
-        microphoneGeneration = UUID()
-        if !shouldMatch {
-            for request in Array(requests.values) where !request.isLocal { remove(request) }
-        }
-        if audioEngine.isRunning {
-            audioEngine.inputNode.removeTap(onBus: 0)
-            audioEngine.stop()
-            try? AVAudioSession.sharedInstance().setActive(false, options: .notifyOthersOnDeactivation)
-        }
-        defer {
-            microphoneCompletion = nil
-            signatureGeneratorForMic = nil
-        }
-        guard shouldMatch, let generator = signatureGeneratorForMic, let completion = microphoneCompletion else { return }
-        microphoneLock.lock()
-        let signature = generator.signature()
-        microphoneLock.unlock()
-        let request = Request(model: nil, requestsLyrics: true, generation: currentGeneration(),
-                              isLocal: false, completion: completion)
-        request.signatures = [signature]
-        requests[request.id] = request
-        submitNextSignature(request)
     }
 }
 

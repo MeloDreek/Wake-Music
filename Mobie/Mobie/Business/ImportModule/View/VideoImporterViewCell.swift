@@ -139,10 +139,6 @@ class VideoImporterViewCell: UITableViewCell {
             timeLabel.text = String(format: "%02d:%02d", minutes, seconds)
             coverImgView.image = fileURL.getVideoThumbnail() ?? Reasource.named("sound_place")
             
-#warning("模拟mock数据")
-//        #if DEBUG
-//            coverImgView.image = BroadcastsType.fm1.coverImage()
-//        #endif
         }
     }
     

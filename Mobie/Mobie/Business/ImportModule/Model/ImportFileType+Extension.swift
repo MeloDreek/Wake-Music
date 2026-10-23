@@ -254,11 +254,7 @@ extension ImportFileType {
     
     // 可用的网盘服务
     static func cloudDriveArray() -> [ImportFileType] {
-#if canImport(MSAL)
         let internationalArray: [ImportFileType] = [.fromGoogleDrive, .fromDropboxDrive, .fromOneDrive, .fromePCloud, .fromBoxDrive, .fromMEGADrive, .fromYandexDrive]
-#else
-        let internationalArray: [ImportFileType] = [.fromGoogleDrive, .fromDropboxDrive, .fromePCloud, .fromBoxDrive, .fromMEGADrive, .fromYandexDrive]
-#endif
         let mainlandChinaArray: [ImportFileType] = [.from123Drive, .fromAliyunDrive, .fromBaiduDrive, .from115Drive, .fromGuangyaDrive]
 
         // The device region is more relevant here than the UI language: an

@@ -1,6 +1,777 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "OneDrive.RequestFailed": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "تعذّر إكمال طلب OneDrive. يُرجى التحقق من اتصالك وأذونات حسابك."
+          }
+        },
+        "ca": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La sol·licitud a OneDrive ha fallat. Comprova la connexió i els permisos del compte."
+          }
+        },
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Požadavek na OneDrive se nezdařil. Zkontrolujte připojení a oprávnění účtu."
+          }
+        },
+        "da": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Anmodningen til OneDrive mislykkedes. Kontrollér din forbindelse og kontoens tilladelser."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Die OneDrive-Anfrage ist fehlgeschlagen. Prüfe deine Verbindung und die Kontoberechtigungen."
+          }
+        },
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Το αίτημα προς το OneDrive απέτυχε. Ελέγξτε τη σύνδεσή σας και τα δικαιώματα του λογαριασμού."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "OneDrive request failed. Please check your connection and account permissions."
+          }
+        },
+        "en-AU": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "OneDrive request failed. Please check your connection and account permissions."
+          }
+        },
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "OneDrive request failed. Please check your connection and account permissions."
+          }
+        },
+        "en-IN": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "OneDrive request failed. Please check your connection and account permissions."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La solicitud a OneDrive ha fallado. Comprueba tu conexión y los permisos de la cuenta."
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La solicitud a OneDrive falló. Revisa tu conexión y los permisos de la cuenta."
+          }
+        },
+        "es-US": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La solicitud a OneDrive falló. Revisa tu conexión y los permisos de la cuenta."
+          }
+        },
+        "fi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "OneDrive-pyyntö epäonnistui. Tarkista yhteys ja tilin käyttöoikeudet."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La requête OneDrive a échoué. Vérifiez votre connexion et les autorisations du compte."
+          }
+        },
+        "fr-CA": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La requête OneDrive a échoué. Vérifiez votre connexion et les autorisations du compte."
+          }
+        },
+        "he": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "הבקשה ל-OneDrive נכשלה. יש לבדוק את החיבור ואת הרשאות החשבון."
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "OneDrive अनुरोध विफल रहा। कृपया अपना कनेक्शन और खाते की अनुमतियाँ जाँचें।"
+          }
+        },
+        "hr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zahtjev za OneDrive nije uspio. Provjerite vezu i dopuštenja računa."
+          }
+        },
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "A OneDrive-kérés sikertelen. Ellenőrizd a kapcsolatot és a fiók engedélyeit."
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Permintaan OneDrive gagal. Periksa koneksi dan izin akun Anda."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "La richiesta a OneDrive non è riuscita. Controlla la connessione e le autorizzazioni dell’account."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "OneDriveへのリクエストに失敗しました。接続状況とアカウントのアクセス許可をご確認ください。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "OneDrive 요청에 실패했습니다. 연결 상태와 계정 권한을 확인해 주세요."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Permintaan OneDrive gagal. Sila semak sambungan dan kebenaran akaun anda."
+          }
+        },
+        "nb": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "OneDrive-forespørselen mislyktes. Kontroller tilkoblingen og kontotillatelsene."
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Het OneDrive-verzoek is mislukt. Controleer je verbinding en de accountmachtigingen."
+          }
+        },
+        "pl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Żądanie OneDrive nie powiodło się. Sprawdź połączenie i uprawnienia konta."
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "A solicitação ao OneDrive falhou. Verifique sua conexão e as permissões da conta."
+          }
+        },
+        "pt-PT": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "O pedido ao OneDrive falhou. Verifique a ligação e as permissões da conta."
+          }
+        },
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Solicitarea OneDrive a eșuat. Verifică conexiunea și permisiunile contului."
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Запрос к OneDrive не выполнен. Проверьте подключение и разрешения учётной записи."
+          }
+        },
+        "sk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Požiadavka na OneDrive zlyhala. Skontrolujte pripojenie a oprávnenia účtu."
+          }
+        },
+        "sl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zahteva za OneDrive ni uspela. Preverite povezavo in dovoljenja računa."
+          }
+        },
+        "sv": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "OneDrive-begäran misslyckades. Kontrollera anslutningen och kontots behörigheter."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "คำขอ OneDrive ล้มเหลว โปรดตรวจสอบการเชื่อมต่อและสิทธิ์ของบัญชี"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "OneDrive isteği başarısız oldu. Bağlantınızı ve hesap izinlerini kontrol edin."
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Запит до OneDrive не виконано. Перевірте підключення та дозволи облікового запису."
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Yêu cầu OneDrive không thành công. Vui lòng kiểm tra kết nối và quyền của tài khoản."
+          }
+        },
+        "zh-HK": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "OneDrive 請求失敗，請檢查網絡連線和帳戶權限。"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "OneDrive 请求失败，请检查网络连接和账号权限。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "OneDrive 請求失敗，請檢查網路連線和帳號權限。"
+          }
+        }
+      }
+    },
+    "OneDrive.Storage": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "تعذّر حفظ تفويض OneDrive بأمان. يُرجى المحاولة مجددًا."
+          }
+        },
+        "ca": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No s’ha pogut desar l’autorització de OneDrive de manera segura. Torna-ho a provar."
+          }
+        },
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Autorizaci OneDrive se nepodařilo bezpečně uložit. Zkuste to znovu."
+          }
+        },
+        "da": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "OneDrive-godkendelsen kunne ikke gemmes sikkert. Prøv igen."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Die OneDrive-Autorisierung konnte nicht sicher gespeichert werden. Versuche es erneut."
+          }
+        },
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Δεν ήταν δυνατή η ασφαλής αποθήκευση της εξουσιοδότησης OneDrive. Δοκιμάστε ξανά."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Unable to save OneDrive authorization securely. Please try again."
+          }
+        },
+        "en-AU": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Unable to save OneDrive authorization securely. Please try again."
+          }
+        },
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Unable to save OneDrive authorization securely. Please try again."
+          }
+        },
+        "en-IN": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Unable to save OneDrive authorization securely. Please try again."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No se ha podido guardar la autorización de OneDrive de forma segura. Inténtalo de nuevo."
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No se pudo guardar la autorización de OneDrive de forma segura. Inténtalo de nuevo."
+          }
+        },
+        "es-US": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No se pudo guardar la autorización de OneDrive de forma segura. Inténtalo de nuevo."
+          }
+        },
+        "fi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "OneDrive-valtuutusta ei voitu tallentaa turvallisesti. Yritä uudelleen."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Impossible d’enregistrer l’autorisation OneDrive de façon sécurisée. Réessayez."
+          }
+        },
+        "fr-CA": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Impossible d’enregistrer l’autorisation OneDrive de façon sécurisée. Réessayez."
+          }
+        },
+        "he": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "לא ניתן לשמור את הרשאת OneDrive באופן מאובטח. יש לנסות שוב."
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "OneDrive की अनुमति सुरक्षित रूप से सहेजी नहीं जा सकी। कृपया फिर से कोशिश करें।"
+          }
+        },
+        "hr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Autorizaciju za OneDrive nije moguće sigurno spremiti. Pokušajte ponovno."
+          }
+        },
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "A OneDrive-engedélyezést nem sikerült biztonságosan menteni. Próbáld újra."
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Otorisasi OneDrive tidak dapat disimpan dengan aman. Silakan coba lagi."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Impossibile salvare in modo sicuro l’autorizzazione OneDrive. Riprova."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "OneDriveの認証情報を安全に保存できませんでした。もう一度お試しください。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "OneDrive 인증 정보를 안전하게 저장할 수 없습니다. 다시 시도해 주세요."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kebenaran OneDrive tidak dapat disimpan dengan selamat. Sila cuba lagi."
+          }
+        },
+        "nb": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "OneDrive-godkjenningen kunne ikke lagres sikkert. Prøv igjen."
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "De OneDrive-autorisatie kon niet veilig worden opgeslagen. Probeer het opnieuw."
+          }
+        },
+        "pl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nie można bezpiecznie zapisać autoryzacji OneDrive. Spróbuj ponownie."
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Não foi possível salvar a autorização do OneDrive com segurança. Tente novamente."
+          }
+        },
+        "pt-PT": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Não foi possível guardar a autorização do OneDrive em segurança. Tente novamente."
+          }
+        },
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Autorizarea OneDrive nu a putut fi salvată în siguranță. Încearcă din nou."
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Не удалось безопасно сохранить авторизацию OneDrive. Повторите попытку."
+          }
+        },
+        "sk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Autorizáciu OneDrive sa nepodarilo bezpečne uložiť. Skúste to znova."
+          }
+        },
+        "sl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pooblastila za OneDrive ni bilo mogoče varno shraniti. Poskusite znova."
+          }
+        },
+        "sv": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "OneDrive-auktoriseringen kunde inte sparas säkert. Försök igen."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ไม่สามารถบันทึกการอนุญาต OneDrive ได้อย่างปลอดภัย โปรดลองอีกครั้ง"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "OneDrive yetkilendirmesi güvenli bir şekilde kaydedilemedi. Lütfen tekrar deneyin."
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Не вдалося безпечно зберегти авторизацію OneDrive. Спробуйте ще раз."
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Không thể lưu thông tin ủy quyền OneDrive một cách an toàn. Vui lòng thử lại."
+          }
+        },
+        "zh-HK": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "無法安全儲存 OneDrive 授權資料，請重試。"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "无法安全保存 OneDrive 授权信息，请重试。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "無法安全儲存 OneDrive 授權資訊，請再試一次。"
+          }
+        }
+      }
+    },
+    "OneDrive.LegacyAccountKept": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "أُضيف هذا الحساب كاتصال جديد. تم الاحتفاظ باتصال OneDrive السابق والمفضلة المحفوظة."
+          }
+        },
+        "ca": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aquest compte s’ha afegit com una connexió nova. S’han conservat la connexió anterior de OneDrive i els preferits desats."
+          }
+        },
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tento účet byl přidán jako nové připojení. Předchozí připojení k OneDrive i uložené oblíbené položky byly zachovány."
+          }
+        },
+        "da": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Denne konto blev tilføjet som en ny forbindelse. Din tidligere OneDrive-forbindelse og gemte favoritter er bevaret."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dieses Konto wurde als neue Verbindung hinzugefügt. Deine bisherige OneDrive-Verbindung und gespeicherten Favoriten bleiben erhalten."
+          }
+        },
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Αυτός ο λογαριασμός προστέθηκε ως νέα σύνδεση. Η προηγούμενη σύνδεση OneDrive και τα αποθηκευμένα αγαπημένα σας διατηρήθηκαν."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "This account was added as a new connection. Your previous OneDrive connection and saved favorites have been kept."
+          }
+        },
+        "en-AU": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "This account was added as a new connection. Your previous OneDrive connection and saved favorites have been kept."
+          }
+        },
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "This account was added as a new connection. Your previous OneDrive connection and saved favorites have been kept."
+          }
+        },
+        "en-IN": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "This account was added as a new connection. Your previous OneDrive connection and saved favorites have been kept."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Esta cuenta se ha añadido como una conexión nueva. Se han conservado la conexión anterior de OneDrive y los favoritos guardados."
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Esta cuenta se agregó como una conexión nueva. Se conservaron la conexión anterior de OneDrive y los favoritos guardados."
+          }
+        },
+        "es-US": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Esta cuenta se agregó como una conexión nueva. Se conservaron la conexión anterior de OneDrive y los favoritos guardados."
+          }
+        },
+        "fi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tämä tili lisättiin uutena yhteytenä. Aiempi OneDrive-yhteytesi ja tallennetut suosikkisi säilytettiin."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ce compte a été ajouté en tant que nouvelle connexion. Votre ancienne connexion OneDrive et vos favoris enregistrés ont été conservés."
+          }
+        },
+        "fr-CA": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ce compte a été ajouté en tant que nouvelle connexion. Votre ancienne connexion OneDrive et vos favoris enregistrés ont été conservés."
+          }
+        },
+        "he": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "חשבון זה נוסף כחיבור חדש. החיבור הקודם ל-OneDrive והמועדפים השמורים נשמרו."
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "यह खाता एक नए कनेक्शन के रूप में जोड़ा गया है। आपका पिछला OneDrive कनेक्शन और सहेजे गए पसंदीदा सुरक्षित रखे गए हैं।"
+          }
+        },
+        "hr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ovaj je račun dodan kao nova veza. Vaša prethodna veza s OneDriveom i spremljeni favoriti su zadržani."
+          }
+        },
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ezt a fiókot új kapcsolatként adtuk hozzá. A korábbi OneDrive-kapcsolatod és a mentett kedvenceid megmaradtak."
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Akun ini ditambahkan sebagai koneksi baru. Koneksi OneDrive sebelumnya dan favorit yang tersimpan tetap dipertahankan."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Questo account è stato aggiunto come nuova connessione. La connessione OneDrive precedente e i preferiti salvati sono stati mantenuti."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "このアカウントは新しい接続として追加されました。以前のOneDrive接続と保存済みのお気に入りは保持されています。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "이 계정이 새 연결로 추가되었습니다. 기존 OneDrive 연결과 저장된 즐겨찾기는 유지됩니다."
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Akaun ini telah ditambahkan sebagai sambungan baharu. Sambungan OneDrive terdahulu dan kegemaran yang disimpan telah dikekalkan."
+          }
+        },
+        "nb": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Denne kontoen ble lagt til som en ny tilkobling. Den tidligere OneDrive-tilkoblingen og lagrede favoritter er beholdt."
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dit account is als nieuwe verbinding toegevoegd. Je vorige OneDrive-verbinding en opgeslagen favorieten zijn behouden."
+          }
+        },
+        "pl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "To konto zostało dodane jako nowe połączenie. Poprzednie połączenie z OneDrive i zapisane ulubione zostały zachowane."
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Esta conta foi adicionada como uma nova conexão. Sua conexão anterior com o OneDrive e os favoritos salvos foram mantidos."
+          }
+        },
+        "pt-PT": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Esta conta foi adicionada como uma nova ligação. A ligação anterior ao OneDrive e os favoritos guardados foram mantidos."
+          }
+        },
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Acest cont a fost adăugat ca o conexiune nouă. Conexiunea OneDrive anterioară și favoritele salvate au fost păstrate."
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Эта учётная запись добавлена как новое подключение. Прежнее подключение OneDrive и сохранённое избранное оставлены без изменений."
+          }
+        },
+        "sk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tento účet bol pridaný ako nové pripojenie. Predchádzajúce pripojenie k OneDrive aj uložené obľúbené položky boli zachované."
+          }
+        },
+        "sl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ta račun je bil dodan kot nova povezava. Prejšnja povezava z OneDrive in shranjene priljubljene vsebine so bile ohranjene."
+          }
+        },
+        "sv": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Det här kontot lades till som en ny anslutning. Din tidigare OneDrive-anslutning och sparade favoriter har behållits."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เพิ่มบัญชีนี้เป็นการเชื่อมต่อใหม่แล้ว การเชื่อมต่อ OneDrive เดิมและรายการโปรดที่บันทึกไว้ยังคงอยู่"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bu hesap yeni bir bağlantı olarak eklendi. Önceki OneDrive bağlantınız ve kayıtlı favorileriniz korundu."
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Цей обліковий запис додано як нове підключення. Попереднє підключення OneDrive і збережене вибране залишено без змін."
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tài khoản này đã được thêm dưới dạng kết nối mới. Kết nối OneDrive trước đó và các mục yêu thích đã lưu vẫn được giữ lại."
+          }
+        },
+        "zh-HK": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "此帳戶已新增為新連線，原有的 OneDrive 連線及已收藏內容均已保留。"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "此账号已添加为新连接，原有的 OneDrive 连接及已收藏内容均已保留。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "此帳號已新增為新連線，原有的 OneDrive 連線及已收藏內容均已保留。"
+          }
+        }
+      }
+    },
     "Review.WriteReview": {
       "extractionState": "manual",
       "localizations": {
@@ -12716,263 +13487,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "所有雲端服務"
-          }
-        }
-      }
-    },
-    "All future premium features! E.g., Apple Watch, native CarPlay, more cloud storage, and more" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "جميع ميزات Premium القادمة، بما فيها Apple Watch وCarPlay الأصلي ودعم المزيد من الخدمات السحابية"
-          }
-        },
-        "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Totes les futures funcions prèmium, com ara Apple Watch, CarPlay natiu, més emmagatzematge al núvol i molt més!"
-          }
-        },
-        "cs" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Všechny budoucí prémiové funkce, včetně Apple Watch, nativního CarPlay a podpory dalších cloudových služeb"
-          }
-        },
-        "da" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Alle fremtidige premiumfunktioner, herunder Apple Watch, indbygget CarPlay og understøttelse af flere cloudtjenester"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Alle zukünftigen Premium-Funktionen! Z. B. Apple Watch, natives CarPlay, mehr Cloud-Speicher"
-          }
-        },
-        "el" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Όλες οι μελλοντικές λειτουργίες Premium, όπως Apple Watch, εγγενές CarPlay και υποστήριξη περισσότερων υπηρεσιών cloud"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "All future Premium features, including Apple Watch, native CarPlay, and support for more cloud services"
-          }
-        },
-        "en-AU" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "All future Premium features, including Apple Watch, native CarPlay, and support for more cloud services"
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "All future Premium features, including Apple Watch, native CarPlay, and support for more cloud services"
-          }
-        },
-        "en-IN" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "All future Premium features, including Apple Watch, native CarPlay, and support for more cloud services"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "¡Todas las futuras funciones premium! P. ej., Apple Watch, CarPlay nativo, más almacenamiento en la nube"
-          }
-        },
-        "es-419" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "¡Todas las futuras funciones premium, como Apple Watch, CarPlay nativo, más almacenamiento en la nube y mucho más!"
-          }
-        },
-        "es-US" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "¡Todas las futuras funciones premium, como Apple Watch, CarPlay nativo, más almacenamiento en la nube y mucho más!"
-          }
-        },
-        "fi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Kaikki tulevat Premium-ominaisuudet, kuten Apple Watch, natiivi CarPlay ja tuki uusille pilvipalveluille"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Toutes les futures fonctionnalités premium : Apple Watch, CarPlay natif, plus de stockage cloud et bien plus encore !"
-          }
-        },
-        "fr-CA" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Toutes les futures fonctionnalités premium : Apple Watch, CarPlay natif, plus de stockage infonuagique et bien plus encore !"
-          }
-        },
-        "he" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "כל תכונות Premium העתידיות, כולל Apple Watch, תמיכה מובנית ב-CarPlay ושירותי ענן נוספים"
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "भविष्य की सभी प्रीमियम सुविधाएँ, जिनमें Apple Watch, नेटिव CarPlay और अधिक क्लाउड सेवाओं का सपोर्ट शामिल है"
-          }
-        },
-        "hr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sve buduće premium značajke, uključujući Apple Watch, izvornu podršku za CarPlay i dodatne usluge u oblaku"
-          }
-        },
-        "hu" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Minden jövőbeli prémium funkció, köztük az Apple Watch, a natív CarPlay és további felhőszolgáltatások támogatása"
-          }
-        },
-        "id" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Semua fitur Premium mendatang, termasuk Apple Watch, CarPlay native, dan dukungan untuk lebih banyak layanan cloud"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tutte le future funzionalità premium! Es. Apple Watch, CarPlay nativo, più cloud storage"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "今後追加されるすべてのプレミアム機能。Apple Watch、ネイティブCarPlay、さらに多くのクラウドサービスへの対応など"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Apple Watch, 네이티브 CarPlay, 더 많은 클라우드 서비스 지원 등 앞으로 추가될 모든 프리미엄 기능"
-          }
-        },
-        "ms" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Semua ciri Premium akan datang, termasuk Apple Watch, CarPlay natif dan sokongan untuk lebih banyak perkhidmatan awan"
-          }
-        },
-        "nb" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Alle fremtidige premiumfunksjoner, inkludert Apple Watch, innebygd CarPlay og støtte for flere skytjenester"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Alle toekomstige premiumfuncties, zoals Apple Watch, ingebouwde CarPlay-ondersteuning, meer cloudopslag en meer!"
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Wszystkie przyszłe funkcje premium, w tym Apple Watch, natywne CarPlay i obsługa kolejnych usług w chmurze"
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Todos os recursos premium futuros! Ex.: Apple Watch, CarPlay nativo, mais armazenamento em nuvem"
-          }
-        },
-        "pt-PT" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Todas as futuras funcionalidades premium, como Apple Watch, CarPlay nativo, mais armazenamento na nuvem e muito mais!"
-          }
-        },
-        "ro" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Toate funcțiile premium viitoare, inclusiv Apple Watch, CarPlay nativ și suport pentru mai multe servicii cloud"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Все будущие премиум-функции, включая Apple Watch, встроенную поддержку CarPlay и новые облачные сервисы"
-          }
-        },
-        "sk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Všetky budúce prémiové funkcie vrátane Apple Watch, natívneho CarPlay a podpory ďalších cloudových služieb"
-          }
-        },
-        "sl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Vse prihodnje premium funkcije, vključno z Apple Watch, vgrajeno podporo za CarPlay in dodatnimi storitvami v oblaku"
-          }
-        },
-        "sv" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Alla framtida premiumfunktioner, inklusive Apple Watch, inbyggt CarPlay och stöd för fler molntjänster"
-          }
-        },
-        "th" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ฟีเจอร์พรีเมียมทั้งหมดในอนาคต รวมถึง Apple Watch, CarPlay แบบเนทีฟ และการรองรับบริการคลาวด์เพิ่มเติม"
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Apple Watch, yerel CarPlay ve daha fazla bulut hizmeti desteği dahil gelecekteki tüm Premium özellikler"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Усі майбутні преміум-функції, зокрема Apple Watch, вбудована підтримка CarPlay та нові хмарні сервіси"
-          }
-        },
-        "vi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tất cả tính năng Premium trong tương lai, bao gồm Apple Watch, CarPlay gốc và hỗ trợ thêm các dịch vụ đám mây"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "包含未来新增的所有高级功能，如 Apple Watch、原生 CarPlay 和更多网盘服务。"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "包含未來新增的所有高級功能，例如 Apple Watch、原生 CarPlay 和更多雲端服務。"
-          }
-        },
-        "zh-HK" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "包含未來新增的所有高級功能，例如 Apple Watch、原生 CarPlay 和更多雲端服務。"
           }
         }
       }
@@ -100399,257 +100913,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "更多"
-          }
-        }
-      }
-    },
-    "More Advanced Features" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "المزيد من الميزات المتقدمة"
-          }
-        },
-        "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Més funcions avançades"
-          }
-        },
-        "cs" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Další pokročilé funkce"
-          }
-        },
-        "da" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Flere avancerede funktioner"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Weitere erweiterte Funktionen"
-          }
-        },
-        "el" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Περισσότερες προηγμένες δυνατότητες"
-          }
-        },
-        "en-AU" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "More Advanced Features"
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "More Advanced Features"
-          }
-        },
-        "en-IN" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "More Advanced Features"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Más funciones avanzadas"
-          }
-        },
-        "es-419" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Más funciones avanzadas"
-          }
-        },
-        "es-US" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Más funciones avanzadas"
-          }
-        },
-        "fi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Lisää edistyneitä ominaisuuksia"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Plus de fonctionnalités avancées"
-          }
-        },
-        "fr-CA" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Plus de fonctionnalités avancées"
-          }
-        },
-        "he" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "תכונות מתקדמות נוספות"
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "और भी उन्नत सुविधाएँ"
-          }
-        },
-        "hr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Više naprednih značajki"
-          }
-        },
-        "hu" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "További fejlett funkciók"
-          }
-        },
-        "id" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Lebih Banyak Fitur Lanjutan"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Altre funzioni avanzate"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "さらに高度な機能"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "더 많은 고급 기능"
-          }
-        },
-        "ms" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Lebih Banyak Ciri Lanjutan"
-          }
-        },
-        "nb" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Flere avanserte funksjoner"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Meer geavanceerde functies"
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Więcej zaawansowanych funkcji"
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Mais recursos avançados"
-          }
-        },
-        "pt-PT" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Mais funcionalidades avançadas"
-          }
-        },
-        "ro" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Mai multe funcții avansate"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ещё больше расширенных функций"
-          }
-        },
-        "sk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ďalšie pokročilé funkcie"
-          }
-        },
-        "sl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Več naprednih funkcij"
-          }
-        },
-        "sv" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Fler avancerade funktioner"
-          }
-        },
-        "th" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ฟีเจอร์ขั้นสูงเพิ่มเติม"
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Daha Fazla Gelişmiş Özellik"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Більше розширених функцій"
-          }
-        },
-        "vi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Nhiều tính năng nâng cao hơn"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "更多高级功能"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "更多進階功能"
-          }
-        },
-        "zh-HK" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "更多進階功能"
           }
         }
       }

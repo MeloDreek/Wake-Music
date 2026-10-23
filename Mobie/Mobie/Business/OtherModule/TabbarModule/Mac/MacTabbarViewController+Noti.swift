@@ -8,7 +8,6 @@
 import KakaFoundation
 import KakaUIKit
 import AppGroupKit
-import AdSupport
 import UniformTypeIdentifiers
 
 extension MacTabbarViewController {

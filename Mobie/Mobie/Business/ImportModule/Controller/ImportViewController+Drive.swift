@@ -12,9 +12,6 @@ import GoogleSignIn
 import Alamofire
 import SwiftyDropbox
 import ProgressHUD
-#if canImport(MSAL)
-import MSAL
-#endif
 
 extension ImportViewController {
     
@@ -228,39 +225,14 @@ extension ImportViewController {
     
     ///  OneDrive
     func importFromOneDrive() {
-        
-#if canImport(MSAL)
-        
-        if ConnectConfigManager.shared.connectedModels.filter({ $0.serverType == .fromOneDrive }).count > 0 {
-            self.showOneAlert(title: ImportFileType.fromOneDrive.titleStr(), message: "You can’t sign in to multiple accounts at the same time. Please remove the previously signed-in account.".localStr())
-            return
-        }
-        
-        do {
-            let config = MSALPublicClientApplicationConfig(clientId: OneDrive_ClientID, redirectUri: OneDrive_RedirectUri, authority: try MSALAuthority(url: URL(string: OneDrive_Authority)!))
-            config.cacheConfig.keychainSharingGroup = AppBundleID
-            let applicationContext = try MSALPublicClientApplication(configuration: config)
-            
-            applicationContext.acquireToken(with: MSALInteractiveTokenParameters(scopes: OneDrive_Scopes, webviewParameters: MSALWebviewParameters(authPresentationViewController: self))) { result, error in
-                guard let tokenResult = result else {
-                    self.view.makeToast(error?.localizedDescription)
-                    return
-                }
-                                                
-                let onedriveUser = tokenResult.convertOneDriveUser()
-                
-                let serverModel = ServerConfigModel(serverType: .fromOneDrive, isSelected: true, onedriveUser: onedriveUser)
-                ConnectConfigManager.shared.addOrUpdateRemoteServer(serverModel: serverModel) { [weak self] () in
-                    self?.finishRemoteAuthorization(serverModel)
-                }
-                                
+        OneDriveOAuthManager.shared.authorize(from: self) { [weak self] result in
+            switch result {
+            case .success(let user):
+                self?.finishRemoteAuthorization(ServerConfigModel(serverType: .fromOneDrive, isSelected: true, onedriveUser: user))
+            case .failure(let error):
+                if error != .youhaveCanceled { self?.showOneAlert(message: error.errorDescription) }
             }
-            
-        } catch {
-            debugPrint("MSAL 初始化失败: \(error)")
-            self.showOneAlert(message: error.localizedDescription)
         }
-#endif
     }
     
 }

@@ -28,12 +28,6 @@ final class AuthSMBViewController: SuperViewController, UITableViewDataSource, U
         values = [.title: user?.name ?? "My NAS".localStr(), .host: user?.host ?? "",
                   .port: String(user?.port ?? 445), .path: user?.share ?? "",
                   .username: user?.username ?? "", .password: "", .otherDav: user?.domain ?? ""]
-//#if DEBUG
-//        if user == nil {
-//            values = [.title: "My NAS".localStr(), .host: "192.168.1.215", .port: "445",
-//                      .path: "音乐", .username: "wakemusic", .password: "wake", .otherDav: ""]
-//        }
-//#endif
     }
 
     @MainActor required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }

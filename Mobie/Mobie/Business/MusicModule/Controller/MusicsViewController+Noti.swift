@@ -7,14 +7,10 @@
 
 import KakaFoundation
 import AppGroupKit
-import AdSupport
 import Combine
-import AppTrackingTransparency
 
 extension MusicsViewController {
     func addNotificationEvent() {
-        
-        self.perform(#selector(requestIDFAString), with: nil, afterDelay: 5)
         
         // 主题色变化了
         NotificationCenter.default.addObserver(self, selector: #selector(setupNavigationItem), name: Notification.Name(kAppThemeColorChangedKey), object: nil)
@@ -60,16 +56,4 @@ extension MusicsViewController {
         self.clickMusicItem(index)
     }
     
-    // 获取IDFA
-    @objc func requestIDFAString() {
-        ATTrackingManager.requestTrackingAuthorization { status in
-            if status == .authorized {
-                let idfaStr = ASIdentifierManager.shared().advertisingIdentifier.uuidString
-                debugPrint("IDFA = \(idfaStr)")
-            }else{
-                debugPrint("请在设置-隐私-跟踪中允许App请求跟踪: \(status)")
-            }
-        }
-    }
-
 }

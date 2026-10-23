@@ -14,9 +14,6 @@ import NVActivityIndicatorView
 import AVFoundation
 import KakaPhotoBrowser
 import SafariServices
-#if canImport(MSAL)
-import MSAL
-#endif
 
 /// OneDrive网盘
 class OneDriveFileListController: SuperViewController {
@@ -82,7 +79,7 @@ class OneDriveFileListController: SuperViewController {
                 self?.perform(#selector(self?.playingMusicChanged), with: nil, afterDelay: 0.2)
             }.store(in: &cancellables)
         
-        // 可能是刷新token && Dropbox
+        // Refresh credentials without changing this controller's folder.
         ConnectConfigManager.shared.$connectedModels
             .receive(on: DispatchQueue.main)
             .sink { [weak self] models in
@@ -98,35 +95,50 @@ class OneDriveFileListController: SuperViewController {
     }
     
     @objc func refreshDataAction() {
-        
-        if self.tableView.isDragging {
-            self.allfileArray.removeAll()
-        }else{
+        let generation = UUID()
+        requestGeneration = generation
+        if !self.tableView.isDragging {
             self.emptyView.isHidden = true
             self.loadingView.startAnimating()
         }
         
-        let serverModel = ServerConfigModel(serverType: .fromOneDrive, onedriveUser: self.loginModel)
+        var refreshedFiles = [MusicItemModel]()
+        var loadedIDs = Set<String>()
+        var visitedCursors = Set<String>()
                     
         func loadPage(token: String?) {
+            guard requestGeneration == generation else { return }
+            guard let accountID = loginModel.account?.msalID, !accountID.isEmpty,
+                  var currentUser = ConnectConfigManager.shared.connectedModels.first(where: { $0.onedriveUser?.account?.msalID == accountID })?.onedriveUser else {
+                stopLoadingAction()
+                emptyView.isHidden = false
+                emptyView.update(message: KakaError.tokenExpiredAuthAgain.errorDescription)
+                return
+            }
+            // The previous page may have refreshed the token; do not reuse its stale copy.
+            currentUser.path = loginModel.path
+            loginModel = currentUser
+            let serverModel = ServerConfigModel(serverType: .fromOneDrive, onedriveUser: currentUser)
             KakaMusicPlayer.shared.fetchOneDriveFiles(serverModel: serverModel, cursor: token) { [weak self] result in
-                guard let wSelf = self else { return }
+                guard let wSelf = self, wSelf.requestGeneration == generation else { return }
                 switch result {
                 case .success(let nextPage):
                     
-                    let tempArray = (nextPage.value ?? []).map {
+                    let tempArray = (nextPage.value ?? []).filter { loadedIDs.insert($0.id).inserted }.map {
                         var newModel = $0
                         newModel.onedriveUser = wSelf.loginModel
                         return MusicItemModel(onedriveFile: newModel)
                     }
                     
-                    wSelf.allfileArray.append(contentsOf: tempArray)
+                    refreshedFiles.append(contentsOf: tempArray)
                     
-                    if let cursor = nextPage.nextLink, let files = nextPage.value, files.count > 0 {
+                    if let cursor = nextPage.nextLink, !cursor.isEmpty, let files = nextPage.value, !files.isEmpty,
+                       visitedCursors.insert(cursor).inserted {
                         // 继续加载下一页
                         loadPage(token: cursor)
                     } else {
                         // 加载完毕
+                        wSelf.allfileArray = refreshedFiles
                         wSelf.stopLoadingAction()
                         wSelf.sortAllServerFiles(wSelf.allfileArray)
                     }
@@ -153,33 +165,16 @@ class OneDriveFileListController: SuperViewController {
     
     // 重新授权OneDrive
     func reAuthorizeOneDrive() {
-#if canImport(MSAL)
-        do {
-            let config = MSALPublicClientApplicationConfig(clientId: OneDrive_ClientID, redirectUri: OneDrive_RedirectUri, authority: try MSALAuthority(url: URL(string: OneDrive_Authority)!))
-            config.cacheConfig.keychainSharingGroup = AppBundleID
-            let applicationContext = try MSALPublicClientApplication(configuration: config)
-            
-            applicationContext.acquireToken(with: MSALInteractiveTokenParameters(scopes: OneDrive_Scopes, webviewParameters: MSALWebviewParameters(authPresentationViewController: self))) { result, error in
-                guard let tokenResult = result else {
-                    self.view.makeToast(error?.localizedDescription)
-                    return
-                }
-                                                
-                let onedriveUser = tokenResult.convertOneDriveUser()
-                
-                let serverModel = ServerConfigModel(serverType: .fromOneDrive, isSelected: true, onedriveUser: onedriveUser)
-                ConnectConfigManager.shared.addOrUpdateRemoteServer(serverModel: serverModel) { [weak self] () in
-                    self?.loginModel = onedriveUser
-                    self?.refreshDataAction()
-                }
-                                
+        OneDriveOAuthManager.shared.authorize(from: self, replacing: loginModel) { [weak self] result in
+            switch result {
+            case .success(let user):
+                self?.loginModel = user
+                self?.title = user.pageTitle()
+                self?.refreshDataAction()
+            case .failure(let error):
+                if error != .youhaveCanceled { self?.showOneAlert(message: error.errorDescription) }
             }
-            
-        } catch {
-            debugPrint("MSAL 初始化失败: \(error)")
-            self.showOneAlert(message: error.localizedDescription)
         }
-        #endif
     }
         
     // 分组、排序文件列表
@@ -253,6 +248,7 @@ class OneDriveFileListController: SuperViewController {
     
     /// 所有的文件列表
     var allfileArray: [MusicItemModel] = []
+    private var requestGeneration = UUID()
     
     /// 整理后的文件列表
     lazy var fileDict: [ConnectFileType: [MusicItemModel]] = {
@@ -621,7 +617,10 @@ extension OneDriveFileListController {
         
         guard var newModel = self.loginModel else { return }
         if let onedriveFile = subFile.onedriveFile, let path = onedriveFile.parentReference?.path {
-            newModel.path = path + "/" + onedriveFile.name
+            // Graph's parent path is encoded; the item name is already plain text.
+            // Keep our in-memory path decoded so URLComponents encodes it exactly once.
+            let decodedParentPath = path.removingPercentEncoding ?? path
+            newModel.path = decodedParentPath + "/" + onedriveFile.name
         }
                 
         let folderVC = OneDriveFileListController(loginModel: newModel)

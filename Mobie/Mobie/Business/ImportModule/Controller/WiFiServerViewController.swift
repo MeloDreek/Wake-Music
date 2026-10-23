@@ -49,13 +49,6 @@ class WiFiServerViewController: SuperViewController {
         super.preSetupHandleBuness()
         self.title = ImportFileType.fromWiFi.titleStr()
         
-//#warning("模拟mock数据")
-//        for index in 0..<12 {
-//            let name = "singer_\(index + 1)@3x.png"
-//            var model = MusicItemModel()
-//            model.title = name
-//            self.dataArray.append(model)
-//        }
                 
         if self.isPresent() {
             self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelBarClick))
@@ -291,14 +284,6 @@ extension WiFiServerViewController: UITableViewDataSource, UITableViewDelegate, 
                 let cell = tableView.dequeueReusableCell(withIdentifier: "MusicTableViewCell", for: indexPath) as! MusicTableViewCell
                 let model = self.dataArray[indexPath.row]
                 cell.update(musicModel: model, cellType: .none)
-#warning("模拟mock数据")
-//                #if DEBUG
-//                cell.nameLabel.text = "Music 00\(indexPath.row + 1).dsd"
-//                cell.singerLabel.text = "Wakemusic".localStr()
-//                let name = "singer_\(indexPath.row + 1)@3x.png"
-//                let coverURL = URL(fileURLWithPath: Reasource.fullFilePath(name))
-//                cell.coverImgView.kf.setImage(with: coverURL, placeholder: UIImage(named: "music_place"))
-//                #endif
                 return cell
             }
         }

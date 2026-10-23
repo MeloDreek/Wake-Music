@@ -625,9 +625,7 @@ class PlayerControlToolBarView: UIToolbar {
     lazy var blurEffectView: UIVisualEffectView = {
         let blurEffect = UIBlurEffect(style: .extraLight)
         let view = UIVisualEffectView(effect: blurEffect)
-//#if !DEBUG
         view.isHidden = true
-//#endif
         view.frame = self.coverImgView.bounds
         view.alpha = 0.58
         view.autoresizingMask = [.flexibleWidth, .flexibleHeight]

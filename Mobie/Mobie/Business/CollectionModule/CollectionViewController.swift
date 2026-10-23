@@ -126,11 +126,7 @@ class CollectionViewController: SuperViewController {
     
     let totalItemHeight = 36.ckValue()
     
-//#if DEBUG
-//    let dataArray: [CollectionType] = [.album, .genre, .artist]
-//#else
     let dataArray: [CollectionType] = [.album, .artist, .genre]
-//#endif
     
     // MARK:  懒加载
     

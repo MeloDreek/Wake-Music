@@ -25,12 +25,6 @@ final class AuthFTPViewController: SuperViewController, UITableViewDataSource, U
         values = [.title: user?.name ?? "My FTP".localStr(), .host: user?.host ?? "",
                   .port: String(user?.port ?? 21), .path: user?.rootPath ?? "/",
                   .username: user?.username ?? "", .password: ""]
-#if DEBUG
-        if user == nil {
-            values = [.title: "My FTP".localStr(), .host: "39.98.202.131", .port: "21", .path: "/",
-                      .username: "ftplcc", .password: "cBytbhCzCyXXHDdz"]
-        }
-#endif
     }
 
     @MainActor required init?(coder: NSCoder) { fatalError("init(coder:) has not been implemented") }

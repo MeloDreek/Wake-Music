@@ -189,6 +189,17 @@ extension ConnectConfigManager {
         
         self.favoriteMusicArray = musicArray
 
+        if let user = serverModel.onedriveUser {
+            OneDriveOAuthManager.shared.unlink(user)
+            self.lastPlaylist = self.lastPlaylist.filter { $0.onedriveFile?.onedriveUser != user }
+            let player = KakaMusicPlayer.shared
+            player.musicArray = player.musicArray.filter { $0.onedriveFile?.onedriveUser != user }
+            player.tempMusicArray = player.tempMusicArray.filter { $0.onedriveFile?.onedriveUser != user }
+            if player.nextPlayMusic?.onedriveFile?.onedriveUser == user { player.nextPlayMusic = nil }
+            if player.playingMusic?.onedriveFile?.onedriveUser == user {
+                player.resetToPausedDemo(clearRemotePlaylist: false)
+            }
+        }
         if let user = serverModel.smbUser {
             SMBDriveService.shared.unlink(user)
             self.lastPlaylist = self.lastPlaylist.filter { $0.smbFile?.smbUser != user }

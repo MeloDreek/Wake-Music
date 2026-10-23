@@ -13,9 +13,6 @@ import Alamofire
 import SwiftyDropbox
 import ProgressHUD
 import AliyunpanSDK
-#if canImport(MSAL)
-import MSAL
-#endif
 
 extension ConnectListViewController {
     
@@ -196,33 +193,14 @@ extension ConnectListViewController {
 
     ///  OneDrive
     func importFromOneDrive() {
-#if canImport(MSAL)
-        do {
-            let config = MSALPublicClientApplicationConfig(clientId: OneDrive_ClientID, redirectUri: OneDrive_RedirectUri, authority: try MSALAuthority(url: URL(string: OneDrive_Authority)!))
-            config.cacheConfig.keychainSharingGroup = AppBundleID
-            let applicationContext = try MSALPublicClientApplication(configuration: config)
-            
-            applicationContext.acquireToken(with: MSALInteractiveTokenParameters(scopes: OneDrive_Scopes, webviewParameters: MSALWebviewParameters(authPresentationViewController: self))) { result, error in
-                guard let tokenResult = result else {
-                    self.view.makeToast(error?.localizedDescription)
-                    return
-                }
-                                                
-                let onedriveUser = tokenResult.convertOneDriveUser()
-                
-                let serverModel = ServerConfigModel(serverType: .fromOneDrive, isSelected: true, onedriveUser: onedriveUser)
-                ConnectConfigManager.shared.addOrUpdateRemoteServer(serverModel: serverModel) { [weak self] () in
-                    let googleVC = OneDriveFileListController(loginModel: onedriveUser)
-                    self?.navigationController?.pushViewController(googleVC, animated: true)
-                }
-                                
+        OneDriveOAuthManager.shared.authorize(from: self) { [weak self] result in
+            switch result {
+            case .success(let user):
+                self?.navigationController?.pushViewController(OneDriveFileListController(loginModel: user), animated: true)
+            case .failure(let error):
+                if error != .youhaveCanceled { self?.showOneAlert(message: error.errorDescription) }
             }
-            
-        } catch {
-            debugPrint("MSAL 初始化失败: \(error)")
-            self.showOneAlert(message: error.localizedDescription)
         }
-#endif
     }
     
 }

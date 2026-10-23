@@ -67,15 +67,6 @@ class MusicTagEditorController: SuperViewController {
             self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelButtonClick))
         }
         
-//#if DEBUG
-//        if let origialModel = self.origialModel {
-//            let fileURL = origialModel.mediaPlayURL
-//            TaglibMetadataParser.setLyris("", toFileURL: fileURL)
-//            TaglibMetadataParser.setCoverArt(nil, toFileURL: fileURL)
-//            try? FileManager.default.removeItem(at: origialModel.coverThumbnailURL())
-//            ImageCache.default.clearMemoryCache()
-//        }
-//#endif
                 
         self.refreshDataAction()
     }
@@ -92,22 +83,6 @@ class MusicTagEditorController: SuperViewController {
         self.tableView.reloadData()
         
         self.handleAudioMetadata()
-
-#warning("模拟mock数据")
-        
-//#if DEBUG
-//        let musicGenre = MusicGenreType.pop
-//        self.coverImage = musicGenre.iconImage()
-//        self.editModel?.title = musicGenre.formatStr()
-//        self.editModel?.artist = Application.wakeMusic.appTitle()
-//        self.editModel?.year = Date().year
-//        self.editModel?.track = 1
-//        self.editModel?.channel = .surround51
-//        self.editModel?.genre = musicGenre.rawValue
-//        self.editModel?.album = musicGenre.formatStr() + "1999"
-//        self.tableView.reloadData()
-//#endif
-        
     }
     
     
@@ -255,12 +230,7 @@ extension MusicTagEditorController: UITableViewDataSource, UITableViewDelegate {
         }
         else{
             let cell = tableView.dequeueReusableCell(withIdentifier: "MeteDataDetialViewCell", for: indexPath) as! MeteDataDetialViewCell
-#warning("模拟mock数据")
-//#if DEBUG
-//            cell.update(model: self.editModel, itemType: itemType, coverImage: MusicGenreType.punk.iconImage(), fileSize: self.fileSize)
-//#else
             cell.update(model: self.editModel, itemType: itemType, coverImage: self.coverImage, fileSize: self.fileSize)
-//#endif
             return cell
         }
         
@@ -338,16 +308,6 @@ extension MusicTagEditorController: UITableViewDataSource, UITableViewDelegate {
             self.clickFilePathAction()
         }
         
-#warning("模拟mock数据")
-//#if DEBUG
-//        if itemType == .headerTag {
-//            if let tabbarVC = self.tabBarController as? HomeTabbarViewController {
-//                tabbarVC.tabBar.isHidden = !tabbarVC.tabBar.isHidden
-//                tabbarVC.toolbarView.isHidden = !tabbarVC.toolbarView.isHidden
-//                return
-//            }
-//        }
-//#endif
     }
     
     
@@ -403,10 +363,6 @@ extension MusicTagEditorController {
             }
         }
         
-#warning("模拟mock数据")
-//#if DEBUG
-//        navVC.modalPresentationStyle = .fullScreen
-//#endif
         
         self.present(navVC, animated: true)
     }
@@ -744,22 +700,13 @@ extension MusicTagEditorController {
             return
         }
         
-#warning("模拟mock数据")
-//#if DEBUG
-//        let editVC = SelectLyricViewController(music: editModel, result: nil)
-//        let navVC = KakaNavigationController(rootViewController: editVC)
-//        navVC.modalPresentationStyle = .automatic
-//        self.present(navVC, animated: true)
-//#else
         let lyricVC = LyricDetialViewController(editModel: editModel)
         lyricVC.onEditCallback = { [weak self] (newModel) in
             self?.origialModel?.lyricModel = newModel.lyricModel
             self?.refreshDataAction()
             self?.onEditCallback?(newModel)
         }
-        
         self.navigationController?.pushViewController(lyricVC, animated: true)
-//#endif
         
     }
     
@@ -797,10 +744,6 @@ extension MusicTagEditorController {
             self?.refreshDataAction()
         }
         let navVC = KakaNavigationController(rootViewController: recognizerVC)
-#warning("模拟mock数据")
-//#if DEBUG
-//        navVC.modalPresentationStyle = .fullScreen
-//#endif
         self.present(navVC, animated: true)
     }
     

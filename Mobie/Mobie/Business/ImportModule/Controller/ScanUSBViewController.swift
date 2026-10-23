@@ -95,10 +95,6 @@ class ScanUSBViewController: SuperViewController {
         
         self.navigationItem.rightBarButtonItem = self.videoBarItem
 
-#warning("模拟mock数据")
-//        self.navigationController?.overrideUserInterfaceStyle = .light
-//        self.overrideUserInterfaceStyle = .light
-//        self.tableView.overrideUserInterfaceStyle = .light
         
     }
     

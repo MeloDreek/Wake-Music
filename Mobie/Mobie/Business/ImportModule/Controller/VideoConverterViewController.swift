@@ -31,10 +31,6 @@ class VideoConverterViewController: SuperViewController {
     }
     
     override func preSetupSubViews() {
-#warning("模拟mock数据")
-//        self.navigationController?.overrideUserInterfaceStyle = .light
-//        self.overrideUserInterfaceStyle = .light
-//        self.tableView.overrideUserInterfaceStyle = .light
         
         super.preSetupSubViews()
         

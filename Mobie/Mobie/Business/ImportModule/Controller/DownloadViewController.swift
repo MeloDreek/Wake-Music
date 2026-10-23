@@ -54,22 +54,6 @@ class DownloadViewController: SuperViewController {
         self.updateRightBarItem()
         self.refreshDataAction()
         
-#warning("模拟mock数据")
-//#if DEBUG
-//        var testArray = [MusicItemModel]()
-//        for i in 0..<66 {
-//            let subGenre = MusicGenreType.allGenreArray().randomElement() ?? MusicGenreType.pop
-//            let subExtension = AudioExtension.audioSuffixs.randomElement()?.lowercased() ?? "dsf"
-//            
-//            var model = MusicItemModel(fileURL: SandboxFileManager.shared.basePublicFileURL().appendingPathComponent("\(subGenre.formatStr()).\(subExtension)"), sourceType: .localFile)
-//            model.title = "Wakemusic".localStr() + " \(i)." + subExtension
-//            model.artist = "From".localStr() + " " + ImportFileType.fromGoogleDrive.titleStr()
-//            model.coverArt = subGenre.iconImage()
-//            testArray.append(model)
-//        }
-//        
-//        DownloadManager.shared.taskArray = testArray
-//#endif
     }
     
     @objc func dismissItemAction() {
@@ -242,30 +226,12 @@ extension DownloadViewController: UITableViewDataSource, UITableViewDelegate, Em
             indicator.accessibilityLabel = error
             cell.accessoryView = indicator
         }
-#warning("模拟mock数据")
-//        #if DEBUG
-//        cell.loadingBgView.isHidden = true
-//        
-//        var allGenre = MusicGenreType.allCases
-//        allGenre.removeLast()
-//        let genreType = allGenre.reversed()[indexPath.row]
-//        cell.coverImgView.image = genreType.iconImage()
-//        cell.nameLabel.text = genreType.formatStr() + "." +  AudioFormatEnum.allCases.randomElement()!.rawValue.lowercased()
-//        cell.descLabel.text = PhoneSetManager.formatLanguage() == .chinese_simplified ? ImportFileType.fromBaiduDrive.titleStr() : ImportFileType.fromGoogleDrive.titleStr()
-//        #endif
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-#warning("模拟mock数据")
-//        #if DEBUG
-//        if let tabbarVC = self.tabBarController as? HomeTabbarViewController {
-//            tabbarVC.tabBar.isHidden = !tabbarVC.tabBar.isHidden
-//        }
-//        return
-//        #endif
         
         guard self.dataArray.indices.contains(indexPath.row) else {
             return

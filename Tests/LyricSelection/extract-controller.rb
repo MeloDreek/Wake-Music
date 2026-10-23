@@ -1,5 +1,6 @@
 source = File.read(ARGV.fetch(0))
 signatures = [
+  'deinit {',
   'func refreshDataAction()',
   'private func updateLyrics(_ lyrics: [LyricInfoModel])',
   'private func lyric(at indexPath: IndexPath)',
@@ -26,11 +27,14 @@ methods = signatures.map do |signature|
 end
 request_id = source.lines.find { |line| line.include?('private var lyricRequestID =') }
 abort 'Missing request generation state' unless request_id
+match_request = source.lines.find { |line| line.include?('private var matchRequest: MetadataMatchRequest?') }
+abort 'Missing cancellable metadata request state' unless match_request
 
 File.write(ARGV.fetch(1), <<~SWIFT)
   import Foundation
   class SelectLyricViewController: LyricSelectionTestDependencies {
   #{request_id}
+  #{match_request}
   #{methods.join("\n")}
   }
 SWIFT

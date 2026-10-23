@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D02300000000000000000011 /* OneDriveOAuthClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02300000000000000000010 /* OneDriveOAuthClient.swift */; };
+		D02300000000000000000012 /* OneDriveOAuthClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02300000000000000000010 /* OneDriveOAuthClient.swift */; };
+		D02300000000000000000014 /* OneDriveOAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02300000000000000000013 /* OneDriveOAuthManager.swift */; };
+		D02300000000000000000015 /* OneDriveOAuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D02300000000000000000013 /* OneDriveOAuthManager.swift */; };
 		01F75346B3745539580B69EB /* Pods_Mobie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC044DCD42AEE7FFFB8D29DE /* Pods_Mobie.framework */; };
 		02B57660DD995BBB02E0E76A /* CollectionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132CAFD74F21CC80A0EE1C8C /* CollectionDetailViewController.swift */; };
 		22059B832CAE9378006F6E7A /* SocialMediaType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22059B822CAE9378006F6E7A /* SocialMediaType.swift */; };
@@ -184,7 +188,6 @@
 		225F58012D85B2AB0055BDFF /* HomeTabbarViewController+Play.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13F02CA0633400E2948E /* HomeTabbarViewController+Play.swift */; };
 		225F58022D85B2AB0055BDFF /* AuthNavidromeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226DFB6D2D657E0F00E3BE06 /* AuthNavidromeController.swift */; };
 		225F58032D85B2AB0055BDFF /* AudioChannels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22FECF2C2CB7AC4400FBE36B /* AudioChannels.swift */; };
-		225F58042D85B2AB0055BDFF /* RadioTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13D22CA0633400E2948E /* RadioTableViewCell.swift */; };
 		225F58052D85B2AB0055BDFF /* PurchaseHeadCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13D02CA0633400E2948E /* PurchaseHeadCell.swift */; };
 		225F58062D85B2AB0055BDFF /* ArtistCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227310252D1EAD8200EB7842 /* ArtistCollectionCell.swift */; };
 		225F58072D85B2AB0055BDFF /* MusicPlayerViewController+Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13BD2CA0633400E2948E /* MusicPlayerViewController+Action.swift */; };
@@ -339,8 +342,6 @@
 		2266A1552DE7537200F5AEB7 /* LyricFontAlignTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2266A1532DE7537200F5AEB7 /* LyricFontAlignTableCell.swift */; };
 		2266A1572DE753A100F5AEB7 /* LyricFontSpaceTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2266A1562DE753A100F5AEB7 /* LyricFontSpaceTableCell.swift */; };
 		2266A1582DE753A100F5AEB7 /* LyricFontSpaceTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2266A1562DE753A100F5AEB7 /* LyricFontSpaceTableCell.swift */; };
-		2266CB712D93F43D00EB8846 /* VideoPlayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2266CB702D93F43C00EB8846 /* VideoPlayerController.swift */; };
-		2266CB722D93F43D00EB8846 /* VideoPlayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2266CB702D93F43C00EB8846 /* VideoPlayerController.swift */; };
 		22677F6E2E151F4200E20147 /* ImportViewController+Drive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22677F6D2E151F4200E20147 /* ImportViewController+Drive.swift */; };
 		22677F6F2E151F4200E20147 /* ImportViewController+Drive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22677F6D2E151F4200E20147 /* ImportViewController+Drive.swift */; };
 		2268AE5D2CA12BC800340316 /* KakaMusicPlayer+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2268AE5C2CA12BC800340316 /* KakaMusicPlayer+Delegate.swift */; };
@@ -388,8 +389,6 @@
 		228220AD2D89AD8100D1DD4F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 228A13672CA00F5800E2948E /* Assets.xcassets */; };
 		22822C7D2DF42BA100183445 /* PanModal in Frameworks */ = {isa = PBXBuildFile; productRef = 22822C7C2DF42BA100183445 /* PanModal */; };
 		228624362CBFC2DD00472448 /* ScanUSBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228624352CBFC2DD00472448 /* ScanUSBViewController.swift */; };
-		228888A62DD3853D00358231 /* DownloadPoolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228888A52DD3853D00358231 /* DownloadPoolView.swift */; };
-		228888A72DD3853D00358231 /* DownloadPoolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228888A52DD3853D00358231 /* DownloadPoolView.swift */; };
 		228A135F2CA00F5600E2948E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A135E2CA00F5600E2948E /* AppDelegate.swift */; };
 		228A13612CA00F5600E2948E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13602CA00F5600E2948E /* SceneDelegate.swift */; };
 		228A13752CA01FB400E2948E /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 228A13742CA01FB400E2948E /* StoreKit.framework */; };
@@ -433,7 +432,6 @@
 		228A145F2CA0633400E2948E /* PurchaseFootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13CF2CA0633400E2948E /* PurchaseFootView.swift */; };
 		228A14602CA0633400E2948E /* PurchaseHeadCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13D02CA0633400E2948E /* PurchaseHeadCell.swift */; };
 		228A14612CA0633400E2948E /* PurchasePriceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13D12CA0633400E2948E /* PurchasePriceCell.swift */; };
-		228A14622CA0633400E2948E /* RadioTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13D22CA0633400E2948E /* RadioTableViewCell.swift */; };
 		228A14642CA0633400E2948E /* VideoAudioInfoViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13D42CA0633400E2948E /* VideoAudioInfoViewCell.swift */; };
 		228A14652CA0633400E2948E /* VideoImporterViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13D52CA0633400E2948E /* VideoImporterViewCell.swift */; };
 		228A14662CA0633400E2948E /* AboutAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13D82CA0633400E2948E /* AboutAppViewController.swift */; };
@@ -604,8 +602,6 @@
 		22D16A632DDC5D38008A5F8B /* PlayBackgroundStype+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D16A612DDC5D38008A5F8B /* PlayBackgroundStype+Extension.swift */; };
 		22D16A652DDC8123008A5F8B /* PlayBackgroundListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D16A642DDC8123008A5F8B /* PlayBackgroundListController.swift */; };
 		22D16A662DDC8123008A5F8B /* PlayBackgroundListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D16A642DDC8123008A5F8B /* PlayBackgroundListController.swift */; };
-		22D61356300E018F0078864F /* StoreKitTest.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 22D61355300E018F0078864F /* StoreKitTest.storekit */; };
-		22D61357300E018F0078864F /* StoreKitTest.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 22D61355300E018F0078864F /* StoreKitTest.storekit */; };
 		22D61359300E05460078864F /* WelcomePaywallViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D61358300E05460078864F /* WelcomePaywallViewCell.swift */; };
 		22D6135A300E05460078864F /* WelcomePaywallViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D61358300E05460078864F /* WelcomePaywallViewCell.swift */; };
 		22E1F0F82D0717F90025EAD9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 228A13642CA00F5600E2948E /* Main.storyboard */; };
@@ -809,6 +805,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		D02300000000000000000010 /* OneDriveOAuthClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneDriveOAuthClient.swift; sourceTree = "<group>"; };
+		D02300000000000000000013 /* OneDriveOAuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneDriveOAuthManager.swift; sourceTree = "<group>"; };
 		132CAFD74F21CC80A0EE1C8C /* CollectionDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionDetailViewController.swift; sourceTree = "<group>"; };
 		2024258CB3388C84E94183D3 /* Pods_Mobie_Pro.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mobie_Pro.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		22059B822CAE9378006F6E7A /* SocialMediaType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialMediaType.swift; sourceTree = "<group>"; };
@@ -905,7 +903,6 @@
 		2266A1502DE7531400F5AEB7 /* LyricFontColorTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LyricFontColorTableCell.swift; sourceTree = "<group>"; };
 		2266A1532DE7537200F5AEB7 /* LyricFontAlignTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LyricFontAlignTableCell.swift; sourceTree = "<group>"; };
 		2266A1562DE753A100F5AEB7 /* LyricFontSpaceTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LyricFontSpaceTableCell.swift; sourceTree = "<group>"; };
-		2266CB702D93F43C00EB8846 /* VideoPlayerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerController.swift; sourceTree = "<group>"; };
 		22677F6D2E151F4200E20147 /* ImportViewController+Drive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ImportViewController+Drive.swift"; sourceTree = "<group>"; };
 		2268AE5C2CA12BC800340316 /* KakaMusicPlayer+Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KakaMusicPlayer+Delegate.swift"; sourceTree = "<group>"; };
 		22694D9C2D23ECB400DE036D /* WebDavFileObject+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WebDavFileObject+Extension.swift"; sourceTree = "<group>"; };
@@ -933,7 +930,6 @@
 		22814C522DD1CDBE00565CBC /* MusicTableViewCell+Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MusicTableViewCell+Menu.swift"; sourceTree = "<group>"; };
 		22814C552DD1FF0300565CBC /* CoverGalleryCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverGalleryCellModel.swift; sourceTree = "<group>"; };
 		228624352CBFC2DD00472448 /* ScanUSBViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanUSBViewController.swift; sourceTree = "<group>"; };
-		228888A52DD3853D00358231 /* DownloadPoolView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadPoolView.swift; sourceTree = "<group>"; };
 		228A135B2CA00F5600E2948E /* Wakemusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wakemusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		228A135E2CA00F5600E2948E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		228A13602CA00F5600E2948E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -982,7 +978,6 @@
 		228A13CF2CA0633400E2948E /* PurchaseFootView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PurchaseFootView.swift; sourceTree = "<group>"; };
 		228A13D02CA0633400E2948E /* PurchaseHeadCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PurchaseHeadCell.swift; sourceTree = "<group>"; };
 		228A13D12CA0633400E2948E /* PurchasePriceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PurchasePriceCell.swift; sourceTree = "<group>"; };
-		228A13D22CA0633400E2948E /* RadioTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadioTableViewCell.swift; sourceTree = "<group>"; };
 		228A13D42CA0633400E2948E /* VideoAudioInfoViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoAudioInfoViewCell.swift; sourceTree = "<group>"; };
 		228A13D52CA0633400E2948E /* VideoImporterViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoImporterViewCell.swift; sourceTree = "<group>"; };
 		228A13D82CA0633400E2948E /* AboutAppViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutAppViewController.swift; sourceTree = "<group>"; };
@@ -1325,7 +1320,6 @@
 			isa = PBXGroup;
 			children = (
 				228A13CC2CA0633400E2948E /* AudioWaveformView.swift */,
-				228A13D22CA0633400E2948E /* RadioTableViewCell.swift */,
 				228A13D42CA0633400E2948E /* VideoAudioInfoViewCell.swift */,
 				228A13D52CA0633400E2948E /* VideoImporterViewCell.swift */,
 				22B4F2A12D105D0D005EBB2F /* ImportTableViewCell.swift */,
@@ -1443,7 +1437,6 @@
 				2217E0FC2EBC74E000C724F6 /* OneDriveFileListController.swift */,
 				224B43DD2E2D3F88007F3E89 /* Drive115FileListController.swift */,
 				2257955B2D79DC7A005479EA /* SelectPlaylistController.swift */,
-				2266CB702D93F43C00EB8846 /* VideoPlayerController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1827,6 +1820,8 @@
 				224DAE3B2EAE5961003CFAAC /* DriveUserModel+Extension.swift */,
 				C10D00000000000000000002 /* PCloudDriveService.swift */,
 				B01000000000000000000002 /* BoxDriveService.swift */,
+				D02300000000000000000010 /* OneDriveOAuthClient.swift */,
+				D02300000000000000000013 /* OneDriveOAuthManager.swift */,
 				CA1000000000000000000002 /* GuangyaDriveService.swift */,
 				CB1000000000000000000002 /* Pan123DriveService.swift */,
 				DA1000000000000000000002 /* YandexDriveService.swift */,
@@ -1948,7 +1943,6 @@
 				228A13F02CA0633400E2948E /* HomeTabbarViewController+Play.swift */,
 				228A13F12CA0633400E2948E /* HomeTabbarViewController+UI.swift */,
 				228A13F22CA0633400E2948E /* PlayerControlToolBarView.swift */,
-				228888A52DD3853D00358231 /* DownloadPoolView.swift */,
 				228A13F32CA0633400E2948E /* KakaTabbarType.swift */,
 			);
 			path = iOS;
@@ -2205,7 +2199,6 @@
 				228220AC2D899DE900D1DD4F /* Assets.xcassets in Resources */,
 				225F58C42D85B2AB0055BDFF /* Main.storyboard in Resources */,
 				225F58C52D85B2AB0055BDFF /* LaunchScreen.storyboard in Resources */,
-				22D61357300E018F0078864F /* StoreKitTest.storekit in Resources */,
 				225F58C72D85B2AB0055BDFF /* InfoPlist.xcstrings in Resources */,
 				225F58C82D85B2AB0055BDFF /* Localizable.xcstrings in Resources */,
 				225F58C92D85B2AB0055BDFF /* GoogleService-Info.plist in Resources */,
@@ -2232,7 +2225,6 @@
 				228220AD2D89AD8100D1DD4F /* Assets.xcassets in Resources */,
 				22E1F0F82D0717F90025EAD9 /* Main.storyboard in Resources */,
 				2257DE572D0AD04600BBC0CE /* LaunchScreen.storyboard in Resources */,
-				22D61356300E018F0078864F /* StoreKitTest.storekit in Resources */,
 				2259F6E92CA278450041CA38 /* InfoPlist.xcstrings in Resources */,
 				2259F6EB2CA2784E0041CA38 /* Localizable.xcstrings in Resources */,
 				228A138B2CA0622800E2948E /* GoogleService-Info.plist in Resources */,
@@ -2464,7 +2456,6 @@
 				225F58012D85B2AB0055BDFF /* HomeTabbarViewController+Play.swift in Sources */,
 				225F58022D85B2AB0055BDFF /* AuthNavidromeController.swift in Sources */,
 				225F58032D85B2AB0055BDFF /* AudioChannels.swift in Sources */,
-				225F58042D85B2AB0055BDFF /* RadioTableViewCell.swift in Sources */,
 				225F58052D85B2AB0055BDFF /* PurchaseHeadCell.swift in Sources */,
 				225F58062D85B2AB0055BDFF /* ArtistCollectionCell.swift in Sources */,
 				225F58072D85B2AB0055BDFF /* MusicPlayerViewController+Action.swift in Sources */,
@@ -2522,7 +2513,6 @@
 				2219287230610CC200AF4F2B /* NavidromeSectionHeadView.swift in Sources */,
 				22D16A652DDC8123008A5F8B /* PlayBackgroundListController.swift in Sources */,
 				225F58292D85B2AB0055BDFF /* VideoImporterViewCell.swift in Sources */,
-				2266CB712D93F43D00EB8846 /* VideoPlayerController.swift in Sources */,
 				2258AD022DE5FE4800F5754B /* LyricFontSizeTableCell.swift in Sources */,
 				22C7077D2DCB9E9100A1B79A /* PrimaryToolViewController.swift in Sources */,
 				225F582A2D85B2AB0055BDFF /* MusicInfoTagView.swift in Sources */,
@@ -2581,7 +2571,6 @@
 				227607F72DF2F02600B6776E /* MusicDescInfoView.swift in Sources */,
 				2252C7582F8A132400A8DDE5 /* AliyunDriveFileListController.swift in Sources */,
 				22569ACD2DE464A30038E914 /* PlayerLyricCollectCell.swift in Sources */,
-				228888A72DD3853D00358231 /* DownloadPoolView.swift in Sources */,
 				22BE96322E25FC9700ABE6C4 /* Auth115LifeViewController.swift in Sources */,
 				224BF9B62DF7284A009F1421 /* HorizonLyricsViewCell.swift in Sources */,
 				225F58472D85B2AB0055BDFF /* LibraryCoverViewController.swift in Sources */,
@@ -2646,6 +2635,8 @@
 				224DAE3D2EAE5961003CFAAC /* DriveUserModel+Extension.swift in Sources */,
 				C10D00000000000000000003 /* PCloudDriveService.swift in Sources */,
 				B01000000000000000000003 /* BoxDriveService.swift in Sources */,
+				D02300000000000000000012 /* OneDriveOAuthClient.swift in Sources */,
+				D02300000000000000000015 /* OneDriveOAuthManager.swift in Sources */,
 				CA1000000000000000000003 /* GuangyaDriveService.swift in Sources */,
 				CB1000000000000000000003 /* Pan123DriveService.swift in Sources */,
 				DA1000000000000000000003 /* YandexDriveService.swift in Sources */,
@@ -2810,7 +2801,6 @@
 				228A147A2CA0633400E2948E /* HomeTabbarViewController+Play.swift in Sources */,
 				226DFB6E2D657E0F00E3BE06 /* AuthNavidromeController.swift in Sources */,
 				22FECF2D2CB7AC4400FBE36B /* AudioChannels.swift in Sources */,
-				228A14622CA0633400E2948E /* RadioTableViewCell.swift in Sources */,
 				228A14602CA0633400E2948E /* PurchaseHeadCell.swift in Sources */,
 				227310262D1EAD8200EB7842 /* ArtistCollectionCell.swift in Sources */,
 				228A144F2CA0633400E2948E /* MusicPlayerViewController+Action.swift in Sources */,
@@ -2868,7 +2858,6 @@
 				2219287130610CC200AF4F2B /* NavidromeSectionHeadView.swift in Sources */,
 				22D16A662DDC8123008A5F8B /* PlayBackgroundListController.swift in Sources */,
 				228A14652CA0633400E2948E /* VideoImporterViewCell.swift in Sources */,
-				2266CB722D93F43D00EB8846 /* VideoPlayerController.swift in Sources */,
 				2258AD032DE5FE4800F5754B /* LyricFontSizeTableCell.swift in Sources */,
 				22C7077E2DCB9E9100A1B79A /* PrimaryToolViewController.swift in Sources */,
 				22AB3BC72CE5EED00063F284 /* MusicInfoTagView.swift in Sources */,
@@ -2927,7 +2916,6 @@
 				227607F82DF2F02600B6776E /* MusicDescInfoView.swift in Sources */,
 				2252C7592F8A132400A8DDE5 /* AliyunDriveFileListController.swift in Sources */,
 				22569ACC2DE464A30038E914 /* PlayerLyricCollectCell.swift in Sources */,
-				228888A62DD3853D00358231 /* DownloadPoolView.swift in Sources */,
 				22BE96332E25FC9700ABE6C4 /* Auth115LifeViewController.swift in Sources */,
 				224BF9B52DF7284A009F1421 /* HorizonLyricsViewCell.swift in Sources */,
 				22577F752D043E3100AD35E7 /* LibraryCoverViewController.swift in Sources */,
@@ -2992,6 +2980,8 @@
 				224DAE3C2EAE5961003CFAAC /* DriveUserModel+Extension.swift in Sources */,
 				C10D00000000000000000001 /* PCloudDriveService.swift in Sources */,
 				B01000000000000000000001 /* BoxDriveService.swift in Sources */,
+				D02300000000000000000011 /* OneDriveOAuthClient.swift in Sources */,
+				D02300000000000000000014 /* OneDriveOAuthManager.swift in Sources */,
 				CA1000000000000000000001 /* GuangyaDriveService.swift in Sources */,
 				CB1000000000000000000001 /* Pan123DriveService.swift in Sources */,
 				DA1000000000000000000001 /* YandexDriveService.swift in Sources */,
@@ -3143,12 +3133,9 @@
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.music";
 				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
-				INFOPLIST_KEY_NSCameraUsageDescription = "You can use your camera to take live music videos and then convert them to music, with your permission.";
 				INFOPLIST_KEY_NSFileProviderPresenceUsageDescription = "Your permission is required to read music files from the Files app";
 				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Wake Music accesses NAS devices and other servers on your local network to browse, play, and download your audio files.";
-				INFOPLIST_KEY_NSMicrophoneUsageDescription = "You can use your camera to take live music videos and then convert them to music, with your permission.";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Your album access is required to save song covers";
-				INFOPLIST_KEY_NSUserTrackingUsageDescription = "This identifier will be used to verify your ad source, accurately sync your subscription status, and optimize your purchase and customer support experience.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -3198,12 +3185,9 @@
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.music";
 				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
-				INFOPLIST_KEY_NSCameraUsageDescription = "You can use your camera to take live music videos and then convert them to music, with your permission.";
 				INFOPLIST_KEY_NSFileProviderPresenceUsageDescription = "Your permission is required to read music files from the Files app";
 				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Wake Music accesses NAS devices and other servers on your local network to browse, play, and download your audio files.";
-				INFOPLIST_KEY_NSMicrophoneUsageDescription = "You can use your camera to take live music videos and then convert them to music, with your permission.";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Your album access is required to save song covers";
-				INFOPLIST_KEY_NSUserTrackingUsageDescription = "This identifier will be used to verify your ad source, accurately sync your subscription status, and optimize your purchase and customer support experience.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -3377,12 +3361,9 @@
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.music";
 				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
-				INFOPLIST_KEY_NSCameraUsageDescription = "You can use your camera to take live music videos and then convert them to music, with your permission.";
 				INFOPLIST_KEY_NSFileProviderPresenceUsageDescription = "Your permission is required to read music files from the Files app";
 				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Wake Music accesses NAS devices and other servers on your local network to browse, play, and download your audio files.";
-				INFOPLIST_KEY_NSMicrophoneUsageDescription = "You can use your camera to take live music videos and then convert them to music, with your permission.";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Your album access is required to save song covers";
-				INFOPLIST_KEY_NSUserTrackingUsageDescription = "This identifier will be used to verify your ad source, accurately sync your subscription status, and optimize your purchase and customer support experience.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -3431,12 +3412,9 @@
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.music";
 				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
-				INFOPLIST_KEY_NSCameraUsageDescription = "You can use your camera to take live music videos and then convert them to music, with your permission.";
 				INFOPLIST_KEY_NSFileProviderPresenceUsageDescription = "Your permission is required to read music files from the Files app";
 				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Wake Music accesses NAS devices and other servers on your local network to browse, play, and download your audio files.";
-				INFOPLIST_KEY_NSMicrophoneUsageDescription = "You can use your camera to take live music videos and then convert them to music, with your permission.";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Your album access is required to save song covers";
-				INFOPLIST_KEY_NSUserTrackingUsageDescription = "This identifier will be used to verify your ad source, accurately sync your subscription status, and optimize your purchase and customer support experience.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

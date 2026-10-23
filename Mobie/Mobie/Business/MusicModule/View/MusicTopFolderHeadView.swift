@@ -139,10 +139,6 @@ extension MusicTopFolderHeadView: UICollectionViewDataSource, UICollectionViewDe
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MusicTopFolderCell", for: indexPath) as! MusicTopFolderCell
         let subURL = localArray[indexPath.row]
         cell.localFolderURL = subURL
-#warning("模拟mock数据")
-//#if DEBUG
-//        cell.nameLabel.text = MusicGenreType.allCases.randomElement()?.formatStr()
-//#endif
         return cell
     }
     

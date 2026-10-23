@@ -428,12 +428,6 @@ extension LibraryCoverViewController: UITableViewDataSource, UITableViewDelegate
                 wSelf.removeLongGesture(photoBrowser)
             }
             cell.coverURL = subURL
-#warning("模拟mock数据")
-//#if DEBUG
-//            let name = "singer_\(indexPath.row)"
-//            cell.coverImgView.image = Reasource.singerImage(name)
-//            cell.nameLabel.text = "Singer 00\(indexPath.row + 1).png"
-//#endif
             return cell
         }
         
@@ -530,8 +524,6 @@ class CoverGalleryTableCell: UITableViewCell {
         contentView.addSubview(nameLabel)
         contentView.addSubview(descLabel)
         
-#warning("模拟mock数据")
-//        coverImgView.addSubview(blurEffectView)
     }
     
     func preSetupContains() {
@@ -542,10 +534,6 @@ class CoverGalleryTableCell: UITableViewCell {
             make.top.equalTo(kaka_IsMacOS() ? 8 : 15.ckValue())
         }
         
-#warning("模拟mock数据")
-//        blurEffectView.snp.makeConstraints { make in
-//            make.edges.equalToSuperview()
-//        }
         
         nameLabel.snp.makeConstraints { make in
             make.leading.equalTo(coverImgView.snp.trailing).offset(10.ckValue())
@@ -617,17 +605,6 @@ class CoverGalleryTableCell: UITableViewCell {
         return view
     }()
     
-#warning("模拟mock数据")
-//#if DEBUG
-//    lazy var blurEffectView: UIVisualEffectView = {
-//        let blurEffect = UIBlurEffect(style: .extraLight)
-//        let view = UIVisualEffectView(effect: blurEffect)
-//        view.frame = self.coverImgView.bounds
-//        view.alpha = 0.5
-//        view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-//        return view
-//    }()
-//#endif
     
     lazy var nameLabel: UILabel = {
         let view = UILabel()

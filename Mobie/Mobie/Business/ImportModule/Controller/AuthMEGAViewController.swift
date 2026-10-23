@@ -64,10 +64,6 @@ final class AuthMEGAViewController: UITableViewController {
         passwordField.rightView = eye
         passwordField.rightViewMode = .always
         
-        #if DEBUG
-        emailField.text = "MeloDreek@gmail.com"
-        passwordField.text = "rycbip-5vufgy-Sennof"
-        #endif
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int { 2 }

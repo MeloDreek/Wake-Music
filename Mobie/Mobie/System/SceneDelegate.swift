@@ -47,16 +47,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     // 重制非VIP的权限
     func resetVIPConfig() {
         
-//#if DEBUG
-//        AppLocalManager.reset()
-//        MusicConfigManager.reset()
-//        ColorFontManager.reset()
-//        ConnectConfigManager.reset()
-//        DownloadManager.reset()
-//#endif
-        
         ConnectConfigManager.updateConnectNewData()
-        AppLocalManager.shared.isGuideFiveStar = false
                         
         if UserInfoManager.shared.isVIP() {
             return
@@ -89,6 +80,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
         
         guard let firstURL = URLContexts.first?.url else { return }
+        if OneDriveOAuthManager.isCallback(firstURL) { return }
         if Pan123DriveService.isCallback(firstURL) { return }
         if GuangyaDriveService.isCallback(firstURL) { return }
         if YandexDriveService.shared.handleCallback(firstURL) { return }
@@ -111,7 +103,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
     }
     
-//    "跳转回来的URL = db-ivt8gleyydx2ghj://2/token?code=bEDM61BaluUAAAAAAAAAIWr9yIJYw3YVVDNRLFNZNdQ&state=6BC0A63B-AB9E-42FB-9DAD-41A71613D135-31164-0000008F09671A44"
 
     func sceneDidBecomeActive(_ scene: UIScene) {
         // Called when the scene has moved from an inactive state to an active state.

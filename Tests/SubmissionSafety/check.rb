@@ -22,12 +22,27 @@ source_files.each do |path|
 end
 
 ads = File.read('Mobie/Mobie/Base/Core/Tools/AppleSearchAdsManager.swift')
-assert.call(ads.include?('private static let thirdPartyAttributionEnabled = false'), 'Third-party attribution must stay paused')
-%w[postbackAdAttribution getDetialAdAttribution].each do |method|
-  body = ads.match(/func #{method}\([^\n]+\{(.*?)\n    \}/m)&.[](1)
-  assert.call(body && body.lstrip.start_with?('guard Self.thirdPartyAttributionEnabled else { return }'), "Gate #{method} before requests/parameters")
+attribution_sources = [
+  'Mobie/Mobie/Base/Core/Tools/AppleSearchAdsManager.swift',
+  'Mobie/Mobie/Base/Core/Purcharge/AppStoreKitManager.swift',
+  'LocalSDK/AppGroupKit/Classes/BaseModel/UserInfoManager.swift',
+  'LocalSDK/AppGroupKit/Classes/Const/AppGroupConstKey.swift'
+]
+removed_attribution = %w[
+  thirdPartyAttributionEnabled postbackAdAttribution getDetialAdAttribution
+  retryPostAttribution postRetryCount PostbackParameter ASAEventType
+  AdAttributionResult isPostAAAttribution LiangjianghuKey liangjianghu.com
+]
+attribution_sources.each do |path|
+  source = File.read(path)
+  removed_attribution.each do |pattern|
+    assert.call(!source.include?(pattern), "Remove dormant attribution implementation: #{path}: #{pattern}")
+  end
 end
 assert.call(ads.include?('https://api-adservices.apple.com/api/v1/'), 'Keep official Apple attribution')
+assert.call(ads.include?('AAAttribution.attributionToken()'), 'Keep Apple attribution token API')
+assert.call(ads.scan(%r{https://[^"\s]+}) == ['https://api-adservices.apple.com/api/v1/'], 'Attribution requests only target Apple')
+assert.call(!ads.match?(/\b(?:debugPrint|print|NSLog)\(/), 'Do not log attribution responses or tokens')
 
 manifest, status = Open3.capture2('plutil', '-convert', 'json', '-o', '-', 'Mobie/Mobie/System/PrivacyInfo.xcprivacy')
 assert.call(status.success?, 'Valid privacy plist')

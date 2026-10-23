@@ -13,9 +13,6 @@ import GoogleSignIn
 import SmartCodable
 import Kingfisher
 import SwiftyDropbox
-#if canImport(MSAL)
-import MSAL
-#endif
 
 // MARK: 百度网盘
 extension KakaMusicPlayer {
@@ -1215,168 +1212,57 @@ extension KakaMusicPlayer {
 // MARK: OneDrive网盘
 extension KakaMusicPlayer {
     
-    /// 获取OneDrive网盘下的文件列表
+    /// OneDrive listing. OAuth tokens are loaded from Keychain, never shared file models.
     public func fetchOneDriveFiles(serverModel: ServerConfigModel?, cursor: String? = nil, limit: Int = 1000, completion: @escaping (Result<OneDriveFilePage, KakaError>) -> Void) {
-        
+        guard let user = serverModel?.onedriveUser else {
+            completion(.failure(.tokenExpiredAuthAgain)); return
+        }
         let endpoint: String
-        // 如果有 nextLink（分页游标），直接用它
         if let cursor = cursor, !cursor.isEmpty {
             endpoint = cursor
-        } else if let path = serverModel?.onedriveUser?.path, !path.isEmpty {
-            // 子目录
-            endpoint = "https://graph.microsoft.com/v1.0/me/\(path):/children?$top=\(limit)"
+        } else if let path = user.path, !path.isEmpty {
+            var components = URLComponents()
+            components.scheme = "https"
+            components.host = "graph.microsoft.com"
+            components.path = "/v1.0/me/" + path.trimmingCharacters(in: CharacterSet(charactersIn: "/")) + ":/children"
+            components.queryItems = [URLQueryItem(name: "$top", value: String(max(1, min(limit, 1000))))]
+            endpoint = components.url?.absoluteString ?? ""
         } else {
-            // 根目录
-            endpoint = "https://graph.microsoft.com/v1.0/me/drive/root/children?$top=\(limit)"
+            endpoint = "https://graph.microsoft.com/v1.0/me/drive/root/children?$top=\(max(1, min(limit, 1000)))"
         }
-        
-        guard let url = URL(string: endpoint) else {
-            return
-        }
-        
-        let headers: Alamofire.HTTPHeaders = [
-            "Authorization": "Bearer \(serverModel?.onedriveUser?.accessToken ?? "")",
-            "Accept": "application/json"
-        ]
-                
-        let parameters: Parameters = [:]
-        
-        AF.request(url, method: .get, parameters: parameters, headers: headers).responseData { response in
-            switch response.result {
-            case .success(let data):
-                
-                let responseString = String(data: data, encoding: .utf8) ?? ""
-                guard let pageModel = OneDriveFilePage.deserialize(from: responseString) else {
-                    completion(.failure(KakaError.custom(responseString)))
-                    return
+        guard let url = URL(string: endpoint) else { completion(.failure(.unknowError)); return }
+        OneDriveOAuthManager.shared.request(user: user, url: url) { result in
+            completion(result.flatMap { data in
+                guard let text = String(data: data, encoding: .utf8),
+                      let page = OneDriveFilePage.deserialize(from: text), page.value != nil, page.error == nil else {
+                    return .failure(.custom("OneDrive.RequestFailed".localStr()))
                 }
-                
-                guard let _ = pageModel.value, pageModel.error == nil else {
-                    if pageModel.isTokenExpired() {
-                        self.refreshOnedriveTokenIfNeeded(onedriveUser: serverModel!.onedriveUser!) { result in
-                            switch result {
-                            case .success(let user):
-                                let newServer = ServerConfigModel(serverType: .fromOneDrive, onedriveUser: user)
-                                self.fetchOneDriveFiles(serverModel: newServer, cursor: cursor, limit: limit, completion: completion)
-                                break
-                            case .failure(let failure):
-                                completion(.failure(failure))
-                                break
-                            }
-                        }
-                    }else{
-                        completion(.failure(KakaError.custom(pageModel.error?.message ?? responseString)))
-                    }
-                    return
-                }
-                
-                completion(.success(pageModel))
-                                
-                break
-            case .failure(let error):
-                debugPrint("OneDrive文件列表❌ = \(error.localizedDescription)")
-                DispatchQueue.main.async {
-                    completion(.failure(KakaError.custom(error.localizedDescription)))
-                }
-                break
-            }
+                return .success(page)
+            })
         }
     }
-    
-    // 获取单个文件的下载地址
+
+    // Obtain a short-lived signed download URL; never send Graph bearer tokens to its CDN.
     func fetchOneDriveFileDetail(onedriveFile: OneDriveFileModel, completion: @escaping (Result<URL, KakaError>) -> Void) {
-        
-        guard let onedriveUser = onedriveFile.onedriveUser else {
-            completion(.failure(.unknowError))
-            return
+        guard let user = onedriveFile.onedriveUser, !onedriveFile.id.isEmpty else {
+            completion(.failure(.tokenExpiredAuthAgain)); return
         }
-        
-        self.refreshOnedriveTokenIfNeeded(onedriveUser: onedriveUser) { result in
-            switch result {
-            case .success(let refreshedUser):
-                
-                var newFile = onedriveFile
-                newFile.onedriveUser = refreshedUser
-                
-                let fileId = newFile.id
-                let accessToken = newFile.onedriveUser?.accessToken ?? ""
-                
-                let url = URL(string: "https://graph.microsoft.com/v1.0/me/drive/items/\(fileId)")!
-
-                let headers: Alamofire.HTTPHeaders = [
-                    "Authorization": "Bearer \(accessToken)",
-                    "Accept": "application/json"
-                ]
-
-                AF.request(url, method: .get, headers: headers).responseData { response in
-                    switch response.result {
-                    case .success(let data):
-
-                        let jsonStr = String(data: data, encoding: .utf8) ?? ""
-
-                        guard let json = try? JSONSerialization.jsonObject(with: data) as? [String: Any] else {
-                            completion(.failure(.custom(jsonStr)))
-                            return
-                        }
-
-                        guard let url = json["@microsoft.graph.downloadUrl"] as? String, let playURL = URL(string: url) else {
-                            completion(.failure(.unknowError))
-                            return
-                        }
-
-                        completion(.success(playURL))
-
-                    case .failure(let error):
-                        completion(.failure(.custom(error.localizedDescription)))
-                    }
+        var components = URLComponents()
+        components.scheme = "https"
+        components.host = "graph.microsoft.com"
+        components.path = "/v1.0/me/drive/items/" + onedriveFile.id
+        guard let url = components.url else { completion(.failure(.unknowError)); return }
+        OneDriveOAuthManager.shared.request(user: user, url: url) { result in
+            completion(result.flatMap { data in
+                guard let json = try? JSONSerialization.jsonObject(with: data) as? [String: Any],
+                      let address = json["@microsoft.graph.downloadUrl"] as? String,
+                      let download = URL(string: address), download.scheme == "https",
+                      download.host != nil, download.user == nil, download.password == nil else {
+                    return .failure(.custom("OneDrive.RequestFailed".localStr()))
                 }
-                break
-            case .failure(let failure):
-                completion(.failure(failure))
-                break
-            }
+                return .success(download)
+            })
         }
-        
-    }
-
-    
-    /// 刷新 Token
-    func refreshOnedriveTokenIfNeeded(onedriveUser: OneDriveUserModel, completion: @escaping (Result<OneDriveUserModel, KakaError>) -> Void) {
-#if canImport(MSAL)
-        do {
-            let authority = try MSALAADAuthority(url: URL(string: OneDrive_Authority)!)
-            let config = MSALPublicClientApplicationConfig(clientId: OneDrive_ClientID, redirectUri: OneDrive_RedirectUri, authority: authority)
-            config.cacheConfig.keychainSharingGroup = AppBundleID
-            let applicationContext = try MSALPublicClientApplication(configuration: config)
-            
-            let account = try applicationContext.account(forIdentifier: onedriveUser.account?.msalID ?? "")
-            
-            let parameters = MSALSilentTokenParameters(scopes: OneDrive_Scopes, account: account)
-                    
-            applicationContext.acquireTokenSilent(with: parameters) { (result, error) in
-                
-                guard let tokenResult = result else {
-                    DispatchQueue.main.async {
-                        completion(.failure(KakaError.tokenExpiredAuthAgain))
-                    }
-                    return
-                }
-                
-                let onedriveUser = tokenResult.convertOneDriveUser()
-                
-                let serverModel = ServerConfigModel(serverType: .fromOneDrive, isSelected: true, onedriveUser: onedriveUser)
-                ConnectConfigManager.shared.addOrUpdateRemoteServer(serverModel: serverModel) { () in
-                    completion(.success(onedriveUser))
-                }
-            }
-            
-        } catch {
-            debugPrint("静默刷新令牌失败 = \(error.localizedDescription)")
-            DispatchQueue.main.async {
-                completion(.failure(KakaError.tokenExpiredAuthAgain))
-            }
-        }
-        #endif
     }
     
     // 处理OneDrive网盘的播放，自动刷新token

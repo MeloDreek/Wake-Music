@@ -316,6 +316,8 @@ private final class DownloadExecution: NSObject, UNUserNotificationCenterDelegat
             KakaMusicPlayer.shared.fetch115DownloadPlayURL(file115: file, completion: callback)
         } else if let file = model.dropboxFile {
             KakaMusicPlayer.shared.fetchDropboxDownloadPlayURL(dropboxFile: file, completion: callback)
+        } else if let file = model.onedriveFile {
+            KakaMusicPlayer.shared.fetchOneDriveFileDetail(onedriveFile: file, completion: callback)
         } else { transfer(job, url: model.mediaPlayURL) }
     }
 

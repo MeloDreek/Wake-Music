@@ -227,10 +227,6 @@ extension MusicPlayerViewController {
         let engingVC = PlayerStyleViewController()
         let navVC = KakaNavigationController(rootViewController: engingVC)
         navVC.modalPresentationStyle = kaka_IsiPad() ? .fullScreen : .automatic
-//#warning("模拟mock数据")
-//#if DEBUG
-//        navVC.modalPresentationStyle = .fullScreen
-//#endif
         self.present(navVC, animated: true)
     }
     
@@ -239,10 +235,6 @@ extension MusicPlayerViewController {
         let engingVC = PlayBackgroundListController()
         let navVC = KakaNavigationController(rootViewController: engingVC)
         navVC.modalPresentationStyle = kaka_IsiPad() ? .fullScreen : .automatic
-//#warning("模拟mock数据")
-//#if DEBUG
-//        navVC.modalPresentationStyle = .fullScreen
-//#endif
         self.present(navVC, animated: true)
     }
     

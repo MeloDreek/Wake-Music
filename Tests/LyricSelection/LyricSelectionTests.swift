@@ -23,16 +23,30 @@ enum MatchError: Error {
     case failed
     var errorDescription: String { "Matching failed" }
 }
+final class MetadataMatchRequest {
+    private(set) var isCancelled = false
+    func cancel() { isCancelled = true }
+}
 class AudioFingerprintMatcher {
     typealias Completion = (Result<AudioFingerprintModel, MatchError>) -> Void
     var completions: [Completion] = []
     var immediateResult: Result<AudioFingerprintModel, MatchError>?
-    func matchLocalAudio(model: MusicItemModel, completion: @escaping Completion) {
+    private(set) var requests: [MetadataMatchRequest] = []
+    private(set) var cancellationCount = 0
+    func cancelLocalMatching() { cancellationCount += 1 }
+    func matchLocalAudioMetadata(model: MusicItemModel, isRequestLyrics: Bool = true,
+                                completion: @escaping Completion) -> MetadataMatchRequest {
+        let request = MetadataMatchRequest()
+        requests.append(request)
         if let immediateResult = immediateResult {
             completion(immediateResult)
         } else {
+            // Intentionally retain the raw callback even after cancellation.
+            // This exercises the controller's generation guard independently
+            // of the production matcher's own stale-result suppression.
             completions.append(completion)
         }
+        return request
     }
 }
 enum TaglibMetadataParser {
@@ -117,6 +131,7 @@ struct LyricSelectionTests {
 
         controller.result = AudioFingerprintModel(lyrics: [a, b])
         controller.refreshDataAction()
+        check(controller.musicMatcher.cancellationCount == 1, "Cached refresh cancels prior acoustic work too")
         check(controller.tableView(table, numberOfRowsInSection: 1) == 2, "Cached lyrics supply their row count")
         check(controller.tableView(table, willSelectRowAt: second) == second, "Valid candidate is selectable")
         controller.tableView(table, didSelectRowAt: second)
@@ -145,6 +160,7 @@ struct LyricSelectionTests {
         check(controller.selectLyricModel == a, "Current rows remain selectable after refresh")
 
         controller.refreshDataAction()
+        check(controller.musicMatcher.requests[0].isCancelled, "Refreshing cancels the retained metadata request")
         controller.musicMatcher.completions[1](.success(AudioFingerprintModel(lyrics: nil)))
         controller.tableView(table, didSelectRowAt: first)
         check(controller.lyricArray.isEmpty && controller.selectLyricModel == nil, "Successful match with nil lyrics is safe")
@@ -160,6 +176,8 @@ struct LyricSelectionTests {
         // A slower previous request must not overwrite a newer result or selection.
         controller.refreshDataAction()
         controller.refreshDataAction()
+        check(controller.musicMatcher.requests[4].isCancelled && !controller.musicMatcher.requests[5].isCancelled,
+              "New request cancels only the previous metadata request")
         controller.musicMatcher.completions[5](.success(AudioFingerprintModel(lyrics: [b])))
         controller.tableView(table, didSelectRowAt: first)
         controller.musicMatcher.completions[4](.success(AudioFingerprintModel(lyrics: [])))
@@ -167,6 +185,7 @@ struct LyricSelectionTests {
         controller.refreshDataAction()
         controller.result = AudioFingerprintModel(lyrics: [a])
         controller.refreshDataAction()
+        check(controller.musicMatcher.requests[6].isCancelled, "Switching to cached lyrics cancels pending network metadata work")
         controller.musicMatcher.completions[6](.failure(.failed))
         check(controller.lyricArray == [a] && controller.errors.count == 1, "Cached refresh also invalidates previous failure")
 
@@ -181,6 +200,7 @@ struct LyricSelectionTests {
         released?.refreshDataAction()
         released = nil
         check(weakController == nil, "Pending match does not retain the dismissed controller")
+        check(matcher.requests[0].isCancelled, "Controller deinit cancels its metadata request")
         matcher.completions[0](.success(AudioFingerprintModel(lyrics: [a])))
         print("Lyric selection regression tests: \(checks) passed")
     }

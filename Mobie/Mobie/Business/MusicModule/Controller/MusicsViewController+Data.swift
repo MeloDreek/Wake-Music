@@ -59,29 +59,12 @@ extension MusicsViewController: UITableViewDataSource, UITableViewDelegate {
                 debugPrint("❌数组越界")
             }
 
-#warning("模拟mock数据")
-//#if DEBUG
-//            let musicGenre = MusicGenreType.allCases.randomElement()!
-//            
-//            cell.nameLabel.text = musicGenre.formatStr() + "." + AudioExtensionType.allCases.randomElement()!.rawValue
-//            cell.descLabel.text = "Wakemusic".localStr()
-//            cell.coverImgView.image = musicGenre.iconImage()
-//#endif
             return cell
         }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-#warning("模拟mock数据")
-//#if DEBUG
-//        tableView.deselectRow(at: indexPath, animated: true)
-//        if let tabbarVC = self.tabBarController as? HomeTabbarViewController {
-//            tabbarVC.tabBar.isHidden = !tabbarVC.tabBar.isHidden
-//            tabbarVC.toolbarView.isHidden = !tabbarVC.toolbarView.isHidden
-//            return
-//        }
-//#endif
         
         if isNoneMusic {
             tableView.deselectRow(at: indexPath, animated: true)

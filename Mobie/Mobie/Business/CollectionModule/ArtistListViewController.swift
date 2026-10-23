@@ -95,7 +95,6 @@ class ArtistListViewController: SuperViewController {
     
     var isNoneMusic: Bool {
         get {
-#warning("模拟mock数据")
             let dataArray = self.dataArray
             return dataArray.count == 0
 //            return false
@@ -170,8 +169,6 @@ extension ArtistListViewController: UICollectionViewDataSource, UICollectionView
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-#warning("模拟mock数据")
-//        return MusicGenreType.allCases.count
         return isNoneMusic ? 1 : dataArray.count
     }
     
@@ -190,15 +187,6 @@ extension ArtistListViewController: UICollectionViewDataSource, UICollectionView
             return cell
         }
         
-//#warning("模拟mock数据")
-//#if DEBUG
-//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ArtistCollectionCell", for: indexPath) as! ArtistCollectionCell
-//        var genreArray: [MusicGenreType] = [.gospel, .punk, .reggae, .hipHop, .house, .podcast, .disco, .country, .soul, .jazz] + MusicGenreType.allCases
-//        let subGenre = genreArray[indexPath.row]
-//        cell.artistLabel.text = subGenre.formatStr()
-//        cell.coverImgView.image = subGenre.iconImage()
-//        return cell
-//#endif
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -208,14 +196,6 @@ extension ArtistListViewController: UICollectionViewDataSource, UICollectionView
             return
         }
 //        
-//#warning("模拟mock数据")
-//#if DEBUG
-//        if let tabbarVC = self.tabBarController as? HomeTabbarViewController {
-//            tabbarVC.tabBar.isHidden = !tabbarVC.tabBar.isHidden
-//            tabbarVC.toolbarView.isHidden = !tabbarVC.toolbarView.isHidden
-//        }
-//        return
-//#endif
 
         let singerName = dataArray[indexPath.row]
 

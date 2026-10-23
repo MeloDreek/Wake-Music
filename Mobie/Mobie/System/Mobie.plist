@@ -211,8 +211,6 @@
 	<array>
 		<string>secondaryyandexloginsdk</string>
 		<string>primaryyandexloginsdk</string>
-		<string>msauthv3</string>
-		<string>msauthv2</string>
 		<string>dbapi-2</string>
 		<string>dbapi-8-emm</string>
 		<string>telegram</string>

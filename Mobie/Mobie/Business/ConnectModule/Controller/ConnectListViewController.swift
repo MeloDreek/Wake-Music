@@ -238,14 +238,6 @@ extension ConnectListViewController: UITableViewDataSource, UITableViewDelegate 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-#warning("模拟mock数据")
-//#if DEBUG
-//        if let tabbarVC = self.tabBarController as? HomeTabbarViewController {
-//            tabbarVC.tabBar.isHidden = !tabbarVC.tabBar.isHidden
-//            tabbarVC.toolbarView.isHidden = !tabbarVC.toolbarView.isHidden
-//            return
-//        }
-//#endif
         
         if connectArray.count == 0 {
             // 首次连接

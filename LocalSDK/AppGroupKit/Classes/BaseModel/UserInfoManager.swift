@@ -42,9 +42,6 @@ public class UserInfoManager: SmartCodableX, ObservableObject {
     /// 注册时的版本号
     public var registerVersion: String = "1.0.0"
     
-    /// 上报了ASA关键词归因
-    public var isPostAAAttribution: Bool = false
-    
     /// 用户昵称
     @SmartPublished public var nickName = PhoneSetManager.regionCode() + "_" + Date().convertToDateString(dateFormat: "yyyyMMdd") {
         didSet {

@@ -21,28 +21,6 @@ extension GIDGoogleUser {
     
 }
 
-#if canImport(MSAL)
-import MSAL
-
-extension MSALResult {
-    
-    /// 转化为自定义模型
-    func convertOneDriveUser() -> OneDriveUserModel {
-        let msalID = self.account.identifier ?? ""
-        let username = self.account.username ?? ""
-        let homeAccountID = self.account.homeAccountId?.identifier ?? ""
-        let accountClaims = self.account.accountClaims?.description ?? ""
-        
-        let oneAccount = OnedriveAccount(msalID: msalID, homeAccountId: homeAccountID, username: username, environment: self.account.environment, accountClaims: accountClaims)
-        
-        let onedriveUser = OneDriveUserModel(requestTime: Date().timeIntervalSince1970, accessToken: self.accessToken, expiresTime: self.expiresOn?.timeIntervalSince1970 ?? 0, authHeader: self.authorizationHeader, authScheme: self.authenticationScheme, account: oneAccount, path: nil)
-        
-        return onedriveUser
-    }
-    
-}
-#endif
-
 extension Files.FolderMetadata {
     func convertDropboxFolder() -> DropboxDriveFileModel {
         let model = DropboxDriveFileModel(fileType: .folder, name: self.name, id: self.id, path_display: self.pathDisplay, path_lower: self.pathLower, size: nil, is_downloadable: false, client_modified: nil, server_modified: nil, dropboxUser: nil)

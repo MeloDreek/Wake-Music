@@ -140,7 +140,7 @@ public class AppStoreKitManager {
                 return
             }
             
-            guard let transaction = transaction else {
+            guard transaction != nil else {
                 failBlock(error?.localizedDescription ?? "Unknown Error❗️".localStr())
                 return
             }
@@ -154,13 +154,6 @@ public class AppStoreKitManager {
                 guard let activePremium = customerInfo.entitlements.all[PremiumEntitlID], activePremium.isActive else {
                     failBlock("Unknown Error❗️".localStr())
                     return
-                }
-                
-                if UserInfoManager.shared.isPostAAAttribution {
-                    if let product = self.saleArray.filter({ transaction.productIdentifier == $0.productIdentifier }).first {
-                        let price = product.priceDecimalNumber.doubleValue
-                        AppleSearchAdsManager.shared.postbackAdAttribution(eventType: .purchase, eventValue: price, admodel: nil)
-                    }
                 }
                 
                 debugPrint("Unlocked Pro Cats 🎉 = \(activePremium.description)")

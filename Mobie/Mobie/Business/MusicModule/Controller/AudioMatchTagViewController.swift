@@ -263,12 +263,7 @@ extension AudioMatchTagViewController: UITableViewDataSource, UITableViewDelegat
         let cellType = dataArray[indexPath.section]
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "MeteDataDetialViewCell", for: indexPath) as! MeteDataDetialViewCell
-#warning("模拟mock数据")
-//#if DEBUG
-//        cell.update(model: self.model, itemType: cellType, coverImage: nil, fileSize: nil)
-//#else
         cell.update(model: self.model, itemType: cellType, coverImage: self.coverImage, fileSize: nil)
-//#endif
         return cell
     }
     
@@ -411,20 +406,6 @@ extension AudioMatchTagViewController {
             return
         }
         
-//#if DEBUG
-//        let fileURL = self.model.mediaPlayURL
-//        TaglibMetadataParser.setTitle("", toFileURL: fileURL)
-//        TaglibMetadataParser.setArtist("", toFileURL: fileURL)
-//        TaglibMetadataParser.setAlbum("", toFileURL: fileURL)
-//        TaglibMetadataParser.setLyris("", toFileURL: fileURL)
-//        TaglibMetadataParser.setCoverArt(nil, toFileURL: fileURL)
-//
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-//            self.refreshDataAction()
-//        }
-//
-//        return
-//#endif
         
         if !UserInfoManager.shared.isVIP() {
             let message = "Say goodbye to tedious manual typing! Upgrade to Premium to automatically fix tags, fetch 4K artwork, and download lyrics via instant audio fingerprinting. Or, you can choose to continue editing manually.".localStr()
@@ -548,7 +529,7 @@ extension AudioMatchTagViewController {
             SandboxFileManager.shared.writeMusicthumbnailImage(model: model, image: image)
             self.perform(#selector(guideFiveStarRating), with: nil, afterDelay: 2)
         }else{
-            self.guideFiveStarRating()
+            self.guideEmmbedFailed()
             return
         }
         
@@ -616,7 +597,7 @@ extension AudioMatchTagViewController {
             self.view.makeToast("Embedded Success".localStr())
             self.perform(#selector(guideFiveStarRating), with: nil, afterDelay: 2)
         }else{
-            self.guideFiveStarRating()
+            self.guideEmmbedFailed()
         }
 
     }
@@ -680,7 +661,7 @@ extension AudioMatchTagViewController {
             self.view.makeToast("Embedded Success".localStr())
             self.perform(#selector(guideFiveStarRating), with: nil, afterDelay: 2)
         }else{
-            self.guideFiveStarRating()
+            self.guideEmmbedFailed()
         }
 
     }
@@ -738,7 +719,7 @@ extension AudioMatchTagViewController {
             self.view.makeToast("Embedded Success".localStr())
             self.perform(#selector(guideFiveStarRating), with: nil, afterDelay: 2)
         }else{
-            self.guideFiveStarRating()
+            self.guideEmmbedFailed()
         }
 
     }
@@ -801,7 +782,7 @@ extension AudioMatchTagViewController {
             self.view.makeToast("Embedded Success".localStr())
             self.perform(#selector(guideFiveStarRating), with: nil, afterDelay: 2)
         }else{
-            self.guideFiveStarRating()
+            self.guideEmmbedFailed()
         }
 
     }
@@ -845,7 +826,7 @@ extension AudioMatchTagViewController {
             self.view.makeToast("Embedded Success".localStr())
             self.perform(#selector(guideFiveStarRating), with: nil, afterDelay: 2)
         }else{
-            self.guideFiveStarRating()
+            self.guideEmmbedFailed()
         }
     }
     
@@ -907,7 +888,7 @@ extension AudioMatchTagViewController {
             self.view.makeToast("Embedded Success".localStr())
             self.perform(#selector(guideFiveStarRating), with: nil, afterDelay: 2)
         }else{
-            self.guideFiveStarRating()
+            self.guideEmmbedFailed()
         }
 
     }
@@ -940,7 +921,7 @@ extension AudioMatchTagViewController {
                 wSelf.onEditCallback?(wSelf.model)
                 wSelf.tableView.reloadData()
             }else{
-                wSelf.guideFiveStarRating()
+                wSelf.guideEmmbedFailed()
             }
         }
         self.navigationController?.pushViewController(lyricVC, animated: true)

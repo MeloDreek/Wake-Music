@@ -66,12 +66,6 @@ class LibraryLyricsViewController: SuperViewController, UIDocumentPickerDelegate
     override func preSetupSubViews() {
         super.preSetupSubViews()
                 
-#warning("模拟mock数据")
-//#if DEBUG
-//        self.overrideUserInterfaceStyle = .light
-//        self.navigationController?.overrideUserInterfaceStyle = .light
-//        self.tableView.overrideUserInterfaceStyle = .light
-//#endif
         contentView.addSubview(tableView)
     }
     
@@ -217,7 +211,6 @@ class LibraryLyricsViewController: SuperViewController, UIDocumentPickerDelegate
     func refreshDataAction() {
         self.dataArray = SandboxFileManager.shared.lyricsPathURL().readLocalSubFiles()
         
-#warning("模拟mock数据")
         
         DispatchQueue.main.async { [weak self] () in
             self?.tableView.reloadData()

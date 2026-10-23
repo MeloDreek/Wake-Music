@@ -17,7 +17,6 @@ enum VIPBenefitsModel: CaseIterable {
     case lyricFeature
     case advancedSetting
     case allAppleOS
-    case newMore
     
     
     func titleStr() -> String {
@@ -38,8 +37,6 @@ enum VIPBenefitsModel: CaseIterable {
             return "Premium Customization".localStr()
         case .allAppleOS:
             return "Across All Your Apple Devices".localStr()
-        case .newMore:
-            return "More Advanced Features".localStr()
         }
     }
     
@@ -61,8 +58,6 @@ enum VIPBenefitsModel: CaseIterable {
             return "Premium customization options, including dynamic animations, advanced audio engine, and more.".localStr()
         case .allAppleOS:
             return "Purchase.CrossPlatformBenefit".localStr()
-        case .newMore:
-            return "All future premium features! E.g., Apple Watch, native CarPlay, more cloud storage, and more".localStr()
         }
     }
 
@@ -86,8 +81,6 @@ enum VIPBenefitsModel: CaseIterable {
             return Reasource.systemNamed("quote.opening", color: .label, config: imageConfig)
         case .advancedSetting:
             return Reasource.systemNamed("switch.2", color: .label, config: imageConfig)
-        case .newMore:
-            return Reasource.systemNamed("ellipsis.rectangle", color: .label, config: imageConfig)
         }
     }
     
