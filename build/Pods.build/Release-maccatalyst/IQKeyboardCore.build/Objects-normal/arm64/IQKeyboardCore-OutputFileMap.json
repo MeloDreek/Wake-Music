@@ -1,0 +1,31 @@
+{
+  "" : {
+    "const-values" : "/Users/kaka/Documents/商业项目/维克音乐/build/Pods.build/Release-maccatalyst/IQKeyboardCore.build/Objects-normal/arm64/IQKeyboardCore-primary.swiftconstvalues",
+    "dependencies" : "/Users/kaka/Documents/商业项目/维克音乐/build/Pods.build/Release-maccatalyst/IQKeyboardCore.build/Objects-normal/arm64/IQKeyboardCore-primary.d",
+    "diagnostics" : "/Users/kaka/Documents/商业项目/维克音乐/build/Pods.build/Release-maccatalyst/IQKeyboardCore.build/Objects-normal/arm64/IQKeyboardCore-primary.dia",
+    "emit-module-dependencies" : "/Users/kaka/Documents/商业项目/维克音乐/build/Pods.build/Release-maccatalyst/IQKeyboardCore.build/Objects-normal/arm64/IQKeyboardCore-primary-emit-module.d",
+    "emit-module-diagnostics" : "/Users/kaka/Documents/商业项目/维克音乐/build/Pods.build/Release-maccatalyst/IQKeyboardCore.build/Objects-normal/arm64/IQKeyboardCore-primary-emit-module.dia",
+    "pch" : "/Users/kaka/Documents/商业项目/维克音乐/build/Pods.build/Release-maccatalyst/IQKeyboardCore.build/Objects-normal/arm64/IQKeyboardCore-primary-Bridging-header.pch",
+    "swift-dependencies" : "/Users/kaka/Documents/商业项目/维克音乐/build/Pods.build/Release-maccatalyst/IQKeyboardCore.build/Objects-normal/arm64/IQKeyboardCore-primary.swiftdeps"
+  },
+  "/Users/kaka/Documents/商业项目/维克音乐/Pods/IQKeyboardCore/IQKeyboardCore/Classes/Constants/IQKeyboardConstants.swift" : {
+    "index-unit-output-path" : "/Pods.build/Release-maccatalyst/IQKeyboardCore.build/Objects-normal/arm64/IQKeyboardConstants.o",
+    "llvm-bc" : "/Users/kaka/Documents/商业项目/维克音乐/build/Pods.build/Release-maccatalyst/IQKeyboardCore.build/Objects-normal/arm64/IQKeyboardConstants.bc",
+    "object" : "/Users/kaka/Documents/商业项目/维克音乐/build/Pods.build/Release-maccatalyst/IQKeyboardCore.build/Objects-normal/arm64/IQKeyboardConstants.o"
+  },
+  "/Users/kaka/Documents/商业项目/维克音乐/Pods/IQKeyboardCore/IQKeyboardCore/Classes/IQKeyboardExtended.swift" : {
+    "index-unit-output-path" : "/Pods.build/Release-maccatalyst/IQKeyboardCore.build/Objects-normal/arm64/IQKeyboardExtended.o",
+    "llvm-bc" : "/Users/kaka/Documents/商业项目/维克音乐/build/Pods.build/Release-maccatalyst/IQKeyboardCore.build/Objects-normal/arm64/IQKeyboardExtended.bc",
+    "object" : "/Users/kaka/Documents/商业项目/维克音乐/build/Pods.build/Release-maccatalyst/IQKeyboardCore.build/Objects-normal/arm64/IQKeyboardExtended.o"
+  },
+  "/Users/kaka/Documents/商业项目/维克音乐/Pods/IQKeyboardCore/IQKeyboardCore/Classes/IQTextInputView.swift" : {
+    "index-unit-output-path" : "/Pods.build/Release-maccatalyst/IQKeyboardCore.build/Objects-normal/arm64/IQTextInputView.o",
+    "llvm-bc" : "/Users/kaka/Documents/商业项目/维克音乐/build/Pods.build/Release-maccatalyst/IQKeyboardCore.build/Objects-normal/arm64/IQTextInputView.bc",
+    "object" : "/Users/kaka/Documents/商业项目/维克音乐/build/Pods.build/Release-maccatalyst/IQKeyboardCore.build/Objects-normal/arm64/IQTextInputView.o"
+  },
+  "/Users/kaka/Documents/商业项目/维克音乐/Pods/IQKeyboardCore/IQKeyboardCore/Classes/UIKitExtensions/UIView+Hierarchy.swift" : {
+    "index-unit-output-path" : "/Pods.build/Release-maccatalyst/IQKeyboardCore.build/Objects-normal/arm64/UIView+Hierarchy.o",
+    "llvm-bc" : "/Users/kaka/Documents/商业项目/维克音乐/build/Pods.build/Release-maccatalyst/IQKeyboardCore.build/Objects-normal/arm64/UIView+Hierarchy.bc",
+    "object" : "/Users/kaka/Documents/商业项目/维克音乐/build/Pods.build/Release-maccatalyst/IQKeyboardCore.build/Objects-normal/arm64/UIView+Hierarchy.o"
+  }
+}

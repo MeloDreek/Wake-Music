@@ -135,7 +135,7 @@ final class AppModeCoordinator {
             if animated {
                 let rtl = window.effectiveUserInterfaceLayoutDirection == .rightToLeft
                 let transition = CATransition()
-                transition.type = CATransitionType(rawValue: "cube")
+                transition.type = .push
                 transition.subtype = returning != rtl ? .fromLeft : .fromRight
                 transition.duration = 0.35
                 transition.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)

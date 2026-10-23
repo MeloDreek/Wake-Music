@@ -174,7 +174,6 @@
 		225F57F32D85B2AB0055BDFF /* EmptyCollectViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13B42CA0633400E2948E /* EmptyCollectViewCell.swift */; };
 		225F57F52D85B2AB0055BDFF /* HomeTabbarViewController+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13F12CA0633400E2948E /* HomeTabbarViewController+UI.swift */; };
 		225F57F72D85B2AB0055BDFF /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13DE2CA0633400E2948E /* UserInfoViewController.swift */; };
-		225F57F92D85B2AB0055BDFF /* FreeStreamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13BB2CA0633400E2948E /* FreeStreamViewController.swift */; };
 		225F57FA2D85B2AB0055BDFF /* MusicPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13BC2CA0633400E2948E /* MusicPlayerViewController.swift */; };
 		225F57FB2D85B2AB0055BDFF /* MusicConfigStyle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225F88C52CD094F70093B359 /* MusicConfigStyle+Extension.swift */; };
 		225F57FC2D85B2AB0055BDFF /* MusicsViewController+Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13A22CA0633400E2948E /* MusicsViewController+Search.swift */; };
@@ -202,7 +201,6 @@
 		225F58162D85B2AB0055BDFF /* ConnectListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2275AC6C2D265D8E00D125B2 /* ConnectListViewController.swift */; };
 		225F58172D85B2AB0055BDFF /* HomeTabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13ED2CA0633400E2948E /* HomeTabbarViewController.swift */; };
 		225F58182D85B2AB0055BDFF /* MusicTopFolderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22556DB22D1D694300FA1807 /* MusicTopFolderCell.swift */; };
-		225F58192D85B2AB0055BDFF /* GuideRatingViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13CE2CA0633400E2948E /* GuideRatingViewCell.swift */; };
 		225F581A2D85B2AB0055BDFF /* VideoAudioInfoViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13D42CA0633400E2948E /* VideoAudioInfoViewCell.swift */; };
 		225F581C2D85B2AB0055BDFF /* KakaMusicPlayer+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2268AE5C2CA12BC800340316 /* KakaMusicPlayer+Delegate.swift */; };
 		225F581D2D85B2AB0055BDFF /* MusicsFootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 229C98AB2CA7DE7300925F0A /* MusicsFootView.swift */; };
@@ -223,7 +221,6 @@
 		225F582D2D85B2AB0055BDFF /* AlbumListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13952CA0633400E2948E /* AlbumListViewController.swift */; };
 		225F58302D85B2AB0055BDFF /* CollectionDetialHeadCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226C9C202D1FE089003A3CE8 /* CollectionDetialHeadCell.swift */; };
 		225F58312D85B2AB0055BDFF /* LibraryLyricsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22577F6C2D04251A00AD35E7 /* LibraryLyricsViewController.swift */; };
-		225F58322D85B2AB0055BDFF /* DonateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2261E8802CB5267E009506C0 /* DonateViewController.swift */; };
 		225F58342D85B2AB0055BDFF /* MusicsViewController+Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A139D2CA0633400E2948E /* MusicsViewController+Data.swift */; };
 		225F58362D85B2AB0055BDFF /* MusicActionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13AB2CA0633400E2948E /* MusicActionType.swift */; };
 		225F58372D85B2AB0055BDFF /* ServerSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CCFBFA2D6B012900A6710D /* ServerSectionView.swift */; };
@@ -264,7 +261,6 @@
 		225F58612D85B2AB0055BDFF /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13DA2CA0633400E2948E /* ProfileViewController.swift */; };
 		225F58622D85B2AB0055BDFF /* ArtistListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13A42CA0633400E2948E /* ArtistListViewController.swift */; };
 		225F58632D85B2AB0055BDFF /* AlbumDetialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13942CA0633400E2948E /* AlbumDetialViewController.swift */; };
-		225F58642D85B2AB0055BDFF /* DonateViewController+Pay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2261E8862CB6FAB2009506C0 /* DonateViewController+Pay.swift */; };
 		225F58652D85B2AB0055BDFF /* PurchageListViewcell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13E62CA0633400E2948E /* PurchageListViewcell.swift */; };
 		225F58672D85B2AB0055BDFF /* PlayerTimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 224AC8A72CE4333200F4F2AF /* PlayerTimerViewController.swift */; };
 		225F58682D85B2AB0055BDFF /* MusicsViewController+Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A139C2CA0633400E2948E /* MusicsViewController+Action.swift */; };
@@ -333,8 +329,6 @@
 		225F88C22CD078C60093B359 /* PlayConfigViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225F88C12CD078C60093B359 /* PlayConfigViewController.swift */; };
 		225F88C42CD090360093B359 /* PlayConfigGroupModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225F88C32CD090360093B359 /* PlayConfigGroupModel.swift */; };
 		225F88C62CD094F70093B359 /* MusicConfigStyle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 225F88C52CD094F70093B359 /* MusicConfigStyle+Extension.swift */; };
-		2261E8812CB5267E009506C0 /* DonateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2261E8802CB5267E009506C0 /* DonateViewController.swift */; };
-		2261E8872CB6FAB2009506C0 /* DonateViewController+Pay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2261E8862CB6FAB2009506C0 /* DonateViewController+Pay.swift */; };
 		226513EC2DD985C0009AC64D /* PlayerSceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226513EB2DD985C0009AC64D /* PlayerSceneDelegate.swift */; };
 		226513ED2DD985C0009AC64D /* PlayerSceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226513EB2DD985C0009AC64D /* PlayerSceneDelegate.swift */; };
 		226513EF2DD9862B009AC64D /* MusicPlayerViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 226513EE2DD9862B009AC64D /* MusicPlayerViewController.storyboard */; };
@@ -427,7 +421,6 @@
 		228A14492CA0633400E2948E /* EmptyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13B52CA0633400E2948E /* EmptyTableViewCell.swift */; };
 		228A144A2CA0633400E2948E /* MusicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13B62CA0633400E2948E /* MusicTableViewCell.swift */; };
 		228A144B2CA0633400E2948E /* MusicTopFolderHeadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13B72CA0633400E2948E /* MusicTopFolderHeadView.swift */; };
-		228A144D2CA0633400E2948E /* FreeStreamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13BB2CA0633400E2948E /* FreeStreamViewController.swift */; };
 		228A144E2CA0633400E2948E /* MusicPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13BC2CA0633400E2948E /* MusicPlayerViewController.swift */; };
 		228A144F2CA0633400E2948E /* MusicPlayerViewController+Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13BD2CA0633400E2948E /* MusicPlayerViewController+Action.swift */; };
 		228A14502CA0633400E2948E /* MusicPlayerViewController+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13BE2CA0633400E2948E /* MusicPlayerViewController+Delegate.swift */; };
@@ -437,7 +430,6 @@
 		228A14582CA0633400E2948E /* VideoConverterViewController+Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13C62CA0633400E2948E /* VideoConverterViewController+Action.swift */; };
 		228A145A2CA0633400E2948E /* VIPBenefitsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13C92CA0633400E2948E /* VIPBenefitsModel.swift */; };
 		228A145C2CA0633400E2948E /* AudioWaveformView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13CC2CA0633400E2948E /* AudioWaveformView.swift */; };
-		228A145E2CA0633400E2948E /* GuideRatingViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13CE2CA0633400E2948E /* GuideRatingViewCell.swift */; };
 		228A145F2CA0633400E2948E /* PurchaseFootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13CF2CA0633400E2948E /* PurchaseFootView.swift */; };
 		228A14602CA0633400E2948E /* PurchaseHeadCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13D02CA0633400E2948E /* PurchaseHeadCell.swift */; };
 		228A14612CA0633400E2948E /* PurchasePriceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 228A13D12CA0633400E2948E /* PurchasePriceCell.swift */; };
@@ -709,6 +701,8 @@
 		C04200000000000000000003 /* MEGAFileListStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04200000000000000000002 /* MEGAFileListStatus.swift */; };
 		C04300000000000000000001 /* AuthMEGAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04300000000000000000002 /* AuthMEGAViewController.swift */; };
 		C04300000000000000000003 /* AuthMEGAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04300000000000000000002 /* AuthMEGAViewController.swift */; };
+		C05000000000000000000001 /* KSPlayerUI in Frameworks */ = {isa = PBXBuildFile; productRef = C05000000000000000000003 /* KSPlayerUI */; };
+		C05000000000000000000002 /* KSPlayerUI in Frameworks */ = {isa = PBXBuildFile; productRef = C05000000000000000000004 /* KSPlayerUI */; };
 		C09110000000000000000001 /* EmbeddedArtworkReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09110000000000000000002 /* EmbeddedArtworkReader.swift */; };
 		C09110000000000000000003 /* EmbeddedArtworkReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09110000000000000000002 /* EmbeddedArtworkReader.swift */; };
 		C0DE09170000000000000002 /* WebDAVAddress.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DE09170000000000000001 /* WebDAVAddress.swift */; };
@@ -908,8 +902,6 @@
 		225F88C12CD078C60093B359 /* PlayConfigViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayConfigViewController.swift; sourceTree = "<group>"; };
 		225F88C32CD090360093B359 /* PlayConfigGroupModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayConfigGroupModel.swift; sourceTree = "<group>"; };
 		225F88C52CD094F70093B359 /* MusicConfigStyle+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MusicConfigStyle+Extension.swift"; sourceTree = "<group>"; };
-		2261E8802CB5267E009506C0 /* DonateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonateViewController.swift; sourceTree = "<group>"; };
-		2261E8862CB6FAB2009506C0 /* DonateViewController+Pay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DonateViewController+Pay.swift"; sourceTree = "<group>"; };
 		226513EB2DD985C0009AC64D /* PlayerSceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerSceneDelegate.swift; sourceTree = "<group>"; };
 		226513EE2DD9862B009AC64D /* MusicPlayerViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MusicPlayerViewController.storyboard; sourceTree = "<group>"; };
 		2266A1502DE7531400F5AEB7 /* LyricFontColorTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LyricFontColorTableCell.swift; sourceTree = "<group>"; };
@@ -980,7 +972,6 @@
 		228A13B52CA0633400E2948E /* EmptyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyTableViewCell.swift; sourceTree = "<group>"; };
 		228A13B62CA0633400E2948E /* MusicTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicTableViewCell.swift; sourceTree = "<group>"; };
 		228A13B72CA0633400E2948E /* MusicTopFolderHeadView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicTopFolderHeadView.swift; sourceTree = "<group>"; };
-		228A13BB2CA0633400E2948E /* FreeStreamViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FreeStreamViewController.swift; sourceTree = "<group>"; };
 		228A13BC2CA0633400E2948E /* MusicPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicPlayerViewController.swift; sourceTree = "<group>"; };
 		228A13BD2CA0633400E2948E /* MusicPlayerViewController+Action.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MusicPlayerViewController+Action.swift"; sourceTree = "<group>"; };
 		228A13BE2CA0633400E2948E /* MusicPlayerViewController+Delegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MusicPlayerViewController+Delegate.swift"; sourceTree = "<group>"; };
@@ -990,7 +981,6 @@
 		228A13C62CA0633400E2948E /* VideoConverterViewController+Action.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "VideoConverterViewController+Action.swift"; sourceTree = "<group>"; };
 		228A13C92CA0633400E2948E /* VIPBenefitsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VIPBenefitsModel.swift; sourceTree = "<group>"; };
 		228A13CC2CA0633400E2948E /* AudioWaveformView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioWaveformView.swift; sourceTree = "<group>"; };
-		228A13CE2CA0633400E2948E /* GuideRatingViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuideRatingViewCell.swift; sourceTree = "<group>"; };
 		228A13CF2CA0633400E2948E /* PurchaseFootView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PurchaseFootView.swift; sourceTree = "<group>"; };
 		228A13D02CA0633400E2948E /* PurchaseHeadCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PurchaseHeadCell.swift; sourceTree = "<group>"; };
 		228A13D12CA0633400E2948E /* PurchasePriceCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PurchasePriceCell.swift; sourceTree = "<group>"; };
@@ -1202,6 +1192,7 @@
 			files = (
 				E82400000000000000000008 /* WaketagLibKit in Frameworks */,
 				22526E0A2E84F59C00C32DBF /* KSPlayer in Frameworks */,
+				C05000000000000000000001 /* KSPlayerUI in Frameworks */,
 				220F6633300283AF00915384 /* RevenueCatUI in Frameworks */,
 				22822C7D2DF42BA100183445 /* PanModal in Frameworks */,
 				223E51A9302B291A00FEF1E4 /* FirebaseCrashlytics in Frameworks */,
@@ -1257,6 +1248,7 @@
 				22A801DB302B284D000FB581 /* FirebaseAnalytics in Frameworks */,
 				01F75346B3745539580B69EB /* Pods_Mobie.framework in Frameworks */,
 				227FD0192E8471180076B773 /* KSPlayer in Frameworks */,
+				C05000000000000000000002 /* KSPlayerUI in Frameworks */,
 				228A13752CA01FB400E2948E /* StoreKit.framework in Frameworks */,
 				82D834BFAC8F3A17A778E93D /* Pods_Mobie.framework in Frameworks */,
 				22A801DF302B284D000FB581 /* FirebaseCrashlytics in Frameworks */,
@@ -1321,7 +1313,6 @@
 				22C287B030540A4500801D66 /* AuthSMBViewController.swift */,
 				F70000000000000000000001 /* AuthFTPViewController.swift */,
 				C04300000000000000000002 /* AuthMEGAViewController.swift */,
-				228A13BB2CA0633400E2948E /* FreeStreamViewController.swift */,
 				228A13C52CA0633400E2948E /* VideoConverterViewController.swift */,
 				228A13C62CA0633400E2948E /* VideoConverterViewController+Action.swift */,
 				226EF7C62CA41C93004630B0 /* VideoConverterViewController+Crop.swift */,
@@ -1712,8 +1703,6 @@
 			isa = PBXGroup;
 			children = (
 				228A13DA2CA0633400E2948E /* ProfileViewController.swift */,
-				2261E8802CB5267E009506C0 /* DonateViewController.swift */,
-				2261E8862CB6FAB2009506C0 /* DonateViewController+Pay.swift */,
 				228A13C12CA0633400E2948E /* PurchaseViewController.swift */,
 				228A13C42CA0633400E2948E /* PurchaseViewController+Pay.swift */,
 				228A13D82CA0633400E2948E /* AboutAppViewController.swift */,
@@ -1746,7 +1735,6 @@
 			isa = PBXGroup;
 			children = (
 				228A13E32CA0633400E2948E /* AboutAppTableCell.swift */,
-				228A13CE2CA0633400E2948E /* GuideRatingViewCell.swift */,
 				228A13CF2CA0633400E2948E /* PurchaseFootView.swift */,
 				228A13D02CA0633400E2948E /* PurchaseHeadCell.swift */,
 				228A13D12CA0633400E2948E /* PurchasePriceCell.swift */,
@@ -2039,6 +2027,7 @@
 			packageProductDependencies = (
 				E82400000000000000000006 /* WaketagLibKit */,
 				22526E092E84F59C00C32DBF /* KSPlayer */,
+				C05000000000000000000003 /* KSPlayerUI */,
 				220F6632300283AF00915384 /* RevenueCatUI */,
 				22822C7C2DF42BA100183445 /* PanModal */,
 				223E51A8302B291A00FEF1E4 /* FirebaseCrashlytics */,
@@ -2108,6 +2097,7 @@
 				C04000000000000000000003 /* MEGASdk */,
 				22A801DA302B284D000FB581 /* FirebaseAnalytics */,
 				227FD0182E8471180076B773 /* KSPlayer */,
+				C05000000000000000000004 /* KSPlayerUI */,
 				22A801DE302B284D000FB581 /* FirebaseCrashlytics */,
 			);
 			productName = Mobie;
@@ -2379,13 +2369,13 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Mobie_Pro/Pods-Mobie_Pro-frameworks-${CONFIGURATION}${WAKE_IQ_PLATFORM_SUFFIX}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Mobie_Pro/Pods-Mobie_Pro-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			inputPaths = (
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Mobie_Pro/Pods-Mobie_Pro-frameworks-${CONFIGURATION}${WAKE_IQ_PLATFORM_SUFFIX}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Mobie_Pro/Pods-Mobie_Pro-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			outputPaths = (
 			);
@@ -2400,13 +2390,13 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Mobie/Pods-Mobie-frameworks-${CONFIGURATION}${WAKE_IQ_PLATFORM_SUFFIX}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Mobie/Pods-Mobie-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			inputPaths = (
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Mobie/Pods-Mobie-frameworks-${CONFIGURATION}${WAKE_IQ_PLATFORM_SUFFIX}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Mobie/Pods-Mobie-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			outputPaths = (
 			);
@@ -2460,7 +2450,6 @@
 				225F57F32D85B2AB0055BDFF /* EmptyCollectViewCell.swift in Sources */,
 				225F57F52D85B2AB0055BDFF /* HomeTabbarViewController+UI.swift in Sources */,
 				225F57F72D85B2AB0055BDFF /* UserInfoViewController.swift in Sources */,
-				225F57F92D85B2AB0055BDFF /* FreeStreamViewController.swift in Sources */,
 				2266A1512DE7531400F5AEB7 /* LyricFontColorTableCell.swift in Sources */,
 				225F57FA2D85B2AB0055BDFF /* MusicPlayerViewController.swift in Sources */,
 				224A4DF52E1692CB0041244A /* BaiduDriveFileListController.swift in Sources */,
@@ -2507,7 +2496,6 @@
 				225B41E62E43419600EF07FE /* ResponseDrive115Model.swift in Sources */,
 				224A4DEA2E16301A0041244A /* AuthBaiduViewController.swift in Sources */,
 				225F58182D85B2AB0055BDFF /* MusicTopFolderCell.swift in Sources */,
-				225F58192D85B2AB0055BDFF /* GuideRatingViewCell.swift in Sources */,
 				225F581A2D85B2AB0055BDFF /* VideoAudioInfoViewCell.swift in Sources */,
 				225F581C2D85B2AB0055BDFF /* KakaMusicPlayer+Delegate.swift in Sources */,
 				22FB960F2DEDB004007EA2FD /* MiniPlayerLyricView.swift in Sources */,
@@ -2565,7 +2553,6 @@
 				C04200000000000000000003 /* MEGAFileListStatus.swift in Sources */,
 				C02300000000000000000003 /* SMBFileListStatus.swift in Sources */,
 				22C2572F302D723500A68C1B /* AudioMatchCoverFootView.swift in Sources */,
-				225F58322D85B2AB0055BDFF /* DonateViewController.swift in Sources */,
 				225F58342D85B2AB0055BDFF /* MusicsViewController+Data.swift in Sources */,
 				2266A1542DE7537200F5AEB7 /* LyricFontAlignTableCell.swift in Sources */,
 				22FB960A2DED5007007EA2FD /* PlayControlTapeView.swift in Sources */,
@@ -2659,7 +2646,6 @@
 				2243D76E2DE8A5E60010F9FB /* MusicPlayerViewController+Animation.swift in Sources */,
 				220DDAE32EAA6E9A00F50BB3 /* ConnectListViewController+Connect.swift in Sources */,
 				22B1AD482DE0668500DEBED0 /* PlayerStyleDefaultTableCell.swift in Sources */,
-				225F58642D85B2AB0055BDFF /* DonateViewController+Pay.swift in Sources */,
 				22C707842DCBA00000A1B79A /* AppStoreInfoModel.swift in Sources */,
 				221928633061075700AF4F2B /* NavidromeSearchViewController.swift in Sources */,
 				224DAE3D2EAE5961003CFAAC /* DriveUserModel+Extension.swift in Sources */,
@@ -2811,7 +2797,6 @@
 				228A14482CA0633400E2948E /* EmptyCollectViewCell.swift in Sources */,
 				228A147B2CA0633400E2948E /* HomeTabbarViewController+UI.swift in Sources */,
 				228A146C2CA0633400E2948E /* UserInfoViewController.swift in Sources */,
-				228A144D2CA0633400E2948E /* FreeStreamViewController.swift in Sources */,
 				2266A1522DE7531400F5AEB7 /* LyricFontColorTableCell.swift in Sources */,
 				228A144E2CA0633400E2948E /* MusicPlayerViewController.swift in Sources */,
 				224A4DF42E1692CB0041244A /* BaiduDriveFileListController.swift in Sources */,
@@ -2858,7 +2843,6 @@
 				225B41E52E43419600EF07FE /* ResponseDrive115Model.swift in Sources */,
 				224A4DEB2E16301A0041244A /* AuthBaiduViewController.swift in Sources */,
 				22556DB32D1D694300FA1807 /* MusicTopFolderCell.swift in Sources */,
-				228A145E2CA0633400E2948E /* GuideRatingViewCell.swift in Sources */,
 				228A14642CA0633400E2948E /* VideoAudioInfoViewCell.swift in Sources */,
 				2268AE5D2CA12BC800340316 /* KakaMusicPlayer+Delegate.swift in Sources */,
 				22FB96102DEDB004007EA2FD /* MiniPlayerLyricView.swift in Sources */,
@@ -2916,7 +2900,6 @@
 				C04200000000000000000001 /* MEGAFileListStatus.swift in Sources */,
 				C02300000000000000000001 /* SMBFileListStatus.swift in Sources */,
 				22C25730302D723500A68C1B /* AudioMatchCoverFootView.swift in Sources */,
-				2261E8812CB5267E009506C0 /* DonateViewController.swift in Sources */,
 				228A14332CA0633400E2948E /* MusicsViewController+Data.swift in Sources */,
 				2266A1552DE7537200F5AEB7 /* LyricFontAlignTableCell.swift in Sources */,
 				22FB96092DED5007007EA2FD /* PlayControlTapeView.swift in Sources */,
@@ -3010,7 +2993,6 @@
 				2243D76D2DE8A5E60010F9FB /* MusicPlayerViewController+Animation.swift in Sources */,
 				220DDAE22EAA6E9A00F50BB3 /* ConnectListViewController+Connect.swift in Sources */,
 				22B1AD472DE0668500DEBED0 /* PlayerStyleDefaultTableCell.swift in Sources */,
-				2261E8872CB6FAB2009506C0 /* DonateViewController+Pay.swift in Sources */,
 				22C707852DCBA00000A1B79A /* AppStoreInfoModel.swift in Sources */,
 				221928623061075700AF4F2B /* NavidromeSearchViewController.swift in Sources */,
 				224DAE3C2EAE5961003CFAAC /* DriveUserModel+Extension.swift in Sources */,
@@ -3385,7 +3367,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Mobie/System/Mobie.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
@@ -3439,7 +3421,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Mobie/System/Mobie.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 5;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
@@ -3892,6 +3874,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C04000000000000000000005 /* XCLocalSwiftPackageReference "../LocalSDK/MEGASDK" */;
 			productName = MEGASdk;
+		};
+		C05000000000000000000003 /* KSPlayerUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A763814F2EDEA4320040A84D /* XCLocalSwiftPackageReference "../../../本地公开库/KSPlayer" */;
+			productName = KSPlayerUI;
+		};
+		C05000000000000000000004 /* KSPlayerUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A763814F2EDEA4320040A84D /* XCLocalSwiftPackageReference "../../../本地公开库/KSPlayer" */;
+			productName = KSPlayerUI;
 		};
 		E82400000000000000000005 /* WaketagLibKit */ = {
 			isa = XCSwiftPackageProductDependency;

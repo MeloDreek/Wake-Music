@@ -329,19 +329,28 @@ extension MusicItemModel {
         var newModel = MusicItemModel(fileURL: fileURL, sourceType: .demoFile)
         newModel.fileSourceType = .demoFile
         newModel.coverArt = metaData?.coverArt ?? UIImage(named: "demo_art")
-        newModel.title = metaData?.title ?? "7.1 Surround".localStr()
+        let embeddedTitle = metaData?.title?.trimmingCharacters(in: .whitespacesAndNewlines)
+        newModel.title = embeddedTitle?.isEmpty == false ? embeddedTitle : placeArtist
         newModel.artist = metaData?.artist ?? "Wakemusic".localStr()
         newModel.album = metaData?.album ?? "Wakemusic".localStr()
         newModel.year = Int(metaData?.year ?? UInt(Date().year))
-        newModel.durationSeconds = Int(metaData?.durationSeconds ?? 35)
+        // Raw DTS may not expose TagLib properties. These fallback values describe
+        // the bundled Wakemusic.dts (44.1 kHz, 5.1, 34.017 seconds), not an example
+        // of the maximum audio quality supported by the player. Values use bps/Hz.
+        newModel.durationSeconds = demoAudioValue(metaData?.durationSeconds, fallback: 34)
         newModel.track = Int(metaData?.track ?? 1)
-        newModel.bitrate = 1500000
-        newModel.sampleRate = 2800000
-        newModel.channel = AudioChannels.surround71
+        newModel.bitrate = demoAudioValue(metaData?.bitrate, fallback: 1_411_200)
+        newModel.sampleRate = demoAudioValue(metaData?.sampleRate, fallback: 44_100)
+        newModel.channel = AudioChannels(channel: demoAudioValue(metaData?.channel, fallback: 6))
         newModel.genre = metaData?.genre ?? MusicGenreType.pop.rawValue
         newModel.comment = metaData?.comment ?? "This is a demo music"
         newModel.lyricModel = metaData?.lyricModel?.convertSwiftModel() ?? TaglibMetadataParser.parseSynchronizedLyrics(lyricStr).convertSwiftModel()
         return newModel
+    }
+
+    private static func demoAudioValue(_ value: UInt?, fallback: Int) -> Int {
+        guard let value, let number = Int(exactly: value), number > 0 else { return fallback }
+        return number
     }
     
 }

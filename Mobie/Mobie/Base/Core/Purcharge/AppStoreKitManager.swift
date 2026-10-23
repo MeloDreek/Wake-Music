@@ -105,7 +105,6 @@ public class AppStoreKitManager {
     
     // 不需要缓存的
     public var saleArray: [StoreProduct] = StoreProduct.defaultProducts()
-    public var donationArray: [StoreProduct] = StoreProduct.defaultProducts()
     
     
     lazy var sharedUD: UserDefaults = {

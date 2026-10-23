@@ -150,11 +150,6 @@ class ProfileViewController: SuperViewController {
             tempArray.append(model3)
             tempArray.append(model4)
             
-//            if UserInfoManager.shared.isVIP() && !AppLocalManager.shared.isDeleteRanting {
-//                let ranting = SettingGroupCellModel(group: .rantingGroup, headTitle: nil, itemArray: [.guideRanting], footTitle: nil)
-//                tempArray.append(ranting)
-//            }
-            
             return tempArray
         }
     }
@@ -170,7 +165,6 @@ class ProfileViewController: SuperViewController {
         view.register(UITableViewCell.self, forCellReuseIdentifier: "ProfileTableViewCell")
         view.register(GuidePremiumViewCell.self, forCellReuseIdentifier: "GuidePremiumViewCell")
         view.register(LoginedViewCell.self, forCellReuseIdentifier: "LoginedViewCell")
-        view.register(GuideRatingViewCell.self, forCellReuseIdentifier: "GuideRatingViewCell")
         return view
     }()
     
@@ -183,7 +177,7 @@ class ProfileViewController: SuperViewController {
     
 }
 
-extension ProfileViewController: UITableViewDataSource, UITableViewDelegate, UIPopoverPresentationControllerDelegate, GuideRatingViewCellDelegate {
+extension ProfileViewController: UITableViewDataSource, UITableViewDelegate, UIPopoverPresentationControllerDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
         return self.dataArray.count
     }
@@ -205,10 +199,6 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate, UIP
         } else if item == .guideVIP {
             let cell = tableView.dequeueReusableCell(withIdentifier: "GuidePremiumViewCell", for: indexPath) as! GuidePremiumViewCell
             
-            return cell
-        } else if item == .guideRanting {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "GuideRatingViewCell", for: indexPath) as! GuideRatingViewCell
-            cell.delegate = self
             return cell
         } else{
             let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileTableViewCell", for: indexPath)
@@ -334,12 +324,6 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate, UIP
             self.navigationController?.pushViewController(playerVC, animated: true)
         }
         
-        if item == .donate {
-            let donateVC = DonateViewController()
-            self.navigationController?.pushViewController(donateVC, animated: true)
-        }
-        
-        
         if item == .types {
             let typeVC = SupportTypeViewController()
             self.navigationController?.pushViewController(typeVC, animated: true)
@@ -377,37 +361,10 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate, UIP
         
         if item == .loginAccount {
             return kaka_IsiPhone() ? 80.ckValue() : 170.ckValue()
-        }else if item == .guideVIP || item == .guideRanting {
-            return UITableView.automaticDimension
         } else {
             return UITableView.automaticDimension
         }
     }
-    
-    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        let group = dataArray[indexPath.section]
-        let item = group.itemArray[indexPath.row]
-        
-        return item == .guideRanting
-    }
-    
-    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let group = dataArray[indexPath.section]
-        let item = group.itemArray[indexPath.row]
-        if item != .guideRanting { return nil }
-        
-        let action = UIContextualAction(style: .destructive, title: nil) { [weak self] action, view, finish in
-            AppLocalManager.shared.isDeleteRanting = true
-            self?.tableView.reloadData()
-            finish(true)
-        }
-        action.image = Reasource.systemNamed("trash", color: .white)
-        action.backgroundColor = UIColor.systemRed
-        
-        return UISwipeActionsConfiguration(actions: [action])
-    }
-    
-    
     
     func showBigAvatarImage(_ avatarView: UIImageView) {
         if kaka_IsMacOS() { return }
@@ -416,24 +373,5 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate, UIP
         photoBrowser.backgroundStyle = .blurPhoto
         photoBrowser.show(from: self)
     }
-    
-    func guideCommentDidScore(cell: GuideRatingViewCell) {
-        let vUrl = Application.wakeMusic.appstoreWriteURL()
-        UIApplication.shared.open(vUrl, options: [:], completionHandler: nil)
-    }
-    
-    func guideCommentDidShare(cell: GuideRatingViewCell, shareButton: UIButton) {
-        let storeURL = Application.wakeMusic.appstoreURL()
-
-        let shareVC = UIActivityViewController(activityItems: [storeURL], applicationActivities: nil)
-        if !kaka_IsiPhone() {
-            shareVC.popoverPresentationController?.sourceView = shareButton
-        }
-        self.present(shareVC, animated: true, completion: nil)
-    }
-    
-    
-    
-
     
 }

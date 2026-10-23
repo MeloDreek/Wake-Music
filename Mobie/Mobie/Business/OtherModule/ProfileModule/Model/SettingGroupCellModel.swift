@@ -13,7 +13,6 @@ enum SettingCellGroupType: Int {
     case guideVIPGroup = 2   // 引导成为VIP的卡片
     case safetyGroup = 3     // 自定义设置
     case othersGroup = 4     // 其他设置：关于我们
-    case rantingGroup = 5    // 引导评论和分享
 }
 
 struct SettingGroupCellModel {
@@ -44,12 +43,9 @@ enum SettingCellItemType {
     case appearance
     
     case types
-    case donate
     case guideiOS
     case FAQ
     case abountUS
-    
-    case guideRanting
     
     func titleStr() -> String? {
         switch self {
@@ -72,17 +68,12 @@ enum SettingCellItemType {
         
         case .types:
             return "All Audio Formats".localStr()
-        case .donate:
-            return "Donate".localStr()
         case .guideiOS:
             return "Download for iOS".localStr()
         case .FAQ:
             return "FAQ".localStr()
         case .abountUS:
             return "About Us".localStr()
-            
-        case .guideRanting:
-            return nil
         }
     }
     
@@ -107,8 +98,6 @@ enum SettingCellItemType {
         case .appearance:
             return Reasource.systemNamed("moon.circle.fill", color: appMainColor)
         
-        case .donate:
-            return Reasource.systemNamed("heart", color: appMainColor)
         case .types:
             return Reasource.systemNamed("checkmark.circle", color: appMainColor)
         case .guideiOS:
@@ -121,9 +110,6 @@ enum SettingCellItemType {
             return Reasource.systemNamed("questionmark.circle", color: appMainColor)
         case .abountUS:
             return Reasource.systemNamed("ellipsis.circle", color: appMainColor)
-            
-        case .guideRanting:
-            return nil
         }
         
     }

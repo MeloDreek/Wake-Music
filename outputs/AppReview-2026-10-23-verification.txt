@@ -1,0 +1,33 @@
+Wakemusic review remediation — 2026-10-23
+
+Changes implemented locally:
+- Removed the IQ-specific CocoaPods post_integrate hook, platform-filtering Ruby script, SDK-scoped IQ link/search settings and eight custom Catalyst framework file lists. Regenerated standard CocoaPods integration without changing dependency versions.
+- Replaced the two undocumented built-in cube transitions with public push transitions, preserving RTL, Reduce Motion and Mac behavior.
+- Corrected bundled DTS demo metadata/fallback values to match the actual asset.
+- Removed four unused legacy source files (donation UI, custom five-star UI, and a fully commented FreeStream controller), their project references and unused strings/state.
+- Corrected batch-edit review/share links from Waketag to the current Wakemusic edition. Removed five-star wording, result-dependent rating prompts, batch-completion automatic review requests and inaccurate trial-expiration messaging. Added a neutral review label in 42 languages and accurate completion statistics.
+- Added the current local KSPlayer package's standard KSPlayerUI product to both app targets and updated imports/module-qualified types. No playback-engine implementation or external SDK source was modified.
+
+Verification:
+- 2436 submission-safety source/configuration assertions passed. This excludes vendor Pods and is not certification of App Review compliance.
+- 5 production metadata-validator runtime assertions and 21 demo/transition checks passed, including ffprobe checks of the bundled DTS asset.
+- 91 dormant-feature/review-integrity source/localization checks passed.
+- 62 standard IQ integration checks, 19 Xcode configuration checks and 12 KSPlayerUI module/linkage checks passed.
+- Project plist validation and git diff --check passed.
+- Ordinary iOS Release build: BUILD SUCCEEDED.
+- Pro iOS Release build: BUILD SUCCEEDED.
+- Targeted inspection of the newly built ordinary Release binary confirmed that both WelcomeViewController.finishAllPage and AppModeCoordinator.replaceRoot bind their transition type to QuartzCore's public kCATransitionPush symbol, rather than the previous inline cube value.
+- Xcode 27.1 (27A9275), generic iOS device destination, CODE_SIGNING_ALLOWED=NO. These were local build validations, not signed submission Archives. No runtime UI walkthrough or real purchase was performed.
+- Mac Catalyst IQKeyboardReturnManager Release probe: BUILD FAILED. Removing the platform filter restores the upstream incompatibility: UIInputSuggestion and UITextFormattingViewController are unavailable in Catalyst. No vendor workaround was added, and Mac build success is not claimed.
+
+Logs:
+/private/tmp/wakemusic-review-20261023.skoNm9/ios-release-final.log
+/private/tmp/wakemusic-review-20261023.skoNm9/pro-ios-release.log
+/tmp/wakemusic-iq-catalyst-20261023.3Oiqam/build.log
+
+Unresolved scope:
+- Apple has not identified the specific hidden or misleading feature behind this rejection; the above changes do not establish that the finding has been fully addressed.
+- SDWebImage SPI findings remain outside this patch.
+- Apple-catalog artwork embedding permissions and Guangya membership external-link policy applicability remain pending, as previously retained by the user.
+- Existing user edits in SceneDelegate.swift, Package.resolved and Xcode UI state were preserved.
+- No Git commit/push, repository visibility change, ASC metadata update, upload, review reply or resubmission was performed.

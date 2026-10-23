@@ -1,58 +1,52 @@
 #!/usr/bin/env ruby
 require 'json'
 require 'open3'
-require 'shellwords'
+
 root = File.expand_path('../..', __dir__)
 names = %w[IQKeyboardCore IQKeyboardManagerSwift IQKeyboardNotification IQKeyboardReturnManager IQKeyboardToolbar IQKeyboardToolbarManager IQTextInputViewNotification IQTextView]
-pattern = Regexp.union(names)
 checks = 0
 check = ->(condition, message) { abort("FAIL: #{message}") unless condition; checks += 1 }
+podfile = File.read(File.join(root, 'Podfile'))
+check.call(podfile.scan("pod 'IQKeyboardManagerSwift', '~> 8.0.3'").length == 2, 'Both apps retain the official pinned dependency')
+check.call(!podfile.include?('ios_only_keyboard_pods') && !podfile.include?('IOSOnlyKeyboardPods'), 'No custom IQ integration hook')
+check.call(!File.exist?(File.join(root, 'scripts/ios_only_keyboard_pods.rb')), 'Removed platform-rewriting script')
+
 json, error, status = Open3.capture3('plutil', '-convert', 'json', '-o', '-', File.join(root, 'Pods/Pods.xcodeproj/project.pbxproj'))
 abort error unless status.success?
 objects = JSON.parse(json).fetch('objects')
 objects.values.select { |o| o['isa'] == 'PBXTargetDependency' }.each do |dependency|
   target = objects[dependency['target']]
   next unless target && names.any? { |name| target['name'] == name || target['name'].start_with?(name + '-') }
-  check.call(dependency['platformFilters'] == ['ios'] && !dependency.key?('platformFilter'), 'IQ dependency is iOS-only')
+  check.call(!dependency.key?('platformFilters') && !dependency.key?('platformFilter'), 'IQ dependencies use the generated CocoaPods platform configuration')
 end
+objects.values.select { |o| o['isa'] == 'PBXBuildFile' }.each do |file|
+  reference = objects[file['fileRef']]
+  next unless reference && names.include?(File.basename(reference['path'].to_s, '.framework'))
+  check.call(!file.key?('platformFilters') && !file.key?('platformFilter'), 'IQ framework build files have no custom platform filter')
+end
+
 %w[Mobie Mobie_Pro].each do |target|
   prefix = "Pods-#{target}"
   support = File.join(root, 'Pods/Target Support Files', prefix)
   %w[debug release].each do |config|
     text = File.read(File.join(support, "#{prefix}.#{config}.xcconfig"))
-    %w[OTHER_LDFLAGS FRAMEWORK_SEARCH_PATHS HEADER_SEARCH_PATHS OTHER_CFLAGS OTHER_MODULE_VERIFIER_FLAGS].each do |key|
-      base = text.lines.find { |l| l.start_with?(key + ' =') }
-      check.call(base && !base.match?(pattern) && base.include?("$(WAKE_IQ_#{key})"), "#{target} #{config}: no unconditional IQ #{key}")
-      check.call(text.lines.any? { |l| l.start_with?("WAKE_IQ_#{key}[sdk=iphone*] =") && l.match?(pattern) }, "#{target}: iPhone/iPad keeps #{key}")
-      check.call(text.include?("WAKE_IQ_#{key} =\n"), "#{target}: other platforms default to no IQ #{key}")
-    end
-    # CocoaPods may add -iframework pairs only after regenerating the integration.
-    # Keep option/value pairs together; bare directories are interpreted as inputs.
-    ['OTHER_CFLAGS =', 'WAKE_IQ_OTHER_CFLAGS[sdk=iphone*] ='].each do |prefix|
-      value = text.lines.find { |line| line.start_with?(prefix) }.split(' = ', 2).last
-      tokens = Shellwords.split(value)
-      tokens.each_with_index do |token, index|
-        if %w[-iframework -isystem -iquote -F].include?(token)
-          check.call(tokens[index + 1] && !tokens[index + 1].start_with?('-'), 'Compiler search option retains its path argument')
-        elsif token.include?('PODS_CONFIGURATION_BUILD_DIR')
-          check.call(index > 0 && %w[-iframework -isystem -iquote -F].include?(tokens[index - 1]), 'No bare framework paths in compiler flags')
-        end
-      end
-    end
+    check.call(!text.include?('WAKE_IQ_'), "#{target} #{config}: no custom conditional IQ variables")
+    linker_flags = text.lines.find { |line| line.start_with?('OTHER_LDFLAGS =') }.to_s
+    check.call(names.all? { |name| linker_flags.include?(%(-framework "#{name}")) }, "#{target} #{config}: normal IQ linkage")
     %w[input output].each do |kind|
-      ios = File.read(File.join(support, "#{prefix}-frameworks-#{config.capitalize}-#{kind}-files.xcfilelist"))
-      mac = File.read(File.join(support, "#{prefix}-frameworks-#{config.capitalize}-macosx-#{kind}-files.xcfilelist"))
-      check.call(names.all? { |name| ios.include?(name + '.framework') }, 'iOS embed list retains all IQ frameworks')
-      check.call(!mac.match?(pattern), 'Catalyst embed list excludes IQ')
+      list = File.read(File.join(support, "#{prefix}-frameworks-#{config.capitalize}-#{kind}-files.xcfilelist"))
+      check.call(names.all? { |name| list.include?(name + '.framework') }, 'Generated embedding list retains IQ frameworks')
     end
   end
+  check.call(Dir.glob(File.join(support, '*-frameworks-*-macosx-*-files.xcfilelist')).empty?, 'No custom Catalyst embedding lists remain')
   script = File.join(support, prefix + '-frameworks.sh')
-  check.call(system('bash', '-n', script), 'Generated embed script has valid shell syntax')
-  check.call(File.read(script).include?('if [ "${PLATFORM_NAME:-}" != "macosx" ]; then'), 'Embed uses SDK platform, not CPU architecture')
+  check.call(system('bash', '-n', script), 'Generated embedding script has valid shell syntax')
+  text = File.read(script)
+  check.call(!text.include?('WakeMusic: iOS-only IQ frameworks') && !text.include?('if [ "${PLATFORM_NAME:-}" != "macosx" ]; then'), 'No IQ-specific embedding guard')
 end
+
 app = File.read(File.join(root, 'Mobie/Mobie/System/AppDelegate.swift'))
-check.call(app.scan('#if os(iOS) && !targetEnvironment(macCatalyst) && canImport(IQKeyboardManagerSwift)').length == 2, 'Import and initialization both exclude Catalyst')
-check.call(File.read(File.join(root, 'Podfile')).include?('post_integrate do'), 'pod install reapplies platform isolation')
+check.call(app.scan('#if os(iOS) && !targetEnvironment(macCatalyst) && canImport(IQKeyboardManagerSwift)').length == 2, 'App import and initialization retain standard Swift platform guards')
 project = File.read(File.join(root, 'Mobie/Mobie.xcodeproj/project.pbxproj'))
-check.call(project.scan('${CONFIGURATION}${WAKE_IQ_PLATFORM_SUFFIX}').length == 4, 'Both app embed phases select SDK-specific file lists')
-puts "#{checks} IQ platform-isolation checks passed"
+check.call(!project.include?('WAKE_IQ_'), 'App embedding phases use standard configuration file lists')
+puts "#{checks} standard IQ integration checks passed (not a Catalyst compatibility guarantee)"

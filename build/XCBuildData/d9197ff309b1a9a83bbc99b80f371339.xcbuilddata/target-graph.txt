@@ -1,0 +1,9 @@
+Target dependency graph (4 targets)
+Target 'IQKeyboardReturnManager' in project 'Pods'
+➜ Explicit dependency on target 'IQKeyboardCore' in project 'Pods'
+➜ Explicit dependency on target 'IQKeyboardReturnManager-IQKeyboardReturnManager' in project 'Pods'
+Target 'IQKeyboardReturnManager-IQKeyboardReturnManager' in project 'Pods'
+➜ Implicit dependency on target 'IQKeyboardCore' in project 'Pods' via options '-framework IQKeyboardCore' in build setting 'OTHER_LDFLAGS'
+Target 'IQKeyboardCore' in project 'Pods'
+➜ Explicit dependency on target 'IQKeyboardCore-IQKeyboardCore' in project 'Pods'
+Target 'IQKeyboardCore-IQKeyboardCore' in project 'Pods' (no dependencies)

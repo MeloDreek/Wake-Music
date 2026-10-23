@@ -1,0 +1,33 @@
+Subject: Wakemusic 3.6.0 — Corrective Actions and Clarification of Guidelines 2.5.19 and 5.6
+
+Hello App Review Team,
+
+Thank you for your feedback regarding Wakemusic version 3.6.0, build 4 (App ID: 6544783918).
+
+We take the concerns about hidden or misleading functionality seriously. We understand the warning in your message and will not resubmit the rejected build unchanged. We want to ensure that our corrective work addresses the specific finding before submitting an updated build.
+
+Following a review of the application and its build configuration, we have made the following changes in our source code:
+
+1. Removed a custom build-time script that excluded IQKeyboardManagerSwift dependencies from Mac Catalyst builds, and restored standard CocoaPods integration. This script only configured compilation, linking, and framework embedding; it did not implement runtime feature switching or reviewer detection.
+2. Replaced undocumented built-in transition values with public Core Animation transitions.
+3. Corrected the technical information displayed for the bundled demonstration audio to reflect the actual file, rather than inaccurate sample-rate and channel values.
+4. Corrected review and sharing links that pointed to another application so they now point to the appropriate Wakemusic edition. We also replaced five-star requests with neutral wording, removed outcome-dependent review prompts and automatic review prompts from the batch-edit completion screen, and removed an inaccurate trial-expiration message.
+5. Removed unused legacy donation and rating UI code and obsolete related strings. Batch-edit completion messages now accurately report files with complete and incomplete metadata.
+
+These are source-level corrections; an updated build containing them has not yet been uploaded or submitted for review. We do not assume that these changes alone resolve the specific concern in your notice.
+
+For relevant context, Wakemusic Pro for iOS (App ID: 6740429002) and the macOS versions have already been approved. Wakemusic Pro is available at:
+https://apps.apple.com/app/id6740429002
+
+These editions share substantially the same core playback, cloud/NAS, and metadata-editing code. An important difference is that Pro includes premium functionality, while the standard edition uses in-app purchases. We recognize that each submission is reviewed independently and are providing these approvals as technical context, not as a substitute for addressing this submission's issues.
+
+Wakemusic is intended to play and organize user-imported audio and music accessed through user-configured cloud and NAS accounts. Our audit has not identified reviewer-specific feature switches or functionality remotely activated after approval.
+
+Because the notice refers to both hidden and misleading functionality, could you please identify the specific feature, behavior, or UI/metadata statement at issue, along with the steps to reproduce it and the discrepancy observed? This would help us make any additional necessary changes rather than rely on assumptions about the finding.
+
+We can provide a functional walkthrough, dedicated test access, and relevant source excerpts with credentials removed through an appropriate private channel. We are also available for a call if that would help clarify the issue. Our time zone is China Standard Time (UTC+8).
+
+Thank you for helping us address this thoroughly and transparently.
+
+Best regards,
+The Wakemusic Team

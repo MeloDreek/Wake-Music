@@ -81,7 +81,7 @@ extension WelcomeViewController {
         view.isUserInteractionEnabled = false
         if !kaka_IsMacOS(), !UIAccessibility.isReduceMotionEnabled {
             let transition = CATransition()
-            transition.type = CATransitionType(rawValue: "cube")
+            transition.type = .push
             transition.subtype = window.effectiveUserInterfaceLayoutDirection == .rightToLeft ? .fromLeft : .fromRight
             transition.duration = 0.35
             transition.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)

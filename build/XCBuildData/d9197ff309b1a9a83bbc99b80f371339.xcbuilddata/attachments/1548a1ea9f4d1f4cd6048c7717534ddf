@@ -1,0 +1,23 @@
+{
+  "version": 0,
+  "use-external-names": false,
+  "case-sensitive": false,
+  "roots": [{
+    "type": "directory",
+    "name": "/Users/kaka/Documents/商业项目/维克音乐/build/Release-maccatalyst/IQKeyboardCore/IQKeyboardCore.framework/Modules",
+    "contents": [{
+      "type": "file",
+      "name": "module.modulemap",
+      "external-contents": "/Users/kaka/Documents/商业项目/维克音乐/build/Pods.build/Release-maccatalyst/IQKeyboardCore.build/unextended-module.modulemap",
+    }]
+    },
+    {
+    "type": "directory",
+    "name": "/Users/kaka/Documents/商业项目/维克音乐/build/Release-maccatalyst/IQKeyboardCore/IQKeyboardCore.framework/Headers",
+    "contents": [{
+      "type": "file",
+      "name": "IQKeyboardCore-Swift.h",
+      "external-contents": "/Users/kaka/Documents/商业项目/维克音乐/build/Pods.build/Release-maccatalyst/IQKeyboardCore.build/unextended-interface-header.h",
+    }]
+  }]
+}

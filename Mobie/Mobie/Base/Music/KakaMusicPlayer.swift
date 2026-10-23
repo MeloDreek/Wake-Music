@@ -8,6 +8,7 @@
 import KakaFoundation
 import AppGroupKit
 import KSPlayer
+import KSPlayerUI
 import AVFAudio
 import MediaPlayer
 import PanModal

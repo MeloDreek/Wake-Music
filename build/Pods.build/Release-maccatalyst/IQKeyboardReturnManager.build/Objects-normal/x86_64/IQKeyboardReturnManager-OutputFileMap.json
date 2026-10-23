@@ -1,0 +1,31 @@
+{
+  "" : {
+    "const-values" : "/Users/kaka/Documents/商业项目/维克音乐/build/Pods.build/Release-maccatalyst/IQKeyboardReturnManager.build/Objects-normal/x86_64/IQKeyboardReturnManager-primary.swiftconstvalues",
+    "dependencies" : "/Users/kaka/Documents/商业项目/维克音乐/build/Pods.build/Release-maccatalyst/IQKeyboardReturnManager.build/Objects-normal/x86_64/IQKeyboardReturnManager-primary.d",
+    "diagnostics" : "/Users/kaka/Documents/商业项目/维克音乐/build/Pods.build/Release-maccatalyst/IQKeyboardReturnManager.build/Objects-normal/x86_64/IQKeyboardReturnManager-primary.dia",
+    "emit-module-dependencies" : "/Users/kaka/Documents/商业项目/维克音乐/build/Pods.build/Release-maccatalyst/IQKeyboardReturnManager.build/Objects-normal/x86_64/IQKeyboardReturnManager-primary-emit-module.d",
+    "emit-module-diagnostics" : "/Users/kaka/Documents/商业项目/维克音乐/build/Pods.build/Release-maccatalyst/IQKeyboardReturnManager.build/Objects-normal/x86_64/IQKeyboardReturnManager-primary-emit-module.dia",
+    "pch" : "/Users/kaka/Documents/商业项目/维克音乐/build/Pods.build/Release-maccatalyst/IQKeyboardReturnManager.build/Objects-normal/x86_64/IQKeyboardReturnManager-primary-Bridging-header.pch",
+    "swift-dependencies" : "/Users/kaka/Documents/商业项目/维克音乐/build/Pods.build/Release-maccatalyst/IQKeyboardReturnManager.build/Objects-normal/x86_64/IQKeyboardReturnManager-primary.swiftdeps"
+  },
+  "/Users/kaka/Documents/商业项目/维克音乐/Pods/IQKeyboardReturnManager/IQKeyboardReturnManager/Classes/Delegates/IQKeyboardReturnManager+UITextFieldDelegate.swift" : {
+    "index-unit-output-path" : "/Pods.build/Release-maccatalyst/IQKeyboardReturnManager.build/Objects-normal/x86_64/IQKeyboardReturnManager+UITextFieldDelegate.o",
+    "llvm-bc" : "/Users/kaka/Documents/商业项目/维克音乐/build/Pods.build/Release-maccatalyst/IQKeyboardReturnManager.build/Objects-normal/x86_64/IQKeyboardReturnManager+UITextFieldDelegate.bc",
+    "object" : "/Users/kaka/Documents/商业项目/维克音乐/build/Pods.build/Release-maccatalyst/IQKeyboardReturnManager.build/Objects-normal/x86_64/IQKeyboardReturnManager+UITextFieldDelegate.o"
+  },
+  "/Users/kaka/Documents/商业项目/维克音乐/Pods/IQKeyboardReturnManager/IQKeyboardReturnManager/Classes/Delegates/IQKeyboardReturnManager+UITextViewDelegate.swift" : {
+    "index-unit-output-path" : "/Pods.build/Release-maccatalyst/IQKeyboardReturnManager.build/Objects-normal/x86_64/IQKeyboardReturnManager+UITextViewDelegate.o",
+    "llvm-bc" : "/Users/kaka/Documents/商业项目/维克音乐/build/Pods.build/Release-maccatalyst/IQKeyboardReturnManager.build/Objects-normal/x86_64/IQKeyboardReturnManager+UITextViewDelegate.bc",
+    "object" : "/Users/kaka/Documents/商业项目/维克音乐/build/Pods.build/Release-maccatalyst/IQKeyboardReturnManager.build/Objects-normal/x86_64/IQKeyboardReturnManager+UITextViewDelegate.o"
+  },
+  "/Users/kaka/Documents/商业项目/维克音乐/Pods/IQKeyboardReturnManager/IQKeyboardReturnManager/Classes/IQKeyboardReturnManager.swift" : {
+    "index-unit-output-path" : "/Pods.build/Release-maccatalyst/IQKeyboardReturnManager.build/Objects-normal/x86_64/IQKeyboardReturnManager.o",
+    "llvm-bc" : "/Users/kaka/Documents/商业项目/维克音乐/build/Pods.build/Release-maccatalyst/IQKeyboardReturnManager.build/Objects-normal/x86_64/IQKeyboardReturnManager.bc",
+    "object" : "/Users/kaka/Documents/商业项目/维克音乐/build/Pods.build/Release-maccatalyst/IQKeyboardReturnManager.build/Objects-normal/x86_64/IQKeyboardReturnManager.o"
+  },
+  "/Users/kaka/Documents/商业项目/维克音乐/Pods/IQKeyboardReturnManager/IQKeyboardReturnManager/Classes/IQTextInputViewInfoModel.swift" : {
+    "index-unit-output-path" : "/Pods.build/Release-maccatalyst/IQKeyboardReturnManager.build/Objects-normal/x86_64/IQTextInputViewInfoModel.o",
+    "llvm-bc" : "/Users/kaka/Documents/商业项目/维克音乐/build/Pods.build/Release-maccatalyst/IQKeyboardReturnManager.build/Objects-normal/x86_64/IQTextInputViewInfoModel.bc",
+    "object" : "/Users/kaka/Documents/商业项目/维克音乐/build/Pods.build/Release-maccatalyst/IQKeyboardReturnManager.build/Objects-normal/x86_64/IQTextInputViewInfoModel.o"
+  }
+}

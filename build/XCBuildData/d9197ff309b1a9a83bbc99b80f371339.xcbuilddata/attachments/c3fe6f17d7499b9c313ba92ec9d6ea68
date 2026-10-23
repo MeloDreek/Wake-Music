@@ -1,0 +1,4 @@
+
+module IQKeyboardReturnManager.__Swift {
+  exclude header "IQKeyboardReturnManager-Swift.h"
+}

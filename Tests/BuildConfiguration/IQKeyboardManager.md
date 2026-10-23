@@ -1,34 +1,59 @@
-# iOS-only IQKeyboardManager
+# IQKeyboardManager integration
 
-The Mac app is Mac Catalyst, which CocoaPods considers an iOS platform. The
-`IQKeyboardReturnManager` dependency currently references `UIInputSuggestion`
-and `UITextFormattingViewController`, which Xcode 27 declares unavailable on
-Mac Catalyst. Guarding only the app import doesn't prevent compiling the pod.
+## Current configuration — 2026-10-23
 
-`scripts/ios_only_keyboard_pods.rb`, called by the Podfile's `post_integrate`
-hook, keeps all eight IQ dependencies on iPhone/iPad and excludes them from Mac:
+Both app targets use the official CocoaPods `IQKeyboardManagerSwift ~> 8.0.3`
+dependency. The custom post-integration Ruby script, SDK-scoped linker variables,
+platform filters, conditional embedding guard and Catalyst-specific embedding
+file lists have been removed. Run `pod install --no-repo-update` to regenerate
+normal CocoaPods integration; do not restore the removed platform-rewriting hook.
 
-- Explicit dependencies and framework build files use `platformFilters = (ios)`.
-- IQ linker/header/framework flags live in variables scoped to `sdk=iphone*`.
-  This avoids conditional `$(inherited)` reintroducing unfiltered IQ flags.
-- Catalyst has separate embed input/output file lists, and the embedding script
-  skips IQ when `PLATFORM_NAME=macosx`. No CPU-architecture checks are used:
-  arm64 is shared by iPhones, iOS simulators and Apple Silicon Macs.
-- AppDelegate excludes both imports and initialization on Mac Catalyst.
+AppDelegate still uses Swift's ordinary compile-time `targetEnvironment(macCatalyst)`
+and `canImport` conditions for importing and initializing the keyboard library.
+These guards do not prevent CocoaPods from compiling the library itself.
 
-No IQ vendor source is patched, and no library version is changed. Running
-`pod install --no-repo-update` reapplies the configuration automatically.
+The removed script operated only during local CocoaPods project generation and
+framework embedding. It did not contact a server, identify App Review, change
+features after release, or execute as Ruby code inside the app. Its removal is a
+build-configuration simplification, not a finding that it caused an App Review
+rejection.
 
-Check generated configuration using `ruby Tests/BuildConfiguration/check-iq-platforms.rb`.
-Build both Mobie and Mobie_Pro for Mac Catalyst and iOS Simulator to verify the
-actual dependency graph, link command and embedded products.
+## Mac Catalyst limitation
 
-## Verified with Xcode 27 (2026-09-16)
+The original workaround existed because `IQKeyboardReturnManager` references
+`UIInputSuggestion` and `UITextFormattingViewController`, which the tested Xcode
+27 SDK declared unavailable on Mac Catalyst. A targeted Release build of the
+`IQKeyboardReturnManager` scheme for Mac Catalyst on 2026-10-23 reproduced these
+errors with Xcode 27.1 (27A9275). The first source error was
+`IQKeyboardReturnManager+UITextFieldDelegate.swift:234:85`:
+`'UIInputSuggestion' is unavailable in Mac Catalyst`. The build failed with exit
+code 65; subsequent errors also identified `UITextFormattingViewController` and
+the corresponding text-view delegate methods. No replacement workaround or
+vendor source patch is introduced here, and a passing configuration test must
+not be reported as a successful Catalyst build.
 
-- Reproduced the original Catalyst-only IQKeyboardReturnManager compiler errors.
-- Mobie Mac Catalyst Debug arm64: build passed; no IQ build targets or embedded frameworks.
-- Re-ran `pod install --no-repo-update`: no dependency version changes; hook reapplied.
-- Mobie iOS Simulator Debug arm64: build passed; all eight IQ frameworks still embedded.
-- Mobie_Pro Mac Catalyst Debug arm64 after regeneration: build passed; no IQ frameworks embedded.
-- 630 platform/configuration checks passed. Debug/Release configuration checks are static;
-  the recorded builds above are Debug, with command-line code signing disabled.
+Keep the dependency when building the iOS app. If the current dependency still
+does not compile for Catalyst, its removal for a Mac-only build must be deliberate
+and followed by CocoaPods regeneration; restore the normal iOS dependency before
+the next iOS build. Do not carry temporary local packaging edits into a release
+without verifying the resulting target and embedded frameworks.
+
+## Checks
+
+```sh
+ruby Tests/BuildConfiguration/check-iq-platforms.rb
+```
+
+This checks both targets' generated Debug/Release dependencies, linker flags and
+embedding lists, confirms that the custom platform-rewriting configuration is
+gone, and preserves the app's Swift import/initialization guards. It does not
+replace compiling, archiving and testing the intended platform.
+
+On 2026-10-23, all 62 standard IQ integration checks and all 19 Xcode build
+configuration checks passed. No pod versions changed during regeneration.
+
+## Historical context
+
+The previous platform-isolation setup passed Debug simulator and Catalyst builds
+on 2026-09-16. Those results applied to the now-removed workaround, not to the
+current unmodified CocoaPods integration.

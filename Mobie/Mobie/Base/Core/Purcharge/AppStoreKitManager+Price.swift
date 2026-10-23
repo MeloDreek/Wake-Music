@@ -32,22 +32,4 @@ extension AppStoreKitManager {
         
     }
     
-//    /// 获取捐赠选项信息
-//    public func refresDonationPrice(productIds: [PurchaseStoreID] = [.option1, .option2, .option3], completion: (([StoreProduct])->Void)? = nil) {
-//        
-//#if !Target_Mobie_Pro
-//        let productIds = productIds.map { $0.rawValue }
-//        Purchases.shared.getProducts(productIds) { products in
-//            
-//            let goodsArray = products.sorted { model1, model2 in
-//                return model1.priceDecimalNumber.doubleValue < model2.priceDecimalNumber.doubleValue
-//            }
-//            
-//            AppStoreKitManager.shared.donationArray = goodsArray
-//            
-//            completion?(goodsArray)
-//        }
-//        
-//#endif
-//    }
 }

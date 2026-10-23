@@ -1,0 +1,12 @@
+{
+  "/Users/kaka/Documents/商业项目/维克音乐/Pods/IQKeyboardCore/IQKeyboardCore/Classes/Constants/IQKeyboardConstants.swift" : {
+    "abi-baseline-json" : "/Users/kaka/Documents/商业项目/维克音乐/build/Pods.build/Release-maccatalyst/IQKeyboardCore.build/Objects-normal/x86_64/IQKeyboardCore.abi.json",
+    "const-values" : "/Users/kaka/Documents/商业项目/维克音乐/build/Pods.build/Release-maccatalyst/IQKeyboardCore.build/Objects-normal/x86_64/IQKeyboardCore-primary.swiftconstvalues",
+    "dependencies" : "/Users/kaka/Documents/商业项目/维克音乐/build/Pods.build/Release-maccatalyst/IQKeyboardCore.build/Objects-normal/x86_64/IQKeyboardCore-primary.d",
+    "diagnostics" : "/Users/kaka/Documents/商业项目/维克音乐/build/Pods.build/Release-maccatalyst/IQKeyboardCore.build/Objects-normal/x86_64/IQKeyboardCore-primary.dia",
+    "objc-header" : "/Users/kaka/Documents/商业项目/维克音乐/build/Pods.build/Release-maccatalyst/IQKeyboardCore.build/Objects-normal/x86_64/IQKeyboardCore-Swift.h",
+    "swiftdoc" : "/Users/kaka/Documents/商业项目/维克音乐/build/Pods.build/Release-maccatalyst/IQKeyboardCore.build/Objects-normal/x86_64/IQKeyboardCore.swiftdoc",
+    "swiftmodule" : "/Users/kaka/Documents/商业项目/维克音乐/build/Pods.build/Release-maccatalyst/IQKeyboardCore.build/Objects-normal/x86_64/IQKeyboardCore.swiftmodule",
+    "swiftsourceinfo" : "/Users/kaka/Documents/商业项目/维克音乐/build/Pods.build/Release-maccatalyst/IQKeyboardCore.build/Objects-normal/x86_64/IQKeyboardCore.swiftsourceinfo"
+  }
+}

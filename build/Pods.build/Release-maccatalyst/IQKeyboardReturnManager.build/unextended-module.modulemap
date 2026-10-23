@@ -1,0 +1,10 @@
+framework module IQKeyboardReturnManager {
+  umbrella header "IQKeyboardReturnManager-umbrella.h"
+
+  export *
+  module * { export * }
+}
+
+module IQKeyboardReturnManager.__Swift {
+  exclude header "IQKeyboardReturnManager-Swift.h"
+}

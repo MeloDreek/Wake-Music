@@ -8,6 +8,7 @@
 import KakaFoundation
 import AppGroupKit
 import KSPlayer
+import KSPlayerUI
 import MediaPlayer
 import StoreKit
 import Kingfisher
@@ -26,7 +27,7 @@ extension KakaMusicPlayer: @preconcurrency PlayerControllerDelegate {
         
     }
     
-    public func playerController(action: KSPlayer.PlayerButtonType) {
+    public func playerController(action: KSPlayerUI.PlayerButtonType) {
         
     }
     

@@ -8,7 +8,6 @@
 import KakaFoundation
 import KakaUIKit
 import AppGroupKit
-import StoreKit
 
 /// 批量编辑成功后的庆祝页面
 class BatchEditSuccessController: SuperViewController {
@@ -57,8 +56,9 @@ class BatchEditSuccessController: SuperViewController {
         // 成就卡片图片
         containerView.addSubview(achieveCardView)
 
-        // Share 按钮（主按钮）
+        // Keep review and sharing available independently of the tagging result.
         containerView.addSubview(rateButton)
+        containerView.addSubview(shareButton)
 
         // VIP 按钮（次按钮）
         containerView.addSubview(vipButton)
@@ -76,16 +76,22 @@ class BatchEditSuccessController: SuperViewController {
         
         rateButton.snp.makeConstraints { make in
             make.top.equalTo(achieveCardView.snp.bottom).offset(20.ckValue())
-            make.centerX.equalToSuperview()
             make.leading.equalToSuperview().offset(12.ckValue())
-            make.trailing.equalToSuperview().offset(-12.ckValue())
+            make.width.equalTo(shareButton)
             make.height.greaterThanOrEqualTo(50.ckValue())
+        }
+
+        shareButton.snp.makeConstraints { make in
+            make.top.bottom.equalTo(rateButton)
+            make.leading.equalTo(rateButton.snp.trailing).offset(12.ckValue())
+            make.trailing.equalToSuperview().offset(-12.ckValue())
         }
         
         vipButton.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.top.equalTo(rateButton.snp.bottom).offset(15.ckValue())
-            make.width.equalTo(rateButton)
+            make.leading.equalTo(rateButton)
+            make.trailing.equalTo(shareButton)
             make.height.greaterThanOrEqualTo(50.ckValue())
         }
         
@@ -121,8 +127,6 @@ class BatchEditSuccessController: SuperViewController {
         
     var missingTagCount: Int = 0
     
-    var isGuideScore: Bool = false
-    
     var isShowPremium: Bool {
         get {
             if UserInfoManager.shared.isVIP() {
@@ -143,14 +147,7 @@ class BatchEditSuccessController: SuperViewController {
     
     // 更新数据
     func updateComplete(time: TimeInterval, totalCount: Int, misstagCount: Int) {
-        let fullTagCount = totalCount - misstagCount
-        let successRate = Double(fullTagCount) / Double(totalCount)
-        let isGuideScore = totalCount >= 5 && successRate >= 0.75
-        
-        self.isGuideScore = isGuideScore
-        self.rateButton.setTitle(isGuideScore ? "Rate Us 5 Stars".localStr() : "Share with Friends".localStr(), for: .normal)
-        
-        self.achieveCardView.updateComplete(time: time, totalCount: totalCount, missingTagCount: misstagCount, isGuideScore: isGuideScore)
+        self.achieveCardView.updateComplete(time: time, totalCount: totalCount, missingTagCount: misstagCount)
     }
     
     // MARK: 懒加载
@@ -196,6 +193,7 @@ class BatchEditSuccessController: SuperViewController {
     
     lazy var rateButton: UIButton = {
         let view = UIButton(type: .custom)
+        view.setTitle("Review.WriteReview".localStr(), for: .normal)
         view.titleLabel?.font = UIFontBold(16.ckValue())
         view.backgroundColor = appMainColor
         view.setTitleColor(.white, for: .normal)
@@ -206,6 +204,22 @@ class BatchEditSuccessController: SuperViewController {
         view.titleLabel?.adjustsFontSizeToFitWidth = true
         view.titleLabel?.minimumScaleFactor = 0.85
         view.addTarget(self, action: #selector(rateButtonClick), for: .touchUpInside)
+        return view
+    }()
+
+    lazy var shareButton: UIButton = {
+        let view = UIButton(type: .custom)
+        view.setTitle("Share with Friends".localStr(), for: .normal)
+        view.titleLabel?.font = UIFontBold(16.ckValue())
+        view.backgroundColor = .secondarySystemBackground
+        view.setTitleColor(.label, for: .normal)
+        view.layer.cornerRadius = 25.ckValue()
+        view.titleLabel?.numberOfLines = 2
+        view.titleLabel?.textAlignment = .center
+        view.titleLabel?.lineBreakMode = .byWordWrapping
+        view.titleLabel?.adjustsFontSizeToFitWidth = true
+        view.titleLabel?.minimumScaleFactor = 0.85
+        view.addTarget(self, action: #selector(shareButtonClick), for: .touchUpInside)
         return view
     }()
     
@@ -223,6 +237,7 @@ class BatchEditSuccessController: SuperViewController {
         view.titleLabel?.adjustsFontSizeToFitWidth = true
         view.titleLabel?.minimumScaleFactor = 0.85
         view.addTarget(self, action: #selector(vipButtonClick), for: .touchUpInside)
+        view.isHidden = !isShowPremium
         return view
     }()
     
@@ -264,19 +279,17 @@ extension BatchEditSuccessController {
         }
     }
     
-    // 五星好评
+    // Optional, user-initiated review of the app being used, with no requested score.
     @objc func rateButtonClick() {
-        if self.isGuideScore {
-            let appStoreURL = Application.wakeTag.appstoreWriteURL()
-            UIApplication.shared.open(appStoreURL)
-        }else{
-            let shareVC = UIActivityViewController(activityItems: [Application.wakeTag.appstoreURL()], applicationActivities: nil)
-            if !kaka_IsiPhone() {
-                shareVC.popoverPresentationController?.sourceView = self.rateButton
-            }
-            
-            self.present(shareVC, animated: true, completion: nil)
+        UIApplication.shared.open(Application.wakeMusic.appstoreWriteURL())
+    }
+
+    @objc func shareButtonClick() {
+        let shareVC = UIActivityViewController(activityItems: [Application.wakeMusic.appstoreURL()], applicationActivities: nil)
+        if !kaka_IsiPhone() {
+            shareVC.popoverPresentationController?.sourceView = self.shareButton
         }
+        self.present(shareVC, animated: true, completion: nil)
     }
     
     // 解锁VIP
@@ -433,63 +446,24 @@ class BatchEditSuccessView: UIView {
     
     // MARK:  GET && SET
     
-    var isShowPremium: Bool {
-        get {
-            if UserInfoManager.shared.isVIP() {
-                let isFreeTrail = UserInfoManager.shared.isFreeTrail
-                return isFreeTrail ? true : false
-            }else{
-                return false
-            }
-        }
-    }
-        
-    
-    func updateComplete(time: TimeInterval, totalCount: Int, missingTagCount: Int, isGuideScore: Bool) {
+    func updateComplete(time: TimeInterval, totalCount: Int, missingTagCount: Int) {
         let spendTime = time.toLocalizedDurationString()
-        let fullTagCount = totalCount - missingTagCount
+        let count = max(0, totalCount)
+        let missingCount = min(count, max(0, missingTagCount))
+        let fullTagCount = count - missingCount
         let completeStr = "Complete Tags".localStr() + ": " + "\(fullTagCount)"
-        let missStr = "Missing Tags".localStr() + ": " + "\(missingTagCount)"
+        let missStr = "Missing Tags".localStr() + ": " + "\(missingCount)"
         
         self.spentTimeLabel.text = spendTime
         self.completeLabel.text = completeStr
         self.missingLabel.text = missStr
         
-        if missingTagCount > 2 {
-            var message = ""
-            
-            if self.isShowPremium {
-                message = "Your free trial is almost over! Enjoying our auto-tagging algorithm? Upgrade to Lifetime Premium with a one-time purchase for permanent access.".localStr()
-            }else{
-                message = String(format: "%d files embedded permanently! %d files have partially mismatched tags. Please edit manually.".localStr(), fullTagCount, missingTagCount)
-            }
-            
-            self.warningLabel.text = message
-            
-            if isGuideScore {
-                self.perform(#selector(self.guideFiveStarRating), with: nil, afterDelay: 2.0)
-            }
+        if missingCount > 0 {
+            self.warningLabel.text = String(format: "%d files embedded permanently! %d files have partially mismatched tags. Please edit manually.".localStr(), fullTagCount, missingCount)
         } else {
-            self.warningLabel.text = String(format: "Awesome! %d tracks fully updated. Enjoying the app? Leave us a review on the App Store!".localStr(), fullTagCount)
-            // 百分之百全成功，用户处于极度兴奋状态，2秒后直接安排评分
-            AppLocalManager.shared.isGuideFiveStar = false
-            self.perform(#selector(self.guideFiveStarRating), with: nil, afterDelay: 2.0)
+            self.warningLabel.text = completeStr
         }
         
-    }
-    
-    /// 弹出好评
-    @objc func guideFiveStarRating() {
-        #if !DEBUG
-        if AppLocalManager.shared.isGuideFiveStar {
-            return
-        }
-        
-        AppLocalManager.shared.isGuideFiveStar = true
-        
-        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene else { return }
-        AppStore.requestReview(in: windowScene)
-        #endif
     }
     
     // MARK:  懒加载

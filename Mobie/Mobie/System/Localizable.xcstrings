@@ -1,6 +1,263 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "Review.WriteReview": {
+      "extractionState": "manual",
+      "localizations": {
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "كتابة مراجعة"
+          }
+        },
+        "ca": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Escriu una ressenya"
+          }
+        },
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Napsat recenzi"
+          }
+        },
+        "da": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Skriv en anmeldelse"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rezension schreiben"
+          }
+        },
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Γράψτε μια κριτική"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Write a Review"
+          }
+        },
+        "en-AU": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Write a Review"
+          }
+        },
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Write a Review"
+          }
+        },
+        "en-IN": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Write a Review"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Escribir una reseña"
+          }
+        },
+        "es-419": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Escribir una reseña"
+          }
+        },
+        "es-US": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Escribir una reseña"
+          }
+        },
+        "fi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kirjoita arvostelu"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rédiger un avis"
+          }
+        },
+        "fr-CA": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rédiger un avis"
+          }
+        },
+        "he": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "כתיבת ביקורת"
+          }
+        },
+        "hi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "समीक्षा लिखें"
+          }
+        },
+        "hr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Napišite recenziju"
+          }
+        },
+        "hu": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vélemény írása"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tulis Ulasan"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Scrivi una recensione"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "レビューを書く"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "리뷰 작성"
+          }
+        },
+        "ms": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tulis Ulasan"
+          }
+        },
+        "nb": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Skriv en anmeldelse"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Schrijf een recensie"
+          }
+        },
+        "pl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Napisz recenzję"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Escrever uma avaliação"
+          }
+        },
+        "pt-PT": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Escrever uma avaliação"
+          }
+        },
+        "ro": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Scrie o recenzie"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Написать отзыв"
+          }
+        },
+        "sk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Napísať recenziu"
+          }
+        },
+        "sl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Napišite mnenje"
+          }
+        },
+        "sv": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Skriv en recension"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "เขียนรีวิว"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Yorum Yaz"
+          }
+        },
+        "uk": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Написати відгук"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Viết đánh giá"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "撰写评价"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "撰寫評論"
+          }
+        },
+        "zh-HK": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "撰寫評論"
+          }
+        }
+      }
+    },
     "Purchase.FamilySharingBadge" : {
       "extractionState": "manual",
       "localizations": {
@@ -22111,263 +22368,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "透過音訊指紋批量識別歌曲，自動補上缺少的標籤。"
-          }
-        }
-      }
-    },
-    "Awesome! %d tracks fully updated. Enjoying the app? Leave us a review on the App Store!" : {
-      "extractionState" : "pasted",
-      "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ممتاز! تم تحديث %d من المقاطع الصوتية بالكامل. إذا أعجبك التطبيق، يُرجى ترك تقييم لنا!"
-          }
-        },
-        "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Genial! s'han actualitzat %d pistes completament. Si t'agrada l'aplicació, deixa'ns una ressenya!"
-          }
-        },
-        "cs" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Skvělé! %d skladeb bylo plně aktualizováno. Pokud se vám aplikace líbí, zanechte nám recenzi!"
-          }
-        },
-        "da" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Fantastisk! %d sange er opdateret. Kan du lide appen? Skriv gerne en anmeldelse!"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Klasse! %d Titel erfolgreich aktualisiert. Sagen Ihnen die Ergebnisse zu? Hinterlassen Sie uns gerne eine Bewertung!"
-          }
-        },
-        "el" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Τέλεια! %d τραγούδια ενημερώθηκαν πλήρως. Αν σας αρέσει η εφαρμογή, αφήστε μας μια αξιολόγηση!"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "All done! Updated %d tracks. Enjoying Wakemusic? Leave a review on the App Store!"
-          }
-        },
-        "en-AU" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "All done! Updated %d tracks. Enjoying Wakemusic? Leave a review on the App Store!"
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "All done! Updated %d tracks. Enjoying Wakemusic? Leave a review on the App Store!"
-          }
-        },
-        "en-IN" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "All done! Updated %d tracks. Enjoying Wakemusic? Leave a review on the App Store!"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "¡Genial! %d canciones se han actualizado por completo. ¿Te gusta la aplicación? ¡Déjanos una reseña!"
-          }
-        },
-        "es-419" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "¡Increíble! %d pistas actualizadas por completo. ¿Te gustó el resultado? ¡Déjanos una reseña!"
-          }
-        },
-        "es-US" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "¡Excelente! %d pistas totalmente actualizadas. Si te gusta la app, ¡déjanos una calificación!"
-          }
-        },
-        "fi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Mahtavaa! %d kappaletta päivitetty onnistuneesti. Jos pidät sovelluksesta, jätä meille arvostelu!"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Superbe ! %d morceaux entièrement mis à jour. Vous aimez l'application ? Laissez-nous un avis !"
-          }
-        },
-        "fr-CA" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Génial ! %d titres entièrement mis à jour. Vous aimez l’app ? Laissez-nous un avis sur l’App Store !"
-          }
-        },
-        "he" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "מעולה! %d שירים עודכנו במלואם. אוהבים את האפליקציה? נשמח אם תרשמו לנו דירוג!"
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "बहुत बढ़िया! %d गानों के टैग अपडेट हो गए हैं। अगर ऐप पसंद आया, तो हमें रिव्यू ज़रूर दें!"
-          }
-        },
-        "hr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Izvrsno! Potpuno je ažurirano %d pjesama. Ako vam se sviđa aplikacija, ostavite nam recenziju!"
-          }
-        },
-        "hu" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Szuper! %d szám sikeresen frissítve. Ha tetszik az alkalmazás, kérjük, értékeljen minket!"
-          }
-        },
-        "id" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Luar biasa! %d lagu berhasil diperbarui. Suka dengan hasilnya? Beri kami ulasan, ya!"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Fantastico! %d brani aggiornati con successo. Ti piace l'app? Lasciaci una recensione!"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "素晴らしい！%d曲のタグ情報を完全更新しました。気に入っていただけましたら、ぜひストアレビューで応援をお願いします！"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "완벽해요! %d개 트랙의 태그가 모두 업데이트되었습니다. 앱이 마음에 드셨다면 스토어 리뷰를 남겨주세요!"
-          }
-        },
-        "ms" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Hebat! %d lagu telah berjaya dikemas kini. Jika anda menyukai aplikasi ini, tinggalkan ulasan untuk kami!"
-          }
-        },
-        "nb" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Supert! %d sanger ble oppdatert. Fornøyd med resultatet? Legg gjerne igjen en anmeldelse!"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Geweldig! %d nummers volledig bijgewerkt. Blij met het resultaat? Laat een beoordeling achter!"
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Świetnie! W pełni zaktualizowano %d utworów. Podoba Ci się aplikacja? Zostaw nam opinię w App Store!"
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Incrível! %d faixas atualizadas com sucesso. Gostou do resultado? Deixe uma avaliação para nós!"
-          }
-        },
-        "pt-PT" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Fantástico! %d faixas totalmente atualizadas. Se gosta da aplicação, deixe-nos uma avaliação!"
-          }
-        },
-        "ro" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Excelent! %d piese au fost actualizate complet. Vă place aplicația? Lăsați-ne o recenzie în App Store!"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Отлично! %d треков успешно обновлено. Нравится приложение? Оставьте нам отзыв!"
-          }
-        },
-        "sk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Skvelé! %d skladieb bolo úplne aktualizovaných. Ak sa vám aplikácia páči, zanechajte nám recenziu!"
-          }
-        },
-        "sl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Odlično! %d skladb je bilo uspešno posodobljenih. Vam je aplikacija všeč? Pustite nam oceno!"
-          }
-        },
-        "sv" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Strålande! %d spår har uppdaterats helt. Gillar du appen? Lämna gärna en recension!"
-          }
-        },
-        "th" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ยอดเยี่ยมมาก! อัปเดตเพลง %d เพลงเรียบร้อยแล้ว หากคุณชื่นชอบแอปนี้ โปรดให้คะแนนรีวิวเพื่อเป็นกำลังใจให้เรา!"
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Harika! %d şarkı tamamen güncellendi. Uygulamamızı beğendiniz mi? Bize bir değerlendirme bırakın!"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Чудово! %d треків успішно оновлено. Подобається застосунок? Залиште нам відгук!"
-          }
-        },
-        "vi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tuyệt vời! %d bài hát đã được cập nhật hoàn toàn. Nếu bạn yêu thích ứng dụng, hãy để lại đánh giá cho chúng tôi nhé!"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "已完成！成功更新 %d 首歌曲。如果喜欢维克音乐，欢迎到 App Store 留下评价。"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "已完成！成功更新 %d 首歌曲。如果喜歡維克音樂，歡迎到 App Store 留下評價。"
-          }
-        },
-        "zh-HK" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "已完成！成功更新 %d 首歌曲。如果喜歡維克音樂，歡迎到 App Store 留下評價。"
           }
         }
       }
@@ -47042,257 +47042,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "不顯示"
-          }
-        }
-      }
-    },
-    "Donate" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "تبرع"
-          }
-        },
-        "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Donar"
-          }
-        },
-        "cs" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Přispět"
-          }
-        },
-        "da" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Donér"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Spenden"
-          }
-        },
-        "el" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Δωρεά"
-          }
-        },
-        "en-AU" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Donate"
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Donate"
-          }
-        },
-        "en-IN" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Donate"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Donar"
-          }
-        },
-        "es-419" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Donar"
-          }
-        },
-        "es-US" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Donar"
-          }
-        },
-        "fi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Lahjoita"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Faire un don"
-          }
-        },
-        "fr-CA" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Faire un don"
-          }
-        },
-        "he" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "תרומה"
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "दान करें"
-          }
-        },
-        "hr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Doniraj"
-          }
-        },
-        "hu" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Támogatás"
-          }
-        },
-        "id" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Donasi"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Dona"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "寄付する"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "후원"
-          }
-        },
-        "ms" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Derma"
-          }
-        },
-        "nb" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Doner"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Doneren"
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Wesprzyj"
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Doar"
-          }
-        },
-        "pt-PT" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Doar"
-          }
-        },
-        "ro" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Donează"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Поддержать"
-          }
-        },
-        "sk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Prispieť"
-          }
-        },
-        "sl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Doniraj"
-          }
-        },
-        "sv" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Donera"
-          }
-        },
-        "th" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "บริจาค"
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Bağış Yap"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Підтримати"
-          }
-        },
-        "vi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ủng hộ"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "捐赠"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "捐贈"
-          }
-        },
-        "zh-HK" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "捐贈"
           }
         }
       }
@@ -79481,263 +79230,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "ℹ️ 已略過 %d 個可長期存取的檔案，無需移除參照。"
-          }
-        }
-      }
-    },
-    "If you think we are not bad, please give us a 5 star rating or recommend it to your friends. Thank you for your support!" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "إذا كنت تعتقد أننا نقوم بعمل جيد ، فيرجى تزويدنا بمراجعة 5 نجوم أو التوصية بها لأصدقائك. شكرا لدعمكم!"
-          }
-        },
-        "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Si creieu que estem fent una bona feina, feu-nos una ressenya de 5 estrelles o recomaneu-la als vostres amics. Gràcies pel vostre suport!"
-          }
-        },
-        "cs" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Pokud si myslíte, že odvádíme dobrou práci, dejte nám prosím 5hvězdičkovou recenzi nebo ji doporučte svým přátelům. Děkujeme za vaši podporu!"
-          }
-        },
-        "da" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Hvis du synes, vi gør et godt stykke arbejde, så giv os en 5-stjernet anmeldelse eller anbefal den til dine venner. Tak for din støtte!"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Wenn Sie der Meinung sind, dass wir einen guten Job machen, geben Sie uns bitte eine 5-Sterne-Bewertung oder empfehlen Sie es Ihren Freunden. Vielen Dank für Ihre Unterstützung!"
-          }
-        },
-        "el" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Αν νομίζετε ότι κάνουμε καλή δουλειά, δώστε μας μια κριτική 5 αστέρων ή προτείνετε την στους φίλους σας. Σας ευχαριστούμε για την υποστήριξή σας!"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Enjoying Wakemusic? Give us a 5-star rating or recommend it to a friend. Thank you for your support!"
-          }
-        },
-        "en-AU" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Enjoying Wakemusic? Give us a 5-star rating or recommend it to a friend. Thank you for your support!"
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Enjoying Wakemusic? Give us a 5-star rating or recommend it to a friend. Thank you for your support!"
-          }
-        },
-        "en-IN" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Enjoying Wakemusic? Give us a 5-star rating or recommend it to a friend. Thank you for your support!"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Si crees que estamos haciendo un buen trabajo, danos una reseña de 5 estrellas o recomiéndalo a tus amigos. ¡Gracias por su apoyo!"
-          }
-        },
-        "es-419" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Si crees que estamos haciendo un buen trabajo, danos una reseña de 5 estrellas o recomiéndalo a tus amigos. ¡Gracias por su apoyo!"
-          }
-        },
-        "es-US" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Si crees que estamos haciendo un buen trabajo, danos una reseña de 5 estrellas o recomiéndalo a tus amigos. ¡Gracias por su apoyo!"
-          }
-        },
-        "fi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Jos teemme mielestäsi hyvää työtä, anna meille 5 tähden arvostelu tai suosittele sitä ystävillesi. Kiitos tuestasi!"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Si vous pensez que nous faisons du bon travail, donnez-nous un avis 5 étoiles ou recommandez-le à vos amis. Merci pour votre soutien !"
-          }
-        },
-        "fr-CA" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Si vous pensez que nous faisons du bon travail, veuillez nous donner un avis 5 étoiles ou le recommander à vos amis. Merci pour votre soutien !"
-          }
-        },
-        "he" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "אם אתה חושב שאנחנו עושים עבודה טובה, אנא תן לנו ביקורת של 5 כוכבים או המלץ עליה לחבריך. תודה על תמיכתך!"
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "अगर आपको लगता है कि हम अच्छा काम कर रहे हैं, तो कृपया हमें 5-स्टार समीक्षा दें या अपने दोस्तों को इसकी अनुशंसा करें। आपके समर्थन के लिए धन्यवाद!"
-          }
-        },
-        "hr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ako mislite da radimo dobar posao, dajte nam recenziju s 5 zvjezdica ili je preporučite svojim prijateljima. Hvala vam na podršci!"
-          }
-        },
-        "hu" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ha úgy gondolja, hogy jó munkát végzünk, kérjük, írjon nekünk egy 5 csillagos értékelést, vagy ajánlja barátainak. Köszönjük a támogatást!"
-          }
-        },
-        "id" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Jika menurut Anda kami melakukan pekerjaan dengan baik, beri kami ulasan bintang 5 atau rekomendasikan kepada teman-teman Anda. Terima kasih atas dukungan Anda!"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Se pensi che stiamo facendo un buon lavoro, ti preghiamo di darci una recensione a 5 stelle o di consigliarla ai tuoi amici. Grazie per il vostro supporto!"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "アプリを気に入っていただけたら、星5つの評価やお友達への紹介で応援していただけるとうれしいです。いつもありがとうございます！"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "앱이 마음에 드셨다면 별 5개 평가를 남기거나 친구에게 추천해 주세요. 응원해 주셔서 감사합니다!"
-          }
-        },
-        "ms" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Jika anda fikir kami melakukan kerja yang baik, sila beri kami ulasan 5 bintang atau mengesyorkannya kepada rakan anda. Terima kasih atas sokongan anda!"
-          }
-        },
-        "nb" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Hvis du synes vi gjør en god jobb, vennligst gi oss en 5-stjerners anmeldelse eller anbefal den til vennene dine. Takk for støtten!"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Als je denkt dat we het goed doen, geef ons dan een 5-sterrenrecensie of beveel het aan bij je vrienden. Bedankt voor je steun!"
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Jeśli uważasz, że robimy dobrą robotę, daj nam 5 gwiazdek lub poleć to swoim znajomym. Dziękujemy za wsparcie!"
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Se você acha que estamos fazendo um bom trabalho, por favor, dê-nos uma avaliação de 5 estrelas ou recomende-a aos seus amigos. Obrigado pelo seu apoio!"
-          }
-        },
-        "pt-PT" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Se você acha que estamos fazendo um bom trabalho, por favor, dê-nos uma avaliação de 5 estrelas ou recomende-a aos seus amigos. Obrigado pelo vosso apoio!"
-          }
-        },
-        "ro" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Dacă credeți că facem o treabă bună, vă rugăm să ne dați o recenzie de 5 stele sau să o recomandați prietenilor dvs. Vă mulțumim pentru sprijin!"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Если вы считаете, что мы делаем хорошую работу, пожалуйста, оставьте нам 5-звездочный отзыв или порекомендуйте его своим друзьям. Спасибо за вашу поддержку!"
-          }
-        },
-        "sk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ak si myslíte, že robíme dobrú prácu, dajte nám 5-hviezdičkovú recenziu alebo ju odporučte svojim priateľom. Ďakujeme za podporu!"
-          }
-        },
-        "sl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Če menite, da nismo slabi, nam dajte 5 zvezdic ali pa nas priporočite svojim prijateljem. Hvala za vašo podporo!"
-          }
-        },
-        "sv" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Om du tycker att vi gör ett bra jobb, ge oss gärna en 5-stjärnig recension eller rekommendera den till dina vänner. Tack för ditt stöd!"
-          }
-        },
-        "th" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "หากคุณคิดว่าเราทํางานได้ดี โปรดให้คําวิจารณ์ระดับ 5 ดาวแก่เราหรือแนะนําให้เพื่อนของคุณ ขอบคุณสําหรับการสนับสนุนของคุณ!"
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "İyi bir iş çıkardığımızı düşünüyorsanız, lütfen bize 5 yıldızlı bir inceleme yapın veya arkadaşlarınıza tavsiye edin. Desteğiniz için teşekkür ederiz!"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Якщо ви вважаєте, що ми робимо хорошу роботу, будь ласка, дайте нам 5-зірковий відгук або порекомендуйте його своїм друзям. Дякуємо за підтримку!"
-          }
-        },
-        "vi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Nếu bạn nghĩ rằng chúng tôi đang làm tốt, vui lòng cho chúng tôi đánh giá 5 sao hoặc giới thiệu nó cho bạn bè của bạn. Cảm ơn sự hỗ trợ của bạn!"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "喜欢维克音乐？欢迎给我们五星好评，或推荐给朋友。感谢你的支持！"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "喜歡維克音樂？歡迎給我們五星好評，或推薦給朋友。感謝你的支持！"
-          }
-        },
-        "zh-HK" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "喜歡維克音樂？歡迎給我們五星好評，或推薦給朋友。感謝你的支持！"
           }
         }
       }
@@ -145033,257 +144525,6 @@
         }
       }
     },
-    "Rate Us 5 Stars" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "قيّمنا بخمس نجوم"
-          }
-        },
-        "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Valora’ns amb 5 estrelles"
-          }
-        },
-        "cs" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ohodnoťte nás 5 hvězdičkami"
-          }
-        },
-        "da" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Giv os 5 stjerner"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Gib uns 5 Sterne"
-          }
-        },
-        "el" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Βαθμολογήστε μας με 5 αστέρια"
-          }
-        },
-        "en-AU" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Rate Us 5 Stars"
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Rate Us 5 Stars"
-          }
-        },
-        "en-IN" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Rate Us 5 Stars"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Danos 5 estrellas"
-          }
-        },
-        "es-419" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Danos 5 estrellas"
-          }
-        },
-        "es-US" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Danos 5 estrellas"
-          }
-        },
-        "fi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Anna meille 5 tähteä"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Donnez-nous 5 étoiles"
-          }
-        },
-        "fr-CA" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Donnez-nous 5 étoiles"
-          }
-        },
-        "he" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "דרגו אותנו ב-5 כוכבים"
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "हमें 5 स्टार रेटिंग दें"
-          }
-        },
-        "hr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ocijenite nas s 5 zvjezdica"
-          }
-        },
-        "hu" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Értékelj minket 5 csillaggal"
-          }
-        },
-        "id" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Beri Kami 5 Bintang"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Dacci 5 stelle"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "⭐️5つで評価してください"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "별 5개로 평가해 주세요"
-          }
-        },
-        "ms" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Beri Kami 5 Bintang"
-          }
-        },
-        "nb" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Gi oss 5 stjerner"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Geef ons 5 sterren"
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Oceń nas na 5 gwiazdek"
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Dê 5 estrelas para nós"
-          }
-        },
-        "pt-PT" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Dê-nos 5 estrelas"
-          }
-        },
-        "ro" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Acordați-ne 5 stele"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Оцените нас на 5 звёзд"
-          }
-        },
-        "sk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ohodnoťte nás 5 hviezdičkami"
-          }
-        },
-        "sl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ocenite nas s 5 zvezdicami"
-          }
-        },
-        "sv" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ge oss 5 stjärnor"
-          }
-        },
-        "th" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ให้คะแนนเรา 5 ดาว"
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Bize 5 Yıldız Verin"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Оцініть нас на 5 зірок"
-          }
-        },
-        "vi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Hãy đánh giá 5 sao cho chúng tôi"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "五星好评"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "五星好評"
-          }
-        },
-        "zh-HK" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "五星好評"
-          }
-        }
-      }
-    },
     "Recent plays on this device and from your server." : {
       "extractionState" : "manual",
       "localizations" : {
@@ -168162,257 +167403,6 @@
         }
       }
     },
-    "Support Us" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ادعمنا"
-          }
-        },
-        "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Dona’ns suport"
-          }
-        },
-        "cs" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Podpořte nás"
-          }
-        },
-        "da" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Støt os"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Unterstütze uns"
-          }
-        },
-        "el" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Υποστηρίξτε μας"
-          }
-        },
-        "en-AU" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Support Us"
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Support Us"
-          }
-        },
-        "en-IN" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Support Us"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Apóyanos"
-          }
-        },
-        "es-419" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Apóyanos"
-          }
-        },
-        "es-US" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Apóyanos"
-          }
-        },
-        "fi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tue meitä"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Soutenez-nous"
-          }
-        },
-        "fr-CA" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Soutenez-nous"
-          }
-        },
-        "he" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "תמכו בנו"
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "हमारा समर्थन करें"
-          }
-        },
-        "hr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Podržite nas"
-          }
-        },
-        "hu" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Támogass minket"
-          }
-        },
-        "id" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Dukung Kami"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sostienici"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "私たちを応援"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "후원하기"
-          }
-        },
-        "ms" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sokong Kami"
-          }
-        },
-        "nb" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Støtt oss"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Steun ons"
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Wesprzyj nas"
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Apoie-nos"
-          }
-        },
-        "pt-PT" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Apoie-nos"
-          }
-        },
-        "ro" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Susține-ne"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Поддержать нас"
-          }
-        },
-        "sk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Podporte nás"
-          }
-        },
-        "sl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Podprite nas"
-          }
-        },
-        "sv" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Stöd oss"
-          }
-        },
-        "th" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "สนับสนุนเรา"
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Bizi Destekleyin"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Підтримати нас"
-          }
-        },
-        "vi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ủng hộ chúng tôi"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "支持我们"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "支持我們"
-          }
-        },
-        "zh-HK" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "支持我們"
-          }
-        }
-      }
-    },
     "Supported Channels" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -170695,257 +169685,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "感謝你的意見"
-          }
-        }
-      }
-    },
-    "Thank you for your support!" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "شكرًا لدعمك!"
-          }
-        },
-        "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Gràcies pel teu suport!"
-          }
-        },
-        "cs" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Děkujeme za vaši podporu!"
-          }
-        },
-        "da" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tak for din støtte!"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Vielen Dank für deine Unterstützung!"
-          }
-        },
-        "el" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ευχαριστούμε για την υποστήριξή σας!"
-          }
-        },
-        "en-AU" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Thank you for your support!"
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Thank you for your support!"
-          }
-        },
-        "en-IN" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Thank you for your support!"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "¡Gracias por tu apoyo!"
-          }
-        },
-        "es-419" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "¡Gracias por tu apoyo!"
-          }
-        },
-        "es-US" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "¡Gracias por tu apoyo!"
-          }
-        },
-        "fi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Kiitos tuestasi!"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Merci pour votre soutien !"
-          }
-        },
-        "fr-CA" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Merci pour votre soutien !"
-          }
-        },
-        "he" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "תודה על התמיכה שלך!"
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "आपके समर्थन के लिए धन्यवाद!"
-          }
-        },
-        "hr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Hvala vam na podršci!"
-          }
-        },
-        "hu" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Köszönjük a támogatásodat!"
-          }
-        },
-        "id" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Terima kasih atas dukungan Anda!"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Grazie per il vostro sostegno!"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ご声援ありがとうございました！"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "귀하의 지원에 감사드립니다!"
-          }
-        },
-        "ms" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Terima kasih atas sokongan anda!"
-          }
-        },
-        "nb" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Takk for støtten!"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Bedankt voor je steun!"
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Dziękujemy za wsparcie!"
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Obrigado pelo seu apoio"
-          }
-        },
-        "pt-PT" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Obrigado pelo vosso apoio"
-          }
-        },
-        "ro" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Vă mulțumim pentru sprijin!"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Спасибо за вашу поддержку!"
-          }
-        },
-        "sk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ďakujeme za vašu podporu!"
-          }
-        },
-        "sl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Hvala za vašo podporo!"
-          }
-        },
-        "sv" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tack för ditt stöd!"
-          }
-        },
-        "th" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ขอบคุณสำหรับการสนับสนุน!"
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Desteğiniz için teşekkürler!"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Дякуємо за вашу підтримку!"
-          }
-        },
-        "vi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Cảm ơn bạn đã ủng hộ!"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "感谢你的支持！"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "感謝你的支持！"
-          }
-        },
-        "zh-HK" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "感謝你的支持！"
           }
         }
       }
@@ -177842,257 +176581,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "此格式不支援內嵌音樂標籤，建議使用 MP3、FLAC、M4A 或 WAV 等常見音訊格式。"
-          }
-        }
-      }
-    },
-    "This is a large project, and we're committed to providing you with the best possible music experience. Your donation not only supports our work, but also helps us continue improving the app and bringing you new features. Thank you for your support!" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "هذا مشروع ضخم، ونحن ملتزمون بتقديم أفضل تجربة موسيقية ممكنة لك. لا يقتصر تبرعك على دعم عملنا فحسب، بل يساعدنا أيضًا على مواصلة تحسين التطبيق وتقديم ميزات جديدة. شكرًا لدعمك!"
-          }
-        },
-        "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Aquest és un projecte gran i ens comprometem a oferir-te la millor experiència musical possible. La teva donació no només dona suport al nostre treball, sinó que també ens ajuda a continuar millorant l’aplicació i oferint-te noves funcions. Gràcies pel teu suport!"
-          }
-        },
-        "cs" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Je to rozsáhlý projekt a naším cílem je poskytovat vám co nejlepší hudební zážitek. Váš příspěvek nejen podporuje naši práci, ale také nám pomáhá aplikaci neustále vylepšovat a přinášet nové funkce. Děkujeme za vaši podporu!"
-          }
-        },
-        "da" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Dette er et stort projekt, og vi er dedikerede til at give dig den bedst mulige musikoplevelse. Din donation støtter ikke kun vores arbejde, men hjælper os også med løbende at forbedre appen og tilbyde nye funktioner. Tak for din støtte!"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Dies ist ein großes Projekt, und wir setzen uns dafür ein, dir das bestmögliche Musikerlebnis zu bieten. Deine Spende unterstützt nicht nur unsere Arbeit, sondern hilft uns auch dabei, die App kontinuierlich zu verbessern und neue Funktionen anzubieten. Vielen Dank für deine Unterstützung!"
-          }
-        },
-        "el" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Αυτό είναι ένα μεγάλο έργο και δεσμευόμαστε να σας προσφέρουμε την καλύτερη δυνατή μουσική εμπειρία. Η δωρεά σας δεν υποστηρίζει μόνο τη δουλειά μας, αλλά μας βοηθά επίσης να συνεχίσουμε να βελτιώνουμε την εφαρμογή και να προσθέτουμε νέες λειτουργίες. Ευχαριστούμε για την υποστήριξή σας!"
-          }
-        },
-        "en-AU" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "This is a large project, and we're committed to providing you with the best possible music experience. Your donation not only supports our work, but also helps us continue improving the app and bringing you new features. Thank you for your support!"
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "This is a large project, and we're committed to providing you with the best possible music experience. Your donation not only supports our work, but also helps us continue improving the app and bringing you new features. Thank you for your support!"
-          }
-        },
-        "en-IN" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "This is a large project, and we're committed to providing you with the best possible music experience. Your donation not only supports our work, but also helps us continue improving the app and bringing you new features. Thank you for your support!"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Este es un proyecto grande y estamos comprometidos a ofrecerte la mejor experiencia musical posible. Tu donación no solo apoya nuestro trabajo, sino que también nos ayuda a seguir mejorando la aplicación y a ofrecer nuevas funciones. ¡Gracias por tu apoyo!"
-          }
-        },
-        "es-419" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Este es un proyecto grande y estamos comprometidos a ofrecerte la mejor experiencia musical posible. Tu donación no solo apoya nuestro trabajo, sino que también nos ayuda a seguir mejorando la aplicación y a ofrecer nuevas funciones. ¡Gracias por tu apoyo!"
-          }
-        },
-        "es-US" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Este es un proyecto grande y estamos comprometidos a ofrecerte la mejor experiencia musical posible. Tu donación no solo apoya nuestro trabajo, sino que también nos ayuda a seguir mejorando la aplicación y a ofrecer nuevas funciones. ¡Gracias por tu apoyo!"
-          }
-        },
-        "fi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tämä on suuri projekti, ja haluamme tarjota sinulle parhaan mahdollisen musiikkikokemuksen. Lahjoituksesi ei ainoastaan tue työtämme, vaan auttaa meitä myös kehittämään sovellusta jatkuvasti ja tuomaan siihen uusia ominaisuuksia. Kiitos tuestasi!"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Il s’agit d’un projet d’envergure, et nous nous engageons à vous offrir la meilleure expérience musicale possible. Votre don soutient notre travail, mais nous aide également à continuer d’améliorer l’application et à proposer de nouvelles fonctionnalités. Merci pour votre soutien !"
-          }
-        },
-        "fr-CA" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Il s’agit d’un projet d’envergure, et nous nous engageons à vous offrir la meilleure expérience musicale possible. Votre don soutient notre travail, mais nous aide également à continuer d’améliorer l’application et à proposer de nouvelles fonctionnalités. Merci pour votre soutien !"
-          }
-        },
-        "he" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "זהו פרויקט גדול, ואנו מחויבים לספק לכם את חוויית המוזיקה הטובה ביותר האפשרית. התרומה שלכם לא רק תומכת בעבודה שלנו, אלא גם מאפשרת לנו להמשיך לשפר את האפליקציה ולהוסיף תכונות חדשות. תודה על התמיכה שלכם!"
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "यह एक बड़ा प्रोजेक्ट है और हम आपको संगीत का सर्वोत्तम अनुभव देने के लिए प्रतिबद्ध हैं। आपका दान न केवल हमारे काम का समर्थन करता है, बल्कि हमें ऐप को लगातार बेहतर बनाने और नई सुविधाएँ जोड़ने में भी मदद करता है। आपके समर्थन के लिए धन्यवाद!"
-          }
-        },
-        "hr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ovo je velik projekt i predani smo pružanju najboljeg mogućeg glazbenog iskustva. Vaša donacija ne samo da podržava naš rad, već nam pomaže i da nastavimo poboljšavati aplikaciju i donositi nove značajke. Hvala vam na podršci!"
-          }
-        },
-        "hu" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ez egy nagyszabású projekt, és elkötelezettek vagyunk amellett, hogy a lehető legjobb zenei élményt nyújtsuk. Adományod nemcsak a munkánkat támogatja, hanem abban is segít, hogy folyamatosan fejlesszük az alkalmazást és új funkciókat kínáljunk. Köszönjük a támogatásodat!"
-          }
-        },
-        "id" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ini adalah proyek besar, dan kami berkomitmen untuk memberikan pengalaman musik terbaik bagi Anda. Donasi Anda tidak hanya mendukung pekerjaan kami, tetapi juga membantu kami terus menyempurnakan aplikasi dan menghadirkan fitur-fitur baru. Terima kasih atas dukungan Anda!"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Questo è un progetto importante e ci impegniamo a offrirti la migliore esperienza musicale possibile. La tua donazione non solo sostiene il nostro lavoro, ma ci aiuta anche a continuare a migliorare l’app e a introdurre nuove funzionalità. Grazie per il tuo supporto!"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "これは大規模なプロジェクトです。私たちは最高の音楽体験を提供することに尽力しています。皆さまからのご支援は私たちの活動を支えるだけでなく、アプリの継続的な改善や新機能の開発にも役立っています。ご支援ありがとうございます！"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "이 앱은 규모가 큰 프로젝트이며, 저희는 최고의 음악 경험을 제공하기 위해 노력하고 있습니다. 여러분의 후원은 저희의 작업을 지원할 뿐만 아니라 앱을 지속적으로 개선하고 새로운 기능을 선보이는 데 큰 도움이 됩니다. 후원해 주셔서 감사합니다!"
-          }
-        },
-        "ms" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ini ialah projek besar, dan kami komited untuk memberikan pengalaman muzik terbaik kepada anda. Sumbangan anda bukan sahaja menyokong usaha kami, malah membantu kami terus menambah baik aplikasi dan menghadirkan ciri-ciri baharu. Terima kasih atas sokongan anda!"
-          }
-        },
-        "nb" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Dette er et stort prosjekt, og vi er opptatt av å gi deg den best mulige musikkopplevelsen. Donasjonen din støtter ikke bare arbeidet vårt, men hjelper oss også med å fortsette å forbedre appen og lansere nye funksjoner. Takk for støtten!"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Dit is een groot project en we zetten ons in om je de best mogelijke muziekervaring te bieden. Met je donatie steun je niet alleen ons werk, maar help je ons ook de app voortdurend te verbeteren en nieuwe functies toe te voegen. Bedankt voor je steun!"
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "To duży projekt, a naszym celem jest zapewnienie Ci jak najlepszych wrażeń muzycznych. Twoja darowizna nie tylko wspiera naszą pracę, ale także pomaga nam stale ulepszać aplikację i wprowadzać nowe funkcje. Dziękujemy za wsparcie!"
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Este é um projeto grande, e estamos comprometidos em oferecer a melhor experiência musical possível. Sua doação não apenas apoia nosso trabalho, mas também nos ajuda a continuar aprimorando o app e trazendo novos recursos. Obrigado pelo seu apoio!"
-          }
-        },
-        "pt-PT" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Este é um projeto de grande dimensão e estamos empenhados em proporcionar-lhe a melhor experiência musical possível. O seu donativo não só apoia o nosso trabalho, como também nos ajuda a continuar a melhorar a aplicação e a lançar novas funcionalidades. Obrigado pelo seu apoio!"
-          }
-        },
-        "ro" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Acesta este un proiect amplu și ne angajăm să vă oferim cea mai bună experiență muzicală posibilă. Donația dumneavoastră nu doar susține munca noastră, ci ne ajută și să îmbunătățim constant aplicația și să oferim funcții noi. Vă mulțumim pentru sprijin!"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Это большой проект, и мы стремимся предоставить вам наилучшие возможности для работы с музыкой. Ваше пожертвование не только поддерживает нашу работу, но и помогает нам постоянно улучшать приложение и добавлять новые функции. Спасибо за вашу поддержку!"
-          }
-        },
-        "sk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Toto je rozsiahly projekt a naším cieľom je poskytovať vám čo najlepší hudobný zážitok. Váš príspevok nielen podporuje našu prácu, ale pomáha nám aj naďalej vylepšovať aplikáciu a prinášať nové funkcie. Ďakujeme za vašu podporu!"
-          }
-        },
-        "sl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "To je obsežen projekt in prizadevamo si, da vam ponudimo najboljšo možno glasbeno izkušnjo. Vaša donacija ne podpira le našega dela, temveč nam pomaga tudi pri nenehnem izboljševanju aplikacije in uvajanju novih funkcij. Hvala za vašo podporo!"
-          }
-        },
-        "sv" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Det här är ett stort projekt, och vi strävar efter att ge dig den bästa möjliga musikupplevelsen. Din donation stödjer inte bara vårt arbete, utan hjälper oss också att fortsätta förbättra appen och lansera nya funktioner. Tack för ditt stöd!"
-          }
-        },
-        "th" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "นี่คือโครงการขนาดใหญ่ และเรามุ่งมั่นที่จะมอบประสบการณ์การฟังเพลงที่ดีที่สุดให้กับคุณ การบริจาคของคุณไม่เพียงสนับสนุนการทำงานของเรา แต่ยังช่วยให้เราพัฒนาแอปอย่างต่อเนื่องและเพิ่มฟีเจอร์ใหม่ ๆ ขอบคุณสำหรับการสนับสนุน!"
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Bu büyük bir proje ve size mümkün olan en iyi müzik deneyimini sunmaya kararlıyız. Bağışınız yalnızca çalışmalarımızı desteklemekle kalmaz, aynı zamanda uygulamayı sürekli geliştirmemize ve yeni özellikler sunmamıza yardımcı olur. Desteğiniz için teşekkür ederiz!"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Це масштабний проєкт, і ми прагнемо забезпечити вам найкращий музичний досвід. Ваша пожертва не лише підтримує нашу роботу, а й допомагає нам постійно вдосконалювати застосунок і впроваджувати нові функції. Дякуємо за вашу підтримку!"
-          }
-        },
-        "vi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Đây là một dự án lớn và chúng tôi cam kết mang đến cho bạn trải nghiệm âm nhạc tốt nhất có thể. Khoản đóng góp của bạn không chỉ hỗ trợ công việc của chúng tôi mà còn giúp chúng tôi tiếp tục cải thiện ứng dụng và mang đến các tính năng mới. Cảm ơn bạn đã ủng hộ!"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "这是一个庞大的项目，我们致力于为您提供最佳的音乐体验。您的捐赠不仅是对我们工作的支持，也帮助我们不断完善应用并推出新功能。谢谢您的支持！"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "這是一個龐大的專案，我們致力於為您提供最佳的音樂體驗。您的捐贈不僅是對我們工作的支持，也幫助我們持續改進 App 並推出新功能。謝謝您的支持！"
-          }
-        },
-        "zh-HK" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "這是一個龐大的專案，我們致力於為你提供最佳的音樂體驗。你的捐贈不僅是對我們工作的支持，也幫助我們持續改進 App 並推出新功能。感謝你的支持！"
           }
         }
       }
@@ -192114,263 +190602,6 @@
         }
       }
     },
-    "We need your help" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "نحن بحاجة لمساعدتكم"
-          }
-        },
-        "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Necessitem la teva ajuda"
-          }
-        },
-        "cs" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Potřebujeme vaši pomoc"
-          }
-        },
-        "da" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Vi har brug for din hjælp"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Wir brauchen Ihre Hilfe"
-          }
-        },
-        "el" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Χρειαζόμαστε τη βοήθειά σας"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "We Need Your Help"
-          }
-        },
-        "en-AU" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "We Need Your Help"
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "We Need Your Help"
-          }
-        },
-        "en-IN" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "We Need Your Help"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Necesitamos tu ayuda"
-          }
-        },
-        "es-419" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Necesitamos tu ayuda"
-          }
-        },
-        "es-US" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Necesitamos tu ayuda"
-          }
-        },
-        "fi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tarvitsemme apuasi"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Nous avons besoin de votre aide"
-          }
-        },
-        "fr-CA" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Nous avons besoin de votre aide"
-          }
-        },
-        "he" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "אנו זקוקים לעזרתכם"
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "हमें आपकी मदद चाहिए"
-          }
-        },
-        "hr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Trebamo vašu pomoć"
-          }
-        },
-        "hu" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Szükségünk van a segítségedre"
-          }
-        },
-        "id" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Kami membutuhkan bantuan Anda"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Abbiamo bisogno del tuo aiuto"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "皆さまのご協力をお願いします"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "여러분의 도움이 필요합니다"
-          }
-        },
-        "ms" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Kami memerlukan bantuan anda"
-          }
-        },
-        "nb" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Vi trenger din hjelp"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "We hebben uw hulp nodig"
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Potrzebujemy Twojej pomocy"
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Precisamos da sua ajuda"
-          }
-        },
-        "pt-PT" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Precisamos da sua ajuda"
-          }
-        },
-        "ro" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Avem nevoie de ajutorul tău"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Нам нужна ваша помощь"
-          }
-        },
-        "sk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Potrebujeme vašu pomoc"
-          }
-        },
-        "sl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Potrebujemo vašo pomoč"
-          }
-        },
-        "sv" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Vi behöver din hjälp"
-          }
-        },
-        "th" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "เราต้องการความช่วยเหลือจากคุณ"
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Yardımınıza ihtiyacımız var"
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Нам потрібна ваша допомога"
-          }
-        },
-        "vi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Chúng tôi cần sự giúp đỡ của bạn"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "我们需要你的帮助"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "我們需要你的幫助"
-          }
-        },
-        "zh-HK" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "我們需要你的幫助"
-          }
-        }
-      }
-    },
     "WebDAV.ConnectionHelp" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -200782,263 +199013,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "你喜歡的歌曲將顯示在這裡。"
-          }
-        }
-      }
-    },
-    "Your free trial is almost over! Enjoying our auto-tagging algorithm? Upgrade to Lifetime Premium with a one-time purchase for permanent access." : {
-      "extractionState" : "pasted",
-      "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "توشك تجربتك المجانية على الانتهاء! هل أعجبتك ميزة تعبئة الوسوم تلقائيًا؟ رقِّ إلى Premium مدى الحياة بدفعة واحدة للاستمرار في استخدامها."
-          }
-        },
-        "ca" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "La teva prova gratuïta està a punt d'acabar! Si t'agrada com funciona el nostre algorisme, passa't a la versió Premium de per vida amb un pagament únic."
-          }
-        },
-        "cs" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Vaše bezplatná zkušební verze brzy skončí! Pokud jste s naším algoritmem spokojeni, doplňte si doživotní Premium jednorázovým nákupem."
-          }
-        },
-        "da" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Din gratis prøveperiode er ved at udløbe! Er du tilfreds med vores algoritme? Opgrader til Lifetime Premium med et engangskøb for livslang adgang."
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ihre kostenlose Testphase läuft bald ab! Zufrieden mit unserem Algorithmus? Upgraden Sie mit einem einmaligen Kauf auf die lebenslange Premium-Version."
-          }
-        },
-        "el" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Η δωρεάν δοκιμή σας ολοκληρώνεται σύντομα! Αν είστε ικανοποιημένοι με τον αλγόριθμό μας, αναβαθμίστε σε Lifetime Premium με μια εφάπαξ αγορά."
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Your free trial is almost over. Enjoying automatic music tagging? Upgrade to Lifetime Premium with a one-time purchase for permanent access."
-          }
-        },
-        "en-AU" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Your free trial is almost over. Enjoying automatic music tagging? Upgrade to Lifetime Premium with a one-time purchase for permanent access."
-          }
-        },
-        "en-GB" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Your free trial is almost over. Enjoying automatic music tagging? Upgrade to Lifetime Premium with a one-time purchase for permanent access."
-          }
-        },
-        "en-IN" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Your free trial is almost over. Enjoying automatic music tagging? Upgrade to Lifetime Premium with a one-time purchase for permanent access."
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "¡Tu prueba gratuita está a punto de terminar! Si estás satisfecho con nuestro algoritmo, pásate al Premium de por vida con un pago único."
-          }
-        },
-        "es-419" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "¡Tu prueba gratuita está por terminar! Si te gustó nuestro algoritmo, actualízate a Premium de por vida con una compra única."
-          }
-        },
-        "es-US" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "¡Tu período de prueba gratis está por vencer! Si estás satisfecho con nuestro algoritmo, obtén el Premium De Por Vida con un solo pago."
-          }
-        },
-        "fi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ilmainen kokeilujaksosi on päättymässä! Jos olet tyytyväinen algoritmiimme, päivitä kerralla ostettavaan elinikäiseen Premium-versioon."
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Votre essai gratuit touche à sa fin ! Si notre algorithme vous convient, optez pour la version Premium à vie avec un achat unique."
-          }
-        },
-        "fr-CA" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Votre essai gratuit s'achève bientôt ! Satisfait de notre algorithme ? Passez à la version Premium à vie grâce à un achat unique."
-          }
-        },
-        "he" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "תקופת הניסיון עומדת להסתיים! נהנים ממילוי התגיות האוטומטי? שדרגו ל-Premium לכל החיים בתשלום חד-פעמי."
-          }
-        },
-        "hi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "आपका मुफ़्त ट्रायल जल्द खत्म होगा! अपने-आप टैग भरने की सुविधा पसंद आई? एक बार भुगतान करके आजीवन प्रीमियम में अपग्रेड करें।"
-          }
-        },
-        "hr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Besplatno probno razdoblje uskoro završava! Ako ste zadovoljni našim algoritmom, nadogradite na Lifetime Premium uz jednokratnu kupnju."
-          }
-        },
-        "hu" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Az ingyenes próbaidőszak hamarosan lejár! Ha elégedett az algoritmusunkkal, váltson az egyszeri vásárlással elérhető örökös Premium verzióra."
-          }
-        },
-        "id" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Uji coba gratis Anda hampir berakhir! Suka fitur pengisian tag otomatis? Upgrade ke Premium Seumur Hidup dengan sekali bayar."
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "La tua prova gratuita sta per scadere! Se sei soddisfatto del nostro algoritmo, passa a Premium a Vita con un acquisto unico."
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "無料トライアルがまもなく終了します。タグの自動編集を気に入っていただけたら、一度の購入でずっと使えるプレミアムプランへのアップグレードをご検討ください。"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "무료 체험이 곧 종료됩니다! 자동 태그 편집 기능이 마음에 드셨다면 한 번 결제로 계속 이용할 수 있는 평생 프리미엄으로 업그레이드해 보세요."
-          }
-        },
-        "ms" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Percubaan percuma anda hampir tamat! Suka ciri pengisian tag automatik? Naik taraf ke Premium Sepanjang Hayat dengan bayaran sekali sahaja."
-          }
-        },
-        "nb" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Din gratis prøveperiode utløper snart! Fornøyd med algoritmen vår? Oppgrader til Lifetime Premium med et engangskjøp."
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Je gratis proefperiode loopt bijna af! Blij met ons algoritme? Upgrade naar Lifetime Premium met een eenmalige aankoop voor permanente toegang."
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Twój darmowy okres próbny dobiega końca! Jeśli podoba Ci się nasz algorytm, przejdź na wersję Lifetime Premium dzięki jednorazowemu zakupowi."
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Seu período de teste gratuito está quase acabando! Se você gostou do nosso algoritmo, mude para o Premium Vitalício com uma compra única."
-          }
-        },
-        "pt-PT" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "O seu teste gratuito está prestes a terminar! Se está satisfeito com o nosso algoritmo, mude para a versão Premium Vitalícia com uma compra única."
-          }
-        },
-        "ro" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Perioada de probă gratuită se apropie de sfârșit! Dacă ești mulțumit de algoritmul nostru, treci la Premium pe Viață printr-o achiziție unică."
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Бесплатный пробный период скоро закончится! Если вам нравится наш алгоритм, перейдите на пожизненную Premium-версию с разовой оплатой."
-          }
-        },
-        "sk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Vaše bezplatné skúšobné obdobie sa čoskoro skončí! Ak ste s naším algoritmom spokojní, prejdite na doživotné Premium s jednorazovou platbou."
-          }
-        },
-        "sl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Vaše brezplačno preizkusno obdobje se kmalu izteče! Če ste zadovoljni z našim algoritmom, nadgradite na doživljenjski Premium z enkratnim nakupom."
-          }
-        },
-        "sv" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Din kostnadsfria provperiod går snart ut! Nöjd med vår algoritm? Uppgradera till Lifetime Premium med ett engångsköp för permanent åtkomst."
-          }
-        },
-        "th" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ช่วงทดลองใช้ฟรีใกล้สิ้นสุดแล้ว! ชอบฟีเจอร์เติมแท็กอัตโนมัติใช่ไหม? อัปเกรดเป็นพรีเมียมตลอดชีพเพื่อใช้งานต่อด้วยการชำระเงินครั้งเดียว"
-          }
-        },
-        "tr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ücretsiz denemeniz bitmek üzere! Otomatik etiketleme özelliğini beğendiyseniz tek seferlik ödemeyle Ömür Boyu Premium'a yükseltin."
-          }
-        },
-        "uk" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Безкоштовний пробний період добігає кінця! Якщо вам подобається наш алгоритм, оновіться до довічної Premium-версії за допомогою разової покупки."
-          }
-        },
-        "vi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Thời gian dùng thử sắp kết thúc! Bạn thích tính năng điền thẻ tự động? Nâng cấp lên Premium Trọn đời với một lần thanh toán để tiếp tục sử dụng."
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "免费试用即将结束。如果你喜欢自动补全音乐标签的效果，可以升级到终身高级版，一次购买，永久使用。"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "免費試用即將結束。如果你喜歡自動補齊音樂標籤的效果，可以升級至終身高級版，一次購買，永久使用。"
-          }
-        },
-        "zh-HK" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "免費試用即將結束。如果你喜歡自動補齊音樂標籤的效果，可以升級至終身高級版，一次購買，永久使用。"
           }
         }
       }
