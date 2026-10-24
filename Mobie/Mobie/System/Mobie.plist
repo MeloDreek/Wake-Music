@@ -205,8 +205,18 @@
 	</array>
 	<key>CLIENT_ID</key>
 	<string>749270844204-f9fe80rnojeai9ggav43h23nf3hkoh0c.apps.googleusercontent.com</string>
+	<key>FIREBASE_ANALYTICS_COLLECTION_ENABLED</key>
+	<false/>
 	<key>GIDClientID</key>
 	<string>749270844204-f9fe80rnojeai9ggav43h23nf3hkoh0c.apps.googleusercontent.com</string>
+	<key>GOOGLE_ANALYTICS_DEFAULT_ALLOW_AD_PERSONALIZATION_SIGNALS</key>
+	<false/>
+	<key>GOOGLE_ANALYTICS_DEFAULT_ALLOW_AD_STORAGE</key>
+	<false/>
+	<key>GOOGLE_ANALYTICS_DEFAULT_ALLOW_AD_USER_DATA</key>
+	<false/>
+	<key>GOOGLE_ANALYTICS_DEFAULT_ALLOW_ANALYTICS_STORAGE</key>
+	<false/>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>secondaryyandexloginsdk</string>

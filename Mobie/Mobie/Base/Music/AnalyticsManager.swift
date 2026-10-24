@@ -10,6 +10,7 @@ import FirebaseAnalytics
 #endif
 import AppGroupKit
 import KakaFoundation
+import AppTrackingTransparency
 
 class AnalyticsManager: NSObject {
     
@@ -25,6 +26,9 @@ class AnalyticsManager: NSObject {
     ///   - name: 事件名称
     ///   - parameters: 事件参数，默认为空
     func logEvent(_ name: String, parameters: [String: Any]? = nil) {
+        // Snapshot permission at event creation as well as at delivery: an event
+        // created before consent must not become eligible while queued on main.
+        guard ATTrackingManager.trackingAuthorizationStatus == .authorized else { return }
         
         if PhoneSetManager.isChineseMainLand() && !PhoneSetManager.isVPNConnected() {
             return
@@ -42,7 +46,12 @@ class AnalyticsManager: NSObject {
         }
         
 #if canImport(FirebaseAnalytics)
-        Analytics.logEvent(name, parameters: basicDic)
+        // Do not enqueue pre-consent events and replay them after authorization.
+        // The same gate protects automatic Firebase events and manual events.
+        DispatchQueue.main.async {
+            guard TrackingAuthorizationManager.shared.canCollectAnalytics else { return }
+            Analytics.logEvent(name, parameters: basicDic)
+        }
 #endif
     }
     

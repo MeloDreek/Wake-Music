@@ -11,6 +11,12 @@ import Combine
 
 extension MusicsViewController {
     func addNotificationEvent() {
+        if self.viewModel.isBaseDoc {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 5) { [weak self] in
+                guard self?.viewIfLoaded?.window != nil else { return }
+                TrackingAuthorizationManager.shared.requestIDFAAuthorization()
+            }
+        }
         
         // 主题色变化了
         NotificationCenter.default.addObserver(self, selector: #selector(setupNavigationItem), name: Notification.Name(kAppThemeColorChangedKey), object: nil)

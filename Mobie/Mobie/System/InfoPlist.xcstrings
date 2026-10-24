@@ -2037,6 +2037,263 @@
         }
       }
     },
+    "NSUserTrackingUsageDescription" : {
+      "comment" : "Privacy - Tracking Usage Description. Advertising measurement only; permission is optional and does not affect app features.",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "بموافقتك، نستخدم المعرّف الإعلاني لجهازك لقياس فعالية إعلاناتنا."
+          }
+        },
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Amb el teu permís, utilitzem l’identificador publicitari del teu dispositiu per mesurar l’eficàcia de la nostra publicitat."
+          }
+        },
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "S vaším svolením používáme reklamní identifikátor vašeho zařízení k měření účinnosti naší reklamy."
+          }
+        },
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Med din tilladelse bruger vi din enheds reklame-id til at måle effekten af vores annoncer."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mit deiner Erlaubnis verwenden wir die Werbe-ID deines Geräts, um die Wirksamkeit unserer Werbung zu messen."
+          }
+        },
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Με την άδειά σας, χρησιμοποιούμε το αναγνωριστικό διαφήμισης της συσκευής σας για να μετράμε την αποτελεσματικότητα των διαφημίσεών μας."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "With your permission, we use your device’s advertising identifier to measure the effectiveness of our advertising."
+          }
+        },
+        "en-AU" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "With your permission, we use your device’s advertising identifier to measure the effectiveness of our advertising."
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "With your permission, we use your device’s advertising identifier to measure the effectiveness of our advertising."
+          }
+        },
+        "en-IN" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "With your permission, we use your device’s advertising identifier to measure the effectiveness of our advertising."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Con tu permiso, utilizamos el identificador publicitario de tu dispositivo para medir la eficacia de nuestros anuncios."
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Con tu permiso, utilizamos el identificador publicitario de tu dispositivo para medir la eficacia de nuestros anuncios."
+          }
+        },
+        "es-US" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Con tu permiso, utilizamos el identificador publicitario de tu dispositivo para medir la eficacia de nuestros anuncios."
+          }
+        },
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Luvallasi käytämme laitteesi mainostunnistetta mainontamme tehokkuuden mittaamiseen."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Avec votre autorisation, nous utilisons l’identifiant publicitaire de votre appareil pour mesurer l’efficacité de nos publicités."
+          }
+        },
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Avec votre autorisation, nous utilisons l’identifiant publicitaire de votre appareil pour mesurer l’efficacité de nos publicités."
+          }
+        },
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "בהסכמתך, נשתמש במזהה הפרסום של המכשיר שלך כדי למדוד את יעילות הפרסום שלנו."
+          }
+        },
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "आपकी अनुमति से, हम अपने विज्ञापनों की प्रभावशीलता मापने के लिए आपके डिवाइस के विज्ञापन पहचानकर्ता का उपयोग करते हैं।"
+          }
+        },
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Uz vaše dopuštenje upotrebljavamo oglašivački identifikator vašeg uređaja za mjerenje učinkovitosti naših oglasa."
+          }
+        },
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Az engedélyeddel az eszközöd hirdetési azonosítóját használjuk hirdetéseink hatékonyságának mérésére."
+          }
+        },
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dengan izin Anda, kami menggunakan pengenal iklan perangkat Anda untuk mengukur efektivitas iklan kami."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Con il tuo consenso, utilizziamo l’identificatore pubblicitario del tuo dispositivo per misurare l’efficacia dei nostri annunci."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "許可をいただいた場合、お使いのデバイスの広告識別子を使用して、当社の広告効果を測定します。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "허용하시면 기기의 광고 식별자를 사용하여 저희 광고의 효과를 측정합니다."
+          }
+        },
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dengan kebenaran anda, kami menggunakan pengecam pengiklanan peranti anda untuk mengukur keberkesanan iklan kami."
+          }
+        },
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Med din tillatelse bruker vi enhetens annonse-ID til å måle effekten av annonsene våre."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Met jouw toestemming gebruiken we de advertentie-ID van je apparaat om de effectiviteit van onze advertenties te meten."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Za Twoją zgodą używamy identyfikatora reklamowego Twojego urządzenia do mierzenia skuteczności naszych reklam."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Com sua permissão, usamos o identificador de publicidade do seu dispositivo para medir a eficácia dos nossos anúncios."
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Com a tua autorização, utilizamos o identificador de publicidade do teu dispositivo para medir a eficácia dos nossos anúncios."
+          }
+        },
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cu permisiunea dvs., folosim identificatorul de publicitate al dispozitivului dvs. pentru a măsura eficiența reclamelor noastre."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "С вашего разрешения мы используем рекламный идентификатор вашего устройства, чтобы оценивать эффективность нашей рекламы."
+          }
+        },
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "S vaším súhlasom používame reklamný identifikátor vášho zariadenia na meranie účinnosti našej reklamy."
+          }
+        },
+        "sl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Z vašim dovoljenjem uporabljamo oglaševalski identifikator vaše naprave za merjenje učinkovitosti naših oglasov."
+          }
+        },
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Med ditt tillstånd använder vi enhetens annonsidentifierare för att mäta effekten av våra annonser."
+          }
+        },
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "เมื่อได้รับอนุญาตจากคุณ เราจะใช้ตัวระบุโฆษณาของอุปกรณ์เพื่อวัดประสิทธิภาพโฆษณาของเรา"
+          }
+        },
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "İzninizle, reklamlarımızın etkinliğini ölçmek için cihazınızın reklam tanımlayıcısını kullanırız."
+          }
+        },
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "З вашого дозволу ми використовуємо рекламний ідентифікатор вашого пристрою, щоб оцінювати ефективність нашої реклами."
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Khi được bạn cho phép, chúng tôi sử dụng mã nhận dạng quảng cáo của thiết bị để đo lường hiệu quả quảng cáo của mình."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "经您允许，我们会使用设备广告标识符衡量广告投放效果。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "經您允許，我們會使用裝置的廣告識別碼衡量廣告投放成效。"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "經你允許，我們會使用裝置的廣告識別碼衡量廣告投放成效。"
+          }
+        }
+      }
+    },
     "Uninstalling will delete all local items" : {
       "localizations" : {
         "ar" : {

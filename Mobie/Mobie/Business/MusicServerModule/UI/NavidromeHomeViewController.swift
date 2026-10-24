@@ -43,6 +43,10 @@ final class NavidromeHomeViewController: SuperViewController {
         setupSubViews()
         setupContains()
         handleBuness()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5) { [weak self] in
+            guard self?.viewIfLoaded?.window != nil else { return }
+            TrackingAuthorizationManager.shared.requestIDFAAuthorization()
+        }
     }
 
     func setupSubViews() {

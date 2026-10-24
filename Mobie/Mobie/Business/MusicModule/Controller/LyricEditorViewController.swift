@@ -337,9 +337,8 @@ enum LyricAIProvider: String, CaseIterable {
     case chatGPT, gemini, grok, claude, doubao, deepSeek, kimi
 
     static func available(language: String) -> [Self] {
-        let normalized = language.replacingOccurrences(of: "_", with: "-").lowercased()
-        let simplified = normalized == "zh-hans" || normalized.hasPrefix("zh-hans-")
-        return simplified ? allCases : [.chatGPT, .gemini, .grok, .claude]
+        let isChinese = PhoneSetManager.formatLanguage() == .chinese_simplified
+        return isChinese ? [.doubao, .deepSeek, .kimi] : [.chatGPT, .gemini, .grok, .claude]
     }
 
     static func embeddedTags(title: String?, artist: String?) -> (title: String, artist: String)? {
@@ -358,8 +357,9 @@ enum LyricAIProvider: String, CaseIterable {
     }
 
     var title: String {
+        let isChinese = PhoneSetManager.isChineseMainLand()
         switch self {
-        case .chatGPT: return "ChatGPT"
+        case .chatGPT: return isChinese ? "ChatXXX" : "ChatGPT"
         case .gemini: return "Gemini"
         case .grok: return "Grok"
         case .claude: return "Claude"

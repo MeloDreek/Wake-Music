@@ -13,10 +13,9 @@ import StoreKit
 import WaketagLibKit
 import AVFoundation
 
-enum iTunesChannel: Int {
+enum iTunesChannel: Int, CaseIterable {
     case iTunes = 0
     case iMazing = 1
-    case iTool4 = 4
     
     func formatStr() -> String {
         switch self {
@@ -24,8 +23,6 @@ enum iTunesChannel: Int {
             return "iTunes"
         case .iMazing:
             return "iMazing"
-        case .iTool4:
-            return PhoneSetManager.formatLanguage() == .chinese_simplified ? "爱思助手" : "iTools"
         }
     }
     
@@ -35,8 +32,6 @@ enum iTunesChannel: Int {
             return Reasource.systemNamed("applelogo", color: .label)
         case .iMazing:
             return Reasource.systemNamed("hand.thumbsup.fill", color: .systemRed)
-        case .iTool4:
-            return Reasource.systemNamed("u.circle", color: UIColor.systemBlue)
         }
     }
     
@@ -50,9 +45,6 @@ enum iTunesChannel: Int {
             return URL(string: "https://imazing.com/\(language)")
         case .iTunes:
             return URL(string: "https://support.apple.com/guide/itunes/wi-fi-syncing-itns3751d862/12.13/windows/10")
-            
-        case .iTool4:
-            return URL(string: StringEncoder.itoolsURL())
         }
     }
 }
@@ -119,7 +111,7 @@ class ScanUSBViewController: SuperViewController {
     
     // MARK:  懒加载
     lazy var dataArray: [iTunesChannel] = {
-        return PhoneSetManager.formatLanguage() == .chinese_simplified ? [.iTunes, .iMazing, .iTool4] : [.iTunes, .iMazing]
+        return iTunesChannel.allCases
     }()
     
     lazy var fileArray: [URL] = {

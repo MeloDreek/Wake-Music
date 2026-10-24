@@ -103,7 +103,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Yandex Login SDK is activated lazily by YandexDriveService.
                 
         // 开发阶段不自动上传符号表
+        TrackingAuthorizationManager.shared.prepareForFirebaseConfiguration()
         FirebaseApp.configure()
+        TrackingAuthorizationManager.shared.refreshAuthorization()
         Crashlytics.crashlytics().setCrashlyticsCollectionEnabled(true)
 
         // 安全设置 Custom Keys，防止 nil 导致字典初始化崩溃

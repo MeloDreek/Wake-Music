@@ -42,8 +42,8 @@ extension UserInfoManager {
 #if Target_Mobie_Pro
         return true
 #else
-    return false
-//        return self.isPremium()
+//    return false
+        return self.isPremium()
 #endif
         
     }

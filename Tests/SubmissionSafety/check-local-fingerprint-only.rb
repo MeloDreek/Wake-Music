@@ -27,13 +27,13 @@ check.call(source.include?('where request.generation != self.currentGeneration()
 
 catalog = JSON.parse(File.read('Mobie/Mobie/System/InfoPlist.xcstrings'))
 project = File.read('Mobie/Mobie.xcodeproj/project.pbxproj')
-unused_permissions = %w[NSMicrophoneUsageDescription NSCameraUsageDescription NSUserTrackingUsageDescription]
+unused_permissions = %w[NSMicrophoneUsageDescription NSCameraUsageDescription]
 unused_permissions.each do |key|
   check.call(!catalog.fetch('strings').key?(key), "Unused permission description: #{key}")
   check.call(!project.include?("INFOPLIST_KEY_#{key}"), "Unused permission build setting: #{key}")
 end
 app_sources = Dir.glob('Mobie/Mobie/**/*.swift').map { |path| File.read(path) }.join("\n")
-%w[requestIDFAString ATTrackingManager ASIdentifierManager AVCaptureDevice UIImagePickerController].each do |token|
+%w[AVCaptureDevice UIImagePickerController].each do |token|
   check.call(!app_sources.include?(token), "Unused collection code reintroduced: #{token}")
 end
 ads = File.read('Mobie/Mobie/Base/Core/Tools/AppleSearchAdsManager.swift')
